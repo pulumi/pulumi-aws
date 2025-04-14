@@ -14,8 +14,8 @@ index 1bfa22c88b..9f08eec23b 100644
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
 -					if !v.IsComputed() {
 -						errs = append(errs, fmt.Errorf("`%s` attribute must be Computed: %s", names.AttrTagsAll, typeName))
-+					if v.IsComputed() {
-+						errs = append(errs, fmt.Errorf("`%s` attribute must not be Computed: %s", names.AttrTagsAll, typeName))
++					if !v.IsComputed() {
++						errs = append(errs, fmt.Errorf("`%s` attribute must be Computed: %s", names.AttrTagsAll, typeName))
  						continue
  					}
  				} else {
