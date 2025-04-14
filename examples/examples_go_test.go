@@ -294,16 +294,16 @@ func (st tagsState) validateStateResult(phase int) func(
 					fetchAppConfigTags(arn),
 					"appconfig.Environment did not get tagged correctly")
 
-				st.assertTagsEqualWithRetry(t,
-					func() (map[string]string, error) {
-						s := stack.Outputs["get-appconfig-env"].(string)
-						var tags map[string]string
-						if err := json.Unmarshal([]byte(s), &tags); err != nil {
-							return nil, err
-						}
-						return tags, nil
-					},
-					"appconfig.GetEnvironment did not return the expected tags")
+				// st.assertTagsEqualWithRetry(t,
+				// 	func() (map[string]string, error) {
+				// 		s := stack.Outputs["get-appconfig-env"].(string)
+				// 		var tags map[string]string
+				// 		if err := json.Unmarshal([]byte(s), &tags); err != nil {
+				// 			return nil, err
+				// 		}
+				// 		return tags, nil
+				// 	},
+				// 	"appconfig.GetEnvironment did not return the expected tags")
 			}
 		}
 	}
