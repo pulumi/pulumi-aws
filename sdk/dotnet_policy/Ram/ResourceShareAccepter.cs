@@ -11,54 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ram
 {
     [PolicyResourceType("aws:ram/resourceShareAccepter:ResourceShareAccepter")]
-    public sealed class ResourceShareAccepter : global::Pulumi.PolicyResource
+    public sealed class ResourceShareAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the resource share invitation.
         /// </summary>
         [Input("invitationArn")]
-        public string? InvitationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationArn;
+
+        public string? InvitationArn => _mInvitationArn.GetValue("invitationArn");
 
         /// <summary>
         /// The account ID of the receiver account which accepts the invitation.
         /// </summary>
         [Input("receiverAccountId")]
-        public string? ReceiverAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReceiverAccountId;
+
+        public string? ReceiverAccountId => _mReceiverAccountId.GetValue("receiverAccountId");
 
         /// <summary>
         /// A list of the resource ARNs shared via the resource share.
         /// </summary>
         [Input("resources")]
-        public List<string>? Resources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
+
+        public List<string>? Resources => _mResources.GetValue("resources");
 
         /// <summary>
         /// The account ID of the sender account which submits the invitation.
         /// </summary>
         [Input("senderAccountId")]
-        public string? SenderAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSenderAccountId;
+
+        public string? SenderAccountId => _mSenderAccountId.GetValue("senderAccountId");
 
         /// <summary>
         /// The ARN of the resource share.
         /// </summary>
         [Input("shareArn")]
-        public string? ShareArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShareArn;
+
+        public string? ShareArn => _mShareArn.GetValue("shareArn");
 
         /// <summary>
         /// The ID of the resource share as displayed in the console.
         /// </summary>
         [Input("shareId")]
-        public string? ShareId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShareId;
+
+        public string? ShareId => _mShareId.GetValue("shareId");
 
         /// <summary>
         /// The name of the resource share.
         /// </summary>
         [Input("shareName")]
-        public string? ShareName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShareName;
+
+        public string? ShareName => _mShareName.GetValue("shareName");
 
         /// <summary>
         /// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:ram/resourceShareAccepter:ResourceShareAccepter")]
+    public sealed class ResourceShareAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the resource share.
+        /// </summary>
+        [Input("shareArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShareArn;
+
+        public string? ShareArn => _mShareArn.GetValue("shareArn");
     }
 }

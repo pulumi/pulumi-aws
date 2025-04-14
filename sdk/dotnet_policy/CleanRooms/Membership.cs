@@ -11,90 +11,181 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CleanRooms
 {
     [PolicyResourceType("aws:cleanrooms/membership:Membership")]
-    public sealed class Membership : global::Pulumi.PolicyResource
+    public sealed class Membership : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the membership.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the joined collaboration.
         /// </summary>
         [Input("collaborationArn")]
-        public string? CollaborationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationArn;
+
+        public string? CollaborationArn => _mCollaborationArn.GetValue("collaborationArn");
 
         /// <summary>
         /// The account ID of the collaboration's creator.
         /// </summary>
         [Input("collaborationCreatorAccountId")]
-        public string? CollaborationCreatorAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationCreatorAccountId;
+
+        public string? CollaborationCreatorAccountId => _mCollaborationCreatorAccountId.GetValue("collaborationCreatorAccountId");
 
         /// <summary>
         /// The display name of the collaboration's creator.
         /// </summary>
         [Input("collaborationCreatorDisplayName")]
-        public string? CollaborationCreatorDisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationCreatorDisplayName;
+
+        public string? CollaborationCreatorDisplayName => _mCollaborationCreatorDisplayName.GetValue("collaborationCreatorDisplayName");
 
         /// <summary>
         /// The ID of the collaboration to which the member was invited.
         /// </summary>
         [Input("collaborationId")]
-        public string? CollaborationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationId;
+
+        public string? CollaborationId => _mCollaborationId.GetValue("collaborationId");
 
         /// <summary>
         /// The name of the joined collaboration.
         /// </summary>
         [Input("collaborationName")]
-        public string? CollaborationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationName;
+
+        public string? CollaborationName => _mCollaborationName.GetValue("collaborationName");
 
         /// <summary>
         /// The date and time the membership was created.
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// The default configuration for a query result.
         /// </summary>
         [Input("defaultResultConfiguration")]
-        public MembershipDefaultResultConfiguration? DefaultResultConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MembershipDefaultResultConfiguration> _mDefaultResultConfiguration;
+
+        public Outputs.MembershipDefaultResultConfiguration? DefaultResultConfiguration => _mDefaultResultConfiguration.GetValue("defaultResultConfiguration");
 
         /// <summary>
         /// The list of abilities for the invited member.
         /// </summary>
         [Input("memberAbilities")]
-        public List<string>? MemberAbilities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMemberAbilities;
+
+        public List<string>? MemberAbilities => _mMemberAbilities.GetValue("memberAbilities");
 
         [Input("paymentConfiguration")]
-        public MembershipPaymentConfiguration? PaymentConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MembershipPaymentConfiguration> _mPaymentConfiguration;
+
+        public Outputs.MembershipPaymentConfiguration? PaymentConfiguration => _mPaymentConfiguration.GetValue("paymentConfiguration");
 
         /// <summary>
         /// An indicator as to whether query logging has been enabled or disabled for the membership.
         /// </summary>
         [Input("queryLogStatus")]
-        public string? QueryLogStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryLogStatus;
+
+        public string? QueryLogStatus => _mQueryLogStatus.GetValue("queryLogStatus");
 
         /// <summary>
         /// The status of the membership.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key value pairs which tag the membership.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The date and time the membership was last updated.
         /// </summary>
         [Input("updateTime")]
-        public string? UpdateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
+
+        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+    }
+
+    [PolicyResourceType("aws:cleanrooms/membership:Membership")]
+    public sealed class MembershipArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the collaboration to which the member was invited.
+        /// </summary>
+        [Input("collaborationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationId;
+
+        public string? CollaborationId => _mCollaborationId.GetValue("collaborationId");
+
+        /// <summary>
+        /// The default configuration for a query result.
+        /// </summary>
+        [Input("defaultResultConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MembershipDefaultResultConfigurationArgs> _mDefaultResultConfiguration;
+
+        public Inputs.MembershipDefaultResultConfigurationArgs? DefaultResultConfiguration => _mDefaultResultConfiguration.GetValue("defaultResultConfiguration");
+
+        [Input("paymentConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MembershipPaymentConfigurationArgs> _mPaymentConfiguration;
+
+        public Inputs.MembershipPaymentConfigurationArgs? PaymentConfiguration => _mPaymentConfiguration.GetValue("paymentConfiguration");
+
+        /// <summary>
+        /// An indicator as to whether query logging has been enabled or disabled for the membership.
+        /// </summary>
+        [Input("queryLogStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryLogStatus;
+
+        public string? QueryLogStatus => _mQueryLogStatus.GetValue("queryLogStatus");
+
+        /// <summary>
+        /// Key value pairs which tag the membership.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

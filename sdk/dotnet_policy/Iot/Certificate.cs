@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/certificate:Certificate")]
-    public sealed class Certificate : global::Pulumi.PolicyResource
+    public sealed class Certificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active
         /// </summary>
         [Input("active")]
-        public bool? Active;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
+
+        public bool? Active => _mActive.GetValue("active");
 
         /// <summary>
         /// The ARN of the created certificate.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The certificate ID of the CA certificate used to sign the certificate.
         /// </summary>
         [Input("caCertificateId")]
-        public string? CaCertificateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificateId;
+
+        public string? CaCertificateId => _mCaCertificateId.GetValue("caCertificateId");
 
         /// <summary>
         /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         /// </summary>
         [Input("caPem")]
-        public string? CaPem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaPem;
+
+        public string? CaPem => _mCaPem.GetValue("caPem");
 
         /// <summary>
         /// The certificate to be registered. If `ca_pem` is unspecified, review
@@ -45,7 +57,10 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// for more information on registering a certificate.
         /// </summary>
         [Input("certificatePem")]
-        public string? CertificatePem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePem;
+
+        public string? CertificatePem => _mCertificatePem.GetValue("certificatePem");
 
         /// <summary>
         /// The certificate signing request. Review
@@ -55,18 +70,75 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// for more information on generating keys and a certificate.
         /// </summary>
         [Input("csr")]
-        public string? Csr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCsr;
+
+        public string? Csr => _mCsr.GetValue("csr");
 
         /// <summary>
         /// When neither CSR nor certificate is provided, the private key.
         /// </summary>
         [Input("privateKey")]
-        public string? PrivateKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
+
+        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
 
         /// <summary>
         /// When neither CSR nor certificate is provided, the public key.
         /// </summary>
         [Input("publicKey")]
-        public string? PublicKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+    }
+
+    [PolicyResourceType("aws:iot/certificate:Certificate")]
+    public sealed class CertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Boolean flag to indicate if the certificate should be active
+        /// </summary>
+        [Input("active")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
+
+        public bool? Active => _mActive.GetValue("active");
+
+        /// <summary>
+        /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
+        /// </summary>
+        [Input("caPem")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaPem;
+
+        public string? CaPem => _mCaPem.GetValue("caPem");
+
+        /// <summary>
+        /// The certificate to be registered. If `ca_pem` is unspecified, review
+        /// [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
+        /// If `ca_pem` is specified, review
+        /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
+        /// for more information on registering a certificate.
+        /// </summary>
+        [Input("certificatePem")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePem;
+
+        public string? CertificatePem => _mCertificatePem.GetValue("certificatePem");
+
+        /// <summary>
+        /// The certificate signing request. Review
+        /// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
+        /// for more information on generating a certificate from a certificate signing request (CSR).
+        /// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
+        /// for more information on generating keys and a certificate.
+        /// </summary>
+        [Input("csr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCsr;
+
+        public string? Csr => _mCsr.GetValue("csr");
     }
 }

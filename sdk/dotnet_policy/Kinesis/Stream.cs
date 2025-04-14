@@ -11,73 +11,201 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kinesis
 {
     [PolicyResourceType("aws:kinesis/stream:Stream")]
-    public sealed class Stream : global::Pulumi.PolicyResource
+    public sealed class Stream : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         /// </summary>
         [Input("encryptionType")]
-        public string? EncryptionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionType;
+
+        public string? EncryptionType => _mEncryptionType.GetValue("encryptionType");
 
         /// <summary>
         /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         /// </summary>
         [Input("enforceConsumerDeletion")]
-        public bool? EnforceConsumerDeletion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforceConsumerDeletion;
+
+        public bool? EnforceConsumerDeletion => _mEnforceConsumerDeletion.GetValue("enforceConsumerDeletion");
 
         /// <summary>
         /// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         /// </summary>
         [Input("retentionPeriod")]
-        public int? RetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
 
         /// <summary>
         /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
-        public int? ShardCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mShardCount;
+
+        public int? ShardCount => _mShardCount.GetValue("shardCount");
 
         /// <summary>
         /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
         [Input("shardLevelMetrics")]
-        public List<string>? ShardLevelMetrics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mShardLevelMetrics;
+
+        public List<string>? ShardLevelMetrics => _mShardLevelMetrics.GetValue("shardLevelMetrics");
 
         /// <summary>
         /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
         [Input("streamModeDetails")]
-        public StreamStreamModeDetails? StreamModeDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamStreamModeDetails> _mStreamModeDetails;
+
+        public Outputs.StreamStreamModeDetails? StreamModeDetails => _mStreamModeDetails.GetValue("streamModeDetails");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:kinesis/stream:Stream")]
+    public sealed class StreamArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+        /// </summary>
+        [Input("arn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
+
+        /// <summary>
+        /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+        /// </summary>
+        [Input("encryptionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionType;
+
+        public string? EncryptionType => _mEncryptionType.GetValue("encryptionType");
+
+        /// <summary>
+        /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+        /// </summary>
+        [Input("enforceConsumerDeletion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforceConsumerDeletion;
+
+        public bool? EnforceConsumerDeletion => _mEnforceConsumerDeletion.GetValue("enforceConsumerDeletion");
+
+        /// <summary>
+        /// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
+        /// </summary>
+        [Input("retentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+
+        /// <summary>
+        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
+        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        /// </summary>
+        [Input("shardCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mShardCount;
+
+        public int? ShardCount => _mShardCount.GetValue("shardCount");
+
+        /// <summary>
+        /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+        /// </summary>
+        [Input("shardLevelMetrics")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mShardLevelMetrics;
+
+        public List<string>? ShardLevelMetrics => _mShardLevelMetrics.GetValue("shardLevelMetrics");
+
+        /// <summary>
+        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// </summary>
+        [Input("streamModeDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamStreamModeDetailsArgs> _mStreamModeDetails;
+
+        public Inputs.StreamStreamModeDetailsArgs? StreamModeDetails => _mStreamModeDetails.GetValue("streamModeDetails");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

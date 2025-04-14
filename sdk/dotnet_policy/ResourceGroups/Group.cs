@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ResourceGroups
 {
     [PolicyResourceType("aws:resourcegroups/group:Group")]
-    public sealed class Group : global::Pulumi.PolicyResource
+    public sealed class Group : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN assigned by AWS for this resource group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
         /// </summary>
         [Input("configurations")]
-        public List<GroupConfiguration>? Configurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupConfiguration>> _mConfigurations;
+
+        public List<Outputs.GroupConfiguration>? Configurations => _mConfigurations.GetValue("configurations");
 
         /// <summary>
         /// A description of the resource group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A `resource_query` block. Resource queries are documented below.
         /// </summary>
         [Input("resourceQuery")]
-        public GroupResourceQuery? ResourceQuery;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupResourceQuery> _mResourceQuery;
+
+        public Outputs.GroupResourceQuery? ResourceQuery => _mResourceQuery.GetValue("resourceQuery");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:resourcegroups/group:Group")]
+    public sealed class GroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
+        /// </summary>
+        [Input("configurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupConfigurationArgs>> _mConfigurations;
+
+        public List<Inputs.GroupConfigurationArgs>? Configurations => _mConfigurations.GetValue("configurations");
+
+        /// <summary>
+        /// A description of the resource group.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The resource group's name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A `resource_query` block. Resource queries are documented below.
+        /// </summary>
+        [Input("resourceQuery")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupResourceQueryArgs> _mResourceQuery;
+
+        public Inputs.GroupResourceQueryArgs? ResourceQuery => _mResourceQuery.GetValue("resourceQuery");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

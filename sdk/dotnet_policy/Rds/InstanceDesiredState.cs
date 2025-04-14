@@ -11,21 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/instanceDesiredState:InstanceDesiredState")]
-    public sealed class InstanceDesiredState : global::Pulumi.PolicyResource
+    public sealed class InstanceDesiredState : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// DB Instance Identifier
         /// </summary>
         [Input("identifier")]
-        public string? Identifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
+
+        public string? Identifier => _mIdentifier.GetValue("identifier");
 
         /// <summary>
         /// Configured state of the DB Instance. Valid values are `available` and `stopped`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         [Input("timeouts")]
-        public InstanceDesiredStateTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceDesiredStateTimeouts> _mTimeouts;
+
+        public Outputs.InstanceDesiredStateTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:rds/instanceDesiredState:InstanceDesiredState")]
+    public sealed class InstanceDesiredStateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// DB Instance Identifier
+        /// </summary>
+        [Input("identifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
+
+        public string? Identifier => _mIdentifier.GetValue("identifier");
+
+        /// <summary>
+        /// Configured state of the DB Instance. Valid values are `available` and `stopped`.
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceDesiredStateTimeoutsArgs> _mTimeouts;
+
+        public Inputs.InstanceDesiredStateTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

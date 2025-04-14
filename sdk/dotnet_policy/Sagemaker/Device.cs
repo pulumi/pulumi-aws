@@ -11,27 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/device:Device")]
-    public sealed class Device : global::Pulumi.PolicyResource
+    public sealed class Device : global::Pulumi.PolicyResourceOutput
     {
         [Input("agentVersion")]
-        public string? AgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The device to register with SageMaker AI Edge Manager. See Device details below.
         /// </summary>
         [Input("device")]
-        public DeviceDevice? DeviceDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeviceDevice> _mDeviceDetails;
+
+        public Outputs.DeviceDevice? DeviceDetails => _mDeviceDetails.GetValue("device");
 
         /// <summary>
         /// The name of the Device Fleet.
         /// </summary>
         [Input("deviceFleetName")]
-        public string? DeviceFleetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceFleetName;
+
+        public string? DeviceFleetName => _mDeviceFleetName.GetValue("deviceFleetName");
+    }
+
+    [PolicyResourceType("aws:sagemaker/device:Device")]
+    public sealed class DeviceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The device to register with SageMaker AI Edge Manager. See Device details below.
+        /// </summary>
+        [Input("device")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeviceDeviceArgs> _mDeviceDetails;
+
+        public Inputs.DeviceDeviceArgs? DeviceDetails => _mDeviceDetails.GetValue("device");
+
+        /// <summary>
+        /// The name of the Device Fleet.
+        /// </summary>
+        [Input("deviceFleetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceFleetName;
+
+        public string? DeviceFleetName => _mDeviceFleetName.GetValue("deviceFleetName");
     }
 }

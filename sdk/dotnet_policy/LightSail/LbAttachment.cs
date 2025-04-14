@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/lbAttachment:LbAttachment")]
-    public sealed class LbAttachment : global::Pulumi.PolicyResource
+    public sealed class LbAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the instance to attach to the load balancer.
         /// </summary>
         [Input("instanceName")]
-        public string? InstanceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
+
+        public string? InstanceName => _mInstanceName.GetValue("instanceName");
 
         /// <summary>
         /// The name of the Lightsail load balancer.
         /// </summary>
         [Input("lbName")]
-        public string? LbName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
+    }
+
+    [PolicyResourceType("aws:lightsail/lbAttachment:LbAttachment")]
+    public sealed class LbAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the instance to attach to the load balancer.
+        /// </summary>
+        [Input("instanceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
+
+        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+
+        /// <summary>
+        /// The name of the Lightsail load balancer.
+        /// </summary>
+        [Input("lbName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
     }
 }

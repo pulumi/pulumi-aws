@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/ingestion:Ingestion")]
-    public sealed class Ingestion : global::Pulumi.PolicyResource
+    public sealed class Ingestion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Ingestion.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// ID of the dataset used in the ingestion.
         /// </summary>
         [Input("dataSetId")]
-        public string? DataSetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
+
+        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
 
         /// <summary>
         /// ID for the ingestion.
         /// </summary>
         [Input("ingestionId")]
-        public string? IngestionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionId;
+
+        public string? IngestionId => _mIngestionId.GetValue("ingestionId");
 
         /// <summary>
         /// Ingestion status.
         /// </summary>
         [Input("ingestionStatus")]
-        public string? IngestionStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionStatus;
+
+        public string? IngestionStatus => _mIngestionStatus.GetValue("ingestionStatus");
 
         /// <summary>
         /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
@@ -49,6 +64,51 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("ingestionType")]
-        public string? IngestionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionType;
+
+        public string? IngestionType => _mIngestionType.GetValue("ingestionType");
+    }
+
+    [PolicyResourceType("aws:quicksight/ingestion:Ingestion")]
+    public sealed class IngestionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// ID of the dataset used in the ingestion.
+        /// </summary>
+        [Input("dataSetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
+
+        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+
+        /// <summary>
+        /// ID for the ingestion.
+        /// </summary>
+        [Input("ingestionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionId;
+
+        public string? IngestionId => _mIngestionId.GetValue("ingestionId");
+
+        /// <summary>
+        /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("ingestionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionType;
+
+        public string? IngestionType => _mIngestionType.GetValue("ingestionType");
     }
 }

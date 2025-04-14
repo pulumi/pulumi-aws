@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rekognition
 {
     [PolicyResourceType("aws:rekognition/collection:Collection")]
-    public sealed class Collection : global::Pulumi.PolicyResource
+    public sealed class Collection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Collection.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the collection
@@ -25,27 +28,72 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition
         /// The following arguments are optional:
         /// </summary>
         [Input("collectionId")]
-        public string? CollectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionId;
+
+        public string? CollectionId => _mCollectionId.GetValue("collectionId");
 
         /// <summary>
         /// The Face Model Version that the collection was initialized with
         /// </summary>
         [Input("faceModelVersion")]
-        public string? FaceModelVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFaceModelVersion;
+
+        public string? FaceModelVersion => _mFaceModelVersion.GetValue("faceModelVersion");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public CollectionTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CollectionTimeouts> _mTimeouts;
+
+        public Outputs.CollectionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:rekognition/collection:Collection")]
+    public sealed class CollectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the collection
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("collectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionId;
+
+        public string? CollectionId => _mCollectionId.GetValue("collectionId");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CollectionTimeoutsArgs> _mTimeouts;
+
+        public Inputs.CollectionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

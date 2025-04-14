@@ -11,66 +11,163 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/workteam:Workteam")]
-    public sealed class Workteam : global::Pulumi.PolicyResource
+    public sealed class Workteam : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description of the work team.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         /// </summary>
         [Input("memberDefinitions")]
-        public List<WorkteamMemberDefinition>? MemberDefinitions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkteamMemberDefinition>> _mMemberDefinitions;
+
+        public List<Outputs.WorkteamMemberDefinition>? MemberDefinitions => _mMemberDefinitions.GetValue("memberDefinitions");
 
         /// <summary>
         /// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         /// </summary>
         [Input("notificationConfiguration")]
-        public WorkteamNotificationConfiguration? NotificationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkteamNotificationConfiguration> _mNotificationConfiguration;
+
+        public Outputs.WorkteamNotificationConfiguration? NotificationConfiguration => _mNotificationConfiguration.GetValue("notificationConfiguration");
 
         /// <summary>
         /// The subdomain for your OIDC Identity Provider.
         /// </summary>
         [Input("subdomain")]
-        public string? Subdomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdomain;
+
+        public string? Subdomain => _mSubdomain.GetValue("subdomain");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
         /// </summary>
         [Input("workerAccessConfiguration")]
-        public WorkteamWorkerAccessConfiguration? WorkerAccessConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkteamWorkerAccessConfiguration> _mWorkerAccessConfiguration;
+
+        public Outputs.WorkteamWorkerAccessConfiguration? WorkerAccessConfiguration => _mWorkerAccessConfiguration.GetValue("workerAccessConfiguration");
 
         /// <summary>
         /// The name of the workforce.
         /// </summary>
         [Input("workforceName")]
-        public string? WorkforceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkforceName;
+
+        public string? WorkforceName => _mWorkforceName.GetValue("workforceName");
 
         /// <summary>
         /// The name of the Workteam (must be unique).
         /// </summary>
         [Input("workteamName")]
-        public string? WorkteamName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkteamName;
+
+        public string? WorkteamName => _mWorkteamName.GetValue("workteamName");
+    }
+
+    [PolicyResourceType("aws:sagemaker/workteam:Workteam")]
+    public sealed class WorkteamArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the work team.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
+        /// </summary>
+        [Input("memberDefinitions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WorkteamMemberDefinitionArgs>> _mMemberDefinitions;
+
+        public List<Inputs.WorkteamMemberDefinitionArgs>? MemberDefinitions => _mMemberDefinitions.GetValue("memberDefinitions");
+
+        /// <summary>
+        /// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+        /// </summary>
+        [Input("notificationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkteamNotificationConfigurationArgs> _mNotificationConfiguration;
+
+        public Inputs.WorkteamNotificationConfigurationArgs? NotificationConfiguration => _mNotificationConfiguration.GetValue("notificationConfiguration");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+        /// </summary>
+        [Input("workerAccessConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkteamWorkerAccessConfigurationArgs> _mWorkerAccessConfiguration;
+
+        public Inputs.WorkteamWorkerAccessConfigurationArgs? WorkerAccessConfiguration => _mWorkerAccessConfiguration.GetValue("workerAccessConfiguration");
+
+        /// <summary>
+        /// The name of the workforce.
+        /// </summary>
+        [Input("workforceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkforceName;
+
+        public string? WorkforceName => _mWorkforceName.GetValue("workforceName");
+
+        /// <summary>
+        /// The name of the Workteam (must be unique).
+        /// </summary>
+        [Input("workteamName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkteamName;
+
+        public string? WorkteamName => _mWorkteamName.GetValue("workteamName");
     }
 }

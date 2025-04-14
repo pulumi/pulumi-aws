@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/methodSettings:MethodSettings")]
-    public sealed class MethodSettings : global::Pulumi.PolicyResource
+    public sealed class MethodSettings : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         /// </summary>
         [Input("methodPath")]
-        public string? MethodPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMethodPath;
+
+        public string? MethodPath => _mMethodPath.GetValue("methodPath");
 
         /// <summary>
         /// ID of the REST API
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// Settings block, see below.
         /// </summary>
         [Input("settings")]
-        public MethodSettingsSettings? Settings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MethodSettingsSettings> _mSettings;
+
+        public Outputs.MethodSettingsSettings? Settings => _mSettings.GetValue("settings");
 
         /// <summary>
         /// Name of the stage
         /// </summary>
         [Input("stageName")]
-        public string? StageName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
+
+        public string? StageName => _mStageName.GetValue("stageName");
+    }
+
+    [PolicyResourceType("aws:apigateway/methodSettings:MethodSettings")]
+    public sealed class MethodSettingsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        /// </summary>
+        [Input("methodPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMethodPath;
+
+        public string? MethodPath => _mMethodPath.GetValue("methodPath");
+
+        /// <summary>
+        /// ID of the REST API
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// Settings block, see below.
+        /// </summary>
+        [Input("settings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MethodSettingsSettingsArgs> _mSettings;
+
+        public Inputs.MethodSettingsSettingsArgs? Settings => _mSettings.GetValue("settings");
+
+        /// <summary>
+        /// Name of the stage
+        /// </summary>
+        [Input("stageName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
+
+        public string? StageName => _mStageName.GetValue("stageName");
     }
 }

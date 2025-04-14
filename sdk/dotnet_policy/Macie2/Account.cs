@@ -11,36 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Macie2
 {
     [PolicyResourceType("aws:macie2/account:Account")]
-    public sealed class Account : global::Pulumi.PolicyResource
+    public sealed class Account : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         /// </summary>
         [Input("findingPublishingFrequency")]
-        public string? FindingPublishingFrequency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFindingPublishingFrequency;
+
+        public string? FindingPublishingFrequency => _mFindingPublishingFrequency.GetValue("findingPublishingFrequency");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
         /// </summary>
         [Input("serviceRole")]
-        public string? ServiceRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
 
         /// <summary>
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         /// </summary>
         [Input("updatedAt")]
-        public string? UpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
+
+        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+    }
+
+    [PolicyResourceType("aws:macie2/account:Account")]
+    public sealed class AccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
+        /// </summary>
+        [Input("findingPublishingFrequency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFindingPublishingFrequency;
+
+        public string? FindingPublishingFrequency => _mFindingPublishingFrequency.GetValue("findingPublishingFrequency");
+
+        /// <summary>
+        /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
     }
 }

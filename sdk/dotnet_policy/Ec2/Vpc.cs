@@ -11,115 +11,169 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpc:Vpc")]
-    public sealed class Vpc : global::Pulumi.PolicyResource
+    public sealed class Vpc : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of VPC
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         /// </summary>
         [Input("assignGeneratedIpv6CidrBlock")]
-        public bool? AssignGeneratedIpv6CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignGeneratedIpv6CidrBlock;
+
+        public bool? AssignGeneratedIpv6CidrBlock => _mAssignGeneratedIpv6CidrBlock.GetValue("assignGeneratedIpv6CidrBlock");
 
         /// <summary>
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         /// </summary>
         [Input("cidrBlock")]
-        public string? CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
 
         /// <summary>
         /// The ID of the network ACL created by default on VPC creation
         /// </summary>
         [Input("defaultNetworkAclId")]
-        public string? DefaultNetworkAclId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultNetworkAclId;
+
+        public string? DefaultNetworkAclId => _mDefaultNetworkAclId.GetValue("defaultNetworkAclId");
 
         /// <summary>
         /// The ID of the route table created by default on VPC creation
         /// </summary>
         [Input("defaultRouteTableId")]
-        public string? DefaultRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTableId;
+
+        public string? DefaultRouteTableId => _mDefaultRouteTableId.GetValue("defaultRouteTableId");
 
         /// <summary>
         /// The ID of the security group created by default on VPC creation
         /// </summary>
         [Input("defaultSecurityGroupId")]
-        public string? DefaultSecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSecurityGroupId;
+
+        public string? DefaultSecurityGroupId => _mDefaultSecurityGroupId.GetValue("defaultSecurityGroupId");
 
         /// <summary>
         /// DHCP options id of the desired VPC.
         /// </summary>
         [Input("dhcpOptionsId")]
-        public string? DhcpOptionsId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDhcpOptionsId;
+
+        public string? DhcpOptionsId => _mDhcpOptionsId.GetValue("dhcpOptionsId");
 
         /// <summary>
         /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         /// </summary>
         [Input("enableDnsHostnames")]
-        public bool? EnableDnsHostnames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDnsHostnames;
+
+        public bool? EnableDnsHostnames => _mEnableDnsHostnames.GetValue("enableDnsHostnames");
 
         /// <summary>
         /// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         /// </summary>
         [Input("enableDnsSupport")]
-        public bool? EnableDnsSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDnsSupport;
+
+        public bool? EnableDnsSupport => _mEnableDnsSupport.GetValue("enableDnsSupport");
 
         /// <summary>
         /// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
         /// </summary>
         [Input("enableNetworkAddressUsageMetrics")]
-        public bool? EnableNetworkAddressUsageMetrics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkAddressUsageMetrics;
+
+        public bool? EnableNetworkAddressUsageMetrics => _mEnableNetworkAddressUsageMetrics.GetValue("enableNetworkAddressUsageMetrics");
 
         /// <summary>
         /// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         /// </summary>
         [Input("instanceTenancy")]
-        public string? InstanceTenancy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceTenancy;
+
+        public string? InstanceTenancy => _mInstanceTenancy.GetValue("instanceTenancy");
 
         /// <summary>
         /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         /// </summary>
         [Input("ipv4IpamPoolId")]
-        public string? Ipv4IpamPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv4IpamPoolId;
+
+        public string? Ipv4IpamPoolId => _mIpv4IpamPoolId.GetValue("ipv4IpamPoolId");
 
         /// <summary>
         /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         /// </summary>
         [Input("ipv4NetmaskLength")]
-        public int? Ipv4NetmaskLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4NetmaskLength;
+
+        public int? Ipv4NetmaskLength => _mIpv4NetmaskLength.GetValue("ipv4NetmaskLength");
 
         /// <summary>
         /// The association ID for the IPv6 CIDR block.
         /// </summary>
         [Input("ipv6AssociationId")]
-        public string? Ipv6AssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6AssociationId;
+
+        public string? Ipv6AssociationId => _mIpv6AssociationId.GetValue("ipv6AssociationId");
 
         /// <summary>
         /// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         /// </summary>
         [Input("ipv6CidrBlock")]
-        public string? Ipv6CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+
+        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
 
         /// <summary>
         /// By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         /// </summary>
         [Input("ipv6CidrBlockNetworkBorderGroup")]
-        public string? Ipv6CidrBlockNetworkBorderGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlockNetworkBorderGroup;
+
+        public string? Ipv6CidrBlockNetworkBorderGroup => _mIpv6CidrBlockNetworkBorderGroup.GetValue("ipv6CidrBlockNetworkBorderGroup");
 
         /// <summary>
         /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
         /// </summary>
         [Input("ipv6IpamPoolId")]
-        public string? Ipv6IpamPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6IpamPoolId;
+
+        public string? Ipv6IpamPoolId => _mIpv6IpamPoolId.GetValue("ipv6IpamPoolId");
 
         /// <summary>
         /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         /// </summary>
         [Input("ipv6NetmaskLength")]
-        public int? Ipv6NetmaskLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6NetmaskLength;
+
+        public int? Ipv6NetmaskLength => _mIpv6NetmaskLength.GetValue("ipv6NetmaskLength");
 
         /// <summary>
         /// The ID of the main route table associated with
@@ -127,24 +181,157 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// `aws.ec2.MainRouteTableAssociation`.
         /// </summary>
         [Input("mainRouteTableId")]
-        public string? MainRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMainRouteTableId;
+
+        public string? MainRouteTableId => _mMainRouteTableId.GetValue("mainRouteTableId");
 
         /// <summary>
         /// The ID of the AWS account that owns the VPC.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/vpc:Vpc")]
+    public sealed class VpcArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
+        /// </summary>
+        [Input("assignGeneratedIpv6CidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignGeneratedIpv6CidrBlock;
+
+        public bool? AssignGeneratedIpv6CidrBlock => _mAssignGeneratedIpv6CidrBlock.GetValue("assignGeneratedIpv6CidrBlock");
+
+        /// <summary>
+        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
+        /// </summary>
+        [Input("cidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+
+        /// <summary>
+        /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+        /// </summary>
+        [Input("enableDnsHostnames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDnsHostnames;
+
+        public bool? EnableDnsHostnames => _mEnableDnsHostnames.GetValue("enableDnsHostnames");
+
+        /// <summary>
+        /// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+        /// </summary>
+        [Input("enableDnsSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDnsSupport;
+
+        public bool? EnableDnsSupport => _mEnableDnsSupport.GetValue("enableDnsSupport");
+
+        /// <summary>
+        /// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+        /// </summary>
+        [Input("enableNetworkAddressUsageMetrics")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkAddressUsageMetrics;
+
+        public bool? EnableNetworkAddressUsageMetrics => _mEnableNetworkAddressUsageMetrics.GetValue("enableNetworkAddressUsageMetrics");
+
+        /// <summary>
+        /// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+        /// </summary>
+        [Input("instanceTenancy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceTenancy;
+
+        public string? InstanceTenancy => _mInstanceTenancy.GetValue("instanceTenancy");
+
+        /// <summary>
+        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+        /// </summary>
+        [Input("ipv4IpamPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv4IpamPoolId;
+
+        public string? Ipv4IpamPoolId => _mIpv4IpamPoolId.GetValue("ipv4IpamPoolId");
+
+        /// <summary>
+        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
+        /// </summary>
+        [Input("ipv4NetmaskLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4NetmaskLength;
+
+        public int? Ipv4NetmaskLength => _mIpv4NetmaskLength.GetValue("ipv4NetmaskLength");
+
+        /// <summary>
+        /// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
+        /// </summary>
+        [Input("ipv6CidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+
+        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+
+        /// <summary>
+        /// By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
+        /// </summary>
+        [Input("ipv6CidrBlockNetworkBorderGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlockNetworkBorderGroup;
+
+        public string? Ipv6CidrBlockNetworkBorderGroup => _mIpv6CidrBlockNetworkBorderGroup.GetValue("ipv6CidrBlockNetworkBorderGroup");
+
+        /// <summary>
+        /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        /// </summary>
+        [Input("ipv6IpamPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6IpamPoolId;
+
+        public string? Ipv6IpamPoolId => _mIpv6IpamPoolId.GetValue("ipv6IpamPoolId");
+
+        /// <summary>
+        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
+        /// </summary>
+        [Input("ipv6NetmaskLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6NetmaskLength;
+
+        public int? Ipv6NetmaskLength => _mIpv6NetmaskLength.GetValue("ipv6NetmaskLength");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

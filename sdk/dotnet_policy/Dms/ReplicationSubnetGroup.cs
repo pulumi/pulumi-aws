@@ -11,45 +11,106 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Dms
 {
     [PolicyResourceType("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")]
-    public sealed class ReplicationSubnetGroup : global::Pulumi.PolicyResource
+    public sealed class ReplicationSubnetGroup : global::Pulumi.PolicyResourceOutput
     {
         [Input("replicationSubnetGroupArn")]
-        public string? ReplicationSubnetGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSubnetGroupArn;
+
+        public string? ReplicationSubnetGroupArn => _mReplicationSubnetGroupArn.GetValue("replicationSubnetGroupArn");
 
         /// <summary>
         /// Description for the subnet group.
         /// </summary>
         [Input("replicationSubnetGroupDescription")]
-        public string? ReplicationSubnetGroupDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSubnetGroupDescription;
+
+        public string? ReplicationSubnetGroupDescription => _mReplicationSubnetGroupDescription.GetValue("replicationSubnetGroupDescription");
 
         /// <summary>
         /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         /// </summary>
         [Input("replicationSubnetGroupId")]
-        public string? ReplicationSubnetGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSubnetGroupId;
+
+        public string? ReplicationSubnetGroupId => _mReplicationSubnetGroupId.GetValue("replicationSubnetGroupId");
 
         /// <summary>
         /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of the VPC the subnet group is in.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")]
+    public sealed class ReplicationSubnetGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description for the subnet group.
+        /// </summary>
+        [Input("replicationSubnetGroupDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSubnetGroupDescription;
+
+        public string? ReplicationSubnetGroupDescription => _mReplicationSubnetGroupDescription.GetValue("replicationSubnetGroupDescription");
+
+        /// <summary>
+        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+        /// </summary>
+        [Input("replicationSubnetGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSubnetGroupId;
+
+        public string? ReplicationSubnetGroupId => _mReplicationSubnetGroupId.GetValue("replicationSubnetGroupId");
+
+        /// <summary>
+        /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

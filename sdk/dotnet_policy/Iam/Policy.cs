@@ -11,66 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/policy:Policy")]
-    public sealed class Policy : global::Pulumi.PolicyResource
+    public sealed class Policy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN assigned by AWS to this policy.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Number of entities (users, groups, and roles) that the policy is attached to.
         /// </summary>
         [Input("attachmentCount")]
-        public int? AttachmentCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAttachmentCount;
+
+        public int? AttachmentCount => _mAttachmentCount.GetValue("attachmentCount");
 
         /// <summary>
         /// Description of the IAM policy.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Input("path")]
-        public string? Path;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
+
+        public string? Path => _mPath.GetValue("path");
 
         /// <summary>
         /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policy");
 
         /// <summary>
         /// Policy's ID.
         /// </summary>
         [Input("policyId")]
-        public string? PolicyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
+
+        public string? PolicyId => _mPolicyId.GetValue("policyId");
 
         /// <summary>
         /// Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:iam/policy:Policy")]
+    public sealed class PolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the IAM policy.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the policy. If omitted, the provider will assign a random, unique name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// </summary>
+        [Input("path")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
+
+        public string? Path => _mPath.GetValue("path");
+
+        /// <summary>
+        /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policy");
+
+        /// <summary>
+        /// Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

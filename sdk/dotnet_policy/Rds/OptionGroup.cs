@@ -11,66 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/optionGroup:OptionGroup")]
-    public sealed class OptionGroup : global::Pulumi.PolicyResource
+    public sealed class OptionGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the DB option group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies the name of the engine that this option group should be associated with.
         /// </summary>
         [Input("engineName")]
-        public string? EngineName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineName;
+
+        public string? EngineName => _mEngineName.GetValue("engineName");
 
         /// <summary>
         /// Specifies the major version of the engine that this option group should be associated with.
         /// </summary>
         [Input("majorEngineVersion")]
-        public string? MajorEngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
+
+        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
 
         /// <summary>
         /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("optionGroupDescription")]
-        public string? OptionGroupDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupDescription;
+
+        public string? OptionGroupDescription => _mOptionGroupDescription.GetValue("optionGroupDescription");
 
         /// <summary>
         /// The options to apply. See `option` Block below for more details.
         /// </summary>
         [Input("options")]
-        public List<OptionGroupOption>? Options;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptionGroupOption>> _mOptions;
+
+        public List<Outputs.OptionGroupOption>? Options => _mOptions.GetValue("options");
 
         /// <summary>
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         /// </summary>
         [Input("skipDestroy")]
-        public bool? SkipDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:rds/optionGroup:OptionGroup")]
+    public sealed class OptionGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the name of the engine that this option group should be associated with.
+        /// </summary>
+        [Input("engineName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineName;
+
+        public string? EngineName => _mEngineName.GetValue("engineName");
+
+        /// <summary>
+        /// Specifies the major version of the engine that this option group should be associated with.
+        /// </summary>
+        [Input("majorEngineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
+
+        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
+
+        /// <summary>
+        /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Description of the option group. Defaults to "Managed by Pulumi".
+        /// </summary>
+        [Input("optionGroupDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupDescription;
+
+        public string? OptionGroupDescription => _mOptionGroupDescription.GetValue("optionGroupDescription");
+
+        /// <summary>
+        /// The options to apply. See `option` Block below for more details.
+        /// </summary>
+        [Input("options")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OptionGroupOptionArgs>> _mOptions;
+
+        public List<Inputs.OptionGroupOptionArgs>? Options => _mOptions.GetValue("options");
+
+        /// <summary>
+        /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+        /// </summary>
+        [Input("skipDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

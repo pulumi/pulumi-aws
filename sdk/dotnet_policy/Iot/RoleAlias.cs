@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/roleAlias:RoleAlias")]
-    public sealed class RoleAlias : global::Pulumi.PolicyResource
+    public sealed class RoleAlias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the role alias.
         /// </summary>
         [Input("alias")]
-        public string? Alias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
 
         /// <summary>
         /// The ARN assigned by AWS to this role alias.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         /// </summary>
         [Input("credentialDuration")]
-        public int? CredentialDuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCredentialDuration;
+
+        public int? CredentialDuration => _mCredentialDuration.GetValue("credentialDuration");
 
         /// <summary>
         /// The identity of the role to which the alias refers.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:iot/roleAlias:RoleAlias")]
+    public sealed class RoleAliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the role alias.
+        /// </summary>
+        [Input("alias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
+
+        /// <summary>
+        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
+        /// </summary>
+        [Input("credentialDuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCredentialDuration;
+
+        public int? CredentialDuration => _mCredentialDuration.GetValue("credentialDuration");
+
+        /// <summary>
+        /// The identity of the role to which the alias refers.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

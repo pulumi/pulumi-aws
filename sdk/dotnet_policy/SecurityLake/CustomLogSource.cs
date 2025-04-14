@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityLake
 {
     [PolicyResourceType("aws:securitylake/customLogSource:CustomLogSource")]
-    public sealed class CustomLogSource : global::Pulumi.PolicyResource
+    public sealed class CustomLogSource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The attributes of a third-party custom source.
         /// </summary>
         [Input("attributes")]
-        public List<CustomLogSourceAttribute>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomLogSourceAttribute>> _mAttributes;
+
+        public List<Outputs.CustomLogSourceAttribute>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// The configuration for the third-party custom source.
         /// </summary>
         [Input("configuration")]
-        public CustomLogSourceConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomLogSourceConfiguration> _mConfiguration;
+
+        public Outputs.CustomLogSourceConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         /// </summary>
         [Input("eventClasses")]
-        public List<string>? EventClasses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventClasses;
+
+        public List<string>? EventClasses => _mEventClasses.GetValue("eventClasses");
 
         /// <summary>
         /// The details of the log provider for a third-party custom source.
         /// </summary>
         [Input("providerDetails")]
-        public List<CustomLogSourceProviderDetail>? ProviderDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomLogSourceProviderDetail>> _mProviderDetails;
+
+        public List<Outputs.CustomLogSourceProviderDetail>? ProviderDetails => _mProviderDetails.GetValue("providerDetails");
 
         /// <summary>
         /// Specify the name for a third-party custom source.
@@ -43,12 +55,60 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake
         /// Has a maximum length of 20.
         /// </summary>
         [Input("sourceName")]
-        public string? SourceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceName;
+
+        public string? SourceName => _mSourceName.GetValue("sourceName");
 
         /// <summary>
         /// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
         /// </summary>
         [Input("sourceVersion")]
-        public string? SourceVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
+
+        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
+    }
+
+    [PolicyResourceType("aws:securitylake/customLogSource:CustomLogSource")]
+    public sealed class CustomLogSourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The configuration for the third-party custom source.
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomLogSourceConfigurationArgs> _mConfiguration;
+
+        public Inputs.CustomLogSourceConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
+        /// </summary>
+        [Input("eventClasses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventClasses;
+
+        public List<string>? EventClasses => _mEventClasses.GetValue("eventClasses");
+
+        /// <summary>
+        /// Specify the name for a third-party custom source.
+        /// This must be a Regionally unique value.
+        /// Has a maximum length of 20.
+        /// </summary>
+        [Input("sourceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceName;
+
+        public string? SourceName => _mSourceName.GetValue("sourceName");
+
+        /// <summary>
+        /// Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
+        /// </summary>
+        [Input("sourceVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
+
+        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
     }
 }

@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/response:Response")]
-    public sealed class Response : global::Pulumi.PolicyResource
+    public sealed class Response : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Map of parameters (paths, query strings and headers) of the Gateway Response.
         /// </summary>
         [Input("responseParameters")]
-        public Dictionary<string, string>? ResponseParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseParameters;
+
+        public Dictionary<string, string>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
 
         /// <summary>
         /// Map of templates used to transform the response body.
         /// </summary>
         [Input("responseTemplates")]
-        public Dictionary<string, string>? ResponseTemplates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
+
+        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
 
         /// <summary>
         /// Response type of the associated GatewayResponse.
         /// </summary>
         [Input("responseType")]
-        public string? ResponseType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResponseType;
+
+        public string? ResponseType => _mResponseType.GetValue("responseType");
 
         /// <summary>
         /// String identifier of the associated REST API.
         /// </summary>
         [Input("restApiId")]
-        public string? RestApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+
+        public string? RestApiId => _mRestApiId.GetValue("restApiId");
 
         /// <summary>
         /// HTTP status code of the Gateway Response.
         /// </summary>
         [Input("statusCode")]
-        public string? StatusCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
+
+        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+    }
+
+    [PolicyResourceType("aws:apigateway/response:Response")]
+    public sealed class ResponseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Map of parameters (paths, query strings and headers) of the Gateway Response.
+        /// </summary>
+        [Input("responseParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseParameters;
+
+        public Dictionary<string, string>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+
+        /// <summary>
+        /// Map of templates used to transform the response body.
+        /// </summary>
+        [Input("responseTemplates")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
+
+        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+
+        /// <summary>
+        /// Response type of the associated GatewayResponse.
+        /// </summary>
+        [Input("responseType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResponseType;
+
+        public string? ResponseType => _mResponseType.GetValue("responseType");
+
+        /// <summary>
+        /// String identifier of the associated REST API.
+        /// </summary>
+        [Input("restApiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+
+        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+
+        /// <summary>
+        /// HTTP status code of the Gateway Response.
+        /// </summary>
+        [Input("statusCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
+
+        public string? StatusCode => _mStatusCode.GetValue("statusCode");
     }
 }

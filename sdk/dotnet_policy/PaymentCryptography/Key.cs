@@ -11,28 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.PaymentCryptography
 {
     [PolicyResourceType("aws:paymentcryptography/key:Key")]
-    public sealed class Key : global::Pulumi.PolicyResource
+    public sealed class Key : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the key.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("deletionWindowInDays")]
-        public int? DeletionWindowInDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
+
+        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
 
         /// <summary>
         /// Whether to enable the key.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Whether the key is exportable from the service.
         /// </summary>
         [Input("exportable")]
-        public bool? Exportable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mExportable;
+
+        public bool? Exportable => _mExportable.GetValue("exportable");
 
         /// <summary>
         /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -40,45 +52,132 @@ namespace Pulumi.PolicyPacks.Aws.PaymentCryptography
         /// The following arguments are optional:
         /// </summary>
         [Input("keyAttributes")]
-        public KeyKeyAttributes? KeyAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KeyKeyAttributes> _mKeyAttributes;
+
+        public Outputs.KeyKeyAttributes? KeyAttributes => _mKeyAttributes.GetValue("keyAttributes");
 
         /// <summary>
         /// Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
         /// </summary>
         [Input("keyCheckValue")]
-        public string? KeyCheckValue;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyCheckValue;
+
+        public string? KeyCheckValue => _mKeyCheckValue.GetValue("keyCheckValue");
 
         /// <summary>
         /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         /// </summary>
         [Input("keyCheckValueAlgorithm")]
-        public string? KeyCheckValueAlgorithm;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyCheckValueAlgorithm;
+
+        public string? KeyCheckValueAlgorithm => _mKeyCheckValueAlgorithm.GetValue("keyCheckValueAlgorithm");
 
         /// <summary>
         /// Source of the key material.
         /// </summary>
         [Input("keyOrigin")]
-        public string? KeyOrigin;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyOrigin;
+
+        public string? KeyOrigin => _mKeyOrigin.GetValue("keyOrigin");
 
         /// <summary>
         /// State of key that is being created or deleted.
         /// </summary>
         [Input("keyState")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("keyState");
 
         /// <summary>
         /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public KeyTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KeyTimeouts> _mTimeouts;
+
+        public Outputs.KeyTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:paymentcryptography/key:Key")]
+    public sealed class KeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("deletionWindowInDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
+
+        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
+
+        /// <summary>
+        /// Whether to enable the key.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Whether the key is exportable from the service.
+        /// </summary>
+        [Input("exportable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mExportable;
+
+        public bool? Exportable => _mExportable.GetValue("exportable");
+
+        /// <summary>
+        /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("keyAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KeyKeyAttributesArgs> _mKeyAttributes;
+
+        public Inputs.KeyKeyAttributesArgs? KeyAttributes => _mKeyAttributes.GetValue("keyAttributes");
+
+        /// <summary>
+        /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
+        /// </summary>
+        [Input("keyCheckValueAlgorithm")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyCheckValueAlgorithm;
+
+        public string? KeyCheckValueAlgorithm => _mKeyCheckValueAlgorithm.GetValue("keyCheckValueAlgorithm");
+
+        /// <summary>
+        /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KeyTimeoutsArgs> _mTimeouts;
+
+        public Inputs.KeyTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

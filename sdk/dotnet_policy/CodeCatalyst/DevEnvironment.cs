@@ -11,22 +11,31 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
 {
     [PolicyResourceType("aws:codecatalyst/devEnvironment:DevEnvironment")]
-    public sealed class DevEnvironment : global::Pulumi.PolicyResource
+    public sealed class DevEnvironment : global::Pulumi.PolicyResourceOutput
     {
         [Input("alias")]
-        public string? Alias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
 
         /// <summary>
         /// Information about the integrated development environment (IDE) configured for a Dev Environment.
         /// </summary>
         [Input("ides")]
-        public DevEnvironmentIdes? Ides;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DevEnvironmentIdes> _mIdes;
+
+        public Outputs.DevEnvironmentIdes? Ides => _mIdes.GetValue("ides");
 
         /// <summary>
         /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         /// </summary>
         [Input("inactivityTimeoutMinutes")]
-        public int? InactivityTimeoutMinutes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInactivityTimeoutMinutes;
+
+        public int? InactivityTimeoutMinutes => _mInactivityTimeoutMinutes.GetValue("inactivityTimeoutMinutes");
 
         /// <summary>
         /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
@@ -34,30 +43,120 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
         /// The following arguments are optional:
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// Information about the amount of storage allocated to the Dev Environment.
         /// </summary>
         [Input("persistentStorage")]
-        public DevEnvironmentPersistentStorage? PersistentStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DevEnvironmentPersistentStorage> _mPersistentStorage;
+
+        public Outputs.DevEnvironmentPersistentStorage? PersistentStorage => _mPersistentStorage.GetValue("persistentStorage");
 
         /// <summary>
         /// The name of the project in the space.
         /// </summary>
         [Input("projectName")]
-        public string? ProjectName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
+
+        public string? ProjectName => _mProjectName.GetValue("projectName");
 
         /// <summary>
         /// The source repository that contains the branch to clone into the Dev Environment.
         /// </summary>
         [Input("repositories")]
-        public List<DevEnvironmentRepository>? Repositories;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DevEnvironmentRepository>> _mRepositories;
+
+        public List<Outputs.DevEnvironmentRepository>? Repositories => _mRepositories.GetValue("repositories");
 
         /// <summary>
         /// The name of the space.
         /// </summary>
         [Input("spaceName")]
-        public string? SpaceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
+
+        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+    }
+
+    [PolicyResourceType("aws:codecatalyst/devEnvironment:DevEnvironment")]
+    public sealed class DevEnvironmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("alias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
+
+        /// <summary>
+        /// Information about the integrated development environment (IDE) configured for a Dev Environment.
+        /// </summary>
+        [Input("ides")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DevEnvironmentIdesArgs> _mIdes;
+
+        public Inputs.DevEnvironmentIdesArgs? Ides => _mIdes.GetValue("ides");
+
+        /// <summary>
+        /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
+        /// </summary>
+        [Input("inactivityTimeoutMinutes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInactivityTimeoutMinutes;
+
+        public int? InactivityTimeoutMinutes => _mInactivityTimeoutMinutes.GetValue("inactivityTimeoutMinutes");
+
+        /// <summary>
+        /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// Information about the amount of storage allocated to the Dev Environment.
+        /// </summary>
+        [Input("persistentStorage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DevEnvironmentPersistentStorageArgs> _mPersistentStorage;
+
+        public Inputs.DevEnvironmentPersistentStorageArgs? PersistentStorage => _mPersistentStorage.GetValue("persistentStorage");
+
+        /// <summary>
+        /// The name of the project in the space.
+        /// </summary>
+        [Input("projectName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
+
+        public string? ProjectName => _mProjectName.GetValue("projectName");
+
+        /// <summary>
+        /// The source repository that contains the branch to clone into the Dev Environment.
+        /// </summary>
+        [Input("repositories")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DevEnvironmentRepositoryArgs>> _mRepositories;
+
+        public List<Inputs.DevEnvironmentRepositoryArgs>? Repositories => _mRepositories.GetValue("repositories");
+
+        /// <summary>
+        /// The name of the space.
+        /// </summary>
+        [Input("spaceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
+
+        public string? SpaceName => _mSpaceName.GetValue("spaceName");
     }
 }

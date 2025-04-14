@@ -11,28 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")]
-    public sealed class LocalGatewayRouteTableVpcAssociation : global::Pulumi.PolicyResource
+    public sealed class LocalGatewayRouteTableVpcAssociation : global::Pulumi.PolicyResourceOutput
     {
         [Input("localGatewayId")]
-        public string? LocalGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayId;
+
+        public string? LocalGatewayId => _mLocalGatewayId.GetValue("localGatewayId");
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Route Table.
         /// </summary>
         [Input("localGatewayRouteTableId")]
-        public string? LocalGatewayRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayRouteTableId;
+
+        public string? LocalGatewayRouteTableId => _mLocalGatewayRouteTableId.GetValue("localGatewayRouteTableId");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Identifier of EC2 VPC.
@@ -40,6 +52,42 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The following arguments are optional:
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")]
+    public sealed class LocalGatewayRouteTableVpcAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of EC2 Local Gateway Route Table.
+        /// </summary>
+        [Input("localGatewayRouteTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayRouteTableId;
+
+        public string? LocalGatewayRouteTableId => _mLocalGatewayRouteTableId.GetValue("localGatewayRouteTableId");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Identifier of EC2 VPC.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

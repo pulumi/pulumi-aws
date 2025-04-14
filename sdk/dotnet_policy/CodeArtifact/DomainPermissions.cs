@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeArtifact
 {
     [PolicyResourceType("aws:codeartifact/domainPermissions:DomainPermissions")]
-    public sealed class DomainPermissions : global::Pulumi.PolicyResource
+    public sealed class DomainPermissions : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the domain on which to set the resource policy.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// The account number of the AWS account that owns the domain.
         /// </summary>
         [Input("domainOwner")]
-        public string? DomainOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOwner;
+
+        public string? DomainOwner => _mDomainOwner.GetValue("domainOwner");
 
         /// <summary>
         /// A JSON policy string to be set as the access control resource policy on the provided domain.
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
 
         /// <summary>
         /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         /// </summary>
         [Input("policyRevision")]
-        public string? PolicyRevision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRevision;
+
+        public string? PolicyRevision => _mPolicyRevision.GetValue("policyRevision");
 
         /// <summary>
         /// The ARN of the resource associated with the resource policy.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+    }
+
+    [PolicyResourceType("aws:codeartifact/domainPermissions:DomainPermissions")]
+    public sealed class DomainPermissionsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the domain on which to set the resource policy.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// The account number of the AWS account that owns the domain.
+        /// </summary>
+        [Input("domainOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOwner;
+
+        public string? DomainOwner => _mDomainOwner.GetValue("domainOwner");
+
+        /// <summary>
+        /// A JSON policy string to be set as the access control resource policy on the provided domain.
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+
+        /// <summary>
+        /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        /// </summary>
+        [Input("policyRevision")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRevision;
+
+        public string? PolicyRevision => _mPolicyRevision.GetValue("policyRevision");
     }
 }

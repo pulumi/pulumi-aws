@@ -11,150 +11,406 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.StorageGateway
 {
     [PolicyResourceType("aws:storagegateway/nfsFileShare:NfsFileShare")]
-    public sealed class NfsFileShare : global::Pulumi.PolicyResource
+    public sealed class NfsFileShare : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the NFS File Share.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the storage used for audit logs.
         /// </summary>
         [Input("auditDestinationArn")]
-        public string? AuditDestinationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuditDestinationArn;
+
+        public string? AuditDestinationArn => _mAuditDestinationArn.GetValue("auditDestinationArn");
 
         /// <summary>
         /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         /// </summary>
         [Input("bucketRegion")]
-        public string? BucketRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketRegion;
+
+        public string? BucketRegion => _mBucketRegion.GetValue("bucketRegion");
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
         /// </summary>
         [Input("cacheAttributes")]
-        public NfsFileShareCacheAttributes? CacheAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NfsFileShareCacheAttributes> _mCacheAttributes;
+
+        public Outputs.NfsFileShareCacheAttributes? CacheAttributes => _mCacheAttributes.GetValue("cacheAttributes");
 
         /// <summary>
         /// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         /// </summary>
         [Input("clientLists")]
-        public List<string>? ClientLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientLists;
+
+        public List<string>? ClientLists => _mClientLists.GetValue("clientLists");
 
         /// <summary>
         /// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         /// </summary>
         [Input("defaultStorageClass")]
-        public string? DefaultStorageClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultStorageClass;
+
+        public string? DefaultStorageClass => _mDefaultStorageClass.GetValue("defaultStorageClass");
 
         /// <summary>
         /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         /// </summary>
         [Input("fileShareName")]
-        public string? FileShareName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileShareName;
+
+        public string? FileShareName => _mFileShareName.GetValue("fileShareName");
 
         /// <summary>
         /// ID of the NFS File Share.
         /// </summary>
         [Input("fileshareId")]
-        public string? FileshareId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileshareId;
+
+        public string? FileshareId => _mFileshareId.GetValue("fileshareId");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the file gateway.
         /// </summary>
         [Input("gatewayArn")]
-        public string? GatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
 
         /// <summary>
         /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         /// </summary>
         [Input("guessMimeTypeEnabled")]
-        public bool? GuessMimeTypeEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mGuessMimeTypeEnabled;
+
+        public bool? GuessMimeTypeEnabled => _mGuessMimeTypeEnabled.GetValue("guessMimeTypeEnabled");
 
         /// <summary>
         /// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         /// </summary>
         [Input("kmsEncrypted")]
-        public bool? KmsEncrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mKmsEncrypted;
+
+        public bool? KmsEncrypted => _mKmsEncrypted.GetValue("kmsEncrypted");
 
         /// <summary>
         /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// The ARN of the backed storage used for storing file data.
         /// </summary>
         [Input("locationArn")]
-        public string? LocationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocationArn;
+
+        public string? LocationArn => _mLocationArn.GetValue("locationArn");
 
         /// <summary>
         /// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         /// </summary>
         [Input("nfsFileShareDefaults")]
-        public NfsFileShareNfsFileShareDefaults? NfsFileShareDefaults;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NfsFileShareNfsFileShareDefaults> _mNfsFileShareDefaults;
+
+        public Outputs.NfsFileShareNfsFileShareDefaults? NfsFileShareDefaults => _mNfsFileShareDefaults.GetValue("nfsFileShareDefaults");
 
         /// <summary>
         /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         /// </summary>
         [Input("notificationPolicy")]
-        public string? NotificationPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationPolicy;
+
+        public string? NotificationPolicy => _mNotificationPolicy.GetValue("notificationPolicy");
 
         /// <summary>
         /// Access Control List permission for S3 objects. Defaults to `private`.
         /// </summary>
         [Input("objectAcl")]
-        public string? ObjectAcl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mObjectAcl;
+
+        public string? ObjectAcl => _mObjectAcl.GetValue("objectAcl");
 
         /// <summary>
         /// File share path used by the NFS client to identify the mount point.
         /// </summary>
         [Input("path")]
-        public string? Path;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
+
+        public string? Path => _mPath.GetValue("path");
 
         /// <summary>
         /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         /// </summary>
         [Input("readOnly")]
-        public bool? ReadOnly;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnly;
+
+        public bool? ReadOnly => _mReadOnly.GetValue("readOnly");
 
         /// <summary>
         /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         /// </summary>
         [Input("requesterPays")]
-        public bool? RequesterPays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequesterPays;
+
+        public bool? RequesterPays => _mRequesterPays.GetValue("requesterPays");
 
         /// <summary>
         /// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         /// </summary>
         [Input("squash")]
-        public string? Squash;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSquash;
+
+        public string? Squash => _mSquash.GetValue("squash");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The DNS name of the VPC endpoint for S3 PrivateLink.
         /// </summary>
         [Input("vpcEndpointDnsName")]
-        public string? VpcEndpointDnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointDnsName;
+
+        public string? VpcEndpointDnsName => _mVpcEndpointDnsName.GetValue("vpcEndpointDnsName");
+    }
+
+    [PolicyResourceType("aws:storagegateway/nfsFileShare:NfsFileShare")]
+    public sealed class NfsFileShareArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the storage used for audit logs.
+        /// </summary>
+        [Input("auditDestinationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuditDestinationArn;
+
+        public string? AuditDestinationArn => _mAuditDestinationArn.GetValue("auditDestinationArn");
+
+        /// <summary>
+        /// The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        /// </summary>
+        [Input("bucketRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketRegion;
+
+        public string? BucketRegion => _mBucketRegion.GetValue("bucketRegion");
+
+        /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
+        [Input("cacheAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NfsFileShareCacheAttributesArgs> _mCacheAttributes;
+
+        public Inputs.NfsFileShareCacheAttributesArgs? CacheAttributes => _mCacheAttributes.GetValue("cacheAttributes");
+
+        /// <summary>
+        /// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
+        /// </summary>
+        [Input("clientLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientLists;
+
+        public List<string>? ClientLists => _mClientLists.GetValue("clientLists");
+
+        /// <summary>
+        /// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
+        /// </summary>
+        [Input("defaultStorageClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultStorageClass;
+
+        public string? DefaultStorageClass => _mDefaultStorageClass.GetValue("defaultStorageClass");
+
+        /// <summary>
+        /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
+        /// </summary>
+        [Input("fileShareName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileShareName;
+
+        public string? FileShareName => _mFileShareName.GetValue("fileShareName");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the file gateway.
+        /// </summary>
+        [Input("gatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+
+        /// <summary>
+        /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
+        /// </summary>
+        [Input("guessMimeTypeEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mGuessMimeTypeEnabled;
+
+        public bool? GuessMimeTypeEnabled => _mGuessMimeTypeEnabled.GetValue("guessMimeTypeEnabled");
+
+        /// <summary>
+        /// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
+        /// </summary>
+        [Input("kmsEncrypted")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mKmsEncrypted;
+
+        public bool? KmsEncrypted => _mKmsEncrypted.GetValue("kmsEncrypted");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+
+        /// <summary>
+        /// The ARN of the backed storage used for storing file data.
+        /// </summary>
+        [Input("locationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocationArn;
+
+        public string? LocationArn => _mLocationArn.GetValue("locationArn");
+
+        /// <summary>
+        /// Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
+        /// </summary>
+        [Input("nfsFileShareDefaults")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NfsFileShareNfsFileShareDefaultsArgs> _mNfsFileShareDefaults;
+
+        public Inputs.NfsFileShareNfsFileShareDefaultsArgs? NfsFileShareDefaults => _mNfsFileShareDefaults.GetValue("nfsFileShareDefaults");
+
+        /// <summary>
+        /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
+        /// </summary>
+        [Input("notificationPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationPolicy;
+
+        public string? NotificationPolicy => _mNotificationPolicy.GetValue("notificationPolicy");
+
+        /// <summary>
+        /// Access Control List permission for S3 objects. Defaults to `private`.
+        /// </summary>
+        [Input("objectAcl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mObjectAcl;
+
+        public string? ObjectAcl => _mObjectAcl.GetValue("objectAcl");
+
+        /// <summary>
+        /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        /// </summary>
+        [Input("readOnly")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnly;
+
+        public bool? ReadOnly => _mReadOnly.GetValue("readOnly");
+
+        /// <summary>
+        /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
+        /// </summary>
+        [Input("requesterPays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequesterPays;
+
+        public bool? RequesterPays => _mRequesterPays.GetValue("requesterPays");
+
+        /// <summary>
+        /// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
+        /// </summary>
+        [Input("squash")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSquash;
+
+        public string? Squash => _mSquash.GetValue("squash");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The DNS name of the VPC endpoint for S3 PrivateLink.
+        /// </summary>
+        [Input("vpcEndpointDnsName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointDnsName;
+
+        public string? VpcEndpointDnsName => _mVpcEndpointDnsName.GetValue("vpcEndpointDnsName");
     }
 }

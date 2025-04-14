@@ -11,158 +11,383 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcEndpoint:VpcEndpoint")]
-    public sealed class VpcEndpoint : global::Pulumi.PolicyResource
+    public sealed class VpcEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC endpoint.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         /// </summary>
         [Input("autoAccept")]
-        public bool? AutoAccept;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAccept;
+
+        public bool? AutoAccept => _mAutoAccept.GetValue("autoAccept");
 
         /// <summary>
         /// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         /// </summary>
         [Input("cidrBlocks")]
-        public List<string>? CidrBlocks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrBlocks;
+
+        public List<string>? CidrBlocks => _mCidrBlocks.GetValue("cidrBlocks");
 
         /// <summary>
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
         [Input("dnsEntries")]
-        public List<VpcEndpointDnsEntry>? DnsEntries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpcEndpointDnsEntry>> _mDnsEntries;
+
+        public List<Outputs.VpcEndpointDnsEntry>? DnsEntries => _mDnsEntries.GetValue("dnsEntries");
 
         /// <summary>
         /// The DNS options for the endpoint. See dns_options below.
         /// </summary>
         [Input("dnsOptions")]
-        public VpcEndpointDnsOptions? DnsOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcEndpointDnsOptions> _mDnsOptions;
+
+        public Outputs.VpcEndpointDnsOptions? DnsOptions => _mDnsOptions.GetValue("dnsOptions");
 
         /// <summary>
         /// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         /// </summary>
         [Input("ipAddressType")]
-        public string? IpAddressType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
 
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         /// </summary>
         [Input("networkInterfaceIds")]
-        public List<string>? NetworkInterfaceIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkInterfaceIds;
+
+        public List<string>? NetworkInterfaceIds => _mNetworkInterfaceIds.GetValue("networkInterfaceIds");
 
         /// <summary>
         /// The ID of the AWS account that owns the VPC endpoint.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         /// </summary>
         [Input("prefixListId")]
-        public string? PrefixListId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+
+        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
 
         /// <summary>
         /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
         /// Defaults to `false`.
         /// </summary>
         [Input("privateDnsEnabled")]
-        public bool? PrivateDnsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateDnsEnabled;
+
+        public bool? PrivateDnsEnabled => _mPrivateDnsEnabled.GetValue("privateDnsEnabled");
 
         /// <summary>
         /// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         /// </summary>
         [Input("requesterManaged")]
-        public bool? RequesterManaged;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequesterManaged;
+
+        public bool? RequesterManaged => _mRequesterManaged.GetValue("requesterManaged");
 
         /// <summary>
         /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         /// </summary>
         [Input("resourceConfigurationArn")]
-        public string? ResourceConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationArn;
+
+        public string? ResourceConfigurationArn => _mResourceConfigurationArn.GetValue("resourceConfigurationArn");
 
         /// <summary>
         /// One or more route table IDs. Applicable for endpoints of type `Gateway`.
         /// </summary>
         [Input("routeTableIds")]
-        public List<string>? RouteTableIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRouteTableIds;
+
+        public List<string>? RouteTableIds => _mRouteTableIds.GetValue("routeTableIds");
 
         /// <summary>
         /// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
         /// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         /// </summary>
         [Input("serviceName")]
-        public string? ServiceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
 
         /// <summary>
         /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         /// </summary>
         [Input("serviceNetworkArn")]
-        public string? ServiceNetworkArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkArn;
+
+        public string? ServiceNetworkArn => _mServiceNetworkArn.GetValue("serviceNetworkArn");
 
         /// <summary>
         /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         /// </summary>
         [Input("serviceRegion")]
-        public string? ServiceRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRegion;
+
+        public string? ServiceRegion => _mServiceRegion.GetValue("serviceRegion");
 
         /// <summary>
         /// The state of the VPC endpoint.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         /// </summary>
         [Input("subnetConfigurations")]
-        public List<VpcEndpointSubnetConfiguration>? SubnetConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpcEndpointSubnetConfiguration>> _mSubnetConfigurations;
+
+        public List<Outputs.VpcEndpointSubnetConfiguration>? SubnetConfigurations => _mSubnetConfigurations.GetValue("subnetConfigurations");
 
         /// <summary>
         /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
         /// </summary>
         [Input("vpcEndpointType")]
-        public string? VpcEndpointType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointType;
+
+        public string? VpcEndpointType => _mVpcEndpointType.GetValue("vpcEndpointType");
 
         /// <summary>
         /// The ID of the VPC in which the endpoint will be used.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcEndpoint:VpcEndpoint")]
+    public sealed class VpcEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        /// </summary>
+        [Input("autoAccept")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAccept;
+
+        public bool? AutoAccept => _mAutoAccept.GetValue("autoAccept");
+
+        /// <summary>
+        /// The DNS options for the endpoint. See dns_options below.
+        /// </summary>
+        [Input("dnsOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcEndpointDnsOptionsArgs> _mDnsOptions;
+
+        public Inputs.VpcEndpointDnsOptionsArgs? DnsOptions => _mDnsOptions.GetValue("dnsOptions");
+
+        /// <summary>
+        /// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        /// </summary>
+        [Input("ipAddressType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+
+        /// <summary>
+        /// A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
+        /// Defaults to `false`.
+        /// </summary>
+        [Input("privateDnsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateDnsEnabled;
+
+        public bool? PrivateDnsEnabled => _mPrivateDnsEnabled.GetValue("privateDnsEnabled");
+
+        /// <summary>
+        /// The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Input("resourceConfigurationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationArn;
+
+        public string? ResourceConfigurationArn => _mResourceConfigurationArn.GetValue("resourceConfigurationArn");
+
+        /// <summary>
+        /// One or more route table IDs. Applicable for endpoints of type `Gateway`.
+        /// </summary>
+        [Input("routeTableIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRouteTableIds;
+
+        public List<string>? RouteTableIds => _mRouteTableIds.GetValue("routeTableIds");
+
+        /// <summary>
+        /// The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
+        /// If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Input("serviceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
+
+        /// <summary>
+        /// The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        /// </summary>
+        [Input("serviceNetworkArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkArn;
+
+        public string? ServiceNetworkArn => _mServiceNetworkArn.GetValue("serviceNetworkArn");
+
+        /// <summary>
+        /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        /// </summary>
+        [Input("serviceRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRegion;
+
+        public string? ServiceRegion => _mServiceRegion.GetValue("serviceRegion");
+
+        /// <summary>
+        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        /// </summary>
+        [Input("subnetConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VpcEndpointSubnetConfigurationArgs>> _mSubnetConfigurations;
+
+        public List<Inputs.VpcEndpointSubnetConfigurationArgs>? SubnetConfigurations => _mSubnetConfigurations.GetValue("subnetConfigurations");
+
+        /// <summary>
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+        /// </summary>
+        [Input("vpcEndpointType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointType;
+
+        public string? VpcEndpointType => _mVpcEndpointType.GetValue("vpcEndpointType");
+
+        /// <summary>
+        /// The ID of the VPC in which the endpoint will be used.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

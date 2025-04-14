@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/groupMembership:GroupMembership")]
-    public sealed class GroupMembership : global::Pulumi.PolicyResource
+    public sealed class GroupMembership : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The IAM Group name to attach the list of `users` to
         /// </summary>
         [Input("group")]
-        public string? Group;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
+
+        public string? Group => _mGroup.GetValue("group");
 
         /// <summary>
         /// The name to identify the Group Membership
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A list of IAM User names to associate with the Group
         /// </summary>
         [Input("users")]
-        public List<string>? Users;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
+
+        public List<string>? Users => _mUsers.GetValue("users");
+    }
+
+    [PolicyResourceType("aws:iam/groupMembership:GroupMembership")]
+    public sealed class GroupMembershipArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The IAM Group name to attach the list of `users` to
+        /// </summary>
+        [Input("group")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
+
+        public string? Group => _mGroup.GetValue("group");
+
+        /// <summary>
+        /// The name to identify the Group Membership
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of IAM User names to associate with the Group
+        /// </summary>
+        [Input("users")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
+
+        public List<string>? Users => _mUsers.GetValue("users");
     }
 }

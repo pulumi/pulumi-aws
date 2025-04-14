@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Acmpca
 {
     [PolicyResourceType("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate")]
-    public sealed class CertificateAuthorityCertificate : global::Pulumi.PolicyResource
+    public sealed class CertificateAuthorityCertificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// PEM-encoded certificate for the Certificate Authority.
         /// </summary>
         [Input("certificate")]
-        public string? Certificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
+
+        public string? Certificate => _mCertificate.GetValue("certificate");
 
         /// <summary>
         /// ARN of the Certificate Authority.
         /// </summary>
         [Input("certificateAuthorityArn")]
-        public string? CertificateAuthorityArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
+
+        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
 
         /// <summary>
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         /// </summary>
         [Input("certificateChain")]
-        public string? CertificateChain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+
+        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+    }
+
+    [PolicyResourceType("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate")]
+    public sealed class CertificateAuthorityCertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// PEM-encoded certificate for the Certificate Authority.
+        /// </summary>
+        [Input("certificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
+
+        public string? Certificate => _mCertificate.GetValue("certificate");
+
+        /// <summary>
+        /// ARN of the Certificate Authority.
+        /// </summary>
+        [Input("certificateAuthorityArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
+
+        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+
+        /// <summary>
+        /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
+        /// </summary>
+        [Input("certificateChain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+
+        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
     }
 }

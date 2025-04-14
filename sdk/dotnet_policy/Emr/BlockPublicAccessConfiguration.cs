@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Emr
 {
     [PolicyResourceType("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")]
-    public sealed class BlockPublicAccessConfiguration : global::Pulumi.PolicyResource
+    public sealed class BlockPublicAccessConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Enable or disable EMR Block Public Access.
@@ -19,12 +19,42 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// The following arguments are optional:
         /// </summary>
         [Input("blockPublicSecurityGroupRules")]
-        public bool? BlockPublicSecurityGroupRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicSecurityGroupRules;
+
+        public bool? BlockPublicSecurityGroupRules => _mBlockPublicSecurityGroupRules.GetValue("blockPublicSecurityGroupRules");
 
         /// <summary>
         /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         /// </summary>
         [Input("permittedPublicSecurityGroupRuleRanges")]
-        public List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>? PermittedPublicSecurityGroupRuleRanges;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> _mPermittedPublicSecurityGroupRuleRanges;
+
+        public List<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>? PermittedPublicSecurityGroupRuleRanges => _mPermittedPublicSecurityGroupRuleRanges.GetValue("permittedPublicSecurityGroupRuleRanges");
+    }
+
+    [PolicyResourceType("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")]
+    public sealed class BlockPublicAccessConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Enable or disable EMR Block Public Access.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("blockPublicSecurityGroupRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicSecurityGroupRules;
+
+        public bool? BlockPublicSecurityGroupRules => _mBlockPublicSecurityGroupRules.GetValue("blockPublicSecurityGroupRules");
+
+        /// <summary>
+        /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+        /// </summary>
+        [Input("permittedPublicSecurityGroupRuleRanges")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>> _mPermittedPublicSecurityGroupRuleRanges;
+
+        public List<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>? PermittedPublicSecurityGroupRuleRanges => _mPermittedPublicSecurityGroupRuleRanges.GetValue("permittedPublicSecurityGroupRuleRanges");
     }
 }

@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Elb
 {
     [PolicyResourceType("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy")]
-    public sealed class AppCookieStickinessPolicy : global::Pulumi.PolicyResource
+    public sealed class AppCookieStickinessPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Application cookie whose lifetime the ELB's cookie should follow.
         /// </summary>
         [Input("cookieName")]
-        public string? CookieName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCookieName;
+
+        public string? CookieName => _mCookieName.GetValue("cookieName");
 
         /// <summary>
         /// Load balancer port to which the policy
@@ -25,19 +28,71 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// balancer.
         /// </summary>
         [Input("lbPort")]
-        public int? LbPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLbPort;
+
+        public int? LbPort => _mLbPort.GetValue("lbPort");
 
         /// <summary>
         /// Name of load balancer to which the policy
         /// should be attached.
         /// </summary>
         [Input("loadBalancer")]
-        public string? LoadBalancer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
+
+        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
 
         /// <summary>
         /// Name of the stickiness policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy")]
+    public sealed class AppCookieStickinessPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Application cookie whose lifetime the ELB's cookie should follow.
+        /// </summary>
+        [Input("cookieName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCookieName;
+
+        public string? CookieName => _mCookieName.GetValue("cookieName");
+
+        /// <summary>
+        /// Load balancer port to which the policy
+        /// should be applied. This must be an active listener on the load
+        /// balancer.
+        /// </summary>
+        [Input("lbPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLbPort;
+
+        public int? LbPort => _mLbPort.GetValue("lbPort");
+
+        /// <summary>
+        /// Name of load balancer to which the policy
+        /// should be attached.
+        /// </summary>
+        [Input("loadBalancer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
+
+        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
+
+        /// <summary>
+        /// Name of the stickiness policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

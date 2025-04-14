@@ -11,21 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
 {
     [PolicyResourceType("aws:globalaccelerator/customRoutingListener:CustomRoutingListener")]
-    public sealed class CustomRoutingListener : global::Pulumi.PolicyResource
+    public sealed class CustomRoutingListener : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of a custom routing accelerator.
         /// </summary>
         [Input("acceleratorArn")]
-        public string? AcceleratorArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorArn;
+
+        public string? AcceleratorArn => _mAcceleratorArn.GetValue("acceleratorArn");
 
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
         [Input("portRanges")]
-        public List<CustomRoutingListenerPortRange>? PortRanges;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomRoutingListenerPortRange>> _mPortRanges;
+
+        public List<Outputs.CustomRoutingListenerPortRange>? PortRanges => _mPortRanges.GetValue("portRanges");
+    }
+
+    [PolicyResourceType("aws:globalaccelerator/customRoutingListener:CustomRoutingListener")]
+    public sealed class CustomRoutingListenerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
+        /// </summary>
+        [Input("acceleratorArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorArn;
+
+        public string? AcceleratorArn => _mAcceleratorArn.GetValue("acceleratorArn");
+
+        /// <summary>
+        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// </summary>
+        [Input("portRanges")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CustomRoutingListenerPortRangeArgs>> _mPortRanges;
+
+        public List<Inputs.CustomRoutingListenerPortRangeArgs>? PortRanges => _mPortRanges.GetValue("portRanges");
     }
 }

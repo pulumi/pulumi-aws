@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/bucketResourceAccess:BucketResourceAccess")]
-    public sealed class BucketResourceAccess : global::Pulumi.PolicyResource
+    public sealed class BucketResourceAccess : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the bucket to grant access to.
         /// </summary>
         [Input("bucketName")]
-        public string? BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucketName");
 
         /// <summary>
         /// The name of the resource to be granted bucket access.
         /// </summary>
         [Input("resourceName")]
-        public string? ResourceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceName;
+
+        public string? ResourceName => _mResourceName.GetValue("resourceName");
+    }
+
+    [PolicyResourceType("aws:lightsail/bucketResourceAccess:BucketResourceAccess")]
+    public sealed class BucketResourceAccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the bucket to grant access to.
+        /// </summary>
+        [Input("bucketName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucketName");
+
+        /// <summary>
+        /// The name of the resource to be granted bucket access.
+        /// </summary>
+        [Input("resourceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceName;
+
+        public string? ResourceName => _mResourceName.GetValue("resourceName");
     }
 }

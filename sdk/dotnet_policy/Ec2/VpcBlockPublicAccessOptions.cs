@@ -11,27 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions")]
-    public sealed class VpcBlockPublicAccessOptions : global::Pulumi.PolicyResource
+    public sealed class VpcBlockPublicAccessOptions : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS account id to which these options apply.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// The AWS region to which these options apply.
         /// </summary>
         [Input("awsRegion")]
-        public string? AwsRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
+
+        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
 
         /// <summary>
         /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
         /// </summary>
         [Input("internetGatewayBlockMode")]
-        public string? InternetGatewayBlockMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayBlockMode;
+
+        public string? InternetGatewayBlockMode => _mInternetGatewayBlockMode.GetValue("internetGatewayBlockMode");
 
         [Input("timeouts")]
-        public VpcBlockPublicAccessOptionsTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcBlockPublicAccessOptionsTimeouts> _mTimeouts;
+
+        public Outputs.VpcBlockPublicAccessOptionsTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions")]
+    public sealed class VpcBlockPublicAccessOptionsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
+        /// </summary>
+        [Input("internetGatewayBlockMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayBlockMode;
+
+        public string? InternetGatewayBlockMode => _mInternetGatewayBlockMode.GetValue("internetGatewayBlockMode");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcBlockPublicAccessOptionsTimeoutsArgs> _mTimeouts;
+
+        public Inputs.VpcBlockPublicAccessOptionsTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

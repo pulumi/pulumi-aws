@@ -11,72 +11,181 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/rule:Rule")]
-    public sealed class Rule : global::Pulumi.PolicyResource
+    public sealed class Rule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the config rule
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the rule
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         /// </summary>
         [Input("evaluationModes")]
-        public List<RuleEvaluationMode>? EvaluationModes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleEvaluationMode>> _mEvaluationModes;
+
+        public List<Outputs.RuleEvaluationMode>? EvaluationModes => _mEvaluationModes.GetValue("evaluationModes");
 
         /// <summary>
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.
         /// </summary>
         [Input("inputParameters")]
-        public string? InputParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputParameters;
+
+        public string? InputParameters => _mInputParameters.GetValue("inputParameters");
 
         /// <summary>
         /// The maximum frequency with which AWS Config runs evaluations for a rule.
         /// </summary>
         [Input("maximumExecutionFrequency")]
-        public string? MaximumExecutionFrequency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
+
+        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
 
         /// <summary>
         /// The name of the rule
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ID of the config rule
         /// </summary>
         [Input("ruleId")]
-        public string? RuleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleId;
+
+        public string? RuleId => _mRuleId.GetValue("ruleId");
 
         /// <summary>
         /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         /// </summary>
         [Input("scope")]
-        public RuleScope? Scope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleScope> _mScope;
+
+        public Outputs.RuleScope? Scope => _mScope.GetValue("scope");
 
         /// <summary>
         /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         /// </summary>
         [Input("source")]
-        public RuleSource? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleSource> _mSource;
+
+        public Outputs.RuleSource? Source => _mSource.GetValue("source");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:cfg/rule:Rule")]
+    public sealed class RuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the rule
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+        /// </summary>
+        [Input("evaluationModes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleEvaluationModeArgs>> _mEvaluationModes;
+
+        public List<Inputs.RuleEvaluationModeArgs>? EvaluationModes => _mEvaluationModes.GetValue("evaluationModes");
+
+        /// <summary>
+        /// A string in JSON format that is passed to the AWS Config rule Lambda function.
+        /// </summary>
+        [Input("inputParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputParameters;
+
+        public string? InputParameters => _mInputParameters.GetValue("inputParameters");
+
+        /// <summary>
+        /// The maximum frequency with which AWS Config runs evaluations for a rule.
+        /// </summary>
+        [Input("maximumExecutionFrequency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
+
+        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
+
+        /// <summary>
+        /// The name of the rule
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
+        /// </summary>
+        [Input("scope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleScopeArgs> _mScope;
+
+        public Inputs.RuleScopeArgs? Scope => _mScope.GetValue("scope");
+
+        /// <summary>
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleSourceArgs> _mSource;
+
+        public Inputs.RuleSourceArgs? Source => _mSource.GetValue("source");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

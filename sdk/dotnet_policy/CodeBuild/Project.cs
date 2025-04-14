@@ -11,38 +11,53 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeBuild
 {
     [PolicyResourceType("aws:codebuild/project:Project")]
-    public sealed class Project : global::Pulumi.PolicyResource
+    public sealed class Project : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the CodeBuild project.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("artifacts")]
-        public ProjectArtifacts? Artifacts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectArtifacts> _mArtifacts;
+
+        public Outputs.ProjectArtifacts? Artifacts => _mArtifacts.GetValue("artifacts");
 
         /// <summary>
         /// Generates a publicly-accessible URL for the projects build badge. Available as
         /// `badge_url` attribute when enabled.
         /// </summary>
         [Input("badgeEnabled")]
-        public bool? BadgeEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBadgeEnabled;
+
+        public bool? BadgeEnabled => _mBadgeEnabled.GetValue("badgeEnabled");
 
         /// <summary>
         /// URL of the build badge when `badge_enabled` is enabled.
         /// </summary>
         [Input("badgeUrl")]
-        public string? BadgeUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBadgeUrl;
+
+        public string? BadgeUrl => _mBadgeUrl.GetValue("badgeUrl");
 
         /// <summary>
         /// Defines the batch build options for the project.
         /// </summary>
         [Input("buildBatchConfig")]
-        public ProjectBuildBatchConfig? BuildBatchConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectBuildBatchConfig> _mBuildBatchConfig;
+
+        public Outputs.ProjectBuildBatchConfig? BuildBatchConfig => _mBuildBatchConfig.GetValue("buildBatchConfig");
 
         /// <summary>
         /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
@@ -50,78 +65,114 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// not available on the `Lambda` compute type.
         /// </summary>
         [Input("buildTimeout")]
-        public int? BuildTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBuildTimeout;
+
+        public int? BuildTimeout => _mBuildTimeout.GetValue("buildTimeout");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("cache")]
-        public ProjectCache? Cache;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectCache> _mCache;
+
+        public Outputs.ProjectCache? Cache => _mCache.GetValue("cache");
 
         /// <summary>
         /// Specify a maximum number of concurrent builds for the project. The value
         /// specified must be greater than 0 and less than the account concurrent running builds limit.
         /// </summary>
         [Input("concurrentBuildLimit")]
-        public int? ConcurrentBuildLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentBuildLimit;
+
+        public int? ConcurrentBuildLimit => _mConcurrentBuildLimit.GetValue("concurrentBuildLimit");
 
         /// <summary>
         /// Short description of the project.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
         /// the build project's build output artifacts.
         /// </summary>
         [Input("encryptionKey")]
-        public string? EncryptionKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKey;
+
+        public string? EncryptionKey => _mEncryptionKey.GetValue("encryptionKey");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("environment")]
-        public ProjectEnvironment? Environment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectEnvironment> _mEnvironment;
+
+        public Outputs.ProjectEnvironment? Environment => _mEnvironment.GetValue("environment");
 
         /// <summary>
         /// A set of file system locations to mount inside the build. File system locations
         /// are documented below.
         /// </summary>
         [Input("fileSystemLocations")]
-        public List<ProjectFileSystemLocation>? FileSystemLocations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectFileSystemLocation>> _mFileSystemLocations;
+
+        public List<Outputs.ProjectFileSystemLocation>? FileSystemLocations => _mFileSystemLocations.GetValue("fileSystemLocations");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("logsConfig")]
-        public ProjectLogsConfig? LogsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectLogsConfig> _mLogsConfig;
+
+        public Outputs.ProjectLogsConfig? LogsConfig => _mLogsConfig.GetValue("logsConfig");
 
         /// <summary>
         /// Project's name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
         /// and `PRIVATE`. Default value is `PRIVATE`.
         /// </summary>
         [Input("projectVisibility")]
-        public string? ProjectVisibility;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectVisibility;
+
+        public string? ProjectVisibility => _mProjectVisibility.GetValue("projectVisibility");
 
         /// <summary>
         /// The project identifier used with the public build APIs.
         /// </summary>
         [Input("publicProjectAlias")]
-        public string? PublicProjectAlias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicProjectAlias;
+
+        public string? PublicProjectAlias => _mPublicProjectAlias.GetValue("publicProjectAlias");
 
         /// <summary>
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
         /// times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("queuedTimeout")]
-        public int? QueuedTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mQueuedTimeout;
+
+        public int? QueuedTimeout => _mQueuedTimeout.GetValue("queuedTimeout");
 
         /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
@@ -129,32 +180,47 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// `project_visibility` is `PUBLIC_READ`.
         /// </summary>
         [Input("resourceAccessRole")]
-        public string? ResourceAccessRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAccessRole;
+
+        public string? ResourceAccessRole => _mResourceAccessRole.GetValue("resourceAccessRole");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("secondaryArtifacts")]
-        public List<ProjectSecondaryArtifact>? SecondaryArtifacts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectSecondaryArtifact>> _mSecondaryArtifacts;
+
+        public List<Outputs.ProjectSecondaryArtifact>? SecondaryArtifacts => _mSecondaryArtifacts.GetValue("secondaryArtifacts");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("secondarySourceVersions")]
-        public List<ProjectSecondarySourceVersion>? SecondarySourceVersions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectSecondarySourceVersion>> _mSecondarySourceVersions;
+
+        public List<Outputs.ProjectSecondarySourceVersion>? SecondarySourceVersions => _mSecondarySourceVersions.GetValue("secondarySourceVersions");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("secondarySources")]
-        public List<ProjectSecondarySource>? SecondarySources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectSecondarySource>> _mSecondarySources;
+
+        public List<Outputs.ProjectSecondarySource>? SecondarySources => _mSecondarySources.GetValue("secondarySources");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
         /// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Input("serviceRole")]
-        public string? ServiceRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
 
         /// <summary>
         /// Configuration block. Detailed below.
@@ -162,14 +228,20 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// The following arguments are optional:
         /// </summary>
         [Input("source")]
-        public ProjectSource? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectSource> _mSource;
+
+        public Outputs.ProjectSource? Source => _mSource.GetValue("source");
 
         /// <summary>
         /// Version of the build input to be built for this project. If not specified, the latest
         /// version is used.
         /// </summary>
         [Input("sourceVersion")]
-        public string? SourceVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
+
+        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider 
@@ -177,19 +249,255 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider 
         /// `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("vpcConfig")]
-        public ProjectVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectVpcConfig> _mVpcConfig;
+
+        public Outputs.ProjectVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+    }
+
+    [PolicyResourceType("aws:codebuild/project:Project")]
+    public sealed class ProjectArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("artifacts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectArtifactsArgs> _mArtifacts;
+
+        public Inputs.ProjectArtifactsArgs? Artifacts => _mArtifacts.GetValue("artifacts");
+
+        /// <summary>
+        /// Generates a publicly-accessible URL for the projects build badge. Available as
+        /// `badge_url` attribute when enabled.
+        /// </summary>
+        [Input("badgeEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBadgeEnabled;
+
+        public bool? BadgeEnabled => _mBadgeEnabled.GetValue("badgeEnabled");
+
+        /// <summary>
+        /// Defines the batch build options for the project.
+        /// </summary>
+        [Input("buildBatchConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectBuildBatchConfigArgs> _mBuildBatchConfig;
+
+        public Inputs.ProjectBuildBatchConfigArgs? BuildBatchConfig => _mBuildBatchConfig.GetValue("buildBatchConfig");
+
+        /// <summary>
+        /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out
+        /// any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is
+        /// not available on the `Lambda` compute type.
+        /// </summary>
+        [Input("buildTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBuildTimeout;
+
+        public int? BuildTimeout => _mBuildTimeout.GetValue("buildTimeout");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("cache")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectCacheArgs> _mCache;
+
+        public Inputs.ProjectCacheArgs? Cache => _mCache.GetValue("cache");
+
+        /// <summary>
+        /// Specify a maximum number of concurrent builds for the project. The value
+        /// specified must be greater than 0 and less than the account concurrent running builds limit.
+        /// </summary>
+        [Input("concurrentBuildLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentBuildLimit;
+
+        public int? ConcurrentBuildLimit => _mConcurrentBuildLimit.GetValue("concurrentBuildLimit");
+
+        /// <summary>
+        /// Short description of the project.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+        /// the build project's build output artifacts.
+        /// </summary>
+        [Input("encryptionKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKey;
+
+        public string? EncryptionKey => _mEncryptionKey.GetValue("encryptionKey");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("environment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectEnvironmentArgs> _mEnvironment;
+
+        public Inputs.ProjectEnvironmentArgs? Environment => _mEnvironment.GetValue("environment");
+
+        /// <summary>
+        /// A set of file system locations to mount inside the build. File system locations
+        /// are documented below.
+        /// </summary>
+        [Input("fileSystemLocations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProjectFileSystemLocationArgs>> _mFileSystemLocations;
+
+        public List<Inputs.ProjectFileSystemLocationArgs>? FileSystemLocations => _mFileSystemLocations.GetValue("fileSystemLocations");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("logsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectLogsConfigArgs> _mLogsConfig;
+
+        public Inputs.ProjectLogsConfigArgs? LogsConfig => _mLogsConfig.GetValue("logsConfig");
+
+        /// <summary>
+        /// Project's name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ`
+        /// and `PRIVATE`. Default value is `PRIVATE`.
+        /// </summary>
+        [Input("projectVisibility")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectVisibility;
+
+        public string? ProjectVisibility => _mProjectVisibility.GetValue("projectVisibility");
+
+        /// <summary>
+        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
+        /// times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+        /// </summary>
+        [Input("queuedTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mQueuedTimeout;
+
+        public int? QueuedTimeout => _mQueuedTimeout.GetValue("queuedTimeout");
+
+        /// <summary>
+        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
+        /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
+        /// `project_visibility` is `PUBLIC_READ`.
+        /// </summary>
+        [Input("resourceAccessRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAccessRole;
+
+        public string? ResourceAccessRole => _mResourceAccessRole.GetValue("resourceAccessRole");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("secondaryArtifacts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProjectSecondaryArtifactArgs>> _mSecondaryArtifacts;
+
+        public List<Inputs.ProjectSecondaryArtifactArgs>? SecondaryArtifacts => _mSecondaryArtifacts.GetValue("secondaryArtifacts");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("secondarySourceVersions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProjectSecondarySourceVersionArgs>> _mSecondarySourceVersions;
+
+        public List<Inputs.ProjectSecondarySourceVersionArgs>? SecondarySourceVersions => _mSecondarySourceVersions.GetValue("secondarySourceVersions");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("secondarySources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProjectSecondarySourceArgs>> _mSecondarySources;
+
+        public List<Inputs.ProjectSecondarySourceArgs>? SecondarySources => _mSecondarySources.GetValue("secondarySources");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+        /// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
+        /// </summary>
+        [Input("serviceRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectSourceArgs> _mSource;
+
+        public Inputs.ProjectSourceArgs? Source => _mSource.GetValue("source");
+
+        /// <summary>
+        /// Version of the build input to be built for this project. If not specified, the latest
+        /// version is used.
+        /// </summary>
+        [Input("sourceVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
+
+        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider 
+        /// `default_tags` configuration block
+        /// present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.ProjectVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
     }
 }

@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/networkAclRule:NetworkAclRule")]
-    public sealed class NetworkAclRule : global::Pulumi.PolicyResource
+    public sealed class NetworkAclRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         /// </summary>
         [Input("cidrBlock")]
-        public string? CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
 
         /// <summary>
         /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         /// </summary>
         [Input("egress")]
-        public bool? Egress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEgress;
+
+        public bool? Egress => _mEgress.GetValue("egress");
 
         /// <summary>
         /// The from port to match.
         /// </summary>
         [Input("fromPort")]
-        public int? FromPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
+
+        public int? FromPort => _mFromPort.GetValue("fromPort");
 
         /// <summary>
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
@@ -41,48 +50,181 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
         [Input("icmpCode")]
-        public int? IcmpCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIcmpCode;
+
+        public int? IcmpCode => _mIcmpCode.GetValue("icmpCode");
 
         /// <summary>
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpType")]
-        public int? IcmpType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIcmpType;
+
+        public int? IcmpType => _mIcmpType.GetValue("icmpType");
 
         /// <summary>
         /// The IPv6 CIDR block to allow or deny.
         /// </summary>
         [Input("ipv6CidrBlock")]
-        public string? Ipv6CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+
+        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
 
         /// <summary>
         /// The ID of the network ACL.
         /// </summary>
         [Input("networkAclId")]
-        public string? NetworkAclId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkAclId;
+
+        public string? NetworkAclId => _mNetworkAclId.GetValue("networkAclId");
 
         /// <summary>
         /// The protocol. A value of -1 means all protocols.
         /// </summary>
         [Input("protocol")]
-        public string? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         /// </summary>
         [Input("ruleAction")]
-        public string? RuleAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
+
+        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
 
         /// <summary>
         /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         /// </summary>
         [Input("ruleNumber")]
-        public int? RuleNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
+
+        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
 
         /// <summary>
         /// The to port to match.
         /// </summary>
         [Input("toPort")]
-        public int? ToPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
+
+        public int? ToPort => _mToPort.GetValue("toPort");
+    }
+
+    [PolicyResourceType("aws:ec2/networkAclRule:NetworkAclRule")]
+    public sealed class NetworkAclRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
+        /// </summary>
+        [Input("cidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+
+        /// <summary>
+        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
+        /// </summary>
+        [Input("egress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEgress;
+
+        public bool? Egress => _mEgress.GetValue("egress");
+
+        /// <summary>
+        /// The from port to match.
+        /// </summary>
+        [Input("fromPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
+
+        public int? FromPort => _mFromPort.GetValue("fromPort");
+
+        /// <summary>
+        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+        /// 
+        /// &gt; **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
+        /// 
+        /// &gt; **NOTE:** If the value of `icmp_type` is `-1` (which results in a wildcard ICMP type), the `icmp_code` must also be set to `-1` (wildcard ICMP code).
+        /// 
+        /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
+        /// </summary>
+        [Input("icmpCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIcmpCode;
+
+        public int? IcmpCode => _mIcmpCode.GetValue("icmpCode");
+
+        /// <summary>
+        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
+        /// </summary>
+        [Input("icmpType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIcmpType;
+
+        public int? IcmpType => _mIcmpType.GetValue("icmpType");
+
+        /// <summary>
+        /// The IPv6 CIDR block to allow or deny.
+        /// </summary>
+        [Input("ipv6CidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+
+        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+
+        /// <summary>
+        /// The ID of the network ACL.
+        /// </summary>
+        [Input("networkAclId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkAclId;
+
+        public string? NetworkAclId => _mNetworkAclId.GetValue("networkAclId");
+
+        /// <summary>
+        /// The protocol. A value of -1 means all protocols.
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
+
+        /// <summary>
+        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
+        /// </summary>
+        [Input("ruleAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
+
+        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
+
+        /// <summary>
+        /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+        /// </summary>
+        [Input("ruleNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
+
+        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+
+        /// <summary>
+        /// The to port to match.
+        /// </summary>
+        [Input("toPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
+
+        public int? ToPort => _mToPort.GetValue("toPort");
     }
 }

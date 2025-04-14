@@ -11,30 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
 {
     [PolicyResourceType("aws:route53recoverycontrol/cluster:Cluster")]
-    public sealed class Cluster : global::Pulumi.PolicyResource
+    public sealed class Cluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the cluster
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
         /// </summary>
         [Input("clusterEndpoints")]
-        public List<ClusterClusterEndpoint>? ClusterEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterClusterEndpoint>> _mClusterEndpoints;
+
+        public List<Outputs.ClusterClusterEndpoint>? ClusterEndpoints => _mClusterEndpoints.GetValue("clusterEndpoints");
 
         /// <summary>
         /// Unique name describing the cluster.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:route53recoverycontrol/cluster:Cluster")]
+    public sealed class ClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique name describing the cluster.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

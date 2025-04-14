@@ -11,60 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudSearch
 {
     [PolicyResourceType("aws:cloudsearch/domain:Domain")]
-    public sealed class Domain : global::Pulumi.PolicyResource
+    public sealed class Domain : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The domain's ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The service endpoint for updating documents in a search domain.
         /// </summary>
         [Input("documentServiceEndpoint")]
-        public string? DocumentServiceEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentServiceEndpoint;
+
+        public string? DocumentServiceEndpoint => _mDocumentServiceEndpoint.GetValue("documentServiceEndpoint");
 
         /// <summary>
         /// An internally generated unique identifier for the domain.
         /// </summary>
         [Input("domainId")]
-        public string? DomainId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
 
         /// <summary>
         /// Domain endpoint options. Documented below.
         /// </summary>
         [Input("endpointOptions")]
-        public DomainEndpointOptions? EndpointOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainEndpointOptions> _mEndpointOptions;
+
+        public Outputs.DomainEndpointOptions? EndpointOptions => _mEndpointOptions.GetValue("endpointOptions");
 
         /// <summary>
         /// The index fields for documents added to the domain. Documented below.
         /// </summary>
         [Input("indexFields")]
-        public List<DomainIndexField>? IndexFields;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainIndexField>> _mIndexFields;
+
+        public List<Outputs.DomainIndexField>? IndexFields => _mIndexFields.GetValue("indexFields");
 
         /// <summary>
         /// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         /// </summary>
         [Input("multiAz")]
-        public bool? MultiAz;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+
+        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
 
         /// <summary>
         /// The name of the CloudSearch domain.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Domain scaling parameters. Documented below.
         /// </summary>
         [Input("scalingParameters")]
-        public DomainScalingParameters? ScalingParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainScalingParameters> _mScalingParameters;
+
+        public Outputs.DomainScalingParameters? ScalingParameters => _mScalingParameters.GetValue("scalingParameters");
 
         /// <summary>
         /// The service endpoint for requesting search results from a search domain.
         /// </summary>
         [Input("searchServiceEndpoint")]
-        public string? SearchServiceEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSearchServiceEndpoint;
+
+        public string? SearchServiceEndpoint => _mSearchServiceEndpoint.GetValue("searchServiceEndpoint");
+    }
+
+    [PolicyResourceType("aws:cloudsearch/domain:Domain")]
+    public sealed class DomainArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Domain endpoint options. Documented below.
+        /// </summary>
+        [Input("endpointOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainEndpointOptionsArgs> _mEndpointOptions;
+
+        public Inputs.DomainEndpointOptionsArgs? EndpointOptions => _mEndpointOptions.GetValue("endpointOptions");
+
+        /// <summary>
+        /// The index fields for documents added to the domain. Documented below.
+        /// </summary>
+        [Input("indexFields")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainIndexFieldArgs>> _mIndexFields;
+
+        public List<Inputs.DomainIndexFieldArgs>? IndexFields => _mIndexFields.GetValue("indexFields");
+
+        /// <summary>
+        /// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
+        /// </summary>
+        [Input("multiAz")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+
+        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
+
+        /// <summary>
+        /// The name of the CloudSearch domain.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Domain scaling parameters. Documented below.
+        /// </summary>
+        [Input("scalingParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainScalingParametersArgs> _mScalingParameters;
+
+        public Inputs.DomainScalingParametersArgs? ScalingParameters => _mScalingParameters.GetValue("scalingParameters");
     }
 }

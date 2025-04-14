@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsmContacts
 {
     [PolicyResourceType("aws:ssmcontacts/contactChannel:ContactChannel")]
-    public sealed class ContactChannel : global::Pulumi.PolicyResource
+    public sealed class ContactChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
         /// </summary>
         [Input("activationStatus")]
-        public string? ActivationStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActivationStatus;
+
+        public string? ActivationStatus => _mActivationStatus.GetValue("activationStatus");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the contact channel.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         /// </summary>
         [Input("contactId")]
-        public string? ContactId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
+
+        public string? ContactId => _mContactId.GetValue("contactId");
 
         /// <summary>
         /// Block that contains contact engagement details. See details below.
         /// </summary>
         [Input("deliveryAddress")]
-        public ContactChannelDeliveryAddress? DeliveryAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ContactChannelDeliveryAddress> _mDeliveryAddress;
+
+        public Outputs.ContactChannelDeliveryAddress? DeliveryAddress => _mDeliveryAddress.GetValue("deliveryAddress");
 
         /// <summary>
         /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:ssmcontacts/contactChannel:ContactChannel")]
+    public sealed class ContactChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+        /// </summary>
+        [Input("contactId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
+
+        public string? ContactId => _mContactId.GetValue("contactId");
+
+        /// <summary>
+        /// Block that contains contact engagement details. See details below.
+        /// </summary>
+        [Input("deliveryAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ContactChannelDeliveryAddressArgs> _mDeliveryAddress;
+
+        public Inputs.ContactChannelDeliveryAddressArgs? DeliveryAddress => _mDeliveryAddress.GetValue("deliveryAddress");
+
+        /// <summary>
+        /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

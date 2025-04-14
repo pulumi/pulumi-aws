@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/endpoint:Endpoint")]
-    public sealed class Endpoint : global::Pulumi.PolicyResource
+    public sealed class Endpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         /// </summary>
         [Input("deploymentConfig")]
-        public EndpointDeploymentConfig? DeploymentConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointDeploymentConfig> _mDeploymentConfig;
+
+        public Outputs.EndpointDeploymentConfig? DeploymentConfig => _mDeploymentConfig.GetValue("deploymentConfig");
 
         /// <summary>
         /// The name of the endpoint configuration to use.
         /// </summary>
         [Input("endpointConfigName")]
-        public string? EndpointConfigName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointConfigName;
+
+        public string? EndpointConfigName => _mEndpointConfigName.GetValue("endpointConfigName");
 
         /// <summary>
         /// The name of the endpoint. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/endpoint:Endpoint")]
+    public sealed class EndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+        /// </summary>
+        [Input("deploymentConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointDeploymentConfigArgs> _mDeploymentConfig;
+
+        public Inputs.EndpointDeploymentConfigArgs? DeploymentConfig => _mDeploymentConfig.GetValue("deploymentConfig");
+
+        /// <summary>
+        /// The name of the endpoint configuration to use.
+        /// </summary>
+        [Input("endpointConfigName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointConfigName;
+
+        public string? EndpointConfigName => _mEndpointConfigName.GetValue("endpointConfigName");
+
+        /// <summary>
+        /// The name of the endpoint. If omitted, the provider will assign a random, unique name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

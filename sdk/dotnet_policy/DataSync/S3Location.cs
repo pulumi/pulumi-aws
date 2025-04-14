@@ -11,57 +11,142 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataSync
 {
     [PolicyResourceType("aws:datasync/s3Location:S3Location")]
-    public sealed class S3Location : global::Pulumi.PolicyResource
+    public sealed class S3Location : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         /// </summary>
         [Input("agentArns")]
-        public List<string>? AgentArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
+
+        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         /// </summary>
         [Input("s3BucketArn")]
-        public string? S3BucketArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketArn;
+
+        public string? S3BucketArn => _mS3BucketArn.GetValue("s3BucketArn");
 
         /// <summary>
         /// Configuration block containing information for connecting to S3.
         /// </summary>
         [Input("s3Config")]
-        public S3LocationS3Config? S3Config;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.S3LocationS3Config> _mS3Config;
+
+        public Outputs.S3LocationS3Config? S3Config => _mS3Config.GetValue("s3Config");
 
         /// <summary>
         /// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         /// </summary>
         [Input("s3StorageClass")]
-        public string? S3StorageClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3StorageClass;
+
+        public string? S3StorageClass => _mS3StorageClass.GetValue("s3StorageClass");
 
         /// <summary>
         /// Prefix to perform actions as source or destination.
         /// </summary>
         [Input("subdirectory")]
-        public string? Subdirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("uri")]
-        public string? Uri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
+
+        public string? Uri => _mUri.GetValue("uri");
+    }
+
+    [PolicyResourceType("aws:datasync/s3Location:S3Location")]
+    public sealed class S3LocationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+        /// </summary>
+        [Input("agentArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
+
+        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+        /// </summary>
+        [Input("s3BucketArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketArn;
+
+        public string? S3BucketArn => _mS3BucketArn.GetValue("s3BucketArn");
+
+        /// <summary>
+        /// Configuration block containing information for connecting to S3.
+        /// </summary>
+        [Input("s3Config")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.S3LocationS3ConfigArgs> _mS3Config;
+
+        public Inputs.S3LocationS3ConfigArgs? S3Config => _mS3Config.GetValue("s3Config");
+
+        /// <summary>
+        /// Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
+        /// </summary>
+        [Input("s3StorageClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3StorageClass;
+
+        public string? S3StorageClass => _mS3StorageClass.GetValue("s3StorageClass");
+
+        /// <summary>
+        /// Prefix to perform actions as source or destination.
+        /// </summary>
+        [Input("subdirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

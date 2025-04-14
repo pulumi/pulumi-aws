@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sqs
 {
     [PolicyResourceType("aws:sqs/redrivePolicy:RedrivePolicy")]
-    public sealed class RedrivePolicy : global::Pulumi.PolicyResource
+    public sealed class RedrivePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The URL of the SQS Queue to which to attach the policy
         /// </summary>
         [Input("queueUrl")]
-        public string? QueueUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
+
+        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
 
         /// <summary>
         /// The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         /// </summary>
         [Input("redrivePolicy")]
-        public string? RedrivePolicyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedrivePolicyName;
+
+        public string? RedrivePolicyName => _mRedrivePolicyName.GetValue("redrivePolicy");
+    }
+
+    [PolicyResourceType("aws:sqs/redrivePolicy:RedrivePolicy")]
+    public sealed class RedrivePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The URL of the SQS Queue to which to attach the policy
+        /// </summary>
+        [Input("queueUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
+
+        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+
+        /// <summary>
+        /// The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+        /// </summary>
+        [Input("redrivePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedrivePolicyName;
+
+        public string? RedrivePolicyName => _mRedrivePolicyName.GetValue("redrivePolicy");
     }
 }

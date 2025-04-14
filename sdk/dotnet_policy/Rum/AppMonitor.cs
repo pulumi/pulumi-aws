@@ -11,66 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rum
 {
     [PolicyResourceType("aws:rum/appMonitor:AppMonitor")]
-    public sealed class AppMonitor : global::Pulumi.PolicyResource
+    public sealed class AppMonitor : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// configuration data for the app monitor. See app_monitor_configuration below.
         /// </summary>
         [Input("appMonitorConfiguration")]
-        public AppMonitorAppMonitorConfiguration? AppMonitorConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppMonitorAppMonitorConfiguration> _mAppMonitorConfiguration;
+
+        public Outputs.AppMonitorAppMonitorConfiguration? AppMonitorConfiguration => _mAppMonitorConfiguration.GetValue("appMonitorConfiguration");
 
         /// <summary>
         /// The unique ID of the app monitor. Useful for JS templates.
         /// </summary>
         [Input("appMonitorId")]
-        public string? AppMonitorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppMonitorId;
+
+        public string? AppMonitorId => _mAppMonitorId.GetValue("appMonitorId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the app monitor.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
         /// </summary>
         [Input("customEvents")]
-        public AppMonitorCustomEvents? CustomEvents;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppMonitorCustomEvents> _mCustomEvents;
+
+        public Outputs.AppMonitorCustomEvents? CustomEvents => _mCustomEvents.GetValue("customEvents");
 
         /// <summary>
         /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
         /// </summary>
         [Input("cwLogEnabled")]
-        public bool? CwLogEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCwLogEnabled;
+
+        public bool? CwLogEnabled => _mCwLogEnabled.GetValue("cwLogEnabled");
 
         /// <summary>
         /// The name of the log group where the copies are stored.
         /// </summary>
         [Input("cwLogGroup")]
-        public string? CwLogGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCwLogGroup;
+
+        public string? CwLogGroup => _mCwLogGroup.GetValue("cwLogGroup");
 
         /// <summary>
         /// The top-level internet domain name for which your application has administrative authority.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// The name of the log stream.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:rum/appMonitor:AppMonitor")]
+    public sealed class AppMonitorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// configuration data for the app monitor. See app_monitor_configuration below.
+        /// </summary>
+        [Input("appMonitorConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppMonitorAppMonitorConfigurationArgs> _mAppMonitorConfiguration;
+
+        public Inputs.AppMonitorAppMonitorConfigurationArgs? AppMonitorConfiguration => _mAppMonitorConfiguration.GetValue("appMonitorConfiguration");
+
+        /// <summary>
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+        /// </summary>
+        [Input("customEvents")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppMonitorCustomEventsArgs> _mCustomEvents;
+
+        public Inputs.AppMonitorCustomEventsArgs? CustomEvents => _mCustomEvents.GetValue("customEvents");
+
+        /// <summary>
+        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
+        /// </summary>
+        [Input("cwLogEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCwLogEnabled;
+
+        public bool? CwLogEnabled => _mCwLogEnabled.GetValue("cwLogEnabled");
+
+        /// <summary>
+        /// The top-level internet domain name for which your application has administrative authority.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// The name of the log stream.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

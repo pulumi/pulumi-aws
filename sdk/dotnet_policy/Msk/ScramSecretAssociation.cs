@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Msk
 {
     [PolicyResourceType("aws:msk/scramSecretAssociation:ScramSecretAssociation")]
-    public sealed class ScramSecretAssociation : global::Pulumi.PolicyResource
+    public sealed class ScramSecretAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
         /// </summary>
         [Input("clusterArn")]
-        public string? ClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
 
         /// <summary>
         /// List of AWS Secrets Manager secret ARNs.
         /// </summary>
         [Input("secretArnLists")]
-        public List<string>? SecretArnLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecretArnLists;
+
+        public List<string>? SecretArnLists => _mSecretArnLists.GetValue("secretArnLists");
+    }
+
+    [PolicyResourceType("aws:msk/scramSecretAssociation:ScramSecretAssociation")]
+    public sealed class ScramSecretAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
+        [Input("clusterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+
+        /// <summary>
+        /// List of AWS Secrets Manager secret ARNs.
+        /// </summary>
+        [Input("secretArnLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecretArnLists;
+
+        public List<string>? SecretArnLists => _mSecretArnLists.GetValue("secretArnLists");
     }
 }

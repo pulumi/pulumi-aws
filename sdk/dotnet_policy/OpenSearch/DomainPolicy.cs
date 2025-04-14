@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
-    public sealed class DomainPolicy : global::Pulumi.PolicyResource
+    public sealed class DomainPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// IAM policy document specifying the access policies for the domain
         /// </summary>
         [Input("accessPolicies")]
-        public string? AccessPolicies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicies;
+
+        public string? AccessPolicies => _mAccessPolicies.GetValue("accessPolicies");
 
         /// <summary>
         /// Name of the domain.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+    }
+
+    [PolicyResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
+    public sealed class DomainPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// IAM policy document specifying the access policies for the domain
+        /// </summary>
+        [Input("accessPolicies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicies;
+
+        public string? AccessPolicies => _mAccessPolicies.GetValue("accessPolicies");
+
+        /// <summary>
+        /// Name of the domain.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
     }
 }

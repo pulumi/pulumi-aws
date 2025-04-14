@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey")]
-    public sealed class KeyvaluestoreKey : global::Pulumi.PolicyResource
+    public sealed class KeyvaluestoreKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Key to put.
         /// </summary>
         [Input("key")]
-        public string? Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
         [Input("keyValueStoreArn")]
-        public string? KeyValueStoreArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyValueStoreArn;
+
+        public string? KeyValueStoreArn => _mKeyValueStoreArn.GetValue("keyValueStoreArn");
 
         /// <summary>
         /// Total size of the Key Value Store in bytes.
         /// </summary>
         [Input("totalSizeInBytes")]
-        public int? TotalSizeInBytes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTotalSizeInBytes;
+
+        public int? TotalSizeInBytes => _mTotalSizeInBytes.GetValue("totalSizeInBytes");
 
         /// <summary>
         /// Value to put.
         /// </summary>
         [Input("value")]
-        public string? Value;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
+
+        public string? Value => _mValue.GetValue("value");
+    }
+
+    [PolicyResourceType("aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey")]
+    public sealed class KeyvaluestoreKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Key to put.
+        /// </summary>
+        [Input("key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Key Value Store.
+        /// </summary>
+        [Input("keyValueStoreArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyValueStoreArn;
+
+        public string? KeyValueStoreArn => _mKeyValueStoreArn.GetValue("keyValueStoreArn");
+
+        /// <summary>
+        /// Value to put.
+        /// </summary>
+        [Input("value")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
+
+        public string? Value => _mValue.GetValue("value");
     }
 }

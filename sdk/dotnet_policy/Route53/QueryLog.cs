@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/queryLog:QueryLog")]
-    public sealed class QueryLog : global::Pulumi.PolicyResource
+    public sealed class QueryLog : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Query Logging Config.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// CloudWatch log group ARN to send query logs.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
-        public string? CloudwatchLogGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
+
+        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
 
         /// <summary>
         /// Route53 hosted zone ID to enable query logs.
         /// </summary>
         [Input("zoneId")]
-        public string? ZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
+
+        public string? ZoneId => _mZoneId.GetValue("zoneId");
+    }
+
+    [PolicyResourceType("aws:route53/queryLog:QueryLog")]
+    public sealed class QueryLogArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// CloudWatch log group ARN to send query logs.
+        /// </summary>
+        [Input("cloudwatchLogGroupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
+
+        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+
+        /// <summary>
+        /// Route53 hosted zone ID to enable query logs.
+        /// </summary>
+        [Input("zoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
+
+        public string? ZoneId => _mZoneId.GetValue("zoneId");
     }
 }

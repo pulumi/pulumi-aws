@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Shield
 {
     [PolicyResourceType("aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")]
-    public sealed class ProtectionHealthCheckAssociation : global::Pulumi.PolicyResource
+    public sealed class ProtectionHealthCheckAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         /// </summary>
         [Input("healthCheckArn")]
-        public string? HealthCheckArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckArn;
+
+        public string? HealthCheckArn => _mHealthCheckArn.GetValue("healthCheckArn");
 
         /// <summary>
         /// The ID of the protected resource.
         /// </summary>
         [Input("shieldProtectionId")]
-        public string? ShieldProtectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShieldProtectionId;
+
+        public string? ShieldProtectionId => _mShieldProtectionId.GetValue("shieldProtectionId");
+    }
+
+    [PolicyResourceType("aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")]
+    public sealed class ProtectionHealthCheckAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+        /// </summary>
+        [Input("healthCheckArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckArn;
+
+        public string? HealthCheckArn => _mHealthCheckArn.GetValue("healthCheckArn");
+
+        /// <summary>
+        /// The ID of the protected resource.
+        /// </summary>
+        [Input("shieldProtectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShieldProtectionId;
+
+        public string? ShieldProtectionId => _mShieldProtectionId.GetValue("shieldProtectionId");
     }
 }

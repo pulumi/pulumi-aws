@@ -11,241 +11,358 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpsWorks
 {
     [PolicyResourceType("aws:opsworks/instance:Instance")]
-    public sealed class Instance : global::Pulumi.PolicyResource
+    public sealed class Instance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// OpsWorks agent to install. Default is `INHERIT`.
         /// </summary>
         [Input("agentVersion")]
-        public string? AgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
 
         /// <summary>
         /// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
         /// </summary>
         [Input("amiId")]
-        public string? AmiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmiId;
+
+        public string? AmiId => _mAmiId.GetValue("amiId");
 
         /// <summary>
         /// Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
         /// </summary>
         [Input("architecture")]
-        public string? Architecture;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
+
+        public string? Architecture => _mArchitecture.GetValue("architecture");
 
         /// <summary>
         /// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
         /// </summary>
         [Input("autoScalingType")]
-        public string? AutoScalingType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingType;
+
+        public string? AutoScalingType => _mAutoScalingType.GetValue("autoScalingType");
 
         /// <summary>
         /// Name of the availability zone where instances will be created by default.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// Time that the instance was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Whether to delete EBS volume on deletion. Default is `true`.
         /// </summary>
         [Input("deleteEbs")]
-        public bool? DeleteEbs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteEbs;
+
+        public bool? DeleteEbs => _mDeleteEbs.GetValue("deleteEbs");
 
         /// <summary>
         /// Whether to delete the Elastic IP on deletion.
         /// </summary>
         [Input("deleteEip")]
-        public bool? DeleteEip;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteEip;
+
+        public bool? DeleteEip => _mDeleteEip.GetValue("deleteEip");
 
         /// <summary>
         /// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
         /// </summary>
         [Input("ebsBlockDevices")]
-        public List<InstanceEbsBlockDevice>? EbsBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceEbsBlockDevice>> _mEbsBlockDevices;
+
+        public List<Outputs.InstanceEbsBlockDevice>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
 
         /// <summary>
         /// Whether the launched EC2 instance will be EBS-optimized.
         /// </summary>
         [Input("ebsOptimized")]
-        public bool? EbsOptimized;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
 
         /// <summary>
         /// EC2 instance ID.
         /// </summary>
         [Input("ec2InstanceId")]
-        public string? Ec2InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEc2InstanceId;
+
+        public string? Ec2InstanceId => _mEc2InstanceId.GetValue("ec2InstanceId");
 
         /// <summary>
         /// ECS cluster's ARN for container instances.
         /// </summary>
         [Input("ecsClusterArn")]
-        public string? EcsClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEcsClusterArn;
+
+        public string? EcsClusterArn => _mEcsClusterArn.GetValue("ecsClusterArn");
 
         /// <summary>
         /// Instance Elastic IP address.
         /// </summary>
         [Input("elasticIp")]
-        public string? ElasticIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mElasticIp;
+
+        public string? ElasticIp => _mElasticIp.GetValue("elasticIp");
 
         /// <summary>
         /// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
         /// </summary>
         [Input("ephemeralBlockDevices")]
-        public List<InstanceEphemeralBlockDevice>? EphemeralBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceEphemeralBlockDevice>> _mEphemeralBlockDevices;
+
+        public List<Outputs.InstanceEphemeralBlockDevice>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
 
         /// <summary>
         /// Instance's host name.
         /// </summary>
         [Input("hostname")]
-        public string? Hostname;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostname;
+
+        public string? Hostname => _mHostname.GetValue("hostname");
 
         /// <summary>
         /// For registered instances, infrastructure class: ec2 or on-premises.
         /// </summary>
         [Input("infrastructureClass")]
-        public string? InfrastructureClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureClass;
+
+        public string? InfrastructureClass => _mInfrastructureClass.GetValue("infrastructureClass");
 
         /// <summary>
         /// Controls where to install OS and package updates when the instance boots.  Default is `true`.
         /// </summary>
         [Input("installUpdatesOnBoot")]
-        public bool? InstallUpdatesOnBoot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInstallUpdatesOnBoot;
+
+        public bool? InstallUpdatesOnBoot => _mInstallUpdatesOnBoot.GetValue("installUpdatesOnBoot");
 
         /// <summary>
         /// ARN of the instance's IAM profile.
         /// </summary>
         [Input("instanceProfileArn")]
-        public string? InstanceProfileArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfileArn;
+
+        public string? InstanceProfileArn => _mInstanceProfileArn.GetValue("instanceProfileArn");
 
         /// <summary>
         /// Type of instance to start.
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// ID of the last service error.
         /// </summary>
         [Input("lastServiceErrorId")]
-        public string? LastServiceErrorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastServiceErrorId;
+
+        public string? LastServiceErrorId => _mLastServiceErrorId.GetValue("lastServiceErrorId");
 
         /// <summary>
         /// List of the layers the instance will belong to.
         /// </summary>
         [Input("layerIds")]
-        public List<string>? LayerIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLayerIds;
+
+        public List<string>? LayerIds => _mLayerIds.GetValue("layerIds");
 
         /// <summary>
         /// Name of operating system that will be installed.
         /// </summary>
         [Input("os")]
-        public string? Os;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOs;
+
+        public string? Os => _mOs.GetValue("os");
 
         /// <summary>
         /// Instance's platform.
         /// </summary>
         [Input("platform")]
-        public string? Platform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
 
         /// <summary>
         /// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
         [Input("privateDns")]
-        public string? PrivateDns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDns;
+
+        public string? PrivateDns => _mPrivateDns.GetValue("privateDns");
 
         /// <summary>
         /// Private IP address assigned to the instance.
         /// </summary>
         [Input("privateIp")]
-        public string? PrivateIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
+
+        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
 
         /// <summary>
         /// Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
         [Input("publicDns")]
-        public string? PublicDns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDns;
+
+        public string? PublicDns => _mPublicDns.GetValue("publicDns");
 
         /// <summary>
         /// Public IP address assigned to the instance, if applicable.
         /// </summary>
         [Input("publicIp")]
-        public string? PublicIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
+
+        public string? PublicIp => _mPublicIp.GetValue("publicIp");
 
         /// <summary>
         /// For registered instances, who performed the registration.
         /// </summary>
         [Input("registeredBy")]
-        public string? RegisteredBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegisteredBy;
+
+        public string? RegisteredBy => _mRegisteredBy.GetValue("registeredBy");
 
         /// <summary>
         /// Instance's reported AWS OpsWorks Stacks agent version.
         /// </summary>
         [Input("reportedAgentVersion")]
-        public string? ReportedAgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReportedAgentVersion;
+
+        public string? ReportedAgentVersion => _mReportedAgentVersion.GetValue("reportedAgentVersion");
 
         /// <summary>
         /// For registered instances, the reported operating system family.
         /// </summary>
         [Input("reportedOsFamily")]
-        public string? ReportedOsFamily;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReportedOsFamily;
+
+        public string? ReportedOsFamily => _mReportedOsFamily.GetValue("reportedOsFamily");
 
         /// <summary>
         /// For registered instances, the reported operating system name.
         /// </summary>
         [Input("reportedOsName")]
-        public string? ReportedOsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReportedOsName;
+
+        public string? ReportedOsName => _mReportedOsName.GetValue("reportedOsName");
 
         /// <summary>
         /// For registered instances, the reported operating system version.
         /// </summary>
         [Input("reportedOsVersion")]
-        public string? ReportedOsVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReportedOsVersion;
+
+        public string? ReportedOsVersion => _mReportedOsVersion.GetValue("reportedOsVersion");
 
         /// <summary>
         /// Configuration block for the root block device of the instance. See Block Devices below.
         /// </summary>
         [Input("rootBlockDevices")]
-        public List<InstanceRootBlockDevice>? RootBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceRootBlockDevice>> _mRootBlockDevices;
+
+        public List<Outputs.InstanceRootBlockDevice>? RootBlockDevices => _mRootBlockDevices.GetValue("rootBlockDevices");
 
         /// <summary>
         /// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
         /// </summary>
         [Input("rootDeviceType")]
-        public string? RootDeviceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceType;
+
+        public string? RootDeviceType => _mRootDeviceType.GetValue("rootDeviceType");
 
         /// <summary>
         /// Root device volume ID.
         /// </summary>
         [Input("rootDeviceVolumeId")]
-        public string? RootDeviceVolumeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceVolumeId;
+
+        public string? RootDeviceVolumeId => _mRootDeviceVolumeId.GetValue("rootDeviceVolumeId");
 
         /// <summary>
         /// Associated security groups.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// SSH key's Deep Security Agent (DSA) fingerprint.
         /// </summary>
         [Input("sshHostDsaKeyFingerprint")]
-        public string? SshHostDsaKeyFingerprint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSshHostDsaKeyFingerprint;
+
+        public string? SshHostDsaKeyFingerprint => _mSshHostDsaKeyFingerprint.GetValue("sshHostDsaKeyFingerprint");
 
         /// <summary>
         /// SSH key's RSA fingerprint.
         /// </summary>
         [Input("sshHostRsaKeyFingerprint")]
-        public string? SshHostRsaKeyFingerprint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSshHostRsaKeyFingerprint;
+
+        public string? SshHostRsaKeyFingerprint => _mSshHostRsaKeyFingerprint.GetValue("sshHostRsaKeyFingerprint");
 
         /// <summary>
         /// Name of the SSH keypair that instances will have by default.
         /// </summary>
         [Input("sshKeyName")]
-        public string? SshKeyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSshKeyName;
+
+        public string? SshKeyName => _mSshKeyName.GetValue("sshKeyName");
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
@@ -253,36 +370,330 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// The following arguments are optional:
         /// </summary>
         [Input("stackId")]
-        public string? StackId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
 
         /// <summary>
         /// Desired state of the instance. Valid values are `running` or `stopped`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
         /// </summary>
         [Input("tenancy")]
-        public string? Tenancy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
+
+        public string? Tenancy => _mTenancy.GetValue("tenancy");
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
         /// </summary>
         [Input("virtualizationType")]
-        public string? VirtualizationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualizationType;
+
+        public string? VirtualizationType => _mVirtualizationType.GetValue("virtualizationType");
+    }
+
+    [PolicyResourceType("aws:opsworks/instance:Instance")]
+    public sealed class InstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// OpsWorks agent to install. Default is `INHERIT`.
+        /// </summary>
+        [Input("agentVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+
+        /// <summary>
+        /// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
+        /// </summary>
+        [Input("amiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmiId;
+
+        public string? AmiId => _mAmiId.GetValue("amiId");
+
+        /// <summary>
+        /// Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
+        /// </summary>
+        [Input("architecture")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
+
+        public string? Architecture => _mArchitecture.GetValue("architecture");
+
+        /// <summary>
+        /// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
+        /// </summary>
+        [Input("autoScalingType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingType;
+
+        public string? AutoScalingType => _mAutoScalingType.GetValue("autoScalingType");
+
+        /// <summary>
+        /// Name of the availability zone where instances will be created by default.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// Time that the instance was created.
+        /// </summary>
+        [Input("createdAt")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+
+        /// <summary>
+        /// Whether to delete EBS volume on deletion. Default is `true`.
+        /// </summary>
+        [Input("deleteEbs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteEbs;
+
+        public bool? DeleteEbs => _mDeleteEbs.GetValue("deleteEbs");
+
+        /// <summary>
+        /// Whether to delete the Elastic IP on deletion.
+        /// </summary>
+        [Input("deleteEip")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteEip;
+
+        public bool? DeleteEip => _mDeleteEip.GetValue("deleteEip");
+
+        /// <summary>
+        /// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
+        /// </summary>
+        [Input("ebsBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceEbsBlockDeviceArgs>> _mEbsBlockDevices;
+
+        public List<Inputs.InstanceEbsBlockDeviceArgs>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+
+        /// <summary>
+        /// Whether the launched EC2 instance will be EBS-optimized.
+        /// </summary>
+        [Input("ebsOptimized")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+
+        /// <summary>
+        /// ECS cluster's ARN for container instances.
+        /// </summary>
+        [Input("ecsClusterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEcsClusterArn;
+
+        public string? EcsClusterArn => _mEcsClusterArn.GetValue("ecsClusterArn");
+
+        /// <summary>
+        /// Instance Elastic IP address.
+        /// </summary>
+        [Input("elasticIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mElasticIp;
+
+        public string? ElasticIp => _mElasticIp.GetValue("elasticIp");
+
+        /// <summary>
+        /// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
+        /// </summary>
+        [Input("ephemeralBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceEphemeralBlockDeviceArgs>> _mEphemeralBlockDevices;
+
+        public List<Inputs.InstanceEphemeralBlockDeviceArgs>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+
+        /// <summary>
+        /// Instance's host name.
+        /// </summary>
+        [Input("hostname")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostname;
+
+        public string? Hostname => _mHostname.GetValue("hostname");
+
+        /// <summary>
+        /// For registered instances, infrastructure class: ec2 or on-premises.
+        /// </summary>
+        [Input("infrastructureClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureClass;
+
+        public string? InfrastructureClass => _mInfrastructureClass.GetValue("infrastructureClass");
+
+        /// <summary>
+        /// Controls where to install OS and package updates when the instance boots.  Default is `true`.
+        /// </summary>
+        [Input("installUpdatesOnBoot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInstallUpdatesOnBoot;
+
+        public bool? InstallUpdatesOnBoot => _mInstallUpdatesOnBoot.GetValue("installUpdatesOnBoot");
+
+        /// <summary>
+        /// ARN of the instance's IAM profile.
+        /// </summary>
+        [Input("instanceProfileArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfileArn;
+
+        public string? InstanceProfileArn => _mInstanceProfileArn.GetValue("instanceProfileArn");
+
+        /// <summary>
+        /// Type of instance to start.
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// List of the layers the instance will belong to.
+        /// </summary>
+        [Input("layerIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLayerIds;
+
+        public List<string>? LayerIds => _mLayerIds.GetValue("layerIds");
+
+        /// <summary>
+        /// Name of operating system that will be installed.
+        /// </summary>
+        [Input("os")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOs;
+
+        public string? Os => _mOs.GetValue("os");
+
+        /// <summary>
+        /// Configuration block for the root block device of the instance. See Block Devices below.
+        /// </summary>
+        [Input("rootBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceRootBlockDeviceArgs>> _mRootBlockDevices;
+
+        public List<Inputs.InstanceRootBlockDeviceArgs>? RootBlockDevices => _mRootBlockDevices.GetValue("rootBlockDevices");
+
+        /// <summary>
+        /// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
+        /// </summary>
+        [Input("rootDeviceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceType;
+
+        public string? RootDeviceType => _mRootDeviceType.GetValue("rootDeviceType");
+
+        /// <summary>
+        /// Associated security groups.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// Name of the SSH keypair that instances will have by default.
+        /// </summary>
+        [Input("sshKeyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSshKeyName;
+
+        public string? SshKeyName => _mSshKeyName.GetValue("sshKeyName");
+
+        /// <summary>
+        /// Identifier of the stack the instance will belong to.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("stackId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
+
+        /// <summary>
+        /// Desired state of the instance. Valid values are `running` or `stopped`.
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+
+        /// <summary>
+        /// Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// Subnet ID to attach to.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
+        /// </summary>
+        [Input("tenancy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
+
+        public string? Tenancy => _mTenancy.GetValue("tenancy");
+
+        /// <summary>
+        /// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
+        /// </summary>
+        [Input("virtualizationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualizationType;
+
+        public string? VirtualizationType => _mVirtualizationType.GetValue("virtualizationType");
     }
 }

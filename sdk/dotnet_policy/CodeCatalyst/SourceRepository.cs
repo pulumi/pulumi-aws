@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
 {
     [PolicyResourceType("aws:codecatalyst/sourceRepository:SourceRepository")]
-    public sealed class SourceRepository : global::Pulumi.PolicyResource
+    public sealed class SourceRepository : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The name of the project in the CodeCatalyst space.
@@ -31,12 +37,60 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
         /// The following arguments are optional:
         /// </summary>
         [Input("projectName")]
-        public string? ProjectName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
+
+        public string? ProjectName => _mProjectName.GetValue("projectName");
 
         /// <summary>
         /// The name of the CodeCatalyst space.
         /// </summary>
         [Input("spaceName")]
-        public string? SpaceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
+
+        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+    }
+
+    [PolicyResourceType("aws:codecatalyst/sourceRepository:SourceRepository")]
+    public sealed class SourceRepositoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name of the project in the CodeCatalyst space.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("projectName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
+
+        public string? ProjectName => _mProjectName.GetValue("projectName");
+
+        /// <summary>
+        /// The name of the CodeCatalyst space.
+        /// </summary>
+        [Input("spaceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
+
+        public string? SpaceName => _mSpaceName.GetValue("spaceName");
     }
 }

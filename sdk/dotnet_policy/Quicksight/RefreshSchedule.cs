@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/refreshSchedule:RefreshSchedule")]
-    public sealed class RefreshSchedule : global::Pulumi.PolicyResource
+    public sealed class RefreshSchedule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the refresh schedule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// The ID of the dataset.
         /// </summary>
         [Input("dataSetId")]
-        public string? DataSetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
+
+        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
 
         /// <summary>
         /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
@@ -37,12 +46,60 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("schedule")]
-        public RefreshScheduleSchedule? Schedule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RefreshScheduleSchedule> _mSchedule;
+
+        public Outputs.RefreshScheduleSchedule? Schedule => _mSchedule.GetValue("schedule");
 
         /// <summary>
         /// The ID of the refresh schedule.
         /// </summary>
         [Input("scheduleId")]
-        public string? ScheduleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleId;
+
+        public string? ScheduleId => _mScheduleId.GetValue("scheduleId");
+    }
+
+    [PolicyResourceType("aws:quicksight/refreshSchedule:RefreshSchedule")]
+    public sealed class RefreshScheduleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// The ID of the dataset.
+        /// </summary>
+        [Input("dataSetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
+
+        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+
+        /// <summary>
+        /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("schedule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RefreshScheduleScheduleArgs> _mSchedule;
+
+        public Inputs.RefreshScheduleScheduleArgs? Schedule => _mSchedule.GetValue("schedule");
+
+        /// <summary>
+        /// The ID of the refresh schedule.
+        /// </summary>
+        [Input("scheduleId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleId;
+
+        public string? ScheduleId => _mScheduleId.GetValue("scheduleId");
     }
 }

@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VpcLattice
 {
     [PolicyResourceType("aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation")]
-    public sealed class ServiceNetworkResourceAssociation : global::Pulumi.PolicyResource
+    public sealed class ServiceNetworkResourceAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Service Network Resource Association.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// DNS entry of the association in the service network.
         /// </summary>
         [Input("dnsEntries")]
-        public List<ServiceNetworkResourceAssociationDnsEntry>? DnsEntries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceNetworkResourceAssociationDnsEntry>> _mDnsEntries;
+
+        public List<Outputs.ServiceNetworkResourceAssociationDnsEntry>? DnsEntries => _mDnsEntries.GetValue("dnsEntries");
 
         /// <summary>
         /// Identifier of Resource Configuration to associate to the Service Network.
         /// </summary>
         [Input("resourceConfigurationIdentifier")]
-        public string? ResourceConfigurationIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationIdentifier;
+
+        public string? ResourceConfigurationIdentifier => _mResourceConfigurationIdentifier.GetValue("resourceConfigurationIdentifier");
 
         /// <summary>
         /// Identifier of the Service Network to associate the Resource to.
@@ -37,21 +46,72 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// The following arguments are optional:
         /// </summary>
         [Input("serviceNetworkIdentifier")]
-        public string? ServiceNetworkIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkIdentifier;
+
+        public string? ServiceNetworkIdentifier => _mServiceNetworkIdentifier.GetValue("serviceNetworkIdentifier");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ServiceNetworkResourceAssociationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceNetworkResourceAssociationTimeouts> _mTimeouts;
+
+        public Outputs.ServiceNetworkResourceAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation")]
+    public sealed class ServiceNetworkResourceAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of Resource Configuration to associate to the Service Network.
+        /// </summary>
+        [Input("resourceConfigurationIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationIdentifier;
+
+        public string? ResourceConfigurationIdentifier => _mResourceConfigurationIdentifier.GetValue("resourceConfigurationIdentifier");
+
+        /// <summary>
+        /// Identifier of the Service Network to associate the Resource to.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("serviceNetworkIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkIdentifier;
+
+        public string? ServiceNetworkIdentifier => _mServiceNetworkIdentifier.GetValue("serviceNetworkIdentifier");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceNetworkResourceAssociationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ServiceNetworkResourceAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

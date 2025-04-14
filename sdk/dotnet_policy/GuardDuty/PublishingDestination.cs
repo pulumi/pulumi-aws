@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GuardDuty
 {
     [PolicyResourceType("aws:guardduty/publishingDestination:PublishingDestination")]
-    public sealed class PublishingDestination : global::Pulumi.PolicyResource
+    public sealed class PublishingDestination : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         /// </summary>
         [Input("destinationArn")]
-        public string? DestinationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
 
         /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
@@ -25,18 +28,69 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Input("destinationType")]
-        public string? DestinationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationType;
+
+        public string? DestinationType => _mDestinationType.GetValue("destinationType");
 
         /// <summary>
         /// The detector ID of the GuardDuty.
         /// </summary>
         [Input("detectorId")]
-        public string? DetectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
 
         /// <summary>
         /// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+    }
+
+    [PolicyResourceType("aws:guardduty/publishingDestination:PublishingDestination")]
+    public sealed class PublishingDestinationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
+        /// </summary>
+        [Input("destinationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+
+        /// <summary>
+        /// Currently there is only "S3" available as destination type which is also the default value
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
+        /// </summary>
+        [Input("destinationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationType;
+
+        public string? DestinationType => _mDestinationType.GetValue("destinationType");
+
+        /// <summary>
+        /// The detector ID of the GuardDuty.
+        /// </summary>
+        [Input("detectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+
+        /// <summary>
+        /// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
     }
 }

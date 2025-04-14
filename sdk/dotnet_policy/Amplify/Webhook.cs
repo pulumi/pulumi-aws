@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Amplify
 {
     [PolicyResourceType("aws:amplify/webhook:Webhook")]
-    public sealed class Webhook : global::Pulumi.PolicyResource
+    public sealed class Webhook : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId")]
-        public string? AppId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
+
+        public string? AppId => _mAppId.GetValue("appId");
 
         /// <summary>
         /// ARN for the webhook.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name for a branch that is part of the Amplify app.
         /// </summary>
         [Input("branchName")]
-        public string? BranchName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
+
+        public string? BranchName => _mBranchName.GetValue("branchName");
 
         /// <summary>
         /// Description for a webhook.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// URL of the webhook.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
+    }
+
+    [PolicyResourceType("aws:amplify/webhook:Webhook")]
+    public sealed class WebhookArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
+        [Input("appId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
+
+        public string? AppId => _mAppId.GetValue("appId");
+
+        /// <summary>
+        /// Name for a branch that is part of the Amplify app.
+        /// </summary>
+        [Input("branchName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
+
+        public string? BranchName => _mBranchName.GetValue("branchName");
+
+        /// <summary>
+        /// Description for a webhook.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
     }
 }

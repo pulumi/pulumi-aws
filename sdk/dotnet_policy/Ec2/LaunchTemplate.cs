@@ -11,255 +11,721 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/launchTemplate:LaunchTemplate")]
-    public sealed class LaunchTemplate : global::Pulumi.PolicyResource
+    public sealed class LaunchTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the launch template.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
         /// See Block Devices below for details.
         /// </summary>
         [Input("blockDeviceMappings")]
-        public List<LaunchTemplateBlockDeviceMapping>? BlockDeviceMappings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateBlockDeviceMapping>> _mBlockDeviceMappings;
+
+        public List<Outputs.LaunchTemplateBlockDeviceMapping>? BlockDeviceMappings => _mBlockDeviceMappings.GetValue("blockDeviceMappings");
 
         /// <summary>
         /// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
         /// </summary>
         [Input("capacityReservationSpecification")]
-        public LaunchTemplateCapacityReservationSpecification? CapacityReservationSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateCapacityReservationSpecification> _mCapacityReservationSpecification;
+
+        public Outputs.LaunchTemplateCapacityReservationSpecification? CapacityReservationSpecification => _mCapacityReservationSpecification.GetValue("capacityReservationSpecification");
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
         [Input("cpuOptions")]
-        public LaunchTemplateCpuOptions? CpuOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateCpuOptions> _mCpuOptions;
+
+        public Outputs.LaunchTemplateCpuOptions? CpuOptions => _mCpuOptions.GetValue("cpuOptions");
 
         /// <summary>
         /// Customize the credit specification of the instance. See Credit
         /// Specification below for more details.
         /// </summary>
         [Input("creditSpecification")]
-        public LaunchTemplateCreditSpecification? CreditSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateCreditSpecification> _mCreditSpecification;
+
+        public Outputs.LaunchTemplateCreditSpecification? CreditSpecification => _mCreditSpecification.GetValue("creditSpecification");
 
         /// <summary>
         /// Default Version of the launch template.
         /// </summary>
         [Input("defaultVersion")]
-        public int? DefaultVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultVersion;
+
+        public int? DefaultVersion => _mDefaultVersion.GetValue("defaultVersion");
 
         /// <summary>
         /// Description of the launch template.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         /// </summary>
         [Input("disableApiStop")]
-        public bool? DisableApiStop;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiStop;
+
+        public bool? DisableApiStop => _mDisableApiStop.GetValue("disableApiStop");
 
         /// <summary>
         /// If `true`, enables [EC2 Instance
         /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
         [Input("disableApiTermination")]
-        public bool? DisableApiTermination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiTermination;
+
+        public bool? DisableApiTermination => _mDisableApiTermination.GetValue("disableApiTermination");
 
         /// <summary>
         /// If `true`, the launched EC2 instance will be EBS-optimized.
         /// </summary>
         [Input("ebsOptimized")]
-        public string? EbsOptimized;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEbsOptimized;
+
+        public string? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
 
         /// <summary>
         /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
         [Input("elasticGpuSpecifications")]
-        public List<LaunchTemplateElasticGpuSpecification>? ElasticGpuSpecifications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateElasticGpuSpecification>> _mElasticGpuSpecifications;
+
+        public List<Outputs.LaunchTemplateElasticGpuSpecification>? ElasticGpuSpecifications => _mElasticGpuSpecifications.GetValue("elasticGpuSpecifications");
 
         /// <summary>
         /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         /// </summary>
         [Input("elasticInferenceAccelerator")]
-        public LaunchTemplateElasticInferenceAccelerator? ElasticInferenceAccelerator;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateElasticInferenceAccelerator> _mElasticInferenceAccelerator;
+
+        public Outputs.LaunchTemplateElasticInferenceAccelerator? ElasticInferenceAccelerator => _mElasticInferenceAccelerator.GetValue("elasticInferenceAccelerator");
 
         /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         /// </summary>
         [Input("enclaveOptions")]
-        public LaunchTemplateEnclaveOptions? EnclaveOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateEnclaveOptions> _mEnclaveOptions;
+
+        public Outputs.LaunchTemplateEnclaveOptions? EnclaveOptions => _mEnclaveOptions.GetValue("enclaveOptions");
 
         /// <summary>
         /// The hibernation options for the instance. See Hibernation Options below for more details.
         /// </summary>
         [Input("hibernationOptions")]
-        public LaunchTemplateHibernationOptions? HibernationOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateHibernationOptions> _mHibernationOptions;
+
+        public Outputs.LaunchTemplateHibernationOptions? HibernationOptions => _mHibernationOptions.GetValue("hibernationOptions");
 
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
         /// below for more details.
         /// </summary>
         [Input("iamInstanceProfile")]
-        public LaunchTemplateIamInstanceProfile? IamInstanceProfile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateIamInstanceProfile> _mIamInstanceProfile;
+
+        public Outputs.LaunchTemplateIamInstanceProfile? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
 
         /// <summary>
         /// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         /// </summary>
         [Input("imageId")]
-        public string? ImageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
 
         /// <summary>
         /// Shutdown behavior for the instance. Can be `stop` or `terminate`.
         /// (Default: `stop`).
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
-        public string? InstanceInitiatedShutdownBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInitiatedShutdownBehavior;
+
+        public string? InstanceInitiatedShutdownBehavior => _mInstanceInitiatedShutdownBehavior.GetValue("instanceInitiatedShutdownBehavior");
 
         /// <summary>
         /// The market (purchasing) option for the instance. See Market Options
         /// below for details.
         /// </summary>
         [Input("instanceMarketOptions")]
-        public LaunchTemplateInstanceMarketOptions? InstanceMarketOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateInstanceMarketOptions> _mInstanceMarketOptions;
+
+        public Outputs.LaunchTemplateInstanceMarketOptions? InstanceMarketOptions => _mInstanceMarketOptions.GetValue("instanceMarketOptions");
 
         /// <summary>
         /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
         /// </summary>
         [Input("instanceRequirements")]
-        public LaunchTemplateInstanceRequirements? InstanceRequirements;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateInstanceRequirements> _mInstanceRequirements;
+
+        public Outputs.LaunchTemplateInstanceRequirements? InstanceRequirements => _mInstanceRequirements.GetValue("instanceRequirements");
 
         /// <summary>
         /// The type of the instance. If present then `instance_requirements` cannot be present.
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// The kernel ID.
         /// </summary>
         [Input("kernelId")]
-        public string? KernelId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKernelId;
+
+        public string? KernelId => _mKernelId.GetValue("kernelId");
 
         /// <summary>
         /// The key name to use for the instance.
         /// </summary>
         [Input("keyName")]
-        public string? KeyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
 
         /// <summary>
         /// The latest version of the launch template.
         /// </summary>
         [Input("latestVersion")]
-        public int? LatestVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLatestVersion;
+
+        public int? LatestVersion => _mLatestVersion.GetValue("latestVersion");
 
         /// <summary>
         /// A list of license specifications to associate with. See License Specification below for more details.
         /// </summary>
         [Input("licenseSpecifications")]
-        public List<LaunchTemplateLicenseSpecification>? LicenseSpecifications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateLicenseSpecification>> _mLicenseSpecifications;
+
+        public List<Outputs.LaunchTemplateLicenseSpecification>? LicenseSpecifications => _mLicenseSpecifications.GetValue("licenseSpecifications");
 
         /// <summary>
         /// The maintenance options for the instance. See Maintenance Options below for more details.
         /// </summary>
         [Input("maintenanceOptions")]
-        public LaunchTemplateMaintenanceOptions? MaintenanceOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateMaintenanceOptions> _mMaintenanceOptions;
+
+        public Outputs.LaunchTemplateMaintenanceOptions? MaintenanceOptions => _mMaintenanceOptions.GetValue("maintenanceOptions");
 
         /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
         /// </summary>
         [Input("metadataOptions")]
-        public LaunchTemplateMetadataOptions? MetadataOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateMetadataOptions> _mMetadataOptions;
+
+        public Outputs.LaunchTemplateMetadataOptions? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
 
         /// <summary>
         /// The monitoring option for the instance. See Monitoring below for more details.
         /// </summary>
         [Input("monitoring")]
-        public LaunchTemplateMonitoring? Monitoring;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateMonitoring> _mMonitoring;
+
+        public Outputs.LaunchTemplateMonitoring? Monitoring => _mMonitoring.GetValue("monitoring");
 
         /// <summary>
         /// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network
         /// Interfaces below for more details.
         /// </summary>
         [Input("networkInterfaces")]
-        public List<LaunchTemplateNetworkInterface>? NetworkInterfaces;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateNetworkInterface>> _mNetworkInterfaces;
+
+        public List<Outputs.LaunchTemplateNetworkInterface>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
 
         /// <summary>
         /// The placement of the instance. See Placement below for more details.
         /// </summary>
         [Input("placement")]
-        public LaunchTemplatePlacement? Placement;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplatePlacement> _mPlacement;
+
+        public Outputs.LaunchTemplatePlacement? Placement => _mPlacement.GetValue("placement");
 
         /// <summary>
         /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         /// </summary>
         [Input("privateDnsNameOptions")]
-        public LaunchTemplatePrivateDnsNameOptions? PrivateDnsNameOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplatePrivateDnsNameOptions> _mPrivateDnsNameOptions;
+
+        public Outputs.LaunchTemplatePrivateDnsNameOptions? PrivateDnsNameOptions => _mPrivateDnsNameOptions.GetValue("privateDnsNameOptions");
 
         /// <summary>
         /// The ID of the RAM disk.
         /// </summary>
         [Input("ramDiskId")]
-        public string? RamDiskId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRamDiskId;
+
+        public string? RamDiskId => _mRamDiskId.GetValue("ramDiskId");
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
         /// `vpc_security_group_ids` instead.
         /// </summary>
         [Input("securityGroupNames")]
-        public List<string>? SecurityGroupNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupNames;
+
+        public List<string>? SecurityGroupNames => _mSecurityGroupNames.GetValue("securityGroupNames");
 
         /// <summary>
         /// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         /// </summary>
         [Input("tagSpecifications")]
-        public List<LaunchTemplateTagSpecification>? TagSpecifications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateTagSpecification>> _mTagSpecifications;
+
+        public List<Outputs.LaunchTemplateTagSpecification>? TagSpecifications => _mTagSpecifications.GetValue("tagSpecifications");
 
         /// <summary>
         /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Whether to update Default Version each update. Conflicts with `default_version`.
         /// </summary>
         [Input("updateDefaultVersion")]
-        public bool? UpdateDefaultVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUpdateDefaultVersion;
+
+        public bool? UpdateDefaultVersion => _mUpdateDefaultVersion.GetValue("updateDefaultVersion");
 
         /// <summary>
         /// The base64-encoded user data to provide when launching the instance.
         /// </summary>
         [Input("userData")]
-        public string? UserData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+
+        public string? UserData => _mUserData.GetValue("userData");
 
         /// <summary>
         /// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+    }
+
+    [PolicyResourceType("aws:ec2/launchTemplate:LaunchTemplate")]
+    public sealed class LaunchTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
+        /// See Block Devices below for details.
+        /// </summary>
+        [Input("blockDeviceMappings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateBlockDeviceMappingArgs>> _mBlockDeviceMappings;
+
+        public List<Inputs.LaunchTemplateBlockDeviceMappingArgs>? BlockDeviceMappings => _mBlockDeviceMappings.GetValue("blockDeviceMappings");
+
+        /// <summary>
+        /// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
+        /// </summary>
+        [Input("capacityReservationSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateCapacityReservationSpecificationArgs> _mCapacityReservationSpecification;
+
+        public Inputs.LaunchTemplateCapacityReservationSpecificationArgs? CapacityReservationSpecification => _mCapacityReservationSpecification.GetValue("capacityReservationSpecification");
+
+        /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Input("cpuOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateCpuOptionsArgs> _mCpuOptions;
+
+        public Inputs.LaunchTemplateCpuOptionsArgs? CpuOptions => _mCpuOptions.GetValue("cpuOptions");
+
+        /// <summary>
+        /// Customize the credit specification of the instance. See Credit
+        /// Specification below for more details.
+        /// </summary>
+        [Input("creditSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateCreditSpecificationArgs> _mCreditSpecification;
+
+        public Inputs.LaunchTemplateCreditSpecificationArgs? CreditSpecification => _mCreditSpecification.GetValue("creditSpecification");
+
+        /// <summary>
+        /// Default Version of the launch template.
+        /// </summary>
+        [Input("defaultVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultVersion;
+
+        public int? DefaultVersion => _mDefaultVersion.GetValue("defaultVersion");
+
+        /// <summary>
+        /// Description of the launch template.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
+        /// </summary>
+        [Input("disableApiStop")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiStop;
+
+        public bool? DisableApiStop => _mDisableApiStop.GetValue("disableApiStop");
+
+        /// <summary>
+        /// If `true`, enables [EC2 Instance
+        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
+        /// </summary>
+        [Input("disableApiTermination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiTermination;
+
+        public bool? DisableApiTermination => _mDisableApiTermination.GetValue("disableApiTermination");
+
+        /// <summary>
+        /// If `true`, the launched EC2 instance will be EBS-optimized.
+        /// </summary>
+        [Input("ebsOptimized")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEbsOptimized;
+
+        public string? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+
+        /// <summary>
+        /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
+        /// below for more details.
+        /// </summary>
+        [Input("elasticGpuSpecifications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateElasticGpuSpecificationArgs>> _mElasticGpuSpecifications;
+
+        public List<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? ElasticGpuSpecifications => _mElasticGpuSpecifications.GetValue("elasticGpuSpecifications");
+
+        /// <summary>
+        /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
+        /// </summary>
+        [Input("elasticInferenceAccelerator")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs> _mElasticInferenceAccelerator;
+
+        public Inputs.LaunchTemplateElasticInferenceAcceleratorArgs? ElasticInferenceAccelerator => _mElasticInferenceAccelerator.GetValue("elasticInferenceAccelerator");
+
+        /// <summary>
+        /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        /// </summary>
+        [Input("enclaveOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateEnclaveOptionsArgs> _mEnclaveOptions;
+
+        public Inputs.LaunchTemplateEnclaveOptionsArgs? EnclaveOptions => _mEnclaveOptions.GetValue("enclaveOptions");
+
+        /// <summary>
+        /// The hibernation options for the instance. See Hibernation Options below for more details.
+        /// </summary>
+        [Input("hibernationOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateHibernationOptionsArgs> _mHibernationOptions;
+
+        public Inputs.LaunchTemplateHibernationOptionsArgs? HibernationOptions => _mHibernationOptions.GetValue("hibernationOptions");
+
+        /// <summary>
+        /// The IAM Instance Profile to launch the instance with. See Instance Profile
+        /// below for more details.
+        /// </summary>
+        [Input("iamInstanceProfile")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateIamInstanceProfileArgs> _mIamInstanceProfile;
+
+        public Inputs.LaunchTemplateIamInstanceProfileArgs? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
+
+        /// <summary>
+        /// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
+        /// </summary>
+        [Input("imageId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
+
+        /// <summary>
+        /// Shutdown behavior for the instance. Can be `stop` or `terminate`.
+        /// (Default: `stop`).
+        /// </summary>
+        [Input("instanceInitiatedShutdownBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInitiatedShutdownBehavior;
+
+        public string? InstanceInitiatedShutdownBehavior => _mInstanceInitiatedShutdownBehavior.GetValue("instanceInitiatedShutdownBehavior");
+
+        /// <summary>
+        /// The market (purchasing) option for the instance. See Market Options
+        /// below for details.
+        /// </summary>
+        [Input("instanceMarketOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateInstanceMarketOptionsArgs> _mInstanceMarketOptions;
+
+        public Inputs.LaunchTemplateInstanceMarketOptionsArgs? InstanceMarketOptions => _mInstanceMarketOptions.GetValue("instanceMarketOptions");
+
+        /// <summary>
+        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// </summary>
+        [Input("instanceRequirements")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateInstanceRequirementsArgs> _mInstanceRequirements;
+
+        public Inputs.LaunchTemplateInstanceRequirementsArgs? InstanceRequirements => _mInstanceRequirements.GetValue("instanceRequirements");
+
+        /// <summary>
+        /// The type of the instance. If present then `instance_requirements` cannot be present.
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// The kernel ID.
+        /// </summary>
+        [Input("kernelId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKernelId;
+
+        public string? KernelId => _mKernelId.GetValue("kernelId");
+
+        /// <summary>
+        /// The key name to use for the instance.
+        /// </summary>
+        [Input("keyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
+
+        /// <summary>
+        /// A list of license specifications to associate with. See License Specification below for more details.
+        /// </summary>
+        [Input("licenseSpecifications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateLicenseSpecificationArgs>> _mLicenseSpecifications;
+
+        public List<Inputs.LaunchTemplateLicenseSpecificationArgs>? LicenseSpecifications => _mLicenseSpecifications.GetValue("licenseSpecifications");
+
+        /// <summary>
+        /// The maintenance options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Input("maintenanceOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateMaintenanceOptionsArgs> _mMaintenanceOptions;
+
+        public Inputs.LaunchTemplateMaintenanceOptionsArgs? MaintenanceOptions => _mMaintenanceOptions.GetValue("maintenanceOptions");
+
+        /// <summary>
+        /// Customize the metadata options for the instance. See Metadata Options below for more details.
+        /// </summary>
+        [Input("metadataOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateMetadataOptionsArgs> _mMetadataOptions;
+
+        public Inputs.LaunchTemplateMetadataOptionsArgs? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
+
+        /// <summary>
+        /// The monitoring option for the instance. See Monitoring below for more details.
+        /// </summary>
+        [Input("monitoring")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateMonitoringArgs> _mMonitoring;
+
+        public Inputs.LaunchTemplateMonitoringArgs? Monitoring => _mMonitoring.GetValue("monitoring");
+
+        /// <summary>
+        /// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Customize network interfaces to be attached at instance boot time. See Network
+        /// Interfaces below for more details.
+        /// </summary>
+        [Input("networkInterfaces")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateNetworkInterfaceArgs>> _mNetworkInterfaces;
+
+        public List<Inputs.LaunchTemplateNetworkInterfaceArgs>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
+
+        /// <summary>
+        /// The placement of the instance. See Placement below for more details.
+        /// </summary>
+        [Input("placement")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplatePlacementArgs> _mPlacement;
+
+        public Inputs.LaunchTemplatePlacementArgs? Placement => _mPlacement.GetValue("placement");
+
+        /// <summary>
+        /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        /// </summary>
+        [Input("privateDnsNameOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplatePrivateDnsNameOptionsArgs> _mPrivateDnsNameOptions;
+
+        public Inputs.LaunchTemplatePrivateDnsNameOptionsArgs? PrivateDnsNameOptions => _mPrivateDnsNameOptions.GetValue("privateDnsNameOptions");
+
+        /// <summary>
+        /// The ID of the RAM disk.
+        /// </summary>
+        [Input("ramDiskId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRamDiskId;
+
+        public string? RamDiskId => _mRamDiskId.GetValue("ramDiskId");
+
+        /// <summary>
+        /// A list of security group names to associate with. If you are creating Instances in a VPC, use
+        /// `vpc_security_group_ids` instead.
+        /// </summary>
+        [Input("securityGroupNames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupNames;
+
+        public List<string>? SecurityGroupNames => _mSecurityGroupNames.GetValue("securityGroupNames");
+
+        /// <summary>
+        /// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
+        /// </summary>
+        [Input("tagSpecifications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateTagSpecificationArgs>> _mTagSpecifications;
+
+        public List<Inputs.LaunchTemplateTagSpecificationArgs>? TagSpecifications => _mTagSpecifications.GetValue("tagSpecifications");
+
+        /// <summary>
+        /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Whether to update Default Version each update. Conflicts with `default_version`.
+        /// </summary>
+        [Input("updateDefaultVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUpdateDefaultVersion;
+
+        public bool? UpdateDefaultVersion => _mUpdateDefaultVersion.GetValue("updateDefaultVersion");
+
+        /// <summary>
+        /// The base64-encoded user data to provide when launching the instance.
+        /// </summary>
+        [Input("userData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+
+        public string? UserData => _mUserData.GetValue("userData");
+
+        /// <summary>
+        /// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
     }
 }

@@ -11,94 +11,139 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MemoryDb
 {
     [PolicyResourceType("aws:memorydb/cluster:Cluster")]
-    public sealed class Cluster : global::Pulumi.PolicyResource
+    public sealed class Cluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
         /// </summary>
         [Input("aclName")]
-        public string? AclName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAclName;
+
+        public string? AclName => _mAclName.GetValue("aclName");
 
         /// <summary>
         /// The ARN of the cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
-        public bool? AutoMinorVersionUpgrade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
 
         [Input("clusterEndpoints")]
-        public List<ClusterClusterEndpoint>? ClusterEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterClusterEndpoint>> _mClusterEndpoints;
+
+        public List<Outputs.ClusterClusterEndpoint>? ClusterEndpoints => _mClusterEndpoints.GetValue("clusterEndpoints");
 
         /// <summary>
         /// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         /// </summary>
         [Input("dataTiering")]
-        public bool? DataTiering;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDataTiering;
+
+        public bool? DataTiering => _mDataTiering.GetValue("dataTiering");
 
         /// <summary>
         /// Description for the cluster. Defaults to `"Managed by Pulumi"`.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// Patch version number of the engine used by the cluster.
         /// </summary>
         [Input("enginePatchVersion")]
-        public string? EnginePatchVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnginePatchVersion;
+
+        public string? EnginePatchVersion => _mEnginePatchVersion.GetValue("enginePatchVersion");
 
         /// <summary>
         /// Version number of the engine to be used for the cluster. Downgrades are not supported.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Input("finalSnapshotName")]
-        public string? FinalSnapshotName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotName;
+
+        public string? FinalSnapshotName => _mFinalSnapshotName.GetValue("finalSnapshotName");
 
         /// <summary>
         /// ARN of the KMS key used to encrypt the cluster at rest.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         /// </summary>
         [Input("maintenanceWindow")]
-        public string? MaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
+
+        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
 
         /// <summary>
         /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
         /// </summary>
         [Input("multiRegionClusterName")]
-        public string? MultiRegionClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiRegionClusterName;
+
+        public string? MultiRegionClusterName => _mMultiRegionClusterName.GetValue("multiRegionClusterName");
 
         /// <summary>
         /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -106,96 +151,384 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb
         /// The following arguments are optional:
         /// </summary>
         [Input("nodeType")]
-        public string? NodeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
+
+        public string? NodeType => _mNodeType.GetValue("nodeType");
 
         /// <summary>
         /// The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         /// </summary>
         [Input("numReplicasPerShard")]
-        public int? NumReplicasPerShard;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumReplicasPerShard;
+
+        public int? NumReplicasPerShard => _mNumReplicasPerShard.GetValue("numReplicasPerShard");
 
         /// <summary>
         /// The number of shards in the cluster. Defaults to `1`.
         /// </summary>
         [Input("numShards")]
-        public int? NumShards;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumShards;
+
+        public int? NumShards => _mNumShards.GetValue("numShards");
 
         /// <summary>
         /// The name of the parameter group associated with the cluster.
         /// </summary>
         [Input("parameterGroupName")]
-        public string? ParameterGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
+
+        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
 
         /// <summary>
         /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// Set of VPC Security Group ID-s to associate with this cluster.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// Set of shards in this cluster.
         /// </summary>
         [Input("shards")]
-        public List<ClusterShard>? Shards;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterShard>> _mShards;
+
+        public List<Outputs.ClusterShard>? Shards => _mShards.GetValue("shards");
 
         /// <summary>
         /// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         /// </summary>
         [Input("snapshotArns")]
-        public List<string>? SnapshotArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnapshotArns;
+
+        public List<string>? SnapshotArns => _mSnapshotArns.GetValue("snapshotArns");
 
         /// <summary>
         /// The name of a snapshot from which to restore data into the new cluster.
         /// </summary>
         [Input("snapshotName")]
-        public string? SnapshotName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
+
+        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
 
         /// <summary>
         /// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
         /// </summary>
         [Input("snapshotRetentionLimit")]
-        public int? SnapshotRetentionLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
+
+        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
 
         /// <summary>
         /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
         /// </summary>
         [Input("snapshotWindow")]
-        public string? SnapshotWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotWindow;
+
+        public string? SnapshotWindow => _mSnapshotWindow.GetValue("snapshotWindow");
 
         /// <summary>
         /// ARN of the SNS topic to which cluster notifications are sent.
         /// </summary>
         [Input("snsTopicArn")]
-        public string? SnsTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
 
         /// <summary>
         /// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
         /// </summary>
         [Input("subnetGroupName")]
-        public string? SubnetGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
+
+        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         /// </summary>
         [Input("tlsEnabled")]
-        public bool? TlsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTlsEnabled;
+
+        public bool? TlsEnabled => _mTlsEnabled.GetValue("tlsEnabled");
+    }
+
+    [PolicyResourceType("aws:memorydb/cluster:Cluster")]
+    public sealed class ClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Access Control List to associate with the cluster.
+        /// </summary>
+        [Input("aclName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAclName;
+
+        public string? AclName => _mAclName.GetValue("aclName");
+
+        /// <summary>
+        /// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+
+        /// <summary>
+        /// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+        /// </summary>
+        [Input("dataTiering")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDataTiering;
+
+        public bool? DataTiering => _mDataTiering.GetValue("dataTiering");
+
+        /// <summary>
+        /// Description for the cluster. Defaults to `"Managed by Pulumi"`.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// Version number of the engine to be used for the cluster. Downgrades are not supported.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
+        /// </summary>
+        [Input("finalSnapshotName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotName;
+
+        public string? FinalSnapshotName => _mFinalSnapshotName.GetValue("finalSnapshotName");
+
+        /// <summary>
+        /// ARN of the KMS key used to encrypt the cluster at rest.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+
+        /// <summary>
+        /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
+
+        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+
+        /// <summary>
+        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        /// </summary>
+        [Input("multiRegionClusterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiRegionClusterName;
+
+        public string? MultiRegionClusterName => _mMultiRegionClusterName.GetValue("multiRegionClusterName");
+
+        /// <summary>
+        /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("nodeType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
+
+        public string? NodeType => _mNodeType.GetValue("nodeType");
+
+        /// <summary>
+        /// The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
+        /// </summary>
+        [Input("numReplicasPerShard")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumReplicasPerShard;
+
+        public int? NumReplicasPerShard => _mNumReplicasPerShard.GetValue("numReplicasPerShard");
+
+        /// <summary>
+        /// The number of shards in the cluster. Defaults to `1`.
+        /// </summary>
+        [Input("numShards")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumShards;
+
+        public int? NumShards => _mNumShards.GetValue("numShards");
+
+        /// <summary>
+        /// The name of the parameter group associated with the cluster.
+        /// </summary>
+        [Input("parameterGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
+
+        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+
+        /// <summary>
+        /// The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// Set of VPC Security Group ID-s to associate with this cluster.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
+        /// </summary>
+        [Input("snapshotArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnapshotArns;
+
+        public List<string>? SnapshotArns => _mSnapshotArns.GetValue("snapshotArns");
+
+        /// <summary>
+        /// The name of a snapshot from which to restore data into the new cluster.
+        /// </summary>
+        [Input("snapshotName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
+
+        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
+
+        /// <summary>
+        /// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
+        /// </summary>
+        [Input("snapshotRetentionLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
+
+        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
+
+        /// <summary>
+        /// The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
+        /// </summary>
+        [Input("snapshotWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotWindow;
+
+        public string? SnapshotWindow => _mSnapshotWindow.GetValue("snapshotWindow");
+
+        /// <summary>
+        /// ARN of the SNS topic to which cluster notifications are sent.
+        /// </summary>
+        [Input("snsTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+
+        /// <summary>
+        /// The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
+        /// </summary>
+        [Input("subnetGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
+
+        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
+        /// </summary>
+        [Input("tlsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTlsEnabled;
+
+        public bool? TlsEnabled => _mTlsEnabled.GetValue("tlsEnabled");
     }
 }

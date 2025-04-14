@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup")]
-    public sealed class AgentAgentActionGroup : global::Pulumi.PolicyResource
+    public sealed class AgentAgentActionGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
@@ -19,49 +19,73 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Input("actionGroupExecutor")]
-        public AgentAgentActionGroupActionGroupExecutor? ActionGroupExecutor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupActionGroupExecutor> _mActionGroupExecutor;
+
+        public Outputs.AgentAgentActionGroupActionGroupExecutor? ActionGroupExecutor => _mActionGroupExecutor.GetValue("actionGroupExecutor");
 
         /// <summary>
         /// Unique identifier of the action group.
         /// </summary>
         [Input("actionGroupId")]
-        public string? ActionGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupId;
+
+        public string? ActionGroupId => _mActionGroupId.GetValue("actionGroupId");
 
         /// <summary>
         /// Name of the action group.
         /// </summary>
         [Input("actionGroupName")]
-        public string? ActionGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupName;
+
+        public string? ActionGroupName => _mActionGroupName.GetValue("actionGroupName");
 
         /// <summary>
         /// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         [Input("actionGroupState")]
-        public string? ActionGroupState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupState;
+
+        public string? ActionGroupState => _mActionGroupState.GetValue("actionGroupState");
 
         /// <summary>
         /// The unique identifier of the agent for which to create the action group.
         /// </summary>
         [Input("agentId")]
-        public string? AgentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
 
         /// <summary>
         /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
         /// </summary>
         [Input("agentVersion")]
-        public string? AgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
 
         /// <summary>
         /// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
         /// </summary>
         [Input("apiSchema")]
-        public AgentAgentActionGroupApiSchema? ApiSchema;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupApiSchema> _mApiSchema;
+
+        public Outputs.AgentAgentActionGroupApiSchema? ApiSchema => _mApiSchema.GetValue("apiSchema");
 
         /// <summary>
         /// Description of the action group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Describes the function schema for the action group.
@@ -69,27 +93,155 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// See `function_schema` Block for details.
         /// </summary>
         [Input("functionSchema")]
-        public AgentAgentActionGroupFunctionSchema? FunctionSchema;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupFunctionSchema> _mFunctionSchema;
+
+        public Outputs.AgentAgentActionGroupFunctionSchema? FunctionSchema => _mFunctionSchema.GetValue("functionSchema");
 
         /// <summary>
         /// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         /// </summary>
         [Input("parentActionGroupSignature")]
-        public string? ParentActionGroupSignature;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentActionGroupSignature;
+
+        public string? ParentActionGroupSignature => _mParentActionGroupSignature.GetValue("parentActionGroupSignature");
 
         /// <summary>
         /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
         [Input("prepareAgent")]
-        public bool? PrepareAgent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
+
+        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
 
         /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.
         /// </summary>
         [Input("skipResourceInUseCheck")]
-        public bool? SkipResourceInUseCheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipResourceInUseCheck;
+
+        public bool? SkipResourceInUseCheck => _mSkipResourceInUseCheck.GetValue("skipResourceInUseCheck");
 
         [Input("timeouts")]
-        public AgentAgentActionGroupTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupTimeouts> _mTimeouts;
+
+        public Outputs.AgentAgentActionGroupTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup")]
+    public sealed class AgentAgentActionGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("actionGroupExecutor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupActionGroupExecutorArgs> _mActionGroupExecutor;
+
+        public Inputs.AgentAgentActionGroupActionGroupExecutorArgs? ActionGroupExecutor => _mActionGroupExecutor.GetValue("actionGroupExecutor");
+
+        /// <summary>
+        /// Name of the action group.
+        /// </summary>
+        [Input("actionGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupName;
+
+        public string? ActionGroupName => _mActionGroupName.GetValue("actionGroupName");
+
+        /// <summary>
+        /// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
+        [Input("actionGroupState")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupState;
+
+        public string? ActionGroupState => _mActionGroupState.GetValue("actionGroupState");
+
+        /// <summary>
+        /// The unique identifier of the agent for which to create the action group.
+        /// </summary>
+        [Input("agentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
+
+        /// <summary>
+        /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
+        /// </summary>
+        [Input("agentVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+
+        /// <summary>
+        /// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
+        /// </summary>
+        [Input("apiSchema")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupApiSchemaArgs> _mApiSchema;
+
+        public Inputs.AgentAgentActionGroupApiSchemaArgs? ApiSchema => _mApiSchema.GetValue("apiSchema");
+
+        /// <summary>
+        /// Description of the action group.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Describes the function schema for the action group.
+        /// Each function represents an action in an action group.
+        /// See `function_schema` Block for details.
+        /// </summary>
+        [Input("functionSchema")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupFunctionSchemaArgs> _mFunctionSchema;
+
+        public Inputs.AgentAgentActionGroupFunctionSchemaArgs? FunctionSchema => _mFunctionSchema.GetValue("functionSchema");
+
+        /// <summary>
+        /// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+        /// </summary>
+        [Input("parentActionGroupSignature")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentActionGroupSignature;
+
+        public string? ParentActionGroupSignature => _mParentActionGroupSignature.GetValue("parentActionGroupSignature");
+
+        /// <summary>
+        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
+        [Input("prepareAgent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
+
+        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+
+        /// <summary>
+        /// Whether the in-use check is skipped when deleting the action group.
+        /// </summary>
+        [Input("skipResourceInUseCheck")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipResourceInUseCheck;
+
+        public bool? SkipResourceInUseCheck => _mSkipResourceInUseCheck.GetValue("skipResourceInUseCheck");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AgentAgentActionGroupTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

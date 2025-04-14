@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Elb
 {
     [PolicyResourceType("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")]
-    public sealed class LoadBalancerBackendServerPolicy : global::Pulumi.PolicyResource
+    public sealed class LoadBalancerBackendServerPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The instance port to apply the policy to.
         /// </summary>
         [Input("instancePort")]
-        public int? InstancePort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
+
+        public int? InstancePort => _mInstancePort.GetValue("instancePort");
 
         /// <summary>
         /// The load balancer to attach the policy to.
         /// </summary>
         [Input("loadBalancerName")]
-        public string? LoadBalancerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
+
+        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
 
         /// <summary>
         /// List of Policy Names to apply to the backend server.
         /// </summary>
         [Input("policyNames")]
-        public List<string>? PolicyNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
+
+        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+    }
+
+    [PolicyResourceType("aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")]
+    public sealed class LoadBalancerBackendServerPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The instance port to apply the policy to.
+        /// </summary>
+        [Input("instancePort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
+
+        public int? InstancePort => _mInstancePort.GetValue("instancePort");
+
+        /// <summary>
+        /// The load balancer to attach the policy to.
+        /// </summary>
+        [Input("loadBalancerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
+
+        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
+
+        /// <summary>
+        /// List of Policy Names to apply to the backend server.
+        /// </summary>
+        [Input("policyNames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
+
+        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
     }
 }

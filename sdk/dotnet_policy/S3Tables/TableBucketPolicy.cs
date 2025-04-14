@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Tables
 {
     [PolicyResourceType("aws:s3tables/tableBucketPolicy:TableBucketPolicy")]
-    public sealed class TableBucketPolicy : global::Pulumi.PolicyResource
+    public sealed class TableBucketPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
         [Input("resourcePolicy")]
-        public string? ResourcePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
+
+        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
 
         /// <summary>
         /// ARN referencing the Table Bucket that owns this policy.
         /// </summary>
         [Input("tableBucketArn")]
-        public string? TableBucketArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
+
+        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+    }
+
+    [PolicyResourceType("aws:s3tables/tableBucketPolicy:TableBucketPolicy")]
+    public sealed class TableBucketPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Web Services resource-based policy document in JSON format.
+        /// </summary>
+        [Input("resourcePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
+
+        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+
+        /// <summary>
+        /// ARN referencing the Table Bucket that owns this policy.
+        /// </summary>
+        [Input("tableBucketArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
+
+        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
     }
 }

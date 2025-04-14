@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketPolicy:BucketPolicy")]
-    public sealed class BucketPolicy : global::Pulumi.PolicyResource
+    public sealed class BucketPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the bucket to which to apply the policy.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:s3/bucketPolicy:BucketPolicy")]
+    public sealed class BucketPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket to which to apply the policy.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

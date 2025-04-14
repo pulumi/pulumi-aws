@@ -11,54 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/disk:Disk")]
-    public sealed class Disk : global::Pulumi.PolicyResource
+    public sealed class Disk : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Lightsail disk.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Availability Zone in which to create your disk.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The timestamp when the disk was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The name of the disk.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The size of the disk in GB.
         /// </summary>
         [Input("sizeInGb")]
-        public int? SizeInGb;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInGb;
+
+        public int? SizeInGb => _mSizeInGb.GetValue("sizeInGb");
 
         /// <summary>
         /// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Input("supportCode")]
-        public string? SupportCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
+
+        public string? SupportCode => _mSupportCode.GetValue("supportCode");
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:lightsail/disk:Disk")]
+    public sealed class DiskArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Availability Zone in which to create your disk.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// The name of the disk.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The size of the disk in GB.
+        /// </summary>
+        [Input("sizeInGb")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInGb;
+
+        public int? SizeInGb => _mSizeInGb.GetValue("sizeInGb");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

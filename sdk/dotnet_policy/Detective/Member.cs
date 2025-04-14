@@ -11,69 +11,151 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Detective
 {
     [PolicyResourceType("aws:detective/member:Member")]
-    public sealed class Member : global::Pulumi.PolicyResource
+    public sealed class Member : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS account ID for the account.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// AWS account ID for the administrator account.
         /// </summary>
         [Input("administratorId")]
-        public string? AdministratorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorId;
+
+        public string? AdministratorId => _mAdministratorId.GetValue("administratorId");
 
         /// <summary>
         /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         /// </summary>
         [Input("disableEmailNotification")]
-        public bool? DisableEmailNotification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableEmailNotification;
+
+        public bool? DisableEmailNotification => _mDisableEmailNotification.GetValue("disableEmailNotification");
 
         [Input("disabledReason")]
-        public string? DisabledReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisabledReason;
+
+        public string? DisabledReason => _mDisabledReason.GetValue("disabledReason");
 
         /// <summary>
         /// Email address for the account.
         /// </summary>
         [Input("emailAddress")]
-        public string? EmailAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
+
+        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
 
         /// <summary>
         /// ARN of the behavior graph to invite the member accounts to contribute their data to.
         /// </summary>
         [Input("graphArn")]
-        public string? GraphArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
+
+        public string? GraphArn => _mGraphArn.GetValue("graphArn");
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
         /// </summary>
         [Input("invitedTime")]
-        public string? InvitedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvitedTime;
+
+        public string? InvitedTime => _mInvitedTime.GetValue("invitedTime");
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         /// </summary>
         [Input("message")]
-        public string? Message;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
+
+        public string? Message => _mMessage.GetValue("message");
 
         /// <summary>
         /// Current membership status of the member account.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
         /// </summary>
         [Input("updatedTime")]
-        public string? UpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedTime;
+
+        public string? UpdatedTime => _mUpdatedTime.GetValue("updatedTime");
 
         /// <summary>
         /// Data volume in bytes per day for the member account.
         /// </summary>
         [Input("volumeUsageInBytes")]
-        public string? VolumeUsageInBytes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeUsageInBytes;
+
+        public string? VolumeUsageInBytes => _mVolumeUsageInBytes.GetValue("volumeUsageInBytes");
+    }
+
+    [PolicyResourceType("aws:detective/member:Member")]
+    public sealed class MemberArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID for the account.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
+        /// </summary>
+        [Input("disableEmailNotification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableEmailNotification;
+
+        public bool? DisableEmailNotification => _mDisableEmailNotification.GetValue("disableEmailNotification");
+
+        /// <summary>
+        /// Email address for the account.
+        /// </summary>
+        [Input("emailAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
+
+        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+
+        /// <summary>
+        /// ARN of the behavior graph to invite the member accounts to contribute their data to.
+        /// </summary>
+        [Input("graphArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
+
+        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+
+        /// <summary>
+        /// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
+        /// </summary>
+        [Input("message")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
+
+        public string? Message => _mMessage.GetValue("message");
     }
 }

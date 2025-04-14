@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
-    public sealed class ProvisionedConcurrencyConfig : global::Pulumi.PolicyResource
+    public sealed class ProvisionedConcurrencyConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function.
         /// </summary>
         [Input("functionName")]
-        public string? FunctionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
 
         /// <summary>
         /// Amount of capacity to allocate. Must be greater than or equal to `1`.
         /// </summary>
         [Input("provisionedConcurrentExecutions")]
-        public int? ProvisionedConcurrentExecutions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedConcurrentExecutions;
+
+        public int? ProvisionedConcurrentExecutions => _mProvisionedConcurrentExecutions.GetValue("provisionedConcurrentExecutions");
 
         /// <summary>
         /// Lambda Function version or Lambda Alias name.
@@ -31,12 +37,60 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Input("qualifier")]
-        public string? Qualifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
 
         /// <summary>
         /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         /// </summary>
         [Input("skipDestroy")]
-        public bool? SkipDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+    }
+
+    [PolicyResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]
+    public sealed class ProvisionedConcurrencyConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
+        /// </summary>
+        [Input("functionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
+
+        /// <summary>
+        /// Amount of capacity to allocate. Must be greater than or equal to `1`.
+        /// </summary>
+        [Input("provisionedConcurrentExecutions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedConcurrentExecutions;
+
+        public int? ProvisionedConcurrentExecutions => _mProvisionedConcurrentExecutions.GetValue("provisionedConcurrentExecutions");
+
+        /// <summary>
+        /// Lambda Function version or Lambda Alias name.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("qualifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
+
+        /// <summary>
+        /// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+        /// </summary>
+        [Input("skipDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
     }
 }

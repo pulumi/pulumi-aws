@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LakeFormation
 {
     [PolicyResourceType("aws:lakeformation/permissions:Permissions")]
-    public sealed class Permissions : global::Pulumi.PolicyResource
+    public sealed class Permissions : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         /// </summary>
         [Input("catalogResource")]
-        public bool? CatalogResource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCatalogResource;
+
+        public bool? CatalogResource => _mCatalogResource.GetValue("catalogResource");
 
         /// <summary>
         /// Configuration block for a data cells filter resource. Detailed below.
         /// </summary>
         [Input("dataCellsFilter")]
-        public PermissionsDataCellsFilter? DataCellsFilter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsDataCellsFilter> _mDataCellsFilter;
+
+        public Outputs.PermissionsDataCellsFilter? DataCellsFilter => _mDataCellsFilter.GetValue("dataCellsFilter");
 
         /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
         [Input("dataLocation")]
-        public PermissionsDataLocation? DataLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsDataLocation> _mDataLocation;
+
+        public Outputs.PermissionsDataLocation? DataLocation => _mDataLocation.GetValue("dataLocation");
 
         /// <summary>
         /// Configuration block for a database resource. Detailed below.
         /// </summary>
         [Input("database")]
-        public PermissionsDatabase? Database;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsDatabase> _mDatabase;
+
+        public Outputs.PermissionsDatabase? Database => _mDatabase.GetValue("database");
 
         /// <summary>
         /// Configuration block for an LF-tag resource. Detailed below.
         /// </summary>
         [Input("lfTag")]
-        public PermissionsLfTag? LfTag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsLfTag> _mLfTag;
+
+        public Outputs.PermissionsLfTag? LfTag => _mLfTag.GetValue("lfTag");
 
         /// <summary>
         /// Configuration block for an LF-tag policy resource. Detailed below.
         /// </summary>
         [Input("lfTagPolicy")]
-        public PermissionsLfTagPolicy? LfTagPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsLfTagPolicy> _mLfTagPolicy;
+
+        public Outputs.PermissionsLfTagPolicy? LfTagPolicy => _mLfTagPolicy.GetValue("lfTagPolicy");
 
         /// <summary>
         /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
         [Input("permissions")]
-        public List<string>? PermissionDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionDetails;
+
+        public List<string>? PermissionDetails => _mPermissionDetails.GetValue("permissions");
 
         /// <summary>
         /// Subset of `permissions` which the principal can pass.
         /// </summary>
         [Input("permissionsWithGrantOptions")]
-        public List<string>? PermissionsWithGrantOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionsWithGrantOptions;
+
+        public List<string>? PermissionsWithGrantOptions => _mPermissionsWithGrantOptions.GetValue("permissionsWithGrantOptions");
 
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -75,13 +102,19 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// One of the following is required:
         /// </summary>
         [Input("principal")]
-        public string? Principal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
 
         /// <summary>
         /// Configuration block for a table resource. Detailed below.
         /// </summary>
         [Input("table")]
-        public PermissionsTable? Table;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsTable> _mTable;
+
+        public Outputs.PermissionsTable? Table => _mTable.GetValue("table");
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
@@ -89,6 +122,127 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// The following arguments are optional:
         /// </summary>
         [Input("tableWithColumns")]
-        public PermissionsTableWithColumns? TableWithColumns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsTableWithColumns> _mTableWithColumns;
+
+        public Outputs.PermissionsTableWithColumns? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
+    }
+
+    [PolicyResourceType("aws:lakeformation/permissions:Permissions")]
+    public sealed class PermissionsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        /// </summary>
+        [Input("catalogResource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCatalogResource;
+
+        public bool? CatalogResource => _mCatalogResource.GetValue("catalogResource");
+
+        /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsDataCellsFilterArgs> _mDataCellsFilter;
+
+        public Inputs.PermissionsDataCellsFilterArgs? DataCellsFilter => _mDataCellsFilter.GetValue("dataCellsFilter");
+
+        /// <summary>
+        /// Configuration block for a data location resource. Detailed below.
+        /// </summary>
+        [Input("dataLocation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsDataLocationArgs> _mDataLocation;
+
+        public Inputs.PermissionsDataLocationArgs? DataLocation => _mDataLocation.GetValue("dataLocation");
+
+        /// <summary>
+        /// Configuration block for a database resource. Detailed below.
+        /// </summary>
+        [Input("database")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsDatabaseArgs> _mDatabase;
+
+        public Inputs.PermissionsDatabaseArgs? Database => _mDatabase.GetValue("database");
+
+        /// <summary>
+        /// Configuration block for an LF-tag resource. Detailed below.
+        /// </summary>
+        [Input("lfTag")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsLfTagArgs> _mLfTag;
+
+        public Inputs.PermissionsLfTagArgs? LfTag => _mLfTag.GetValue("lfTag");
+
+        /// <summary>
+        /// Configuration block for an LF-tag policy resource. Detailed below.
+        /// </summary>
+        [Input("lfTagPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsLfTagPolicyArgs> _mLfTagPolicy;
+
+        public Inputs.PermissionsLfTagPolicyArgs? LfTagPolicy => _mLfTagPolicy.GetValue("lfTagPolicy");
+
+        /// <summary>
+        /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        /// </summary>
+        [Input("permissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionDetails;
+
+        public List<string>? PermissionDetails => _mPermissionDetails.GetValue("permissions");
+
+        /// <summary>
+        /// Subset of `permissions` which the principal can pass.
+        /// </summary>
+        [Input("permissionsWithGrantOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissionsWithGrantOptions;
+
+        public List<string>? PermissionsWithGrantOptions => _mPermissionsWithGrantOptions.GetValue("permissionsWithGrantOptions");
+
+        /// <summary>
+        /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        /// 
+        /// &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+        /// 
+        /// One of the following is required:
+        /// </summary>
+        [Input("principal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
+
+        /// <summary>
+        /// Configuration block for a table resource. Detailed below.
+        /// </summary>
+        [Input("table")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsTableArgs> _mTable;
+
+        public Inputs.PermissionsTableArgs? Table => _mTable.GetValue("table");
+
+        /// <summary>
+        /// Configuration block for a table with columns resource. Detailed below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("tableWithColumns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsTableWithColumnsArgs> _mTableWithColumns;
+
+        public Inputs.PermissionsTableWithColumnsArgs? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
     }
 }

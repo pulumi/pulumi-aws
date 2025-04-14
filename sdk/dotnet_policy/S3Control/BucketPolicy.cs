@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/bucketPolicy:BucketPolicy")]
-    public sealed class BucketPolicy : global::Pulumi.PolicyResource
+    public sealed class BucketPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// JSON string of the resource policy.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:s3control/bucketPolicy:BucketPolicy")]
+    public sealed class BucketPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the bucket.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// JSON string of the resource policy.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

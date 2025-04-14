@@ -11,438 +11,1144 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpnConnection:VpnConnection")]
-    public sealed class VpnConnection : global::Pulumi.PolicyResource
+    public sealed class VpnConnection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPN Connection.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the core network.
         /// </summary>
         [Input("coreNetworkArn")]
-        public string? CoreNetworkArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
+
+        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
 
         /// <summary>
         /// The ARN of the core network attachment.
         /// </summary>
         [Input("coreNetworkAttachmentArn")]
-        public string? CoreNetworkAttachmentArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkAttachmentArn;
+
+        public string? CoreNetworkAttachmentArn => _mCoreNetworkAttachmentArn.GetValue("coreNetworkAttachmentArn");
 
         /// <summary>
         /// The configuration information for the VPN connection's customer gateway (in the native XML format).
         /// </summary>
         [Input("customerGatewayConfiguration")]
-        public string? CustomerGatewayConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerGatewayConfiguration;
+
+        public string? CustomerGatewayConfiguration => _mCustomerGatewayConfiguration.GetValue("customerGatewayConfiguration");
 
         /// <summary>
         /// The ID of the customer gateway.
         /// </summary>
         [Input("customerGatewayId")]
-        public string? CustomerGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerGatewayId;
+
+        public string? CustomerGatewayId => _mCustomerGatewayId.GetValue("customerGatewayId");
 
         /// <summary>
         /// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
         /// </summary>
         [Input("enableAcceleration")]
-        public bool? EnableAcceleration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAcceleration;
+
+        public bool? EnableAcceleration => _mEnableAcceleration.GetValue("enableAcceleration");
 
         /// <summary>
         /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
         [Input("localIpv4NetworkCidr")]
-        public string? LocalIpv4NetworkCidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalIpv4NetworkCidr;
+
+        public string? LocalIpv4NetworkCidr => _mLocalIpv4NetworkCidr.GetValue("localIpv4NetworkCidr");
 
         /// <summary>
         /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
         [Input("localIpv6NetworkCidr")]
-        public string? LocalIpv6NetworkCidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalIpv6NetworkCidr;
+
+        public string? LocalIpv6NetworkCidr => _mLocalIpv6NetworkCidr.GetValue("localIpv6NetworkCidr");
 
         /// <summary>
         /// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         /// </summary>
         [Input("outsideIpAddressType")]
-        public string? OutsideIpAddressType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutsideIpAddressType;
+
+        public string? OutsideIpAddressType => _mOutsideIpAddressType.GetValue("outsideIpAddressType");
 
         /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Input("remoteIpv4NetworkCidr")]
-        public string? RemoteIpv4NetworkCidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteIpv4NetworkCidr;
+
+        public string? RemoteIpv4NetworkCidr => _mRemoteIpv4NetworkCidr.GetValue("remoteIpv4NetworkCidr");
 
         /// <summary>
         /// The IPv6 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Input("remoteIpv6NetworkCidr")]
-        public string? RemoteIpv6NetworkCidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteIpv6NetworkCidr;
+
+        public string? RemoteIpv6NetworkCidr => _mRemoteIpv6NetworkCidr.GetValue("remoteIpv6NetworkCidr");
 
         /// <summary>
         /// The static routes associated with the VPN connection. Detailed below.
         /// </summary>
         [Input("routes")]
-        public List<VpnConnectionRoute>? Routes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpnConnectionRoute>> _mRoutes;
+
+        public List<Outputs.VpnConnectionRoute>? Routes => _mRoutes.GetValue("routes");
 
         /// <summary>
         /// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         /// </summary>
         [Input("staticRoutesOnly")]
-        public bool? StaticRoutesOnly;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStaticRoutesOnly;
+
+        public bool? StaticRoutesOnly => _mStaticRoutesOnly.GetValue("staticRoutesOnly");
 
         /// <summary>
         /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
 
         /// <summary>
         /// The ID of the EC2 Transit Gateway.
         /// </summary>
         [Input("transitGatewayId")]
-        public string? TransitGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
 
         /// <summary>
         /// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         /// </summary>
         [Input("transportTransitGatewayAttachmentId")]
-        public string? TransportTransitGatewayAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransportTransitGatewayAttachmentId;
+
+        public string? TransportTransitGatewayAttachmentId => _mTransportTransitGatewayAttachmentId.GetValue("transportTransitGatewayAttachmentId");
 
         /// <summary>
         /// The public IP address of the first VPN tunnel.
         /// </summary>
         [Input("tunnel1Address")]
-        public string? Tunnel1Address;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1Address;
+
+        public string? Tunnel1Address => _mTunnel1Address.GetValue("tunnel1Address");
 
         /// <summary>
         /// The bgp asn number of the first VPN tunnel.
         /// </summary>
         [Input("tunnel1BgpAsn")]
-        public string? Tunnel1BgpAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1BgpAsn;
+
+        public string? Tunnel1BgpAsn => _mTunnel1BgpAsn.GetValue("tunnel1BgpAsn");
 
         /// <summary>
         /// The bgp holdtime of the first VPN tunnel.
         /// </summary>
         [Input("tunnel1BgpHoldtime")]
-        public int? Tunnel1BgpHoldtime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1BgpHoldtime;
+
+        public int? Tunnel1BgpHoldtime => _mTunnel1BgpHoldtime.GetValue("tunnel1BgpHoldtime");
 
         /// <summary>
         /// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
         /// </summary>
         [Input("tunnel1CgwInsideAddress")]
-        public string? Tunnel1CgwInsideAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1CgwInsideAddress;
+
+        public string? Tunnel1CgwInsideAddress => _mTunnel1CgwInsideAddress.GetValue("tunnel1CgwInsideAddress");
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         /// </summary>
         [Input("tunnel1DpdTimeoutAction")]
-        public string? Tunnel1DpdTimeoutAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1DpdTimeoutAction;
+
+        public string? Tunnel1DpdTimeoutAction => _mTunnel1DpdTimeoutAction.GetValue("tunnel1DpdTimeoutAction");
 
         /// <summary>
         /// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
         /// </summary>
         [Input("tunnel1DpdTimeoutSeconds")]
-        public int? Tunnel1DpdTimeoutSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1DpdTimeoutSeconds;
+
+        public int? Tunnel1DpdTimeoutSeconds => _mTunnel1DpdTimeoutSeconds.GetValue("tunnel1DpdTimeoutSeconds");
 
         /// <summary>
         /// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
         /// </summary>
         [Input("tunnel1EnableTunnelLifecycleControl")]
-        public bool? Tunnel1EnableTunnelLifecycleControl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTunnel1EnableTunnelLifecycleControl;
+
+        public bool? Tunnel1EnableTunnelLifecycleControl => _mTunnel1EnableTunnelLifecycleControl.GetValue("tunnel1EnableTunnelLifecycleControl");
 
         /// <summary>
         /// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         /// </summary>
         [Input("tunnel1IkeVersions")]
-        public List<string>? Tunnel1IkeVersions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1IkeVersions;
+
+        public List<string>? Tunnel1IkeVersions => _mTunnel1IkeVersions.GetValue("tunnel1IkeVersions");
 
         /// <summary>
         /// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Input("tunnel1InsideCidr")]
-        public string? Tunnel1InsideCidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1InsideCidr;
+
+        public string? Tunnel1InsideCidr => _mTunnel1InsideCidr.GetValue("tunnel1InsideCidr");
 
         /// <summary>
         /// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         /// </summary>
         [Input("tunnel1InsideIpv6Cidr")]
-        public string? Tunnel1InsideIpv6Cidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1InsideIpv6Cidr;
+
+        public string? Tunnel1InsideIpv6Cidr => _mTunnel1InsideIpv6Cidr.GetValue("tunnel1InsideIpv6Cidr");
 
         /// <summary>
         /// Options for logging VPN tunnel activity. See Log Options below for more details.
         /// </summary>
         [Input("tunnel1LogOptions")]
-        public VpnConnectionTunnel1LogOptions? Tunnel1LogOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpnConnectionTunnel1LogOptions> _mTunnel1LogOptions;
+
+        public Outputs.VpnConnectionTunnel1LogOptions? Tunnel1LogOptions => _mTunnel1LogOptions.GetValue("tunnel1LogOptions");
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
         [Input("tunnel1Phase1DhGroupNumbers")]
-        public List<int>? Tunnel1Phase1DhGroupNumbers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel1Phase1DhGroupNumbers;
+
+        public List<int>? Tunnel1Phase1DhGroupNumbers => _mTunnel1Phase1DhGroupNumbers.GetValue("tunnel1Phase1DhGroupNumbers");
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
         [Input("tunnel1Phase1EncryptionAlgorithms")]
-        public List<string>? Tunnel1Phase1EncryptionAlgorithms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase1EncryptionAlgorithms;
+
+        public List<string>? Tunnel1Phase1EncryptionAlgorithms => _mTunnel1Phase1EncryptionAlgorithms.GetValue("tunnel1Phase1EncryptionAlgorithms");
 
         /// <summary>
         /// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
         [Input("tunnel1Phase1IntegrityAlgorithms")]
-        public List<string>? Tunnel1Phase1IntegrityAlgorithms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase1IntegrityAlgorithms;
+
+        public List<string>? Tunnel1Phase1IntegrityAlgorithms => _mTunnel1Phase1IntegrityAlgorithms.GetValue("tunnel1Phase1IntegrityAlgorithms");
 
         /// <summary>
         /// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
         /// </summary>
         [Input("tunnel1Phase1LifetimeSeconds")]
-        public int? Tunnel1Phase1LifetimeSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1Phase1LifetimeSeconds;
+
+        public int? Tunnel1Phase1LifetimeSeconds => _mTunnel1Phase1LifetimeSeconds.GetValue("tunnel1Phase1LifetimeSeconds");
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
         [Input("tunnel1Phase2DhGroupNumbers")]
-        public List<int>? Tunnel1Phase2DhGroupNumbers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel1Phase2DhGroupNumbers;
+
+        public List<int>? Tunnel1Phase2DhGroupNumbers => _mTunnel1Phase2DhGroupNumbers.GetValue("tunnel1Phase2DhGroupNumbers");
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
         [Input("tunnel1Phase2EncryptionAlgorithms")]
-        public List<string>? Tunnel1Phase2EncryptionAlgorithms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase2EncryptionAlgorithms;
+
+        public List<string>? Tunnel1Phase2EncryptionAlgorithms => _mTunnel1Phase2EncryptionAlgorithms.GetValue("tunnel1Phase2EncryptionAlgorithms");
 
         /// <summary>
         /// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
         [Input("tunnel1Phase2IntegrityAlgorithms")]
-        public List<string>? Tunnel1Phase2IntegrityAlgorithms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase2IntegrityAlgorithms;
+
+        public List<string>? Tunnel1Phase2IntegrityAlgorithms => _mTunnel1Phase2IntegrityAlgorithms.GetValue("tunnel1Phase2IntegrityAlgorithms");
 
         /// <summary>
         /// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
         /// </summary>
         [Input("tunnel1Phase2LifetimeSeconds")]
-        public int? Tunnel1Phase2LifetimeSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1Phase2LifetimeSeconds;
+
+        public int? Tunnel1Phase2LifetimeSeconds => _mTunnel1Phase2LifetimeSeconds.GetValue("tunnel1Phase2LifetimeSeconds");
 
         /// <summary>
         /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Input("tunnel1PresharedKey")]
-        public string? Tunnel1PresharedKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1PresharedKey;
+
+        public string? Tunnel1PresharedKey => _mTunnel1PresharedKey.GetValue("tunnel1PresharedKey");
 
         /// <summary>
         /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
         [Input("tunnel1RekeyFuzzPercentage")]
-        public int? Tunnel1RekeyFuzzPercentage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1RekeyFuzzPercentage;
+
+        public int? Tunnel1RekeyFuzzPercentage => _mTunnel1RekeyFuzzPercentage.GetValue("tunnel1RekeyFuzzPercentage");
 
         /// <summary>
         /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
         /// </summary>
         [Input("tunnel1RekeyMarginTimeSeconds")]
-        public int? Tunnel1RekeyMarginTimeSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1RekeyMarginTimeSeconds;
+
+        public int? Tunnel1RekeyMarginTimeSeconds => _mTunnel1RekeyMarginTimeSeconds.GetValue("tunnel1RekeyMarginTimeSeconds");
 
         /// <summary>
         /// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
         /// </summary>
         [Input("tunnel1ReplayWindowSize")]
-        public int? Tunnel1ReplayWindowSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1ReplayWindowSize;
+
+        public int? Tunnel1ReplayWindowSize => _mTunnel1ReplayWindowSize.GetValue("tunnel1ReplayWindowSize");
 
         /// <summary>
         /// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         /// </summary>
         [Input("tunnel1StartupAction")]
-        public string? Tunnel1StartupAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1StartupAction;
+
+        public string? Tunnel1StartupAction => _mTunnel1StartupAction.GetValue("tunnel1StartupAction");
 
         /// <summary>
         /// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
         /// </summary>
         [Input("tunnel1VgwInsideAddress")]
-        public string? Tunnel1VgwInsideAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1VgwInsideAddress;
+
+        public string? Tunnel1VgwInsideAddress => _mTunnel1VgwInsideAddress.GetValue("tunnel1VgwInsideAddress");
 
         /// <summary>
         /// The public IP address of the second VPN tunnel.
         /// </summary>
         [Input("tunnel2Address")]
-        public string? Tunnel2Address;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2Address;
+
+        public string? Tunnel2Address => _mTunnel2Address.GetValue("tunnel2Address");
 
         /// <summary>
         /// The bgp asn number of the second VPN tunnel.
         /// </summary>
         [Input("tunnel2BgpAsn")]
-        public string? Tunnel2BgpAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2BgpAsn;
+
+        public string? Tunnel2BgpAsn => _mTunnel2BgpAsn.GetValue("tunnel2BgpAsn");
 
         /// <summary>
         /// The bgp holdtime of the second VPN tunnel.
         /// </summary>
         [Input("tunnel2BgpHoldtime")]
-        public int? Tunnel2BgpHoldtime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2BgpHoldtime;
+
+        public int? Tunnel2BgpHoldtime => _mTunnel2BgpHoldtime.GetValue("tunnel2BgpHoldtime");
 
         /// <summary>
         /// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
         /// </summary>
         [Input("tunnel2CgwInsideAddress")]
-        public string? Tunnel2CgwInsideAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2CgwInsideAddress;
+
+        public string? Tunnel2CgwInsideAddress => _mTunnel2CgwInsideAddress.GetValue("tunnel2CgwInsideAddress");
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         /// </summary>
         [Input("tunnel2DpdTimeoutAction")]
-        public string? Tunnel2DpdTimeoutAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2DpdTimeoutAction;
+
+        public string? Tunnel2DpdTimeoutAction => _mTunnel2DpdTimeoutAction.GetValue("tunnel2DpdTimeoutAction");
 
         /// <summary>
         /// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
         /// </summary>
         [Input("tunnel2DpdTimeoutSeconds")]
-        public int? Tunnel2DpdTimeoutSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2DpdTimeoutSeconds;
+
+        public int? Tunnel2DpdTimeoutSeconds => _mTunnel2DpdTimeoutSeconds.GetValue("tunnel2DpdTimeoutSeconds");
 
         /// <summary>
         /// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
         /// </summary>
         [Input("tunnel2EnableTunnelLifecycleControl")]
-        public bool? Tunnel2EnableTunnelLifecycleControl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTunnel2EnableTunnelLifecycleControl;
+
+        public bool? Tunnel2EnableTunnelLifecycleControl => _mTunnel2EnableTunnelLifecycleControl.GetValue("tunnel2EnableTunnelLifecycleControl");
 
         /// <summary>
         /// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         /// </summary>
         [Input("tunnel2IkeVersions")]
-        public List<string>? Tunnel2IkeVersions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2IkeVersions;
+
+        public List<string>? Tunnel2IkeVersions => _mTunnel2IkeVersions.GetValue("tunnel2IkeVersions");
 
         /// <summary>
         /// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
         [Input("tunnel2InsideCidr")]
-        public string? Tunnel2InsideCidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2InsideCidr;
+
+        public string? Tunnel2InsideCidr => _mTunnel2InsideCidr.GetValue("tunnel2InsideCidr");
 
         /// <summary>
         /// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         /// </summary>
         [Input("tunnel2InsideIpv6Cidr")]
-        public string? Tunnel2InsideIpv6Cidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2InsideIpv6Cidr;
+
+        public string? Tunnel2InsideIpv6Cidr => _mTunnel2InsideIpv6Cidr.GetValue("tunnel2InsideIpv6Cidr");
 
         /// <summary>
         /// Options for logging VPN tunnel activity. See Log Options below for more details.
         /// </summary>
         [Input("tunnel2LogOptions")]
-        public VpnConnectionTunnel2LogOptions? Tunnel2LogOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpnConnectionTunnel2LogOptions> _mTunnel2LogOptions;
+
+        public Outputs.VpnConnectionTunnel2LogOptions? Tunnel2LogOptions => _mTunnel2LogOptions.GetValue("tunnel2LogOptions");
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
         [Input("tunnel2Phase1DhGroupNumbers")]
-        public List<int>? Tunnel2Phase1DhGroupNumbers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel2Phase1DhGroupNumbers;
+
+        public List<int>? Tunnel2Phase1DhGroupNumbers => _mTunnel2Phase1DhGroupNumbers.GetValue("tunnel2Phase1DhGroupNumbers");
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
         [Input("tunnel2Phase1EncryptionAlgorithms")]
-        public List<string>? Tunnel2Phase1EncryptionAlgorithms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase1EncryptionAlgorithms;
+
+        public List<string>? Tunnel2Phase1EncryptionAlgorithms => _mTunnel2Phase1EncryptionAlgorithms.GetValue("tunnel2Phase1EncryptionAlgorithms");
 
         /// <summary>
         /// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
         [Input("tunnel2Phase1IntegrityAlgorithms")]
-        public List<string>? Tunnel2Phase1IntegrityAlgorithms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase1IntegrityAlgorithms;
+
+        public List<string>? Tunnel2Phase1IntegrityAlgorithms => _mTunnel2Phase1IntegrityAlgorithms.GetValue("tunnel2Phase1IntegrityAlgorithms");
 
         /// <summary>
         /// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
         /// </summary>
         [Input("tunnel2Phase1LifetimeSeconds")]
-        public int? Tunnel2Phase1LifetimeSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2Phase1LifetimeSeconds;
+
+        public int? Tunnel2Phase1LifetimeSeconds => _mTunnel2Phase1LifetimeSeconds.GetValue("tunnel2Phase1LifetimeSeconds");
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
         [Input("tunnel2Phase2DhGroupNumbers")]
-        public List<int>? Tunnel2Phase2DhGroupNumbers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel2Phase2DhGroupNumbers;
+
+        public List<int>? Tunnel2Phase2DhGroupNumbers => _mTunnel2Phase2DhGroupNumbers.GetValue("tunnel2Phase2DhGroupNumbers");
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
         [Input("tunnel2Phase2EncryptionAlgorithms")]
-        public List<string>? Tunnel2Phase2EncryptionAlgorithms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase2EncryptionAlgorithms;
+
+        public List<string>? Tunnel2Phase2EncryptionAlgorithms => _mTunnel2Phase2EncryptionAlgorithms.GetValue("tunnel2Phase2EncryptionAlgorithms");
 
         /// <summary>
         /// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
         [Input("tunnel2Phase2IntegrityAlgorithms")]
-        public List<string>? Tunnel2Phase2IntegrityAlgorithms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase2IntegrityAlgorithms;
+
+        public List<string>? Tunnel2Phase2IntegrityAlgorithms => _mTunnel2Phase2IntegrityAlgorithms.GetValue("tunnel2Phase2IntegrityAlgorithms");
 
         /// <summary>
         /// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
         /// </summary>
         [Input("tunnel2Phase2LifetimeSeconds")]
-        public int? Tunnel2Phase2LifetimeSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2Phase2LifetimeSeconds;
+
+        public int? Tunnel2Phase2LifetimeSeconds => _mTunnel2Phase2LifetimeSeconds.GetValue("tunnel2Phase2LifetimeSeconds");
 
         /// <summary>
         /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
         [Input("tunnel2PresharedKey")]
-        public string? Tunnel2PresharedKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2PresharedKey;
+
+        public string? Tunnel2PresharedKey => _mTunnel2PresharedKey.GetValue("tunnel2PresharedKey");
 
         /// <summary>
         /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
         [Input("tunnel2RekeyFuzzPercentage")]
-        public int? Tunnel2RekeyFuzzPercentage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2RekeyFuzzPercentage;
+
+        public int? Tunnel2RekeyFuzzPercentage => _mTunnel2RekeyFuzzPercentage.GetValue("tunnel2RekeyFuzzPercentage");
 
         /// <summary>
         /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
         /// </summary>
         [Input("tunnel2RekeyMarginTimeSeconds")]
-        public int? Tunnel2RekeyMarginTimeSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2RekeyMarginTimeSeconds;
+
+        public int? Tunnel2RekeyMarginTimeSeconds => _mTunnel2RekeyMarginTimeSeconds.GetValue("tunnel2RekeyMarginTimeSeconds");
 
         /// <summary>
         /// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
         /// </summary>
         [Input("tunnel2ReplayWindowSize")]
-        public int? Tunnel2ReplayWindowSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2ReplayWindowSize;
+
+        public int? Tunnel2ReplayWindowSize => _mTunnel2ReplayWindowSize.GetValue("tunnel2ReplayWindowSize");
 
         /// <summary>
         /// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         /// </summary>
         [Input("tunnel2StartupAction")]
-        public string? Tunnel2StartupAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2StartupAction;
+
+        public string? Tunnel2StartupAction => _mTunnel2StartupAction.GetValue("tunnel2StartupAction");
 
         /// <summary>
         /// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         /// </summary>
         [Input("tunnel2VgwInsideAddress")]
-        public string? Tunnel2VgwInsideAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2VgwInsideAddress;
+
+        public string? Tunnel2VgwInsideAddress => _mTunnel2VgwInsideAddress.GetValue("tunnel2VgwInsideAddress");
 
         /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         /// </summary>
         [Input("tunnelInsideIpVersion")]
-        public string? TunnelInsideIpVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnelInsideIpVersion;
+
+        public string? TunnelInsideIpVersion => _mTunnelInsideIpVersion.GetValue("tunnelInsideIpVersion");
 
         /// <summary>
         /// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Telemetry for the VPN tunnels. Detailed below.
         /// </summary>
         [Input("vgwTelemetries")]
-        public List<VpnConnectionVgwTelemetry>? VgwTelemetries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpnConnectionVgwTelemetry>> _mVgwTelemetries;
+
+        public List<Outputs.VpnConnectionVgwTelemetry>? VgwTelemetries => _mVgwTelemetries.GetValue("vgwTelemetries");
 
         /// <summary>
         /// The ID of the Virtual Private Gateway.
         /// </summary>
         [Input("vpnGatewayId")]
-        public string? VpnGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpnConnection:VpnConnection")]
+    public sealed class VpnConnectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the customer gateway.
+        /// </summary>
+        [Input("customerGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerGatewayId;
+
+        public string? CustomerGatewayId => _mCustomerGatewayId.GetValue("customerGatewayId");
+
+        /// <summary>
+        /// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+        /// </summary>
+        [Input("enableAcceleration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAcceleration;
+
+        public bool? EnableAcceleration => _mEnableAcceleration.GetValue("enableAcceleration");
+
+        /// <summary>
+        /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Input("localIpv4NetworkCidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalIpv4NetworkCidr;
+
+        public string? LocalIpv4NetworkCidr => _mLocalIpv4NetworkCidr.GetValue("localIpv4NetworkCidr");
+
+        /// <summary>
+        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// </summary>
+        [Input("localIpv6NetworkCidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalIpv6NetworkCidr;
+
+        public string? LocalIpv6NetworkCidr => _mLocalIpv6NetworkCidr.GetValue("localIpv6NetworkCidr");
+
+        /// <summary>
+        /// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        /// </summary>
+        [Input("outsideIpAddressType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutsideIpAddressType;
+
+        public string? OutsideIpAddressType => _mOutsideIpAddressType.GetValue("outsideIpAddressType");
+
+        /// <summary>
+        /// The IPv4 CIDR on the AWS side of the VPN connection.
+        /// </summary>
+        [Input("remoteIpv4NetworkCidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteIpv4NetworkCidr;
+
+        public string? RemoteIpv4NetworkCidr => _mRemoteIpv4NetworkCidr.GetValue("remoteIpv4NetworkCidr");
+
+        /// <summary>
+        /// The IPv6 CIDR on the AWS side of the VPN connection.
+        /// </summary>
+        [Input("remoteIpv6NetworkCidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteIpv6NetworkCidr;
+
+        public string? RemoteIpv6NetworkCidr => _mRemoteIpv6NetworkCidr.GetValue("remoteIpv6NetworkCidr");
+
+        /// <summary>
+        /// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
+        /// </summary>
+        [Input("staticRoutesOnly")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStaticRoutesOnly;
+
+        public bool? StaticRoutesOnly => _mStaticRoutesOnly.GetValue("staticRoutesOnly");
+
+        /// <summary>
+        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ID of the EC2 Transit Gateway.
+        /// </summary>
+        [Input("transitGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+
+        /// <summary>
+        /// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        /// </summary>
+        [Input("transportTransitGatewayAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransportTransitGatewayAttachmentId;
+
+        public string? TransportTransitGatewayAttachmentId => _mTransportTransitGatewayAttachmentId.GetValue("transportTransitGatewayAttachmentId");
+
+        /// <summary>
+        /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        /// </summary>
+        [Input("tunnel1DpdTimeoutAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1DpdTimeoutAction;
+
+        public string? Tunnel1DpdTimeoutAction => _mTunnel1DpdTimeoutAction.GetValue("tunnel1DpdTimeoutAction");
+
+        /// <summary>
+        /// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        /// </summary>
+        [Input("tunnel1DpdTimeoutSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1DpdTimeoutSeconds;
+
+        public int? Tunnel1DpdTimeoutSeconds => _mTunnel1DpdTimeoutSeconds.GetValue("tunnel1DpdTimeoutSeconds");
+
+        /// <summary>
+        /// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+        /// </summary>
+        [Input("tunnel1EnableTunnelLifecycleControl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTunnel1EnableTunnelLifecycleControl;
+
+        public bool? Tunnel1EnableTunnelLifecycleControl => _mTunnel1EnableTunnelLifecycleControl.GetValue("tunnel1EnableTunnelLifecycleControl");
+
+        /// <summary>
+        /// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+        /// </summary>
+        [Input("tunnel1IkeVersions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1IkeVersions;
+
+        public List<string>? Tunnel1IkeVersions => _mTunnel1IkeVersions.GetValue("tunnel1IkeVersions");
+
+        /// <summary>
+        /// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        /// </summary>
+        [Input("tunnel1InsideCidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1InsideCidr;
+
+        public string? Tunnel1InsideCidr => _mTunnel1InsideCidr.GetValue("tunnel1InsideCidr");
+
+        /// <summary>
+        /// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        /// </summary>
+        [Input("tunnel1InsideIpv6Cidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1InsideIpv6Cidr;
+
+        public string? Tunnel1InsideIpv6Cidr => _mTunnel1InsideIpv6Cidr.GetValue("tunnel1InsideIpv6Cidr");
+
+        /// <summary>
+        /// Options for logging VPN tunnel activity. See Log Options below for more details.
+        /// </summary>
+        [Input("tunnel1LogOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpnConnectionTunnel1LogOptionsArgs> _mTunnel1LogOptions;
+
+        public Inputs.VpnConnectionTunnel1LogOptionsArgs? Tunnel1LogOptions => _mTunnel1LogOptions.GetValue("tunnel1LogOptions");
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        [Input("tunnel1Phase1DhGroupNumbers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel1Phase1DhGroupNumbers;
+
+        public List<int>? Tunnel1Phase1DhGroupNumbers => _mTunnel1Phase1DhGroupNumbers.GetValue("tunnel1Phase1DhGroupNumbers");
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        [Input("tunnel1Phase1EncryptionAlgorithms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase1EncryptionAlgorithms;
+
+        public List<string>? Tunnel1Phase1EncryptionAlgorithms => _mTunnel1Phase1EncryptionAlgorithms.GetValue("tunnel1Phase1EncryptionAlgorithms");
+
+        /// <summary>
+        /// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        [Input("tunnel1Phase1IntegrityAlgorithms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase1IntegrityAlgorithms;
+
+        public List<string>? Tunnel1Phase1IntegrityAlgorithms => _mTunnel1Phase1IntegrityAlgorithms.GetValue("tunnel1Phase1IntegrityAlgorithms");
+
+        /// <summary>
+        /// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        /// </summary>
+        [Input("tunnel1Phase1LifetimeSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1Phase1LifetimeSeconds;
+
+        public int? Tunnel1Phase1LifetimeSeconds => _mTunnel1Phase1LifetimeSeconds.GetValue("tunnel1Phase1LifetimeSeconds");
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        [Input("tunnel1Phase2DhGroupNumbers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel1Phase2DhGroupNumbers;
+
+        public List<int>? Tunnel1Phase2DhGroupNumbers => _mTunnel1Phase2DhGroupNumbers.GetValue("tunnel1Phase2DhGroupNumbers");
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        [Input("tunnel1Phase2EncryptionAlgorithms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase2EncryptionAlgorithms;
+
+        public List<string>? Tunnel1Phase2EncryptionAlgorithms => _mTunnel1Phase2EncryptionAlgorithms.GetValue("tunnel1Phase2EncryptionAlgorithms");
+
+        /// <summary>
+        /// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        [Input("tunnel1Phase2IntegrityAlgorithms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase2IntegrityAlgorithms;
+
+        public List<string>? Tunnel1Phase2IntegrityAlgorithms => _mTunnel1Phase2IntegrityAlgorithms.GetValue("tunnel1Phase2IntegrityAlgorithms");
+
+        /// <summary>
+        /// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        /// </summary>
+        [Input("tunnel1Phase2LifetimeSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1Phase2LifetimeSeconds;
+
+        public int? Tunnel1Phase2LifetimeSeconds => _mTunnel1Phase2LifetimeSeconds.GetValue("tunnel1Phase2LifetimeSeconds");
+
+        /// <summary>
+        /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        /// </summary>
+        [Input("tunnel1PresharedKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1PresharedKey;
+
+        public string? Tunnel1PresharedKey => _mTunnel1PresharedKey.GetValue("tunnel1PresharedKey");
+
+        /// <summary>
+        /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// </summary>
+        [Input("tunnel1RekeyFuzzPercentage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1RekeyFuzzPercentage;
+
+        public int? Tunnel1RekeyFuzzPercentage => _mTunnel1RekeyFuzzPercentage.GetValue("tunnel1RekeyFuzzPercentage");
+
+        /// <summary>
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
+        /// </summary>
+        [Input("tunnel1RekeyMarginTimeSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1RekeyMarginTimeSeconds;
+
+        public int? Tunnel1RekeyMarginTimeSeconds => _mTunnel1RekeyMarginTimeSeconds.GetValue("tunnel1RekeyMarginTimeSeconds");
+
+        /// <summary>
+        /// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+        /// </summary>
+        [Input("tunnel1ReplayWindowSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1ReplayWindowSize;
+
+        public int? Tunnel1ReplayWindowSize => _mTunnel1ReplayWindowSize.GetValue("tunnel1ReplayWindowSize");
+
+        /// <summary>
+        /// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        /// </summary>
+        [Input("tunnel1StartupAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1StartupAction;
+
+        public string? Tunnel1StartupAction => _mTunnel1StartupAction.GetValue("tunnel1StartupAction");
+
+        /// <summary>
+        /// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+        /// </summary>
+        [Input("tunnel2DpdTimeoutAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2DpdTimeoutAction;
+
+        public string? Tunnel2DpdTimeoutAction => _mTunnel2DpdTimeoutAction.GetValue("tunnel2DpdTimeoutAction");
+
+        /// <summary>
+        /// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        /// </summary>
+        [Input("tunnel2DpdTimeoutSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2DpdTimeoutSeconds;
+
+        public int? Tunnel2DpdTimeoutSeconds => _mTunnel2DpdTimeoutSeconds.GetValue("tunnel2DpdTimeoutSeconds");
+
+        /// <summary>
+        /// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+        /// </summary>
+        [Input("tunnel2EnableTunnelLifecycleControl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTunnel2EnableTunnelLifecycleControl;
+
+        public bool? Tunnel2EnableTunnelLifecycleControl => _mTunnel2EnableTunnelLifecycleControl.GetValue("tunnel2EnableTunnelLifecycleControl");
+
+        /// <summary>
+        /// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+        /// </summary>
+        [Input("tunnel2IkeVersions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2IkeVersions;
+
+        public List<string>? Tunnel2IkeVersions => _mTunnel2IkeVersions.GetValue("tunnel2IkeVersions");
+
+        /// <summary>
+        /// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+        /// </summary>
+        [Input("tunnel2InsideCidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2InsideCidr;
+
+        public string? Tunnel2InsideCidr => _mTunnel2InsideCidr.GetValue("tunnel2InsideCidr");
+
+        /// <summary>
+        /// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+        /// </summary>
+        [Input("tunnel2InsideIpv6Cidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2InsideIpv6Cidr;
+
+        public string? Tunnel2InsideIpv6Cidr => _mTunnel2InsideIpv6Cidr.GetValue("tunnel2InsideIpv6Cidr");
+
+        /// <summary>
+        /// Options for logging VPN tunnel activity. See Log Options below for more details.
+        /// </summary>
+        [Input("tunnel2LogOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpnConnectionTunnel2LogOptionsArgs> _mTunnel2LogOptions;
+
+        public Inputs.VpnConnectionTunnel2LogOptionsArgs? Tunnel2LogOptions => _mTunnel2LogOptions.GetValue("tunnel2LogOptions");
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        [Input("tunnel2Phase1DhGroupNumbers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel2Phase1DhGroupNumbers;
+
+        public List<int>? Tunnel2Phase1DhGroupNumbers => _mTunnel2Phase1DhGroupNumbers.GetValue("tunnel2Phase1DhGroupNumbers");
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        [Input("tunnel2Phase1EncryptionAlgorithms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase1EncryptionAlgorithms;
+
+        public List<string>? Tunnel2Phase1EncryptionAlgorithms => _mTunnel2Phase1EncryptionAlgorithms.GetValue("tunnel2Phase1EncryptionAlgorithms");
+
+        /// <summary>
+        /// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        [Input("tunnel2Phase1IntegrityAlgorithms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase1IntegrityAlgorithms;
+
+        public List<string>? Tunnel2Phase1IntegrityAlgorithms => _mTunnel2Phase1IntegrityAlgorithms.GetValue("tunnel2Phase1IntegrityAlgorithms");
+
+        /// <summary>
+        /// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+        /// </summary>
+        [Input("tunnel2Phase1LifetimeSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2Phase1LifetimeSeconds;
+
+        public int? Tunnel2Phase1LifetimeSeconds => _mTunnel2Phase1LifetimeSeconds.GetValue("tunnel2Phase1LifetimeSeconds");
+
+        /// <summary>
+        /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        /// </summary>
+        [Input("tunnel2Phase2DhGroupNumbers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel2Phase2DhGroupNumbers;
+
+        public List<int>? Tunnel2Phase2DhGroupNumbers => _mTunnel2Phase2DhGroupNumbers.GetValue("tunnel2Phase2DhGroupNumbers");
+
+        /// <summary>
+        /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
+        /// </summary>
+        [Input("tunnel2Phase2EncryptionAlgorithms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase2EncryptionAlgorithms;
+
+        public List<string>? Tunnel2Phase2EncryptionAlgorithms => _mTunnel2Phase2EncryptionAlgorithms.GetValue("tunnel2Phase2EncryptionAlgorithms");
+
+        /// <summary>
+        /// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
+        /// </summary>
+        [Input("tunnel2Phase2IntegrityAlgorithms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase2IntegrityAlgorithms;
+
+        public List<string>? Tunnel2Phase2IntegrityAlgorithms => _mTunnel2Phase2IntegrityAlgorithms.GetValue("tunnel2Phase2IntegrityAlgorithms");
+
+        /// <summary>
+        /// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+        /// </summary>
+        [Input("tunnel2Phase2LifetimeSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2Phase2LifetimeSeconds;
+
+        public int? Tunnel2Phase2LifetimeSeconds => _mTunnel2Phase2LifetimeSeconds.GetValue("tunnel2Phase2LifetimeSeconds");
+
+        /// <summary>
+        /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+        /// </summary>
+        [Input("tunnel2PresharedKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2PresharedKey;
+
+        public string? Tunnel2PresharedKey => _mTunnel2PresharedKey.GetValue("tunnel2PresharedKey");
+
+        /// <summary>
+        /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+        /// </summary>
+        [Input("tunnel2RekeyFuzzPercentage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2RekeyFuzzPercentage;
+
+        public int? Tunnel2RekeyFuzzPercentage => _mTunnel2RekeyFuzzPercentage.GetValue("tunnel2RekeyFuzzPercentage");
+
+        /// <summary>
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
+        /// </summary>
+        [Input("tunnel2RekeyMarginTimeSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2RekeyMarginTimeSeconds;
+
+        public int? Tunnel2RekeyMarginTimeSeconds => _mTunnel2RekeyMarginTimeSeconds.GetValue("tunnel2RekeyMarginTimeSeconds");
+
+        /// <summary>
+        /// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+        /// </summary>
+        [Input("tunnel2ReplayWindowSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2ReplayWindowSize;
+
+        public int? Tunnel2ReplayWindowSize => _mTunnel2ReplayWindowSize.GetValue("tunnel2ReplayWindowSize");
+
+        /// <summary>
+        /// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+        /// </summary>
+        [Input("tunnel2StartupAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2StartupAction;
+
+        public string? Tunnel2StartupAction => _mTunnel2StartupAction.GetValue("tunnel2StartupAction");
+
+        /// <summary>
+        /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
+        /// </summary>
+        [Input("tunnelInsideIpVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTunnelInsideIpVersion;
+
+        public string? TunnelInsideIpVersion => _mTunnelInsideIpVersion.GetValue("tunnelInsideIpVersion");
+
+        /// <summary>
+        /// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// The ID of the Virtual Private Gateway.
+        /// </summary>
+        [Input("vpnGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
     }
 }

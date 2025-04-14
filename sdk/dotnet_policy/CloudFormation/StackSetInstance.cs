@@ -11,72 +11,181 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFormation
 {
     [PolicyResourceType("aws:cloudformation/stackSetInstance:StackSetInstance")]
-    public sealed class StackSetInstance : global::Pulumi.PolicyResource
+    public sealed class StackSetInstance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         /// </summary>
         [Input("callAs")]
-        public string? CallAs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallAs;
+
+        public string? CallAs => _mCallAs.GetValue("callAs");
 
         /// <summary>
         /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         /// </summary>
         [Input("deploymentTargets")]
-        public StackSetInstanceDeploymentTargets? DeploymentTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackSetInstanceDeploymentTargets> _mDeploymentTargets;
+
+        public Outputs.StackSetInstanceDeploymentTargets? DeploymentTargets => _mDeploymentTargets.GetValue("deploymentTargets");
 
         /// <summary>
         /// Preferences for how AWS CloudFormation performs a stack set operation.
         /// </summary>
         [Input("operationPreferences")]
-        public StackSetInstanceOperationPreferences? OperationPreferences;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackSetInstanceOperationPreferences> _mOperationPreferences;
+
+        public Outputs.StackSetInstanceOperationPreferences? OperationPreferences => _mOperationPreferences.GetValue("operationPreferences");
 
         /// <summary>
         /// Organizational unit ID in which the stack is deployed.
         /// </summary>
         [Input("organizationalUnitId")]
-        public string? OrganizationalUnitId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitId;
+
+        public string? OrganizationalUnitId => _mOrganizationalUnitId.GetValue("organizationalUnitId");
 
         /// <summary>
         /// Key-value map of input parameters to override from the StackSet for this Instance.
         /// </summary>
         [Input("parameterOverrides")]
-        public Dictionary<string, string>? ParameterOverrides;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameterOverrides;
+
+        public Dictionary<string, string>? ParameterOverrides => _mParameterOverrides.GetValue("parameterOverrides");
 
         /// <summary>
         /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         /// </summary>
         [Input("region")]
-        public string? Region;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
 
         /// <summary>
         /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         /// </summary>
         [Input("retainStack")]
-        public bool? RetainStack;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainStack;
+
+        public bool? RetainStack => _mRetainStack.GetValue("retainStack");
 
         /// <summary>
         /// Stack identifier.
         /// </summary>
         [Input("stackId")]
-        public string? StackId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
 
         /// <summary>
         /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
         /// </summary>
         [Input("stackInstanceSummaries")]
-        public List<StackSetInstanceStackInstanceSummary>? StackInstanceSummaries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StackSetInstanceStackInstanceSummary>> _mStackInstanceSummaries;
+
+        public List<Outputs.StackSetInstanceStackInstanceSummary>? StackInstanceSummaries => _mStackInstanceSummaries.GetValue("stackInstanceSummaries");
 
         /// <summary>
         /// Name of the StackSet.
         /// </summary>
         [Input("stackSetName")]
-        public string? StackSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetName;
+
+        public string? StackSetName => _mStackSetName.GetValue("stackSetName");
+    }
+
+    [PolicyResourceType("aws:cloudformation/stackSetInstance:StackSetInstance")]
+    public sealed class StackSetInstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Input("callAs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallAs;
+
+        public string? CallAs => _mCallAs.GetValue("callAs");
+
+        /// <summary>
+        /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        /// </summary>
+        [Input("deploymentTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackSetInstanceDeploymentTargetsArgs> _mDeploymentTargets;
+
+        public Inputs.StackSetInstanceDeploymentTargetsArgs? DeploymentTargets => _mDeploymentTargets.GetValue("deploymentTargets");
+
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
+        [Input("operationPreferences")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackSetInstanceOperationPreferencesArgs> _mOperationPreferences;
+
+        public Inputs.StackSetInstanceOperationPreferencesArgs? OperationPreferences => _mOperationPreferences.GetValue("operationPreferences");
+
+        /// <summary>
+        /// Key-value map of input parameters to override from the StackSet for this Instance.
+        /// </summary>
+        [Input("parameterOverrides")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameterOverrides;
+
+        public Dictionary<string, string>? ParameterOverrides => _mParameterOverrides.GetValue("parameterOverrides");
+
+        /// <summary>
+        /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        /// </summary>
+        [Input("region")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
+
+        /// <summary>
+        /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        /// </summary>
+        [Input("retainStack")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainStack;
+
+        public bool? RetainStack => _mRetainStack.GetValue("retainStack");
+
+        /// <summary>
+        /// Name of the StackSet.
+        /// </summary>
+        [Input("stackSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetName;
+
+        public string? StackSetName => _mStackSetName.GetValue("stackSetName");
     }
 }

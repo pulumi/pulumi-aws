@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/thingType:ThingType")]
-    public sealed class ThingType : global::Pulumi.PolicyResource
+    public sealed class ThingType : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the created AWS IoT Thing Type.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
         /// </summary>
         [Input("deprecated")]
-        public bool? Deprecated;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeprecated;
+
+        public bool? Deprecated => _mDeprecated.GetValue("deprecated");
 
         /// <summary>
         /// The name of the thing type.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// , Configuration block that can contain the following properties of the thing type:
         /// </summary>
         [Input("properties")]
-        public ThingTypeProperties? Properties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ThingTypeProperties> _mProperties;
+
+        public Outputs.ThingTypeProperties? Properties => _mProperties.GetValue("properties");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:iot/thingType:ThingType")]
+    public sealed class ThingTypeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
+        /// </summary>
+        [Input("deprecated")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeprecated;
+
+        public bool? Deprecated => _mDeprecated.GetValue("deprecated");
+
+        /// <summary>
+        /// The name of the thing type.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// , Configuration block that can contain the following properties of the thing type:
+        /// </summary>
+        [Input("properties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ThingTypePropertiesArgs> _mProperties;
+
+        public Inputs.ThingTypePropertiesArgs? Properties => _mProperties.GetValue("properties");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

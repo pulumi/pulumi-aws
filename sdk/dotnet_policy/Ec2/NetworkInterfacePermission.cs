@@ -11,33 +11,85 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/networkInterfacePermission:NetworkInterfacePermission")]
-    public sealed class NetworkInterfacePermission : global::Pulumi.PolicyResource
+    public sealed class NetworkInterfacePermission : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Web Services account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// The ID of the network interface.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// ENI permission ID.
         /// </summary>
         [Input("networkInterfacePermissionId")]
-        public string? NetworkInterfacePermissionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfacePermissionId;
+
+        public string? NetworkInterfacePermissionId => _mNetworkInterfacePermissionId.GetValue("networkInterfacePermissionId");
 
         /// <summary>
         /// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
         /// </summary>
         [Input("permission")]
-        public string? Permission;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
+
+        public string? Permission => _mPermission.GetValue("permission");
 
         [Input("timeouts")]
-        public NetworkInterfacePermissionTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NetworkInterfacePermissionTimeouts> _mTimeouts;
+
+        public Outputs.NetworkInterfacePermissionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:ec2/networkInterfacePermission:NetworkInterfacePermission")]
+    public sealed class NetworkInterfacePermissionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Web Services account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// The ID of the network interface.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+
+        /// <summary>
+        /// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
+        /// </summary>
+        [Input("permission")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
+
+        public string? Permission => _mPermission.GetValue("permission");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NetworkInterfacePermissionTimeoutsArgs> _mTimeouts;
+
+        public Inputs.NetworkInterfacePermissionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

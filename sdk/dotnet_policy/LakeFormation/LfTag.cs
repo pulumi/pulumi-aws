@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LakeFormation
 {
     [PolicyResourceType("aws:lakeformation/lfTag:LfTag")]
-    public sealed class LfTag : global::Pulumi.PolicyResource
+    public sealed class LfTag : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// Key-name for the tag.
         /// </summary>
         [Input("key")]
-        public string? Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
 
         /// <summary>
         /// List of possible values an attribute can take.
         /// </summary>
         [Input("values")]
-        public List<string>? Values;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
+
+        public List<string>? Values => _mValues.GetValue("values");
+    }
+
+    [PolicyResourceType("aws:lakeformation/lfTag:LfTag")]
+    public sealed class LfTagArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// Key-name for the tag.
+        /// </summary>
+        [Input("key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
+
+        /// <summary>
+        /// List of possible values an attribute can take.
+        /// </summary>
+        [Input("values")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
+
+        public List<string>? Values => _mValues.GetValue("values");
     }
 }

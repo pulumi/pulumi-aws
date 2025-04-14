@@ -11,26 +11,35 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Tables
 {
     [PolicyResourceType("aws:s3tables/tableBucket:TableBucket")]
-    public sealed class TableBucket : global::Pulumi.PolicyResource
+    public sealed class TableBucket : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the table bucket.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Date and time when the bucket was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
-        /// A single table bucket maintenance configuration block.
+        /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
-        public TableBucketMaintenanceConfiguration? MaintenanceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableBucketMaintenanceConfiguration> _mMaintenanceConfiguration;
+
+        public Outputs.TableBucketMaintenanceConfiguration? MaintenanceConfiguration => _mMaintenanceConfiguration.GetValue("maintenanceConfiguration");
 
         /// <summary>
         /// Name of the table bucket.
@@ -41,12 +50,46 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// The following argument is optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Account ID of the account that owns the table bucket.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+    }
+
+    [PolicyResourceType("aws:s3tables/tableBucket:TableBucket")]
+    public sealed class TableBucketArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A single table bucket maintenance configuration object.
+        /// See `maintenance_configuration` below.
+        /// </summary>
+        [Input("maintenanceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableBucketMaintenanceConfigurationArgs> _mMaintenanceConfiguration;
+
+        public Inputs.TableBucketMaintenanceConfigurationArgs? MaintenanceConfiguration => _mMaintenanceConfiguration.GetValue("maintenanceConfiguration");
+
+        /// <summary>
+        /// Name of the table bucket.
+        /// Must be between 3 and 63 characters in length.
+        /// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
+        /// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+        /// 
+        /// The following argument is optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

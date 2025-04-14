@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/internetMonitor:InternetMonitor")]
-    public sealed class InternetMonitor : global::Pulumi.PolicyResource
+    public sealed class InternetMonitor : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Monitor.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
         /// </summary>
         [Input("healthEventsConfig")]
-        public InternetMonitorHealthEventsConfig? HealthEventsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InternetMonitorHealthEventsConfig> _mHealthEventsConfig;
+
+        public Outputs.InternetMonitorHealthEventsConfig? HealthEventsConfig => _mHealthEventsConfig.GetValue("healthEventsConfig");
 
         /// <summary>
         /// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         /// </summary>
         [Input("internetMeasurementsLogDelivery")]
-        public InternetMonitorInternetMeasurementsLogDelivery? InternetMeasurementsLogDelivery;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InternetMonitorInternetMeasurementsLogDelivery> _mInternetMeasurementsLogDelivery;
+
+        public Outputs.InternetMonitorInternetMeasurementsLogDelivery? InternetMeasurementsLogDelivery => _mInternetMeasurementsLogDelivery.GetValue("internetMeasurementsLogDelivery");
 
         /// <summary>
         /// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         /// </summary>
         [Input("maxCityNetworksToMonitor")]
-        public int? MaxCityNetworksToMonitor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCityNetworksToMonitor;
+
+        public int? MaxCityNetworksToMonitor => _mMaxCityNetworksToMonitor.GetValue("maxCityNetworksToMonitor");
 
         /// <summary>
         /// The name of the monitor.
@@ -43,36 +55,132 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// The following arguments are optional:
         /// </summary>
         [Input("monitorName")]
-        public string? MonitorName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
+
+        public string? MonitorName => _mMonitorName.GetValue("monitorName");
 
         /// <summary>
         /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         /// </summary>
         [Input("resources")]
-        public List<string>? Resources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
+
+        public List<string>? Resources => _mResources.GetValue("resources");
 
         /// <summary>
         /// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
         /// </summary>
         [Input("trafficPercentageToMonitor")]
-        public int? TrafficPercentageToMonitor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTrafficPercentageToMonitor;
+
+        public int? TrafficPercentageToMonitor => _mTrafficPercentageToMonitor.GetValue("trafficPercentageToMonitor");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/internetMonitor:InternetMonitor")]
+    public sealed class InternetMonitorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        /// </summary>
+        [Input("healthEventsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InternetMonitorHealthEventsConfigArgs> _mHealthEventsConfig;
+
+        public Inputs.InternetMonitorHealthEventsConfigArgs? HealthEventsConfig => _mHealthEventsConfig.GetValue("healthEventsConfig");
+
+        /// <summary>
+        /// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
+        /// </summary>
+        [Input("internetMeasurementsLogDelivery")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InternetMonitorInternetMeasurementsLogDeliveryArgs> _mInternetMeasurementsLogDelivery;
+
+        public Inputs.InternetMonitorInternetMeasurementsLogDeliveryArgs? InternetMeasurementsLogDelivery => _mInternetMeasurementsLogDelivery.GetValue("internetMeasurementsLogDelivery");
+
+        /// <summary>
+        /// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
+        /// </summary>
+        [Input("maxCityNetworksToMonitor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCityNetworksToMonitor;
+
+        public int? MaxCityNetworksToMonitor => _mMaxCityNetworksToMonitor.GetValue("maxCityNetworksToMonitor");
+
+        /// <summary>
+        /// The name of the monitor.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("monitorName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
+
+        public string? MonitorName => _mMonitorName.GetValue("monitorName");
+
+        /// <summary>
+        /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+        /// </summary>
+        [Input("resources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
+
+        public List<string>? Resources => _mResources.GetValue("resources");
+
+        /// <summary>
+        /// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
+        /// </summary>
+        [Input("trafficPercentageToMonitor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTrafficPercentageToMonitor;
+
+        public int? TrafficPercentageToMonitor => _mTrafficPercentageToMonitor.GetValue("trafficPercentageToMonitor");
     }
 }

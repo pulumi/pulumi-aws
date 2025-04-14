@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/hostedZoneDnsSec:HostedZoneDnsSec")]
-    public sealed class HostedZoneDnsSec : global::Pulumi.PolicyResource
+    public sealed class HostedZoneDnsSec : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
@@ -19,12 +19,42 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// The following arguments are optional:
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
 
         /// <summary>
         /// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         /// </summary>
         [Input("signingStatus")]
-        public string? SigningStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningStatus;
+
+        public string? SigningStatus => _mSigningStatus.GetValue("signingStatus");
+    }
+
+    [PolicyResourceType("aws:route53/hostedZoneDnsSec:HostedZoneDnsSec")]
+    public sealed class HostedZoneDnsSecArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the Route 53 Hosted Zone.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("hostedZoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+
+        /// <summary>
+        /// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
+        /// </summary>
+        [Input("signingStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningStatus;
+
+        public string? SigningStatus => _mSigningStatus.GetValue("signingStatus");
     }
 }

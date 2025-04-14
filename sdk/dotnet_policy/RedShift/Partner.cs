@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/partner:Partner")]
-    public sealed class Partner : global::Pulumi.PolicyResource
+    public sealed class Partner : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Web Services account ID that owns the cluster.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The cluster identifier of the cluster that receives data from the partner.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The name of the database that receives data from the partner.
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// The name of the partner that is authorized to send data.
         /// </summary>
         [Input("partnerName")]
-        public string? PartnerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerName;
+
+        public string? PartnerName => _mPartnerName.GetValue("partnerName");
 
         /// <summary>
         /// (Optional) The partner integration status.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// (Optional) The status message provided by the partner.
         /// </summary>
         [Input("statusMessage")]
-        public string? StatusMessage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
+
+        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
+    }
+
+    [PolicyResourceType("aws:redshift/partner:Partner")]
+    public sealed class PartnerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Web Services account ID that owns the cluster.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The cluster identifier of the cluster that receives data from the partner.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// The name of the database that receives data from the partner.
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// The name of the partner that is authorized to send data.
+        /// </summary>
+        [Input("partnerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerName;
+
+        public string? PartnerName => _mPartnerName.GetValue("partnerName");
     }
 }

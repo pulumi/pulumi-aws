@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/documentationVersion:DocumentationVersion")]
-    public sealed class DocumentationVersion : global::Pulumi.PolicyResource
+    public sealed class DocumentationVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Description of the API documentation version.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// ID of the associated Rest API
         /// </summary>
         [Input("restApiId")]
-        public string? RestApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+
+        public string? RestApiId => _mRestApiId.GetValue("restApiId");
 
         /// <summary>
         /// Version identifier of the API documentation snapshot.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:apigateway/documentationVersion:DocumentationVersion")]
+    public sealed class DocumentationVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the API documentation version.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// ID of the associated Rest API
+        /// </summary>
+        [Input("restApiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+
+        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+
+        /// <summary>
+        /// Version identifier of the API documentation snapshot.
+        /// </summary>
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
     }
 }

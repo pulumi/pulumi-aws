@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Vpc
 {
     [PolicyResourceType("aws:vpc/endpointPrivateDns:EndpointPrivateDns")]
-    public sealed class EndpointPrivateDns : global::Pulumi.PolicyResource
+    public sealed class EndpointPrivateDns : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
         /// </summary>
         [Input("privateDnsEnabled")]
-        public bool? PrivateDnsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateDnsEnabled;
+
+        public bool? PrivateDnsEnabled => _mPrivateDnsEnabled.GetValue("privateDnsEnabled");
 
         /// <summary>
         /// VPC endpoint identifier.
         /// </summary>
         [Input("vpcEndpointId")]
-        public string? VpcEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+    }
+
+    [PolicyResourceType("aws:vpc/endpointPrivateDns:EndpointPrivateDns")]
+    public sealed class EndpointPrivateDnsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+        /// </summary>
+        [Input("privateDnsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateDnsEnabled;
+
+        public bool? PrivateDnsEnabled => _mPrivateDnsEnabled.GetValue("privateDnsEnabled");
+
+        /// <summary>
+        /// VPC endpoint identifier.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
     }
 }

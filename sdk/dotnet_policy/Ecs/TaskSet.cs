@@ -11,103 +11,151 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecs
 {
     [PolicyResourceType("aws:ecs/taskSet:TaskSet")]
-    public sealed class TaskSet : global::Pulumi.PolicyResource
+    public sealed class TaskSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the task set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         /// </summary>
         [Input("capacityProviderStrategies")]
-        public List<TaskSetCapacityProviderStrategy>? CapacityProviderStrategies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TaskSetCapacityProviderStrategy>> _mCapacityProviderStrategies;
+
+        public List<Outputs.TaskSetCapacityProviderStrategy>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
 
         /// <summary>
         /// The short name or ARN of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Input("cluster")]
-        public string? Cluster;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCluster;
+
+        public string? Cluster => _mCluster.GetValue("cluster");
 
         /// <summary>
         /// The external ID associated with the task set.
         /// </summary>
         [Input("externalId")]
-        public string? ExternalId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
+
+        public string? ExternalId => _mExternalId.GetValue("externalId");
 
         /// <summary>
         /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         /// </summary>
         [Input("forceDelete")]
-        public bool? ForceDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
 
         /// <summary>
         /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Input("launchType")]
-        public string? LaunchType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
+
+        public string? LaunchType => _mLaunchType.GetValue("launchType");
 
         /// <summary>
         /// Details on load balancers that are used with a task set. Detailed below.
         /// </summary>
         [Input("loadBalancers")]
-        public List<TaskSetLoadBalancer>? LoadBalancers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TaskSetLoadBalancer>> _mLoadBalancers;
+
+        public List<Outputs.TaskSetLoadBalancer>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
 
         /// <summary>
         /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         /// </summary>
         [Input("networkConfiguration")]
-        public TaskSetNetworkConfiguration? NetworkConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskSetNetworkConfiguration> _mNetworkConfiguration;
+
+        public Outputs.TaskSetNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
 
         /// <summary>
         /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
-        public string? PlatformVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
+
+        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
 
         /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Input("scale")]
-        public TaskSetScale? Scale;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskSetScale> _mScale;
+
+        public Outputs.TaskSetScale? Scale => _mScale.GetValue("scale");
 
         /// <summary>
         /// The short name or ARN of the ECS service.
         /// </summary>
         [Input("service")]
-        public string? Service;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mService;
+
+        public string? Service => _mService.GetValue("service");
 
         /// <summary>
         /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         /// </summary>
         [Input("serviceRegistries")]
-        public TaskSetServiceRegistries? ServiceRegistries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskSetServiceRegistries> _mServiceRegistries;
+
+        public Outputs.TaskSetServiceRegistries? ServiceRegistries => _mServiceRegistries.GetValue("serviceRegistries");
 
         /// <summary>
         /// The stability status. This indicates whether the task set has reached a steady state.
         /// </summary>
         [Input("stabilityStatus")]
-        public string? StabilityStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStabilityStatus;
+
+        public string? StabilityStatus => _mStabilityStatus.GetValue("stabilityStatus");
 
         /// <summary>
         /// The status of the task set.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
@@ -115,24 +163,177 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// The following arguments are optional:
         /// </summary>
         [Input("taskDefinition")]
-        public string? TaskDefinition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinition;
+
+        public string? TaskDefinition => _mTaskDefinition.GetValue("taskDefinition");
 
         /// <summary>
         /// The ID of the task set.
         /// </summary>
         [Input("taskSetId")]
-        public string? TaskSetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskSetId;
+
+        public string? TaskSetId => _mTaskSetId.GetValue("taskSetId");
 
         /// <summary>
         /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
         /// </summary>
         [Input("waitUntilStable")]
-        public bool? WaitUntilStable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitUntilStable;
+
+        public bool? WaitUntilStable => _mWaitUntilStable.GetValue("waitUntilStable");
 
         /// <summary>
         /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         /// </summary>
         [Input("waitUntilStableTimeout")]
-        public string? WaitUntilStableTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWaitUntilStableTimeout;
+
+        public string? WaitUntilStableTimeout => _mWaitUntilStableTimeout.GetValue("waitUntilStableTimeout");
+    }
+
+    [PolicyResourceType("aws:ecs/taskSet:TaskSet")]
+    public sealed class TaskSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        /// </summary>
+        [Input("capacityProviderStrategies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TaskSetCapacityProviderStrategyArgs>> _mCapacityProviderStrategies;
+
+        public List<Inputs.TaskSetCapacityProviderStrategyArgs>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
+
+        /// <summary>
+        /// The short name or ARN of the cluster that hosts the service to create the task set in.
+        /// </summary>
+        [Input("cluster")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCluster;
+
+        public string? Cluster => _mCluster.GetValue("cluster");
+
+        /// <summary>
+        /// The external ID associated with the task set.
+        /// </summary>
+        [Input("externalId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
+
+        public string? ExternalId => _mExternalId.GetValue("externalId");
+
+        /// <summary>
+        /// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
+        /// </summary>
+        [Input("forceDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+
+        /// <summary>
+        /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+        /// </summary>
+        [Input("launchType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
+
+        public string? LaunchType => _mLaunchType.GetValue("launchType");
+
+        /// <summary>
+        /// Details on load balancers that are used with a task set. Detailed below.
+        /// </summary>
+        [Input("loadBalancers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TaskSetLoadBalancerArgs>> _mLoadBalancers;
+
+        public List<Inputs.TaskSetLoadBalancerArgs>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+
+        /// <summary>
+        /// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// </summary>
+        [Input("networkConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskSetNetworkConfigurationArgs> _mNetworkConfiguration;
+
+        public Inputs.TaskSetNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+
+        /// <summary>
+        /// The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// </summary>
+        [Input("platformVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
+
+        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+
+        /// <summary>
+        /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+        /// </summary>
+        [Input("scale")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskSetScaleArgs> _mScale;
+
+        public Inputs.TaskSetScaleArgs? Scale => _mScale.GetValue("scale");
+
+        /// <summary>
+        /// The short name or ARN of the ECS service.
+        /// </summary>
+        [Input("service")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mService;
+
+        public string? Service => _mService.GetValue("service");
+
+        /// <summary>
+        /// The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        /// </summary>
+        [Input("serviceRegistries")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskSetServiceRegistriesArgs> _mServiceRegistries;
+
+        public Inputs.TaskSetServiceRegistriesArgs? ServiceRegistries => _mServiceRegistries.GetValue("serviceRegistries");
+
+        /// <summary>
+        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("taskDefinition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinition;
+
+        public string? TaskDefinition => _mTaskDefinition.GetValue("taskDefinition");
+
+        /// <summary>
+        /// Whether the provider should wait until the task set has reached `STEADY_STATE`.
+        /// </summary>
+        [Input("waitUntilStable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitUntilStable;
+
+        public bool? WaitUntilStable => _mWaitUntilStable.GetValue("waitUntilStable");
+
+        /// <summary>
+        /// Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
+        /// </summary>
+        [Input("waitUntilStableTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWaitUntilStableTimeout;
+
+        public string? WaitUntilStableTimeout => _mWaitUntilStableTimeout.GetValue("waitUntilStableTimeout");
     }
 }

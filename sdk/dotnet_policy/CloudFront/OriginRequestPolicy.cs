@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/originRequestPolicy:OriginRequestPolicy")]
-    public sealed class OriginRequestPolicy : global::Pulumi.PolicyResource
+    public sealed class OriginRequestPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The origin request policy ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Comment to describe the origin request policy.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         /// </summary>
         [Input("cookiesConfig")]
-        public OriginRequestPolicyCookiesConfig? CookiesConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OriginRequestPolicyCookiesConfig> _mCookiesConfig;
+
+        public Outputs.OriginRequestPolicyCookiesConfig? CookiesConfig => _mCookiesConfig.GetValue("cookiesConfig");
 
         /// <summary>
         /// The current version of the origin request policy.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         /// </summary>
         [Input("headersConfig")]
-        public OriginRequestPolicyHeadersConfig? HeadersConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OriginRequestPolicyHeadersConfig> _mHeadersConfig;
+
+        public Outputs.OriginRequestPolicyHeadersConfig? HeadersConfig => _mHeadersConfig.GetValue("headersConfig");
 
         /// <summary>
         /// Unique name to identify the origin request policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         /// </summary>
         [Input("queryStringsConfig")]
-        public OriginRequestPolicyQueryStringsConfig? QueryStringsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OriginRequestPolicyQueryStringsConfig> _mQueryStringsConfig;
+
+        public Outputs.OriginRequestPolicyQueryStringsConfig? QueryStringsConfig => _mQueryStringsConfig.GetValue("queryStringsConfig");
+    }
+
+    [PolicyResourceType("aws:cloudfront/originRequestPolicy:OriginRequestPolicy")]
+    public sealed class OriginRequestPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Comment to describe the origin request policy.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        /// </summary>
+        [Input("cookiesConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OriginRequestPolicyCookiesConfigArgs> _mCookiesConfig;
+
+        public Inputs.OriginRequestPolicyCookiesConfigArgs? CookiesConfig => _mCookiesConfig.GetValue("cookiesConfig");
+
+        /// <summary>
+        /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        /// </summary>
+        [Input("headersConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OriginRequestPolicyHeadersConfigArgs> _mHeadersConfig;
+
+        public Inputs.OriginRequestPolicyHeadersConfigArgs? HeadersConfig => _mHeadersConfig.GetValue("headersConfig");
+
+        /// <summary>
+        /// Unique name to identify the origin request policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+        /// </summary>
+        [Input("queryStringsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OriginRequestPolicyQueryStringsConfigArgs> _mQueryStringsConfig;
+
+        public Inputs.OriginRequestPolicyQueryStringsConfigArgs? QueryStringsConfig => _mQueryStringsConfig.GetValue("queryStringsConfig");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafV2
 {
     [PolicyResourceType("aws:wafv2/webAclAssociation:WebAclAssociation")]
-    public sealed class WebAclAssociation : global::Pulumi.PolicyResource
+    public sealed class WebAclAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
         /// </summary>
         [Input("webAclArn")]
-        public string? WebAclArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclArn;
+
+        public string? WebAclArn => _mWebAclArn.GetValue("webAclArn");
+    }
+
+    [PolicyResourceType("aws:wafv2/webAclAssociation:WebAclAssociation")]
+    public sealed class WebAclAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+        /// </summary>
+        [Input("webAclArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclArn;
+
+        public string? WebAclArn => _mWebAclArn.GetValue("webAclArn");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/recorderStatus:RecorderStatus")]
-    public sealed class RecorderStatus : global::Pulumi.PolicyResource
+    public sealed class RecorderStatus : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether the configuration recorder should be enabled or disabled.
         /// </summary>
         [Input("isEnabled")]
-        public bool? IsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
+
+        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
 
         /// <summary>
         /// The name of the recorder
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:cfg/recorderStatus:RecorderStatus")]
+    public sealed class RecorderStatusArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether the configuration recorder should be enabled or disabled.
+        /// </summary>
+        [Input("isEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
+
+        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
+
+        /// <summary>
+        /// The name of the recorder
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

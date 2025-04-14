@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/resourceDataSync:ResourceDataSync")]
-    public sealed class ResourceDataSync : global::Pulumi.PolicyResource
+    public sealed class ResourceDataSync : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name for the configuration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Amazon S3 configuration details for the sync.
         /// </summary>
         [Input("s3Destination")]
-        public ResourceDataSyncS3Destination? S3Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceDataSyncS3Destination> _mS3Destination;
+
+        public Outputs.ResourceDataSyncS3Destination? S3Destination => _mS3Destination.GetValue("s3Destination");
+    }
+
+    [PolicyResourceType("aws:ssm/resourceDataSync:ResourceDataSync")]
+    public sealed class ResourceDataSyncArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name for the configuration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Amazon S3 configuration details for the sync.
+        /// </summary>
+        [Input("s3Destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceDataSyncS3DestinationArgs> _mS3Destination;
+
+        public Inputs.ResourceDataSyncS3DestinationArgs? S3Destination => _mS3Destination.GetValue("s3Destination");
     }
 }

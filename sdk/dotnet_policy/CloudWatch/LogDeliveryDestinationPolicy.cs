@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy")]
-    public sealed class LogDeliveryDestinationPolicy : global::Pulumi.PolicyResource
+    public sealed class LogDeliveryDestinationPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the delivery destination to assign this policy to.
         /// </summary>
         [Input("deliveryDestinationName")]
-        public string? DeliveryDestinationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationName;
+
+        public string? DeliveryDestinationName => _mDeliveryDestinationName.GetValue("deliveryDestinationName");
 
         /// <summary>
         /// The contents of the policy.
         /// </summary>
         [Input("deliveryDestinationPolicy")]
-        public string? DeliveryDestinationPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationPolicy;
+
+        public string? DeliveryDestinationPolicy => _mDeliveryDestinationPolicy.GetValue("deliveryDestinationPolicy");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy")]
+    public sealed class LogDeliveryDestinationPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the delivery destination to assign this policy to.
+        /// </summary>
+        [Input("deliveryDestinationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationName;
+
+        public string? DeliveryDestinationName => _mDeliveryDestinationName.GetValue("deliveryDestinationName");
+
+        /// <summary>
+        /// The contents of the policy.
+        /// </summary>
+        [Input("deliveryDestinationPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationPolicy;
+
+        public string? DeliveryDestinationPolicy => _mDeliveryDestinationPolicy.GetValue("deliveryDestinationPolicy");
     }
 }

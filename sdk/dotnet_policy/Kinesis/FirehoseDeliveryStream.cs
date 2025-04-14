@@ -11,82 +11,121 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kinesis
 {
     [PolicyResourceType("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")]
-    public sealed class FirehoseDeliveryStream : global::Pulumi.PolicyResource
+    public sealed class FirehoseDeliveryStream : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
         [Input("destination")]
-        public string? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
 
         [Input("destinationId")]
-        public string? DestinationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationId;
+
+        public string? DestinationId => _mDestinationId.GetValue("destinationId");
 
         /// <summary>
         /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         /// </summary>
         [Input("elasticsearchConfiguration")]
-        public FirehoseDeliveryStreamElasticsearchConfiguration? ElasticsearchConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamElasticsearchConfiguration> _mElasticsearchConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamElasticsearchConfiguration? ElasticsearchConfiguration => _mElasticsearchConfiguration.GetValue("elasticsearchConfiguration");
 
         /// <summary>
         /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         /// </summary>
         [Input("extendedS3Configuration")]
-        public FirehoseDeliveryStreamExtendedS3Configuration? ExtendedS3Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamExtendedS3Configuration> _mExtendedS3Configuration;
+
+        public Outputs.FirehoseDeliveryStreamExtendedS3Configuration? ExtendedS3Configuration => _mExtendedS3Configuration.GetValue("extendedS3Configuration");
 
         /// <summary>
         /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         /// </summary>
         [Input("httpEndpointConfiguration")]
-        public FirehoseDeliveryStreamHttpEndpointConfiguration? HttpEndpointConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration> _mHttpEndpointConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration? HttpEndpointConfiguration => _mHttpEndpointConfiguration.GetValue("httpEndpointConfiguration");
 
         /// <summary>
         /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         /// </summary>
         [Input("icebergConfiguration")]
-        public FirehoseDeliveryStreamIcebergConfiguration? IcebergConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamIcebergConfiguration> _mIcebergConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamIcebergConfiguration? IcebergConfiguration => _mIcebergConfiguration.GetValue("icebergConfiguration");
 
         /// <summary>
         /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         /// </summary>
         [Input("kinesisSourceConfiguration")]
-        public FirehoseDeliveryStreamKinesisSourceConfiguration? KinesisSourceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration> _mKinesisSourceConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration? KinesisSourceConfiguration => _mKinesisSourceConfiguration.GetValue("kinesisSourceConfiguration");
 
         /// <summary>
         /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         /// </summary>
         [Input("mskSourceConfiguration")]
-        public FirehoseDeliveryStreamMskSourceConfiguration? MskSourceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamMskSourceConfiguration> _mMskSourceConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamMskSourceConfiguration? MskSourceConfiguration => _mMskSourceConfiguration.GetValue("mskSourceConfiguration");
 
         /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         /// </summary>
         [Input("opensearchConfiguration")]
-        public FirehoseDeliveryStreamOpensearchConfiguration? OpensearchConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamOpensearchConfiguration> _mOpensearchConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamOpensearchConfiguration? OpensearchConfiguration => _mOpensearchConfiguration.GetValue("opensearchConfiguration");
 
         /// <summary>
         /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         /// </summary>
         [Input("opensearchserverlessConfiguration")]
-        public FirehoseDeliveryStreamOpensearchserverlessConfiguration? OpensearchserverlessConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration> _mOpensearchserverlessConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration? OpensearchserverlessConfiguration => _mOpensearchserverlessConfiguration.GetValue("opensearchserverlessConfiguration");
 
         /// <summary>
         /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
         /// </summary>
         [Input("redshiftConfiguration")]
-        public FirehoseDeliveryStreamRedshiftConfiguration? RedshiftConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamRedshiftConfiguration> _mRedshiftConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamRedshiftConfiguration? RedshiftConfiguration => _mRedshiftConfiguration.GetValue("redshiftConfiguration");
 
         /// <summary>
         /// Encrypt at rest options. See `server_side_encryption` block below for details.
@@ -94,33 +133,213 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
         [Input("serverSideEncryption")]
-        public FirehoseDeliveryStreamServerSideEncryption? ServerSideEncryption;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamServerSideEncryption> _mServerSideEncryption;
+
+        public Outputs.FirehoseDeliveryStreamServerSideEncryption? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
 
         /// <summary>
         /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         /// </summary>
         [Input("snowflakeConfiguration")]
-        public FirehoseDeliveryStreamSnowflakeConfiguration? SnowflakeConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamSnowflakeConfiguration> _mSnowflakeConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamSnowflakeConfiguration? SnowflakeConfiguration => _mSnowflakeConfiguration.GetValue("snowflakeConfiguration");
 
         /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         /// </summary>
         [Input("splunkConfiguration")]
-        public FirehoseDeliveryStreamSplunkConfiguration? SplunkConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamSplunkConfiguration> _mSplunkConfiguration;
+
+        public Outputs.FirehoseDeliveryStreamSplunkConfiguration? SplunkConfiguration => _mSplunkConfiguration.GetValue("splunkConfiguration");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("versionId")]
-        public string? VersionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
+
+        public string? VersionId => _mVersionId.GetValue("versionId");
+    }
+
+    [PolicyResourceType("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")]
+    public sealed class FirehoseDeliveryStreamArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) specifying the Stream
+        /// </summary>
+        [Input("arn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
+
+        /// <summary>
+        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
+
+        [Input("destinationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationId;
+
+        public string? DestinationId => _mDestinationId.GetValue("destinationId");
+
+        /// <summary>
+        /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
+        /// </summary>
+        [Input("elasticsearchConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs> _mElasticsearchConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs? ElasticsearchConfiguration => _mElasticsearchConfiguration.GetValue("elasticsearchConfiguration");
+
+        /// <summary>
+        /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
+        /// </summary>
+        [Input("extendedS3Configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs> _mExtendedS3Configuration;
+
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs? ExtendedS3Configuration => _mExtendedS3Configuration.GetValue("extendedS3Configuration");
+
+        /// <summary>
+        /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
+        /// </summary>
+        [Input("httpEndpointConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs> _mHttpEndpointConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs? HttpEndpointConfiguration => _mHttpEndpointConfiguration.GetValue("httpEndpointConfiguration");
+
+        /// <summary>
+        /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        /// </summary>
+        [Input("icebergConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs> _mIcebergConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs? IcebergConfiguration => _mIcebergConfiguration.GetValue("icebergConfiguration");
+
+        /// <summary>
+        /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
+        /// </summary>
+        [Input("kinesisSourceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs> _mKinesisSourceConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs? KinesisSourceConfiguration => _mKinesisSourceConfiguration.GetValue("kinesisSourceConfiguration");
+
+        /// <summary>
+        /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        /// </summary>
+        [Input("mskSourceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamMskSourceConfigurationArgs> _mMskSourceConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamMskSourceConfigurationArgs? MskSourceConfiguration => _mMskSourceConfiguration.GetValue("mskSourceConfiguration");
+
+        /// <summary>
+        /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
+        /// </summary>
+        [Input("opensearchConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs> _mOpensearchConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs? OpensearchConfiguration => _mOpensearchConfiguration.GetValue("opensearchConfiguration");
+
+        /// <summary>
+        /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
+        /// </summary>
+        [Input("opensearchserverlessConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs> _mOpensearchserverlessConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs? OpensearchserverlessConfiguration => _mOpensearchserverlessConfiguration.GetValue("opensearchserverlessConfiguration");
+
+        /// <summary>
+        /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
+        /// </summary>
+        [Input("redshiftConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs> _mRedshiftConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs? RedshiftConfiguration => _mRedshiftConfiguration.GetValue("redshiftConfiguration");
+
+        /// <summary>
+        /// Encrypt at rest options. See `server_side_encryption` block below for details.
+        /// 
+        /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+        /// </summary>
+        [Input("serverSideEncryption")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs> _mServerSideEncryption;
+
+        public Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+
+        /// <summary>
+        /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
+        /// </summary>
+        [Input("snowflakeConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs> _mSnowflakeConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs? SnowflakeConfiguration => _mSnowflakeConfiguration.GetValue("snowflakeConfiguration");
+
+        /// <summary>
+        /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        /// </summary>
+        [Input("splunkConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs> _mSplunkConfiguration;
+
+        public Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs? SplunkConfiguration => _mSplunkConfiguration.GetValue("splunkConfiguration");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("versionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
+
+        public string? VersionId => _mVersionId.GetValue("versionId");
     }
 }

@@ -11,25 +11,57 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")]
-    public sealed class MainRouteTableAssociation : global::Pulumi.PolicyResource
+    public sealed class MainRouteTableAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Used internally, see **Notes** below
         /// </summary>
         [Input("originalRouteTableId")]
-        public string? OriginalRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOriginalRouteTableId;
+
+        public string? OriginalRouteTableId => _mOriginalRouteTableId.GetValue("originalRouteTableId");
 
         /// <summary>
         /// The ID of the Route Table to set as the new
         /// main route table for the target VPC
         /// </summary>
         [Input("routeTableId")]
-        public string? RouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
 
         /// <summary>
         /// The ID of the VPC whose main route table should be set
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")]
+    public sealed class MainRouteTableAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Route Table to set as the new
+        /// main route table for the target VPC
+        /// </summary>
+        [Input("routeTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+
+        /// <summary>
+        /// The ID of the VPC whose main route table should be set
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

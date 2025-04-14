@@ -11,21 +11,27 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/eipAssociation:EipAssociation")]
-    public sealed class EipAssociation : global::Pulumi.PolicyResource
+    public sealed class EipAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the associated Elastic IP.
         /// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
         /// </summary>
         [Input("allocationId")]
-        public string? AllocationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+
+        public string? AllocationId => _mAllocationId.GetValue("allocationId");
 
         /// <summary>
         /// Whether to allow an Elastic IP address to be re-associated.
         /// Defaults to `true`.
         /// </summary>
         [Input("allowReassociation")]
-        public bool? AllowReassociation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowReassociation;
+
+        public bool? AllowReassociation => _mAllowReassociation.GetValue("allowReassociation");
 
         /// <summary>
         /// ID of the instance.
@@ -33,7 +39,10 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
 
         /// <summary>
         /// ID of the network interface.
@@ -41,19 +50,93 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// Primary or secondary private IP address to associate with the Elastic IP address.
         /// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
         [Input("privateIpAddress")]
-        public string? PrivateIpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
+
+        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
 
         /// <summary>
         /// ) Address of the associated Elastic IP.
         /// </summary>
         [Input("publicIp")]
-        public string? PublicIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
+
+        public string? PublicIp => _mPublicIp.GetValue("publicIp");
+    }
+
+    [PolicyResourceType("aws:ec2/eipAssociation:EipAssociation")]
+    public sealed class EipAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the associated Elastic IP.
+        /// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
+        /// </summary>
+        [Input("allocationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+
+        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+
+        /// <summary>
+        /// Whether to allow an Elastic IP address to be re-associated.
+        /// Defaults to `true`.
+        /// </summary>
+        [Input("allowReassociation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowReassociation;
+
+        public bool? AllowReassociation => _mAllowReassociation.GetValue("allowReassociation");
+
+        /// <summary>
+        /// ID of the instance.
+        /// The instance must have exactly one attached network interface.
+        /// You can specify either the instance ID or the network interface ID, but not both.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+
+        /// <summary>
+        /// ID of the network interface.
+        /// If the instance has more than one network interface, you must specify a network interface ID.
+        /// You can specify either the instance ID or the network interface ID, but not both.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+
+        /// <summary>
+        /// Primary or secondary private IP address to associate with the Elastic IP address.
+        /// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
+        /// </summary>
+        [Input("privateIpAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
+
+        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
+
+        /// <summary>
+        /// ) Address of the associated Elastic IP.
+        /// </summary>
+        [Input("publicIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
+
+        public string? PublicIp => _mPublicIp.GetValue("publicIp");
     }
 }

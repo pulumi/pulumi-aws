@@ -11,102 +11,226 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Acmpca
 {
     [PolicyResourceType("aws:acmpca/certificateAuthority:CertificateAuthority")]
-    public sealed class CertificateAuthority : global::Pulumi.PolicyResource
+    public sealed class CertificateAuthority : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the certificate authority.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
         /// </summary>
         [Input("certificate")]
-        public string? Certificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
+
+        public string? Certificate => _mCertificate.GetValue("certificate");
 
         /// <summary>
         /// Nested argument containing algorithms and certificate subject information. Defined below.
         /// </summary>
         [Input("certificateAuthorityConfiguration")]
-        public CertificateAuthorityCertificateAuthorityConfiguration? CertificateAuthorityConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateAuthorityCertificateAuthorityConfiguration> _mCertificateAuthorityConfiguration;
+
+        public Outputs.CertificateAuthorityCertificateAuthorityConfiguration? CertificateAuthorityConfiguration => _mCertificateAuthorityConfiguration.GetValue("certificateAuthorityConfiguration");
 
         /// <summary>
         /// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         /// </summary>
         [Input("certificateChain")]
-        public string? CertificateChain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+
+        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
 
         /// <summary>
         /// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         /// </summary>
         [Input("certificateSigningRequest")]
-        public string? CertificateSigningRequest;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateSigningRequest;
+
+        public string? CertificateSigningRequest => _mCertificateSigningRequest.GetValue("certificateSigningRequest");
 
         /// <summary>
         /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         /// </summary>
         [Input("keyStorageSecurityStandard")]
-        public string? KeyStorageSecurityStandard;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyStorageSecurityStandard;
+
+        public string? KeyStorageSecurityStandard => _mKeyStorageSecurityStandard.GetValue("keyStorageSecurityStandard");
 
         /// <summary>
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
         [Input("notAfter")]
-        public string? NotAfter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotAfter;
+
+        public string? NotAfter => _mNotAfter.GetValue("notAfter");
 
         /// <summary>
         /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
         [Input("notBefore")]
-        public string? NotBefore;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotBefore;
+
+        public string? NotBefore => _mNotBefore.GetValue("notBefore");
 
         /// <summary>
         /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         /// </summary>
         [Input("permanentDeletionTimeInDays")]
-        public int? PermanentDeletionTimeInDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPermanentDeletionTimeInDays;
+
+        public int? PermanentDeletionTimeInDays => _mPermanentDeletionTimeInDays.GetValue("permanentDeletionTimeInDays");
 
         /// <summary>
         /// Nested argument containing revocation configuration. Defined below.
         /// </summary>
         [Input("revocationConfiguration")]
-        public CertificateAuthorityRevocationConfiguration? RevocationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateAuthorityRevocationConfiguration> _mRevocationConfiguration;
+
+        public Outputs.CertificateAuthorityRevocationConfiguration? RevocationConfiguration => _mRevocationConfiguration.GetValue("revocationConfiguration");
 
         /// <summary>
         /// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         /// </summary>
         [Input("serial")]
-        public string? Serial;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSerial;
+
+        public string? Serial => _mSerial.GetValue("serial");
 
         /// <summary>
         /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         /// </summary>
         [Input("usageMode")]
-        public string? UsageMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsageMode;
+
+        public string? UsageMode => _mUsageMode.GetValue("usageMode");
+    }
+
+    [PolicyResourceType("aws:acmpca/certificateAuthority:CertificateAuthority")]
+    public sealed class CertificateAuthorityArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Nested argument containing algorithms and certificate subject information. Defined below.
+        /// </summary>
+        [Input("certificateAuthorityConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs> _mCertificateAuthorityConfiguration;
+
+        public Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs? CertificateAuthorityConfiguration => _mCertificateAuthorityConfiguration.GetValue("certificateAuthorityConfiguration");
+
+        /// <summary>
+        /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+        /// </summary>
+        [Input("keyStorageSecurityStandard")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyStorageSecurityStandard;
+
+        public string? KeyStorageSecurityStandard => _mKeyStorageSecurityStandard.GetValue("keyStorageSecurityStandard");
+
+        /// <summary>
+        /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
+        /// </summary>
+        [Input("permanentDeletionTimeInDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPermanentDeletionTimeInDays;
+
+        public int? PermanentDeletionTimeInDays => _mPermanentDeletionTimeInDays.GetValue("permanentDeletionTimeInDays");
+
+        /// <summary>
+        /// Nested argument containing revocation configuration. Defined below.
+        /// </summary>
+        [Input("revocationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CertificateAuthorityRevocationConfigurationArgs> _mRevocationConfiguration;
+
+        public Inputs.CertificateAuthorityRevocationConfigurationArgs? RevocationConfiguration => _mRevocationConfiguration.GetValue("revocationConfiguration");
+
+        /// <summary>
+        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+        /// </summary>
+        [Input("usageMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsageMode;
+
+        public string? UsageMode => _mUsageMode.GetValue("usageMode");
     }
 }

@@ -11,10 +11,13 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kms
 {
     [PolicyResourceType("aws:kms/customKeyStore:CustomKeyStore")]
-    public sealed class CustomKeyStore : global::Pulumi.PolicyResource
+    public sealed class CustomKeyStore : global::Pulumi.PolicyResourceOutput
     {
         [Input("cloudHsmClusterId")]
-        public string? CloudHsmClusterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudHsmClusterId;
+
+        public string? CloudHsmClusterId => _mCloudHsmClusterId.GetValue("cloudHsmClusterId");
 
         /// <summary>
         /// Unique name for Custom Key Store.
@@ -22,33 +25,132 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// The following arguments are optional:
         /// </summary>
         [Input("customKeyStoreName")]
-        public string? CustomKeyStoreName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomKeyStoreName;
+
+        public string? CustomKeyStoreName => _mCustomKeyStoreName.GetValue("customKeyStoreName");
 
         /// <summary>
         /// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
         /// </summary>
         [Input("customKeyStoreType")]
-        public string? CustomKeyStoreType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomKeyStoreType;
+
+        public string? CustomKeyStoreType => _mCustomKeyStoreType.GetValue("customKeyStoreType");
 
         [Input("keyStorePassword")]
-        public string? KeyStorePassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyStorePassword;
+
+        public string? KeyStorePassword => _mKeyStorePassword.GetValue("keyStorePassword");
 
         [Input("trustAnchorCertificate")]
-        public string? TrustAnchorCertificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustAnchorCertificate;
+
+        public string? TrustAnchorCertificate => _mTrustAnchorCertificate.GetValue("trustAnchorCertificate");
 
         [Input("xksProxyAuthenticationCredential")]
-        public CustomKeyStoreXksProxyAuthenticationCredential? XksProxyAuthenticationCredential;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomKeyStoreXksProxyAuthenticationCredential> _mXksProxyAuthenticationCredential;
+
+        public Outputs.CustomKeyStoreXksProxyAuthenticationCredential? XksProxyAuthenticationCredential => _mXksProxyAuthenticationCredential.GetValue("xksProxyAuthenticationCredential");
 
         [Input("xksProxyConnectivity")]
-        public string? XksProxyConnectivity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksProxyConnectivity;
+
+        public string? XksProxyConnectivity => _mXksProxyConnectivity.GetValue("xksProxyConnectivity");
 
         [Input("xksProxyUriEndpoint")]
-        public string? XksProxyUriEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksProxyUriEndpoint;
+
+        public string? XksProxyUriEndpoint => _mXksProxyUriEndpoint.GetValue("xksProxyUriEndpoint");
 
         [Input("xksProxyUriPath")]
-        public string? XksProxyUriPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksProxyUriPath;
+
+        public string? XksProxyUriPath => _mXksProxyUriPath.GetValue("xksProxyUriPath");
 
         [Input("xksProxyVpcEndpointServiceName")]
-        public string? XksProxyVpcEndpointServiceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksProxyVpcEndpointServiceName;
+
+        public string? XksProxyVpcEndpointServiceName => _mXksProxyVpcEndpointServiceName.GetValue("xksProxyVpcEndpointServiceName");
+    }
+
+    [PolicyResourceType("aws:kms/customKeyStore:CustomKeyStore")]
+    public sealed class CustomKeyStoreArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("cloudHsmClusterId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudHsmClusterId;
+
+        public string? CloudHsmClusterId => _mCloudHsmClusterId.GetValue("cloudHsmClusterId");
+
+        /// <summary>
+        /// Unique name for Custom Key Store.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("customKeyStoreName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomKeyStoreName;
+
+        public string? CustomKeyStoreName => _mCustomKeyStoreName.GetValue("customKeyStoreName");
+
+        /// <summary>
+        /// Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        /// </summary>
+        [Input("customKeyStoreType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomKeyStoreType;
+
+        public string? CustomKeyStoreType => _mCustomKeyStoreType.GetValue("customKeyStoreType");
+
+        [Input("keyStorePassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyStorePassword;
+
+        public string? KeyStorePassword => _mKeyStorePassword.GetValue("keyStorePassword");
+
+        [Input("trustAnchorCertificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustAnchorCertificate;
+
+        public string? TrustAnchorCertificate => _mTrustAnchorCertificate.GetValue("trustAnchorCertificate");
+
+        [Input("xksProxyAuthenticationCredential")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs> _mXksProxyAuthenticationCredential;
+
+        public Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs? XksProxyAuthenticationCredential => _mXksProxyAuthenticationCredential.GetValue("xksProxyAuthenticationCredential");
+
+        [Input("xksProxyConnectivity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksProxyConnectivity;
+
+        public string? XksProxyConnectivity => _mXksProxyConnectivity.GetValue("xksProxyConnectivity");
+
+        [Input("xksProxyUriEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksProxyUriEndpoint;
+
+        public string? XksProxyUriEndpoint => _mXksProxyUriEndpoint.GetValue("xksProxyUriEndpoint");
+
+        [Input("xksProxyUriPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksProxyUriPath;
+
+        public string? XksProxyUriPath => _mXksProxyUriPath.GetValue("xksProxyUriPath");
+
+        [Input("xksProxyVpcEndpointServiceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksProxyVpcEndpointServiceName;
+
+        public string? XksProxyVpcEndpointServiceName => _mXksProxyVpcEndpointServiceName.GetValue("xksProxyVpcEndpointServiceName");
     }
 }

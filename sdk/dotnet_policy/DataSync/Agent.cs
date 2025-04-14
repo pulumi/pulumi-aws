@@ -11,66 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataSync
 {
     [PolicyResourceType("aws:datasync/agent:Agent")]
-    public sealed class Agent : global::Pulumi.PolicyResource
+    public sealed class Agent : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
         /// </summary>
         [Input("activationKey")]
-        public string? ActivationKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActivationKey;
+
+        public string? ActivationKey => _mActivationKey.GetValue("activationKey");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Agent.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         /// </summary>
         [Input("ipAddress")]
-        public string? IpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
 
         /// <summary>
         /// Name of the DataSync Agent.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         /// </summary>
         [Input("privateLinkEndpoint")]
-        public string? PrivateLinkEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateLinkEndpoint;
+
+        public string? PrivateLinkEndpoint => _mPrivateLinkEndpoint.GetValue("privateLinkEndpoint");
 
         /// <summary>
         /// The ARNs of the security groups used to protect your data transfer task subnets.
         /// </summary>
         [Input("securityGroupArns")]
-        public List<string>? SecurityGroupArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
+
+        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         /// </summary>
         [Input("subnetArns")]
-        public List<string>? SubnetArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetArns;
+
+        public List<string>? SubnetArns => _mSubnetArns.GetValue("subnetArns");
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
         /// </summary>
         [Input("vpcEndpointId")]
-        public string? VpcEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+    }
+
+    [PolicyResourceType("aws:datasync/agent:Agent")]
+    public sealed class AgentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
+        /// </summary>
+        [Input("activationKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActivationKey;
+
+        public string? ActivationKey => _mActivationKey.GetValue("activationKey");
+
+        /// <summary>
+        /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
+        /// </summary>
+        [Input("ipAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+
+        /// <summary>
+        /// Name of the DataSync Agent.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+        /// </summary>
+        [Input("privateLinkEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateLinkEndpoint;
+
+        public string? PrivateLinkEndpoint => _mPrivateLinkEndpoint.GetValue("privateLinkEndpoint");
+
+        /// <summary>
+        /// The ARNs of the security groups used to protect your data transfer task subnets.
+        /// </summary>
+        [Input("securityGroupArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
+
+        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        /// </summary>
+        [Input("subnetArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetArns;
+
+        public List<string>? SubnetArns => _mSubnetArns.GetValue("subnetArns");
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
     }
 }

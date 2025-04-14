@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafV2
 {
     [PolicyResourceType("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")]
-    public sealed class WebAclLoggingConfiguration : global::Pulumi.PolicyResource
+    public sealed class WebAclLoggingConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
         /// </summary>
         [Input("logDestinationConfigs")]
-        public List<string>? LogDestinationConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogDestinationConfigs;
+
+        public List<string>? LogDestinationConfigs => _mLogDestinationConfigs.GetValue("logDestinationConfigs");
 
         /// <summary>
         /// Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
         /// </summary>
         [Input("loggingFilter")]
-        public WebAclLoggingConfigurationLoggingFilter? LoggingFilter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclLoggingConfigurationLoggingFilter> _mLoggingFilter;
+
+        public Outputs.WebAclLoggingConfigurationLoggingFilter? LoggingFilter => _mLoggingFilter.GetValue("loggingFilter");
 
         /// <summary>
         /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         /// </summary>
         [Input("redactedFields")]
-        public List<WebAclLoggingConfigurationRedactedField>? RedactedFields;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclLoggingConfigurationRedactedField>> _mRedactedFields;
+
+        public List<Outputs.WebAclLoggingConfigurationRedactedField>? RedactedFields => _mRedactedFields.GetValue("redactedFields");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+    }
+
+    [PolicyResourceType("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")]
+    public sealed class WebAclLoggingConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+        /// </summary>
+        [Input("logDestinationConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogDestinationConfigs;
+
+        public List<string>? LogDestinationConfigs => _mLogDestinationConfigs.GetValue("logDestinationConfigs");
+
+        /// <summary>
+        /// Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+        /// </summary>
+        [Input("loggingFilter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclLoggingConfigurationLoggingFilterArgs> _mLoggingFilter;
+
+        public Inputs.WebAclLoggingConfigurationLoggingFilterArgs? LoggingFilter => _mLoggingFilter.GetValue("loggingFilter");
+
+        /// <summary>
+        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        /// </summary>
+        [Input("redactedFields")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclLoggingConfigurationRedactedFieldArgs>> _mRedactedFields;
+
+        public List<Inputs.WebAclLoggingConfigurationRedactedFieldArgs>? RedactedFields => _mRedactedFields.GetValue("redactedFields");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
     }
 }

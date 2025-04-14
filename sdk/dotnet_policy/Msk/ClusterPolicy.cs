@@ -11,21 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Msk
 {
     [PolicyResourceType("aws:msk/clusterPolicy:ClusterPolicy")]
-    public sealed class ClusterPolicy : global::Pulumi.PolicyResource
+    public sealed class ClusterPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
         /// </summary>
         [Input("clusterArn")]
-        public string? ClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
 
         [Input("currentVersion")]
-        public string? CurrentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCurrentVersion;
+
+        public string? CurrentVersion => _mCurrentVersion.GetValue("currentVersion");
 
         /// <summary>
         /// Resource policy for cluster.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:msk/clusterPolicy:ClusterPolicy")]
+    public sealed class ClusterPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        /// </summary>
+        [Input("clusterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+
+        /// <summary>
+        /// Resource policy for cluster.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

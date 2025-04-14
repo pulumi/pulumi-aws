@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logDelivery:LogDelivery")]
-    public sealed class LogDelivery : global::Pulumi.PolicyResource
+    public sealed class LogDelivery : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the delivery.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the delivery destination to use for this delivery.
         /// </summary>
         [Input("deliveryDestinationArn")]
-        public string? DeliveryDestinationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationArn;
+
+        public string? DeliveryDestinationArn => _mDeliveryDestinationArn.GetValue("deliveryDestinationArn");
 
         /// <summary>
         /// The name of the delivery source to use for this delivery.
         /// </summary>
         [Input("deliverySourceName")]
-        public string? DeliverySourceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliverySourceName;
+
+        public string? DeliverySourceName => _mDeliverySourceName.GetValue("deliverySourceName");
 
         /// <summary>
         /// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         /// </summary>
         [Input("fieldDelimiter")]
-        public string? FieldDelimiter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFieldDelimiter;
+
+        public string? FieldDelimiter => _mFieldDelimiter.GetValue("fieldDelimiter");
 
         /// <summary>
         /// The list of record fields to be delivered to the destination, in order.
         /// </summary>
         [Input("recordFields")]
-        public List<string>? RecordFields;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecordFields;
+
+        public List<string>? RecordFields => _mRecordFields.GetValue("recordFields");
 
         /// <summary>
         /// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         /// </summary>
         [Input("s3DeliveryConfigurations")]
-        public List<LogDeliveryS3DeliveryConfiguration>? S3DeliveryConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LogDeliveryS3DeliveryConfiguration>> _mS3DeliveryConfigurations;
+
+        public List<Outputs.LogDeliveryS3DeliveryConfiguration>? S3DeliveryConfigurations => _mS3DeliveryConfigurations.GetValue("s3DeliveryConfigurations");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logDelivery:LogDelivery")]
+    public sealed class LogDeliveryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the delivery destination to use for this delivery.
+        /// </summary>
+        [Input("deliveryDestinationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationArn;
+
+        public string? DeliveryDestinationArn => _mDeliveryDestinationArn.GetValue("deliveryDestinationArn");
+
+        /// <summary>
+        /// The name of the delivery source to use for this delivery.
+        /// </summary>
+        [Input("deliverySourceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliverySourceName;
+
+        public string? DeliverySourceName => _mDeliverySourceName.GetValue("deliverySourceName");
+
+        /// <summary>
+        /// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
+        /// </summary>
+        [Input("fieldDelimiter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFieldDelimiter;
+
+        public string? FieldDelimiter => _mFieldDelimiter.GetValue("fieldDelimiter");
+
+        /// <summary>
+        /// The list of record fields to be delivered to the destination, in order.
+        /// </summary>
+        [Input("recordFields")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecordFields;
+
+        public List<string>? RecordFields => _mRecordFields.GetValue("recordFields");
+
+        /// <summary>
+        /// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+        /// </summary>
+        [Input("s3DeliveryConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LogDeliveryS3DeliveryConfigurationArgs>> _mS3DeliveryConfigurations;
+
+        public List<Inputs.LogDeliveryS3DeliveryConfigurationArgs>? S3DeliveryConfigurations => _mS3DeliveryConfigurations.GetValue("s3DeliveryConfigurations");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

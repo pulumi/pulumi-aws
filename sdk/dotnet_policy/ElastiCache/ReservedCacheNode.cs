@@ -11,56 +11,80 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElastiCache
 {
     [PolicyResourceType("aws:elasticache/reservedCacheNode:ReservedCacheNode")]
-    public sealed class ReservedCacheNode : global::Pulumi.PolicyResource
+    public sealed class ReservedCacheNode : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN for the reserved cache node.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Number of cache node instances to reserve.
         /// Default value is `1`.
         /// </summary>
         [Input("cacheNodeCount")]
-        public int? CacheNodeCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCacheNodeCount;
+
+        public int? CacheNodeCount => _mCacheNodeCount.GetValue("cacheNodeCount");
 
         /// <summary>
         /// Node type for the reserved cache nodes.
         /// </summary>
         [Input("cacheNodeType")]
-        public string? CacheNodeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNodeType;
+
+        public string? CacheNodeType => _mCacheNodeType.GetValue("cacheNodeType");
 
         /// <summary>
         /// Duration of the reservation as an RFC3339 duration.
         /// </summary>
         [Input("duration")]
-        public string? Duration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDuration;
+
+        public string? Duration => _mDuration.GetValue("duration");
 
         /// <summary>
         /// Fixed price charged for this reserved cache node.
         /// </summary>
         [Input("fixedPrice")]
-        public double? FixedPrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mFixedPrice;
+
+        public double? FixedPrice => _mFixedPrice.GetValue("fixedPrice");
 
         /// <summary>
         /// Offering type of this reserved cache node.
         /// </summary>
         [Input("offeringType")]
-        public string? OfferingType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOfferingType;
+
+        public string? OfferingType => _mOfferingType.GetValue("offeringType");
 
         /// <summary>
         /// Engine type for the reserved cache node.
         /// </summary>
         [Input("productDescription")]
-        public string? ProductDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductDescription;
+
+        public string? ProductDescription => _mProductDescription.GetValue("productDescription");
 
         /// <summary>
         /// Recurring price charged to run this reserved cache node.
         /// </summary>
         [Input("recurringCharges")]
-        public List<ReservedCacheNodeRecurringCharge>? RecurringCharges;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReservedCacheNodeRecurringCharge>> _mRecurringCharges;
+
+        public List<Outputs.ReservedCacheNodeRecurringCharge>? RecurringCharges => _mRecurringCharges.GetValue("recurringCharges");
 
         /// <summary>
         /// ID of the reserved cache node offering to purchase.
@@ -69,39 +93,101 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// The following arguments are optional:
         /// </summary>
         [Input("reservedCacheNodesOfferingId")]
-        public string? ReservedCacheNodesOfferingId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReservedCacheNodesOfferingId;
+
+        public string? ReservedCacheNodesOfferingId => _mReservedCacheNodesOfferingId.GetValue("reservedCacheNodesOfferingId");
 
         /// <summary>
         /// Time the reservation started.
         /// </summary>
         [Input("startTime")]
-        public string? StartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
+
+        public string? StartTime => _mStartTime.GetValue("startTime");
 
         /// <summary>
         /// State of the reserved cache node.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ReservedCacheNodeTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ReservedCacheNodeTimeouts> _mTimeouts;
+
+        public Outputs.ReservedCacheNodeTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Hourly price charged for this reserved cache node.
         /// </summary>
         [Input("usagePrice")]
-        public double? UsagePrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mUsagePrice;
+
+        public double? UsagePrice => _mUsagePrice.GetValue("usagePrice");
+    }
+
+    [PolicyResourceType("aws:elasticache/reservedCacheNode:ReservedCacheNode")]
+    public sealed class ReservedCacheNodeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Number of cache node instances to reserve.
+        /// Default value is `1`.
+        /// </summary>
+        [Input("cacheNodeCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCacheNodeCount;
+
+        public int? CacheNodeCount => _mCacheNodeCount.GetValue("cacheNodeCount");
+
+        /// <summary>
+        /// ID of the reserved cache node offering to purchase.
+        /// To determine an `reserved_cache_nodes_offering_id`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("reservedCacheNodesOfferingId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReservedCacheNodesOfferingId;
+
+        public string? ReservedCacheNodesOfferingId => _mReservedCacheNodesOfferingId.GetValue("reservedCacheNodesOfferingId");
+
+        /// <summary>
+        /// Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ReservedCacheNodeTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ReservedCacheNodeTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

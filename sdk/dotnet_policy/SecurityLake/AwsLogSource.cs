@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityLake
 {
     [PolicyResourceType("aws:securitylake/awsLogSource:AwsLogSource")]
-    public sealed class AwsLogSource : global::Pulumi.PolicyResource
+    public sealed class AwsLogSource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specify the natively-supported AWS service to add as a source in Security Lake.
         /// </summary>
         [Input("source")]
-        public AwsLogSourceSource? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AwsLogSourceSource> _mSource;
+
+        public Outputs.AwsLogSourceSource? Source => _mSource.GetValue("source");
+    }
+
+    [PolicyResourceType("aws:securitylake/awsLogSource:AwsLogSource")]
+    public sealed class AwsLogSourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specify the natively-supported AWS service to add as a source in Security Lake.
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AwsLogSourceSourceArgs> _mSource;
+
+        public Inputs.AwsLogSourceSourceArgs? Source => _mSource.GetValue("source");
     }
 }

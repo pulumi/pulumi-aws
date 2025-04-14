@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/methodResponse:MethodResponse")]
-    public sealed class MethodResponse : global::Pulumi.PolicyResource
+    public sealed class MethodResponse : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
         [Input("httpMethod")]
-        public string? HttpMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
+
+        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
 
         /// <summary>
         /// The Resource identifier for the method resource.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         /// </summary>
         [Input("responseModels")]
-        public Dictionary<string, string>? ResponseModels;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseModels;
+
+        public Dictionary<string, string>? ResponseModels => _mResponseModels.GetValue("responseModels");
 
         /// <summary>
         /// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
@@ -37,18 +46,87 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         /// </summary>
         [Input("responseParameters")]
-        public Dictionary<string, bool>? ResponseParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResponseParameters;
+
+        public Dictionary<string, bool>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
 
         /// <summary>
         /// The string identifier of the associated REST API.
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// The method response's status code.
         /// </summary>
         [Input("statusCode")]
-        public string? StatusCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
+
+        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+    }
+
+    [PolicyResourceType("aws:apigateway/methodResponse:MethodResponse")]
+    public sealed class MethodResponseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        /// </summary>
+        [Input("httpMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
+
+        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+
+        /// <summary>
+        /// The Resource identifier for the method resource.
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
+
+        /// <summary>
+        /// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+        /// </summary>
+        [Input("responseModels")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseModels;
+
+        public Dictionary<string, string>? ResponseModels => _mResponseModels.GetValue("responseModels");
+
+        /// <summary>
+        /// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
+        /// 
+        /// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+        /// </summary>
+        [Input("responseParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResponseParameters;
+
+        public Dictionary<string, bool>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+
+        /// <summary>
+        /// The string identifier of the associated REST API.
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// The method response's status code.
+        /// </summary>
+        [Input("statusCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
+
+        public string? StatusCode => _mStatusCode.GetValue("statusCode");
     }
 }

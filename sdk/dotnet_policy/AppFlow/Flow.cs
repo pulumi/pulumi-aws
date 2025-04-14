@@ -11,78 +11,199 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppFlow
 {
     [PolicyResourceType("aws:appflow/flow:Flow")]
-    public sealed class Flow : global::Pulumi.PolicyResource
+    public sealed class Flow : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Flow's ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the flow you want to create.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         /// </summary>
         [Input("destinationFlowConfigs")]
-        public List<FlowDestinationFlowConfig>? DestinationFlowConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FlowDestinationFlowConfig>> _mDestinationFlowConfigs;
+
+        public List<Outputs.FlowDestinationFlowConfig>? DestinationFlowConfigs => _mDestinationFlowConfigs.GetValue("destinationFlowConfigs");
 
         /// <summary>
         /// The current status of the flow.
         /// </summary>
         [Input("flowStatus")]
-        public string? FlowStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFlowStatus;
+
+        public string? FlowStatus => _mFlowStatus.GetValue("flowStatus");
 
         /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
-        public string? KmsArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsArn;
+
+        public string? KmsArn => _mKmsArn.GetValue("kmsArn");
 
         /// <summary>
         /// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         /// </summary>
         [Input("metadataCatalogConfig")]
-        public FlowMetadataCatalogConfig? MetadataCatalogConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowMetadataCatalogConfig> _mMetadataCatalogConfig;
+
+        public Outputs.FlowMetadataCatalogConfig? MetadataCatalogConfig => _mMetadataCatalogConfig.GetValue("metadataCatalogConfig");
 
         /// <summary>
         /// Name of the flow.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         /// </summary>
         [Input("sourceFlowConfig")]
-        public FlowSourceFlowConfig? SourceFlowConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowSourceFlowConfig> _mSourceFlowConfig;
+
+        public Outputs.FlowSourceFlowConfig? SourceFlowConfig => _mSourceFlowConfig.GetValue("sourceFlowConfig");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A Task that Amazon AppFlow performs while transferring the data in the flow run.
         /// </summary>
         [Input("tasks")]
-        public List<FlowTask>? Tasks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FlowTask>> _mTasks;
+
+        public List<Outputs.FlowTask>? Tasks => _mTasks.GetValue("tasks");
 
         /// <summary>
         /// A Trigger that determine how and when the flow runs.
         /// </summary>
         [Input("triggerConfig")]
-        public FlowTriggerConfig? TriggerConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowTriggerConfig> _mTriggerConfig;
+
+        public Outputs.FlowTriggerConfig? TriggerConfig => _mTriggerConfig.GetValue("triggerConfig");
+    }
+
+    [PolicyResourceType("aws:appflow/flow:Flow")]
+    public sealed class FlowArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the flow you want to create.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+        /// </summary>
+        [Input("destinationFlowConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FlowDestinationFlowConfigArgs>> _mDestinationFlowConfigs;
+
+        public List<Inputs.FlowDestinationFlowConfigArgs>? DestinationFlowConfigs => _mDestinationFlowConfigs.GetValue("destinationFlowConfigs");
+
+        /// <summary>
+        /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// </summary>
+        [Input("kmsArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsArn;
+
+        public string? KmsArn => _mKmsArn.GetValue("kmsArn");
+
+        /// <summary>
+        /// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+        /// </summary>
+        [Input("metadataCatalogConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowMetadataCatalogConfigArgs> _mMetadataCatalogConfig;
+
+        public Inputs.FlowMetadataCatalogConfigArgs? MetadataCatalogConfig => _mMetadataCatalogConfig.GetValue("metadataCatalogConfig");
+
+        /// <summary>
+        /// Name of the flow.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+        /// </summary>
+        [Input("sourceFlowConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigArgs> _mSourceFlowConfig;
+
+        public Inputs.FlowSourceFlowConfigArgs? SourceFlowConfig => _mSourceFlowConfig.GetValue("sourceFlowConfig");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A Task that Amazon AppFlow performs while transferring the data in the flow run.
+        /// </summary>
+        [Input("tasks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FlowTaskArgs>> _mTasks;
+
+        public List<Inputs.FlowTaskArgs>? Tasks => _mTasks.GetValue("tasks");
+
+        /// <summary>
+        /// A Trigger that determine how and when the flow runs.
+        /// </summary>
+        [Input("triggerConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowTriggerConfigArgs> _mTriggerConfig;
+
+        public Inputs.FlowTriggerConfigArgs? TriggerConfig => _mTriggerConfig.GetValue("triggerConfig");
     }
 }

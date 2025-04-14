@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")]
-    public sealed class NetworkInterfaceSecurityGroupAttachment : global::Pulumi.PolicyResource
+    public sealed class NetworkInterfaceSecurityGroupAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the network interface to attach to.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// The ID of the security group.
         /// </summary>
         [Input("securityGroupId")]
-        public string? SecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+    }
+
+    [PolicyResourceType("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")]
+    public sealed class NetworkInterfaceSecurityGroupAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the network interface to attach to.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+
+        /// <summary>
+        /// The ID of the security group.
+        /// </summary>
+        [Input("securityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
     }
 }

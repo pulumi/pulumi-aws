@@ -11,54 +11,112 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcIpamScope:VpcIpamScope")]
-    public sealed class VpcIpamScope : global::Pulumi.PolicyResource
+    public sealed class VpcIpamScope : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the scope.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description for the scope you're creating.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ARN of the IPAM for which you're creating this scope.
         /// </summary>
         [Input("ipamArn")]
-        public string? IpamArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamArn;
+
+        public string? IpamArn => _mIpamArn.GetValue("ipamArn");
 
         /// <summary>
         /// The ID of the IPAM for which you're creating this scope.
         /// </summary>
         [Input("ipamId")]
-        public string? IpamId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamId;
+
+        public string? IpamId => _mIpamId.GetValue("ipamId");
 
         [Input("ipamScopeType")]
-        public string? IpamScopeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamScopeType;
+
+        public string? IpamScopeType => _mIpamScopeType.GetValue("ipamScopeType");
 
         /// <summary>
         /// Defines if the scope is the default scope or not.
         /// </summary>
         [Input("isDefault")]
-        public bool? IsDefault;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
+
+        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
 
         /// <summary>
         /// The number of pools in the scope.
         /// </summary>
         [Input("poolCount")]
-        public int? PoolCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPoolCount;
+
+        public int? PoolCount => _mPoolCount.GetValue("poolCount");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcIpamScope:VpcIpamScope")]
+    public sealed class VpcIpamScopeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description for the scope you're creating.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ID of the IPAM for which you're creating this scope.
+        /// </summary>
+        [Input("ipamId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamId;
+
+        public string? IpamId => _mIpamId.GetValue("ipamId");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,42 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/identityProvider:IdentityProvider")]
-    public sealed class IdentityProvider : global::Pulumi.PolicyResource
+    public sealed class IdentityProvider : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         /// </summary>
         [Input("attributeMapping")]
-        public Dictionary<string, string>? AttributeMapping;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributeMapping;
+
+        public Dictionary<string, string>? AttributeMapping => _mAttributeMapping.GetValue("attributeMapping");
 
         /// <summary>
         /// The list of identity providers.
         /// </summary>
         [Input("idpIdentifiers")]
-        public List<string>? IdpIdentifiers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdpIdentifiers;
+
+        public List<string>? IdpIdentifiers => _mIdpIdentifiers.GetValue("idpIdentifiers");
 
         /// <summary>
         /// The map of identity details, such as access token
         /// </summary>
         [Input("providerDetails")]
-        public Dictionary<string, string>? ProviderDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProviderDetails;
+
+        public Dictionary<string, string>? ProviderDetails => _mProviderDetails.GetValue("providerDetails");
 
         /// <summary>
         /// The provider name
         /// </summary>
         [Input("providerName")]
-        public string? ProviderName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+
+        public string? ProviderName => _mProviderName.GetValue("providerName");
 
         /// <summary>
         /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         /// </summary>
         [Input("providerType")]
-        public string? ProviderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
 
         /// <summary>
         /// The user pool id
         /// </summary>
         [Input("userPoolId")]
-        public string? UserPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+    }
+
+    [PolicyResourceType("aws:cognito/identityProvider:IdentityProvider")]
+    public sealed class IdentityProviderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
+        /// </summary>
+        [Input("attributeMapping")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributeMapping;
+
+        public Dictionary<string, string>? AttributeMapping => _mAttributeMapping.GetValue("attributeMapping");
+
+        /// <summary>
+        /// The list of identity providers.
+        /// </summary>
+        [Input("idpIdentifiers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdpIdentifiers;
+
+        public List<string>? IdpIdentifiers => _mIdpIdentifiers.GetValue("idpIdentifiers");
+
+        /// <summary>
+        /// The map of identity details, such as access token
+        /// </summary>
+        [Input("providerDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProviderDetails;
+
+        public Dictionary<string, string>? ProviderDetails => _mProviderDetails.GetValue("providerDetails");
+
+        /// <summary>
+        /// The provider name
+        /// </summary>
+        [Input("providerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+
+        public string? ProviderName => _mProviderName.GetValue("providerName");
+
+        /// <summary>
+        /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+        /// </summary>
+        [Input("providerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
+
+        /// <summary>
+        /// The user pool id
+        /// </summary>
+        [Input("userPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
     }
 }

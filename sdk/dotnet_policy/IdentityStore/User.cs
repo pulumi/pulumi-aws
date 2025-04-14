@@ -11,91 +11,133 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.IdentityStore
 {
     [PolicyResourceType("aws:identitystore/user:User")]
-    public sealed class User : global::Pulumi.PolicyResource
+    public sealed class User : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Details about the user's address. At most 1 address is allowed. Detailed below.
         /// </summary>
         [Input("addresses")]
-        public UserAddresses? Addresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserAddresses> _mAddresses;
+
+        public Outputs.UserAddresses? Addresses => _mAddresses.GetValue("addresses");
 
         /// <summary>
         /// The name that is typically displayed when the user is referenced.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// Details about the user's email. At most 1 email is allowed. Detailed below.
         /// </summary>
         [Input("emails")]
-        public UserEmails? Emails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserEmails> _mEmails;
+
+        public Outputs.UserEmails? Emails => _mEmails.GetValue("emails");
 
         /// <summary>
         /// A list of identifiers issued to this resource by an external identity provider.
         /// </summary>
         [Input("externalIds")]
-        public List<UserExternalId>? ExternalIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserExternalId>> _mExternalIds;
+
+        public List<Outputs.UserExternalId>? ExternalIds => _mExternalIds.GetValue("externalIds");
 
         /// <summary>
         /// The globally unique identifier for the identity store that this user is in.
         /// </summary>
         [Input("identityStoreId")]
-        public string? IdentityStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
+
+        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
 
         /// <summary>
         /// The user's geographical region or location.
         /// </summary>
         [Input("locale")]
-        public string? Locale;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
+
+        public string? Locale => _mLocale.GetValue("locale");
 
         /// <summary>
         /// Details about the user's full name. Detailed below.
         /// </summary>
         [Input("name")]
-        public UserName? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserName> _mName;
+
+        public Outputs.UserName? Name => _mName.GetValue("name");
 
         /// <summary>
         /// An alternate name for the user.
         /// </summary>
         [Input("nickname")]
-        public string? Nickname;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNickname;
+
+        public string? Nickname => _mNickname.GetValue("nickname");
 
         /// <summary>
         /// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         /// </summary>
         [Input("phoneNumbers")]
-        public UserPhoneNumbers? PhoneNumbers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPhoneNumbers> _mPhoneNumbers;
+
+        public Outputs.UserPhoneNumbers? PhoneNumbers => _mPhoneNumbers.GetValue("phoneNumbers");
 
         /// <summary>
         /// The preferred language of the user.
         /// </summary>
         [Input("preferredLanguage")]
-        public string? PreferredLanguage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredLanguage;
+
+        public string? PreferredLanguage => _mPreferredLanguage.GetValue("preferredLanguage");
 
         /// <summary>
         /// An URL that may be associated with the user.
         /// </summary>
         [Input("profileUrl")]
-        public string? ProfileUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileUrl;
+
+        public string? ProfileUrl => _mProfileUrl.GetValue("profileUrl");
 
         /// <summary>
         /// The user's time zone.
         /// </summary>
         [Input("timezone")]
-        public string? Timezone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
+
+        public string? Timezone => _mTimezone.GetValue("timezone");
 
         /// <summary>
         /// The user's title.
         /// </summary>
         [Input("title")]
-        public string? Title;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
+
+        public string? Title => _mTitle.GetValue("title");
 
         /// <summary>
         /// The identifier for this user in the identity store.
         /// </summary>
         [Input("userId")]
-        public string? UserId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
+
+        public string? UserId => _mUserId.GetValue("userId");
 
         /// <summary>
         /// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
@@ -103,12 +145,150 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore
         /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
 
         /// <summary>
         /// The user type.
         /// </summary>
         [Input("userType")]
-        public string? UserType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserType;
+
+        public string? UserType => _mUserType.GetValue("userType");
+    }
+
+    [PolicyResourceType("aws:identitystore/user:User")]
+    public sealed class UserArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Details about the user's address. At most 1 address is allowed. Detailed below.
+        /// </summary>
+        [Input("addresses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserAddressesArgs> _mAddresses;
+
+        public Inputs.UserAddressesArgs? Addresses => _mAddresses.GetValue("addresses");
+
+        /// <summary>
+        /// The name that is typically displayed when the user is referenced.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// Details about the user's email. At most 1 email is allowed. Detailed below.
+        /// </summary>
+        [Input("emails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserEmailsArgs> _mEmails;
+
+        public Inputs.UserEmailsArgs? Emails => _mEmails.GetValue("emails");
+
+        /// <summary>
+        /// The globally unique identifier for the identity store that this user is in.
+        /// </summary>
+        [Input("identityStoreId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
+
+        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+
+        /// <summary>
+        /// The user's geographical region or location.
+        /// </summary>
+        [Input("locale")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
+
+        public string? Locale => _mLocale.GetValue("locale");
+
+        /// <summary>
+        /// Details about the user's full name. Detailed below.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserNameArgs> _mName;
+
+        public Inputs.UserNameArgs? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// An alternate name for the user.
+        /// </summary>
+        [Input("nickname")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNickname;
+
+        public string? Nickname => _mNickname.GetValue("nickname");
+
+        /// <summary>
+        /// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+        /// </summary>
+        [Input("phoneNumbers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPhoneNumbersArgs> _mPhoneNumbers;
+
+        public Inputs.UserPhoneNumbersArgs? PhoneNumbers => _mPhoneNumbers.GetValue("phoneNumbers");
+
+        /// <summary>
+        /// The preferred language of the user.
+        /// </summary>
+        [Input("preferredLanguage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredLanguage;
+
+        public string? PreferredLanguage => _mPreferredLanguage.GetValue("preferredLanguage");
+
+        /// <summary>
+        /// An URL that may be associated with the user.
+        /// </summary>
+        [Input("profileUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileUrl;
+
+        public string? ProfileUrl => _mProfileUrl.GetValue("profileUrl");
+
+        /// <summary>
+        /// The user's time zone.
+        /// </summary>
+        [Input("timezone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
+
+        public string? Timezone => _mTimezone.GetValue("timezone");
+
+        /// <summary>
+        /// The user's title.
+        /// </summary>
+        [Input("title")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
+
+        public string? Title => _mTitle.GetValue("title");
+
+        /// <summary>
+        /// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+
+        /// <summary>
+        /// The user type.
+        /// </summary>
+        [Input("userType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserType;
+
+        public string? UserType => _mUserType.GetValue("userType");
     }
 }

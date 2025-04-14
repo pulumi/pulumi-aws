@@ -11,73 +11,106 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MskConnect
 {
     [PolicyResourceType("aws:mskconnect/connector:Connector")]
-    public sealed class Connector : global::Pulumi.PolicyResource
+    public sealed class Connector : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connector.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Information about the capacity allocated to the connector. See `capacity` Block for details.
         /// </summary>
         [Input("capacity")]
-        public ConnectorCapacity? Capacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorCapacity> _mCapacity;
+
+        public Outputs.ConnectorCapacity? Capacity => _mCapacity.GetValue("capacity");
 
         /// <summary>
         /// A map of keys to values that represent the configuration for the connector.
         /// </summary>
         [Input("connectorConfiguration")]
-        public Dictionary<string, string>? ConnectorConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConnectorConfiguration;
+
+        public Dictionary<string, string>? ConnectorConfiguration => _mConnectorConfiguration.GetValue("connectorConfiguration");
 
         /// <summary>
         /// A summary description of the connector.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
         /// </summary>
         [Input("kafkaCluster")]
-        public ConnectorKafkaCluster? KafkaCluster;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorKafkaCluster> _mKafkaCluster;
+
+        public Outputs.ConnectorKafkaCluster? KafkaCluster => _mKafkaCluster.GetValue("kafkaCluster");
 
         /// <summary>
         /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
         /// </summary>
         [Input("kafkaClusterClientAuthentication")]
-        public ConnectorKafkaClusterClientAuthentication? KafkaClusterClientAuthentication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorKafkaClusterClientAuthentication> _mKafkaClusterClientAuthentication;
+
+        public Outputs.ConnectorKafkaClusterClientAuthentication? KafkaClusterClientAuthentication => _mKafkaClusterClientAuthentication.GetValue("kafkaClusterClientAuthentication");
 
         /// <summary>
         /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         /// </summary>
         [Input("kafkaClusterEncryptionInTransit")]
-        public ConnectorKafkaClusterEncryptionInTransit? KafkaClusterEncryptionInTransit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorKafkaClusterEncryptionInTransit> _mKafkaClusterEncryptionInTransit;
+
+        public Outputs.ConnectorKafkaClusterEncryptionInTransit? KafkaClusterEncryptionInTransit => _mKafkaClusterEncryptionInTransit.GetValue("kafkaClusterEncryptionInTransit");
 
         /// <summary>
         /// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
         /// </summary>
         [Input("kafkaconnectVersion")]
-        public string? KafkaconnectVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaconnectVersion;
+
+        public string? KafkaconnectVersion => _mKafkaconnectVersion.GetValue("kafkaconnectVersion");
 
         /// <summary>
         /// Details about log delivery. See `log_delivery` Block for details.
         /// </summary>
         [Input("logDelivery")]
-        public ConnectorLogDelivery? LogDelivery;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorLogDelivery> _mLogDelivery;
+
+        public Outputs.ConnectorLogDelivery? LogDelivery => _mLogDelivery.GetValue("logDelivery");
 
         /// <summary>
         /// The name of the connector.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies which plugins to use for the connector. See `plugin` Block for details.
         /// </summary>
         [Input("plugins")]
-        public List<ConnectorPlugin>? Plugins;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConnectorPlugin>> _mPlugins;
+
+        public List<Outputs.ConnectorPlugin>? Plugins => _mPlugins.GetValue("plugins");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
@@ -85,30 +118,168 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect
         /// The following arguments are optional:
         /// </summary>
         [Input("serviceExecutionRoleArn")]
-        public string? ServiceExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRoleArn;
+
+        public string? ServiceExecutionRoleArn => _mServiceExecutionRoleArn.GetValue("serviceExecutionRoleArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The current version of the connector.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         /// </summary>
         [Input("workerConfiguration")]
-        public ConnectorWorkerConfiguration? WorkerConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorWorkerConfiguration> _mWorkerConfiguration;
+
+        public Outputs.ConnectorWorkerConfiguration? WorkerConfiguration => _mWorkerConfiguration.GetValue("workerConfiguration");
+    }
+
+    [PolicyResourceType("aws:mskconnect/connector:Connector")]
+    public sealed class ConnectorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Information about the capacity allocated to the connector. See `capacity` Block for details.
+        /// </summary>
+        [Input("capacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorCapacityArgs> _mCapacity;
+
+        public Inputs.ConnectorCapacityArgs? Capacity => _mCapacity.GetValue("capacity");
+
+        /// <summary>
+        /// A map of keys to values that represent the configuration for the connector.
+        /// </summary>
+        [Input("connectorConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConnectorConfiguration;
+
+        public Dictionary<string, string>? ConnectorConfiguration => _mConnectorConfiguration.GetValue("connectorConfiguration");
+
+        /// <summary>
+        /// A summary description of the connector.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+        /// </summary>
+        [Input("kafkaCluster")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorKafkaClusterArgs> _mKafkaCluster;
+
+        public Inputs.ConnectorKafkaClusterArgs? KafkaCluster => _mKafkaCluster.GetValue("kafkaCluster");
+
+        /// <summary>
+        /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+        /// </summary>
+        [Input("kafkaClusterClientAuthentication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorKafkaClusterClientAuthenticationArgs> _mKafkaClusterClientAuthentication;
+
+        public Inputs.ConnectorKafkaClusterClientAuthenticationArgs? KafkaClusterClientAuthentication => _mKafkaClusterClientAuthentication.GetValue("kafkaClusterClientAuthentication");
+
+        /// <summary>
+        /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
+        /// </summary>
+        [Input("kafkaClusterEncryptionInTransit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorKafkaClusterEncryptionInTransitArgs> _mKafkaClusterEncryptionInTransit;
+
+        public Inputs.ConnectorKafkaClusterEncryptionInTransitArgs? KafkaClusterEncryptionInTransit => _mKafkaClusterEncryptionInTransit.GetValue("kafkaClusterEncryptionInTransit");
+
+        /// <summary>
+        /// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
+        /// </summary>
+        [Input("kafkaconnectVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaconnectVersion;
+
+        public string? KafkaconnectVersion => _mKafkaconnectVersion.GetValue("kafkaconnectVersion");
+
+        /// <summary>
+        /// Details about log delivery. See `log_delivery` Block for details.
+        /// </summary>
+        [Input("logDelivery")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorLogDeliveryArgs> _mLogDelivery;
+
+        public Inputs.ConnectorLogDeliveryArgs? LogDelivery => _mLogDelivery.GetValue("logDelivery");
+
+        /// <summary>
+        /// The name of the connector.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies which plugins to use for the connector. See `plugin` Block for details.
+        /// </summary>
+        [Input("plugins")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ConnectorPluginArgs>> _mPlugins;
+
+        public List<Inputs.ConnectorPluginArgs>? Plugins => _mPlugins.GetValue("plugins");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("serviceExecutionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRoleArn;
+
+        public string? ServiceExecutionRoleArn => _mServiceExecutionRoleArn.GetValue("serviceExecutionRoleArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
+        /// </summary>
+        [Input("workerConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorWorkerConfigurationArgs> _mWorkerConfiguration;
+
+        public Inputs.ConnectorWorkerConfigurationArgs? WorkerConfiguration => _mWorkerConfiguration.GetValue("workerConfiguration");
     }
 }

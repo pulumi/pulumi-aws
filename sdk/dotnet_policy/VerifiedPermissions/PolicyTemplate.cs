@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
 {
     [PolicyResourceType("aws:verifiedpermissions/policyTemplate:PolicyTemplate")]
-    public sealed class PolicyTemplate : global::Pulumi.PolicyResource
+    public sealed class PolicyTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The date the Policy Store was created.
         /// </summary>
         [Input("createdDate")]
-        public string? CreatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
+
+        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
 
         /// <summary>
         /// Provides a description for the policy template.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
         [Input("policyStoreId")]
-        public string? PolicyStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
         [Input("policyTemplateId")]
-        public string? PolicyTemplateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyTemplateId;
+
+        public string? PolicyTemplateId => _mPolicyTemplateId.GetValue("policyTemplateId");
 
         /// <summary>
         /// Defines the content of the statement, written in Cedar policy language.
@@ -43,6 +55,42 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// The following arguments are optional:
         /// </summary>
         [Input("statement")]
-        public string? Statement;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatement;
+
+        public string? Statement => _mStatement.GetValue("statement");
+    }
+
+    [PolicyResourceType("aws:verifiedpermissions/policyTemplate:PolicyTemplate")]
+    public sealed class PolicyTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Provides a description for the policy template.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ID of the Policy Store.
+        /// </summary>
+        [Input("policyStoreId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+
+        /// <summary>
+        /// Defines the content of the statement, written in Cedar policy language.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("statement")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatement;
+
+        public string? Statement => _mStatement.GetValue("statement");
     }
 }

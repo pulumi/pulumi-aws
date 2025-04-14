@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/environmentProfile:EnvironmentProfile")]
-    public sealed class EnvironmentProfile : global::Pulumi.PolicyResource
+    public sealed class EnvironmentProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Id of the AWS account being used.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// Desired region for environment profile.
         /// </summary>
         [Input("awsAccountRegion")]
-        public string? AwsAccountRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountRegion;
+
+        public string? AwsAccountRegion => _mAwsAccountRegion.GetValue("awsAccountRegion");
 
         /// <summary>
         /// Creation time of environment profile.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Creator of environment profile.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// Description of environment profile.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Domain Identifier for environment profile.
         /// </summary>
         [Input("domainIdentifier")]
-        public string? DomainIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
 
         /// <summary>
         /// ID of the blueprint which the environment will be created with.
         /// </summary>
         [Input("environmentBlueprintIdentifier")]
-        public string? EnvironmentBlueprintIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentBlueprintIdentifier;
+
+        public string? EnvironmentBlueprintIdentifier => _mEnvironmentBlueprintIdentifier.GetValue("environmentBlueprintIdentifier");
 
         /// <summary>
         /// Name of the environment profile.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Project identifier for environment profile.
@@ -67,18 +91,105 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// The following arguments are optional:
         /// </summary>
         [Input("projectIdentifier")]
-        public string? ProjectIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectIdentifier;
+
+        public string? ProjectIdentifier => _mProjectIdentifier.GetValue("projectIdentifier");
 
         /// <summary>
         /// Time of last update to environment profile.
         /// </summary>
         [Input("updatedAt")]
-        public string? UpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
+
+        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
 
         /// <summary>
         /// Array of user parameters of the environment profile with the following attributes:
         /// </summary>
         [Input("userParameters")]
-        public List<EnvironmentProfileUserParameter>? UserParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentProfileUserParameter>> _mUserParameters;
+
+        public List<Outputs.EnvironmentProfileUserParameter>? UserParameters => _mUserParameters.GetValue("userParameters");
+    }
+
+    [PolicyResourceType("aws:datazone/environmentProfile:EnvironmentProfile")]
+    public sealed class EnvironmentProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Id of the AWS account being used.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// Desired region for environment profile.
+        /// </summary>
+        [Input("awsAccountRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountRegion;
+
+        public string? AwsAccountRegion => _mAwsAccountRegion.GetValue("awsAccountRegion");
+
+        /// <summary>
+        /// Description of environment profile.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Domain Identifier for environment profile.
+        /// </summary>
+        [Input("domainIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+
+        /// <summary>
+        /// ID of the blueprint which the environment will be created with.
+        /// </summary>
+        [Input("environmentBlueprintIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentBlueprintIdentifier;
+
+        public string? EnvironmentBlueprintIdentifier => _mEnvironmentBlueprintIdentifier.GetValue("environmentBlueprintIdentifier");
+
+        /// <summary>
+        /// Name of the environment profile.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Project identifier for environment profile.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("projectIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectIdentifier;
+
+        public string? ProjectIdentifier => _mProjectIdentifier.GetValue("projectIdentifier");
+
+        /// <summary>
+        /// Array of user parameters of the environment profile with the following attributes:
+        /// </summary>
+        [Input("userParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EnvironmentProfileUserParameterArgs>> _mUserParameters;
+
+        public List<Inputs.EnvironmentProfileUserParameterArgs>? UserParameters => _mUserParameters.GetValue("userParameters");
     }
 }

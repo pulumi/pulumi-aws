@@ -11,138 +11,367 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/distribution:Distribution")]
-    public sealed class Distribution : global::Pulumi.PolicyResource
+    public sealed class Distribution : global::Pulumi.PolicyResourceOutput
     {
         [Input("aliases")]
-        public List<string>? Aliases;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAliases;
+
+        public List<string>? Aliases => _mAliases.GetValue("aliases");
 
         /// <summary>
         /// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the distribution configuration.
         /// </summary>
         [Input("callerReference")]
-        public string? CallerReference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallerReference;
+
+        public string? CallerReference => _mCallerReference.GetValue("callerReference");
 
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         [Input("continuousDeploymentPolicyId")]
-        public string? ContinuousDeploymentPolicyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContinuousDeploymentPolicyId;
+
+        public string? ContinuousDeploymentPolicyId => _mContinuousDeploymentPolicyId.GetValue("continuousDeploymentPolicyId");
 
         [Input("customErrorResponses")]
-        public List<DistributionCustomErrorResponse>? CustomErrorResponses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionCustomErrorResponse>> _mCustomErrorResponses;
+
+        public List<Outputs.DistributionCustomErrorResponse>? CustomErrorResponses => _mCustomErrorResponses.GetValue("customErrorResponses");
 
         [Input("defaultCacheBehavior")]
-        public DistributionDefaultCacheBehavior? DefaultCacheBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionDefaultCacheBehavior> _mDefaultCacheBehavior;
+
+        public Outputs.DistributionDefaultCacheBehavior? DefaultCacheBehavior => _mDefaultCacheBehavior.GetValue("defaultCacheBehavior");
 
         [Input("defaultRootObject")]
-        public string? DefaultRootObject;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRootObject;
+
+        public string? DefaultRootObject => _mDefaultRootObject.GetValue("defaultRootObject");
 
         /// <summary>
         /// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
 
         [Input("httpVersion")]
-        public string? HttpVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpVersion;
+
+        public string? HttpVersion => _mHttpVersion.GetValue("httpVersion");
 
         /// <summary>
         /// Number of invalidation batches currently in progress.
         /// </summary>
         [Input("inProgressValidationBatches")]
-        public int? InProgressValidationBatches;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInProgressValidationBatches;
+
+        public int? InProgressValidationBatches => _mInProgressValidationBatches.GetValue("inProgressValidationBatches");
 
         [Input("isIpv6Enabled")]
-        public bool? IsIpv6Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsIpv6Enabled;
+
+        public bool? IsIpv6Enabled => _mIsIpv6Enabled.GetValue("isIpv6Enabled");
 
         /// <summary>
         /// Date and time the distribution was last modified.
         /// </summary>
         [Input("lastModifiedTime")]
-        public string? LastModifiedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTime;
+
+        public string? LastModifiedTime => _mLastModifiedTime.GetValue("lastModifiedTime");
 
         [Input("loggingConfig")]
-        public DistributionLoggingConfig? LoggingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionLoggingConfig> _mLoggingConfig;
+
+        public Outputs.DistributionLoggingConfig? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
 
         [Input("orderedCacheBehaviors")]
-        public List<DistributionOrderedCacheBehavior>? OrderedCacheBehaviors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionOrderedCacheBehavior>> _mOrderedCacheBehaviors;
+
+        public List<Outputs.DistributionOrderedCacheBehavior>? OrderedCacheBehaviors => _mOrderedCacheBehaviors.GetValue("orderedCacheBehaviors");
 
         [Input("originGroups")]
-        public List<DistributionOriginGroup>? OriginGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionOriginGroup>> _mOriginGroups;
+
+        public List<Outputs.DistributionOriginGroup>? OriginGroups => _mOriginGroups.GetValue("originGroups");
 
         [Input("origins")]
-        public List<DistributionOrigin>? Origins;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionOrigin>> _mOrigins;
+
+        public List<Outputs.DistributionOrigin>? Origins => _mOrigins.GetValue("origins");
 
         [Input("priceClass")]
-        public string? PriceClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPriceClass;
+
+        public string? PriceClass => _mPriceClass.GetValue("priceClass");
 
         [Input("restrictions")]
-        public DistributionRestrictions? Restrictions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionRestrictions> _mRestrictions;
+
+        public Outputs.DistributionRestrictions? Restrictions => _mRestrictions.GetValue("restrictions");
 
         [Input("retainOnDelete")]
-        public bool? RetainOnDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainOnDelete;
+
+        public bool? RetainOnDelete => _mRetainOnDelete.GetValue("retainOnDelete");
 
         [Input("staging")]
-        public bool? Staging;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStaging;
+
+        public bool? Staging => _mStaging.GetValue("staging");
 
         /// <summary>
         /// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
         /// </summary>
         [Input("trustedKeyGroups")]
-        public List<DistributionTrustedKeyGroup>? TrustedKeyGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionTrustedKeyGroup>> _mTrustedKeyGroups;
+
+        public List<Outputs.DistributionTrustedKeyGroup>? TrustedKeyGroups => _mTrustedKeyGroups.GetValue("trustedKeyGroups");
 
         /// <summary>
         /// List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
         /// </summary>
         [Input("trustedSigners")]
-        public List<DistributionTrustedSigner>? TrustedSigners;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionTrustedSigner>> _mTrustedSigners;
+
+        public List<Outputs.DistributionTrustedSigner>? TrustedSigners => _mTrustedSigners.GetValue("trustedSigners");
 
         [Input("viewerCertificate")]
-        public DistributionViewerCertificate? ViewerCertificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionViewerCertificate> _mViewerCertificate;
+
+        public Outputs.DistributionViewerCertificate? ViewerCertificate => _mViewerCertificate.GetValue("viewerCertificate");
 
         [Input("waitForDeployment")]
-        public bool? WaitForDeployment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForDeployment;
+
+        public bool? WaitForDeployment => _mWaitForDeployment.GetValue("waitForDeployment");
 
         [Input("webAclId")]
-        public string? WebAclId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclId;
+
+        public string? WebAclId => _mWebAclId.GetValue("webAclId");
+    }
+
+    [PolicyResourceType("aws:cloudfront/distribution:Distribution")]
+    public sealed class DistributionArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("aliases")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAliases;
+
+        public List<string>? Aliases => _mAliases.GetValue("aliases");
+
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        [Input("continuousDeploymentPolicyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContinuousDeploymentPolicyId;
+
+        public string? ContinuousDeploymentPolicyId => _mContinuousDeploymentPolicyId.GetValue("continuousDeploymentPolicyId");
+
+        [Input("customErrorResponses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionCustomErrorResponseArgs>> _mCustomErrorResponses;
+
+        public List<Inputs.DistributionCustomErrorResponseArgs>? CustomErrorResponses => _mCustomErrorResponses.GetValue("customErrorResponses");
+
+        [Input("defaultCacheBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionDefaultCacheBehaviorArgs> _mDefaultCacheBehavior;
+
+        public Inputs.DistributionDefaultCacheBehaviorArgs? DefaultCacheBehavior => _mDefaultCacheBehavior.GetValue("defaultCacheBehavior");
+
+        [Input("defaultRootObject")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRootObject;
+
+        public string? DefaultRootObject => _mDefaultRootObject.GetValue("defaultRootObject");
+
+        /// <summary>
+        /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        [Input("httpVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpVersion;
+
+        public string? HttpVersion => _mHttpVersion.GetValue("httpVersion");
+
+        [Input("isIpv6Enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsIpv6Enabled;
+
+        public bool? IsIpv6Enabled => _mIsIpv6Enabled.GetValue("isIpv6Enabled");
+
+        [Input("loggingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionLoggingConfigArgs> _mLoggingConfig;
+
+        public Inputs.DistributionLoggingConfigArgs? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
+
+        [Input("orderedCacheBehaviors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionOrderedCacheBehaviorArgs>> _mOrderedCacheBehaviors;
+
+        public List<Inputs.DistributionOrderedCacheBehaviorArgs>? OrderedCacheBehaviors => _mOrderedCacheBehaviors.GetValue("orderedCacheBehaviors");
+
+        [Input("originGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionOriginGroupArgs>> _mOriginGroups;
+
+        public List<Inputs.DistributionOriginGroupArgs>? OriginGroups => _mOriginGroups.GetValue("originGroups");
+
+        [Input("origins")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionOriginArgs>> _mOrigins;
+
+        public List<Inputs.DistributionOriginArgs>? Origins => _mOrigins.GetValue("origins");
+
+        [Input("priceClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPriceClass;
+
+        public string? PriceClass => _mPriceClass.GetValue("priceClass");
+
+        [Input("restrictions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionRestrictionsArgs> _mRestrictions;
+
+        public Inputs.DistributionRestrictionsArgs? Restrictions => _mRestrictions.GetValue("restrictions");
+
+        [Input("retainOnDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainOnDelete;
+
+        public bool? RetainOnDelete => _mRetainOnDelete.GetValue("retainOnDelete");
+
+        [Input("staging")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStaging;
+
+        public bool? Staging => _mStaging.GetValue("staging");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("viewerCertificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionViewerCertificateArgs> _mViewerCertificate;
+
+        public Inputs.DistributionViewerCertificateArgs? ViewerCertificate => _mViewerCertificate.GetValue("viewerCertificate");
+
+        [Input("waitForDeployment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForDeployment;
+
+        public bool? WaitForDeployment => _mWaitForDeployment.GetValue("waitForDeployment");
+
+        [Input("webAclId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclId;
+
+        public string? WebAclId => _mWebAclId.GetValue("webAclId");
     }
 }

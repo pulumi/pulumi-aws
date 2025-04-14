@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.FinSpace
 {
     [PolicyResourceType("aws:finspace/kxUser:KxUser")]
-    public sealed class KxUser : global::Pulumi.PolicyResource
+    public sealed class KxUser : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX user.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Unique identifier for the KX environment.
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         /// <summary>
         /// IAM role ARN to be associated with the user.
@@ -31,24 +37,78 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// The following arguments are optional:
         /// </summary>
         [Input("iamRole")]
-        public string? IamRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
+
+        public string? IamRole => _mIamRole.GetValue("iamRole");
 
         /// <summary>
         /// A unique identifier for the user.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:finspace/kxUser:KxUser")]
+    public sealed class KxUserArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique identifier for the KX environment.
+        /// </summary>
+        [Input("environmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+
+        /// <summary>
+        /// IAM role ARN to be associated with the user.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("iamRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
+
+        public string? IamRole => _mIamRole.GetValue("iamRole");
+
+        /// <summary>
+        /// A unique identifier for the user.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

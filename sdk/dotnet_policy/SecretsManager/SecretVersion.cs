@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecretsManager
 {
     [PolicyResourceType("aws:secretsmanager/secretVersion:SecretVersion")]
-    public sealed class SecretVersion : global::Pulumi.PolicyResource
+    public sealed class SecretVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the secret.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         /// </summary>
         [Input("secretBinary")]
-        public string? SecretBinary;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretBinary;
+
+        public string? SecretBinary => _mSecretBinary.GetValue("secretBinary");
 
         /// <summary>
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
         [Input("secretId")]
-        public string? SecretId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
+
+        public string? SecretId => _mSecretId.GetValue("secretId");
 
         /// <summary>
         /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
         /// </summary>
         [Input("secretString")]
-        public string? SecretString;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretString;
+
+        public string? SecretString => _mSecretString.GetValue("secretString");
 
         /// <summary>
         /// The unique identifier of the version of the secret.
         /// </summary>
         [Input("versionId")]
-        public string? VersionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
+
+        public string? VersionId => _mVersionId.GetValue("versionId");
 
         /// <summary>
         /// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
@@ -49,6 +64,51 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager
         /// &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
         /// </summary>
         [Input("versionStages")]
-        public List<string>? VersionStages;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVersionStages;
+
+        public List<string>? VersionStages => _mVersionStages.GetValue("versionStages");
+    }
+
+    [PolicyResourceType("aws:secretsmanager/secretVersion:SecretVersion")]
+    public sealed class SecretVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
+        /// </summary>
+        [Input("secretBinary")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretBinary;
+
+        public string? SecretBinary => _mSecretBinary.GetValue("secretBinary");
+
+        /// <summary>
+        /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        /// </summary>
+        [Input("secretId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
+
+        public string? SecretId => _mSecretId.GetValue("secretId");
+
+        /// <summary>
+        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
+        /// </summary>
+        [Input("secretString")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretString;
+
+        public string? SecretString => _mSecretString.GetValue("secretString");
+
+        /// <summary>
+        /// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
+        /// 
+        /// &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
+        /// </summary>
+        [Input("versionStages")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVersionStages;
+
+        public List<string>? VersionStages => _mVersionStages.GetValue("versionStages");
     }
 }

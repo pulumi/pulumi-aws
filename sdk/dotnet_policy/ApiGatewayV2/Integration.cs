@@ -11,88 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
 {
     [PolicyResourceType("aws:apigatewayv2/integration:Integration")]
-    public sealed class Integration : global::Pulumi.PolicyResource
+    public sealed class Integration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// API identifier.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
 
         /// <summary>
         /// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
         /// </summary>
         [Input("connectionType")]
-        public string? ConnectionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
+
+        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
 
         /// <summary>
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("contentHandlingStrategy")]
-        public string? ContentHandlingStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandlingStrategy;
+
+        public string? ContentHandlingStrategy => _mContentHandlingStrategy.GetValue("contentHandlingStrategy");
 
         /// <summary>
         /// Credentials required for the integration, if any.
         /// </summary>
         [Input("credentialsArn")]
-        public string? CredentialsArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsArn;
+
+        public string? CredentialsArn => _mCredentialsArn.GetValue("credentialsArn");
 
         /// <summary>
         /// Description of the integration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
         /// </summary>
         [Input("integrationMethod")]
-        public string? IntegrationMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationMethod;
+
+        public string? IntegrationMethod => _mIntegrationMethod.GetValue("integrationMethod");
 
         /// <summary>
         /// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         /// </summary>
         [Input("integrationResponseSelectionExpression")]
-        public string? IntegrationResponseSelectionExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationResponseSelectionExpression;
+
+        public string? IntegrationResponseSelectionExpression => _mIntegrationResponseSelectionExpression.GetValue("integrationResponseSelectionExpression");
 
         /// <summary>
         /// AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("integrationSubtype")]
-        public string? IntegrationSubtype;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationSubtype;
+
+        public string? IntegrationSubtype => _mIntegrationSubtype.GetValue("integrationSubtype");
 
         /// <summary>
         /// Integration type of an integration.
         /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         /// </summary>
         [Input("integrationType")]
-        public string? IntegrationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationType;
+
+        public string? IntegrationType => _mIntegrationType.GetValue("integrationType");
 
         /// <summary>
         /// URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
         /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         /// </summary>
         [Input("integrationUri")]
-        public string? IntegrationUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationUri;
+
+        public string? IntegrationUri => _mIntegrationUri.GetValue("integrationUri");
 
         /// <summary>
         /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
         /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("passthroughBehavior")]
-        public string? PassthroughBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassthroughBehavior;
+
+        public string? PassthroughBehavior => _mPassthroughBehavior.GetValue("passthroughBehavior");
 
         /// <summary>
         /// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         /// </summary>
         [Input("payloadFormatVersion")]
-        public string? PayloadFormatVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPayloadFormatVersion;
+
+        public string? PayloadFormatVersion => _mPayloadFormatVersion.GetValue("payloadFormatVersion");
 
         /// <summary>
         /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
@@ -101,25 +140,37 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         [Input("requestParameters")]
-        public Dictionary<string, string>? RequestParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestParameters;
+
+        public Dictionary<string, string>? RequestParameters => _mRequestParameters.GetValue("requestParameters");
 
         /// <summary>
         /// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         /// </summary>
         [Input("requestTemplates")]
-        public Dictionary<string, string>? RequestTemplates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestTemplates;
+
+        public Dictionary<string, string>? RequestTemplates => _mRequestTemplates.GetValue("requestTemplates");
 
         /// <summary>
         /// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         /// </summary>
         [Input("responseParameters")]
-        public List<IntegrationResponseParameter>? ResponseParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IntegrationResponseParameter>> _mResponseParameters;
+
+        public List<Outputs.IntegrationResponseParameter>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
 
         /// <summary>
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         /// </summary>
         [Input("templateSelectionExpression")]
-        public string? TemplateSelectionExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateSelectionExpression;
+
+        public string? TemplateSelectionExpression => _mTemplateSelectionExpression.GetValue("templateSelectionExpression");
 
         /// <summary>
         /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
@@ -127,12 +178,192 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// this provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("timeoutMilliseconds")]
-        public int? TimeoutMilliseconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMilliseconds;
+
+        public int? TimeoutMilliseconds => _mTimeoutMilliseconds.GetValue("timeoutMilliseconds");
 
         /// <summary>
         /// TLS configuration for a private integration. Supported only for HTTP APIs.
         /// </summary>
         [Input("tlsConfig")]
-        public IntegrationTlsConfig? TlsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntegrationTlsConfig> _mTlsConfig;
+
+        public Outputs.IntegrationTlsConfig? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
+    }
+
+    [PolicyResourceType("aws:apigatewayv2/integration:Integration")]
+    public sealed class IntegrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// API identifier.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+
+        /// <summary>
+        /// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
+        /// </summary>
+        [Input("connectionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
+
+        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+
+        /// <summary>
+        /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
+        /// </summary>
+        [Input("contentHandlingStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandlingStrategy;
+
+        public string? ContentHandlingStrategy => _mContentHandlingStrategy.GetValue("contentHandlingStrategy");
+
+        /// <summary>
+        /// Credentials required for the integration, if any.
+        /// </summary>
+        [Input("credentialsArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsArn;
+
+        public string? CredentialsArn => _mCredentialsArn.GetValue("credentialsArn");
+
+        /// <summary>
+        /// Description of the integration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
+        /// </summary>
+        [Input("integrationMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationMethod;
+
+        public string? IntegrationMethod => _mIntegrationMethod.GetValue("integrationMethod");
+
+        /// <summary>
+        /// AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
+        /// </summary>
+        [Input("integrationSubtype")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationSubtype;
+
+        public string? IntegrationSubtype => _mIntegrationSubtype.GetValue("integrationSubtype");
+
+        /// <summary>
+        /// Integration type of an integration.
+        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
+        /// </summary>
+        [Input("integrationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationType;
+
+        public string? IntegrationType => _mIntegrationType.GetValue("integrationType");
+
+        /// <summary>
+        /// URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
+        /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
+        /// </summary>
+        [Input("integrationUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationUri;
+
+        public string? IntegrationUri => _mIntegrationUri.GetValue("integrationUri");
+
+        /// <summary>
+        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
+        /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
+        /// </summary>
+        [Input("passthroughBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassthroughBehavior;
+
+        public string? PassthroughBehavior => _mPassthroughBehavior.GetValue("passthroughBehavior");
+
+        /// <summary>
+        /// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+        /// </summary>
+        [Input("payloadFormatVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPayloadFormatVersion;
+
+        public string? PayloadFormatVersion => _mPayloadFormatVersion.GetValue("payloadFormatVersion");
+
+        /// <summary>
+        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
+        /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
+        /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
+        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        /// </summary>
+        [Input("requestParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestParameters;
+
+        public Dictionary<string, string>? RequestParameters => _mRequestParameters.GetValue("requestParameters");
+
+        /// <summary>
+        /// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
+        /// </summary>
+        [Input("requestTemplates")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestTemplates;
+
+        public Dictionary<string, string>? RequestTemplates => _mRequestTemplates.GetValue("requestTemplates");
+
+        /// <summary>
+        /// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        /// </summary>
+        [Input("responseParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IntegrationResponseParameterArgs>> _mResponseParameters;
+
+        public List<Inputs.IntegrationResponseParameterArgs>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+
+        /// <summary>
+        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+        /// </summary>
+        [Input("templateSelectionExpression")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateSelectionExpression;
+
+        public string? TemplateSelectionExpression => _mTemplateSelectionExpression.GetValue("templateSelectionExpression");
+
+        /// <summary>
+        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
+        /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
+        /// this provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
+        [Input("timeoutMilliseconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMilliseconds;
+
+        public int? TimeoutMilliseconds => _mTimeoutMilliseconds.GetValue("timeoutMilliseconds");
+
+        /// <summary>
+        /// TLS configuration for a private integration. Supported only for HTTP APIs.
+        /// </summary>
+        [Input("tlsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntegrationTlsConfigArgs> _mTlsConfig;
+
+        public Inputs.IntegrationTlsConfigArgs? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
     }
 }

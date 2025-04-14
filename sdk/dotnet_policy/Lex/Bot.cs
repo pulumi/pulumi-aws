@@ -11,113 +11,167 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/bot:Bot")]
-    public sealed class Bot : global::Pulumi.PolicyResource
+    public sealed class Bot : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
         /// </summary>
         [Input("abortStatement")]
-        public BotAbortStatement? AbortStatement;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BotAbortStatement> _mAbortStatement;
+
+        public Outputs.BotAbortStatement? AbortStatement => _mAbortStatement.GetValue("abortStatement");
 
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Checksum identifying the version of the bot that was created. The checksum is not
         /// included as an argument because the resource will add it automatically when updating the bot.
         /// </summary>
         [Input("checksum")]
-        public string? Checksum;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChecksum;
+
+        public string? Checksum => _mChecksum.GetValue("checksum");
 
         /// <summary>
         /// By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
         /// </summary>
         [Input("childDirected")]
-        public bool? ChildDirected;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mChildDirected;
+
+        public bool? ChildDirected => _mChildDirected.GetValue("childDirected");
 
         /// <summary>
         /// The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
         /// </summary>
         [Input("clarificationPrompt")]
-        public BotClarificationPrompt? ClarificationPrompt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BotClarificationPrompt> _mClarificationPrompt;
+
+        public Outputs.BotClarificationPrompt? ClarificationPrompt => _mClarificationPrompt.GetValue("clarificationPrompt");
 
         /// <summary>
         /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
         /// </summary>
         [Input("createVersion")]
-        public bool? CreateVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
+
+        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
 
         /// <summary>
         /// The date when the bot version was created.
         /// </summary>
         [Input("createdDate")]
-        public string? CreatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
+
+        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
 
         /// <summary>
         /// A description of the bot. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
         /// </summary>
         [Input("detectSentiment")]
-        public bool? DetectSentiment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDetectSentiment;
+
+        public bool? DetectSentiment => _mDetectSentiment.GetValue("detectSentiment");
 
         /// <summary>
         /// Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         /// </summary>
         [Input("enableModelImprovements")]
-        public bool? EnableModelImprovements;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableModelImprovements;
+
+        public bool? EnableModelImprovements => _mEnableModelImprovements.GetValue("enableModelImprovements");
 
         /// <summary>
         /// If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
         /// </summary>
         [Input("failureReason")]
-        public string? FailureReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFailureReason;
+
+        public string? FailureReason => _mFailureReason.GetValue("failureReason");
 
         /// <summary>
         /// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
         /// </summary>
         [Input("idleSessionTtlInSeconds")]
-        public int? IdleSessionTtlInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
+
+        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
 
         /// <summary>
         /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         /// </summary>
         [Input("intents")]
-        public List<BotIntent>? Intents;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BotIntent>> _mIntents;
+
+        public List<Outputs.BotIntent>? Intents => _mIntents.GetValue("intents");
 
         /// <summary>
         /// The date when the $LATEST version of this bot was updated.
         /// </summary>
         [Input("lastUpdatedDate")]
-        public string? LastUpdatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
+
+        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
 
         /// <summary>
         /// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
         /// </summary>
         [Input("locale")]
-        public string? Locale;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
+
+        public string? Locale => _mLocale.GetValue("locale");
 
         /// <summary>
         /// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         /// </summary>
         [Input("nluIntentConfidenceThreshold")]
-        public double? NluIntentConfidenceThreshold;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mNluIntentConfidenceThreshold;
+
+        public double? NluIntentConfidenceThreshold => _mNluIntentConfidenceThreshold.GetValue("nluIntentConfidenceThreshold");
 
         /// <summary>
         /// If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         /// </summary>
         [Input("processBehavior")]
-        public string? ProcessBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProcessBehavior;
+
+        public string? ProcessBehavior => _mProcessBehavior.GetValue("processBehavior");
 
         /// <summary>
         /// When you send a request to create or update a bot, Amazon Lex sets the status response
@@ -126,18 +180,157 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// failure_reason response element.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The version of the bot.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         /// </summary>
         [Input("voiceId")]
-        public string? VoiceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceId;
+
+        public string? VoiceId => _mVoiceId.GetValue("voiceId");
+    }
+
+    [PolicyResourceType("aws:lex/bot:Bot")]
+    public sealed class BotArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
+        /// </summary>
+        [Input("abortStatement")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BotAbortStatementArgs> _mAbortStatement;
+
+        public Inputs.BotAbortStatementArgs? AbortStatement => _mAbortStatement.GetValue("abortStatement");
+
+        /// <summary>
+        /// By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
+        /// </summary>
+        [Input("childDirected")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mChildDirected;
+
+        public bool? ChildDirected => _mChildDirected.GetValue("childDirected");
+
+        /// <summary>
+        /// The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
+        /// </summary>
+        [Input("clarificationPrompt")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BotClarificationPromptArgs> _mClarificationPrompt;
+
+        public Inputs.BotClarificationPromptArgs? ClarificationPrompt => _mClarificationPrompt.GetValue("clarificationPrompt");
+
+        /// <summary>
+        /// Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
+        /// </summary>
+        [Input("createVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
+
+        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+
+        /// <summary>
+        /// A description of the bot. Must be less than or equal to 200 characters in length.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
+        /// </summary>
+        [Input("detectSentiment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDetectSentiment;
+
+        public bool? DetectSentiment => _mDetectSentiment.GetValue("detectSentiment");
+
+        /// <summary>
+        /// Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
+        /// </summary>
+        [Input("enableModelImprovements")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableModelImprovements;
+
+        public bool? EnableModelImprovements => _mEnableModelImprovements.GetValue("enableModelImprovements");
+
+        /// <summary>
+        /// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
+        /// </summary>
+        [Input("idleSessionTtlInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
+
+        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+
+        /// <summary>
+        /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
+        /// </summary>
+        [Input("intents")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BotIntentArgs>> _mIntents;
+
+        public List<Inputs.BotIntentArgs>? Intents => _mIntents.GetValue("intents");
+
+        /// <summary>
+        /// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
+        /// </summary>
+        [Input("locale")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
+
+        public string? Locale => _mLocale.GetValue("locale");
+
+        /// <summary>
+        /// The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
+        /// </summary>
+        [Input("nluIntentConfidenceThreshold")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mNluIntentConfidenceThreshold;
+
+        public double? NluIntentConfidenceThreshold => _mNluIntentConfidenceThreshold.GetValue("nluIntentConfidenceThreshold");
+
+        /// <summary>
+        /// If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
+        /// </summary>
+        [Input("processBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProcessBehavior;
+
+        public string? ProcessBehavior => _mProcessBehavior.GetValue("processBehavior");
+
+        /// <summary>
+        /// The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
+        /// </summary>
+        [Input("voiceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceId;
+
+        public string? VoiceId => _mVoiceId.GetValue("voiceId");
     }
 }

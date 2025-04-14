@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/cachePolicy:CachePolicy")]
-    public sealed class CachePolicy : global::Pulumi.PolicyResource
+    public sealed class CachePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The cache policy ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description for the cache policy.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
         /// </summary>
         [Input("defaultTtl")]
-        public int? DefaultTtl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTtl;
+
+        public int? DefaultTtl => _mDefaultTtl.GetValue("defaultTtl");
 
         /// <summary>
         /// Current version of the cache policy.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
         [Input("maxTtl")]
-        public int? MaxTtl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTtl;
+
+        public int? MaxTtl => _mMaxTtl.GetValue("maxTtl");
 
         /// <summary>
         /// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         /// </summary>
         [Input("minTtl")]
-        public int? MinTtl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinTtl;
+
+        public int? MinTtl => _mMinTtl.GetValue("minTtl");
 
         /// <summary>
         /// Unique name used to identify the cache policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         /// </summary>
         [Input("parametersInCacheKeyAndForwardedToOrigin")]
-        public CachePolicyParametersInCacheKeyAndForwardedToOrigin? ParametersInCacheKeyAndForwardedToOrigin;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin> _mParametersInCacheKeyAndForwardedToOrigin;
+
+        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin? ParametersInCacheKeyAndForwardedToOrigin => _mParametersInCacheKeyAndForwardedToOrigin.GetValue("parametersInCacheKeyAndForwardedToOrigin");
+    }
+
+    [PolicyResourceType("aws:cloudfront/cachePolicy:CachePolicy")]
+    public sealed class CachePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description for the cache policy.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
+        /// </summary>
+        [Input("defaultTtl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTtl;
+
+        public int? DefaultTtl => _mDefaultTtl.GetValue("defaultTtl");
+
+        /// <summary>
+        /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// </summary>
+        [Input("maxTtl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTtl;
+
+        public int? MaxTtl => _mMaxTtl.GetValue("maxTtl");
+
+        /// <summary>
+        /// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
+        /// </summary>
+        [Input("minTtl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinTtl;
+
+        public int? MinTtl => _mMinTtl.GetValue("minTtl");
+
+        /// <summary>
+        /// Unique name used to identify the cache policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
+        /// </summary>
+        [Input("parametersInCacheKeyAndForwardedToOrigin")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs> _mParametersInCacheKeyAndForwardedToOrigin;
+
+        public Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs? ParametersInCacheKeyAndForwardedToOrigin => _mParametersInCacheKeyAndForwardedToOrigin.GetValue("parametersInCacheKeyAndForwardedToOrigin");
     }
 }

@@ -11,54 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fsx
 {
     [PolicyResourceType("aws:fsx/backup:Backup")]
-    public sealed class Backup : global::Pulumi.PolicyResource
+    public sealed class Backup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name of the backup.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         /// </summary>
         [Input("fileSystemId")]
-        public string? FileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
 
         /// <summary>
         /// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of the file system backup.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
         /// </summary>
         [Input("volumeId")]
-        public string? VolumeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeId;
+
+        public string? VolumeId => _mVolumeId.GetValue("volumeId");
+    }
+
+    [PolicyResourceType("aws:fsx/backup:Backup")]
+    public sealed class BackupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+        /// </summary>
+        [Input("fileSystemId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+
+        /// <summary>
+        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// </summary>
+        [Input("volumeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeId;
+
+        public string? VolumeId => _mVolumeId.GetValue("volumeId");
     }
 }

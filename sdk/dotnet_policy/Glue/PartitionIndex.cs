@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/partitionIndex:PartitionIndex")]
-    public sealed class PartitionIndex : global::Pulumi.PolicyResource
+    public sealed class PartitionIndex : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The catalog ID where the table resides.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// Configuration block for a partition index. See `partition_index` below.
         /// </summary>
         [Input("partitionIndex")]
-        public PartitionIndexPartitionIndex? PartitionIndexConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PartitionIndexPartitionIndex> _mPartitionIndexConfig;
+
+        public Outputs.PartitionIndexPartitionIndex? PartitionIndexConfig => _mPartitionIndexConfig.GetValue("partitionIndex");
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
         [Input("tableName")]
-        public string? TableName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
+    }
+
+    [PolicyResourceType("aws:glue/partitionIndex:PartitionIndex")]
+    public sealed class PartitionIndexArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The catalog ID where the table resides.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// Configuration block for a partition index. See `partition_index` below.
+        /// </summary>
+        [Input("partitionIndex")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PartitionIndexPartitionIndexArgs> _mPartitionIndexConfig;
+
+        public Inputs.PartitionIndexPartitionIndexArgs? PartitionIndexConfig => _mPartitionIndexConfig.GetValue("partitionIndex");
+
+        /// <summary>
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// </summary>
+        [Input("tableName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes")]
-    public sealed class EmailIdentityFeedbackAttributes : global::Pulumi.PolicyResource
+    public sealed class EmailIdentityFeedbackAttributes : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Sets the feedback forwarding configuration for the identity.
         /// </summary>
         [Input("emailForwardingEnabled")]
-        public bool? EmailForwardingEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEmailForwardingEnabled;
+
+        public bool? EmailForwardingEnabled => _mEmailForwardingEnabled.GetValue("emailForwardingEnabled");
 
         /// <summary>
         /// The email identity.
         /// </summary>
         [Input("emailIdentity")]
-        public string? EmailIdentity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailIdentity;
+
+        public string? EmailIdentity => _mEmailIdentity.GetValue("emailIdentity");
+    }
+
+    [PolicyResourceType("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes")]
+    public sealed class EmailIdentityFeedbackAttributesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Sets the feedback forwarding configuration for the identity.
+        /// </summary>
+        [Input("emailForwardingEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEmailForwardingEnabled;
+
+        public bool? EmailForwardingEnabled => _mEmailForwardingEnabled.GetValue("emailForwardingEnabled");
+
+        /// <summary>
+        /// The email identity.
+        /// </summary>
+        [Input("emailIdentity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailIdentity;
+
+        public string? EmailIdentity => _mEmailIdentity.GetValue("emailIdentity");
     }
 }

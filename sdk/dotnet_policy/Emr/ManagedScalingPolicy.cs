@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Emr
 {
     [PolicyResourceType("aws:emr/managedScalingPolicy:ManagedScalingPolicy")]
-    public sealed class ManagedScalingPolicy : global::Pulumi.PolicyResource
+    public sealed class ManagedScalingPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the EMR cluster
         /// </summary>
         [Input("clusterId")]
-        public string? ClusterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
 
         /// <summary>
         /// Configuration block with compute limit settings. Described below.
         /// </summary>
         [Input("computeLimits")]
-        public List<ManagedScalingPolicyComputeLimit>? ComputeLimits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ManagedScalingPolicyComputeLimit>> _mComputeLimits;
+
+        public List<Outputs.ManagedScalingPolicyComputeLimit>? ComputeLimits => _mComputeLimits.GetValue("computeLimits");
+    }
+
+    [PolicyResourceType("aws:emr/managedScalingPolicy:ManagedScalingPolicy")]
+    public sealed class ManagedScalingPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the EMR cluster
+        /// </summary>
+        [Input("clusterId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
+
+        /// <summary>
+        /// Configuration block with compute limit settings. Described below.
+        /// </summary>
+        [Input("computeLimits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ManagedScalingPolicyComputeLimitArgs>> _mComputeLimits;
+
+        public List<Inputs.ManagedScalingPolicyComputeLimitArgs>? ComputeLimits => _mComputeLimits.GetValue("computeLimits");
     }
 }

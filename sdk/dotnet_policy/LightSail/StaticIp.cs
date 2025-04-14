@@ -11,30 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/staticIp:StaticIp")]
-    public sealed class StaticIp : global::Pulumi.PolicyResource
+    public sealed class StaticIp : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Lightsail static IP
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The allocated static IP address
         /// </summary>
         [Input("ipAddress")]
-        public string? IpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
 
         /// <summary>
         /// The name for the allocated static IP
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The support code.
         /// </summary>
         [Input("supportCode")]
-        public string? SupportCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
+
+        public string? SupportCode => _mSupportCode.GetValue("supportCode");
+    }
+
+    [PolicyResourceType("aws:lightsail/staticIp:StaticIp")]
+    public sealed class StaticIpArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name for the allocated static IP
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

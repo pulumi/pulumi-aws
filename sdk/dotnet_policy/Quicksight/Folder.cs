@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/folder:Folder")]
-    public sealed class Folder : global::Pulumi.PolicyResource
+    public sealed class Folder : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the folder.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// The time that the folder was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Identifier for the folder.
         /// </summary>
         [Input("folderId")]
-        public string? FolderId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFolderId;
+
+        public string? FolderId => _mFolderId.GetValue("folderId");
 
         /// <summary>
         /// An array of ancestor ARN strings for the folder. Empty for root-level folders.
         /// </summary>
         [Input("folderPaths")]
-        public List<string>? FolderPaths;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFolderPaths;
+
+        public List<string>? FolderPaths => _mFolderPaths.GetValue("folderPaths");
 
         /// <summary>
         /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         /// </summary>
         [Input("folderType")]
-        public string? FolderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFolderType;
+
+        public string? FolderType => _mFolderType.GetValue("folderType");
 
         /// <summary>
         /// The time that the folder was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         /// <summary>
         /// Display name for the folder.
@@ -61,30 +82,114 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
         /// </summary>
         [Input("parentFolderArn")]
-        public string? ParentFolderArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentFolderArn;
+
+        public string? ParentFolderArn => _mParentFolderArn.GetValue("parentFolderArn");
 
         /// <summary>
         /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         /// </summary>
         [Input("permissions")]
-        public List<FolderPermission>? Permissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FolderPermission>> _mPermissions;
+
+        public List<Outputs.FolderPermission>? Permissions => _mPermissions.GetValue("permissions");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:quicksight/folder:Folder")]
+    public sealed class FolderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// Identifier for the folder.
+        /// </summary>
+        [Input("folderId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFolderId;
+
+        public string? FolderId => _mFolderId.GetValue("folderId");
+
+        /// <summary>
+        /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        /// </summary>
+        [Input("folderType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFolderType;
+
+        public string? FolderType => _mFolderType.GetValue("folderType");
+
+        /// <summary>
+        /// Display name for the folder.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        /// </summary>
+        [Input("parentFolderArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentFolderArn;
+
+        public string? ParentFolderArn => _mParentFolderArn.GetValue("parentFolderArn");
+
+        /// <summary>
+        /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        /// </summary>
+        [Input("permissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FolderPermissionArgs>> _mPermissions;
+
+        public List<Inputs.FolderPermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

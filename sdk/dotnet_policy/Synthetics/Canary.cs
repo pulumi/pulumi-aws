@@ -11,91 +11,133 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Synthetics
 {
     [PolicyResourceType("aws:synthetics/canary:Canary")]
-    public sealed class Canary : global::Pulumi.PolicyResource
+    public sealed class Canary : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Canary.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         /// </summary>
         [Input("artifactConfig")]
-        public CanaryArtifactConfig? ArtifactConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CanaryArtifactConfig> _mArtifactConfig;
+
+        public Outputs.CanaryArtifactConfig? ArtifactConfig => _mArtifactConfig.GetValue("artifactConfig");
 
         /// <summary>
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         /// </summary>
         [Input("artifactS3Location")]
-        public string? ArtifactS3Location;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactS3Location;
+
+        public string? ArtifactS3Location => _mArtifactS3Location.GetValue("artifactS3Location");
 
         /// <summary>
         /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         /// </summary>
         [Input("deleteLambda")]
-        public bool? DeleteLambda;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteLambda;
+
+        public bool? DeleteLambda => _mDeleteLambda.GetValue("deleteLambda");
 
         /// <summary>
         /// ARN of the Lambda function that is used as your canary's engine.
         /// </summary>
         [Input("engineArn")]
-        public string? EngineArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineArn;
+
+        public string? EngineArn => _mEngineArn.GetValue("engineArn");
 
         /// <summary>
         /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         /// </summary>
         [Input("executionRoleArn")]
-        public string? ExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
 
         /// <summary>
         /// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         /// </summary>
         [Input("failureRetentionPeriod")]
-        public int? FailureRetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFailureRetentionPeriod;
+
+        public int? FailureRetentionPeriod => _mFailureRetentionPeriod.GetValue("failureRetentionPeriod");
 
         /// <summary>
         /// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         /// </summary>
         [Input("handler")]
-        public string? Handler;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHandler;
+
+        public string? Handler => _mHandler.GetValue("handler");
 
         /// <summary>
         /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration block for individual canary runs. Detailed below.
         /// </summary>
         [Input("runConfig")]
-        public CanaryRunConfig? RunConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CanaryRunConfig> _mRunConfig;
+
+        public Outputs.CanaryRunConfig? RunConfig => _mRunConfig.GetValue("runConfig");
 
         /// <summary>
         /// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         /// </summary>
         [Input("runtimeVersion")]
-        public string? RuntimeVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersion;
+
+        public string? RuntimeVersion => _mRuntimeVersion.GetValue("runtimeVersion");
 
         /// <summary>
         /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         /// </summary>
         [Input("s3Bucket")]
-        public string? S3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
 
         /// <summary>
         /// S3 key of your script. **Conflicts with `zip_file`.**
         /// </summary>
         [Input("s3Key")]
-        public string? S3Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
+
+        public string? S3Key => _mS3Key.GetValue("s3Key");
 
         /// <summary>
         /// S3 version ID of your script. **Conflicts with `zip_file`.**
         /// </summary>
         [Input("s3Version")]
-        public string? S3Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Version;
+
+        public string? S3Version => _mS3Version.GetValue("s3Version");
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
@@ -103,60 +145,258 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics
         /// The following arguments are optional:
         /// </summary>
         [Input("schedule")]
-        public CanarySchedule? Schedule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CanarySchedule> _mSchedule;
+
+        public Outputs.CanarySchedule? Schedule => _mSchedule.GetValue("schedule");
 
         /// <summary>
         /// ARN of the Lambda layer where Synthetics stores the canary script code.
         /// </summary>
         [Input("sourceLocationArn")]
-        public string? SourceLocationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceLocationArn;
+
+        public string? SourceLocationArn => _mSourceLocationArn.GetValue("sourceLocationArn");
 
         /// <summary>
         /// Whether to run or stop the canary.
         /// </summary>
         [Input("startCanary")]
-        public bool? StartCanary;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartCanary;
+
+        public bool? StartCanary => _mStartCanary.GetValue("startCanary");
 
         /// <summary>
         /// Canary status.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         /// </summary>
         [Input("successRetentionPeriod")]
-        public int? SuccessRetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSuccessRetentionPeriod;
+
+        public int? SuccessRetentionPeriod => _mSuccessRetentionPeriod.GetValue("successRetentionPeriod");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
         /// </summary>
         [Input("timelines")]
-        public List<CanaryTimeline>? Timelines;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CanaryTimeline>> _mTimelines;
+
+        public List<Outputs.CanaryTimeline>? Timelines => _mTimelines.GetValue("timelines");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("vpcConfig")]
-        public CanaryVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CanaryVpcConfig> _mVpcConfig;
+
+        public Outputs.CanaryVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
 
         /// <summary>
         /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         /// </summary>
         [Input("zipFile")]
-        public string? ZipFile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mZipFile;
+
+        public string? ZipFile => _mZipFile.GetValue("zipFile");
+    }
+
+    [PolicyResourceType("aws:synthetics/canary:Canary")]
+    public sealed class CanaryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        /// </summary>
+        [Input("artifactConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryArtifactConfigArgs> _mArtifactConfig;
+
+        public Inputs.CanaryArtifactConfigArgs? ArtifactConfig => _mArtifactConfig.GetValue("artifactConfig");
+
+        /// <summary>
+        /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
+        /// </summary>
+        [Input("artifactS3Location")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactS3Location;
+
+        public string? ArtifactS3Location => _mArtifactS3Location.GetValue("artifactS3Location");
+
+        /// <summary>
+        /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+        /// </summary>
+        [Input("deleteLambda")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteLambda;
+
+        public bool? DeleteLambda => _mDeleteLambda.GetValue("deleteLambda");
+
+        /// <summary>
+        /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
+        /// </summary>
+        [Input("executionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+
+        /// <summary>
+        /// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+        /// </summary>
+        [Input("failureRetentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFailureRetentionPeriod;
+
+        public int? FailureRetentionPeriod => _mFailureRetentionPeriod.GetValue("failureRetentionPeriod");
+
+        /// <summary>
+        /// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
+        /// </summary>
+        [Input("handler")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHandler;
+
+        public string? Handler => _mHandler.GetValue("handler");
+
+        /// <summary>
+        /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration block for individual canary runs. Detailed below.
+        /// </summary>
+        [Input("runConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryRunConfigArgs> _mRunConfig;
+
+        public Inputs.CanaryRunConfigArgs? RunConfig => _mRunConfig.GetValue("runConfig");
+
+        /// <summary>
+        /// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
+        /// </summary>
+        [Input("runtimeVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersion;
+
+        public string? RuntimeVersion => _mRuntimeVersion.GetValue("runtimeVersion");
+
+        /// <summary>
+        /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
+        /// </summary>
+        [Input("s3Bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+
+        /// <summary>
+        /// S3 key of your script. **Conflicts with `zip_file`.**
+        /// </summary>
+        [Input("s3Key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
+
+        public string? S3Key => _mS3Key.GetValue("s3Key");
+
+        /// <summary>
+        /// S3 version ID of your script. **Conflicts with `zip_file`.**
+        /// </summary>
+        [Input("s3Version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Version;
+
+        public string? S3Version => _mS3Version.GetValue("s3Version");
+
+        /// <summary>
+        /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("schedule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryScheduleArgs> _mSchedule;
+
+        public Inputs.CanaryScheduleArgs? Schedule => _mSchedule.GetValue("schedule");
+
+        /// <summary>
+        /// Whether to run or stop the canary.
+        /// </summary>
+        [Input("startCanary")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartCanary;
+
+        public bool? StartCanary => _mStartCanary.GetValue("startCanary");
+
+        /// <summary>
+        /// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
+        /// </summary>
+        [Input("successRetentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSuccessRetentionPeriod;
+
+        public int? SuccessRetentionPeriod => _mSuccessRetentionPeriod.GetValue("successRetentionPeriod");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.CanaryVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+
+        /// <summary>
+        /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
+        /// </summary>
+        [Input("zipFile")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mZipFile;
+
+        public string? ZipFile => _mZipFile.GetValue("zipFile");
     }
 }

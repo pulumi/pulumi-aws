@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/eventStream:EventStream")]
-    public sealed class EventStream : global::Pulumi.PolicyResource
+    public sealed class EventStream : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The application ID.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         /// </summary>
         [Input("destinationStreamArn")]
-        public string? DestinationStreamArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationStreamArn;
+
+        public string? DestinationStreamArn => _mDestinationStreamArn.GetValue("destinationStreamArn");
 
         /// <summary>
         /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+    }
+
+    [PolicyResourceType("aws:pinpoint/eventStream:EventStream")]
+    public sealed class EventStreamArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        /// </summary>
+        [Input("destinationStreamArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationStreamArn;
+
+        public string? DestinationStreamArn => _mDestinationStreamArn.GetValue("destinationStreamArn");
+
+        /// <summary>
+        /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
     }
 }

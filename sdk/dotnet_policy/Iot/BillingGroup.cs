@@ -11,42 +11,94 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/billingGroup:BillingGroup")]
-    public sealed class BillingGroup : global::Pulumi.PolicyResource
+    public sealed class BillingGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Billing Group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("metadatas")]
-        public List<BillingGroupMetadata>? Metadatas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BillingGroupMetadata>> _mMetadatas;
+
+        public List<Outputs.BillingGroupMetadata>? Metadatas => _mMetadatas.GetValue("metadatas");
 
         /// <summary>
         /// The name of the Billing Group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Billing Group properties. Defined below.
         /// </summary>
         [Input("properties")]
-        public BillingGroupProperties? Properties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BillingGroupProperties> _mProperties;
+
+        public Outputs.BillingGroupProperties? Properties => _mProperties.GetValue("properties");
 
         /// <summary>
         /// Key-value mapping of resource tags
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The current version of the Billing Group record in the registry.
         /// </summary>
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:iot/billingGroup:BillingGroup")]
+    public sealed class BillingGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Billing Group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Billing Group properties. Defined below.
+        /// </summary>
+        [Input("properties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BillingGroupPropertiesArgs> _mProperties;
+
+        public Inputs.BillingGroupPropertiesArgs? Properties => _mProperties.GetValue("properties");
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

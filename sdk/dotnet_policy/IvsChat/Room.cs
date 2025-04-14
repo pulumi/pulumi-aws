@@ -11,20 +11,26 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.IvsChat
 {
     [PolicyResourceType("aws:ivschat/room:Room")]
-    public sealed class Room : global::Pulumi.PolicyResource
+    public sealed class Room : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Room.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// List of Logging Configuration
         /// ARNs to attach to the room.
         /// </summary>
         [Input("loggingConfigurationIdentifiers")]
-        public List<string>? LoggingConfigurationIdentifiers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoggingConfigurationIdentifiers;
+
+        public List<string>? LoggingConfigurationIdentifiers => _mLoggingConfigurationIdentifiers.GetValue("loggingConfigurationIdentifiers");
 
         /// <summary>
         /// Maximum number of characters in a single
@@ -32,38 +38,119 @@ namespace Pulumi.PolicyPacks.Aws.IvsChat
         /// specifically to rune/code-point count, not number of bytes.
         /// </summary>
         [Input("maximumMessageLength")]
-        public int? MaximumMessageLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMessageLength;
+
+        public int? MaximumMessageLength => _mMaximumMessageLength.GetValue("maximumMessageLength");
 
         /// <summary>
         /// Maximum number of messages per
         /// second that can be sent to the room (by all clients).
         /// </summary>
         [Input("maximumMessageRatePerSecond")]
-        public int? MaximumMessageRatePerSecond;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMessageRatePerSecond;
+
+        public int? MaximumMessageRatePerSecond => _mMaximumMessageRatePerSecond.GetValue("maximumMessageRatePerSecond");
 
         /// <summary>
         /// Configuration information for optional
         /// review of messages.
         /// </summary>
         [Input("messageReviewHandler")]
-        public RoomMessageReviewHandler? MessageReviewHandler;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RoomMessageReviewHandler> _mMessageReviewHandler;
+
+        public Outputs.RoomMessageReviewHandler? MessageReviewHandler => _mMessageReviewHandler.GetValue("messageReviewHandler");
 
         /// <summary>
         /// Room name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ivschat/room:Room")]
+    public sealed class RoomArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of Logging Configuration
+        /// ARNs to attach to the room.
+        /// </summary>
+        [Input("loggingConfigurationIdentifiers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoggingConfigurationIdentifiers;
+
+        public List<string>? LoggingConfigurationIdentifiers => _mLoggingConfigurationIdentifiers.GetValue("loggingConfigurationIdentifiers");
+
+        /// <summary>
+        /// Maximum number of characters in a single
+        /// message. Messages are expected to be UTF-8 encoded and this limit applies
+        /// specifically to rune/code-point count, not number of bytes.
+        /// </summary>
+        [Input("maximumMessageLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMessageLength;
+
+        public int? MaximumMessageLength => _mMaximumMessageLength.GetValue("maximumMessageLength");
+
+        /// <summary>
+        /// Maximum number of messages per
+        /// second that can be sent to the room (by all clients).
+        /// </summary>
+        [Input("maximumMessageRatePerSecond")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMessageRatePerSecond;
+
+        public int? MaximumMessageRatePerSecond => _mMaximumMessageRatePerSecond.GetValue("maximumMessageRatePerSecond");
+
+        /// <summary>
+        /// Configuration information for optional
+        /// review of messages.
+        /// </summary>
+        [Input("messageReviewHandler")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RoomMessageReviewHandlerArgs> _mMessageReviewHandler;
+
+        public Inputs.RoomMessageReviewHandlerArgs? MessageReviewHandler => _mMessageReviewHandler.GetValue("messageReviewHandler");
+
+        /// <summary>
+        /// Room name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

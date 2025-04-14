@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MemoryDb
 {
     [PolicyResourceType("aws:memorydb/multiRegionCluster:MultiRegionCluster")]
-    public sealed class MultiRegionCluster : global::Pulumi.PolicyResource
+    public sealed class MultiRegionCluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the multi-region cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// description for the multi-region cluster.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The name of the multi-region cluster.
         /// </summary>
         [Input("multiRegionClusterName")]
-        public string? MultiRegionClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiRegionClusterName;
+
+        public string? MultiRegionClusterName => _mMultiRegionClusterName.GetValue("multiRegionClusterName");
 
         /// <summary>
         /// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
         /// </summary>
         [Input("multiRegionClusterNameSuffix")]
-        public string? MultiRegionClusterNameSuffix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiRegionClusterNameSuffix;
+
+        public string? MultiRegionClusterNameSuffix => _mMultiRegionClusterNameSuffix.GetValue("multiRegionClusterNameSuffix");
 
         /// <summary>
         /// The name of the multi-region parameter group to be associated with the cluster.
         /// </summary>
         [Input("multiRegionParameterGroupName")]
-        public string? MultiRegionParameterGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiRegionParameterGroupName;
+
+        public string? MultiRegionParameterGroupName => _mMultiRegionParameterGroupName.GetValue("multiRegionParameterGroupName");
 
         /// <summary>
         /// The node type to be used for the multi-region cluster.
@@ -61,39 +82,162 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb
         /// The following arguments are optional:
         /// </summary>
         [Input("nodeType")]
-        public string? NodeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
+
+        public string? NodeType => _mNodeType.GetValue("nodeType");
 
         /// <summary>
         /// The number of shards for the multi-region cluster.
         /// </summary>
         [Input("numShards")]
-        public int? NumShards;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumShards;
+
+        public int? NumShards => _mNumShards.GetValue("numShards");
 
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public MultiRegionClusterTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiRegionClusterTimeouts> _mTimeouts;
+
+        public Outputs.MultiRegionClusterTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// A flag to enable in-transit encryption on the cluster.
         /// </summary>
         [Input("tlsEnabled")]
-        public bool? TlsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTlsEnabled;
+
+        public bool? TlsEnabled => _mTlsEnabled.GetValue("tlsEnabled");
 
         [Input("updateStrategy")]
-        public string? UpdateStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateStrategy;
+
+        public string? UpdateStrategy => _mUpdateStrategy.GetValue("updateStrategy");
+    }
+
+    [PolicyResourceType("aws:memorydb/multiRegionCluster:MultiRegionCluster")]
+    public sealed class MultiRegionClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// description for the multi-region cluster.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
+        /// </summary>
+        [Input("multiRegionClusterNameSuffix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiRegionClusterNameSuffix;
+
+        public string? MultiRegionClusterNameSuffix => _mMultiRegionClusterNameSuffix.GetValue("multiRegionClusterNameSuffix");
+
+        /// <summary>
+        /// The name of the multi-region parameter group to be associated with the cluster.
+        /// </summary>
+        [Input("multiRegionParameterGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiRegionParameterGroupName;
+
+        public string? MultiRegionParameterGroupName => _mMultiRegionParameterGroupName.GetValue("multiRegionParameterGroupName");
+
+        /// <summary>
+        /// The node type to be used for the multi-region cluster.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("nodeType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
+
+        public string? NodeType => _mNodeType.GetValue("nodeType");
+
+        /// <summary>
+        /// The number of shards for the multi-region cluster.
+        /// </summary>
+        [Input("numShards")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumShards;
+
+        public int? NumShards => _mNumShards.GetValue("numShards");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MultiRegionClusterTimeoutsArgs> _mTimeouts;
+
+        public Inputs.MultiRegionClusterTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// A flag to enable in-transit encryption on the cluster.
+        /// </summary>
+        [Input("tlsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTlsEnabled;
+
+        public bool? TlsEnabled => _mTlsEnabled.GetValue("tlsEnabled");
+
+        [Input("updateStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateStrategy;
+
+        public string? UpdateStrategy => _mUpdateStrategy.GetValue("updateStrategy");
     }
 }

@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/cidrLocation:CidrLocation")]
-    public sealed class CidrLocation : global::Pulumi.PolicyResource
+    public sealed class CidrLocation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// CIDR blocks for the location.
         /// </summary>
         [Input("cidrBlocks")]
-        public List<string>? CidrBlocks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrBlocks;
+
+        public List<string>? CidrBlocks => _mCidrBlocks.GetValue("cidrBlocks");
 
         /// <summary>
         /// The ID of the CIDR collection to update.
         /// </summary>
         [Input("cidrCollectionId")]
-        public string? CidrCollectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrCollectionId;
+
+        public string? CidrCollectionId => _mCidrCollectionId.GetValue("cidrCollectionId");
 
         /// <summary>
         /// Name for the CIDR location.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:route53/cidrLocation:CidrLocation")]
+    public sealed class CidrLocationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// CIDR blocks for the location.
+        /// </summary>
+        [Input("cidrBlocks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrBlocks;
+
+        public List<string>? CidrBlocks => _mCidrBlocks.GetValue("cidrBlocks");
+
+        /// <summary>
+        /// The ID of the CIDR collection to update.
+        /// </summary>
+        [Input("cidrCollectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrCollectionId;
+
+        public string? CidrCollectionId => _mCidrCollectionId.GetValue("cidrCollectionId");
+
+        /// <summary>
+        /// Name for the CIDR location.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

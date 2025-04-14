@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chime
 {
     [PolicyResourceType("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings")]
-    public sealed class SdkvoiceGlobalSettings : global::Pulumi.PolicyResource
+    public sealed class SdkvoiceGlobalSettings : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Voice Connector settings. See voice_connector.
         /// </summary>
         [Input("voiceConnector")]
-        public SdkvoiceGlobalSettingsVoiceConnector? VoiceConnector;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SdkvoiceGlobalSettingsVoiceConnector> _mVoiceConnector;
+
+        public Outputs.SdkvoiceGlobalSettingsVoiceConnector? VoiceConnector => _mVoiceConnector.GetValue("voiceConnector");
+    }
+
+    [PolicyResourceType("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings")]
+    public sealed class SdkvoiceGlobalSettingsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Voice Connector settings. See voice_connector.
+        /// </summary>
+        [Input("voiceConnector")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs> _mVoiceConnector;
+
+        public Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs? VoiceConnector => _mVoiceConnector.GetValue("voiceConnector");
     }
 }

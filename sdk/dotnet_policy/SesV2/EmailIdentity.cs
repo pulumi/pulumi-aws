@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/emailIdentity:EmailIdentity")]
-    public sealed class EmailIdentity : global::Pulumi.PolicyResource
+    public sealed class EmailIdentity : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Email Identity.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         /// </summary>
         [Input("configurationSetName")]
-        public string? ConfigurationSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
+
+        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
 
         /// <summary>
         /// The configuration of the DKIM authentication settings for an email domain identity.
         /// </summary>
         [Input("dkimSigningAttributes")]
-        public EmailIdentityDkimSigningAttributes? DkimSigningAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EmailIdentityDkimSigningAttributes> _mDkimSigningAttributes;
+
+        public Outputs.EmailIdentityDkimSigningAttributes? DkimSigningAttributes => _mDkimSigningAttributes.GetValue("dkimSigningAttributes");
 
         /// <summary>
         /// The email address or domain to verify.
@@ -37,30 +46,87 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// The following arguments are optional:
         /// </summary>
         [Input("emailIdentity")]
-        public string? EmailIdentityDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailIdentityDetails;
+
+        public string? EmailIdentityDetails => _mEmailIdentityDetails.GetValue("emailIdentity");
 
         /// <summary>
         /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         /// </summary>
         [Input("identityType")]
-        public string? IdentityType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityType;
+
+        public string? IdentityType => _mIdentityType.GetValue("identityType");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Specifies whether or not the identity is verified.
         /// </summary>
         [Input("verifiedForSendingStatus")]
-        public bool? VerifiedForSendingStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mVerifiedForSendingStatus;
+
+        public bool? VerifiedForSendingStatus => _mVerifiedForSendingStatus.GetValue("verifiedForSendingStatus");
+    }
+
+    [PolicyResourceType("aws:sesv2/emailIdentity:EmailIdentity")]
+    public sealed class EmailIdentityArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+        /// </summary>
+        [Input("configurationSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
+
+        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
+
+        /// <summary>
+        /// The configuration of the DKIM authentication settings for an email domain identity.
+        /// </summary>
+        [Input("dkimSigningAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EmailIdentityDkimSigningAttributesArgs> _mDkimSigningAttributes;
+
+        public Inputs.EmailIdentityDkimSigningAttributesArgs? DkimSigningAttributes => _mDkimSigningAttributes.GetValue("dkimSigningAttributes");
+
+        /// <summary>
+        /// The email address or domain to verify.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("emailIdentity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailIdentityDetails;
+
+        public string? EmailIdentityDetails => _mEmailIdentityDetails.GetValue("emailIdentity");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

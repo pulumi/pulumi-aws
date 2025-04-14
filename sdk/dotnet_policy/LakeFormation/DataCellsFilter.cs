@@ -11,15 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LakeFormation
 {
     [PolicyResourceType("aws:lakeformation/dataCellsFilter:DataCellsFilter")]
-    public sealed class DataCellsFilter : global::Pulumi.PolicyResource
+    public sealed class DataCellsFilter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Information about the data cells filter. See Table Data below for details.
         /// </summary>
         [Input("tableData")]
-        public DataCellsFilterTableData? TableData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCellsFilterTableData> _mTableData;
+
+        public Outputs.DataCellsFilterTableData? TableData => _mTableData.GetValue("tableData");
 
         [Input("timeouts")]
-        public DataCellsFilterTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCellsFilterTimeouts> _mTimeouts;
+
+        public Outputs.DataCellsFilterTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:lakeformation/dataCellsFilter:DataCellsFilter")]
+    public sealed class DataCellsFilterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Information about the data cells filter. See Table Data below for details.
+        /// </summary>
+        [Input("tableData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCellsFilterTableDataArgs> _mTableData;
+
+        public Inputs.DataCellsFilterTableDataArgs? TableData => _mTableData.GetValue("tableData");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCellsFilterTimeoutsArgs> _mTimeouts;
+
+        public Inputs.DataCellsFilterTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

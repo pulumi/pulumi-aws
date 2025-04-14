@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment")]
-    public sealed class IamPolicyAssignment : global::Pulumi.PolicyResource
+    public sealed class IamPolicyAssignment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Assignment ID.
         /// </summary>
         [Input("assignmentId")]
-        public string? AssignmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentId;
+
+        public string? AssignmentId => _mAssignmentId.GetValue("assignmentId");
 
         /// <summary>
         /// Name of the assignment.
         /// </summary>
         [Input("assignmentName")]
-        public string? AssignmentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentName;
+
+        public string? AssignmentName => _mAssignmentName.GetValue("assignmentName");
 
         /// <summary>
         /// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
@@ -31,30 +37,105 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("assignmentStatus")]
-        public string? AssignmentStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentStatus;
+
+        public string? AssignmentStatus => _mAssignmentStatus.GetValue("assignmentStatus");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         /// </summary>
         [Input("identities")]
-        public IamPolicyAssignmentIdentities? Identities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IamPolicyAssignmentIdentities> _mIdentities;
+
+        public Outputs.IamPolicyAssignmentIdentities? Identities => _mIdentities.GetValue("identities");
 
         /// <summary>
         /// Namespace that contains the assignment. Defaults to `default`.
         /// </summary>
         [Input("namespace")]
-        public string? Namespace;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
+
+        public string? Namespace => _mNamespace.GetValue("namespace");
 
         /// <summary>
         /// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         /// </summary>
         [Input("policyArn")]
-        public string? PolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+    }
+
+    [PolicyResourceType("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment")]
+    public sealed class IamPolicyAssignmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the assignment.
+        /// </summary>
+        [Input("assignmentName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentName;
+
+        public string? AssignmentName => _mAssignmentName.GetValue("assignmentName");
+
+        /// <summary>
+        /// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("assignmentStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentStatus;
+
+        public string? AssignmentStatus => _mAssignmentStatus.GetValue("assignmentStatus");
+
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
+        /// </summary>
+        [Input("identities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IamPolicyAssignmentIdentitiesArgs> _mIdentities;
+
+        public Inputs.IamPolicyAssignmentIdentitiesArgs? Identities => _mIdentities.GetValue("identities");
+
+        /// <summary>
+        /// Namespace that contains the assignment. Defaults to `default`.
+        /// </summary>
+        [Input("namespace")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
+
+        public string? Namespace => _mNamespace.GetValue("namespace");
+
+        /// <summary>
+        /// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
+        /// </summary>
+        [Input("policyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
     }
 }

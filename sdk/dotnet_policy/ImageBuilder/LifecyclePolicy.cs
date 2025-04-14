@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ImageBuilder
 {
     [PolicyResourceType("aws:imagebuilder/lifecyclePolicy:LifecyclePolicy")]
-    public sealed class LifecyclePolicy : global::Pulumi.PolicyResource
+    public sealed class LifecyclePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the lifecycle policy.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// description for the lifecycle policy.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         /// </summary>
         [Input("executionRole")]
-        public string? ExecutionRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
+
+        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
 
         /// <summary>
         /// The name of the lifecycle policy to create.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration block with policy details. Detailed below.
         /// </summary>
         [Input("policyDetails")]
-        public List<LifecyclePolicyPolicyDetail>? PolicyDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LifecyclePolicyPolicyDetail>> _mPolicyDetails;
+
+        public List<Outputs.LifecyclePolicyPolicyDetail>? PolicyDetails => _mPolicyDetails.GetValue("policyDetails");
 
         /// <summary>
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
@@ -49,30 +64,123 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// The following arguments are optional:
         /// </summary>
         [Input("resourceSelection")]
-        public LifecyclePolicyResourceSelection? ResourceSelection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyResourceSelection> _mResourceSelection;
+
+        public Outputs.LifecyclePolicyResourceSelection? ResourceSelection => _mResourceSelection.GetValue("resourceSelection");
 
         /// <summary>
         /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// The status of the lifecycle policy.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:imagebuilder/lifecyclePolicy:LifecyclePolicy")]
+    public sealed class LifecyclePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// description for the lifecycle policy.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        /// </summary>
+        [Input("executionRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
+
+        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+
+        /// <summary>
+        /// The name of the lifecycle policy to create.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration block with policy details. Detailed below.
+        /// </summary>
+        [Input("policyDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LifecyclePolicyPolicyDetailArgs>> _mPolicyDetails;
+
+        public List<Inputs.LifecyclePolicyPolicyDetailArgs>? PolicyDetails => _mPolicyDetails.GetValue("policyDetails");
+
+        /// <summary>
+        /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("resourceSelection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyResourceSelectionArgs> _mResourceSelection;
+
+        public Inputs.LifecyclePolicyResourceSelectionArgs? ResourceSelection => _mResourceSelection.GetValue("resourceSelection");
+
+        /// <summary>
+        /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
+        /// </summary>
+        [Input("resourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
+
+        /// <summary>
+        /// The status of the lifecycle policy.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

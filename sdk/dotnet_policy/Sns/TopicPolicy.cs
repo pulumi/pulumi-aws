@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sns
 {
     [PolicyResourceType("aws:sns/topicPolicy:TopicPolicy")]
-    public sealed class TopicPolicy : global::Pulumi.PolicyResource
+    public sealed class TopicPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the SNS topic
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The AWS Account ID of the SNS topic owner
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:sns/topicPolicy:TopicPolicy")]
+    public sealed class TopicPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the SNS topic
+        /// </summary>
+        [Input("arn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
+
+        /// <summary>
+        /// The fully-formed AWS policy as JSON.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

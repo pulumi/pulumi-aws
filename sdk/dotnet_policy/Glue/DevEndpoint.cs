@@ -11,156 +11,370 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/devEndpoint:DevEndpoint")]
-    public sealed class DevEndpoint : global::Pulumi.PolicyResource
+    public sealed class DevEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A map of arguments used to configure the endpoint.
         /// </summary>
         [Input("arguments")]
-        public Dictionary<string, string>? Arguments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mArguments;
+
+        public Dictionary<string, string>? Arguments => _mArguments.GetValue("arguments");
 
         /// <summary>
         /// The ARN of the endpoint.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The AWS availability zone where this endpoint is located.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         /// </summary>
         [Input("extraJarsS3Path")]
-        public string? ExtraJarsS3Path;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExtraJarsS3Path;
+
+        public string? ExtraJarsS3Path => _mExtraJarsS3Path.GetValue("extraJarsS3Path");
 
         /// <summary>
         /// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         /// </summary>
         [Input("extraPythonLibsS3Path")]
-        public string? ExtraPythonLibsS3Path;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExtraPythonLibsS3Path;
+
+        public string? ExtraPythonLibsS3Path => _mExtraPythonLibsS3Path.GetValue("extraPythonLibsS3Path");
 
         /// <summary>
         /// The reason for a current failure in this endpoint.
         /// </summary>
         [Input("failureReason")]
-        public string? FailureReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFailureReason;
+
+        public string? FailureReason => _mFailureReason.GetValue("failureReason");
 
         /// <summary>
         /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         /// </summary>
         [Input("glueVersion")]
-        public string? GlueVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
+
+        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
 
         /// <summary>
         /// The name of this endpoint. It must be unique in your account.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         /// </summary>
         [Input("numberOfNodes")]
-        public int? NumberOfNodes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfNodes;
+
+        public int? NumberOfNodes => _mNumberOfNodes.GetValue("numberOfNodes");
 
         /// <summary>
         /// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         /// </summary>
         [Input("numberOfWorkers")]
-        public int? NumberOfWorkers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
+
+        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
 
         /// <summary>
         /// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
         /// </summary>
         [Input("privateAddress")]
-        public string? PrivateAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateAddress;
+
+        public string? PrivateAddress => _mPrivateAddress.GetValue("privateAddress");
 
         /// <summary>
         /// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         /// </summary>
         [Input("publicAddress")]
-        public string? PublicAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicAddress;
+
+        public string? PublicAddress => _mPublicAddress.GetValue("publicAddress");
 
         /// <summary>
         /// The public key to be used by this endpoint for authentication.
         /// </summary>
         [Input("publicKey")]
-        public string? PublicKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
 
         /// <summary>
         /// A list of public keys to be used by this endpoint for authentication.
         /// </summary>
         [Input("publicKeys")]
-        public List<string>? PublicKeys;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPublicKeys;
+
+        public List<string>? PublicKeys => _mPublicKeys.GetValue("publicKeys");
 
         /// <summary>
         /// The IAM role for this endpoint.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The name of the Security Configuration structure to be used with this endpoint.
         /// </summary>
         [Input("securityConfiguration")]
-        public string? SecurityConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
+
+        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
 
         /// <summary>
         /// Security group IDs for the security groups to be used by this endpoint.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// The current status of this endpoint.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The subnet ID for the new endpoint to use.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// he ID of the VPC used by this endpoint.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
 
         /// <summary>
         /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         /// </summary>
         [Input("workerType")]
-        public string? WorkerType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
+
+        public string? WorkerType => _mWorkerType.GetValue("workerType");
 
         /// <summary>
         /// The YARN endpoint address used by this endpoint.
         /// </summary>
         [Input("yarnEndpointAddress")]
-        public string? YarnEndpointAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mYarnEndpointAddress;
+
+        public string? YarnEndpointAddress => _mYarnEndpointAddress.GetValue("yarnEndpointAddress");
 
         /// <summary>
         /// The Apache Zeppelin port for the remote Apache Spark interpreter.
         /// </summary>
         [Input("zeppelinRemoteSparkInterpreterPort")]
-        public int? ZeppelinRemoteSparkInterpreterPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mZeppelinRemoteSparkInterpreterPort;
+
+        public int? ZeppelinRemoteSparkInterpreterPort => _mZeppelinRemoteSparkInterpreterPort.GetValue("zeppelinRemoteSparkInterpreterPort");
+    }
+
+    [PolicyResourceType("aws:glue/devEndpoint:DevEndpoint")]
+    public sealed class DevEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A map of arguments used to configure the endpoint.
+        /// </summary>
+        [Input("arguments")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mArguments;
+
+        public Dictionary<string, string>? Arguments => _mArguments.GetValue("arguments");
+
+        /// <summary>
+        /// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
+        /// </summary>
+        [Input("extraJarsS3Path")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExtraJarsS3Path;
+
+        public string? ExtraJarsS3Path => _mExtraJarsS3Path.GetValue("extraJarsS3Path");
+
+        /// <summary>
+        /// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
+        /// </summary>
+        [Input("extraPythonLibsS3Path")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExtraPythonLibsS3Path;
+
+        public string? ExtraPythonLibsS3Path => _mExtraPythonLibsS3Path.GetValue("extraPythonLibsS3Path");
+
+        /// <summary>
+        /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        /// </summary>
+        [Input("glueVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
+
+        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
+
+        /// <summary>
+        /// The name of this endpoint. It must be unique in your account.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
+        /// </summary>
+        [Input("numberOfNodes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfNodes;
+
+        public int? NumberOfNodes => _mNumberOfNodes.GetValue("numberOfNodes");
+
+        /// <summary>
+        /// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
+        /// </summary>
+        [Input("numberOfWorkers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
+
+        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
+
+        /// <summary>
+        /// The public key to be used by this endpoint for authentication.
+        /// </summary>
+        [Input("publicKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+
+        /// <summary>
+        /// A list of public keys to be used by this endpoint for authentication.
+        /// </summary>
+        [Input("publicKeys")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPublicKeys;
+
+        public List<string>? PublicKeys => _mPublicKeys.GetValue("publicKeys");
+
+        /// <summary>
+        /// The IAM role for this endpoint.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// The name of the Security Configuration structure to be used with this endpoint.
+        /// </summary>
+        [Input("securityConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
+
+        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+
+        /// <summary>
+        /// Security group IDs for the security groups to be used by this endpoint.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// The subnet ID for the new endpoint to use.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
+        /// </summary>
+        [Input("workerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
+
+        public string? WorkerType => _mWorkerType.GetValue("workerType");
     }
 }

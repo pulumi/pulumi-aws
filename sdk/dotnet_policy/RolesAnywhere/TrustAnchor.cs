@@ -11,45 +11,112 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RolesAnywhere
 {
     [PolicyResourceType("aws:rolesanywhere/trustAnchor:TrustAnchor")]
-    public sealed class TrustAnchor : global::Pulumi.PolicyResource
+    public sealed class TrustAnchor : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Trust Anchor
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether or not the Trust Anchor should be enabled.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// The name of the Trust Anchor.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("notificationSettings")]
-        public List<TrustAnchorNotificationSetting>? NotificationSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TrustAnchorNotificationSetting>> _mNotificationSettings;
+
+        public List<Outputs.TrustAnchorNotificationSetting>? NotificationSettings => _mNotificationSettings.GetValue("notificationSettings");
 
         /// <summary>
         /// The source of trust, documented below
         /// </summary>
         [Input("source")]
-        public TrustAnchorSource? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustAnchorSource> _mSource;
+
+        public Outputs.TrustAnchorSource? Source => _mSource.GetValue("source");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:rolesanywhere/trustAnchor:TrustAnchor")]
+    public sealed class TrustAnchorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether or not the Trust Anchor should be enabled.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// The name of the Trust Anchor.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        [Input("notificationSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TrustAnchorNotificationSettingArgs>> _mNotificationSettings;
+
+        public List<Inputs.TrustAnchorNotificationSettingArgs>? NotificationSettings => _mNotificationSettings.GetValue("notificationSettings");
+
+        /// <summary>
+        /// The source of trust, documented below
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustAnchorSourceArgs> _mSource;
+
+        public Inputs.TrustAnchorSourceArgs? Source => _mSource.GetValue("source");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

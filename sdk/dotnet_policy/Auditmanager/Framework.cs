@@ -11,20 +11,26 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Auditmanager
 {
     [PolicyResourceType("aws:auditmanager/framework:Framework")]
-    public sealed class Framework : global::Pulumi.PolicyResource
+    public sealed class Framework : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the framework.
         /// * `control_sets[*].id` - Unique identifier for the framework control set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
         /// </summary>
         [Input("complianceType")]
-        public string? ComplianceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComplianceType;
+
+        public string? ComplianceType => _mComplianceType.GetValue("complianceType");
 
         /// <summary>
         /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
@@ -32,33 +38,102 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// The following arguments are optional:
         /// </summary>
         [Input("controlSets")]
-        public List<FrameworkControlSet>? ControlSets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FrameworkControlSet>> _mControlSets;
+
+        public List<Outputs.FrameworkControlSet>? ControlSets => _mControlSets.GetValue("controlSets");
 
         /// <summary>
         /// Description of the framework.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Framework type, such as a custom framework or a standard framework.
         /// </summary>
         [Input("frameworkType")]
-        public string? FrameworkType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFrameworkType;
+
+        public string? FrameworkType => _mFrameworkType.GetValue("frameworkType");
 
         /// <summary>
         /// Name of the framework.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:auditmanager/framework:Framework")]
+    public sealed class FrameworkArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
+        /// </summary>
+        [Input("complianceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComplianceType;
+
+        public string? ComplianceType => _mComplianceType.GetValue("complianceType");
+
+        /// <summary>
+        /// Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("controlSets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FrameworkControlSetArgs>> _mControlSets;
+
+        public List<Inputs.FrameworkControlSetArgs>? ControlSets => _mControlSets.GetValue("controlSets");
+
+        /// <summary>
+        /// Description of the framework.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the framework.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

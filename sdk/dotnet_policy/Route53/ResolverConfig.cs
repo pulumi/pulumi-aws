@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/resolverConfig:ResolverConfig")]
-    public sealed class ResolverConfig : global::Pulumi.PolicyResource
+    public sealed class ResolverConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
         /// </summary>
         [Input("autodefinedReverseFlag")]
-        public string? AutodefinedReverseFlag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutodefinedReverseFlag;
+
+        public string? AutodefinedReverseFlag => _mAutodefinedReverseFlag.GetValue("autodefinedReverseFlag");
 
         /// <summary>
         /// The AWS account ID of the owner of the VPC that this resolver configuration applies to.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// The ID of the VPC that the configuration is for.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
+    }
+
+    [PolicyResourceType("aws:route53/resolverConfig:ResolverConfig")]
+    public sealed class ResolverConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
+        /// </summary>
+        [Input("autodefinedReverseFlag")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutodefinedReverseFlag;
+
+        public string? AutodefinedReverseFlag => _mAutodefinedReverseFlag.GetValue("autodefinedReverseFlag");
+
+        /// <summary>
+        /// The ID of the VPC that the configuration is for.
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
     }
 }

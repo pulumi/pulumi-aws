@@ -11,60 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/userPoolDomain:UserPoolDomain")]
-    public sealed class UserPoolDomain : global::Pulumi.PolicyResource
+    public sealed class UserPoolDomain : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS account ID for the user pool owner.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         /// </summary>
         [Input("certificateArn")]
-        public string? CertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
 
         /// <summary>
         /// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
         /// </summary>
         [Input("cloudfrontDistribution")]
-        public string? CloudfrontDistribution;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontDistribution;
+
+        public string? CloudfrontDistribution => _mCloudfrontDistribution.GetValue("cloudfrontDistribution");
 
         /// <summary>
         /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
         /// </summary>
         [Input("cloudfrontDistributionArn")]
-        public string? CloudfrontDistributionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontDistributionArn;
+
+        public string? CloudfrontDistributionArn => _mCloudfrontDistributionArn.GetValue("cloudfrontDistributionArn");
 
         /// <summary>
         /// The Route 53 hosted zone ID of the CloudFront distribution.
         /// </summary>
         [Input("cloudfrontDistributionZoneId")]
-        public string? CloudfrontDistributionZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontDistributionZoneId;
+
+        public string? CloudfrontDistributionZoneId => _mCloudfrontDistributionZoneId.GetValue("cloudfrontDistributionZoneId");
 
         /// <summary>
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// The S3 bucket where the static files for this domain are stored.
         /// </summary>
         [Input("s3Bucket")]
-        public string? S3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
 
         /// <summary>
         /// The user pool ID.
         /// </summary>
         [Input("userPoolId")]
-        public string? UserPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
 
         /// <summary>
         /// The app version.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:cognito/userPoolDomain:UserPoolDomain")]
+    public sealed class UserPoolDomainArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
+        /// </summary>
+        [Input("certificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+
+        /// <summary>
+        /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
+        [Input("userPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
     }
 }

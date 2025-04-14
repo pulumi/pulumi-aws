@@ -11,22 +11,31 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/glossary:Glossary")]
-    public sealed class Glossary : global::Pulumi.PolicyResource
+    public sealed class Glossary : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Description of the glossary. Must have a length between 0 and 4096.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         [Input("domainIdentifier")]
-        public string? DomainIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
 
         /// <summary>
         /// Name of the glossary. Must have length between 1 and 256.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
@@ -34,12 +43,66 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// The following arguments are optional:
         /// </summary>
         [Input("owningProjectIdentifier")]
-        public string? OwningProjectIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwningProjectIdentifier;
+
+        public string? OwningProjectIdentifier => _mOwningProjectIdentifier.GetValue("owningProjectIdentifier");
 
         /// <summary>
         /// Status of business glossary. Valid values are DISABLED and ENABLED.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:datazone/glossary:Glossary")]
+    public sealed class GlossaryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the glossary. Must have a length between 0 and 4096.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        [Input("domainIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+
+        /// <summary>
+        /// Name of the glossary. Must have length between 1 and 256.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("owningProjectIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwningProjectIdentifier;
+
+        public string? OwningProjectIdentifier => _mOwningProjectIdentifier.GetValue("owningProjectIdentifier");
+
+        /// <summary>
+        /// Status of business glossary. Valid values are DISABLED and ENABLED.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
     }
 }

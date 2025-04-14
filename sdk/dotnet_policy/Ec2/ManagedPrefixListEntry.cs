@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")]
-    public sealed class ManagedPrefixListEntry : global::Pulumi.PolicyResource
+    public sealed class ManagedPrefixListEntry : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// CIDR block of this entry.
         /// </summary>
         [Input("cidr")]
-        public string? Cidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+
+        public string? Cidr => _mCidr.GetValue("cidr");
 
         /// <summary>
         /// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ID of the prefix list.
         /// </summary>
         [Input("prefixListId")]
-        public string? PrefixListId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+
+        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+    }
+
+    [PolicyResourceType("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")]
+    public sealed class ManagedPrefixListEntryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// CIDR block of this entry.
+        /// </summary>
+        [Input("cidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+
+        public string? Cidr => _mCidr.GetValue("cidr");
+
+        /// <summary>
+        /// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ID of the prefix list.
+        /// </summary>
+        [Input("prefixListId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+
+        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
     }
 }

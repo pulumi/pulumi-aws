@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/invocation:Invocation")]
-    public sealed class Invocation : global::Pulumi.PolicyResource
+    public sealed class Invocation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the lambda function.
         /// </summary>
         [Input("functionName")]
-        public string? FunctionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
 
         /// <summary>
         /// JSON payload to the lambda function.
@@ -25,33 +28,108 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Input("input")]
-        public string? Input;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInput;
+
+        public string? Input => _mInput.GetValue("input");
 
         /// <summary>
         /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         /// </summary>
         [Input("lifecycleScope")]
-        public string? LifecycleScope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleScope;
+
+        public string? LifecycleScope => _mLifecycleScope.GetValue("lifecycleScope");
 
         /// <summary>
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         /// </summary>
         [Input("qualifier")]
-        public string? Qualifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
 
         /// <summary>
         /// String result of the lambda function invocation.
         /// </summary>
         [Input("result")]
-        public string? Result;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResult;
+
+        public string? Result => _mResult.GetValue("result");
 
         [Input("terraformKey")]
-        public string? TerraformKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTerraformKey;
+
+        public string? TerraformKey => _mTerraformKey.GetValue("terraformKey");
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         /// </summary>
         [Input("triggers")]
-        public Dictionary<string, string>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+    }
+
+    [PolicyResourceType("aws:lambda/invocation:Invocation")]
+    public sealed class InvocationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the lambda function.
+        /// </summary>
+        [Input("functionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
+
+        /// <summary>
+        /// JSON payload to the lambda function.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("input")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInput;
+
+        public string? Input => _mInput.GetValue("input");
+
+        /// <summary>
+        /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+        /// </summary>
+        [Input("lifecycleScope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleScope;
+
+        public string? LifecycleScope => _mLifecycleScope.GetValue("lifecycleScope");
+
+        /// <summary>
+        /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+        /// </summary>
+        [Input("qualifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
+
+        [Input("terraformKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTerraformKey;
+
+        public string? TerraformKey => _mTerraformKey.GetValue("terraformKey");
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
+        /// </summary>
+        [Input("triggers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
     }
 }

@@ -11,78 +11,199 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Connect
 {
     [PolicyResourceType("aws:connect/queue:Queue")]
-    public sealed class Queue : global::Pulumi.PolicyResource
+    public sealed class Queue : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Queue.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies the description of the Queue.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies the identifier of the Hours of Operation.
         /// </summary>
         [Input("hoursOfOperationId")]
-        public string? HoursOfOperationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHoursOfOperationId;
+
+        public string? HoursOfOperationId => _mHoursOfOperationId.GetValue("hoursOfOperationId");
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
 
         /// <summary>
         /// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         /// </summary>
         [Input("maxContacts")]
-        public int? MaxContacts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxContacts;
+
+        public int? MaxContacts => _mMaxContacts.GetValue("maxContacts");
 
         /// <summary>
         /// Specifies the name of the Queue.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         /// </summary>
         [Input("outboundCallerConfig")]
-        public QueueOutboundCallerConfig? OutboundCallerConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.QueueOutboundCallerConfig> _mOutboundCallerConfig;
+
+        public Outputs.QueueOutboundCallerConfig? OutboundCallerConfig => _mOutboundCallerConfig.GetValue("outboundCallerConfig");
 
         /// <summary>
         /// The identifier for the Queue.
         /// </summary>
         [Input("queueId")]
-        public string? QueueId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueueId;
+
+        public string? QueueId => _mQueueId.GetValue("queueId");
 
         /// <summary>
         /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         /// </summary>
         [Input("quickConnectIds")]
-        public List<string>? QuickConnectIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mQuickConnectIds;
+
+        public List<string>? QuickConnectIds => _mQuickConnectIds.GetValue("quickConnectIds");
 
         /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:connect/queue:Queue")]
+    public sealed class QueueArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the description of the Queue.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies the identifier of the Hours of Operation.
+        /// </summary>
+        [Input("hoursOfOperationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHoursOfOperationId;
+
+        public string? HoursOfOperationId => _mHoursOfOperationId.GetValue("hoursOfOperationId");
+
+        /// <summary>
+        /// Specifies the identifier of the hosting Amazon Connect Instance.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+
+        /// <summary>
+        /// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
+        /// </summary>
+        [Input("maxContacts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxContacts;
+
+        public int? MaxContacts => _mMaxContacts.GetValue("maxContacts");
+
+        /// <summary>
+        /// Specifies the name of the Queue.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+        /// </summary>
+        [Input("outboundCallerConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.QueueOutboundCallerConfigArgs> _mOutboundCallerConfig;
+
+        public Inputs.QueueOutboundCallerConfigArgs? OutboundCallerConfig => _mOutboundCallerConfig.GetValue("outboundCallerConfig");
+
+        /// <summary>
+        /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
+        /// </summary>
+        [Input("quickConnectIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mQuickConnectIds;
+
+        public List<string>? QuickConnectIds => _mQuickConnectIds.GetValue("quickConnectIds");
+
+        /// <summary>
+        /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

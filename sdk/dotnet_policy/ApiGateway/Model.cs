@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/model:Model")]
-    public sealed class Model : global::Pulumi.PolicyResource
+    public sealed class Model : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Content type of the model
         /// </summary>
         [Input("contentType")]
-        public string? ContentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
+
+        public string? ContentType => _mContentType.GetValue("contentType");
 
         /// <summary>
         /// Description of the model
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the model
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// Schema of the model in a JSON form
         /// </summary>
         [Input("schema")]
-        public string? Schema;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
+
+        public string? Schema => _mSchema.GetValue("schema");
+    }
+
+    [PolicyResourceType("aws:apigateway/model:Model")]
+    public sealed class ModelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Content type of the model
+        /// </summary>
+        [Input("contentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
+
+        public string? ContentType => _mContentType.GetValue("contentType");
+
+        /// <summary>
+        /// Description of the model
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the model
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ID of the associated REST API
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// Schema of the model in a JSON form
+        /// </summary>
+        [Input("schema")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
+
+        public string? Schema => _mSchema.GetValue("schema");
     }
 }

@@ -11,72 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/space:Space")]
-    public sealed class Space : global::Pulumi.PolicyResource
+    public sealed class Space : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The space's Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID of the associated Domain.
         /// </summary>
         [Input("domainId")]
-        public string? DomainId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
 
         /// <summary>
         /// The ID of the space's profile in the Amazon Elastic File System volume.
         /// </summary>
         [Input("homeEfsFileSystemUid")]
-        public string? HomeEfsFileSystemUid;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeEfsFileSystemUid;
+
+        public string? HomeEfsFileSystemUid => _mHomeEfsFileSystemUid.GetValue("homeEfsFileSystemUid");
 
         /// <summary>
         /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         /// </summary>
         [Input("ownershipSettings")]
-        public SpaceOwnershipSettings? OwnershipSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceOwnershipSettings> _mOwnershipSettings;
+
+        public Outputs.SpaceOwnershipSettings? OwnershipSettings => _mOwnershipSettings.GetValue("ownershipSettings");
 
         /// <summary>
         /// The name of the space that appears in the SageMaker AI Studio UI.
         /// </summary>
         [Input("spaceDisplayName")]
-        public string? SpaceDisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceDisplayName;
+
+        public string? SpaceDisplayName => _mSpaceDisplayName.GetValue("spaceDisplayName");
 
         /// <summary>
         /// The name of the space.
         /// </summary>
         [Input("spaceName")]
-        public string? SpaceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
+
+        public string? SpaceName => _mSpaceName.GetValue("spaceName");
 
         /// <summary>
         /// A collection of space settings. See `space_settings` Block below.
         /// </summary>
         [Input("spaceSettings")]
-        public SpaceSpaceSettings? SpaceSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSettings> _mSpaceSettings;
+
+        public Outputs.SpaceSpaceSettings? SpaceSettings => _mSpaceSettings.GetValue("spaceSettings");
 
         /// <summary>
         /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         /// </summary>
         [Input("spaceSharingSettings")]
-        public SpaceSpaceSharingSettings? SpaceSharingSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSharingSettings> _mSpaceSharingSettings;
+
+        public Outputs.SpaceSpaceSharingSettings? SpaceSharingSettings => _mSpaceSharingSettings.GetValue("spaceSharingSettings");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
+    }
+
+    [PolicyResourceType("aws:sagemaker/space:Space")]
+    public sealed class SpaceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the associated Domain.
+        /// </summary>
+        [Input("domainId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
+
+        /// <summary>
+        /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
+        /// </summary>
+        [Input("ownershipSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceOwnershipSettingsArgs> _mOwnershipSettings;
+
+        public Inputs.SpaceOwnershipSettingsArgs? OwnershipSettings => _mOwnershipSettings.GetValue("ownershipSettings");
+
+        /// <summary>
+        /// The name of the space that appears in the SageMaker AI Studio UI.
+        /// </summary>
+        [Input("spaceDisplayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceDisplayName;
+
+        public string? SpaceDisplayName => _mSpaceDisplayName.GetValue("spaceDisplayName");
+
+        /// <summary>
+        /// The name of the space.
+        /// </summary>
+        [Input("spaceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
+
+        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+
+        /// <summary>
+        /// A collection of space settings. See `space_settings` Block below.
+        /// </summary>
+        [Input("spaceSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsArgs> _mSpaceSettings;
+
+        public Inputs.SpaceSpaceSettingsArgs? SpaceSettings => _mSpaceSettings.GetValue("spaceSettings");
+
+        /// <summary>
+        /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
+        /// </summary>
+        [Input("spaceSharingSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSharingSettingsArgs> _mSpaceSharingSettings;
+
+        public Inputs.SpaceSpaceSharingSettingsArgs? SpaceSharingSettings => _mSpaceSharingSettings.GetValue("spaceSharingSettings");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/role:Role")]
-    public sealed class Role : global::Pulumi.PolicyResource
+    public sealed class Role : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) specifying the role.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
@@ -27,84 +30,233 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// The following arguments are optional:
         /// </summary>
         [Input("assumeRolePolicy")]
-        public string? AssumeRolePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssumeRolePolicy;
+
+        public string? AssumeRolePolicy => _mAssumeRolePolicy.GetValue("assumeRolePolicy");
 
         /// <summary>
         /// Creation date of the IAM role.
         /// </summary>
         [Input("createDate")]
-        public string? CreateDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateDate;
+
+        public string? CreateDate => _mCreateDate.GetValue("createDate");
 
         /// <summary>
         /// Description of the role.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
         /// </summary>
         [Input("forceDetachPolicies")]
-        public bool? ForceDetachPolicies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDetachPolicies;
+
+        public bool? ForceDetachPolicies => _mForceDetachPolicies.GetValue("forceDetachPolicies");
 
         /// <summary>
         /// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
         /// </summary>
         [Input("inlinePolicies")]
-        public List<RoleInlinePolicy>? InlinePolicies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RoleInlinePolicy>> _mInlinePolicies;
+
+        public List<Outputs.RoleInlinePolicy>? InlinePolicies => _mInlinePolicies.GetValue("inlinePolicies");
 
         /// <summary>
         /// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
         /// </summary>
         [Input("managedPolicyArns")]
-        public List<string>? ManagedPolicyArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mManagedPolicyArns;
+
+        public List<string>? ManagedPolicyArns => _mManagedPolicyArns.GetValue("managedPolicyArns");
 
         /// <summary>
         /// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         /// </summary>
         [Input("maxSessionDuration")]
-        public int? MaxSessionDuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSessionDuration;
+
+        public int? MaxSessionDuration => _mMaxSessionDuration.GetValue("maxSessionDuration");
 
         /// <summary>
         /// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Input("path")]
-        public string? Path;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
+
+        public string? Path => _mPath.GetValue("path");
 
         /// <summary>
         /// ARN of the policy that is used to set the permissions boundary for the role.
         /// </summary>
         [Input("permissionsBoundary")]
-        public string? PermissionsBoundary;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionsBoundary;
+
+        public string? PermissionsBoundary => _mPermissionsBoundary.GetValue("permissionsBoundary");
 
         /// <summary>
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Stable and unique string identifying the role.
         /// </summary>
         [Input("uniqueId")]
-        public string? UniqueId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUniqueId;
+
+        public string? UniqueId => _mUniqueId.GetValue("uniqueId");
+    }
+
+    [PolicyResourceType("aws:iam/role:Role")]
+    public sealed class RoleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("assumeRolePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssumeRolePolicy;
+
+        public string? AssumeRolePolicy => _mAssumeRolePolicy.GetValue("assumeRolePolicy");
+
+        /// <summary>
+        /// Description of the role.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
+        /// </summary>
+        [Input("forceDetachPolicies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDetachPolicies;
+
+        public bool? ForceDetachPolicies => _mForceDetachPolicies.GetValue("forceDetachPolicies");
+
+        /// <summary>
+        /// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
+        /// </summary>
+        [Input("inlinePolicies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RoleInlinePolicyArgs>> _mInlinePolicies;
+
+        public List<Inputs.RoleInlinePolicyArgs>? InlinePolicies => _mInlinePolicies.GetValue("inlinePolicies");
+
+        /// <summary>
+        /// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+        /// </summary>
+        [Input("managedPolicyArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mManagedPolicyArns;
+
+        public List<string>? ManagedPolicyArns => _mManagedPolicyArns.GetValue("managedPolicyArns");
+
+        /// <summary>
+        /// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
+        /// </summary>
+        [Input("maxSessionDuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSessionDuration;
+
+        public int? MaxSessionDuration => _mMaxSessionDuration.GetValue("maxSessionDuration");
+
+        /// <summary>
+        /// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// </summary>
+        [Input("path")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
+
+        public string? Path => _mPath.GetValue("path");
+
+        /// <summary>
+        /// ARN of the policy that is used to set the permissions boundary for the role.
+        /// </summary>
+        [Input("permissionsBoundary")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionsBoundary;
+
+        public string? PermissionsBoundary => _mPermissionsBoundary.GetValue("permissionsBoundary");
+
+        /// <summary>
+        /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

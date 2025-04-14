@@ -11,67 +11,97 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WorkLink
 {
     [PolicyResourceType("aws:worklink/fleet:Fleet")]
-    public sealed class Fleet : global::Pulumi.PolicyResource
+    public sealed class Fleet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the created WorkLink Fleet.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
         /// </summary>
         [Input("auditStreamArn")]
-        public string? AuditStreamArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuditStreamArn;
+
+        public string? AuditStreamArn => _mAuditStreamArn.GetValue("auditStreamArn");
 
         /// <summary>
         /// The identifier used by users to sign in to the Amazon WorkLink app.
         /// </summary>
         [Input("companyCode")]
-        public string? CompanyCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCompanyCode;
+
+        public string? CompanyCode => _mCompanyCode.GetValue("companyCode");
 
         /// <summary>
         /// The time that the fleet was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
         /// </summary>
         [Input("deviceCaCertificate")]
-        public string? DeviceCaCertificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceCaCertificate;
+
+        public string? DeviceCaCertificate => _mDeviceCaCertificate.GetValue("deviceCaCertificate");
 
         /// <summary>
         /// The name of the fleet.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
         /// </summary>
         [Input("identityProvider")]
-        public FleetIdentityProvider? IdentityProvider;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetIdentityProvider> _mIdentityProvider;
+
+        public Outputs.FleetIdentityProvider? IdentityProvider => _mIdentityProvider.GetValue("identityProvider");
 
         /// <summary>
         /// The time that the fleet was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         /// <summary>
         /// A region-unique name for the AMI.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         /// </summary>
         [Input("network")]
-        public FleetNetwork? Network;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetNetwork> _mNetwork;
+
+        public Outputs.FleetNetwork? Network => _mNetwork.GetValue("network");
 
         /// <summary>
         /// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
@@ -81,6 +111,80 @@ namespace Pulumi.PolicyPacks.Aws.WorkLink
         /// &gt; **NOTE:** `network` is cannot removed without force recreating.
         /// </summary>
         [Input("optimizeForEndUserLocation")]
-        public bool? OptimizeForEndUserLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOptimizeForEndUserLocation;
+
+        public bool? OptimizeForEndUserLocation => _mOptimizeForEndUserLocation.GetValue("optimizeForEndUserLocation");
+    }
+
+    [PolicyResourceType("aws:worklink/fleet:Fleet")]
+    public sealed class FleetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
+        /// </summary>
+        [Input("auditStreamArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuditStreamArn;
+
+        public string? AuditStreamArn => _mAuditStreamArn.GetValue("auditStreamArn");
+
+        /// <summary>
+        /// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
+        /// </summary>
+        [Input("deviceCaCertificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceCaCertificate;
+
+        public string? DeviceCaCertificate => _mDeviceCaCertificate.GetValue("deviceCaCertificate");
+
+        /// <summary>
+        /// The name of the fleet.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
+        /// </summary>
+        [Input("identityProvider")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetIdentityProviderArgs> _mIdentityProvider;
+
+        public Inputs.FleetIdentityProviderArgs? IdentityProvider => _mIdentityProvider.GetValue("identityProvider");
+
+        /// <summary>
+        /// A region-unique name for the AMI.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
+        /// </summary>
+        [Input("network")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetNetworkArgs> _mNetwork;
+
+        public Inputs.FleetNetworkArgs? Network => _mNetwork.GetValue("network");
+
+        /// <summary>
+        /// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+        /// 
+        /// **network** requires the following:
+        /// 
+        /// &gt; **NOTE:** `network` is cannot removed without force recreating.
+        /// </summary>
+        [Input("optimizeForEndUserLocation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOptimizeForEndUserLocation;
+
+        public bool? OptimizeForEndUserLocation => _mOptimizeForEndUserLocation.GetValue("optimizeForEndUserLocation");
     }
 }

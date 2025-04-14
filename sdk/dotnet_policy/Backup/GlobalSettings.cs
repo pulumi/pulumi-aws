@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/globalSettings:GlobalSettings")]
-    public sealed class GlobalSettings : global::Pulumi.PolicyResource
+    public sealed class GlobalSettings : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of resources along with the opt-in preferences for the account.
         /// </summary>
         [Input("globalSettings")]
-        public Dictionary<string, string>? GlobalSettingsList;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mGlobalSettingsList;
+
+        public Dictionary<string, string>? GlobalSettingsList => _mGlobalSettingsList.GetValue("globalSettings");
+    }
+
+    [PolicyResourceType("aws:backup/globalSettings:GlobalSettings")]
+    public sealed class GlobalSettingsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of resources along with the opt-in preferences for the account.
+        /// </summary>
+        [Input("globalSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mGlobalSettingsList;
+
+        public Dictionary<string, string>? GlobalSettingsList => _mGlobalSettingsList.GetValue("globalSettings");
     }
 }

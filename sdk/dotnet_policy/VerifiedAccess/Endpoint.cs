@@ -11,103 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
 {
     [PolicyResourceType("aws:verifiedaccess/endpoint:Endpoint")]
-    public sealed class Endpoint : global::Pulumi.PolicyResource
+    public sealed class Endpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
         [Input("applicationDomain")]
-        public string? ApplicationDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationDomain;
+
+        public string? ApplicationDomain => _mApplicationDomain.GetValue("applicationDomain");
 
         /// <summary>
         /// The type of attachment. Currently, only `vpc` is supported.
         /// </summary>
         [Input("attachmentType")]
-        public string? AttachmentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
+
+        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
 
         /// <summary>
         /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         /// </summary>
         [Input("cidrOptions")]
-        public EndpointCidrOptions? CidrOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointCidrOptions> _mCidrOptions;
+
+        public Outputs.EndpointCidrOptions? CidrOptions => _mCidrOptions.GetValue("cidrOptions");
 
         /// <summary>
         /// A description for the Verified Access endpoint.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Returned if endpoint has a device trust provider attached.
         /// </summary>
         [Input("deviceValidationDomain")]
-        public string? DeviceValidationDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceValidationDomain;
+
+        public string? DeviceValidationDomain => _mDeviceValidationDomain.GetValue("deviceValidationDomain");
 
         /// <summary>
         /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
         [Input("domainCertificateArn")]
-        public string? DomainCertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainCertificateArn;
+
+        public string? DomainCertificateArn => _mDomainCertificateArn.GetValue("domainCertificateArn");
 
         /// <summary>
         /// A DNS name that is generated for the endpoint.
         /// </summary>
         [Input("endpointDomain")]
-        public string? EndpointDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointDomain;
+
+        public string? EndpointDomain => _mEndpointDomain.GetValue("endpointDomain");
 
         /// <summary>
         /// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         /// </summary>
         [Input("endpointDomainPrefix")]
-        public string? EndpointDomainPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointDomainPrefix;
+
+        public string? EndpointDomainPrefix => _mEndpointDomainPrefix.GetValue("endpointDomainPrefix");
 
         /// <summary>
         /// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
         /// </summary>
         [Input("endpointType")]
-        public string? EndpointType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
+
+        public string? EndpointType => _mEndpointType.GetValue("endpointType");
 
         /// <summary>
         /// The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         /// </summary>
         [Input("loadBalancerOptions")]
-        public EndpointLoadBalancerOptions? LoadBalancerOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointLoadBalancerOptions> _mLoadBalancerOptions;
+
+        public Outputs.EndpointLoadBalancerOptions? LoadBalancerOptions => _mLoadBalancerOptions.GetValue("loadBalancerOptions");
 
         /// <summary>
         /// The network interface details. This parameter is required if the endpoint type is `network-interface`.
         /// </summary>
         [Input("networkInterfaceOptions")]
-        public EndpointNetworkInterfaceOptions? NetworkInterfaceOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointNetworkInterfaceOptions> _mNetworkInterfaceOptions;
+
+        public Outputs.EndpointNetworkInterfaceOptions? NetworkInterfaceOptions => _mNetworkInterfaceOptions.GetValue("networkInterfaceOptions");
 
         /// <summary>
         /// The policy document that is associated with this resource.
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
 
         [Input("rdsOptions")]
-        public EndpointRdsOptions? RdsOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointRdsOptions> _mRdsOptions;
+
+        public Outputs.EndpointRdsOptions? RdsOptions => _mRdsOptions.GetValue("rdsOptions");
 
         /// <summary>
         /// List of the the security groups IDs to associate with the Verified Access endpoint.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// The options in use for server side encryption.
         /// </summary>
         [Input("sseSpecification")]
-        public EndpointSseSpecification? SseSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointSseSpecification> _mSseSpecification;
+
+        public Outputs.EndpointSseSpecification? SseSpecification => _mSseSpecification.GetValue("sseSpecification");
 
         /// <summary>
         /// Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of the Verified Access group to associate the endpoint with.
@@ -115,9 +166,153 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// The following arguments are optional:
         /// </summary>
         [Input("verifiedAccessGroupId")]
-        public string? VerifiedAccessGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedAccessGroupId;
+
+        public string? VerifiedAccessGroupId => _mVerifiedAccessGroupId.GetValue("verifiedAccessGroupId");
 
         [Input("verifiedAccessInstanceId")]
-        public string? VerifiedAccessInstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedAccessInstanceId;
+
+        public string? VerifiedAccessInstanceId => _mVerifiedAccessInstanceId.GetValue("verifiedAccessInstanceId");
+    }
+
+    [PolicyResourceType("aws:verifiedaccess/endpoint:Endpoint")]
+    public sealed class EndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+        /// </summary>
+        [Input("applicationDomain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationDomain;
+
+        public string? ApplicationDomain => _mApplicationDomain.GetValue("applicationDomain");
+
+        /// <summary>
+        /// The type of attachment. Currently, only `vpc` is supported.
+        /// </summary>
+        [Input("attachmentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
+
+        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
+
+        /// <summary>
+        /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
+        /// </summary>
+        [Input("cidrOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointCidrOptionsArgs> _mCidrOptions;
+
+        public Inputs.EndpointCidrOptionsArgs? CidrOptions => _mCidrOptions.GetValue("cidrOptions");
+
+        /// <summary>
+        /// A description for the Verified Access endpoint.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
+        /// </summary>
+        [Input("domainCertificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainCertificateArn;
+
+        public string? DomainCertificateArn => _mDomainCertificateArn.GetValue("domainCertificateArn");
+
+        /// <summary>
+        /// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
+        /// </summary>
+        [Input("endpointDomainPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointDomainPrefix;
+
+        public string? EndpointDomainPrefix => _mEndpointDomainPrefix.GetValue("endpointDomainPrefix");
+
+        /// <summary>
+        /// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
+        /// </summary>
+        [Input("endpointType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
+
+        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+
+        /// <summary>
+        /// The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+        /// </summary>
+        [Input("loadBalancerOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointLoadBalancerOptionsArgs> _mLoadBalancerOptions;
+
+        public Inputs.EndpointLoadBalancerOptionsArgs? LoadBalancerOptions => _mLoadBalancerOptions.GetValue("loadBalancerOptions");
+
+        /// <summary>
+        /// The network interface details. This parameter is required if the endpoint type is `network-interface`.
+        /// </summary>
+        [Input("networkInterfaceOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointNetworkInterfaceOptionsArgs> _mNetworkInterfaceOptions;
+
+        public Inputs.EndpointNetworkInterfaceOptionsArgs? NetworkInterfaceOptions => _mNetworkInterfaceOptions.GetValue("networkInterfaceOptions");
+
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+
+        [Input("rdsOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointRdsOptionsArgs> _mRdsOptions;
+
+        public Inputs.EndpointRdsOptionsArgs? RdsOptions => _mRdsOptions.GetValue("rdsOptions");
+
+        /// <summary>
+        /// List of the the security groups IDs to associate with the Verified Access endpoint.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// The options in use for server side encryption.
+        /// </summary>
+        [Input("sseSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointSseSpecificationArgs> _mSseSpecification;
+
+        public Inputs.EndpointSseSpecificationArgs? SseSpecification => _mSseSpecification.GetValue("sseSpecification");
+
+        /// <summary>
+        /// Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ID of the Verified Access group to associate the endpoint with.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("verifiedAccessGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedAccessGroupId;
+
+        public string? VerifiedAccessGroupId => _mVerifiedAccessGroupId.GetValue("verifiedAccessGroupId");
     }
 }

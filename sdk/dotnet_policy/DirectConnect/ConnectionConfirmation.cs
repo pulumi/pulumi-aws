@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/connectionConfirmation:ConnectionConfirmation")]
-    public sealed class ConnectionConfirmation : global::Pulumi.PolicyResource
+    public sealed class ConnectionConfirmation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the hosted connection.
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+    }
+
+    [PolicyResourceType("aws:directconnect/connectionConfirmation:ConnectionConfirmation")]
+    public sealed class ConnectionConfirmationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the hosted connection.
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
     }
 }

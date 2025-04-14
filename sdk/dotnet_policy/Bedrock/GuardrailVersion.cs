@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/guardrailVersion:GuardrailVersion")]
-    public sealed class GuardrailVersion : global::Pulumi.PolicyResource
+    public sealed class GuardrailVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Description of the Guardrail version.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Guardrail ARN.
@@ -25,21 +28,72 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Input("guardrailArn")]
-        public string? GuardrailArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGuardrailArn;
+
+        public string? GuardrailArn => _mGuardrailArn.GetValue("guardrailArn");
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         /// </summary>
         [Input("skipDestroy")]
-        public bool? SkipDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
 
         [Input("timeouts")]
-        public GuardrailVersionTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GuardrailVersionTimeouts> _mTimeouts;
+
+        public Outputs.GuardrailVersionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Guardrail version.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:bedrock/guardrailVersion:GuardrailVersion")]
+    public sealed class GuardrailVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the Guardrail version.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Guardrail ARN.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("guardrailArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGuardrailArn;
+
+        public string? GuardrailArn => _mGuardrailArn.GetValue("guardrailArn");
+
+        /// <summary>
+        /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
+        /// </summary>
+        [Input("skipDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GuardrailVersionTimeoutsArgs> _mTimeouts;
+
+        public Inputs.GuardrailVersionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

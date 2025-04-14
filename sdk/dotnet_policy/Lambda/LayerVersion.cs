@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/layerVersion:LayerVersion")]
-    public sealed class LayerVersion : global::Pulumi.PolicyResource
+    public sealed class LayerVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Lambda Layer with version.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         /// </summary>
         [Input("code")]
-        public Archive? Code;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Archive> _mCode;
+
+        public Archive? Code => _mCode.GetValue("code");
 
         /// <summary>
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         [Input("codeSha256")]
-        public string? CodeSha256;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCodeSha256;
+
+        public string? CodeSha256 => _mCodeSha256.GetValue("codeSha256");
 
         /// <summary>
         /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         /// </summary>
         [Input("compatibleArchitectures")]
-        public List<string>? CompatibleArchitectures;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCompatibleArchitectures;
+
+        public List<string>? CompatibleArchitectures => _mCompatibleArchitectures.GetValue("compatibleArchitectures");
 
         /// <summary>
         /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         /// </summary>
         [Input("compatibleRuntimes")]
-        public List<string>? CompatibleRuntimes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCompatibleRuntimes;
+
+        public List<string>? CompatibleRuntimes => _mCompatibleRuntimes.GetValue("compatibleRuntimes");
 
         /// <summary>
         /// Date this resource was created.
         /// </summary>
         [Input("createdDate")]
-        public string? CreatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
+
+        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
 
         /// <summary>
         /// Description of what your Lambda Layer does.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// ARN of the Lambda Layer without version.
         /// </summary>
         [Input("layerArn")]
-        public string? LayerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLayerArn;
+
+        public string? LayerArn => _mLayerArn.GetValue("layerArn");
 
         /// <summary>
         /// Unique name for your Lambda Layer
@@ -67,66 +91,204 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Input("layerName")]
-        public string? LayerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLayerName;
+
+        public string? LayerName => _mLayerName.GetValue("layerName");
 
         /// <summary>
         /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
         /// </summary>
         [Input("licenseInfo")]
-        public string? LicenseInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseInfo;
+
+        public string? LicenseInfo => _mLicenseInfo.GetValue("licenseInfo");
 
         /// <summary>
         /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
         [Input("s3Bucket")]
-        public string? S3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
 
         /// <summary>
         /// S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         /// </summary>
         [Input("s3Key")]
-        public string? S3Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
+
+        public string? S3Key => _mS3Key.GetValue("s3Key");
 
         /// <summary>
         /// Object version containing the function's deployment package. Conflicts with `filename`.
         /// </summary>
         [Input("s3ObjectVersion")]
-        public string? S3ObjectVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectVersion;
+
+        public string? S3ObjectVersion => _mS3ObjectVersion.GetValue("s3ObjectVersion");
 
         /// <summary>
         /// ARN of a signing job.
         /// </summary>
         [Input("signingJobArn")]
-        public string? SigningJobArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningJobArn;
+
+        public string? SigningJobArn => _mSigningJobArn.GetValue("signingJobArn");
 
         /// <summary>
         /// ARN for a signing profile version.
         /// </summary>
         [Input("signingProfileVersionArn")]
-        public string? SigningProfileVersionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningProfileVersionArn;
+
+        public string? SigningProfileVersionArn => _mSigningProfileVersionArn.GetValue("signingProfileVersionArn");
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         /// </summary>
         [Input("skipDestroy")]
-        public bool? SkipDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
 
         /// <summary>
         /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         /// </summary>
         [Input("sourceCodeHash")]
-        public string? SourceCodeHash;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCodeHash;
+
+        public string? SourceCodeHash => _mSourceCodeHash.GetValue("sourceCodeHash");
 
         /// <summary>
         /// Size in bytes of the function .zip file.
         /// </summary>
         [Input("sourceCodeSize")]
-        public int? SourceCodeSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSourceCodeSize;
+
+        public int? SourceCodeSize => _mSourceCodeSize.GetValue("sourceCodeSize");
 
         /// <summary>
         /// Lambda Layer version.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:lambda/layerVersion:LayerVersion")]
+    public sealed class LayerVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        /// </summary>
+        [Input("code")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Archive> _mCode;
+
+        public Archive? Code => _mCode.GetValue("code");
+
+        /// <summary>
+        /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
+        /// </summary>
+        [Input("compatibleArchitectures")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCompatibleArchitectures;
+
+        public List<string>? CompatibleArchitectures => _mCompatibleArchitectures.GetValue("compatibleArchitectures");
+
+        /// <summary>
+        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
+        /// </summary>
+        [Input("compatibleRuntimes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCompatibleRuntimes;
+
+        public List<string>? CompatibleRuntimes => _mCompatibleRuntimes.GetValue("compatibleRuntimes");
+
+        /// <summary>
+        /// Description of what your Lambda Layer does.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("layerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLayerName;
+
+        public string? LayerName => _mLayerName.GetValue("layerName");
+
+        /// <summary>
+        /// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
+        /// </summary>
+        [Input("licenseInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseInfo;
+
+        public string? LicenseInfo => _mLicenseInfo.GetValue("licenseInfo");
+
+        /// <summary>
+        /// S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        /// </summary>
+        [Input("s3Bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+
+        /// <summary>
+        /// S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        /// </summary>
+        [Input("s3Key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
+
+        public string? S3Key => _mS3Key.GetValue("s3Key");
+
+        /// <summary>
+        /// Object version containing the function's deployment package. Conflicts with `filename`.
+        /// </summary>
+        [Input("s3ObjectVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectVersion;
+
+        public string? S3ObjectVersion => _mS3ObjectVersion.GetValue("s3ObjectVersion");
+
+        /// <summary>
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        /// </summary>
+        [Input("skipDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+
+        /// <summary>
+        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// </summary>
+        [Input("sourceCodeHash")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCodeHash;
+
+        public string? SourceCodeHash => _mSourceCodeHash.GetValue("sourceCodeHash");
     }
 }

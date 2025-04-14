@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter")]
-    public sealed class HostedPrivateVirtualInterfaceAccepter : global::Pulumi.PolicyResource
+    public sealed class HostedPrivateVirtualInterfaceAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the virtual interface.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID of the Direct Connect gateway to which to connect the virtual interface.
         /// </summary>
         [Input("dxGatewayId")]
-        public string? DxGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayId;
+
+        public string? DxGatewayId => _mDxGatewayId.GetValue("dxGatewayId");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of the Direct Connect virtual interface to accept.
         /// </summary>
         [Input("virtualInterfaceId")]
-        public string? VirtualInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualInterfaceId;
+
+        public string? VirtualInterfaceId => _mVirtualInterfaceId.GetValue("virtualInterfaceId");
 
         /// <summary>
         /// The ID of the virtual private gateway to which to connect the virtual interface.
         /// </summary>
         [Input("vpnGatewayId")]
-        public string? VpnGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+    }
+
+    [PolicyResourceType("aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter")]
+    public sealed class HostedPrivateVirtualInterfaceAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Direct Connect gateway to which to connect the virtual interface.
+        /// </summary>
+        [Input("dxGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayId;
+
+        public string? DxGatewayId => _mDxGatewayId.GetValue("dxGatewayId");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ID of the Direct Connect virtual interface to accept.
+        /// </summary>
+        [Input("virtualInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualInterfaceId;
+
+        public string? VirtualInterfaceId => _mVirtualInterfaceId.GetValue("virtualInterfaceId");
+
+        /// <summary>
+        /// The ID of the virtual private gateway to which to connect the virtual interface.
+        /// </summary>
+        [Input("vpnGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
     }
 }

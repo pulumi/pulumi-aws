@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Connect
 {
     [PolicyResourceType("aws:connect/userHierarchyStructure:UserHierarchyStructure")]
-    public sealed class UserHierarchyStructure : global::Pulumi.PolicyResource
+    public sealed class UserHierarchyStructure : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         /// </summary>
         [Input("hierarchyStructure")]
-        public UserHierarchyStructureHierarchyStructure? HierarchyStructure;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserHierarchyStructureHierarchyStructure> _mHierarchyStructure;
+
+        public Outputs.UserHierarchyStructureHierarchyStructure? HierarchyStructure => _mHierarchyStructure.GetValue("hierarchyStructure");
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+    }
+
+    [PolicyResourceType("aws:connect/userHierarchyStructure:UserHierarchyStructure")]
+    public sealed class UserHierarchyStructureArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        /// </summary>
+        [Input("hierarchyStructure")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserHierarchyStructureHierarchyStructureArgs> _mHierarchyStructure;
+
+        public Inputs.UserHierarchyStructureHierarchyStructureArgs? HierarchyStructure => _mHierarchyStructure.GetValue("hierarchyStructure");
+
+        /// <summary>
+        /// Specifies the identifier of the hosting Amazon Connect Instance.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
     }
 }

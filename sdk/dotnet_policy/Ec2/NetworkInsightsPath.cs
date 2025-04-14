@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/networkInsightsPath:NetworkInsightsPath")]
-    public sealed class NetworkInsightsPath : global::Pulumi.PolicyResource
+    public sealed class NetworkInsightsPath : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Network Insights Path.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         /// </summary>
         [Input("destination")]
-        public string? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
 
         /// <summary>
         /// ARN of the destination.
         /// </summary>
         [Input("destinationArn")]
-        public string? DestinationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
 
         /// <summary>
         /// IP address of the destination resource.
         /// </summary>
         [Input("destinationIp")]
-        public string? DestinationIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationIp;
+
+        public string? DestinationIp => _mDestinationIp.GetValue("destinationIp");
 
         /// <summary>
         /// Destination port to analyze access to.
         /// </summary>
         [Input("destinationPort")]
-        public int? DestinationPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDestinationPort;
+
+        public int? DestinationPort => _mDestinationPort.GetValue("destinationPort");
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -49,36 +64,123 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The following arguments are optional:
         /// </summary>
         [Input("protocol")]
-        public string? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         /// </summary>
         [Input("source")]
-        public string? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
+
+        public string? Source => _mSource.GetValue("source");
 
         /// <summary>
         /// ARN of the source.
         /// </summary>
         [Input("sourceArn")]
-        public string? SourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
+
+        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
 
         /// <summary>
         /// IP address of the source resource.
         /// </summary>
         [Input("sourceIp")]
-        public string? SourceIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIp;
+
+        public string? SourceIp => _mSourceIp.GetValue("sourceIp");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/networkInsightsPath:NetworkInsightsPath")]
+    public sealed class NetworkInsightsPathArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
+
+        /// <summary>
+        /// IP address of the destination resource.
+        /// </summary>
+        [Input("destinationIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationIp;
+
+        public string? DestinationIp => _mDestinationIp.GetValue("destinationIp");
+
+        /// <summary>
+        /// Destination port to analyze access to.
+        /// </summary>
+        [Input("destinationPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDestinationPort;
+
+        public int? DestinationPort => _mDestinationPort.GetValue("destinationPort");
+
+        /// <summary>
+        /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
+
+        /// <summary>
+        /// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
+
+        public string? Source => _mSource.GetValue("source");
+
+        /// <summary>
+        /// IP address of the source resource.
+        /// </summary>
+        [Input("sourceIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIp;
+
+        public string? SourceIp => _mSourceIp.GetValue("sourceIp");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

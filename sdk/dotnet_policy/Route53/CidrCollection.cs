@@ -11,24 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/cidrCollection:CidrCollection")]
-    public sealed class CidrCollection : global::Pulumi.PolicyResource
+    public sealed class CidrCollection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CIDR collection.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Unique name for the CIDR collection.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The lastest version of the CIDR collection.
         /// </summary>
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:route53/cidrCollection:CidrCollection")]
+    public sealed class CidrCollectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique name for the CIDR collection.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

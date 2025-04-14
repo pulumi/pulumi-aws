@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CleanRooms
 {
     [PolicyResourceType("aws:cleanrooms/configuredTable:ConfiguredTable")]
-    public sealed class ConfiguredTable : global::Pulumi.PolicyResource
+    public sealed class ConfiguredTable : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The columns of the references table which will be included in the configured table.
         /// </summary>
         [Input("allowedColumns")]
-        public List<string>? AllowedColumns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedColumns;
+
+        public List<string>? AllowedColumns => _mAllowedColumns.GetValue("allowedColumns");
 
         /// <summary>
         /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         /// </summary>
         [Input("analysisMethod")]
-        public string? AnalysisMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisMethod;
+
+        public string? AnalysisMethod => _mAnalysisMethod.GetValue("analysisMethod");
 
         /// <summary>
         /// The ARN of the configured table.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The date and time the configured table was created.
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// A description for the configured table.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the configured table.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.
@@ -55,21 +73,93 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         /// </summary>
         [Input("tableReference")]
-        public ConfiguredTableTableReference? TableReference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfiguredTableTableReference> _mTableReference;
+
+        public Outputs.ConfiguredTableTableReference? TableReference => _mTableReference.GetValue("tableReference");
 
         /// <summary>
         /// Key value pairs which tag the configured table.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The date and time the configured table was last updated.
         /// </summary>
         [Input("updateTime")]
-        public string? UpdateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
+
+        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+    }
+
+    [PolicyResourceType("aws:cleanrooms/configuredTable:ConfiguredTable")]
+    public sealed class ConfiguredTableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The columns of the references table which will be included in the configured table.
+        /// </summary>
+        [Input("allowedColumns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedColumns;
+
+        public List<string>? AllowedColumns => _mAllowedColumns.GetValue("allowedColumns");
+
+        /// <summary>
+        /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
+        /// </summary>
+        [Input("analysisMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisMethod;
+
+        public string? AnalysisMethod => _mAnalysisMethod.GetValue("analysisMethod");
+
+        /// <summary>
+        /// A description for the configured table.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the configured table.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A reference to the AWS Glue table which will be used to create the configured table.
+        /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
+        /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
+        /// </summary>
+        [Input("tableReference")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfiguredTableTableReferenceArgs> _mTableReference;
+
+        public Inputs.ConfiguredTableTableReferenceArgs? TableReference => _mTableReference.GetValue("tableReference");
+
+        /// <summary>
+        /// Key value pairs which tag the configured table.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

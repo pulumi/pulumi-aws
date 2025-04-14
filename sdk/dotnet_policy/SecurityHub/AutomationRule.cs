@@ -11,60 +11,163 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/automationRule:AutomationRule")]
-    public sealed class AutomationRule : global::Pulumi.PolicyResource
+    public sealed class AutomationRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         /// </summary>
         [Input("actions")]
-        public List<AutomationRuleAction>? Actions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AutomationRuleAction>> _mActions;
+
+        public List<Outputs.AutomationRuleAction>? Actions => _mActions.GetValue("actions");
 
         /// <summary>
         /// The ARN of the Security Hub automation rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         /// </summary>
         [Input("criteria")]
-        public AutomationRuleCriteria? Criteria;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AutomationRuleCriteria> _mCriteria;
+
+        public Outputs.AutomationRuleCriteria? Criteria => _mCriteria.GetValue("criteria");
 
         /// <summary>
         /// The description of the rule.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         /// </summary>
         [Input("isTerminal")]
-        public bool? IsTerminal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsTerminal;
+
+        public bool? IsTerminal => _mIsTerminal.GetValue("isTerminal");
 
         /// <summary>
         /// The name of the rule.
         /// </summary>
         [Input("ruleName")]
-        public string? RuleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
 
         /// <summary>
         /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         /// </summary>
         [Input("ruleOrder")]
-        public int? RuleOrder;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRuleOrder;
+
+        public int? RuleOrder => _mRuleOrder.GetValue("ruleOrder");
 
         /// <summary>
         /// Whether the rule is active after it is created.
         /// </summary>
         [Input("ruleStatus")]
-        public string? RuleStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleStatus;
+
+        public string? RuleStatus => _mRuleStatus.GetValue("ruleStatus");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:securityhub/automationRule:AutomationRule")]
+    public sealed class AutomationRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
+        /// </summary>
+        [Input("actions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleActionArgs>> _mActions;
+
+        public List<Inputs.AutomationRuleActionArgs>? Actions => _mActions.GetValue("actions");
+
+        /// <summary>
+        /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
+        /// </summary>
+        [Input("criteria")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AutomationRuleCriteriaArgs> _mCriteria;
+
+        public Inputs.AutomationRuleCriteriaArgs? Criteria => _mCriteria.GetValue("criteria");
+
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
+        /// </summary>
+        [Input("isTerminal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsTerminal;
+
+        public bool? IsTerminal => _mIsTerminal.GetValue("isTerminal");
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("ruleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
+
+        /// <summary>
+        /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+        /// </summary>
+        [Input("ruleOrder")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRuleOrder;
+
+        public int? RuleOrder => _mRuleOrder.GetValue("ruleOrder");
+
+        /// <summary>
+        /// Whether the rule is active after it is created.
+        /// </summary>
+        [Input("ruleStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleStatus;
+
+        public string? RuleStatus => _mRuleStatus.GetValue("ruleStatus");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

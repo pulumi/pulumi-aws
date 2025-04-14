@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans
 {
     [PolicyResourceType("aws:autoscalingplans/scalingPlan:ScalingPlan")]
-    public sealed class ScalingPlan : global::Pulumi.PolicyResource
+    public sealed class ScalingPlan : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
         /// </summary>
         [Input("applicationSource")]
-        public ScalingPlanApplicationSource? ApplicationSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ScalingPlanApplicationSource> _mApplicationSource;
+
+        public Outputs.ScalingPlanApplicationSource? ApplicationSource => _mApplicationSource.GetValue("applicationSource");
 
         /// <summary>
         /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         /// </summary>
         [Input("scalingInstructions")]
-        public List<ScalingPlanScalingInstruction>? ScalingInstructions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScalingPlanScalingInstruction>> _mScalingInstructions;
+
+        public List<Outputs.ScalingPlanScalingInstruction>? ScalingInstructions => _mScalingInstructions.GetValue("scalingInstructions");
 
         /// <summary>
         /// The version number of the scaling plan. This value is always 1.
         /// </summary>
         [Input("scalingPlanVersion")]
-        public int? ScalingPlanVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mScalingPlanVersion;
+
+        public int? ScalingPlanVersion => _mScalingPlanVersion.GetValue("scalingPlanVersion");
+    }
+
+    [PolicyResourceType("aws:autoscalingplans/scalingPlan:ScalingPlan")]
+    public sealed class ScalingPlanArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        /// </summary>
+        [Input("applicationSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ScalingPlanApplicationSourceArgs> _mApplicationSource;
+
+        public Inputs.ScalingPlanApplicationSourceArgs? ApplicationSource => _mApplicationSource.GetValue("applicationSource");
+
+        /// <summary>
+        /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        /// </summary>
+        [Input("scalingInstructions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScalingPlanScalingInstructionArgs>> _mScalingInstructions;
+
+        public List<Inputs.ScalingPlanScalingInstructionArgs>? ScalingInstructions => _mScalingInstructions.GetValue("scalingInstructions");
     }
 }

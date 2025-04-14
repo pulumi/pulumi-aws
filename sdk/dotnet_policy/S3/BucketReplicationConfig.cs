@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketReplicationConfig:BucketReplicationConfig")]
-    public sealed class BucketReplicationConfig : global::Pulumi.PolicyResource
+    public sealed class BucketReplicationConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
         [Input("role")]
-        public string? Role;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
 
         /// <summary>
         /// List of configuration blocks describing the rules managing the replication. See below.
@@ -35,13 +41,66 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
         /// </summary>
         [Input("rules")]
-        public List<BucketReplicationConfigRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketReplicationConfigRule>> _mRules;
+
+        public List<Outputs.BucketReplicationConfigRule>? Rules => _mRules.GetValue("rules");
 
         /// <summary>
         /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
         /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
         /// </summary>
         [Input("token")]
-        public string? Token;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
+
+        public string? Token => _mToken.GetValue("token");
+    }
+
+    [PolicyResourceType("aws:s3/bucketReplicationConfig:BucketReplicationConfig")]
+    public sealed class BucketReplicationConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the source S3 bucket you want Amazon S3 to monitor.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        /// </summary>
+        [Input("role")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
+
+        /// <summary>
+        /// List of configuration blocks describing the rules managing the replication. See below.
+        /// &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+        /// 
+        /// &gt; **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
+        /// 
+        /// &gt; **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
+        /// To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketReplicationConfigRuleArgs>> _mRules;
+
+        public List<Inputs.BucketReplicationConfigRuleArgs>? Rules => _mRules.GetValue("rules");
+
+        /// <summary>
+        /// Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket's "Object Lock token".
+        /// For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+        /// </summary>
+        [Input("token")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
+
+        public string? Token => _mToken.GetValue("token");
     }
 }

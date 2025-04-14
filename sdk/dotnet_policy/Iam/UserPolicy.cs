@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/userPolicy:UserPolicy")]
-    public sealed class UserPolicy : global::Pulumi.PolicyResource
+    public sealed class UserPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// IAM user to which to attach this policy.
         /// </summary>
         [Input("user")]
-        public string? User;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
+    }
+
+    [PolicyResourceType("aws:iam/userPolicy:UserPolicy")]
+    public sealed class UserPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the policy. If omitted, the provider will assign a random, unique name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// The policy document. This is a JSON formatted string.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// IAM user to which to attach this policy.
+        /// </summary>
+        [Input("user")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
     }
 }

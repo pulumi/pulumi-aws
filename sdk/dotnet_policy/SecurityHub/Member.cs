@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/member:Member")]
-    public sealed class Member : global::Pulumi.PolicyResource
+    public sealed class Member : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the member AWS account.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The email of the member AWS account.
         /// </summary>
         [Input("email")]
-        public string? Email;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
 
         /// <summary>
         /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         /// </summary>
         [Input("invite")]
-        public bool? Invite;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
+
+        public bool? Invite => _mInvite.GetValue("invite");
 
         /// <summary>
         /// The ID of the master Security Hub AWS account.
         /// </summary>
         [Input("masterId")]
-        public string? MasterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterId;
+
+        public string? MasterId => _mMasterId.GetValue("masterId");
 
         /// <summary>
         /// The status of the member account relationship.
         /// </summary>
         [Input("memberStatus")]
-        public string? MemberStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMemberStatus;
+
+        public string? MemberStatus => _mMemberStatus.GetValue("memberStatus");
+    }
+
+    [PolicyResourceType("aws:securityhub/member:Member")]
+    public sealed class MemberArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the member AWS account.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The email of the member AWS account.
+        /// </summary>
+        [Input("email")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
+
+        /// <summary>
+        /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        /// </summary>
+        [Input("invite")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
+
+        public bool? Invite => _mInvite.GetValue("invite");
     }
 }

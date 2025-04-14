@@ -11,63 +11,160 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transfer
 {
     [PolicyResourceType("aws:transfer/connector:Connector")]
-    public sealed class Connector : global::Pulumi.PolicyResource
+    public sealed class Connector : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
         [Input("accessRole")]
-        public string? AccessRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRole;
+
+        public string? AccessRole => _mAccessRole.GetValue("accessRole");
 
         /// <summary>
         /// The ARN of the connector.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
         [Input("as2Config")]
-        public ConnectorAs2Config? As2Config;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorAs2Config> _mAs2Config;
+
+        public Outputs.ConnectorAs2Config? As2Config => _mAs2Config.GetValue("as2Config");
 
         /// <summary>
         /// The unique identifier for the AS2 profile or SFTP Profile.
         /// </summary>
         [Input("connectorId")]
-        public string? ConnectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorId;
+
+        public string? ConnectorId => _mConnectorId.GetValue("connectorId");
 
         /// <summary>
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         /// </summary>
         [Input("loggingRole")]
-        public string? LoggingRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingRole;
+
+        public string? LoggingRole => _mLoggingRole.GetValue("loggingRole");
 
         /// <summary>
         /// Name of the security policy for the connector.
         /// </summary>
         [Input("securityPolicyName")]
-        public string? SecurityPolicyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicyName;
+
+        public string? SecurityPolicyName => _mSecurityPolicyName.GetValue("securityPolicyName");
 
         /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
         [Input("sftpConfig")]
-        public ConnectorSftpConfig? SftpConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorSftpConfig> _mSftpConfig;
+
+        public Outputs.ConnectorSftpConfig? SftpConfig => _mSftpConfig.GetValue("sftpConfig");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The URL of the partners AS2 endpoint or SFTP endpoint.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
+    }
+
+    [PolicyResourceType("aws:transfer/connector:Connector")]
+    public sealed class ConnectorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        /// </summary>
+        [Input("accessRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRole;
+
+        public string? AccessRole => _mAccessRole.GetValue("accessRole");
+
+        /// <summary>
+        /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        /// </summary>
+        [Input("as2Config")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorAs2ConfigArgs> _mAs2Config;
+
+        public Inputs.ConnectorAs2ConfigArgs? As2Config => _mAs2Config.GetValue("as2Config");
+
+        /// <summary>
+        /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
+        /// </summary>
+        [Input("loggingRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingRole;
+
+        public string? LoggingRole => _mLoggingRole.GetValue("loggingRole");
+
+        /// <summary>
+        /// Name of the security policy for the connector.
+        /// </summary>
+        [Input("securityPolicyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicyName;
+
+        public string? SecurityPolicyName => _mSecurityPolicyName.GetValue("securityPolicyName");
+
+        /// <summary>
+        /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        /// </summary>
+        [Input("sftpConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorSftpConfigArgs> _mSftpConfig;
+
+        public Inputs.ConnectorSftpConfigArgs? SftpConfig => _mSftpConfig.GetValue("sftpConfig");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The URL of the partners AS2 endpoint or SFTP endpoint.
+        /// </summary>
+        [Input("url")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
     }
 }

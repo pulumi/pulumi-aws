@@ -11,22 +11,31 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/tagOption:TagOption")]
-    public sealed class TagOption : global::Pulumi.PolicyResource
+    public sealed class TagOption : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether tag option is active. Default is `true`.
         /// </summary>
         [Input("active")]
-        public bool? Active;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
+
+        public bool? Active => _mActive.GetValue("active");
 
         /// <summary>
         /// Tag option key.
         /// </summary>
         [Input("key")]
-        public string? Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
 
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// Tag option value.
@@ -34,6 +43,42 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// The following arguments are optional:
         /// </summary>
         [Input("value")]
-        public string? Value;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
+
+        public string? Value => _mValue.GetValue("value");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/tagOption:TagOption")]
+    public sealed class TagOptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether tag option is active. Default is `true`.
+        /// </summary>
+        [Input("active")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
+
+        public bool? Active => _mActive.GetValue("active");
+
+        /// <summary>
+        /// Tag option key.
+        /// </summary>
+        [Input("key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
+
+        /// <summary>
+        /// Tag option value.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("value")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
+
+        public string? Value => _mValue.GetValue("value");
     }
 }

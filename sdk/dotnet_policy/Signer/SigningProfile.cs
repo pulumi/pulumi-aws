@@ -11,78 +11,169 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Signer
 {
     [PolicyResourceType("aws:signer/signingProfile:SigningProfile")]
-    public sealed class SigningProfile : global::Pulumi.PolicyResource
+    public sealed class SigningProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the signing profile.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// A human-readable name for the signing platform associated with the signing profile.
         /// </summary>
         [Input("platformDisplayName")]
-        public string? PlatformDisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformDisplayName;
+
+        public string? PlatformDisplayName => _mPlatformDisplayName.GetValue("platformDisplayName");
 
         /// <summary>
         /// The ID of the platform that is used by the target signing profile.
         /// </summary>
         [Input("platformId")]
-        public string? PlatformId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformId;
+
+        public string? PlatformId => _mPlatformId.GetValue("platformId");
 
         /// <summary>
         /// Revocation information for a signing profile. See `revocation_record` Block below for details.
         /// </summary>
         [Input("revocationRecords")]
-        public List<SigningProfileRevocationRecord>? RevocationRecords;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SigningProfileRevocationRecord>> _mRevocationRecords;
+
+        public List<Outputs.SigningProfileRevocationRecord>? RevocationRecords => _mRevocationRecords.GetValue("revocationRecords");
 
         /// <summary>
         /// The validity period for a signing job. See `signature_validity_period` Block below for details.
         /// </summary>
         [Input("signatureValidityPeriod")]
-        public SigningProfileSignatureValidityPeriod? SignatureValidityPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SigningProfileSignatureValidityPeriod> _mSignatureValidityPeriod;
+
+        public Outputs.SigningProfileSignatureValidityPeriod? SignatureValidityPeriod => _mSignatureValidityPeriod.GetValue("signatureValidityPeriod");
 
         /// <summary>
         /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         /// </summary>
         [Input("signingMaterial")]
-        public SigningProfileSigningMaterial? SigningMaterial;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SigningProfileSigningMaterial> _mSigningMaterial;
+
+        public Outputs.SigningProfileSigningMaterial? SigningMaterial => _mSigningMaterial.GetValue("signingMaterial");
 
         /// <summary>
         /// The status of the target signing profile.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The current version of the signing profile.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// The signing profile ARN, including the profile version.
         /// </summary>
         [Input("versionArn")]
-        public string? VersionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionArn;
+
+        public string? VersionArn => _mVersionArn.GetValue("versionArn");
+    }
+
+    [PolicyResourceType("aws:signer/signingProfile:SigningProfile")]
+    public sealed class SigningProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// The ID of the platform that is used by the target signing profile.
+        /// </summary>
+        [Input("platformId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformId;
+
+        public string? PlatformId => _mPlatformId.GetValue("platformId");
+
+        /// <summary>
+        /// The validity period for a signing job. See `signature_validity_period` Block below for details.
+        /// </summary>
+        [Input("signatureValidityPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningProfileSignatureValidityPeriodArgs> _mSignatureValidityPeriod;
+
+        public Inputs.SigningProfileSignatureValidityPeriodArgs? SignatureValidityPeriod => _mSignatureValidityPeriod.GetValue("signatureValidityPeriod");
+
+        /// <summary>
+        /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+        /// </summary>
+        [Input("signingMaterial")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningProfileSigningMaterialArgs> _mSigningMaterial;
+
+        public Inputs.SigningProfileSigningMaterialArgs? SigningMaterial => _mSigningMaterial.GetValue("signingMaterial");
+
+        /// <summary>
+        /// A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

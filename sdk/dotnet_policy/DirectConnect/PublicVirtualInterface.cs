@@ -11,87 +11,223 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/publicVirtualInterface:PublicVirtualInterface")]
-    public sealed class PublicVirtualInterface : global::Pulumi.PolicyResource
+    public sealed class PublicVirtualInterface : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         /// </summary>
         [Input("addressFamily")]
-        public string? AddressFamily;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
 
         /// <summary>
         /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         /// </summary>
         [Input("amazonAddress")]
-        public string? AmazonAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
+
+        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
 
         [Input("amazonSideAsn")]
-        public string? AmazonSideAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonSideAsn;
+
+        public string? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
 
         /// <summary>
         /// The ARN of the virtual interface.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Direct Connect endpoint on which the virtual interface terminates.
         /// </summary>
         [Input("awsDevice")]
-        public string? AwsDevice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsDevice;
+
+        public string? AwsDevice => _mAwsDevice.GetValue("awsDevice");
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         /// </summary>
         [Input("bgpAsn")]
-        public int? BgpAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
+
+        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
 
         /// <summary>
         /// The authentication key for BGP configuration.
         /// </summary>
         [Input("bgpAuthKey")]
-        public string? BgpAuthKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
+
+        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
 
         /// <summary>
         /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
 
         /// <summary>
         /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         /// </summary>
         [Input("customerAddress")]
-        public string? CustomerAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
+
+        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
 
         /// <summary>
         /// The name for the virtual interface.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A list of routes to be advertised to the AWS network in this region.
         /// </summary>
         [Input("routeFilterPrefixes")]
-        public List<string>? RouteFilterPrefixes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRouteFilterPrefixes;
+
+        public List<string>? RouteFilterPrefixes => _mRouteFilterPrefixes.GetValue("routeFilterPrefixes");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The VLAN ID.
         /// </summary>
         [Input("vlan")]
-        public int? Vlan;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
+
+        public int? Vlan => _mVlan.GetValue("vlan");
+    }
+
+    [PolicyResourceType("aws:directconnect/publicVirtualInterface:PublicVirtualInterface")]
+    public sealed class PublicVirtualInterfaceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// </summary>
+        [Input("addressFamily")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+
+        /// <summary>
+        /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
+        /// </summary>
+        [Input("amazonAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
+
+        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
+
+        /// <summary>
+        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// </summary>
+        [Input("bgpAsn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
+
+        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+
+        /// <summary>
+        /// The authentication key for BGP configuration.
+        /// </summary>
+        [Input("bgpAuthKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
+
+        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
+
+        /// <summary>
+        /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+
+        /// <summary>
+        /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
+        /// </summary>
+        [Input("customerAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
+
+        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
+
+        /// <summary>
+        /// The name for the virtual interface.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of routes to be advertised to the AWS network in this region.
+        /// </summary>
+        [Input("routeFilterPrefixes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRouteFilterPrefixes;
+
+        public List<string>? RouteFilterPrefixes => _mRouteFilterPrefixes.GetValue("routeFilterPrefixes");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        [Input("vlan")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
+
+        public int? Vlan => _mVlan.GetValue("vlan");
     }
 }

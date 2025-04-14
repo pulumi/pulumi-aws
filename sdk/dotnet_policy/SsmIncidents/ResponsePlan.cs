@@ -11,45 +11,130 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsmIncidents
 {
     [PolicyResourceType("aws:ssmincidents/responsePlan:ResponsePlan")]
-    public sealed class ResponsePlan : global::Pulumi.PolicyResource
+    public sealed class ResponsePlan : global::Pulumi.PolicyResourceOutput
     {
         [Input("action")]
-        public ResponsePlanAction? Action;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponsePlanAction> _mAction;
+
+        public Outputs.ResponsePlanAction? Action => _mAction.GetValue("action");
 
         /// <summary>
         /// The ARN of the response plan.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("chatChannels")]
-        public List<string>? ChatChannels;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mChatChannels;
+
+        public List<string>? ChatChannels => _mChatChannels.GetValue("chatChannels");
 
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         [Input("engagements")]
-        public List<string>? Engagements;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEngagements;
+
+        public List<string>? Engagements => _mEngagements.GetValue("engagements");
 
         [Input("incidentTemplate")]
-        public ResponsePlanIncidentTemplate? IncidentTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponsePlanIncidentTemplate> _mIncidentTemplate;
+
+        public Outputs.ResponsePlanIncidentTemplate? IncidentTemplate => _mIncidentTemplate.GetValue("incidentTemplate");
 
         [Input("integration")]
-        public ResponsePlanIntegration? Integration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponsePlanIntegration> _mIntegration;
+
+        public Outputs.ResponsePlanIntegration? Integration => _mIntegration.GetValue("integration");
 
         /// <summary>
         /// The name of the response plan.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ssmincidents/responsePlan:ResponsePlan")]
+    public sealed class ResponsePlanArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("action")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponsePlanActionArgs> _mAction;
+
+        public Inputs.ResponsePlanActionArgs? Action => _mAction.GetValue("action");
+
+        [Input("chatChannels")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mChatChannels;
+
+        public List<string>? ChatChannels => _mChatChannels.GetValue("chatChannels");
+
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        [Input("engagements")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEngagements;
+
+        public List<string>? Engagements => _mEngagements.GetValue("engagements");
+
+        [Input("incidentTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponsePlanIncidentTemplateArgs> _mIncidentTemplate;
+
+        public Inputs.ResponsePlanIncidentTemplateArgs? IncidentTemplate => _mIncidentTemplate.GetValue("incidentTemplate");
+
+        [Input("integration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponsePlanIntegrationArgs> _mIntegration;
+
+        public Inputs.ResponsePlanIntegrationArgs? Integration => _mIntegration.GetValue("integration");
+
+        /// <summary>
+        /// The name of the response plan.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

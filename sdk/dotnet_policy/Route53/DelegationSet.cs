@@ -11,26 +11,49 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/delegationSet:DelegationSet")]
-    public sealed class DelegationSet : global::Pulumi.PolicyResource
+    public sealed class DelegationSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Delegation Set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A list of authoritative name servers for the hosted zone
         /// (effectively a list of NS records).
         /// </summary>
         [Input("nameServers")]
-        public List<string>? NameServers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNameServers;
+
+        public List<string>? NameServers => _mNameServers.GetValue("nameServers");
 
         /// <summary>
         /// This is a reference name used in Caller Reference
         /// (helpful for identifying single delegation set amongst others)
         /// </summary>
         [Input("referenceName")]
-        public string? ReferenceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceName;
+
+        public string? ReferenceName => _mReferenceName.GetValue("referenceName");
+    }
+
+    [PolicyResourceType("aws:route53/delegationSet:DelegationSet")]
+    public sealed class DelegationSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// This is a reference name used in Caller Reference
+        /// (helpful for identifying single delegation set amongst others)
+        /// </summary>
+        [Input("referenceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceName;
+
+        public string? ReferenceName => _mReferenceName.GetValue("referenceName");
     }
 }

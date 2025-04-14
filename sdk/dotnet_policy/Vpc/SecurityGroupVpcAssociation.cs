@@ -11,27 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Vpc
 {
     [PolicyResourceType("aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation")]
-    public sealed class SecurityGroupVpcAssociation : global::Pulumi.PolicyResource
+    public sealed class SecurityGroupVpcAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the security group.
         /// </summary>
         [Input("securityGroupId")]
-        public string? SecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
 
         /// <summary>
         /// State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         [Input("timeouts")]
-        public SecurityGroupVpcAssociationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SecurityGroupVpcAssociationTimeouts> _mTimeouts;
+
+        public Outputs.SecurityGroupVpcAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// The ID of the VPC to make the association with.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation")]
+    public sealed class SecurityGroupVpcAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the security group.
+        /// </summary>
+        [Input("securityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SecurityGroupVpcAssociationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.SecurityGroupVpcAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// The ID of the VPC to make the association with.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

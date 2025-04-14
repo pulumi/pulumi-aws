@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/subnet:Subnet")]
-    public sealed class Subnet : global::Pulumi.PolicyResource
+    public sealed class Subnet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the subnet.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specify true to indicate
@@ -25,80 +28,119 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// assigned an IPv6 address. Default is `false`
         /// </summary>
         [Input("assignIpv6AddressOnCreation")]
-        public bool? AssignIpv6AddressOnCreation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignIpv6AddressOnCreation;
+
+        public bool? AssignIpv6AddressOnCreation => _mAssignIpv6AddressOnCreation.GetValue("assignIpv6AddressOnCreation");
 
         /// <summary>
         /// AZ for the subnet.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         /// </summary>
         [Input("availabilityZoneId")]
-        public string? AvailabilityZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
 
         /// <summary>
         /// The IPv4 CIDR block for the subnet.
         /// </summary>
         [Input("cidrBlock")]
-        public string? CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
 
         /// <summary>
         /// The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         /// </summary>
         [Input("customerOwnedIpv4Pool")]
-        public string? CustomerOwnedIpv4Pool;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
+
+        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
 
         /// <summary>
         /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
         /// </summary>
         [Input("enableDns64")]
-        public bool? EnableDns64;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDns64;
+
+        public bool? EnableDns64 => _mEnableDns64.GetValue("enableDns64");
 
         /// <summary>
         /// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         /// </summary>
         [Input("enableLniAtDeviceIndex")]
-        public int? EnableLniAtDeviceIndex;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mEnableLniAtDeviceIndex;
+
+        public int? EnableLniAtDeviceIndex => _mEnableLniAtDeviceIndex.GetValue("enableLniAtDeviceIndex");
 
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         /// </summary>
         [Input("enableResourceNameDnsARecordOnLaunch")]
-        public bool? EnableResourceNameDnsARecordOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsARecordOnLaunch;
+
+        public bool? EnableResourceNameDnsARecordOnLaunch => _mEnableResourceNameDnsARecordOnLaunch.GetValue("enableResourceNameDnsARecordOnLaunch");
 
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
         /// </summary>
         [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
-        public bool? EnableResourceNameDnsAaaaRecordOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsAaaaRecordOnLaunch;
+
+        public bool? EnableResourceNameDnsAaaaRecordOnLaunch => _mEnableResourceNameDnsAaaaRecordOnLaunch.GetValue("enableResourceNameDnsAaaaRecordOnLaunch");
 
         /// <summary>
         /// The IPv6 network range for the subnet,
         /// in CIDR notation. The subnet size must use a /64 prefix length.
         /// </summary>
         [Input("ipv6CidrBlock")]
-        public string? Ipv6CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+
+        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
 
         /// <summary>
         /// The association ID for the IPv6 CIDR block.
         /// </summary>
         [Input("ipv6CidrBlockAssociationId")]
-        public string? Ipv6CidrBlockAssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlockAssociationId;
+
+        public string? Ipv6CidrBlockAssociationId => _mIpv6CidrBlockAssociationId.GetValue("ipv6CidrBlockAssociationId");
 
         /// <summary>
         /// Indicates whether to create an IPv6-only subnet. Default: `false`.
         /// </summary>
         [Input("ipv6Native")]
-        public bool? Ipv6Native;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6Native;
+
+        public bool? Ipv6Native => _mIpv6Native.GetValue("ipv6Native");
 
         /// <summary>
         /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
         /// </summary>
         [Input("mapCustomerOwnedIpOnLaunch")]
-        public bool? MapCustomerOwnedIpOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMapCustomerOwnedIpOnLaunch;
+
+        public bool? MapCustomerOwnedIpOnLaunch => _mMapCustomerOwnedIpOnLaunch.GetValue("mapCustomerOwnedIpOnLaunch");
 
         /// <summary>
         /// Specify true to indicate
@@ -106,42 +148,225 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// a public IP address. Default is `false`.
         /// </summary>
         [Input("mapPublicIpOnLaunch")]
-        public bool? MapPublicIpOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMapPublicIpOnLaunch;
+
+        public bool? MapPublicIpOnLaunch => _mMapPublicIpOnLaunch.GetValue("mapPublicIpOnLaunch");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Outpost.
         /// </summary>
         [Input("outpostArn")]
-        public string? OutpostArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
+
+        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
 
         /// <summary>
         /// The ID of the AWS account that owns the subnet.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         /// </summary>
         [Input("privateDnsHostnameTypeOnLaunch")]
-        public string? PrivateDnsHostnameTypeOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDnsHostnameTypeOnLaunch;
+
+        public string? PrivateDnsHostnameTypeOnLaunch => _mPrivateDnsHostnameTypeOnLaunch.GetValue("privateDnsHostnameTypeOnLaunch");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The VPC ID.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/subnet:Subnet")]
+    public sealed class SubnetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specify true to indicate
+        /// that network interfaces created in the specified subnet should be
+        /// assigned an IPv6 address. Default is `false`
+        /// </summary>
+        [Input("assignIpv6AddressOnCreation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignIpv6AddressOnCreation;
+
+        public bool? AssignIpv6AddressOnCreation => _mAssignIpv6AddressOnCreation.GetValue("assignIpv6AddressOnCreation");
+
+        /// <summary>
+        /// AZ for the subnet.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+
+        /// <summary>
+        /// The IPv4 CIDR block for the subnet.
+        /// </summary>
+        [Input("cidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+
+        /// <summary>
+        /// The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
+
+        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+
+        /// <summary>
+        /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
+        /// </summary>
+        [Input("enableDns64")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDns64;
+
+        public bool? EnableDns64 => _mEnableDns64.GetValue("enableDns64");
+
+        /// <summary>
+        /// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        /// </summary>
+        [Input("enableLniAtDeviceIndex")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mEnableLniAtDeviceIndex;
+
+        public int? EnableLniAtDeviceIndex => _mEnableLniAtDeviceIndex.GetValue("enableLniAtDeviceIndex");
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
+        /// </summary>
+        [Input("enableResourceNameDnsARecordOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsARecordOnLaunch;
+
+        public bool? EnableResourceNameDnsARecordOnLaunch => _mEnableResourceNameDnsARecordOnLaunch.GetValue("enableResourceNameDnsARecordOnLaunch");
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
+        /// </summary>
+        [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsAaaaRecordOnLaunch;
+
+        public bool? EnableResourceNameDnsAaaaRecordOnLaunch => _mEnableResourceNameDnsAaaaRecordOnLaunch.GetValue("enableResourceNameDnsAaaaRecordOnLaunch");
+
+        /// <summary>
+        /// The IPv6 network range for the subnet,
+        /// in CIDR notation. The subnet size must use a /64 prefix length.
+        /// </summary>
+        [Input("ipv6CidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+
+        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+
+        /// <summary>
+        /// Indicates whether to create an IPv6-only subnet. Default: `false`.
+        /// </summary>
+        [Input("ipv6Native")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6Native;
+
+        public bool? Ipv6Native => _mIpv6Native.GetValue("ipv6Native");
+
+        /// <summary>
+        /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
+        /// </summary>
+        [Input("mapCustomerOwnedIpOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMapCustomerOwnedIpOnLaunch;
+
+        public bool? MapCustomerOwnedIpOnLaunch => _mMapCustomerOwnedIpOnLaunch.GetValue("mapCustomerOwnedIpOnLaunch");
+
+        /// <summary>
+        /// Specify true to indicate
+        /// that instances launched into the subnet should be assigned
+        /// a public IP address. Default is `false`.
+        /// </summary>
+        [Input("mapPublicIpOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMapPublicIpOnLaunch;
+
+        public bool? MapPublicIpOnLaunch => _mMapPublicIpOnLaunch.GetValue("mapPublicIpOnLaunch");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// </summary>
+        [Input("outpostArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
+
+        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+
+        /// <summary>
+        /// The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
+        /// </summary>
+        [Input("privateDnsHostnameTypeOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDnsHostnameTypeOnLaunch;
+
+        public string? PrivateDnsHostnameTypeOnLaunch => _mPrivateDnsHostnameTypeOnLaunch.GetValue("privateDnsHostnameTypeOnLaunch");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The VPC ID.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

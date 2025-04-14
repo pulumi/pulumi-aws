@@ -11,75 +11,157 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/lb:Lb")]
-    public sealed class Lb : global::Pulumi.PolicyResource
+    public sealed class Lb : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Lightsail load balancer.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The timestamp when the load balancer was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The DNS name of the load balancer.
         /// </summary>
         [Input("dnsName")]
-        public string? DnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
+
+        public string? DnsName => _mDnsName.GetValue("dnsName");
 
         /// <summary>
         /// The health check path of the load balancer. Default value "/".
         /// </summary>
         [Input("healthCheckPath")]
-        public string? HealthCheckPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckPath;
+
+        public string? HealthCheckPath => _mHealthCheckPath.GetValue("healthCheckPath");
 
         /// <summary>
         /// The instance port the load balancer will connect.
         /// </summary>
         [Input("instancePort")]
-        public int? InstancePort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
+
+        public int? InstancePort => _mInstancePort.GetValue("instancePort");
 
         [Input("ipAddressType")]
-        public string? IpAddressType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
 
         /// <summary>
         /// The name of the Lightsail load balancer.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The protocol of the load balancer.
         /// </summary>
         [Input("protocol")]
-        public string? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// The public ports of the load balancer.
         /// </summary>
         [Input("publicPorts")]
-        public List<int>? PublicPorts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<int>> _mPublicPorts;
+
+        public List<int>? PublicPorts => _mPublicPorts.GetValue("publicPorts");
 
         /// <summary>
         /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Input("supportCode")]
-        public string? SupportCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
+
+        public string? SupportCode => _mSupportCode.GetValue("supportCode");
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:lightsail/lb:Lb")]
+    public sealed class LbArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The health check path of the load balancer. Default value "/".
+        /// </summary>
+        [Input("healthCheckPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckPath;
+
+        public string? HealthCheckPath => _mHealthCheckPath.GetValue("healthCheckPath");
+
+        /// <summary>
+        /// The instance port the load balancer will connect.
+        /// </summary>
+        [Input("instancePort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
+
+        public int? InstancePort => _mInstancePort.GetValue("instancePort");
+
+        [Input("ipAddressType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+
+        /// <summary>
+        /// The name of the Lightsail load balancer.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

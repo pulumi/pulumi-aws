@@ -11,102 +11,280 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fms
 {
     [PolicyResourceType("aws:fms/policy:Policy")]
-    public sealed class Policy : global::Pulumi.PolicyResource
+    public sealed class Policy : global::Pulumi.PolicyResourceOutput
     {
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
         /// </summary>
         [Input("deleteAllPolicyResources")]
-        public bool? DeleteAllPolicyResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAllPolicyResources;
+
+        public bool? DeleteAllPolicyResources => _mDeleteAllPolicyResources.GetValue("deleteAllPolicyResources");
 
         /// <summary>
         /// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
         /// </summary>
         [Input("deleteUnusedFmManagedResources")]
-        public bool? DeleteUnusedFmManagedResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteUnusedFmManagedResources;
+
+        public bool? DeleteUnusedFmManagedResources => _mDeleteUnusedFmManagedResources.GetValue("deleteUnusedFmManagedResources");
 
         /// <summary>
         /// The description of the AWS Network Firewall firewall policy.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A map of lists of accounts and OU's to exclude from the policy. See the `exclude_map` block.
         /// </summary>
         [Input("excludeMap")]
-        public PolicyExcludeMap? ExcludeMap;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyExcludeMap> _mExcludeMap;
+
+        public Outputs.PolicyExcludeMap? ExcludeMap => _mExcludeMap.GetValue("excludeMap");
 
         /// <summary>
         /// A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         /// </summary>
         [Input("excludeResourceTags")]
-        public bool? ExcludeResourceTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mExcludeResourceTags;
+
+        public bool? ExcludeResourceTags => _mExcludeResourceTags.GetValue("excludeResourceTags");
 
         /// <summary>
         /// A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         /// </summary>
         [Input("includeMap")]
-        public PolicyIncludeMap? IncludeMap;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyIncludeMap> _mIncludeMap;
+
+        public Outputs.PolicyIncludeMap? IncludeMap => _mIncludeMap.GetValue("includeMap");
 
         /// <summary>
         /// The friendly name of the AWS Firewall Manager Policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A unique identifier for each update to the policy.
         /// </summary>
         [Input("policyUpdateToken")]
-        public string? PolicyUpdateToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyUpdateToken;
+
+        public string? PolicyUpdateToken => _mPolicyUpdateToken.GetValue("policyUpdateToken");
 
         /// <summary>
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         /// </summary>
         [Input("remediationEnabled")]
-        public bool? RemediationEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRemediationEnabled;
+
+        public bool? RemediationEnabled => _mRemediationEnabled.GetValue("remediationEnabled");
 
         [Input("resourceSetIds")]
-        public List<string>? ResourceSetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceSetIds;
+
+        public List<string>? ResourceSetIds => _mResourceSetIds.GetValue("resourceSetIds");
 
         /// <summary>
         /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         /// </summary>
         [Input("resourceTags")]
-        public Dictionary<string, string>? ResourceTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
+
+        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
 
         /// <summary>
         /// A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         /// </summary>
         [Input("resourceTypeLists")]
-        public List<string>? ResourceTypeLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypeLists;
+
+        public List<string>? ResourceTypeLists => _mResourceTypeLists.GetValue("resourceTypeLists");
 
         /// <summary>
         /// The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
         /// </summary>
         [Input("securityServicePolicyData")]
-        public PolicySecurityServicePolicyData? SecurityServicePolicyData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicySecurityServicePolicyData> _mSecurityServicePolicyData;
+
+        public Outputs.PolicySecurityServicePolicyData? SecurityServicePolicyData => _mSecurityServicePolicyData.GetValue("securityServicePolicyData");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:fms/policy:Policy")]
+    public sealed class PolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
+        /// </summary>
+        [Input("deleteAllPolicyResources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAllPolicyResources;
+
+        public bool? DeleteAllPolicyResources => _mDeleteAllPolicyResources.GetValue("deleteAllPolicyResources");
+
+        /// <summary>
+        /// If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
+        /// </summary>
+        [Input("deleteUnusedFmManagedResources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteUnusedFmManagedResources;
+
+        public bool? DeleteUnusedFmManagedResources => _mDeleteUnusedFmManagedResources.GetValue("deleteUnusedFmManagedResources");
+
+        /// <summary>
+        /// The description of the AWS Network Firewall firewall policy.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A map of lists of accounts and OU's to exclude from the policy. See the `exclude_map` block.
+        /// </summary>
+        [Input("excludeMap")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyExcludeMapArgs> _mExcludeMap;
+
+        public Inputs.PolicyExcludeMapArgs? ExcludeMap => _mExcludeMap.GetValue("excludeMap");
+
+        /// <summary>
+        /// A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
+        /// </summary>
+        [Input("excludeResourceTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mExcludeResourceTags;
+
+        public bool? ExcludeResourceTags => _mExcludeResourceTags.GetValue("excludeResourceTags");
+
+        /// <summary>
+        /// A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
+        /// </summary>
+        [Input("includeMap")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyIncludeMapArgs> _mIncludeMap;
+
+        public Inputs.PolicyIncludeMapArgs? IncludeMap => _mIncludeMap.GetValue("includeMap");
+
+        /// <summary>
+        /// The friendly name of the AWS Firewall Manager Policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        /// </summary>
+        [Input("remediationEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRemediationEnabled;
+
+        public bool? RemediationEnabled => _mRemediationEnabled.GetValue("remediationEnabled");
+
+        [Input("resourceSetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceSetIds;
+
+        public List<string>? ResourceSetIds => _mResourceSetIds.GetValue("resourceSetIds");
+
+        /// <summary>
+        /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
+        /// </summary>
+        [Input("resourceTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
+
+        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+
+        /// <summary>
+        /// A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+        /// </summary>
+        [Input("resourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
+
+        /// <summary>
+        /// A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
+        /// </summary>
+        [Input("resourceTypeLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypeLists;
+
+        public List<string>? ResourceTypeLists => _mResourceTypeLists.GetValue("resourceTypeLists");
+
+        /// <summary>
+        /// The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
+        /// </summary>
+        [Input("securityServicePolicyData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicySecurityServicePolicyDataArgs> _mSecurityServicePolicyData;
+
+        public Inputs.PolicySecurityServicePolicyDataArgs? SecurityServicePolicyData => _mSecurityServicePolicyData.GetValue("securityServicePolicyData");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

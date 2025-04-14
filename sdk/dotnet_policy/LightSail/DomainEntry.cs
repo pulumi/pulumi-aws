@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/domainEntry:DomainEntry")]
-    public sealed class DomainEntry : global::Pulumi.PolicyResource
+    public sealed class DomainEntry : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the Lightsail domain in which to create the entry
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// If the entry should be an alias Defaults to `false`
         /// </summary>
         [Input("isAlias")]
-        public bool? IsAlias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsAlias;
+
+        public bool? IsAlias => _mIsAlias.GetValue("isAlias");
 
         /// <summary>
         /// Name of the entry record
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Target of the domain entry
         /// </summary>
         [Input("target")]
-        public string? Target;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
+
+        public string? Target => _mTarget.GetValue("target");
 
         /// <summary>
         /// Type of record
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:lightsail/domainEntry:DomainEntry")]
+    public sealed class DomainEntryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Lightsail domain in which to create the entry
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// If the entry should be an alias Defaults to `false`
+        /// </summary>
+        [Input("isAlias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsAlias;
+
+        public bool? IsAlias => _mIsAlias.GetValue("isAlias");
+
+        /// <summary>
+        /// Name of the entry record
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Target of the domain entry
+        /// </summary>
+        [Input("target")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
+
+        public string? Target => _mTarget.GetValue("target");
+
+        /// <summary>
+        /// Type of record
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

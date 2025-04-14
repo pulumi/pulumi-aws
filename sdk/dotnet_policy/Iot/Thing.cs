@@ -11,42 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/thing:Thing")]
-    public sealed class Thing : global::Pulumi.PolicyResource
+    public sealed class Thing : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the thing.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Map of attributes of the thing.
         /// </summary>
         [Input("attributes")]
-        public Dictionary<string, string>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// The default client ID.
         /// </summary>
         [Input("defaultClientId")]
-        public string? DefaultClientId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultClientId;
+
+        public string? DefaultClientId => _mDefaultClientId.GetValue("defaultClientId");
 
         /// <summary>
         /// The name of the thing.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The thing type name.
         /// </summary>
         [Input("thingTypeName")]
-        public string? ThingTypeName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThingTypeName;
+
+        public string? ThingTypeName => _mThingTypeName.GetValue("thingTypeName");
 
         /// <summary>
         /// The current version of the thing record in the registry.
         /// </summary>
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:iot/thing:Thing")]
+    public sealed class ThingArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Map of attributes of the thing.
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// The name of the thing.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The thing type name.
+        /// </summary>
+        [Input("thingTypeName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThingTypeName;
+
+        public string? ThingTypeName => _mThingTypeName.GetValue("thingTypeName");
     }
 }

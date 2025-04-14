@@ -11,115 +11,169 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/association:Association")]
-    public sealed class Association : global::Pulumi.PolicyResource
+    public sealed class Association : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         /// </summary>
         [Input("applyOnlyAtCronInterval")]
-        public bool? ApplyOnlyAtCronInterval;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyOnlyAtCronInterval;
+
+        public bool? ApplyOnlyAtCronInterval => _mApplyOnlyAtCronInterval.GetValue("applyOnlyAtCronInterval");
 
         /// <summary>
         /// The ARN of the SSM association
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID of the SSM association.
         /// </summary>
         [Input("associationId")]
-        public string? AssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
+
+        public string? AssociationId => _mAssociationId.GetValue("associationId");
 
         /// <summary>
         /// The descriptive name for the association.
         /// </summary>
         [Input("associationName")]
-        public string? AssociationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationName;
+
+        public string? AssociationName => _mAssociationName.GetValue("associationName");
 
         /// <summary>
         /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         /// </summary>
         [Input("automationTargetParameterName")]
-        public string? AutomationTargetParameterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutomationTargetParameterName;
+
+        public string? AutomationTargetParameterName => _mAutomationTargetParameterName.GetValue("automationTargetParameterName");
 
         /// <summary>
         /// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         /// </summary>
         [Input("complianceSeverity")]
-        public string? ComplianceSeverity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComplianceSeverity;
+
+        public string? ComplianceSeverity => _mComplianceSeverity.GetValue("complianceSeverity");
 
         /// <summary>
         /// The document version you want to associate with the target(s). Can be a specific version or the default version.
         /// </summary>
         [Input("documentVersion")]
-        public string? DocumentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentVersion;
+
+        public string? DocumentVersion => _mDocumentVersion.GetValue("documentVersion");
 
         /// <summary>
         /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
 
         /// <summary>
         /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         /// </summary>
         [Input("maxConcurrency")]
-        public string? MaxConcurrency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaxConcurrency;
+
+        public string? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
 
         /// <summary>
         /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         /// </summary>
         [Input("maxErrors")]
-        public string? MaxErrors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaxErrors;
+
+        public string? MaxErrors => _mMaxErrors.GetValue("maxErrors");
 
         /// <summary>
         /// The name of the SSM document to apply.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// An output location block. Output Location is documented below.
         /// </summary>
         [Input("outputLocation")]
-        public AssociationOutputLocation? OutputLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AssociationOutputLocation> _mOutputLocation;
+
+        public Outputs.AssociationOutputLocation? OutputLocation => _mOutputLocation.GetValue("outputLocation");
 
         /// <summary>
         /// A block of arbitrary string parameters to pass to the SSM document.
         /// </summary>
         [Input("parameters")]
-        public Dictionary<string, string>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         /// </summary>
         [Input("scheduleExpression")]
-        public string? ScheduleExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
+
+        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
 
         /// <summary>
         /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         /// </summary>
         [Input("syncCompliance")]
-        public string? SyncCompliance;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSyncCompliance;
+
+        public string? SyncCompliance => _mSyncCompliance.GetValue("syncCompliance");
 
         /// <summary>
         /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
         [Input("targets")]
-        public List<AssociationTarget>? Targets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AssociationTarget>> _mTargets;
+
+        public List<Outputs.AssociationTarget>? Targets => _mTargets.GetValue("targets");
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -127,6 +181,159 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
-        public int? WaitForSuccessTimeoutSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWaitForSuccessTimeoutSeconds;
+
+        public int? WaitForSuccessTimeoutSeconds => _mWaitForSuccessTimeoutSeconds.GetValue("waitForSuccessTimeoutSeconds");
+    }
+
+    [PolicyResourceType("aws:ssm/association:Association")]
+    public sealed class AssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
+        /// </summary>
+        [Input("applyOnlyAtCronInterval")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyOnlyAtCronInterval;
+
+        public bool? ApplyOnlyAtCronInterval => _mApplyOnlyAtCronInterval.GetValue("applyOnlyAtCronInterval");
+
+        /// <summary>
+        /// The descriptive name for the association.
+        /// </summary>
+        [Input("associationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationName;
+
+        public string? AssociationName => _mAssociationName.GetValue("associationName");
+
+        /// <summary>
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
+        /// </summary>
+        [Input("automationTargetParameterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutomationTargetParameterName;
+
+        public string? AutomationTargetParameterName => _mAutomationTargetParameterName.GetValue("automationTargetParameterName");
+
+        /// <summary>
+        /// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
+        /// </summary>
+        [Input("complianceSeverity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComplianceSeverity;
+
+        public string? ComplianceSeverity => _mComplianceSeverity.GetValue("complianceSeverity");
+
+        /// <summary>
+        /// The document version you want to associate with the target(s). Can be a specific version or the default version.
+        /// </summary>
+        [Input("documentVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentVersion;
+
+        public string? DocumentVersion => _mDocumentVersion.GetValue("documentVersion");
+
+        /// <summary>
+        /// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+
+        /// <summary>
+        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        /// </summary>
+        [Input("maxConcurrency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaxConcurrency;
+
+        public string? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
+
+        /// <summary>
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
+        /// </summary>
+        [Input("maxErrors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaxErrors;
+
+        public string? MaxErrors => _mMaxErrors.GetValue("maxErrors");
+
+        /// <summary>
+        /// The name of the SSM document to apply.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// An output location block. Output Location is documented below.
+        /// </summary>
+        [Input("outputLocation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AssociationOutputLocationArgs> _mOutputLocation;
+
+        public Inputs.AssociationOutputLocationArgs? OutputLocation => _mOutputLocation.GetValue("outputLocation");
+
+        /// <summary>
+        /// A block of arbitrary string parameters to pass to the SSM document.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
+        /// </summary>
+        [Input("scheduleExpression")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
+
+        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+
+        /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        /// </summary>
+        [Input("syncCompliance")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSyncCompliance;
+
+        public string? SyncCompliance => _mSyncCompliance.GetValue("syncCompliance");
+
+        /// <summary>
+        /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+        /// </summary>
+        [Input("targets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AssociationTargetArgs>> _mTargets;
+
+        public List<Inputs.AssociationTargetArgs>? Targets => _mTargets.GetValue("targets");
+
+        /// <summary>
+        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+        /// </summary>
+        [Input("waitForSuccessTimeoutSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWaitForSuccessTimeoutSeconds;
+
+        public int? WaitForSuccessTimeoutSeconds => _mWaitForSuccessTimeoutSeconds.GetValue("waitForSuccessTimeoutSeconds");
     }
 }

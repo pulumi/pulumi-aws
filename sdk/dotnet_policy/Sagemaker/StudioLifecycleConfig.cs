@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")]
-    public sealed class StudioLifecycleConfig : global::Pulumi.PolicyResource
+    public sealed class StudioLifecycleConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
         [Input("studioLifecycleConfigAppType")]
-        public string? StudioLifecycleConfigAppType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigAppType;
+
+        public string? StudioLifecycleConfigAppType => _mStudioLifecycleConfigAppType.GetValue("studioLifecycleConfigAppType");
 
         /// <summary>
         /// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         /// </summary>
         [Input("studioLifecycleConfigContent")]
-        public string? StudioLifecycleConfigContent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigContent;
+
+        public string? StudioLifecycleConfigContent => _mStudioLifecycleConfigContent.GetValue("studioLifecycleConfigContent");
 
         /// <summary>
         /// The name of the Studio Lifecycle Configuration to create.
         /// </summary>
         [Input("studioLifecycleConfigName")]
-        public string? StudioLifecycleConfigName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigName;
+
+        public string? StudioLifecycleConfigName => _mStudioLifecycleConfigName.GetValue("studioLifecycleConfigName");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")]
+    public sealed class StudioLifecycleConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
+        /// </summary>
+        [Input("studioLifecycleConfigAppType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigAppType;
+
+        public string? StudioLifecycleConfigAppType => _mStudioLifecycleConfigAppType.GetValue("studioLifecycleConfigAppType");
+
+        /// <summary>
+        /// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
+        /// </summary>
+        [Input("studioLifecycleConfigContent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigContent;
+
+        public string? StudioLifecycleConfigContent => _mStudioLifecycleConfigContent.GetValue("studioLifecycleConfigContent");
+
+        /// <summary>
+        /// The name of the Studio Lifecycle Configuration to create.
+        /// </summary>
+        [Input("studioLifecycleConfigName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigName;
+
+        public string? StudioLifecycleConfigName => _mStudioLifecycleConfigName.GetValue("studioLifecycleConfigName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

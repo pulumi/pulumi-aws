@@ -11,54 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeCommit
 {
     [PolicyResourceType("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")]
-    public sealed class ApprovalRuleTemplate : global::Pulumi.PolicyResource
+    public sealed class ApprovalRuleTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the approval rule template
         /// </summary>
         [Input("approvalRuleTemplateId")]
-        public string? ApprovalRuleTemplateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalRuleTemplateId;
+
+        public string? ApprovalRuleTemplateId => _mApprovalRuleTemplateId.GetValue("approvalRuleTemplateId");
 
         /// <summary>
         /// The content of the approval rule template. Maximum of 3000 characters.
         /// </summary>
         [Input("content")]
-        public string? Content;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
+
+        public string? Content => _mContent.GetValue("content");
 
         /// <summary>
         /// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("creationDate")]
-        public string? CreationDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
+
+        public string? CreationDate => _mCreationDate.GetValue("creationDate");
 
         /// <summary>
         /// The description of the approval rule template. Maximum of 1000 characters.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("lastModifiedDate")]
-        public string? LastModifiedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedDate;
+
+        public string? LastModifiedDate => _mLastModifiedDate.GetValue("lastModifiedDate");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
         /// </summary>
         [Input("lastModifiedUser")]
-        public string? LastModifiedUser;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedUser;
+
+        public string? LastModifiedUser => _mLastModifiedUser.GetValue("lastModifiedUser");
 
         /// <summary>
         /// The name for the approval rule template. Maximum of 100 characters.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The SHA-256 hash signature for the content of the approval rule template.
         /// </summary>
         [Input("ruleContentSha256")]
-        public string? RuleContentSha256;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleContentSha256;
+
+        public string? RuleContentSha256 => _mRuleContentSha256.GetValue("ruleContentSha256");
+    }
+
+    [PolicyResourceType("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")]
+    public sealed class ApprovalRuleTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The content of the approval rule template. Maximum of 3000 characters.
+        /// </summary>
+        [Input("content")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
+
+        public string? Content => _mContent.GetValue("content");
+
+        /// <summary>
+        /// The description of the approval rule template. Maximum of 1000 characters.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name for the approval rule template. Maximum of 100 characters.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

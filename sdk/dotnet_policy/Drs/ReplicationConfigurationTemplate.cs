@@ -11,106 +11,157 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Drs
 {
     [PolicyResourceType("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate")]
-    public sealed class ReplicationConfigurationTemplate : global::Pulumi.PolicyResource
+    public sealed class ReplicationConfigurationTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Replication configuration template ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
         /// </summary>
         [Input("associateDefaultSecurityGroup")]
-        public bool? AssociateDefaultSecurityGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociateDefaultSecurityGroup;
+
+        public bool? AssociateDefaultSecurityGroup => _mAssociateDefaultSecurityGroup.GetValue("associateDefaultSecurityGroup");
 
         /// <summary>
         /// Whether to allow the AWS replication agent to automatically replicate newly added disks.
         /// </summary>
         [Input("autoReplicateNewDisks")]
-        public bool? AutoReplicateNewDisks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoReplicateNewDisks;
+
+        public bool? AutoReplicateNewDisks => _mAutoReplicateNewDisks.GetValue("autoReplicateNewDisks");
 
         /// <summary>
         /// Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
         /// </summary>
         [Input("bandwidthThrottling")]
-        public int? BandwidthThrottling;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBandwidthThrottling;
+
+        public int? BandwidthThrottling => _mBandwidthThrottling.GetValue("bandwidthThrottling");
 
         /// <summary>
         /// Whether to create a Public IP for the Recovery Instance by default.
         /// </summary>
         [Input("createPublicIp")]
-        public bool? CreatePublicIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreatePublicIp;
+
+        public bool? CreatePublicIp => _mCreatePublicIp.GetValue("createPublicIp");
 
         /// <summary>
         /// Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
         /// </summary>
         [Input("dataPlaneRouting")]
-        public string? DataPlaneRouting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataPlaneRouting;
+
+        public string? DataPlaneRouting => _mDataPlaneRouting.GetValue("dataPlaneRouting");
 
         /// <summary>
         /// Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
         /// </summary>
         [Input("defaultLargeStagingDiskType")]
-        public string? DefaultLargeStagingDiskType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultLargeStagingDiskType;
+
+        public string? DefaultLargeStagingDiskType => _mDefaultLargeStagingDiskType.GetValue("defaultLargeStagingDiskType");
 
         /// <summary>
         /// Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         /// </summary>
         [Input("ebsEncryption")]
-        public string? EbsEncryption;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEbsEncryption;
+
+        public string? EbsEncryption => _mEbsEncryption.GetValue("ebsEncryption");
 
         /// <summary>
         /// ARN of the EBS encryption key to be used during replication.
         /// </summary>
         [Input("ebsEncryptionKeyArn")]
-        public string? EbsEncryptionKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEbsEncryptionKeyArn;
+
+        public string? EbsEncryptionKeyArn => _mEbsEncryptionKeyArn.GetValue("ebsEncryptionKeyArn");
 
         /// <summary>
         /// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
         /// </summary>
         [Input("pitPolicies")]
-        public List<ReplicationConfigurationTemplatePitPolicy>? PitPolicies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReplicationConfigurationTemplatePitPolicy>> _mPitPolicies;
+
+        public List<Outputs.ReplicationConfigurationTemplatePitPolicy>? PitPolicies => _mPitPolicies.GetValue("pitPolicies");
 
         /// <summary>
         /// Instance type to be used for the replication server.
         /// </summary>
         [Input("replicationServerInstanceType")]
-        public string? ReplicationServerInstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationServerInstanceType;
+
+        public string? ReplicationServerInstanceType => _mReplicationServerInstanceType.GetValue("replicationServerInstanceType");
 
         /// <summary>
         /// Security group IDs that will be used by the replication server.
         /// </summary>
         [Input("replicationServersSecurityGroupsIds")]
-        public List<string>? ReplicationServersSecurityGroupsIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReplicationServersSecurityGroupsIds;
+
+        public List<string>? ReplicationServersSecurityGroupsIds => _mReplicationServersSecurityGroupsIds.GetValue("replicationServersSecurityGroupsIds");
 
         /// <summary>
         /// Subnet to be used by the replication staging area.
         /// </summary>
         [Input("stagingAreaSubnetId")]
-        public string? StagingAreaSubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStagingAreaSubnetId;
+
+        public string? StagingAreaSubnetId => _mStagingAreaSubnetId.GetValue("stagingAreaSubnetId");
 
         /// <summary>
         /// Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
         /// </summary>
         [Input("stagingAreaTags")]
-        public Dictionary<string, string>? StagingAreaTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mStagingAreaTags;
+
+        public Dictionary<string, string>? StagingAreaTags => _mStagingAreaTags.GetValue("stagingAreaTags");
 
         /// <summary>
         /// Set of tags to be associated with the Replication Configuration Template resource.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ReplicationConfigurationTemplateTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicationConfigurationTemplateTimeouts> _mTimeouts;
+
+        public Outputs.ReplicationConfigurationTemplateTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Whether to use a dedicated Replication Server in the replication staging area.
@@ -118,6 +169,156 @@ namespace Pulumi.PolicyPacks.Aws.Drs
         /// The following arguments are optional:
         /// </summary>
         [Input("useDedicatedReplicationServer")]
-        public bool? UseDedicatedReplicationServer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseDedicatedReplicationServer;
+
+        public bool? UseDedicatedReplicationServer => _mUseDedicatedReplicationServer.GetValue("useDedicatedReplicationServer");
+    }
+
+    [PolicyResourceType("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate")]
+    public sealed class ReplicationConfigurationTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
+        /// </summary>
+        [Input("associateDefaultSecurityGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociateDefaultSecurityGroup;
+
+        public bool? AssociateDefaultSecurityGroup => _mAssociateDefaultSecurityGroup.GetValue("associateDefaultSecurityGroup");
+
+        /// <summary>
+        /// Whether to allow the AWS replication agent to automatically replicate newly added disks.
+        /// </summary>
+        [Input("autoReplicateNewDisks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoReplicateNewDisks;
+
+        public bool? AutoReplicateNewDisks => _mAutoReplicateNewDisks.GetValue("autoReplicateNewDisks");
+
+        /// <summary>
+        /// Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
+        /// </summary>
+        [Input("bandwidthThrottling")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBandwidthThrottling;
+
+        public int? BandwidthThrottling => _mBandwidthThrottling.GetValue("bandwidthThrottling");
+
+        /// <summary>
+        /// Whether to create a Public IP for the Recovery Instance by default.
+        /// </summary>
+        [Input("createPublicIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreatePublicIp;
+
+        public bool? CreatePublicIp => _mCreatePublicIp.GetValue("createPublicIp");
+
+        /// <summary>
+        /// Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
+        /// </summary>
+        [Input("dataPlaneRouting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataPlaneRouting;
+
+        public string? DataPlaneRouting => _mDataPlaneRouting.GetValue("dataPlaneRouting");
+
+        /// <summary>
+        /// Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
+        /// </summary>
+        [Input("defaultLargeStagingDiskType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultLargeStagingDiskType;
+
+        public string? DefaultLargeStagingDiskType => _mDefaultLargeStagingDiskType.GetValue("defaultLargeStagingDiskType");
+
+        /// <summary>
+        /// Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
+        /// </summary>
+        [Input("ebsEncryption")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEbsEncryption;
+
+        public string? EbsEncryption => _mEbsEncryption.GetValue("ebsEncryption");
+
+        /// <summary>
+        /// ARN of the EBS encryption key to be used during replication.
+        /// </summary>
+        [Input("ebsEncryptionKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEbsEncryptionKeyArn;
+
+        public string? EbsEncryptionKeyArn => _mEbsEncryptionKeyArn.GetValue("ebsEncryptionKeyArn");
+
+        /// <summary>
+        /// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
+        /// </summary>
+        [Input("pitPolicies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReplicationConfigurationTemplatePitPolicyArgs>> _mPitPolicies;
+
+        public List<Inputs.ReplicationConfigurationTemplatePitPolicyArgs>? PitPolicies => _mPitPolicies.GetValue("pitPolicies");
+
+        /// <summary>
+        /// Instance type to be used for the replication server.
+        /// </summary>
+        [Input("replicationServerInstanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationServerInstanceType;
+
+        public string? ReplicationServerInstanceType => _mReplicationServerInstanceType.GetValue("replicationServerInstanceType");
+
+        /// <summary>
+        /// Security group IDs that will be used by the replication server.
+        /// </summary>
+        [Input("replicationServersSecurityGroupsIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReplicationServersSecurityGroupsIds;
+
+        public List<string>? ReplicationServersSecurityGroupsIds => _mReplicationServersSecurityGroupsIds.GetValue("replicationServersSecurityGroupsIds");
+
+        /// <summary>
+        /// Subnet to be used by the replication staging area.
+        /// </summary>
+        [Input("stagingAreaSubnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStagingAreaSubnetId;
+
+        public string? StagingAreaSubnetId => _mStagingAreaSubnetId.GetValue("stagingAreaSubnetId");
+
+        /// <summary>
+        /// Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
+        /// </summary>
+        [Input("stagingAreaTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mStagingAreaTags;
+
+        public Dictionary<string, string>? StagingAreaTags => _mStagingAreaTags.GetValue("stagingAreaTags");
+
+        /// <summary>
+        /// Set of tags to be associated with the Replication Configuration Template resource.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ReplicationConfigurationTemplateTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ReplicationConfigurationTemplateTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Whether to use a dedicated Replication Server in the replication staging area.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("useDedicatedReplicationServer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseDedicatedReplicationServer;
+
+        public bool? UseDedicatedReplicationServer => _mUseDedicatedReplicationServer.GetValue("useDedicatedReplicationServer");
     }
 }

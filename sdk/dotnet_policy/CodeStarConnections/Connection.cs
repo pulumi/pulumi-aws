@@ -11,48 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeStarConnections
 {
     [PolicyResourceType("aws:codestarconnections/connection:Connection")]
-    public sealed class Connection : global::Pulumi.PolicyResource
+    public sealed class Connection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The codestar connection ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         /// </summary>
         [Input("connectionStatus")]
-        public string? ConnectionStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionStatus;
+
+        public string? ConnectionStatus => _mConnectionStatus.GetValue("connectionStatus");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         /// </summary>
         [Input("hostArn")]
-        public string? HostArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostArn;
+
+        public string? HostArn => _mHostArn.GetValue("hostArn");
 
         /// <summary>
         /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
         [Input("providerType")]
-        public string? ProviderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
 
         /// <summary>
         /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:codestarconnections/connection:Connection")]
+    public sealed class ConnectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        /// </summary>
+        [Input("hostArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostArn;
+
+        public string? HostArn => _mHostArn.GetValue("hostArn");
+
+        /// <summary>
+        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
+        /// </summary>
+        [Input("providerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
+
+        /// <summary>
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

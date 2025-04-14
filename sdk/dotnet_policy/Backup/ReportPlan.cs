@@ -11,60 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/reportPlan:ReportPlan")]
-    public sealed class ReportPlan : global::Pulumi.PolicyResource
+    public sealed class ReportPlan : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the backup report plan.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
         [Input("creationTime")]
-        public string? CreationTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
+
+        public string? CreationTime => _mCreationTime.GetValue("creationTime");
 
         /// <summary>
         /// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         /// </summary>
         [Input("deploymentStatus")]
-        public string? DeploymentStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentStatus;
+
+        public string? DeploymentStatus => _mDeploymentStatus.GetValue("deploymentStatus");
 
         /// <summary>
         /// The description of the report plan with a maximum of 1,024 characters
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         /// </summary>
         [Input("reportDeliveryChannel")]
-        public ReportPlanReportDeliveryChannel? ReportDeliveryChannel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ReportPlanReportDeliveryChannel> _mReportDeliveryChannel;
+
+        public Outputs.ReportPlanReportDeliveryChannel? ReportDeliveryChannel => _mReportDeliveryChannel.GetValue("reportDeliveryChannel");
 
         /// <summary>
         /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         /// </summary>
         [Input("reportSetting")]
-        public ReportPlanReportSetting? ReportSetting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ReportPlanReportSetting> _mReportSetting;
+
+        public Outputs.ReportPlanReportSetting? ReportSetting => _mReportSetting.GetValue("reportSetting");
 
         /// <summary>
         /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:backup/reportPlan:ReportPlan")]
+    public sealed class ReportPlanArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the report plan with a maximum of 1,024 characters
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        /// </summary>
+        [Input("reportDeliveryChannel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ReportPlanReportDeliveryChannelArgs> _mReportDeliveryChannel;
+
+        public Inputs.ReportPlanReportDeliveryChannelArgs? ReportDeliveryChannel => _mReportDeliveryChannel.GetValue("reportDeliveryChannel");
+
+        /// <summary>
+        /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        /// </summary>
+        [Input("reportSetting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ReportPlanReportSettingArgs> _mReportSetting;
+
+        public Inputs.ReportPlanReportSettingArgs? ReportSetting => _mReportSetting.GetValue("reportSetting");
+
+        /// <summary>
+        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cloud9
 {
     [PolicyResourceType("aws:cloud9/environmentEC2:EnvironmentEC2")]
-    public sealed class EnvironmentEC2 : global::Pulumi.PolicyResource
+    public sealed class EnvironmentEC2 : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the environment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The number of minutes until the running instance is shut down after the environment has last been used.
         /// </summary>
         [Input("automaticStopTimeMinutes")]
-        public int? AutomaticStopTimeMinutes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticStopTimeMinutes;
+
+        public int? AutomaticStopTimeMinutes => _mAutomaticStopTimeMinutes.GetValue("automaticStopTimeMinutes");
 
         /// <summary>
         /// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         /// </summary>
         [Input("connectionType")]
-        public string? ConnectionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
+
+        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
 
         /// <summary>
         /// The description of the environment.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
@@ -49,48 +61,165 @@ namespace Pulumi.PolicyPacks.Aws.Cloud9
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         /// </summary>
         [Input("imageId")]
-        public string? ImageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
 
         /// <summary>
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// The name of the environment.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         /// </summary>
         [Input("ownerArn")]
-        public string? OwnerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerArn;
+
+        public string? OwnerArn => _mOwnerArn.GetValue("ownerArn");
 
         /// <summary>
         /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of the environment (e.g., `ssh` or `ec2`).
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:cloud9/environmentEC2:EnvironmentEC2")]
+    public sealed class EnvironmentEC2Args : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The number of minutes until the running instance is shut down after the environment has last been used.
+        /// </summary>
+        [Input("automaticStopTimeMinutes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticStopTimeMinutes;
+
+        public int? AutomaticStopTimeMinutes => _mAutomaticStopTimeMinutes.GetValue("automaticStopTimeMinutes");
+
+        /// <summary>
+        /// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
+        /// </summary>
+        [Input("connectionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
+
+        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+
+        /// <summary>
+        /// The description of the environment.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+        /// * `amazonlinux-2-x86_64`
+        /// * `amazonlinux-2023-x86_64`
+        /// * `ubuntu-18.04-x86_64`
+        /// * `ubuntu-22.04-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+        /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
+        /// </summary>
+        [Input("imageId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
+
+        /// <summary>
+        /// The type of instance to connect to the environment, e.g., `t2.micro`.
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// The name of the environment.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
+        /// </summary>
+        [Input("ownerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerArn;
+
+        public string? OwnerArn => _mOwnerArn.GetValue("ownerArn");
+
+        /// <summary>
+        /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

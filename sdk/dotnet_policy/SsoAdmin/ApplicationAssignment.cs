@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/applicationAssignment:ApplicationAssignment")]
-    public sealed class ApplicationAssignment : global::Pulumi.PolicyResource
+    public sealed class ApplicationAssignment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the application.
         /// </summary>
         [Input("applicationArn")]
-        public string? ApplicationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
+
+        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
 
         /// <summary>
         /// An identifier for an object in IAM Identity Center, such as a user or group.
         /// </summary>
         [Input("principalId")]
-        public string? PrincipalId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
+
+        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
 
         /// <summary>
         /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
         /// </summary>
         [Input("principalType")]
-        public string? PrincipalType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
+
+        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/applicationAssignment:ApplicationAssignment")]
+    public sealed class ApplicationAssignmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the application.
+        /// </summary>
+        [Input("applicationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
+
+        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+
+        /// <summary>
+        /// An identifier for an object in IAM Identity Center, such as a user or group.
+        /// </summary>
+        [Input("principalId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
+
+        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
+
+        /// <summary>
+        /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        /// </summary>
+        [Input("principalType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
+
+        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
     }
 }

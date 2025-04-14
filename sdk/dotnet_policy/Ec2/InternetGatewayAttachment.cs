@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")]
-    public sealed class InternetGatewayAttachment : global::Pulumi.PolicyResource
+    public sealed class InternetGatewayAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the internet gateway.
         /// </summary>
         [Input("internetGatewayId")]
-        public string? InternetGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayId;
+
+        public string? InternetGatewayId => _mInternetGatewayId.GetValue("internetGatewayId");
 
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")]
+    public sealed class InternetGatewayAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the internet gateway.
+        /// </summary>
+        [Input("internetGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayId;
+
+        public string? InternetGatewayId => _mInternetGatewayId.GetValue("internetGatewayId");
+
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

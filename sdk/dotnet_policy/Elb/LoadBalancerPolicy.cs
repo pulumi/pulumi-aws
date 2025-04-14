@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Elb
 {
     [PolicyResourceType("aws:elb/loadBalancerPolicy:LoadBalancerPolicy")]
-    public sealed class LoadBalancerPolicy : global::Pulumi.PolicyResource
+    public sealed class LoadBalancerPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The load balancer on which the policy is defined.
         /// </summary>
         [Input("loadBalancerName")]
-        public string? LoadBalancerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
+
+        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
 
         /// <summary>
         /// Policy attribute to apply to the policy.
         /// </summary>
         [Input("policyAttributes")]
-        public List<LoadBalancerPolicyPolicyAttribute>? PolicyAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LoadBalancerPolicyPolicyAttribute>> _mPolicyAttributes;
+
+        public List<Outputs.LoadBalancerPolicyPolicyAttribute>? PolicyAttributes => _mPolicyAttributes.GetValue("policyAttributes");
 
         /// <summary>
         /// The name of the load balancer policy.
         /// </summary>
         [Input("policyName")]
-        public string? PolicyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
+
+        public string? PolicyName => _mPolicyName.GetValue("policyName");
 
         /// <summary>
         /// The policy type.
         /// </summary>
         [Input("policyTypeName")]
-        public string? PolicyTypeName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyTypeName;
+
+        public string? PolicyTypeName => _mPolicyTypeName.GetValue("policyTypeName");
+    }
+
+    [PolicyResourceType("aws:elb/loadBalancerPolicy:LoadBalancerPolicy")]
+    public sealed class LoadBalancerPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The load balancer on which the policy is defined.
+        /// </summary>
+        [Input("loadBalancerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
+
+        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
+
+        /// <summary>
+        /// Policy attribute to apply to the policy.
+        /// </summary>
+        [Input("policyAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LoadBalancerPolicyPolicyAttributeArgs>> _mPolicyAttributes;
+
+        public List<Inputs.LoadBalancerPolicyPolicyAttributeArgs>? PolicyAttributes => _mPolicyAttributes.GetValue("policyAttributes");
+
+        /// <summary>
+        /// The name of the load balancer policy.
+        /// </summary>
+        [Input("policyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
+
+        public string? PolicyName => _mPolicyName.GetValue("policyName");
+
+        /// <summary>
+        /// The policy type.
+        /// </summary>
+        [Input("policyTypeName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyTypeName;
+
+        public string? PolicyTypeName => _mPolicyTypeName.GetValue("policyTypeName");
     }
 }

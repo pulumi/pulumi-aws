@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/requestValidator:RequestValidator")]
-    public sealed class RequestValidator : global::Pulumi.PolicyResource
+    public sealed class RequestValidator : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the request validator
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ID of the associated Rest API
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// Boolean whether to validate request body. Defaults to `false`.
         /// </summary>
         [Input("validateRequestBody")]
-        public bool? ValidateRequestBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mValidateRequestBody;
+
+        public bool? ValidateRequestBody => _mValidateRequestBody.GetValue("validateRequestBody");
 
         /// <summary>
         /// Boolean whether to validate request parameters. Defaults to `false`.
         /// </summary>
         [Input("validateRequestParameters")]
-        public bool? ValidateRequestParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mValidateRequestParameters;
+
+        public bool? ValidateRequestParameters => _mValidateRequestParameters.GetValue("validateRequestParameters");
+    }
+
+    [PolicyResourceType("aws:apigateway/requestValidator:RequestValidator")]
+    public sealed class RequestValidatorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the request validator
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ID of the associated Rest API
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// Boolean whether to validate request body. Defaults to `false`.
+        /// </summary>
+        [Input("validateRequestBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mValidateRequestBody;
+
+        public bool? ValidateRequestBody => _mValidateRequestBody.GetValue("validateRequestBody");
+
+        /// <summary>
+        /// Boolean whether to validate request parameters. Defaults to `false`.
+        /// </summary>
+        [Input("validateRequestParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mValidateRequestParameters;
+
+        public bool? ValidateRequestParameters => _mValidateRequestParameters.GetValue("validateRequestParameters");
     }
 }

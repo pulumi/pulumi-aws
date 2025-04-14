@@ -11,66 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Connect
 {
     [PolicyResourceType("aws:connect/phoneNumber:PhoneNumber")]
-    public sealed class PhoneNumber : global::Pulumi.PolicyResource
+    public sealed class PhoneNumber : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the phone number.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
         /// </summary>
         [Input("countryCode")]
-        public string? CountryCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCountryCode;
+
+        public string? CountryCode => _mCountryCode.GetValue("countryCode");
 
         /// <summary>
         /// The description of the phone number.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         /// </summary>
         [Input("phoneNumber")]
-        public string? PhoneNumberValue;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumberValue;
+
+        public string? PhoneNumberValue => _mPhoneNumberValue.GetValue("phoneNumber");
 
         /// <summary>
         /// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
         /// </summary>
         [Input("prefix")]
-        public string? Prefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+
+        public string? Prefix => _mPrefix.GetValue("prefix");
 
         /// <summary>
         /// The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         /// </summary>
         [Input("statuses")]
-        public List<PhoneNumberStatus>? Statuses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PhoneNumberStatus>> _mStatuses;
+
+        public List<Outputs.PhoneNumberStatus>? Statuses => _mStatuses.GetValue("statuses");
 
         /// <summary>
         /// Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
         /// </summary>
         [Input("targetArn")]
-        public string? TargetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+
+        public string? TargetArn => _mTargetArn.GetValue("targetArn");
 
         /// <summary>
         /// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:connect/phoneNumber:PhoneNumber")]
+    public sealed class PhoneNumberArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
+        /// </summary>
+        [Input("countryCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCountryCode;
+
+        public string? CountryCode => _mCountryCode.GetValue("countryCode");
+
+        /// <summary>
+        /// The description of the phone number.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        /// </summary>
+        [Input("prefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+
+        public string? Prefix => _mPrefix.GetValue("prefix");
+
+        /// <summary>
+        /// Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+        /// </summary>
+        [Input("targetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+
+        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+
+        /// <summary>
+        /// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

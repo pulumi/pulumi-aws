@@ -11,34 +11,49 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkMonitor
 {
     [PolicyResourceType("aws:networkmonitor/probe:Probe")]
-    public sealed class Probe : global::Pulumi.PolicyResource
+    public sealed class Probe : global::Pulumi.PolicyResourceOutput
     {
         [Input("addressFamily")]
-        public string? AddressFamily;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
 
         /// <summary>
         /// The ARN of the attachment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The destination IP address. This must be either IPV4 or IPV6.
         /// </summary>
         [Input("destination")]
-        public string? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
 
         /// <summary>
         /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
         /// </summary>
         [Input("destinationPort")]
-        public int? DestinationPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDestinationPort;
+
+        public int? DestinationPort => _mDestinationPort.GetValue("destinationPort");
 
         /// <summary>
         /// The name of the monitor.
         /// </summary>
         [Input("monitorName")]
-        public string? MonitorName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
+
+        public string? MonitorName => _mMonitorName.GetValue("monitorName");
 
         /// <summary>
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
@@ -46,36 +61,126 @@ namespace Pulumi.PolicyPacks.Aws.NetworkMonitor
         /// The following arguments are optional:
         /// </summary>
         [Input("packetSize")]
-        public int? PacketSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPacketSize;
+
+        public int? PacketSize => _mPacketSize.GetValue("packetSize");
 
         [Input("probeId")]
-        public string? ProbeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProbeId;
+
+        public string? ProbeId => _mProbeId.GetValue("probeId");
 
         /// <summary>
         /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
         /// </summary>
         [Input("protocol")]
-        public string? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// The ARN of the subnet.
         /// </summary>
         [Input("sourceArn")]
-        public string? SourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
+
+        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
 
         /// <summary>
         /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:networkmonitor/probe:Probe")]
+    public sealed class ProbeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The destination IP address. This must be either IPV4 or IPV6.
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
+
+        /// <summary>
+        /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
+        /// </summary>
+        [Input("destinationPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDestinationPort;
+
+        public int? DestinationPort => _mDestinationPort.GetValue("destinationPort");
+
+        /// <summary>
+        /// The name of the monitor.
+        /// </summary>
+        [Input("monitorName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
+
+        public string? MonitorName => _mMonitorName.GetValue("monitorName");
+
+        /// <summary>
+        /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("packetSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPacketSize;
+
+        public int? PacketSize => _mPacketSize.GetValue("packetSize");
+
+        /// <summary>
+        /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
+
+        /// <summary>
+        /// The ARN of the subnet.
+        /// </summary>
+        [Input("sourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
+
+        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+
+        /// <summary>
+        /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

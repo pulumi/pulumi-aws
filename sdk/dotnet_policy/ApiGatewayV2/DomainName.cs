@@ -11,48 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
 {
     [PolicyResourceType("aws:apigatewayv2/domainName:DomainName")]
-    public sealed class DomainName : global::Pulumi.PolicyResource
+    public sealed class DomainName : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         /// </summary>
         [Input("apiMappingSelectionExpression")]
-        public string? ApiMappingSelectionExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiMappingSelectionExpression;
+
+        public string? ApiMappingSelectionExpression => _mApiMappingSelectionExpression.GetValue("apiMappingSelectionExpression");
 
         /// <summary>
         /// ARN of the domain name.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Domain name. Must be between 1 and 512 characters in length.
         /// </summary>
         [Input("domainName")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domainName");
 
         /// <summary>
         /// Domain name configuration. See below.
         /// </summary>
         [Input("domainNameConfiguration")]
-        public DomainNameDomainNameConfiguration? DomainNameConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNameDomainNameConfiguration> _mDomainNameConfiguration;
+
+        public Outputs.DomainNameDomainNameConfiguration? DomainNameConfiguration => _mDomainNameConfiguration.GetValue("domainNameConfiguration");
 
         /// <summary>
         /// Mutual TLS authentication configuration for the domain name.
         /// </summary>
         [Input("mutualTlsAuthentication")]
-        public DomainNameMutualTlsAuthentication? MutualTlsAuthentication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNameMutualTlsAuthentication> _mMutualTlsAuthentication;
+
+        public Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication => _mMutualTlsAuthentication.GetValue("mutualTlsAuthentication");
 
         /// <summary>
         /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:apigatewayv2/domainName:DomainName")]
+    public sealed class DomainNameArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Domain name. Must be between 1 and 512 characters in length.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domainName");
+
+        /// <summary>
+        /// Domain name configuration. See below.
+        /// </summary>
+        [Input("domainNameConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNameDomainNameConfigurationArgs> _mDomainNameConfiguration;
+
+        public Inputs.DomainNameDomainNameConfigurationArgs? DomainNameConfiguration => _mDomainNameConfiguration.GetValue("domainNameConfiguration");
+
+        /// <summary>
+        /// Mutual TLS authentication configuration for the domain name.
+        /// </summary>
+        [Input("mutualTlsAuthentication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNameMutualTlsAuthenticationArgs> _mMutualTlsAuthentication;
+
+        public Inputs.DomainNameMutualTlsAuthenticationArgs? MutualTlsAuthentication => _mMutualTlsAuthentication.GetValue("mutualTlsAuthentication");
+
+        /// <summary>
+        /// Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

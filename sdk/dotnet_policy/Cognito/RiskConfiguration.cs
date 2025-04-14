@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/riskConfiguration:RiskConfiguration")]
-    public sealed class RiskConfiguration : global::Pulumi.PolicyResource
+    public sealed class RiskConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The account takeover risk configuration. See details below.
         /// </summary>
         [Input("accountTakeoverRiskConfiguration")]
-        public RiskConfigurationAccountTakeoverRiskConfiguration? AccountTakeoverRiskConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationAccountTakeoverRiskConfiguration> _mAccountTakeoverRiskConfiguration;
+
+        public Outputs.RiskConfigurationAccountTakeoverRiskConfiguration? AccountTakeoverRiskConfiguration => _mAccountTakeoverRiskConfiguration.GetValue("accountTakeoverRiskConfiguration");
 
         /// <summary>
         /// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
         /// </summary>
         [Input("clientId")]
-        public string? ClientId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+
+        public string? ClientId => _mClientId.GetValue("clientId");
 
         /// <summary>
         /// The compromised credentials risk configuration. See details below.
         /// </summary>
         [Input("compromisedCredentialsRiskConfiguration")]
-        public RiskConfigurationCompromisedCredentialsRiskConfiguration? CompromisedCredentialsRiskConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration> _mCompromisedCredentialsRiskConfiguration;
+
+        public Outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration? CompromisedCredentialsRiskConfiguration => _mCompromisedCredentialsRiskConfiguration.GetValue("compromisedCredentialsRiskConfiguration");
 
         /// <summary>
         /// The configuration to override the risk decision. See details below.
         /// </summary>
         [Input("riskExceptionConfiguration")]
-        public RiskConfigurationRiskExceptionConfiguration? RiskExceptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationRiskExceptionConfiguration> _mRiskExceptionConfiguration;
+
+        public Outputs.RiskConfigurationRiskExceptionConfiguration? RiskExceptionConfiguration => _mRiskExceptionConfiguration.GetValue("riskExceptionConfiguration");
 
         /// <summary>
         /// The user pool ID.
         /// </summary>
         [Input("userPoolId")]
-        public string? UserPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+    }
+
+    [PolicyResourceType("aws:cognito/riskConfiguration:RiskConfiguration")]
+    public sealed class RiskConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The account takeover risk configuration. See details below.
+        /// </summary>
+        [Input("accountTakeoverRiskConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationArgs> _mAccountTakeoverRiskConfiguration;
+
+        public Inputs.RiskConfigurationAccountTakeoverRiskConfigurationArgs? AccountTakeoverRiskConfiguration => _mAccountTakeoverRiskConfiguration.GetValue("accountTakeoverRiskConfiguration");
+
+        /// <summary>
+        /// The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
+        /// </summary>
+        [Input("clientId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+
+        public string? ClientId => _mClientId.GetValue("clientId");
+
+        /// <summary>
+        /// The compromised credentials risk configuration. See details below.
+        /// </summary>
+        [Input("compromisedCredentialsRiskConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationArgs> _mCompromisedCredentialsRiskConfiguration;
+
+        public Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationArgs? CompromisedCredentialsRiskConfiguration => _mCompromisedCredentialsRiskConfiguration.GetValue("compromisedCredentialsRiskConfiguration");
+
+        /// <summary>
+        /// The configuration to override the risk decision. See details below.
+        /// </summary>
+        [Input("riskExceptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RiskConfigurationRiskExceptionConfigurationArgs> _mRiskExceptionConfiguration;
+
+        public Inputs.RiskConfigurationRiskExceptionConfigurationArgs? RiskExceptionConfiguration => _mRiskExceptionConfiguration.GetValue("riskExceptionConfiguration");
+
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
+        [Input("userPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
     }
 }

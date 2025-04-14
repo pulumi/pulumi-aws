@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GuardDuty
 {
     [PolicyResourceType("aws:guardduty/inviteAccepter:InviteAccepter")]
-    public sealed class InviteAccepter : global::Pulumi.PolicyResource
+    public sealed class InviteAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The detector ID of the member GuardDuty account.
         /// </summary>
         [Input("detectorId")]
-        public string? DetectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
 
         /// <summary>
         /// AWS account ID for primary account.
         /// </summary>
         [Input("masterAccountId")]
-        public string? MasterAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountId;
+
+        public string? MasterAccountId => _mMasterAccountId.GetValue("masterAccountId");
+    }
+
+    [PolicyResourceType("aws:guardduty/inviteAccepter:InviteAccepter")]
+    public sealed class InviteAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The detector ID of the member GuardDuty account.
+        /// </summary>
+        [Input("detectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+
+        /// <summary>
+        /// AWS account ID for primary account.
+        /// </summary>
+        [Input("masterAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountId;
+
+        public string? MasterAccountId => _mMasterAccountId.GetValue("masterAccountId");
     }
 }

@@ -11,54 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/userPoolUICustomization:UserPoolUICustomization")]
-    public sealed class UserPoolUICustomization : global::Pulumi.PolicyResource
+    public sealed class UserPoolUICustomization : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         /// </summary>
         [Input("clientId")]
-        public string? ClientId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+
+        public string? ClientId => _mClientId.GetValue("clientId");
 
         /// <summary>
         /// The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         /// </summary>
         [Input("creationDate")]
-        public string? CreationDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
+
+        public string? CreationDate => _mCreationDate.GetValue("creationDate");
 
         /// <summary>
         /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         /// </summary>
         [Input("css")]
-        public string? Css;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCss;
+
+        public string? Css => _mCss.GetValue("css");
 
         /// <summary>
         /// The CSS version number.
         /// </summary>
         [Input("cssVersion")]
-        public string? CssVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCssVersion;
+
+        public string? CssVersion => _mCssVersion.GetValue("cssVersion");
 
         /// <summary>
         /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         /// </summary>
         [Input("imageFile")]
-        public string? ImageFile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageFile;
+
+        public string? ImageFile => _mImageFile.GetValue("imageFile");
 
         /// <summary>
         /// The logo image URL for the UI customization.
         /// </summary>
         [Input("imageUrl")]
-        public string? ImageUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageUrl;
+
+        public string? ImageUrl => _mImageUrl.GetValue("imageUrl");
 
         /// <summary>
         /// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         /// </summary>
         [Input("lastModifiedDate")]
-        public string? LastModifiedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedDate;
+
+        public string? LastModifiedDate => _mLastModifiedDate.GetValue("lastModifiedDate");
 
         /// <summary>
         /// The user pool ID for the user pool.
         /// </summary>
         [Input("userPoolId")]
-        public string? UserPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+    }
+
+    [PolicyResourceType("aws:cognito/userPoolUICustomization:UserPoolUICustomization")]
+    public sealed class UserPoolUICustomizationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
+        /// </summary>
+        [Input("clientId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+
+        public string? ClientId => _mClientId.GetValue("clientId");
+
+        /// <summary>
+        /// The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
+        /// </summary>
+        [Input("css")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCss;
+
+        public string? Css => _mCss.GetValue("css");
+
+        /// <summary>
+        /// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        /// </summary>
+        [Input("imageFile")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageFile;
+
+        public string? ImageFile => _mImageFile.GetValue("imageFile");
+
+        /// <summary>
+        /// The user pool ID for the user pool.
+        /// </summary>
+        [Input("userPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
     }
 }

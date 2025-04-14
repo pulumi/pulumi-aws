@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/instancePublicPorts:InstancePublicPorts")]
-    public sealed class InstancePublicPorts : global::Pulumi.PolicyResource
+    public sealed class InstancePublicPorts : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the Lightsail Instance.
         /// </summary>
         [Input("instanceName")]
-        public string? InstanceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
+
+        public string? InstanceName => _mInstanceName.GetValue("instanceName");
 
         /// <summary>
         /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         /// </summary>
         [Input("portInfos")]
-        public List<InstancePublicPortsPortInfo>? PortInfos;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstancePublicPortsPortInfo>> _mPortInfos;
+
+        public List<Outputs.InstancePublicPortsPortInfo>? PortInfos => _mPortInfos.GetValue("portInfos");
+    }
+
+    [PolicyResourceType("aws:lightsail/instancePublicPorts:InstancePublicPorts")]
+    public sealed class InstancePublicPortsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Lightsail Instance.
+        /// </summary>
+        [Input("instanceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
+
+        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+
+        /// <summary>
+        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        /// </summary>
+        [Input("portInfos")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstancePublicPortsPortInfoArgs>> _mPortInfos;
+
+        public List<Inputs.InstancePublicPortsPortInfoArgs>? PortInfos => _mPortInfos.GetValue("portInfos");
     }
 }

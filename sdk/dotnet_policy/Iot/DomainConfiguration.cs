@@ -11,78 +11,199 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/domainConfiguration:DomainConfiguration")]
-    public sealed class DomainConfiguration : global::Pulumi.PolicyResource
+    public sealed class DomainConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the domain configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         /// </summary>
         [Input("authorizerConfig")]
-        public DomainConfigurationAuthorizerConfig? AuthorizerConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainConfigurationAuthorizerConfig> _mAuthorizerConfig;
+
+        public Outputs.DomainConfigurationAuthorizerConfig? AuthorizerConfig => _mAuthorizerConfig.GetValue("authorizerConfig");
 
         /// <summary>
         /// Fully-qualified domain name.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The type of the domain.
         /// </summary>
         [Input("domainType")]
-        public string? DomainType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainType;
+
+        public string? DomainType => _mDomainType.GetValue("domainType");
 
         /// <summary>
         /// The name of the domain configuration. This value must be unique to a region.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         /// </summary>
         [Input("serverCertificateArns")]
-        public List<string>? ServerCertificateArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mServerCertificateArns;
+
+        public List<string>? ServerCertificateArns => _mServerCertificateArns.GetValue("serverCertificateArns");
 
         /// <summary>
         /// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         /// </summary>
         [Input("serviceType")]
-        public string? ServiceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
+
+        public string? ServiceType => _mServiceType.GetValue("serviceType");
 
         /// <summary>
         /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         /// </summary>
         [Input("tlsConfig")]
-        public DomainConfigurationTlsConfig? TlsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainConfigurationTlsConfig> _mTlsConfig;
+
+        public Outputs.DomainConfigurationTlsConfig? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
 
         /// <summary>
         /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         /// </summary>
         [Input("validationCertificateArn")]
-        public string? ValidationCertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidationCertificateArn;
+
+        public string? ValidationCertificateArn => _mValidationCertificateArn.GetValue("validationCertificateArn");
+    }
+
+    [PolicyResourceType("aws:iot/domainConfiguration:DomainConfiguration")]
+    public sealed class DomainConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
+        /// </summary>
+        [Input("authorizerConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainConfigurationAuthorizerConfigArgs> _mAuthorizerConfig;
+
+        public Inputs.DomainConfigurationAuthorizerConfigArgs? AuthorizerConfig => _mAuthorizerConfig.GetValue("authorizerConfig");
+
+        /// <summary>
+        /// Fully-qualified domain name.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// The name of the domain configuration. This value must be unique to a region.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
+        /// </summary>
+        [Input("serverCertificateArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mServerCertificateArns;
+
+        public List<string>? ServerCertificateArns => _mServerCertificateArns.GetValue("serverCertificateArns");
+
+        /// <summary>
+        /// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
+        /// </summary>
+        [Input("serviceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
+
+        public string? ServiceType => _mServiceType.GetValue("serviceType");
+
+        /// <summary>
+        /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
+        /// </summary>
+        [Input("tlsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainConfigurationTlsConfigArgs> _mTlsConfig;
+
+        public Inputs.DomainConfigurationTlsConfigArgs? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
+
+        /// <summary>
+        /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
+        /// </summary>
+        [Input("validationCertificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidationCertificateArn;
+
+        public string? ValidationCertificateArn => _mValidationCertificateArn.GetValue("validationCertificateArn");
     }
 }

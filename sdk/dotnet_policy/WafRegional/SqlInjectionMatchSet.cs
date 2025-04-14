@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafRegional
 {
     [PolicyResourceType("aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet")]
-    public sealed class SqlInjectionMatchSet : global::Pulumi.PolicyResource
+    public sealed class SqlInjectionMatchSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name or description of the SizeConstraintSet.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         /// </summary>
         [Input("sqlInjectionMatchTuples")]
-        public List<SqlInjectionMatchSetSqlInjectionMatchTuple>? SqlInjectionMatchTuples;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SqlInjectionMatchSetSqlInjectionMatchTuple>> _mSqlInjectionMatchTuples;
+
+        public List<Outputs.SqlInjectionMatchSetSqlInjectionMatchTuple>? SqlInjectionMatchTuples => _mSqlInjectionMatchTuples.GetValue("sqlInjectionMatchTuples");
+    }
+
+    [PolicyResourceType("aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet")]
+    public sealed class SqlInjectionMatchSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name or description of the SizeConstraintSet.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        /// </summary>
+        [Input("sqlInjectionMatchTuples")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>> _mSqlInjectionMatchTuples;
+
+        public List<Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs>? SqlInjectionMatchTuples => _mSqlInjectionMatchTuples.GetValue("sqlInjectionMatchTuples");
     }
 }

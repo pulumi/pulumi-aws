@@ -11,84 +11,235 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/dataSource:DataSource")]
-    public sealed class DataSource : global::Pulumi.PolicyResource
+    public sealed class DataSource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// API ID for the GraphQL API for the data source.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// ARN
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the data source.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// DynamoDB settings. See `dynamodb_config` Block for details.
         /// </summary>
         [Input("dynamodbConfig")]
-        public DataSourceDynamodbConfig? DynamodbConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceDynamodbConfig> _mDynamodbConfig;
+
+        public Outputs.DataSourceDynamodbConfig? DynamodbConfig => _mDynamodbConfig.GetValue("dynamodbConfig");
 
         /// <summary>
         /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
         /// </summary>
         [Input("elasticsearchConfig")]
-        public DataSourceElasticsearchConfig? ElasticsearchConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceElasticsearchConfig> _mElasticsearchConfig;
+
+        public Outputs.DataSourceElasticsearchConfig? ElasticsearchConfig => _mElasticsearchConfig.GetValue("elasticsearchConfig");
 
         /// <summary>
         /// AWS EventBridge settings. See `event_bridge_config` Block for details.
         /// </summary>
         [Input("eventBridgeConfig")]
-        public DataSourceEventBridgeConfig? EventBridgeConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceEventBridgeConfig> _mEventBridgeConfig;
+
+        public Outputs.DataSourceEventBridgeConfig? EventBridgeConfig => _mEventBridgeConfig.GetValue("eventBridgeConfig");
 
         /// <summary>
         /// HTTP settings. See `http_config` Block for details.
         /// </summary>
         [Input("httpConfig")]
-        public DataSourceHttpConfig? HttpConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceHttpConfig> _mHttpConfig;
+
+        public Outputs.DataSourceHttpConfig? HttpConfig => _mHttpConfig.GetValue("httpConfig");
 
         /// <summary>
         /// AWS Lambda settings. See `lambda_config` Block for details.
         /// </summary>
         [Input("lambdaConfig")]
-        public DataSourceLambdaConfig? LambdaConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceLambdaConfig> _mLambdaConfig;
+
+        public Outputs.DataSourceLambdaConfig? LambdaConfig => _mLambdaConfig.GetValue("lambdaConfig");
 
         /// <summary>
         /// User-supplied name for the data source.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
         /// </summary>
         [Input("opensearchserviceConfig")]
-        public DataSourceOpensearchserviceConfig? OpensearchserviceConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceOpensearchserviceConfig> _mOpensearchserviceConfig;
+
+        public Outputs.DataSourceOpensearchserviceConfig? OpensearchserviceConfig => _mOpensearchserviceConfig.GetValue("opensearchserviceConfig");
 
         /// <summary>
         /// AWS RDS settings. See `relational_database_config` Block for details.
         /// </summary>
         [Input("relationalDatabaseConfig")]
-        public DataSourceRelationalDatabaseConfig? RelationalDatabaseConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceRelationalDatabaseConfig> _mRelationalDatabaseConfig;
+
+        public Outputs.DataSourceRelationalDatabaseConfig? RelationalDatabaseConfig => _mRelationalDatabaseConfig.GetValue("relationalDatabaseConfig");
 
         /// <summary>
         /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Input("serviceRoleArn")]
-        public string? ServiceRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+
+        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
 
         /// <summary>
         /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:appsync/dataSource:DataSource")]
+    public sealed class DataSourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// API ID for the GraphQL API for the data source.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// Description of the data source.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// DynamoDB settings. See `dynamodb_config` Block for details.
+        /// </summary>
+        [Input("dynamodbConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceDynamodbConfigArgs> _mDynamodbConfig;
+
+        public Inputs.DataSourceDynamodbConfigArgs? DynamodbConfig => _mDynamodbConfig.GetValue("dynamodbConfig");
+
+        /// <summary>
+        /// Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
+        /// </summary>
+        [Input("elasticsearchConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceElasticsearchConfigArgs> _mElasticsearchConfig;
+
+        public Inputs.DataSourceElasticsearchConfigArgs? ElasticsearchConfig => _mElasticsearchConfig.GetValue("elasticsearchConfig");
+
+        /// <summary>
+        /// AWS EventBridge settings. See `event_bridge_config` Block for details.
+        /// </summary>
+        [Input("eventBridgeConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceEventBridgeConfigArgs> _mEventBridgeConfig;
+
+        public Inputs.DataSourceEventBridgeConfigArgs? EventBridgeConfig => _mEventBridgeConfig.GetValue("eventBridgeConfig");
+
+        /// <summary>
+        /// HTTP settings. See `http_config` Block for details.
+        /// </summary>
+        [Input("httpConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceHttpConfigArgs> _mHttpConfig;
+
+        public Inputs.DataSourceHttpConfigArgs? HttpConfig => _mHttpConfig.GetValue("httpConfig");
+
+        /// <summary>
+        /// AWS Lambda settings. See `lambda_config` Block for details.
+        /// </summary>
+        [Input("lambdaConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceLambdaConfigArgs> _mLambdaConfig;
+
+        public Inputs.DataSourceLambdaConfigArgs? LambdaConfig => _mLambdaConfig.GetValue("lambdaConfig");
+
+        /// <summary>
+        /// User-supplied name for the data source.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        /// </summary>
+        [Input("opensearchserviceConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceOpensearchserviceConfigArgs> _mOpensearchserviceConfig;
+
+        public Inputs.DataSourceOpensearchserviceConfigArgs? OpensearchserviceConfig => _mOpensearchserviceConfig.GetValue("opensearchserviceConfig");
+
+        /// <summary>
+        /// AWS RDS settings. See `relational_database_config` Block for details.
+        /// </summary>
+        [Input("relationalDatabaseConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceRelationalDatabaseConfigArgs> _mRelationalDatabaseConfig;
+
+        public Inputs.DataSourceRelationalDatabaseConfigArgs? RelationalDatabaseConfig => _mRelationalDatabaseConfig.GetValue("relationalDatabaseConfig");
+
+        /// <summary>
+        /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
+        /// </summary>
+        [Input("serviceRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+
+        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+
+        /// <summary>
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

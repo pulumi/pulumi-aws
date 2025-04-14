@@ -11,192 +11,532 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sns
 {
     [PolicyResourceType("aws:sns/topic:Topic")]
-    public sealed class Topic : global::Pulumi.PolicyResource
+    public sealed class Topic : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
         [Input("applicationFailureFeedbackRoleArn")]
-        public string? ApplicationFailureFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationFailureFeedbackRoleArn;
+
+        public string? ApplicationFailureFeedbackRoleArn => _mApplicationFailureFeedbackRoleArn.GetValue("applicationFailureFeedbackRoleArn");
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
         [Input("applicationSuccessFeedbackRoleArn")]
-        public string? ApplicationSuccessFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationSuccessFeedbackRoleArn;
+
+        public string? ApplicationSuccessFeedbackRoleArn => _mApplicationSuccessFeedbackRoleArn.GetValue("applicationSuccessFeedbackRoleArn");
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
         [Input("applicationSuccessFeedbackSampleRate")]
-        public int? ApplicationSuccessFeedbackSampleRate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationSuccessFeedbackSampleRate;
+
+        public int? ApplicationSuccessFeedbackSampleRate => _mApplicationSuccessFeedbackSampleRate.GetValue("applicationSuccessFeedbackSampleRate");
 
         /// <summary>
         /// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         /// </summary>
         [Input("archivePolicy")]
-        public string? ArchivePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArchivePolicy;
+
+        public string? ArchivePolicy => _mArchivePolicy.GetValue("archivePolicy");
 
         /// <summary>
         /// The ARN of the SNS topic, as a more obvious property (clone of id)
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The oldest timestamp at which a FIFO topic subscriber can start a replay.
         /// </summary>
         [Input("beginningArchiveTime")]
-        public string? BeginningArchiveTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBeginningArchiveTime;
+
+        public string? BeginningArchiveTime => _mBeginningArchiveTime.GetValue("beginningArchiveTime");
 
         /// <summary>
         /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         /// </summary>
         [Input("contentBasedDeduplication")]
-        public bool? ContentBasedDeduplication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mContentBasedDeduplication;
+
+        public bool? ContentBasedDeduplication => _mContentBasedDeduplication.GetValue("contentBasedDeduplication");
 
         /// <summary>
         /// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         /// </summary>
         [Input("deliveryPolicy")]
-        public string? DeliveryPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryPolicy;
+
+        public string? DeliveryPolicy => _mDeliveryPolicy.GetValue("deliveryPolicy");
 
         /// <summary>
         /// The display name for the topic
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         /// </summary>
         [Input("fifoTopic")]
-        public bool? FifoTopic;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFifoTopic;
+
+        public bool? FifoTopic => _mFifoTopic.GetValue("fifoTopic");
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
         [Input("firehoseFailureFeedbackRoleArn")]
-        public string? FirehoseFailureFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseFailureFeedbackRoleArn;
+
+        public string? FirehoseFailureFeedbackRoleArn => _mFirehoseFailureFeedbackRoleArn.GetValue("firehoseFailureFeedbackRoleArn");
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
         [Input("firehoseSuccessFeedbackRoleArn")]
-        public string? FirehoseSuccessFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseSuccessFeedbackRoleArn;
+
+        public string? FirehoseSuccessFeedbackRoleArn => _mFirehoseSuccessFeedbackRoleArn.GetValue("firehoseSuccessFeedbackRoleArn");
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
         [Input("firehoseSuccessFeedbackSampleRate")]
-        public int? FirehoseSuccessFeedbackSampleRate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFirehoseSuccessFeedbackSampleRate;
+
+        public int? FirehoseSuccessFeedbackSampleRate => _mFirehoseSuccessFeedbackSampleRate.GetValue("firehoseSuccessFeedbackSampleRate");
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
         [Input("httpFailureFeedbackRoleArn")]
-        public string? HttpFailureFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpFailureFeedbackRoleArn;
+
+        public string? HttpFailureFeedbackRoleArn => _mHttpFailureFeedbackRoleArn.GetValue("httpFailureFeedbackRoleArn");
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
         [Input("httpSuccessFeedbackRoleArn")]
-        public string? HttpSuccessFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpSuccessFeedbackRoleArn;
+
+        public string? HttpSuccessFeedbackRoleArn => _mHttpSuccessFeedbackRoleArn.GetValue("httpSuccessFeedbackRoleArn");
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
         [Input("httpSuccessFeedbackSampleRate")]
-        public int? HttpSuccessFeedbackSampleRate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHttpSuccessFeedbackSampleRate;
+
+        public int? HttpSuccessFeedbackSampleRate => _mHttpSuccessFeedbackSampleRate.GetValue("httpSuccessFeedbackSampleRate");
 
         /// <summary>
         /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
         /// </summary>
         [Input("kmsMasterKeyId")]
-        public string? KmsMasterKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsMasterKeyId;
+
+        public string? KmsMasterKeyId => _mKmsMasterKeyId.GetValue("kmsMasterKeyId");
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
         [Input("lambdaFailureFeedbackRoleArn")]
-        public string? LambdaFailureFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFailureFeedbackRoleArn;
+
+        public string? LambdaFailureFeedbackRoleArn => _mLambdaFailureFeedbackRoleArn.GetValue("lambdaFailureFeedbackRoleArn");
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
         [Input("lambdaSuccessFeedbackRoleArn")]
-        public string? LambdaSuccessFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaSuccessFeedbackRoleArn;
+
+        public string? LambdaSuccessFeedbackRoleArn => _mLambdaSuccessFeedbackRoleArn.GetValue("lambdaSuccessFeedbackRoleArn");
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
         [Input("lambdaSuccessFeedbackSampleRate")]
-        public int? LambdaSuccessFeedbackSampleRate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLambdaSuccessFeedbackSampleRate;
+
+        public int? LambdaSuccessFeedbackSampleRate => _mLambdaSuccessFeedbackSampleRate.GetValue("lambdaSuccessFeedbackSampleRate");
 
         /// <summary>
         /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// The AWS Account ID of the SNS topic owner
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         /// </summary>
         [Input("signatureVersion")]
-        public int? SignatureVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSignatureVersion;
+
+        public int? SignatureVersion => _mSignatureVersion.GetValue("signatureVersion");
 
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
         [Input("sqsFailureFeedbackRoleArn")]
-        public string? SqsFailureFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSqsFailureFeedbackRoleArn;
+
+        public string? SqsFailureFeedbackRoleArn => _mSqsFailureFeedbackRoleArn.GetValue("sqsFailureFeedbackRoleArn");
 
         /// <summary>
         /// The IAM role permitted to receive success feedback for this topic
         /// </summary>
         [Input("sqsSuccessFeedbackRoleArn")]
-        public string? SqsSuccessFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSqsSuccessFeedbackRoleArn;
+
+        public string? SqsSuccessFeedbackRoleArn => _mSqsSuccessFeedbackRoleArn.GetValue("sqsSuccessFeedbackRoleArn");
 
         /// <summary>
         /// Percentage of success to sample
         /// </summary>
         [Input("sqsSuccessFeedbackSampleRate")]
-        public int? SqsSuccessFeedbackSampleRate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSqsSuccessFeedbackSampleRate;
+
+        public int? SqsSuccessFeedbackSampleRate => _mSqsSuccessFeedbackSampleRate.GetValue("sqsSuccessFeedbackSampleRate");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         /// </summary>
         [Input("tracingConfig")]
-        public string? TracingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTracingConfig;
+
+        public string? TracingConfig => _mTracingConfig.GetValue("tracingConfig");
+    }
+
+    [PolicyResourceType("aws:sns/topic:Topic")]
+    public sealed class TopicArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// IAM role for failure feedback
+        /// </summary>
+        [Input("applicationFailureFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationFailureFeedbackRoleArn;
+
+        public string? ApplicationFailureFeedbackRoleArn => _mApplicationFailureFeedbackRoleArn.GetValue("applicationFailureFeedbackRoleArn");
+
+        /// <summary>
+        /// The IAM role permitted to receive success feedback for this topic
+        /// </summary>
+        [Input("applicationSuccessFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationSuccessFeedbackRoleArn;
+
+        public string? ApplicationSuccessFeedbackRoleArn => _mApplicationSuccessFeedbackRoleArn.GetValue("applicationSuccessFeedbackRoleArn");
+
+        /// <summary>
+        /// Percentage of success to sample
+        /// </summary>
+        [Input("applicationSuccessFeedbackSampleRate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationSuccessFeedbackSampleRate;
+
+        public int? ApplicationSuccessFeedbackSampleRate => _mApplicationSuccessFeedbackSampleRate.GetValue("applicationSuccessFeedbackSampleRate");
+
+        /// <summary>
+        /// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+        /// </summary>
+        [Input("archivePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArchivePolicy;
+
+        public string? ArchivePolicy => _mArchivePolicy.GetValue("archivePolicy");
+
+        /// <summary>
+        /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
+        /// </summary>
+        [Input("contentBasedDeduplication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mContentBasedDeduplication;
+
+        public bool? ContentBasedDeduplication => _mContentBasedDeduplication.GetValue("contentBasedDeduplication");
+
+        /// <summary>
+        /// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
+        /// </summary>
+        [Input("deliveryPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryPolicy;
+
+        public string? DeliveryPolicy => _mDeliveryPolicy.GetValue("deliveryPolicy");
+
+        /// <summary>
+        /// The display name for the topic
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
+        /// </summary>
+        [Input("fifoTopic")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFifoTopic;
+
+        public bool? FifoTopic => _mFifoTopic.GetValue("fifoTopic");
+
+        /// <summary>
+        /// IAM role for failure feedback
+        /// </summary>
+        [Input("firehoseFailureFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseFailureFeedbackRoleArn;
+
+        public string? FirehoseFailureFeedbackRoleArn => _mFirehoseFailureFeedbackRoleArn.GetValue("firehoseFailureFeedbackRoleArn");
+
+        /// <summary>
+        /// The IAM role permitted to receive success feedback for this topic
+        /// </summary>
+        [Input("firehoseSuccessFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseSuccessFeedbackRoleArn;
+
+        public string? FirehoseSuccessFeedbackRoleArn => _mFirehoseSuccessFeedbackRoleArn.GetValue("firehoseSuccessFeedbackRoleArn");
+
+        /// <summary>
+        /// Percentage of success to sample
+        /// </summary>
+        [Input("firehoseSuccessFeedbackSampleRate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFirehoseSuccessFeedbackSampleRate;
+
+        public int? FirehoseSuccessFeedbackSampleRate => _mFirehoseSuccessFeedbackSampleRate.GetValue("firehoseSuccessFeedbackSampleRate");
+
+        /// <summary>
+        /// IAM role for failure feedback
+        /// </summary>
+        [Input("httpFailureFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpFailureFeedbackRoleArn;
+
+        public string? HttpFailureFeedbackRoleArn => _mHttpFailureFeedbackRoleArn.GetValue("httpFailureFeedbackRoleArn");
+
+        /// <summary>
+        /// The IAM role permitted to receive success feedback for this topic
+        /// </summary>
+        [Input("httpSuccessFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpSuccessFeedbackRoleArn;
+
+        public string? HttpSuccessFeedbackRoleArn => _mHttpSuccessFeedbackRoleArn.GetValue("httpSuccessFeedbackRoleArn");
+
+        /// <summary>
+        /// Percentage of success to sample
+        /// </summary>
+        [Input("httpSuccessFeedbackSampleRate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHttpSuccessFeedbackSampleRate;
+
+        public int? HttpSuccessFeedbackSampleRate => _mHttpSuccessFeedbackSampleRate.GetValue("httpSuccessFeedbackSampleRate");
+
+        /// <summary>
+        /// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
+        /// </summary>
+        [Input("kmsMasterKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsMasterKeyId;
+
+        public string? KmsMasterKeyId => _mKmsMasterKeyId.GetValue("kmsMasterKeyId");
+
+        /// <summary>
+        /// IAM role for failure feedback
+        /// </summary>
+        [Input("lambdaFailureFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFailureFeedbackRoleArn;
+
+        public string? LambdaFailureFeedbackRoleArn => _mLambdaFailureFeedbackRoleArn.GetValue("lambdaFailureFeedbackRoleArn");
+
+        /// <summary>
+        /// The IAM role permitted to receive success feedback for this topic
+        /// </summary>
+        [Input("lambdaSuccessFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaSuccessFeedbackRoleArn;
+
+        public string? LambdaSuccessFeedbackRoleArn => _mLambdaSuccessFeedbackRoleArn.GetValue("lambdaSuccessFeedbackRoleArn");
+
+        /// <summary>
+        /// Percentage of success to sample
+        /// </summary>
+        [Input("lambdaSuccessFeedbackSampleRate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLambdaSuccessFeedbackSampleRate;
+
+        public int? LambdaSuccessFeedbackSampleRate => _mLambdaSuccessFeedbackSampleRate.GetValue("lambdaSuccessFeedbackSampleRate");
+
+        /// <summary>
+        /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// The fully-formed AWS policy as JSON.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
+        /// </summary>
+        [Input("signatureVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSignatureVersion;
+
+        public int? SignatureVersion => _mSignatureVersion.GetValue("signatureVersion");
+
+        /// <summary>
+        /// IAM role for failure feedback
+        /// </summary>
+        [Input("sqsFailureFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSqsFailureFeedbackRoleArn;
+
+        public string? SqsFailureFeedbackRoleArn => _mSqsFailureFeedbackRoleArn.GetValue("sqsFailureFeedbackRoleArn");
+
+        /// <summary>
+        /// The IAM role permitted to receive success feedback for this topic
+        /// </summary>
+        [Input("sqsSuccessFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSqsSuccessFeedbackRoleArn;
+
+        public string? SqsSuccessFeedbackRoleArn => _mSqsSuccessFeedbackRoleArn.GetValue("sqsSuccessFeedbackRoleArn");
+
+        /// <summary>
+        /// Percentage of success to sample
+        /// </summary>
+        [Input("sqsSuccessFeedbackSampleRate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSqsSuccessFeedbackSampleRate;
+
+        public int? SqsSuccessFeedbackSampleRate => _mSqsSuccessFeedbackSampleRate.GetValue("sqsSuccessFeedbackSampleRate");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
+        /// </summary>
+        [Input("tracingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTracingConfig;
+
+        public string? TracingConfig => _mTracingConfig.GetValue("tracingConfig");
     }
 }

@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/keyGroup:KeyGroup")]
-    public sealed class KeyGroup : global::Pulumi.PolicyResource
+    public sealed class KeyGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A comment to describe the key group..
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// The identifier for this version of the key group.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// A list of the identifiers of the public keys in the key group.
         /// </summary>
         [Input("items")]
-        public List<string>? Items;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mItems;
+
+        public List<string>? Items => _mItems.GetValue("items");
 
         /// <summary>
         /// A name to identify the key group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:cloudfront/keyGroup:KeyGroup")]
+    public sealed class KeyGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A comment to describe the key group..
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// A list of the identifiers of the public keys in the key group.
+        /// </summary>
+        [Input("items")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mItems;
+
+        public List<string>? Items => _mItems.GetValue("items");
+
+        /// <summary>
+        /// A name to identify the key group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

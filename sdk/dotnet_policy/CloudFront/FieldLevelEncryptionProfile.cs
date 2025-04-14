@@ -11,42 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")]
-    public sealed class FieldLevelEncryptionProfile : global::Pulumi.PolicyResource
+    public sealed class FieldLevelEncryptionProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Field Level Encryption Profile ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
         /// </summary>
         [Input("callerReference")]
-        public string? CallerReference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallerReference;
+
+        public string? CallerReference => _mCallerReference.GetValue("callerReference");
 
         /// <summary>
         /// An optional comment about the Field Level Encryption Profile.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         /// </summary>
         [Input("encryptionEntities")]
-        public FieldLevelEncryptionProfileEncryptionEntities? EncryptionEntities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FieldLevelEncryptionProfileEncryptionEntities> _mEncryptionEntities;
+
+        public Outputs.FieldLevelEncryptionProfileEncryptionEntities? EncryptionEntities => _mEncryptionEntities.GetValue("encryptionEntities");
 
         /// <summary>
         /// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// The name of the Field Level Encryption Profile.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")]
+    public sealed class FieldLevelEncryptionProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An optional comment about the Field Level Encryption Profile.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+        /// </summary>
+        [Input("encryptionEntities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs> _mEncryptionEntities;
+
+        public Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs? EncryptionEntities => _mEncryptionEntities.GetValue("encryptionEntities");
+
+        /// <summary>
+        /// The name of the Field Level Encryption Profile.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

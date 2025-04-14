@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/hsmConfiguration:HsmConfiguration")]
-    public sealed class HsmConfiguration : global::Pulumi.PolicyResource
+    public sealed class HsmConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A text description of the HSM configuration to be created.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
         /// </summary>
         [Input("hsmConfigurationIdentifier")]
-        public string? HsmConfigurationIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmConfigurationIdentifier;
+
+        public string? HsmConfigurationIdentifier => _mHsmConfigurationIdentifier.GetValue("hsmConfigurationIdentifier");
 
         /// <summary>
         /// The IP address that the Amazon Redshift cluster must use to access the HSM.
         /// </summary>
         [Input("hsmIpAddress")]
-        public string? HsmIpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmIpAddress;
+
+        public string? HsmIpAddress => _mHsmIpAddress.GetValue("hsmIpAddress");
 
         /// <summary>
         /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         /// </summary>
         [Input("hsmPartitionName")]
-        public string? HsmPartitionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmPartitionName;
+
+        public string? HsmPartitionName => _mHsmPartitionName.GetValue("hsmPartitionName");
 
         /// <summary>
         /// The password required to access the HSM partition.
         /// </summary>
         [Input("hsmPartitionPassword")]
-        public string? HsmPartitionPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmPartitionPassword;
+
+        public string? HsmPartitionPassword => _mHsmPartitionPassword.GetValue("hsmPartitionPassword");
 
         /// <summary>
         /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
         /// </summary>
         [Input("hsmServerPublicCertificate")]
-        public string? HsmServerPublicCertificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmServerPublicCertificate;
+
+        public string? HsmServerPublicCertificate => _mHsmServerPublicCertificate.GetValue("hsmServerPublicCertificate");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:redshift/hsmConfiguration:HsmConfiguration")]
+    public sealed class HsmConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A text description of the HSM configuration to be created.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
+        /// </summary>
+        [Input("hsmConfigurationIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmConfigurationIdentifier;
+
+        public string? HsmConfigurationIdentifier => _mHsmConfigurationIdentifier.GetValue("hsmConfigurationIdentifier");
+
+        /// <summary>
+        /// The IP address that the Amazon Redshift cluster must use to access the HSM.
+        /// </summary>
+        [Input("hsmIpAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmIpAddress;
+
+        public string? HsmIpAddress => _mHsmIpAddress.GetValue("hsmIpAddress");
+
+        /// <summary>
+        /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+        /// </summary>
+        [Input("hsmPartitionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmPartitionName;
+
+        public string? HsmPartitionName => _mHsmPartitionName.GetValue("hsmPartitionName");
+
+        /// <summary>
+        /// The password required to access the HSM partition.
+        /// </summary>
+        [Input("hsmPartitionPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmPartitionPassword;
+
+        public string? HsmPartitionPassword => _mHsmPartitionPassword.GetValue("hsmPartitionPassword");
+
+        /// <summary>
+        /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+        /// </summary>
+        [Input("hsmServerPublicCertificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmServerPublicCertificate;
+
+        public string? HsmServerPublicCertificate => _mHsmServerPublicCertificate.GetValue("hsmServerPublicCertificate");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication")]
-    public sealed class InstanceAutomatedBackupsReplication : global::Pulumi.PolicyResource
+    public sealed class InstanceAutomatedBackupsReplication : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         /// </summary>
         [Input("preSignedUrl")]
-        public string? PreSignedUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreSignedUrl;
+
+        public string? PreSignedUrl => _mPreSignedUrl.GetValue("preSignedUrl");
 
         /// <summary>
         /// The retention period for the replicated automated backups, defaults to `7`.
         /// </summary>
         [Input("retentionPeriod")]
-        public int? RetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         /// </summary>
         [Input("sourceDbInstanceArn")]
-        public string? SourceDbInstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbInstanceArn;
+
+        public string? SourceDbInstanceArn => _mSourceDbInstanceArn.GetValue("sourceDbInstanceArn");
+    }
+
+    [PolicyResourceType("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication")]
+    public sealed class InstanceAutomatedBackupsReplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+        /// </summary>
+        [Input("preSignedUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreSignedUrl;
+
+        public string? PreSignedUrl => _mPreSignedUrl.GetValue("preSignedUrl");
+
+        /// <summary>
+        /// The retention period for the replicated automated backups, defaults to `7`.
+        /// </summary>
+        [Input("retentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+        /// </summary>
+        [Input("sourceDbInstanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbInstanceArn;
+
+        public string? SourceDbInstanceArn => _mSourceDbInstanceArn.GetValue("sourceDbInstanceArn");
     }
 }

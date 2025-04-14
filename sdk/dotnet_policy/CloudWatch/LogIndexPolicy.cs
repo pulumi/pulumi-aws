@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logIndexPolicy:LogIndexPolicy")]
-    public sealed class LogIndexPolicy : global::Pulumi.PolicyResource
+    public sealed class LogIndexPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Log group name to set the policy for.
         /// </summary>
         [Input("logGroupName")]
-        public string? LogGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
 
         /// <summary>
         /// JSON policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logIndexPolicy:LogIndexPolicy")]
+    public sealed class LogIndexPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Log group name to set the policy for.
+        /// </summary>
+        [Input("logGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+
+        /// <summary>
+        /// JSON policy document. This is a JSON formatted string.
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
     }
 }

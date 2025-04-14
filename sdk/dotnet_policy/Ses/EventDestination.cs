@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/eventDestination:EventDestination")]
-    public sealed class EventDestination : global::Pulumi.PolicyResource
+    public sealed class EventDestination : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The SES event destination ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// CloudWatch destination for the events
         /// </summary>
         [Input("cloudwatchDestinations")]
-        public List<EventDestinationCloudwatchDestination>? CloudwatchDestinations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventDestinationCloudwatchDestination>> _mCloudwatchDestinations;
+
+        public List<Outputs.EventDestinationCloudwatchDestination>? CloudwatchDestinations => _mCloudwatchDestinations.GetValue("cloudwatchDestinations");
 
         /// <summary>
         /// The name of the configuration set
         /// </summary>
         [Input("configurationSetName")]
-        public string? ConfigurationSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
+
+        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
 
         /// <summary>
         /// If true, the event destination will be enabled
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Send the events to a kinesis firehose destination
         /// </summary>
         [Input("kinesisDestination")]
-        public EventDestinationKinesisDestination? KinesisDestination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventDestinationKinesisDestination> _mKinesisDestination;
+
+        public Outputs.EventDestinationKinesisDestination? KinesisDestination => _mKinesisDestination.GetValue("kinesisDestination");
 
         /// <summary>
         /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         /// </summary>
         [Input("matchingTypes")]
-        public List<string>? MatchingTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchingTypes;
+
+        public List<string>? MatchingTypes => _mMatchingTypes.GetValue("matchingTypes");
 
         /// <summary>
         /// The name of the event destination
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Send the events to an SNS Topic destination
@@ -61,6 +82,78 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
         [Input("snsDestination")]
-        public EventDestinationSnsDestination? SnsDestination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventDestinationSnsDestination> _mSnsDestination;
+
+        public Outputs.EventDestinationSnsDestination? SnsDestination => _mSnsDestination.GetValue("snsDestination");
+    }
+
+    [PolicyResourceType("aws:ses/eventDestination:EventDestination")]
+    public sealed class EventDestinationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// CloudWatch destination for the events
+        /// </summary>
+        [Input("cloudwatchDestinations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventDestinationCloudwatchDestinationArgs>> _mCloudwatchDestinations;
+
+        public List<Inputs.EventDestinationCloudwatchDestinationArgs>? CloudwatchDestinations => _mCloudwatchDestinations.GetValue("cloudwatchDestinations");
+
+        /// <summary>
+        /// The name of the configuration set
+        /// </summary>
+        [Input("configurationSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
+
+        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
+
+        /// <summary>
+        /// If true, the event destination will be enabled
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Send the events to a kinesis firehose destination
+        /// </summary>
+        [Input("kinesisDestination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventDestinationKinesisDestinationArgs> _mKinesisDestination;
+
+        public Inputs.EventDestinationKinesisDestinationArgs? KinesisDestination => _mKinesisDestination.GetValue("kinesisDestination");
+
+        /// <summary>
+        /// A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
+        /// </summary>
+        [Input("matchingTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchingTypes;
+
+        public List<string>? MatchingTypes => _mMatchingTypes.GetValue("matchingTypes");
+
+        /// <summary>
+        /// The name of the event destination
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Send the events to an SNS Topic destination
+        /// 
+        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
+        /// </summary>
+        [Input("snsDestination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventDestinationSnsDestinationArgs> _mSnsDestination;
+
+        public Inputs.EventDestinationSnsDestinationArgs? SnsDestination => _mSnsDestination.GetValue("snsDestination");
     }
 }

@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ImageBuilder
 {
     [PolicyResourceType("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration")]
-    public sealed class InfrastructureConfiguration : global::Pulumi.PolicyResource
+    public sealed class InfrastructureConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Date when the configuration was created.
         /// </summary>
         [Input("dateCreated")]
-        public string? DateCreated;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
+
+        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
 
         /// <summary>
         /// Date when the configuration was updated.
         /// </summary>
         [Input("dateUpdated")]
-        public string? DateUpdated;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDateUpdated;
+
+        public string? DateUpdated => _mDateUpdated.GetValue("dateUpdated");
 
         /// <summary>
         /// Description for the configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         /// </summary>
         [Input("instanceMetadataOptions")]
-        public InfrastructureConfigurationInstanceMetadataOptions? InstanceMetadataOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InfrastructureConfigurationInstanceMetadataOptions> _mInstanceMetadataOptions;
+
+        public Outputs.InfrastructureConfigurationInstanceMetadataOptions? InstanceMetadataOptions => _mInstanceMetadataOptions.GetValue("instanceMetadataOptions");
 
         /// <summary>
         /// Name of IAM Instance Profile.
         /// </summary>
         [Input("instanceProfileName")]
-        public string? InstanceProfileName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfileName;
+
+        public string? InstanceProfileName => _mInstanceProfileName.GetValue("instanceProfileName");
 
         /// <summary>
         /// Set of EC2 Instance Types.
         /// </summary>
         [Input("instanceTypes")]
-        public List<string>? InstanceTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
+
+        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
 
         /// <summary>
         /// Name of EC2 Key Pair.
         /// </summary>
         [Input("keyPair")]
-        public string? KeyPair;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPair;
+
+        public string? KeyPair => _mKeyPair.GetValue("keyPair");
 
         /// <summary>
         /// Configuration block with logging settings. Detailed below.
         /// </summary>
         [Input("logging")]
-        public InfrastructureConfigurationLogging? Logging;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InfrastructureConfigurationLogging> _mLogging;
+
+        public Outputs.InfrastructureConfigurationLogging? Logging => _mLogging.GetValue("logging");
 
         /// <summary>
         /// Name for the configuration.
@@ -73,48 +100,195 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value map of resource tags to assign to infrastructure created by the configuration.
         /// </summary>
         [Input("resourceTags")]
-        public Dictionary<string, string>? ResourceTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
+
+        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
 
         /// <summary>
         /// Set of EC2 Security Group identifiers.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of SNS Topic.
         /// </summary>
         [Input("snsTopicArn")]
-        public string? SnsTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
 
         /// <summary>
         /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         /// </summary>
         [Input("terminateInstanceOnFailure")]
-        public bool? TerminateInstanceOnFailure;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstanceOnFailure;
+
+        public bool? TerminateInstanceOnFailure => _mTerminateInstanceOnFailure.GetValue("terminateInstanceOnFailure");
+    }
+
+    [PolicyResourceType("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration")]
+    public sealed class InfrastructureConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description for the configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        /// </summary>
+        [Input("instanceMetadataOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs> _mInstanceMetadataOptions;
+
+        public Inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs? InstanceMetadataOptions => _mInstanceMetadataOptions.GetValue("instanceMetadataOptions");
+
+        /// <summary>
+        /// Name of IAM Instance Profile.
+        /// </summary>
+        [Input("instanceProfileName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfileName;
+
+        public string? InstanceProfileName => _mInstanceProfileName.GetValue("instanceProfileName");
+
+        /// <summary>
+        /// Set of EC2 Instance Types.
+        /// </summary>
+        [Input("instanceTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
+
+        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
+
+        /// <summary>
+        /// Name of EC2 Key Pair.
+        /// </summary>
+        [Input("keyPair")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPair;
+
+        public string? KeyPair => _mKeyPair.GetValue("keyPair");
+
+        /// <summary>
+        /// Configuration block with logging settings. Detailed below.
+        /// </summary>
+        [Input("logging")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InfrastructureConfigurationLoggingArgs> _mLogging;
+
+        public Inputs.InfrastructureConfigurationLoggingArgs? Logging => _mLogging.GetValue("logging");
+
+        /// <summary>
+        /// Name for the configuration.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value map of resource tags to assign to infrastructure created by the configuration.
+        /// </summary>
+        [Input("resourceTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
+
+        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+
+        /// <summary>
+        /// Set of EC2 Security Group identifiers.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of SNS Topic.
+        /// </summary>
+        [Input("snsTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+
+        /// <summary>
+        /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
+        /// </summary>
+        [Input("terminateInstanceOnFailure")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstanceOnFailure;
+
+        public bool? TerminateInstanceOnFailure => _mTerminateInstanceOnFailure.GetValue("terminateInstanceOnFailure");
     }
 }

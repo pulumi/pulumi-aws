@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/localGatewayRoute:LocalGatewayRoute")]
-    public sealed class LocalGatewayRoute : global::Pulumi.PolicyResource
+    public sealed class LocalGatewayRoute : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
         [Input("destinationCidrBlock")]
-        public string? DestinationCidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Route Table.
         /// </summary>
         [Input("localGatewayRouteTableId")]
-        public string? LocalGatewayRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayRouteTableId;
+
+        public string? LocalGatewayRouteTableId => _mLocalGatewayRouteTableId.GetValue("localGatewayRouteTableId");
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Virtual Interface Group.
         /// </summary>
         [Input("localGatewayVirtualInterfaceGroupId")]
-        public string? LocalGatewayVirtualInterfaceGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayVirtualInterfaceGroupId;
+
+        public string? LocalGatewayVirtualInterfaceGroupId => _mLocalGatewayVirtualInterfaceGroupId.GetValue("localGatewayVirtualInterfaceGroupId");
+    }
+
+    [PolicyResourceType("aws:ec2/localGatewayRoute:LocalGatewayRoute")]
+    public sealed class LocalGatewayRouteArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
+        /// </summary>
+        [Input("destinationCidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+
+        /// <summary>
+        /// Identifier of EC2 Local Gateway Route Table.
+        /// </summary>
+        [Input("localGatewayRouteTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayRouteTableId;
+
+        public string? LocalGatewayRouteTableId => _mLocalGatewayRouteTableId.GetValue("localGatewayRouteTableId");
+
+        /// <summary>
+        /// Identifier of EC2 Local Gateway Virtual Interface Group.
+        /// </summary>
+        [Input("localGatewayVirtualInterfaceGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayVirtualInterfaceGroupId;
+
+        public string? LocalGatewayVirtualInterfaceGroupId => _mLocalGatewayVirtualInterfaceGroupId.GetValue("localGatewayVirtualInterfaceGroupId");
     }
 }

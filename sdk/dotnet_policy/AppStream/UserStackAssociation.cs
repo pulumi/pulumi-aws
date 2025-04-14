@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppStream
 {
     [PolicyResourceType("aws:appstream/userStackAssociation:UserStackAssociation")]
-    public sealed class UserStackAssociation : global::Pulumi.PolicyResource
+    public sealed class UserStackAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Authentication type for the user.
         /// </summary>
         [Input("authenticationType")]
-        public string? AuthenticationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
+
+        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
 
         /// <summary>
         /// Whether a welcome email is sent to a user after the user is created in the user pool.
         /// </summary>
         [Input("sendEmailNotification")]
-        public bool? SendEmailNotification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSendEmailNotification;
+
+        public bool? SendEmailNotification => _mSendEmailNotification.GetValue("sendEmailNotification");
 
         /// <summary>
         /// Name of the stack that is associated with the user.
         /// </summary>
         [Input("stackName")]
-        public string? StackName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
+
+        public string? StackName => _mStackName.GetValue("stackName");
 
         /// <summary>
         /// Email address of the user who is associated with the stack.
@@ -37,6 +46,51 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:appstream/userStackAssociation:UserStackAssociation")]
+    public sealed class UserStackAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Authentication type for the user.
+        /// </summary>
+        [Input("authenticationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
+
+        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+
+        /// <summary>
+        /// Whether a welcome email is sent to a user after the user is created in the user pool.
+        /// </summary>
+        [Input("sendEmailNotification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSendEmailNotification;
+
+        public bool? SendEmailNotification => _mSendEmailNotification.GetValue("sendEmailNotification");
+
+        /// <summary>
+        /// Name of the stack that is associated with the user.
+        /// </summary>
+        [Input("stackName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
+
+        public string? StackName => _mStackName.GetValue("stackName");
+
+        /// <summary>
+        /// Email address of the user who is associated with the stack.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

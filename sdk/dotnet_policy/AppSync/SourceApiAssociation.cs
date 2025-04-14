@@ -11,54 +11,142 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/sourceApiAssociation:SourceApiAssociation")]
-    public sealed class SourceApiAssociation : global::Pulumi.PolicyResource
+    public sealed class SourceApiAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Source Api Association.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID of the Source Api Association.
         /// </summary>
         [Input("associationId")]
-        public string? AssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
+
+        public string? AssociationId => _mAssociationId.GetValue("associationId");
 
         /// <summary>
         /// Description of the source API being merged.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         /// </summary>
         [Input("mergedApiArn")]
-        public string? MergedApiArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiArn;
+
+        public string? MergedApiArn => _mMergedApiArn.GetValue("mergedApiArn");
 
         /// <summary>
         /// ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
         /// </summary>
         [Input("mergedApiId")]
-        public string? MergedApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiId;
+
+        public string? MergedApiId => _mMergedApiId.GetValue("mergedApiId");
 
         /// <summary>
         /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         /// </summary>
         [Input("sourceApiArn")]
-        public string? SourceApiArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceApiArn;
+
+        public string? SourceApiArn => _mSourceApiArn.GetValue("sourceApiArn");
 
         [Input("sourceApiAssociationConfigs")]
-        public List<SourceApiAssociationSourceApiAssociationConfig>? SourceApiAssociationConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SourceApiAssociationSourceApiAssociationConfig>> _mSourceApiAssociationConfigs;
+
+        public List<Outputs.SourceApiAssociationSourceApiAssociationConfig>? SourceApiAssociationConfigs => _mSourceApiAssociationConfigs.GetValue("sourceApiAssociationConfigs");
 
         /// <summary>
         /// ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         /// </summary>
         [Input("sourceApiId")]
-        public string? SourceApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceApiId;
+
+        public string? SourceApiId => _mSourceApiId.GetValue("sourceApiId");
 
         [Input("timeouts")]
-        public SourceApiAssociationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SourceApiAssociationTimeouts> _mTimeouts;
+
+        public Outputs.SourceApiAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:appsync/sourceApiAssociation:SourceApiAssociation")]
+    public sealed class SourceApiAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the source API being merged.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        /// </summary>
+        [Input("mergedApiArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiArn;
+
+        public string? MergedApiArn => _mMergedApiArn.GetValue("mergedApiArn");
+
+        /// <summary>
+        /// ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
+        /// </summary>
+        [Input("mergedApiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiId;
+
+        public string? MergedApiId => _mMergedApiId.GetValue("mergedApiId");
+
+        /// <summary>
+        /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+        /// </summary>
+        [Input("sourceApiArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceApiArn;
+
+        public string? SourceApiArn => _mSourceApiArn.GetValue("sourceApiArn");
+
+        [Input("sourceApiAssociationConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs>> _mSourceApiAssociationConfigs;
+
+        public List<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs>? SourceApiAssociationConfigs => _mSourceApiAssociationConfigs.GetValue("sourceApiAssociationConfigs");
+
+        /// <summary>
+        /// ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
+        /// </summary>
+        [Input("sourceApiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceApiId;
+
+        public string? SourceApiId => _mSourceApiId.GetValue("sourceApiId");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SourceApiAssociationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.SourceApiAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

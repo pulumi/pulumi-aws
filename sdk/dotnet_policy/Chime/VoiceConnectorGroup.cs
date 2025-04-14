@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chime
 {
     [PolicyResourceType("aws:chime/voiceConnectorGroup:VoiceConnectorGroup")]
-    public sealed class VoiceConnectorGroup : global::Pulumi.PolicyResource
+    public sealed class VoiceConnectorGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Chime Voice Connectors to route inbound calls to.
         /// </summary>
         [Input("connectors")]
-        public List<VoiceConnectorGroupConnector>? Connectors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VoiceConnectorGroupConnector>> _mConnectors;
+
+        public List<Outputs.VoiceConnectorGroupConnector>? Connectors => _mConnectors.GetValue("connectors");
 
         /// <summary>
         /// The name of the Amazon Chime Voice Connector group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:chime/voiceConnectorGroup:VoiceConnectorGroup")]
+    public sealed class VoiceConnectorGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Chime Voice Connectors to route inbound calls to.
+        /// </summary>
+        [Input("connectors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VoiceConnectorGroupConnectorArgs>> _mConnectors;
+
+        public List<Inputs.VoiceConnectorGroupConnectorArgs>? Connectors => _mConnectors.GetValue("connectors");
+
+        /// <summary>
+        /// The name of the Amazon Chime Voice Connector group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

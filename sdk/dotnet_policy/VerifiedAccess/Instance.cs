@@ -11,54 +11,121 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
 {
     [PolicyResourceType("aws:verifiedaccess/instance:Instance")]
-    public sealed class Instance : global::Pulumi.PolicyResource
+    public sealed class Instance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The custom subdomain for the CIDR endpoints.
         /// </summary>
         [Input("cidrEndpointsCustomSubdomain")]
-        public string? CidrEndpointsCustomSubdomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrEndpointsCustomSubdomain;
+
+        public string? CidrEndpointsCustomSubdomain => _mCidrEndpointsCustomSubdomain.GetValue("cidrEndpointsCustomSubdomain");
 
         /// <summary>
         /// The time that the Verified Access Instance was created.
         /// </summary>
         [Input("creationTime")]
-        public string? CreationTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
+
+        public string? CreationTime => _mCreationTime.GetValue("creationTime");
 
         /// <summary>
         /// A description for the AWS Verified Access Instance.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         /// </summary>
         [Input("fipsEnabled")]
-        public bool? FipsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFipsEnabled;
+
+        public bool? FipsEnabled => _mFipsEnabled.GetValue("fipsEnabled");
 
         /// <summary>
         /// The time that the Verified Access Instance was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         [Input("nameServers")]
-        public List<string>? NameServers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNameServers;
+
+        public List<string>? NameServers => _mNameServers.GetValue("nameServers");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         /// </summary>
         [Input("verifiedAccessTrustProviders")]
-        public List<InstanceVerifiedAccessTrustProvider>? VerifiedAccessTrustProviders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceVerifiedAccessTrustProvider>> _mVerifiedAccessTrustProviders;
+
+        public List<Outputs.InstanceVerifiedAccessTrustProvider>? VerifiedAccessTrustProviders => _mVerifiedAccessTrustProviders.GetValue("verifiedAccessTrustProviders");
+    }
+
+    [PolicyResourceType("aws:verifiedaccess/instance:Instance")]
+    public sealed class InstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The custom subdomain for the CIDR endpoints.
+        /// </summary>
+        [Input("cidrEndpointsCustomSubdomain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrEndpointsCustomSubdomain;
+
+        public string? CidrEndpointsCustomSubdomain => _mCidrEndpointsCustomSubdomain.GetValue("cidrEndpointsCustomSubdomain");
+
+        /// <summary>
+        /// A description for the AWS Verified Access Instance.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        /// </summary>
+        [Input("fipsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFipsEnabled;
+
+        public bool? FipsEnabled => _mFipsEnabled.GetValue("fipsEnabled");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

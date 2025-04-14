@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Detective
 {
     [PolicyResourceType("aws:detective/organizationAdminAccount:OrganizationAdminAccount")]
-    public sealed class OrganizationAdminAccount : global::Pulumi.PolicyResource
+    public sealed class OrganizationAdminAccount : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS account identifier to designate as a delegated administrator for Detective.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+    }
+
+    [PolicyResourceType("aws:detective/organizationAdminAccount:OrganizationAdminAccount")]
+    public sealed class OrganizationAdminAccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account identifier to designate as a delegated administrator for Detective.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
     }
 }

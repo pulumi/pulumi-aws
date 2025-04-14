@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DynamoDB
 {
     [PolicyResourceType("aws:dynamodb/contributorInsights:ContributorInsights")]
-    public sealed class ContributorInsights : global::Pulumi.PolicyResource
+    public sealed class ContributorInsights : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The global secondary index name
         /// </summary>
         [Input("indexName")]
-        public string? IndexName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIndexName;
+
+        public string? IndexName => _mIndexName.GetValue("indexName");
 
         /// <summary>
         /// The name of the table to enable contributor insights
         /// </summary>
         [Input("tableName")]
-        public string? TableName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
+    }
+
+    [PolicyResourceType("aws:dynamodb/contributorInsights:ContributorInsights")]
+    public sealed class ContributorInsightsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The global secondary index name
+        /// </summary>
+        [Input("indexName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIndexName;
+
+        public string? IndexName => _mIndexName.GetValue("indexName");
+
+        /// <summary>
+        /// The name of the table to enable contributor insights
+        /// </summary>
+        [Input("tableName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
     }
 }

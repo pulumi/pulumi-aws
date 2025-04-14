@@ -11,46 +11,105 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/accessGrantsLocation:AccessGrantsLocation")]
-    public sealed class AccessGrantsLocation : global::Pulumi.PolicyResource
+    public sealed class AccessGrantsLocation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Access Grants location.
         /// </summary>
         [Input("accessGrantsLocationArn")]
-        public string? AccessGrantsLocationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsLocationArn;
+
+        public string? AccessGrantsLocationArn => _mAccessGrantsLocationArn.GetValue("accessGrantsLocationArn");
 
         /// <summary>
         /// Unique ID of the S3 Access Grants location.
         /// </summary>
         [Input("accessGrantsLocationId")]
-        public string? AccessGrantsLocationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsLocationId;
+
+        public string? AccessGrantsLocationId => _mAccessGrantsLocationId.GetValue("accessGrantsLocationId");
 
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
         /// requests to the location.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         /// </summary>
         [Input("locationScope")]
-        public string? LocationScope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocationScope;
+
+        public string? LocationScope => _mLocationScope.GetValue("locationScope");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:s3control/accessGrantsLocation:AccessGrantsLocation")]
+    public sealed class AccessGrantsLocationArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
+        /// requests to the location.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        /// </summary>
+        [Input("locationScope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocationScope;
+
+        public string? LocationScope => _mLocationScope.GetValue("locationScope");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

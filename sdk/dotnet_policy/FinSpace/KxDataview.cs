@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.FinSpace
 {
     [PolicyResourceType("aws:finspace/kxDataview:KxDataview")]
-    public sealed class KxDataview : global::Pulumi.PolicyResource
+    public sealed class KxDataview : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX dataview.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
         /// </summary>
         [Input("autoUpdate")]
-        public bool? AutoUpdate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoUpdate;
+
+        public bool? AutoUpdate => _mAutoUpdate.GetValue("autoUpdate");
 
         /// <summary>
         /// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
         [Input("availabilityZoneId")]
-        public string? AvailabilityZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
@@ -37,43 +46,64 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * `MULTI` - Assigns all the availability zones per cluster.
         /// </summary>
         [Input("azMode")]
-        public string? AzMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
+
+        public string? AzMode => _mAzMode.GetValue("azMode");
 
         /// <summary>
         /// A unique identifier of the changeset of the database that you want to use to ingest data.
         /// </summary>
         [Input("changesetId")]
-        public string? ChangesetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChangesetId;
+
+        public string? ChangesetId => _mChangesetId.GetValue("changesetId");
 
         /// <summary>
         /// Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Input("createdTimestamp")]
-        public string? CreatedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
+
+        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
 
         /// <summary>
         /// The name of the database where you want to create a dataview.
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// A description for the dataview.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Unique identifier for the KX environment.
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         /// <summary>
         /// The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Input("lastModifiedTimestamp")]
-        public string? LastModifiedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTimestamp;
+
+        public string? LastModifiedTimestamp => _mLastModifiedTimestamp.GetValue("lastModifiedTimestamp");
 
         /// <summary>
         /// A unique identifier for the dataview.
@@ -81,7 +111,10 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
@@ -90,27 +123,152 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         /// </summary>
         [Input("readWrite")]
-        public bool? ReadWrite;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReadWrite;
+
+        public bool? ReadWrite => _mReadWrite.GetValue("readWrite");
 
         /// <summary>
         /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         /// </summary>
         [Input("segmentConfigurations")]
-        public List<KxDataviewSegmentConfiguration>? SegmentConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxDataviewSegmentConfiguration>> _mSegmentConfigurations;
+
+        public List<Outputs.KxDataviewSegmentConfiguration>? SegmentConfigurations => _mSegmentConfigurations.GetValue("segmentConfigurations");
 
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:finspace/kxDataview:KxDataview")]
+    public sealed class KxDataviewArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+        /// </summary>
+        [Input("autoUpdate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoUpdate;
+
+        public bool? AutoUpdate => _mAutoUpdate.GetValue("autoUpdate");
+
+        /// <summary>
+        /// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+
+        /// <summary>
+        /// The number of availability zones you want to assign per cluster. This can be one of the following:
+        /// * `SINGLE` - Assigns one availability zone per cluster.
+        /// * `MULTI` - Assigns all the availability zones per cluster.
+        /// </summary>
+        [Input("azMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
+
+        public string? AzMode => _mAzMode.GetValue("azMode");
+
+        /// <summary>
+        /// A unique identifier of the changeset of the database that you want to use to ingest data.
+        /// </summary>
+        [Input("changesetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChangesetId;
+
+        public string? ChangesetId => _mChangesetId.GetValue("changesetId");
+
+        /// <summary>
+        /// The name of the database where you want to create a dataview.
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// A description for the dataview.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Unique identifier for the KX environment.
+        /// </summary>
+        [Input("environmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+
+        /// <summary>
+        /// A unique identifier for the dataview.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+        /// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+        /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+        /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        /// </summary>
+        [Input("readWrite")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReadWrite;
+
+        public bool? ReadWrite => _mReadWrite.GetValue("readWrite");
+
+        /// <summary>
+        /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+        /// </summary>
+        [Input("segmentConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxDataviewSegmentConfigurationArgs>> _mSegmentConfigurations;
+
+        public List<Inputs.KxDataviewSegmentConfigurationArgs>? SegmentConfigurations => _mSegmentConfigurations.GetValue("segmentConfigurations");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")]
-    public sealed class LbStickinessPolicy : global::Pulumi.PolicyResource
+    public sealed class LbStickinessPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The cookie duration in seconds. This determines the length of the session stickiness.
         /// </summary>
         [Input("cookieDuration")]
-        public int? CookieDuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCookieDuration;
+
+        public int? CookieDuration => _mCookieDuration.GetValue("cookieDuration");
 
         /// <summary>
         /// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// The name of the load balancer to which you want to enable session stickiness.
         /// </summary>
         [Input("lbName")]
-        public string? LbName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
+    }
+
+    [PolicyResourceType("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")]
+    public sealed class LbStickinessPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The cookie duration in seconds. This determines the length of the session stickiness.
+        /// </summary>
+        [Input("cookieDuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCookieDuration;
+
+        public int? CookieDuration => _mCookieDuration.GetValue("cookieDuration");
+
+        /// <summary>
+        /// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// The name of the load balancer to which you want to enable session stickiness.
+        /// </summary>
+        [Input("lbName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
     }
 }

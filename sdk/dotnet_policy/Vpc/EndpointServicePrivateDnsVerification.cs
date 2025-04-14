@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Vpc
 {
     [PolicyResourceType("aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification")]
-    public sealed class EndpointServicePrivateDnsVerification : global::Pulumi.PolicyResource
+    public sealed class EndpointServicePrivateDnsVerification : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the endpoint service.
@@ -19,15 +19,54 @@ namespace Pulumi.PolicyPacks.Aws.Vpc
         /// The following arguments are optional:
         /// </summary>
         [Input("serviceId")]
-        public string? ServiceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
+
+        public string? ServiceId => _mServiceId.GetValue("serviceId");
 
         [Input("timeouts")]
-        public EndpointServicePrivateDnsVerificationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointServicePrivateDnsVerificationTimeouts> _mTimeouts;
+
+        public Outputs.EndpointServicePrivateDnsVerificationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
         /// </summary>
         [Input("waitForVerification")]
-        public bool? WaitForVerification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForVerification;
+
+        public bool? WaitForVerification => _mWaitForVerification.GetValue("waitForVerification");
+    }
+
+    [PolicyResourceType("aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification")]
+    public sealed class EndpointServicePrivateDnsVerificationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the endpoint service.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("serviceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
+
+        public string? ServiceId => _mServiceId.GetValue("serviceId");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointServicePrivateDnsVerificationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.EndpointServicePrivateDnsVerificationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
+        /// </summary>
+        [Input("waitForVerification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForVerification;
+
+        public bool? WaitForVerification => _mWaitForVerification.GetValue("waitForVerification");
     }
 }

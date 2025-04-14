@@ -11,54 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/restoreTestingSelection:RestoreTestingSelection")]
-    public sealed class RestoreTestingSelection : global::Pulumi.PolicyResource
+    public sealed class RestoreTestingSelection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the IAM role.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// The name of the backup restore testing selection.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ARNs for the protected resources.
         /// </summary>
         [Input("protectedResourceArns")]
-        public List<string>? ProtectedResourceArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtectedResourceArns;
+
+        public List<string>? ProtectedResourceArns => _mProtectedResourceArns.GetValue("protectedResourceArns");
 
         /// <summary>
         /// The conditions for the protected resource.
         /// </summary>
         [Input("protectedResourceConditions")]
-        public RestoreTestingSelectionProtectedResourceConditions? ProtectedResourceConditions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RestoreTestingSelectionProtectedResourceConditions> _mProtectedResourceConditions;
+
+        public Outputs.RestoreTestingSelectionProtectedResourceConditions? ProtectedResourceConditions => _mProtectedResourceConditions.GetValue("protectedResourceConditions");
 
         /// <summary>
         /// The type of the protected resource.
         /// </summary>
         [Input("protectedResourceType")]
-        public string? ProtectedResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtectedResourceType;
+
+        public string? ProtectedResourceType => _mProtectedResourceType.GetValue("protectedResourceType");
 
         /// <summary>
         /// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         /// </summary>
         [Input("restoreMetadataOverrides")]
-        public Dictionary<string, string>? RestoreMetadataOverrides;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRestoreMetadataOverrides;
+
+        public Dictionary<string, string>? RestoreMetadataOverrides => _mRestoreMetadataOverrides.GetValue("restoreMetadataOverrides");
 
         /// <summary>
         /// The name of the restore testing plan.
         /// </summary>
         [Input("restoreTestingPlanName")]
-        public string? RestoreTestingPlanName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreTestingPlanName;
+
+        public string? RestoreTestingPlanName => _mRestoreTestingPlanName.GetValue("restoreTestingPlanName");
 
         /// <summary>
         /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         /// </summary>
         [Input("validationWindowHours")]
-        public int? ValidationWindowHours;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mValidationWindowHours;
+
+        public int? ValidationWindowHours => _mValidationWindowHours.GetValue("validationWindowHours");
+    }
+
+    [PolicyResourceType("aws:backup/restoreTestingSelection:RestoreTestingSelection")]
+    public sealed class RestoreTestingSelectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the IAM role.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// The name of the backup restore testing selection.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ARNs for the protected resources.
+        /// </summary>
+        [Input("protectedResourceArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtectedResourceArns;
+
+        public List<string>? ProtectedResourceArns => _mProtectedResourceArns.GetValue("protectedResourceArns");
+
+        /// <summary>
+        /// The conditions for the protected resource.
+        /// </summary>
+        [Input("protectedResourceConditions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs> _mProtectedResourceConditions;
+
+        public Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs? ProtectedResourceConditions => _mProtectedResourceConditions.GetValue("protectedResourceConditions");
+
+        /// <summary>
+        /// The type of the protected resource.
+        /// </summary>
+        [Input("protectedResourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtectedResourceType;
+
+        public string? ProtectedResourceType => _mProtectedResourceType.GetValue("protectedResourceType");
+
+        /// <summary>
+        /// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+        /// </summary>
+        [Input("restoreMetadataOverrides")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRestoreMetadataOverrides;
+
+        public Dictionary<string, string>? RestoreMetadataOverrides => _mRestoreMetadataOverrides.GetValue("restoreMetadataOverrides");
+
+        /// <summary>
+        /// The name of the restore testing plan.
+        /// </summary>
+        [Input("restoreTestingPlanName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreTestingPlanName;
+
+        public string? RestoreTestingPlanName => _mRestoreTestingPlanName.GetValue("restoreTestingPlanName");
+
+        /// <summary>
+        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        /// </summary>
+        [Input("validationWindowHours")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mValidationWindowHours;
+
+        public int? ValidationWindowHours => _mValidationWindowHours.GetValue("validationWindowHours");
     }
 }

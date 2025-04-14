@@ -11,100 +11,148 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Emr
 {
     [PolicyResourceType("aws:emr/studio:Studio")]
-    public sealed class Studio : global::Pulumi.PolicyResource
+    public sealed class Studio : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the studio.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
         /// </summary>
         [Input("authMode")]
-        public string? AuthMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthMode;
+
+        public string? AuthMode => _mAuthMode.GetValue("authMode");
 
         /// <summary>
         /// The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
         /// </summary>
         [Input("defaultS3Location")]
-        public string? DefaultS3Location;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultS3Location;
+
+        public string? DefaultS3Location => _mDefaultS3Location.GetValue("defaultS3Location");
 
         /// <summary>
         /// A detailed description of the Amazon EMR Studio.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
         /// </summary>
         [Input("encryptionKeyArn")]
-        public string? EncryptionKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKeyArn;
+
+        public string? EncryptionKeyArn => _mEncryptionKeyArn.GetValue("encryptionKeyArn");
 
         /// <summary>
         /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
         /// </summary>
         [Input("engineSecurityGroupId")]
-        public string? EngineSecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineSecurityGroupId;
+
+        public string? EngineSecurityGroupId => _mEngineSecurityGroupId.GetValue("engineSecurityGroupId");
 
         /// <summary>
         /// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
         /// </summary>
         [Input("idpAuthUrl")]
-        public string? IdpAuthUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdpAuthUrl;
+
+        public string? IdpAuthUrl => _mIdpAuthUrl.GetValue("idpAuthUrl");
 
         /// <summary>
         /// The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
         /// </summary>
         [Input("idpRelayStateParameterName")]
-        public string? IdpRelayStateParameterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdpRelayStateParameterName;
+
+        public string? IdpRelayStateParameterName => _mIdpRelayStateParameterName.GetValue("idpRelayStateParameterName");
 
         /// <summary>
         /// A descriptive name for the Amazon EMR Studio.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
         /// </summary>
         [Input("serviceRole")]
-        public string? ServiceRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
 
         /// <summary>
         /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The unique access URL of the Amazon EMR Studio.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
 
         /// <summary>
         /// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
         /// </summary>
         [Input("userRole")]
-        public string? UserRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserRole;
+
+        public string? UserRole => _mUserRole.GetValue("userRole");
 
         /// <summary>
         /// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
 
         /// <summary>
         /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
@@ -112,6 +160,141 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// The following arguments are optional:
         /// </summary>
         [Input("workspaceSecurityGroupId")]
-        public string? WorkspaceSecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceSecurityGroupId;
+
+        public string? WorkspaceSecurityGroupId => _mWorkspaceSecurityGroupId.GetValue("workspaceSecurityGroupId");
+    }
+
+    [PolicyResourceType("aws:emr/studio:Studio")]
+    public sealed class StudioArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
+        /// </summary>
+        [Input("authMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthMode;
+
+        public string? AuthMode => _mAuthMode.GetValue("authMode");
+
+        /// <summary>
+        /// The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
+        /// </summary>
+        [Input("defaultS3Location")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultS3Location;
+
+        public string? DefaultS3Location => _mDefaultS3Location.GetValue("defaultS3Location");
+
+        /// <summary>
+        /// A detailed description of the Amazon EMR Studio.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+        /// </summary>
+        [Input("encryptionKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKeyArn;
+
+        public string? EncryptionKeyArn => _mEncryptionKeyArn.GetValue("encryptionKeyArn");
+
+        /// <summary>
+        /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
+        /// </summary>
+        [Input("engineSecurityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineSecurityGroupId;
+
+        public string? EngineSecurityGroupId => _mEngineSecurityGroupId.GetValue("engineSecurityGroupId");
+
+        /// <summary>
+        /// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
+        /// </summary>
+        [Input("idpAuthUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdpAuthUrl;
+
+        public string? IdpAuthUrl => _mIdpAuthUrl.GetValue("idpAuthUrl");
+
+        /// <summary>
+        /// The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
+        /// </summary>
+        [Input("idpRelayStateParameterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdpRelayStateParameterName;
+
+        public string? IdpRelayStateParameterName => _mIdpRelayStateParameterName.GetValue("idpRelayStateParameterName");
+
+        /// <summary>
+        /// A descriptive name for the Amazon EMR Studio.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
+        /// </summary>
+        [Input("serviceRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+
+        /// <summary>
+        /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        /// </summary>
+        [Input("userRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserRole;
+
+        public string? UserRole => _mUserRole.GetValue("userRole");
+
+        /// <summary>
+        /// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+
+        /// <summary>
+        /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("workspaceSecurityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceSecurityGroupId;
+
+        public string? WorkspaceSecurityGroupId => _mWorkspaceSecurityGroupId.GetValue("workspaceSecurityGroupId");
     }
 }

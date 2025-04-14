@@ -11,70 +11,103 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
 {
     [PolicyResourceType("aws:verifiedaccess/group:Group")]
-    public sealed class Group : global::Pulumi.PolicyResource
+    public sealed class Group : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Timestamp when the access group was created.
         /// </summary>
         [Input("creationTime")]
-        public string? CreationTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
+
+        public string? CreationTime => _mCreationTime.GetValue("creationTime");
 
         /// <summary>
         /// Timestamp when the access group was deleted.
         /// </summary>
         [Input("deletionTime")]
-        public string? DeletionTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeletionTime;
+
+        public string? DeletionTime => _mDeletionTime.GetValue("deletionTime");
 
         /// <summary>
         /// Description of the verified access group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Timestamp when the access group was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         /// <summary>
         /// AWS account number owning this resource.
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// The policy document that is associated with this resource.
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
 
         /// <summary>
         /// Configuration block to use KMS keys for server-side encryption.
         /// </summary>
         [Input("sseConfiguration")]
-        public GroupSseConfiguration? SseConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupSseConfiguration> _mSseConfiguration;
+
+        public Outputs.GroupSseConfiguration? SseConfiguration => _mSseConfiguration.GetValue("sseConfiguration");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// ARN of this verified acess group.
         /// </summary>
         [Input("verifiedaccessGroupArn")]
-        public string? VerifiedaccessGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessGroupArn;
+
+        public string? VerifiedaccessGroupArn => _mVerifiedaccessGroupArn.GetValue("verifiedaccessGroupArn");
 
         /// <summary>
         /// ID of this verified access group.
         /// </summary>
         [Input("verifiedaccessGroupId")]
-        public string? VerifiedaccessGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessGroupId;
+
+        public string? VerifiedaccessGroupId => _mVerifiedaccessGroupId.GetValue("verifiedaccessGroupId");
 
         /// <summary>
         /// The id of the verified access instance this group is associated with.
@@ -82,6 +115,60 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// The following arguments are optional:
         /// </summary>
         [Input("verifiedaccessInstanceId")]
-        public string? VerifiedaccessInstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
+
+        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+    }
+
+    [PolicyResourceType("aws:verifiedaccess/group:Group")]
+    public sealed class GroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the verified access group.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The policy document that is associated with this resource.
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+
+        /// <summary>
+        /// Configuration block to use KMS keys for server-side encryption.
+        /// </summary>
+        [Input("sseConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupSseConfigurationArgs> _mSseConfiguration;
+
+        public Inputs.GroupSseConfigurationArgs? SseConfiguration => _mSseConfiguration.GetValue("sseConfiguration");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The id of the verified access instance this group is associated with.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("verifiedaccessInstanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
+
+        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
     }
 }

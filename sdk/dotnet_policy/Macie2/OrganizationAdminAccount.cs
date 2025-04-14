@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Macie2
 {
     [PolicyResourceType("aws:macie2/organizationAdminAccount:OrganizationAdminAccount")]
-    public sealed class OrganizationAdminAccount : global::Pulumi.PolicyResource
+    public sealed class OrganizationAdminAccount : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         /// </summary>
         [Input("adminAccountId")]
-        public string? AdminAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminAccountId;
+
+        public string? AdminAccountId => _mAdminAccountId.GetValue("adminAccountId");
+    }
+
+    [PolicyResourceType("aws:macie2/organizationAdminAccount:OrganizationAdminAccount")]
+    public sealed class OrganizationAdminAccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
+        /// </summary>
+        [Input("adminAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminAccountId;
+
+        public string? AdminAccountId => _mAdminAccountId.GetValue("adminAccountId");
     }
 }

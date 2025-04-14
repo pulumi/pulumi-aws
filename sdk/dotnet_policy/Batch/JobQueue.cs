@@ -11,70 +11,186 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Batch
 {
     [PolicyResourceType("aws:batch/jobQueue:JobQueue")]
-    public sealed class JobQueue : global::Pulumi.PolicyResource
+    public sealed class JobQueue : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name of the job queue.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         /// </summary>
         [Input("computeEnvironmentOrders")]
-        public List<JobQueueComputeEnvironmentOrder>? ComputeEnvironmentOrders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.JobQueueComputeEnvironmentOrder>> _mComputeEnvironmentOrders;
+
+        public List<Outputs.JobQueueComputeEnvironmentOrder>? ComputeEnvironmentOrders => _mComputeEnvironmentOrders.GetValue("computeEnvironmentOrders");
 
         /// <summary>
         /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
         [Input("computeEnvironments")]
-        public List<string>? ComputeEnvironments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mComputeEnvironments;
+
+        public List<string>? ComputeEnvironments => _mComputeEnvironments.GetValue("computeEnvironments");
 
         /// <summary>
         /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         /// </summary>
         [Input("jobStateTimeLimitActions")]
-        public List<JobQueueJobStateTimeLimitAction>? JobStateTimeLimitActions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.JobQueueJobStateTimeLimitAction>> _mJobStateTimeLimitActions;
+
+        public List<Outputs.JobQueueJobStateTimeLimitAction>? JobStateTimeLimitActions => _mJobStateTimeLimitActions.GetValue("jobStateTimeLimitActions");
 
         /// <summary>
         /// Specifies the name of the job queue.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The priority of the job queue. Job queues with a higher priority
         /// are evaluated first when associated with the same compute environment.
         /// </summary>
         [Input("priority")]
-        public int? Priority;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
 
         /// <summary>
         /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         /// </summary>
         [Input("schedulingPolicyArn")]
-        public string? SchedulingPolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingPolicyArn;
+
+        public string? SchedulingPolicyArn => _mSchedulingPolicyArn.GetValue("schedulingPolicyArn");
 
         /// <summary>
         /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public JobQueueTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.JobQueueTimeouts> _mTimeouts;
+
+        public Outputs.JobQueueTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:batch/jobQueue:JobQueue")]
+    public sealed class JobQueueArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// </summary>
+        [Input("computeEnvironmentOrders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.JobQueueComputeEnvironmentOrderArgs>> _mComputeEnvironmentOrders;
+
+        public List<Inputs.JobQueueComputeEnvironmentOrderArgs>? ComputeEnvironmentOrders => _mComputeEnvironmentOrders.GetValue("computeEnvironmentOrders");
+
+        /// <summary>
+        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+        /// </summary>
+        [Input("computeEnvironments")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mComputeEnvironments;
+
+        public List<string>? ComputeEnvironments => _mComputeEnvironments.GetValue("computeEnvironments");
+
+        /// <summary>
+        /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        /// </summary>
+        [Input("jobStateTimeLimitActions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.JobQueueJobStateTimeLimitActionArgs>> _mJobStateTimeLimitActions;
+
+        public List<Inputs.JobQueueJobStateTimeLimitActionArgs>? JobStateTimeLimitActions => _mJobStateTimeLimitActions.GetValue("jobStateTimeLimitActions");
+
+        /// <summary>
+        /// Specifies the name of the job queue.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The priority of the job queue. Job queues with a higher priority
+        /// are evaluated first when associated with the same compute environment.
+        /// </summary>
+        [Input("priority")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
+
+        /// <summary>
+        /// The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
+        /// </summary>
+        [Input("schedulingPolicyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingPolicyArn;
+
+        public string? SchedulingPolicyArn => _mSchedulingPolicyArn.GetValue("schedulingPolicyArn");
+
+        /// <summary>
+        /// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.JobQueueTimeoutsArgs> _mTimeouts;
+
+        public Inputs.JobQueueTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

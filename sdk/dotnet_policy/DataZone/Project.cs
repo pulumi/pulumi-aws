@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/project:Project")]
-    public sealed class Project : global::Pulumi.PolicyResource
+    public sealed class Project : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Timestamp of when the project was made.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Creator of the project.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// Description of project.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
         [Input("domainIdentifier")]
-        public string? DomainIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
 
         /// <summary>
         /// List of error messages if operation cannot be completed.
         /// </summary>
         [Input("failureReasons")]
-        public List<ProjectFailureReason>? FailureReasons;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectFailureReason>> _mFailureReasons;
+
+        public List<Outputs.ProjectFailureReason>? FailureReasons => _mFailureReasons.GetValue("failureReasons");
 
         /// <summary>
         /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
         [Input("glossaryTerms")]
-        public List<string>? GlossaryTerms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlossaryTerms;
+
+        public List<string>? GlossaryTerms => _mGlossaryTerms.GetValue("glossaryTerms");
 
         /// <summary>
         /// Timestamp of when the project was last updated.
         /// </summary>
         [Input("lastUpdatedAt")]
-        public string? LastUpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedAt;
+
+        public string? LastUpdatedAt => _mLastUpdatedAt.GetValue("lastUpdatedAt");
 
         /// <summary>
         /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
@@ -61,21 +82,90 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         /// </summary>
         [Input("projectStatus")]
-        public string? ProjectStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectStatus;
+
+        public string? ProjectStatus => _mProjectStatus.GetValue("projectStatus");
 
         /// <summary>
         /// Optional flag to delete all child entities within the project.
         /// </summary>
         [Input("skipDeletionCheck")]
-        public bool? SkipDeletionCheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDeletionCheck;
+
+        public bool? SkipDeletionCheck => _mSkipDeletionCheck.GetValue("skipDeletionCheck");
 
         [Input("timeouts")]
-        public ProjectTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectTimeouts> _mTimeouts;
+
+        public Outputs.ProjectTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:datazone/project:Project")]
+    public sealed class ProjectArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of project.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
+        /// </summary>
+        [Input("domainIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+
+        /// <summary>
+        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
+        /// </summary>
+        [Input("glossaryTerms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlossaryTerms;
+
+        public List<string>? GlossaryTerms => _mGlossaryTerms.GetValue("glossaryTerms");
+
+        /// <summary>
+        /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Optional flag to delete all child entities within the project.
+        /// </summary>
+        [Input("skipDeletionCheck")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDeletionCheck;
+
+        public bool? SkipDeletionCheck => _mSkipDeletionCheck.GetValue("skipDeletionCheck");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ProjectTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

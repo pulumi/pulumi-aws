@@ -11,79 +11,115 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/domain:Domain")]
-    public sealed class Domain : global::Pulumi.PolicyResource
+    public sealed class Domain : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// IAM policy document specifying the access policies for the domain.
         /// </summary>
         [Input("accessPolicies")]
-        public string? AccessPolicies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicies;
+
+        public string? AccessPolicies => _mAccessPolicies.GetValue("accessPolicies");
 
         /// <summary>
         /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
         /// </summary>
         [Input("advancedOptions")]
-        public Dictionary<string, string>? AdvancedOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAdvancedOptions;
+
+        public Dictionary<string, string>? AdvancedOptions => _mAdvancedOptions.GetValue("advancedOptions");
 
         /// <summary>
         /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
         /// </summary>
         [Input("advancedSecurityOptions")]
-        public DomainAdvancedSecurityOptions? AdvancedSecurityOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainAdvancedSecurityOptions> _mAdvancedSecurityOptions;
+
+        public Outputs.DomainAdvancedSecurityOptions? AdvancedSecurityOptions => _mAdvancedSecurityOptions.GetValue("advancedSecurityOptions");
 
         /// <summary>
         /// ARN of the domain.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block for the Auto-Tune options of the domain. Detailed below.
         /// </summary>
         [Input("autoTuneOptions")]
-        public DomainAutoTuneOptions? AutoTuneOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainAutoTuneOptions> _mAutoTuneOptions;
+
+        public Outputs.DomainAutoTuneOptions? AutoTuneOptions => _mAutoTuneOptions.GetValue("autoTuneOptions");
 
         /// <summary>
         /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
         [Input("clusterConfig")]
-        public DomainClusterConfig? ClusterConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainClusterConfig> _mClusterConfig;
+
+        public Outputs.DomainClusterConfig? ClusterConfig => _mClusterConfig.GetValue("clusterConfig");
 
         /// <summary>
         /// Configuration block for authenticating dashboard with Cognito. Detailed below.
         /// </summary>
         [Input("cognitoOptions")]
-        public DomainCognitoOptions? CognitoOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainCognitoOptions> _mCognitoOptions;
+
+        public Outputs.DomainCognitoOptions? CognitoOptions => _mCognitoOptions.GetValue("cognitoOptions");
 
         /// <summary>
         /// Domain-specific endpoint for Dashboard without https scheme.
         /// </summary>
         [Input("dashboardEndpoint")]
-        public string? DashboardEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardEndpoint;
+
+        public string? DashboardEndpoint => _mDashboardEndpoint.GetValue("dashboardEndpoint");
 
         /// <summary>
         /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
         /// </summary>
         [Input("dashboardEndpointV2")]
-        public string? DashboardEndpointV2;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardEndpointV2;
+
+        public string? DashboardEndpointV2 => _mDashboardEndpointV2.GetValue("dashboardEndpointV2");
 
         /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Input("domainEndpointOptions")]
-        public DomainDomainEndpointOptions? DomainEndpointOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDomainEndpointOptions> _mDomainEndpointOptions;
+
+        public Outputs.DomainDomainEndpointOptions? DomainEndpointOptions => _mDomainEndpointOptions.GetValue("domainEndpointOptions");
 
         /// <summary>
         /// Dual stack hosted zone ID for the domain.
         /// </summary>
         [Input("domainEndpointV2HostedZoneId")]
-        public string? DomainEndpointV2HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainEndpointV2HostedZoneId;
+
+        public string? DomainEndpointV2HostedZoneId => _mDomainEndpointV2HostedZoneId.GetValue("domainEndpointV2HostedZoneId");
 
         /// <summary>
         /// Unique identifier for the domain.
         /// </summary>
         [Input("domainId")]
-        public string? DomainId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
 
         /// <summary>
         /// Name of the domain.
@@ -91,31 +127,46 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         /// </summary>
         [Input("ebsOptions")]
-        public DomainEbsOptions? EbsOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainEbsOptions> _mEbsOptions;
+
+        public Outputs.DomainEbsOptions? EbsOptions => _mEbsOptions.GetValue("ebsOptions");
 
         /// <summary>
         /// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         /// </summary>
         [Input("encryptAtRest")]
-        public DomainEncryptAtRest? EncryptAtRest;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainEncryptAtRest> _mEncryptAtRest;
+
+        public Outputs.DomainEncryptAtRest? EncryptAtRest => _mEncryptAtRest.GetValue("encryptAtRest");
 
         /// <summary>
         /// Domain-specific endpoint used to submit index, search, and data upload requests.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
         /// </summary>
         [Input("endpointV2")]
-        public string? EndpointV2;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointV2;
+
+        public string? EndpointV2 => _mEndpointV2.GetValue("endpointV2");
 
         /// <summary>
         /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
@@ -123,66 +174,278 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// Defaults to the lastest version of OpenSearch.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
         /// </summary>
         [Input("ipAddressType")]
-        public string? IpAddressType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
 
         /// <summary>
         /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         /// </summary>
         [Input("kibanaEndpoint")]
-        public string? KibanaEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKibanaEndpoint;
+
+        public string? KibanaEndpoint => _mKibanaEndpoint.GetValue("kibanaEndpoint");
 
         /// <summary>
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         /// </summary>
         [Input("logPublishingOptions")]
-        public List<DomainLogPublishingOption>? LogPublishingOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainLogPublishingOption>> _mLogPublishingOptions;
+
+        public List<Outputs.DomainLogPublishingOption>? LogPublishingOptions => _mLogPublishingOptions.GetValue("logPublishingOptions");
 
         /// <summary>
         /// Configuration block for node-to-node encryption options. Detailed below.
         /// </summary>
         [Input("nodeToNodeEncryption")]
-        public DomainNodeToNodeEncryption? NodeToNodeEncryption;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNodeToNodeEncryption> _mNodeToNodeEncryption;
+
+        public Outputs.DomainNodeToNodeEncryption? NodeToNodeEncryption => _mNodeToNodeEncryption.GetValue("nodeToNodeEncryption");
 
         /// <summary>
         /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
         /// </summary>
         [Input("offPeakWindowOptions")]
-        public DomainOffPeakWindowOptions? OffPeakWindowOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainOffPeakWindowOptions> _mOffPeakWindowOptions;
+
+        public Outputs.DomainOffPeakWindowOptions? OffPeakWindowOptions => _mOffPeakWindowOptions.GetValue("offPeakWindowOptions");
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         /// </summary>
         [Input("snapshotOptions")]
-        public DomainSnapshotOptions? SnapshotOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainSnapshotOptions> _mSnapshotOptions;
+
+        public Outputs.DomainSnapshotOptions? SnapshotOptions => _mSnapshotOptions.GetValue("snapshotOptions");
 
         /// <summary>
         /// Software update options for the domain. Detailed below.
         /// </summary>
         [Input("softwareUpdateOptions")]
-        public DomainSoftwareUpdateOptions? SoftwareUpdateOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainSoftwareUpdateOptions> _mSoftwareUpdateOptions;
+
+        public Outputs.DomainSoftwareUpdateOptions? SoftwareUpdateOptions => _mSoftwareUpdateOptions.GetValue("softwareUpdateOptions");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         /// </summary>
         [Input("vpcOptions")]
-        public DomainVpcOptions? VpcOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainVpcOptions> _mVpcOptions;
+
+        public Outputs.DomainVpcOptions? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+    }
+
+    [PolicyResourceType("aws:opensearch/domain:Domain")]
+    public sealed class DomainArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// IAM policy document specifying the access policies for the domain.
+        /// </summary>
+        [Input("accessPolicies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicies;
+
+        public string? AccessPolicies => _mAccessPolicies.GetValue("accessPolicies");
+
+        /// <summary>
+        /// Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
+        /// </summary>
+        [Input("advancedOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAdvancedOptions;
+
+        public Dictionary<string, string>? AdvancedOptions => _mAdvancedOptions.GetValue("advancedOptions");
+
+        /// <summary>
+        /// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+        /// </summary>
+        [Input("advancedSecurityOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainAdvancedSecurityOptionsArgs> _mAdvancedSecurityOptions;
+
+        public Inputs.DomainAdvancedSecurityOptionsArgs? AdvancedSecurityOptions => _mAdvancedSecurityOptions.GetValue("advancedSecurityOptions");
+
+        /// <summary>
+        /// Configuration block for the Auto-Tune options of the domain. Detailed below.
+        /// </summary>
+        [Input("autoTuneOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainAutoTuneOptionsArgs> _mAutoTuneOptions;
+
+        public Inputs.DomainAutoTuneOptionsArgs? AutoTuneOptions => _mAutoTuneOptions.GetValue("autoTuneOptions");
+
+        /// <summary>
+        /// Configuration block for the cluster of the domain. Detailed below.
+        /// </summary>
+        [Input("clusterConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainClusterConfigArgs> _mClusterConfig;
+
+        public Inputs.DomainClusterConfigArgs? ClusterConfig => _mClusterConfig.GetValue("clusterConfig");
+
+        /// <summary>
+        /// Configuration block for authenticating dashboard with Cognito. Detailed below.
+        /// </summary>
+        [Input("cognitoOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainCognitoOptionsArgs> _mCognitoOptions;
+
+        public Inputs.DomainCognitoOptionsArgs? CognitoOptions => _mCognitoOptions.GetValue("cognitoOptions");
+
+        /// <summary>
+        /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+        /// </summary>
+        [Input("domainEndpointOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDomainEndpointOptionsArgs> _mDomainEndpointOptions;
+
+        public Inputs.DomainDomainEndpointOptionsArgs? DomainEndpointOptions => _mDomainEndpointOptions.GetValue("domainEndpointOptions");
+
+        /// <summary>
+        /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
+        /// </summary>
+        [Input("ebsOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainEbsOptionsArgs> _mEbsOptions;
+
+        public Inputs.DomainEbsOptionsArgs? EbsOptions => _mEbsOptions.GetValue("ebsOptions");
+
+        /// <summary>
+        /// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
+        /// </summary>
+        [Input("encryptAtRest")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainEncryptAtRestArgs> _mEncryptAtRest;
+
+        public Inputs.DomainEncryptAtRestArgs? EncryptAtRest => _mEncryptAtRest.GetValue("encryptAtRest");
+
+        /// <summary>
+        /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+        /// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+        /// Defaults to the lastest version of OpenSearch.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+        /// </summary>
+        [Input("ipAddressType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+
+        /// <summary>
+        /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
+        /// </summary>
+        [Input("logPublishingOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainLogPublishingOptionArgs>> _mLogPublishingOptions;
+
+        public List<Inputs.DomainLogPublishingOptionArgs>? LogPublishingOptions => _mLogPublishingOptions.GetValue("logPublishingOptions");
+
+        /// <summary>
+        /// Configuration block for node-to-node encryption options. Detailed below.
+        /// </summary>
+        [Input("nodeToNodeEncryption")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNodeToNodeEncryptionArgs> _mNodeToNodeEncryption;
+
+        public Inputs.DomainNodeToNodeEncryptionArgs? NodeToNodeEncryption => _mNodeToNodeEncryption.GetValue("nodeToNodeEncryption");
+
+        /// <summary>
+        /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        /// </summary>
+        [Input("offPeakWindowOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainOffPeakWindowOptionsArgs> _mOffPeakWindowOptions;
+
+        public Inputs.DomainOffPeakWindowOptionsArgs? OffPeakWindowOptions => _mOffPeakWindowOptions.GetValue("offPeakWindowOptions");
+
+        /// <summary>
+        /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
+        /// </summary>
+        [Input("snapshotOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainSnapshotOptionsArgs> _mSnapshotOptions;
+
+        public Inputs.DomainSnapshotOptionsArgs? SnapshotOptions => _mSnapshotOptions.GetValue("snapshotOptions");
+
+        /// <summary>
+        /// Software update options for the domain. Detailed below.
+        /// </summary>
+        [Input("softwareUpdateOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainSoftwareUpdateOptionsArgs> _mSoftwareUpdateOptions;
+
+        public Inputs.DomainSoftwareUpdateOptionsArgs? SoftwareUpdateOptions => _mSoftwareUpdateOptions.GetValue("softwareUpdateOptions");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
+        /// </summary>
+        [Input("vpcOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainVpcOptionsArgs> _mVpcOptions;
+
+        public Inputs.DomainVpcOptionsArgs? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
     }
 }

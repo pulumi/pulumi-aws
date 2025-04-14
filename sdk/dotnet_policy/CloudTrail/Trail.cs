@@ -11,91 +11,133 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudTrail
 {
     [PolicyResourceType("aws:cloudtrail/trail:Trail")]
-    public sealed class Trail : global::Pulumi.PolicyResource
+    public sealed class Trail : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
         /// </summary>
         [Input("advancedEventSelectors")]
-        public List<TrailAdvancedEventSelector>? AdvancedEventSelectors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TrailAdvancedEventSelector>> _mAdvancedEventSelectors;
+
+        public List<Outputs.TrailAdvancedEventSelector>? AdvancedEventSelectors => _mAdvancedEventSelectors.GetValue("advancedEventSelectors");
 
         /// <summary>
         /// ARN of the trail.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         /// </summary>
         [Input("cloudWatchLogsGroupArn")]
-        public string? CloudWatchLogsGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudWatchLogsGroupArn;
+
+        public string? CloudWatchLogsGroupArn => _mCloudWatchLogsGroupArn.GetValue("cloudWatchLogsGroupArn");
 
         /// <summary>
         /// Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         /// </summary>
         [Input("cloudWatchLogsRoleArn")]
-        public string? CloudWatchLogsRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudWatchLogsRoleArn;
+
+        public string? CloudWatchLogsRoleArn => _mCloudWatchLogsRoleArn.GetValue("cloudWatchLogsRoleArn");
 
         /// <summary>
         /// Whether log file integrity validation is enabled. Defaults to `false`.
         /// </summary>
         [Input("enableLogFileValidation")]
-        public bool? EnableLogFileValidation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableLogFileValidation;
+
+        public bool? EnableLogFileValidation => _mEnableLogFileValidation.GetValue("enableLogFileValidation");
 
         /// <summary>
         /// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
         /// </summary>
         [Input("enableLogging")]
-        public bool? EnableLogging;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableLogging;
+
+        public bool? EnableLogging => _mEnableLogging.GetValue("enableLogging");
 
         /// <summary>
         /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         /// </summary>
         [Input("eventSelectors")]
-        public List<TrailEventSelector>? EventSelectors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TrailEventSelector>> _mEventSelectors;
+
+        public List<Outputs.TrailEventSelector>? EventSelectors => _mEventSelectors.GetValue("eventSelectors");
 
         /// <summary>
         /// Region in which the trail was created.
         /// </summary>
         [Input("homeRegion")]
-        public string? HomeRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeRegion;
+
+        public string? HomeRegion => _mHomeRegion.GetValue("homeRegion");
 
         /// <summary>
         /// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
         /// </summary>
         [Input("includeGlobalServiceEvents")]
-        public bool? IncludeGlobalServiceEvents;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeGlobalServiceEvents;
+
+        public bool? IncludeGlobalServiceEvents => _mIncludeGlobalServiceEvents.GetValue("includeGlobalServiceEvents");
 
         /// <summary>
         /// Configuration block for identifying unusual operational activity. See details below.
         /// </summary>
         [Input("insightSelectors")]
-        public List<TrailInsightSelector>? InsightSelectors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TrailInsightSelector>> _mInsightSelectors;
+
+        public List<Outputs.TrailInsightSelector>? InsightSelectors => _mInsightSelectors.GetValue("insightSelectors");
 
         /// <summary>
         /// Whether the trail is created in the current region or in all regions. Defaults to `false`.
         /// </summary>
         [Input("isMultiRegionTrail")]
-        public bool? IsMultiRegionTrail;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsMultiRegionTrail;
+
+        public bool? IsMultiRegionTrail => _mIsMultiRegionTrail.GetValue("isMultiRegionTrail");
 
         /// <summary>
         /// Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         /// </summary>
         [Input("isOrganizationTrail")]
-        public bool? IsOrganizationTrail;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsOrganizationTrail;
+
+        public bool? IsOrganizationTrail => _mIsOrganizationTrail.GetValue("isOrganizationTrail");
 
         /// <summary>
         /// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Name of the trail.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
@@ -103,36 +145,204 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail
         /// The following arguments are optional:
         /// </summary>
         [Input("s3BucketName")]
-        public string? S3BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
+
+        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
 
         /// <summary>
         /// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         /// </summary>
         [Input("s3KeyPrefix")]
-        public string? S3KeyPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
+
+        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
 
         /// <summary>
         /// ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered.
         /// </summary>
         [Input("snsTopicArn")]
-        public string? SnsTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
 
         /// <summary>
         /// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         /// </summary>
         [Input("snsTopicName")]
-        public string? SnsTopicName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicName;
+
+        public string? SnsTopicName => _mSnsTopicName.GetValue("snsTopicName");
 
         /// <summary>
         /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:cloudtrail/trail:Trail")]
+    public sealed class TrailArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+        /// </summary>
+        [Input("advancedEventSelectors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TrailAdvancedEventSelectorArgs>> _mAdvancedEventSelectors;
+
+        public List<Inputs.TrailAdvancedEventSelectorArgs>? AdvancedEventSelectors => _mAdvancedEventSelectors.GetValue("advancedEventSelectors");
+
+        /// <summary>
+        /// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
+        /// </summary>
+        [Input("cloudWatchLogsGroupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudWatchLogsGroupArn;
+
+        public string? CloudWatchLogsGroupArn => _mCloudWatchLogsGroupArn.GetValue("cloudWatchLogsGroupArn");
+
+        /// <summary>
+        /// Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
+        /// </summary>
+        [Input("cloudWatchLogsRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudWatchLogsRoleArn;
+
+        public string? CloudWatchLogsRoleArn => _mCloudWatchLogsRoleArn.GetValue("cloudWatchLogsRoleArn");
+
+        /// <summary>
+        /// Whether log file integrity validation is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("enableLogFileValidation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableLogFileValidation;
+
+        public bool? EnableLogFileValidation => _mEnableLogFileValidation.GetValue("enableLogFileValidation");
+
+        /// <summary>
+        /// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
+        /// </summary>
+        [Input("enableLogging")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableLogging;
+
+        public bool? EnableLogging => _mEnableLogging.GetValue("enableLogging");
+
+        /// <summary>
+        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+        /// </summary>
+        [Input("eventSelectors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TrailEventSelectorArgs>> _mEventSelectors;
+
+        public List<Inputs.TrailEventSelectorArgs>? EventSelectors => _mEventSelectors.GetValue("eventSelectors");
+
+        /// <summary>
+        /// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
+        /// </summary>
+        [Input("includeGlobalServiceEvents")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeGlobalServiceEvents;
+
+        public bool? IncludeGlobalServiceEvents => _mIncludeGlobalServiceEvents.GetValue("includeGlobalServiceEvents");
+
+        /// <summary>
+        /// Configuration block for identifying unusual operational activity. See details below.
+        /// </summary>
+        [Input("insightSelectors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TrailInsightSelectorArgs>> _mInsightSelectors;
+
+        public List<Inputs.TrailInsightSelectorArgs>? InsightSelectors => _mInsightSelectors.GetValue("insightSelectors");
+
+        /// <summary>
+        /// Whether the trail is created in the current region or in all regions. Defaults to `false`.
+        /// </summary>
+        [Input("isMultiRegionTrail")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsMultiRegionTrail;
+
+        public bool? IsMultiRegionTrail => _mIsMultiRegionTrail.GetValue("isMultiRegionTrail");
+
+        /// <summary>
+        /// Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+        /// </summary>
+        [Input("isOrganizationTrail")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsOrganizationTrail;
+
+        public bool? IsOrganizationTrail => _mIsOrganizationTrail.GetValue("isOrganizationTrail");
+
+        /// <summary>
+        /// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Name of the trail.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("s3BucketName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
+
+        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+
+        /// <summary>
+        /// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
+        /// </summary>
+        [Input("s3KeyPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
+
+        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
+
+        /// <summary>
+        /// Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
+        /// </summary>
+        [Input("snsTopicName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicName;
+
+        public string? SnsTopicName => _mSnsTopicName.GetValue("snsTopicName");
+
+        /// <summary>
+        /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

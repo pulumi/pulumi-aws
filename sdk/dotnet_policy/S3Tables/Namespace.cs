@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Tables
 {
     [PolicyResourceType("aws:s3tables/namespace:Namespace")]
-    public sealed class Namespace : global::Pulumi.PolicyResource
+    public sealed class Namespace : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Date and time when the namespace was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Account ID of the account that created the namespace.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// Name of the namespace.
@@ -31,18 +37,51 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("namespace")]
-        public string? NameSpace;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNameSpace;
+
+        public string? NameSpace => _mNameSpace.GetValue("namespace");
 
         /// <summary>
         /// Account ID of the account that owns the namespace.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// </summary>
         [Input("tableBucketArn")]
-        public string? TableBucketArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
+
+        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+    }
+
+    [PolicyResourceType("aws:s3tables/namespace:Namespace")]
+    public sealed class NamespaceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the namespace.
+        /// Must be between 1 and 255 characters in length.
+        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// </summary>
+        [Input("namespace")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNameSpace;
+
+        public string? NameSpace => _mNameSpace.GetValue("namespace");
+
+        /// <summary>
+        /// ARN referencing the Table Bucket that contains this Namespace.
+        /// </summary>
+        [Input("tableBucketArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
+
+        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
     }
 }

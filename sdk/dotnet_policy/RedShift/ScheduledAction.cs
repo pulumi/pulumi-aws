@@ -11,54 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/scheduledAction:ScheduledAction")]
-    public sealed class ScheduledAction : global::Pulumi.PolicyResource
+    public sealed class ScheduledAction : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The description of the scheduled action.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Whether to enable the scheduled action. Default is `true` .
         /// </summary>
         [Input("enable")]
-        public bool? Enable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
+
+        public bool? Enable => _mEnable.GetValue("enable");
 
         /// <summary>
         /// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         /// </summary>
         [Input("endTime")]
-        public string? EndTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
+
+        public string? EndTime => _mEndTime.GetValue("endTime");
 
         /// <summary>
         /// The IAM role to assume to run the scheduled action.
         /// </summary>
         [Input("iamRole")]
-        public string? IamRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
+
+        public string? IamRole => _mIamRole.GetValue("iamRole");
 
         /// <summary>
         /// The scheduled action name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         /// </summary>
         [Input("schedule")]
-        public string? Schedule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
+
+        public string? Schedule => _mSchedule.GetValue("schedule");
 
         /// <summary>
         /// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         /// </summary>
         [Input("startTime")]
-        public string? StartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
+
+        public string? StartTime => _mStartTime.GetValue("startTime");
 
         /// <summary>
         /// Target action. Documented below.
         /// </summary>
         [Input("targetAction")]
-        public ScheduledActionTargetAction? TargetAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledActionTargetAction> _mTargetAction;
+
+        public Outputs.ScheduledActionTargetAction? TargetAction => _mTargetAction.GetValue("targetAction");
+    }
+
+    [PolicyResourceType("aws:redshift/scheduledAction:ScheduledAction")]
+    public sealed class ScheduledActionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the scheduled action.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Whether to enable the scheduled action. Default is `true` .
+        /// </summary>
+        [Input("enable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnable;
+
+        public bool? Enable => _mEnable.GetValue("enable");
+
+        /// <summary>
+        /// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
+        /// </summary>
+        [Input("endTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
+
+        public string? EndTime => _mEndTime.GetValue("endTime");
+
+        /// <summary>
+        /// The IAM role to assume to run the scheduled action.
+        /// </summary>
+        [Input("iamRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
+
+        public string? IamRole => _mIamRole.GetValue("iamRole");
+
+        /// <summary>
+        /// The scheduled action name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
+        /// </summary>
+        [Input("schedule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
+
+        public string? Schedule => _mSchedule.GetValue("schedule");
+
+        /// <summary>
+        /// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
+        /// </summary>
+        [Input("startTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
+
+        public string? StartTime => _mStartTime.GetValue("startTime");
+
+        /// <summary>
+        /// Target action. Documented below.
+        /// </summary>
+        [Input("targetAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledActionTargetActionArgs> _mTargetAction;
+
+        public Inputs.ScheduledActionTargetActionArgs? TargetAction => _mTargetAction.GetValue("targetAction");
     }
 }

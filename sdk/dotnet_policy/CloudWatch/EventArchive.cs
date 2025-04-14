@@ -11,42 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/eventArchive:EventArchive")]
-    public sealed class EventArchive : global::Pulumi.PolicyResource
+    public sealed class EventArchive : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the event archive.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The description of the new event archive.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
         /// </summary>
         [Input("eventPattern")]
-        public string? EventPattern;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventPattern;
+
+        public string? EventPattern => _mEventPattern.GetValue("eventPattern");
 
         /// <summary>
         /// Event bus source ARN from where these events should be archived.
         /// </summary>
         [Input("eventSourceArn")]
-        public string? EventSourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceArn;
+
+        public string? EventSourceArn => _mEventSourceArn.GetValue("eventSourceArn");
 
         /// <summary>
         /// The name of the new event archive. The archive name cannot exceed 48 characters.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         /// </summary>
         [Input("retentionDays")]
-        public int? RetentionDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionDays;
+
+        public int? RetentionDays => _mRetentionDays.GetValue("retentionDays");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/eventArchive:EventArchive")]
+    public sealed class EventArchiveArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the new event archive.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
+        /// </summary>
+        [Input("eventPattern")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventPattern;
+
+        public string? EventPattern => _mEventPattern.GetValue("eventPattern");
+
+        /// <summary>
+        /// Event bus source ARN from where these events should be archived.
+        /// </summary>
+        [Input("eventSourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceArn;
+
+        public string? EventSourceArn => _mEventSourceArn.GetValue("eventSourceArn");
+
+        /// <summary>
+        /// The name of the new event archive. The archive name cannot exceed 48 characters.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
+        /// </summary>
+        [Input("retentionDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionDays;
+
+        public int? RetentionDays => _mRetentionDays.GetValue("retentionDays");
     }
 }

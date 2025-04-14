@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer")]
-    public sealed class TrustedTokenIssuer : global::Pulumi.PolicyResource
+    public sealed class TrustedTokenIssuer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the trusted token issuer.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         /// </summary>
         [Input("clientToken")]
-        public string? ClientToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
+
+        public string? ClientToken => _mClientToken.GetValue("clientToken");
 
         /// <summary>
         /// ARN of the instance of IAM Identity Center.
         /// </summary>
         [Input("instanceArn")]
-        public string? InstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
 
         /// <summary>
         /// Name of the trusted token issuer.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         /// </summary>
         [Input("trustedTokenIssuerConfiguration")]
-        public TrustedTokenIssuerTrustedTokenIssuerConfiguration? TrustedTokenIssuerConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration> _mTrustedTokenIssuerConfiguration;
+
+        public Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration? TrustedTokenIssuerConfiguration => _mTrustedTokenIssuerConfiguration.GetValue("trustedTokenIssuerConfiguration");
 
         /// <summary>
         /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
@@ -61,6 +82,69 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// The following arguments are optional:
         /// </summary>
         [Input("trustedTokenIssuerType")]
-        public string? TrustedTokenIssuerType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustedTokenIssuerType;
+
+        public string? TrustedTokenIssuerType => _mTrustedTokenIssuerType.GetValue("trustedTokenIssuerType");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer")]
+    public sealed class TrustedTokenIssuerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
+        /// </summary>
+        [Input("clientToken")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
+
+        public string? ClientToken => _mClientToken.GetValue("clientToken");
+
+        /// <summary>
+        /// ARN of the instance of IAM Identity Center.
+        /// </summary>
+        [Input("instanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+
+        /// <summary>
+        /// Name of the trusted token issuer.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+        /// </summary>
+        [Input("trustedTokenIssuerConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> _mTrustedTokenIssuerConfiguration;
+
+        public Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs? TrustedTokenIssuerConfiguration => _mTrustedTokenIssuerConfiguration.GetValue("trustedTokenIssuerConfiguration");
+
+        /// <summary>
+        /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("trustedTokenIssuerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustedTokenIssuerType;
+
+        public string? TrustedTokenIssuerType => _mTrustedTokenIssuerType.GetValue("trustedTokenIssuerType");
     }
 }

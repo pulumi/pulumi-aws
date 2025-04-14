@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess")]
-    public sealed class AuthorizeVpcEndpointAccess : global::Pulumi.PolicyResource
+    public sealed class AuthorizeVpcEndpointAccess : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS account ID to grant access to.
         /// </summary>
         [Input("account")]
-        public string? Account;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
+
+        public string? Account => _mAccount.GetValue("account");
 
         /// <summary>
         /// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
         /// </summary>
         [Input("authorizedPrincipals")]
-        public List<AuthorizeVpcEndpointAccessAuthorizedPrincipal>? AuthorizedPrincipals;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal>> _mAuthorizedPrincipals;
+
+        public List<Outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal>? AuthorizedPrincipals => _mAuthorizedPrincipals.GetValue("authorizedPrincipals");
 
         /// <summary>
         /// Name of OpenSearch Service domain to provide access to.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+    }
+
+    [PolicyResourceType("aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess")]
+    public sealed class AuthorizeVpcEndpointAccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID to grant access to.
+        /// </summary>
+        [Input("account")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
+
+        public string? Account => _mAccount.GetValue("account");
+
+        /// <summary>
+        /// Name of OpenSearch Service domain to provide access to.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
     }
 }

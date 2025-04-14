@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation")]
-    public sealed class RouteTableAssociation : global::Pulumi.PolicyResource
+    public sealed class RouteTableAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
         /// </summary>
         [Input("replaceExistingAssociation")]
-        public bool? ReplaceExistingAssociation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceExistingAssociation;
+
+        public bool? ReplaceExistingAssociation => _mReplaceExistingAssociation.GetValue("replaceExistingAssociation");
 
         /// <summary>
         /// Identifier of the resource
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// Type of the resource
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// </summary>
         [Input("transitGatewayRouteTableId")]
-        public string? TransitGatewayRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
+
+        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation")]
+    public sealed class RouteTableAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+        /// </summary>
+        [Input("replaceExistingAssociation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceExistingAssociation;
+
+        public bool? ReplaceExistingAssociation => _mReplaceExistingAssociation.GetValue("replaceExistingAssociation");
+
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Attachment.
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Route Table.
+        /// </summary>
+        [Input("transitGatewayRouteTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
+
+        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
     }
 }

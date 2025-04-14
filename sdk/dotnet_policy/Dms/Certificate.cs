@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Dms
 {
     [PolicyResourceType("aws:dms/certificate:Certificate")]
-    public sealed class Certificate : global::Pulumi.PolicyResource
+    public sealed class Certificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the certificate.
         /// </summary>
         [Input("certificateArn")]
-        public string? CertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
 
         /// <summary>
         /// The certificate identifier.
@@ -25,30 +28,87 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
         /// </summary>
         [Input("certificateId")]
-        public string? CertificateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateId;
+
+        public string? CertificateId => _mCertificateId.GetValue("certificateId");
 
         /// <summary>
         /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
         [Input("certificatePem")]
-        public string? CertificatePem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePem;
+
+        public string? CertificatePem => _mCertificatePem.GetValue("certificatePem");
 
         /// <summary>
         /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
         [Input("certificateWallet")]
-        public string? CertificateWallet;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateWallet;
+
+        public string? CertificateWallet => _mCertificateWallet.GetValue("certificateWallet");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:dms/certificate:Certificate")]
+    public sealed class CertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The certificate identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
+        /// </summary>
+        [Input("certificateId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateId;
+
+        public string? CertificateId => _mCertificateId.GetValue("certificateId");
+
+        /// <summary>
+        /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// </summary>
+        [Input("certificatePem")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePem;
+
+        public string? CertificatePem => _mCertificatePem.GetValue("certificatePem");
+
+        /// <summary>
+        /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
+        /// </summary>
+        [Input("certificateWallet")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateWallet;
+
+        public string? CertificateWallet => _mCertificateWallet.GetValue("certificateWallet");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Auditmanager
 {
     [PolicyResourceType("aws:auditmanager/assessmentDelegation:AssessmentDelegation")]
-    public sealed class AssessmentDelegation : global::Pulumi.PolicyResource
+    public sealed class AssessmentDelegation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier for the assessment.
         /// </summary>
         [Input("assessmentId")]
-        public string? AssessmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssessmentId;
+
+        public string? AssessmentId => _mAssessmentId.GetValue("assessmentId");
 
         /// <summary>
         /// Comment describing the delegation request.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
         /// </summary>
         [Input("controlSetId")]
-        public string? ControlSetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlSetId;
+
+        public string? ControlSetId => _mControlSetId.GetValue("controlSetId");
 
         /// <summary>
         /// Unique identifier for the delegation.
         /// </summary>
         [Input("delegationId")]
-        public string? DelegationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDelegationId;
+
+        public string? DelegationId => _mDelegationId.GetValue("delegationId");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -49,12 +64,69 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// The following arguments are optional:
         /// </summary>
         [Input("roleType")]
-        public string? RoleType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleType;
+
+        public string? RoleType => _mRoleType.GetValue("roleType");
 
         /// <summary>
         /// Status of the delegation.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:auditmanager/assessmentDelegation:AssessmentDelegation")]
+    public sealed class AssessmentDelegationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier for the assessment.
+        /// </summary>
+        [Input("assessmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssessmentId;
+
+        public string? AssessmentId => _mAssessmentId.GetValue("assessmentId");
+
+        /// <summary>
+        /// Comment describing the delegation request.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
+        /// </summary>
+        [Input("controlSetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlSetId;
+
+        public string? ControlSetId => _mControlSetId.GetValue("controlSetId");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM role.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("roleType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleType;
+
+        public string? RoleType => _mRoleType.GetValue("roleType");
     }
 }

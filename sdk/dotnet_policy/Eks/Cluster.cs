@@ -11,151 +11,226 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Eks
 {
     [PolicyResourceType("aws:eks/cluster:Cluster")]
-    public sealed class Cluster : global::Pulumi.PolicyResource
+    public sealed class Cluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         /// </summary>
         [Input("accessConfig")]
-        public ClusterAccessConfig? AccessConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterAccessConfig> _mAccessConfig;
+
+        public Outputs.ClusterAccessConfig? AccessConfig => _mAccessConfig.GetValue("accessConfig");
 
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         /// </summary>
         [Input("bootstrapSelfManagedAddons")]
-        public bool? BootstrapSelfManagedAddons;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBootstrapSelfManagedAddons;
+
+        public bool? BootstrapSelfManagedAddons => _mBootstrapSelfManagedAddons.GetValue("bootstrapSelfManagedAddons");
 
         [Input("certificateAuthorities")]
-        public List<ClusterCertificateAuthority>? CertificateAuthorities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterCertificateAuthority>> _mCertificateAuthorities;
+
+        public List<Outputs.ClusterCertificateAuthority>? CertificateAuthorities => _mCertificateAuthorities.GetValue("certificateAuthorities");
 
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
         [Input("certificateAuthority")]
-        public ClusterCertificateAuthority? CertificateAuthority;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterCertificateAuthority> _mCertificateAuthority;
+
+        public Outputs.ClusterCertificateAuthority? CertificateAuthority => _mCertificateAuthority.GetValue("certificateAuthority");
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         /// </summary>
         [Input("clusterId")]
-        public string? ClusterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
 
         /// <summary>
         /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         /// </summary>
         [Input("computeConfig")]
-        public ClusterComputeConfig? ComputeConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterComputeConfig> _mComputeConfig;
+
+        public Outputs.ClusterComputeConfig? ComputeConfig => _mComputeConfig.GetValue("computeConfig");
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         [Input("defaultAddonsToRemoves")]
-        public List<string>? DefaultAddonsToRemoves;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDefaultAddonsToRemoves;
+
+        public List<string>? DefaultAddonsToRemoves => _mDefaultAddonsToRemoves.GetValue("defaultAddonsToRemoves");
 
         /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         /// </summary>
         [Input("enabledClusterLogTypes")]
-        public List<string>? EnabledClusterLogTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledClusterLogTypes;
+
+        public List<string>? EnabledClusterLogTypes => _mEnabledClusterLogTypes.GetValue("enabledClusterLogTypes");
 
         /// <summary>
         /// Configuration block with encryption configuration for the cluster. Detailed below.
         /// </summary>
         [Input("encryptionConfig")]
-        public ClusterEncryptionConfig? EncryptionConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterEncryptionConfig> _mEncryptionConfig;
+
+        public Outputs.ClusterEncryptionConfig? EncryptionConfig => _mEncryptionConfig.GetValue("encryptionConfig");
 
         /// <summary>
         /// Endpoint for your Kubernetes API server.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         /// </summary>
         [Input("identities")]
-        public List<ClusterIdentity>? Identities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterIdentity>> _mIdentities;
+
+        public List<Outputs.ClusterIdentity>? Identities => _mIdentities.GetValue("identities");
 
         /// <summary>
         /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("kubernetesNetworkConfig")]
-        public ClusterKubernetesNetworkConfig? KubernetesNetworkConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterKubernetesNetworkConfig> _mKubernetesNetworkConfig;
+
+        public Outputs.ClusterKubernetesNetworkConfig? KubernetesNetworkConfig => _mKubernetesNetworkConfig.GetValue("kubernetesNetworkConfig");
 
         /// <summary>
         /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         /// </summary>
         [Input("outpostConfig")]
-        public ClusterOutpostConfig? OutpostConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterOutpostConfig> _mOutpostConfig;
+
+        public Outputs.ClusterOutpostConfig? OutpostConfig => _mOutpostConfig.GetValue("outpostConfig");
 
         /// <summary>
         /// Platform version for the cluster.
         /// </summary>
         [Input("platformVersion")]
-        public string? PlatformVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
+
+        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
 
         /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
         [Input("remoteNetworkConfig")]
-        public ClusterRemoteNetworkConfig? RemoteNetworkConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterRemoteNetworkConfig> _mRemoteNetworkConfig;
+
+        public Outputs.ClusterRemoteNetworkConfig? RemoteNetworkConfig => _mRemoteNetworkConfig.GetValue("remoteNetworkConfig");
 
         /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         /// </summary>
         [Input("storageConfig")]
-        public ClusterStorageConfig? StorageConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterStorageConfig> _mStorageConfig;
+
+        public Outputs.ClusterStorageConfig? StorageConfig => _mStorageConfig.GetValue("storageConfig");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         /// </summary>
         [Input("upgradePolicy")]
-        public ClusterUpgradePolicy? UpgradePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterUpgradePolicy> _mUpgradePolicy;
+
+        public Outputs.ClusterUpgradePolicy? UpgradePolicy => _mUpgradePolicy.GetValue("upgradePolicy");
 
         /// <summary>
         /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
@@ -163,12 +238,174 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// The following arguments are optional:
         /// </summary>
         [Input("vpcConfig")]
-        public ClusterVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterVpcConfig> _mVpcConfig;
+
+        public Outputs.ClusterVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
 
         /// <summary>
         /// Configuration block with zonal shift configuration for the cluster. Detailed below.
         /// </summary>
         [Input("zonalShiftConfig")]
-        public ClusterZonalShiftConfig? ZonalShiftConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterZonalShiftConfig> _mZonalShiftConfig;
+
+        public Outputs.ClusterZonalShiftConfig? ZonalShiftConfig => _mZonalShiftConfig.GetValue("zonalShiftConfig");
+    }
+
+    [PolicyResourceType("aws:eks/cluster:Cluster")]
+    public sealed class ClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
+        /// </summary>
+        [Input("accessConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterAccessConfigArgs> _mAccessConfig;
+
+        public Inputs.ClusterAccessConfigArgs? AccessConfig => _mAccessConfig.GetValue("accessConfig");
+
+        /// <summary>
+        /// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        /// </summary>
+        [Input("bootstrapSelfManagedAddons")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBootstrapSelfManagedAddons;
+
+        public bool? BootstrapSelfManagedAddons => _mBootstrapSelfManagedAddons.GetValue("bootstrapSelfManagedAddons");
+
+        /// <summary>
+        /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        /// </summary>
+        [Input("computeConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterComputeConfigArgs> _mComputeConfig;
+
+        public Inputs.ClusterComputeConfigArgs? ComputeConfig => _mComputeConfig.GetValue("computeConfig");
+
+        [Input("defaultAddonsToRemoves")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDefaultAddonsToRemoves;
+
+        public List<string>? DefaultAddonsToRemoves => _mDefaultAddonsToRemoves.GetValue("defaultAddonsToRemoves");
+
+        /// <summary>
+        /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
+        /// </summary>
+        [Input("enabledClusterLogTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledClusterLogTypes;
+
+        public List<string>? EnabledClusterLogTypes => _mEnabledClusterLogTypes.GetValue("enabledClusterLogTypes");
+
+        /// <summary>
+        /// Configuration block with encryption configuration for the cluster. Detailed below.
+        /// </summary>
+        [Input("encryptionConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterEncryptionConfigArgs> _mEncryptionConfig;
+
+        public Inputs.ClusterEncryptionConfigArgs? EncryptionConfig => _mEncryptionConfig.GetValue("encryptionConfig");
+
+        /// <summary>
+        /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        [Input("kubernetesNetworkConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterKubernetesNetworkConfigArgs> _mKubernetesNetworkConfig;
+
+        public Inputs.ClusterKubernetesNetworkConfigArgs? KubernetesNetworkConfig => _mKubernetesNetworkConfig.GetValue("kubernetesNetworkConfig");
+
+        /// <summary>
+        /// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        /// </summary>
+        [Input("outpostConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterOutpostConfigArgs> _mOutpostConfig;
+
+        public Inputs.ClusterOutpostConfigArgs? OutpostConfig => _mOutpostConfig.GetValue("outpostConfig");
+
+        /// <summary>
+        /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        /// </summary>
+        [Input("remoteNetworkConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterRemoteNetworkConfigArgs> _mRemoteNetworkConfig;
+
+        public Inputs.ClusterRemoteNetworkConfigArgs? RemoteNetworkConfig => _mRemoteNetworkConfig.GetValue("remoteNetworkConfig");
+
+        /// <summary>
+        /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        /// </summary>
+        [Input("storageConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterStorageConfigArgs> _mStorageConfig;
+
+        public Inputs.ClusterStorageConfigArgs? StorageConfig => _mStorageConfig.GetValue("storageConfig");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        /// </summary>
+        [Input("upgradePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterUpgradePolicyArgs> _mUpgradePolicy;
+
+        public Inputs.ClusterUpgradePolicyArgs? UpgradePolicy => _mUpgradePolicy.GetValue("upgradePolicy");
+
+        /// <summary>
+        /// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
+        /// </summary>
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+
+        /// <summary>
+        /// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.ClusterVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+
+        /// <summary>
+        /// Configuration block with zonal shift configuration for the cluster. Detailed below.
+        /// </summary>
+        [Input("zonalShiftConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterZonalShiftConfigArgs> _mZonalShiftConfig;
+
+        public Inputs.ClusterZonalShiftConfigArgs? ZonalShiftConfig => _mZonalShiftConfig.GetValue("zonalShiftConfig");
     }
 }

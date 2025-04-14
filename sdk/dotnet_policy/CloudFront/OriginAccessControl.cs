@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/originAccessControl:OriginAccessControl")]
-    public sealed class OriginAccessControl : global::Pulumi.PolicyResource
+    public sealed class OriginAccessControl : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Origin Access Control ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The current version of this Origin Access Control.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// A name that identifies the Origin Access Control.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
         /// </summary>
         [Input("originAccessControlOriginType")]
-        public string? OriginAccessControlOriginType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOriginAccessControlOriginType;
+
+        public string? OriginAccessControlOriginType => _mOriginAccessControlOriginType.GetValue("originAccessControlOriginType");
 
         /// <summary>
         /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         /// </summary>
         [Input("signingBehavior")]
-        public string? SigningBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningBehavior;
+
+        public string? SigningBehavior => _mSigningBehavior.GetValue("signingBehavior");
 
         /// <summary>
         /// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         /// </summary>
         [Input("signingProtocol")]
-        public string? SigningProtocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningProtocol;
+
+        public string? SigningProtocol => _mSigningProtocol.GetValue("signingProtocol");
+    }
+
+    [PolicyResourceType("aws:cloudfront/originAccessControl:OriginAccessControl")]
+    public sealed class OriginAccessControlArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A name that identifies the Origin Access Control.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
+        /// </summary>
+        [Input("originAccessControlOriginType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOriginAccessControlOriginType;
+
+        public string? OriginAccessControlOriginType => _mOriginAccessControlOriginType.GetValue("originAccessControlOriginType");
+
+        /// <summary>
+        /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
+        /// </summary>
+        [Input("signingBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningBehavior;
+
+        public string? SigningBehavior => _mSigningBehavior.GetValue("signingBehavior");
+
+        /// <summary>
+        /// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
+        /// </summary>
+        [Input("signingProtocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningProtocol;
+
+        public string? SigningProtocol => _mSigningProtocol.GetValue("signingProtocol");
     }
 }

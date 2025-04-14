@@ -11,15 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")]
-    public sealed class AccessGrantsInstanceResourcePolicy : global::Pulumi.PolicyResource
+    public sealed class AccessGrantsInstanceResourcePolicy : global::Pulumi.PolicyResourceOutput
     {
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The policy document.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")]
+    public sealed class AccessGrantsInstanceResourcePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The policy document.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

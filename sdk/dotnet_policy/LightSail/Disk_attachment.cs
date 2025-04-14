@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/disk_attachment:Disk_attachment")]
-    public sealed class Disk_attachment : global::Pulumi.PolicyResource
+    public sealed class Disk_attachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the Lightsail Disk.
         /// </summary>
         [Input("diskName")]
-        public string? DiskName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskName;
+
+        public string? DiskName => _mDiskName.GetValue("diskName");
 
         /// <summary>
         /// The disk path to expose to the instance.
         /// </summary>
         [Input("diskPath")]
-        public string? DiskPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskPath;
+
+        public string? DiskPath => _mDiskPath.GetValue("diskPath");
 
         /// <summary>
         /// The name of the Lightsail Instance to attach to.
         /// </summary>
         [Input("instanceName")]
-        public string? InstanceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
+
+        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+    }
+
+    [PolicyResourceType("aws:lightsail/disk_attachment:Disk_attachment")]
+    public sealed class Disk_attachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Lightsail Disk.
+        /// </summary>
+        [Input("diskName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskName;
+
+        public string? DiskName => _mDiskName.GetValue("diskName");
+
+        /// <summary>
+        /// The disk path to expose to the instance.
+        /// </summary>
+        [Input("diskPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskPath;
+
+        public string? DiskPath => _mDiskPath.GetValue("diskPath");
+
+        /// <summary>
+        /// The name of the Lightsail Instance to attach to.
+        /// </summary>
+        [Input("instanceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
+
+        public string? InstanceName => _mInstanceName.GetValue("instanceName");
     }
 }

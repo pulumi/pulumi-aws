@@ -11,54 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/endpointAccess:EndpointAccess")]
-    public sealed class EndpointAccess : global::Pulumi.PolicyResource
+    public sealed class EndpointAccess : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The DNS address of the endpoint.
         /// </summary>
         [Input("address")]
-        public string? Address;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
+
+        public string? Address => _mAddress.GetValue("address");
 
         /// <summary>
         /// The cluster identifier of the cluster to access.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The Redshift-managed VPC endpoint name.
         /// </summary>
         [Input("endpointName")]
-        public string? EndpointName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
+
+        public string? EndpointName => _mEndpointName.GetValue("endpointName");
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         /// </summary>
         [Input("resourceOwner")]
-        public string? ResourceOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceOwner;
+
+        public string? ResourceOwner => _mResourceOwner.GetValue("resourceOwner");
 
         /// <summary>
         /// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
         /// </summary>
         [Input("subnetGroupName")]
-        public string? SubnetGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
+
+        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
 
         /// <summary>
         /// The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         /// </summary>
         [Input("vpcEndpoints")]
-        public List<EndpointAccessVpcEndpoint>? VpcEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointAccessVpcEndpoint>> _mVpcEndpoints;
+
+        public List<Outputs.EndpointAccessVpcEndpoint>? VpcEndpoints => _mVpcEndpoints.GetValue("vpcEndpoints");
 
         /// <summary>
         /// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+    }
+
+    [PolicyResourceType("aws:redshift/endpointAccess:EndpointAccess")]
+    public sealed class EndpointAccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The cluster identifier of the cluster to access.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// The Redshift-managed VPC endpoint name.
+        /// </summary>
+        [Input("endpointName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
+
+        public string? EndpointName => _mEndpointName.GetValue("endpointName");
+
+        /// <summary>
+        /// The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
+        /// </summary>
+        [Input("resourceOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceOwner;
+
+        public string? ResourceOwner => _mResourceOwner.GetValue("resourceOwner");
+
+        /// <summary>
+        /// The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
+        /// </summary>
+        [Input("subnetGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetGroupName;
+
+        public string? SubnetGroupName => _mSubnetGroupName.GetValue("subnetGroupName");
+
+        /// <summary>
+        /// The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
     }
 }

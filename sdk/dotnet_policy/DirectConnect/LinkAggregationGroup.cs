@@ -11,78 +11,181 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/linkAggregationGroup:LinkAggregationGroup")]
-    public sealed class LinkAggregationGroup : global::Pulumi.PolicyResource
+    public sealed class LinkAggregationGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the LAG.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID of an existing dedicated connection to migrate to the LAG.
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
 
         /// <summary>
         /// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
         /// </summary>
         [Input("connectionsBandwidth")]
-        public string? ConnectionsBandwidth;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionsBandwidth;
+
+        public string? ConnectionsBandwidth => _mConnectionsBandwidth.GetValue("connectionsBandwidth");
 
         /// <summary>
         /// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         /// </summary>
         [Input("forceDestroy")]
-        public bool? ForceDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
 
         /// <summary>
         /// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
         [Input("hasLogicalRedundancy")]
-        public string? HasLogicalRedundancy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHasLogicalRedundancy;
+
+        public string? HasLogicalRedundancy => _mHasLogicalRedundancy.GetValue("hasLogicalRedundancy");
 
         /// <summary>
         /// Indicates whether jumbo frames (9001 MTU) are supported.
         /// </summary>
         [Input("jumboFrameCapable")]
-        public bool? JumboFrameCapable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mJumboFrameCapable;
+
+        public bool? JumboFrameCapable => _mJumboFrameCapable.GetValue("jumboFrameCapable");
 
         /// <summary>
         /// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         /// </summary>
         [Input("location")]
-        public string? Location;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
+
+        public string? Location => _mLocation.GetValue("location");
 
         /// <summary>
         /// The name of the LAG.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ID of the AWS account that owns the LAG.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// The name of the service provider associated with the LAG.
         /// </summary>
         [Input("providerName")]
-        public string? ProviderName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+
+        public string? ProviderName => _mProviderName.GetValue("providerName");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:directconnect/linkAggregationGroup:LinkAggregationGroup")]
+    public sealed class LinkAggregationGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of an existing dedicated connection to migrate to the LAG.
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+
+        /// <summary>
+        /// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
+        /// </summary>
+        [Input("connectionsBandwidth")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionsBandwidth;
+
+        public string? ConnectionsBandwidth => _mConnectionsBandwidth.GetValue("connectionsBandwidth");
+
+        /// <summary>
+        /// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
+        /// </summary>
+        [Input("forceDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+
+        /// <summary>
+        /// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+        /// </summary>
+        [Input("location")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
+
+        public string? Location => _mLocation.GetValue("location");
+
+        /// <summary>
+        /// The name of the LAG.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name of the service provider associated with the LAG.
+        /// </summary>
+        [Input("providerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+
+        public string? ProviderName => _mProviderName.GetValue("providerName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

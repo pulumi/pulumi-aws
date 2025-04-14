@@ -11,70 +11,180 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fsx
 {
     [PolicyResourceType("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation")]
-    public sealed class DataRepositoryAssociation : global::Pulumi.PolicyResource
+    public sealed class DataRepositoryAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("associationId")]
-        public string? AssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
+
+        public string? AssociationId => _mAssociationId.GetValue("associationId");
 
         /// <summary>
         /// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
         /// </summary>
         [Input("batchImportMetaDataOnCreate")]
-        public bool? BatchImportMetaDataOnCreate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBatchImportMetaDataOnCreate;
+
+        public bool? BatchImportMetaDataOnCreate => _mBatchImportMetaDataOnCreate.GetValue("batchImportMetaDataOnCreate");
 
         /// <summary>
         /// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
         /// </summary>
         [Input("dataRepositoryPath")]
-        public string? DataRepositoryPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataRepositoryPath;
+
+        public string? DataRepositoryPath => _mDataRepositoryPath.GetValue("dataRepositoryPath");
 
         /// <summary>
         /// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
         /// </summary>
         [Input("deleteDataInFilesystem")]
-        public bool? DeleteDataInFilesystem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteDataInFilesystem;
+
+        public bool? DeleteDataInFilesystem => _mDeleteDataInFilesystem.GetValue("deleteDataInFilesystem");
 
         /// <summary>
         /// The ID of the Amazon FSx file system to on which to create a data repository association.
         /// </summary>
         [Input("fileSystemId")]
-        public string? FileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
 
         /// <summary>
         /// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
         /// </summary>
         [Input("fileSystemPath")]
-        public string? FileSystemPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemPath;
+
+        public string? FileSystemPath => _mFileSystemPath.GetValue("fileSystemPath");
 
         /// <summary>
         /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
         /// </summary>
         [Input("importedFileChunkSize")]
-        public int? ImportedFileChunkSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mImportedFileChunkSize;
+
+        public int? ImportedFileChunkSize => _mImportedFileChunkSize.GetValue("importedFileChunkSize");
 
         /// <summary>
         /// See the `s3` configuration block. Max of 1.
         /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         /// </summary>
         [Input("s3")]
-        public DataRepositoryAssociationS3? S3;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataRepositoryAssociationS3> _mS3;
+
+        public Outputs.DataRepositoryAssociationS3? S3 => _mS3.GetValue("s3");
 
         /// <summary>
         /// A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation")]
+    public sealed class DataRepositoryAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
+        /// </summary>
+        [Input("batchImportMetaDataOnCreate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBatchImportMetaDataOnCreate;
+
+        public bool? BatchImportMetaDataOnCreate => _mBatchImportMetaDataOnCreate.GetValue("batchImportMetaDataOnCreate");
+
+        /// <summary>
+        /// The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
+        /// </summary>
+        [Input("dataRepositoryPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataRepositoryPath;
+
+        public string? DataRepositoryPath => _mDataRepositoryPath.GetValue("dataRepositoryPath");
+
+        /// <summary>
+        /// Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
+        /// </summary>
+        [Input("deleteDataInFilesystem")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteDataInFilesystem;
+
+        public bool? DeleteDataInFilesystem => _mDeleteDataInFilesystem.GetValue("deleteDataInFilesystem");
+
+        /// <summary>
+        /// The ID of the Amazon FSx file system to on which to create a data repository association.
+        /// </summary>
+        [Input("fileSystemId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+
+        /// <summary>
+        /// A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+        /// </summary>
+        [Input("fileSystemPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemPath;
+
+        public string? FileSystemPath => _mFileSystemPath.GetValue("fileSystemPath");
+
+        /// <summary>
+        /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
+        /// </summary>
+        [Input("importedFileChunkSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mImportedFileChunkSize;
+
+        public int? ImportedFileChunkSize => _mImportedFileChunkSize.GetValue("importedFileChunkSize");
+
+        /// <summary>
+        /// See the `s3` configuration block. Max of 1.
+        /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+        /// </summary>
+        [Input("s3")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataRepositoryAssociationS3Args> _mS3;
+
+        public Inputs.DataRepositoryAssociationS3Args? S3 => _mS3.GetValue("s3");
+
+        /// <summary>
+        /// A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

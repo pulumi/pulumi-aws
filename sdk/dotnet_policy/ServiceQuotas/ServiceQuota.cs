@@ -11,66 +11,130 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceQuotas
 {
     [PolicyResourceType("aws:servicequotas/serviceQuota:ServiceQuota")]
-    public sealed class ServiceQuota : global::Pulumi.PolicyResource
+    public sealed class ServiceQuota : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether the service quota can be increased.
         /// </summary>
         [Input("adjustable")]
-        public bool? Adjustable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAdjustable;
+
+        public bool? Adjustable => _mAdjustable.GetValue("adjustable");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service quota.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Default value of the service quota.
         /// </summary>
         [Input("defaultValue")]
-        public double? DefaultValue;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mDefaultValue;
+
+        public double? DefaultValue => _mDefaultValue.GetValue("defaultValue");
 
         /// <summary>
         /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
         /// </summary>
         [Input("quotaCode")]
-        public string? QuotaCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaCode;
+
+        public string? QuotaCode => _mQuotaCode.GetValue("quotaCode");
 
         /// <summary>
         /// Name of the quota.
         /// </summary>
         [Input("quotaName")]
-        public string? QuotaName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaName;
+
+        public string? QuotaName => _mQuotaName.GetValue("quotaName");
 
         [Input("requestId")]
-        public string? RequestId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestId;
+
+        public string? RequestId => _mRequestId.GetValue("requestId");
 
         [Input("requestStatus")]
-        public string? RequestStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestStatus;
+
+        public string? RequestStatus => _mRequestStatus.GetValue("requestStatus");
 
         /// <summary>
         /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
         [Input("serviceCode")]
-        public string? ServiceCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceCode;
+
+        public string? ServiceCode => _mServiceCode.GetValue("serviceCode");
 
         /// <summary>
         /// Name of the service.
         /// </summary>
         [Input("serviceName")]
-        public string? ServiceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
 
         /// <summary>
         /// Information about the measurement.
         /// </summary>
         [Input("usageMetrics")]
-        public List<ServiceQuotaUsageMetric>? UsageMetrics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceQuotaUsageMetric>> _mUsageMetrics;
+
+        public List<Outputs.ServiceQuotaUsageMetric>? UsageMetrics => _mUsageMetrics.GetValue("usageMetrics");
 
         /// <summary>
         /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         /// </summary>
         [Input("value")]
-        public double? Value;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mValue;
+
+        public double? Value => _mValue.GetValue("value");
+    }
+
+    [PolicyResourceType("aws:servicequotas/serviceQuota:ServiceQuota")]
+    public sealed class ServiceQuotaArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+        /// </summary>
+        [Input("quotaCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaCode;
+
+        public string? QuotaCode => _mQuotaCode.GetValue("quotaCode");
+
+        /// <summary>
+        /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+        /// </summary>
+        [Input("serviceCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceCode;
+
+        public string? ServiceCode => _mServiceCode.GetValue("serviceCode");
+
+        /// <summary>
+        /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
+        /// </summary>
+        [Input("value")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mValue;
+
+        public double? Value => _mValue.GetValue("value");
     }
 }

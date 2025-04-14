@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.IdentityStore
 {
     [PolicyResourceType("aws:identitystore/groupMembership:GroupMembership")]
-    public sealed class GroupMembership : global::Pulumi.PolicyResource
+    public sealed class GroupMembership : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The identifier for a group in the Identity Store.
         /// </summary>
         [Input("groupId")]
-        public string? GroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
+
+        public string? GroupId => _mGroupId.GetValue("groupId");
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
         /// </summary>
         [Input("identityStoreId")]
-        public string? IdentityStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
+
+        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
 
         /// <summary>
         /// The identifier for a user in the Identity Store.
         /// </summary>
         [Input("memberId")]
-        public string? MemberId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMemberId;
+
+        public string? MemberId => _mMemberId.GetValue("memberId");
 
         /// <summary>
         /// The identifier of the newly created group membership in the Identity Store.
         /// </summary>
         [Input("membershipId")]
-        public string? MembershipId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMembershipId;
+
+        public string? MembershipId => _mMembershipId.GetValue("membershipId");
+    }
+
+    [PolicyResourceType("aws:identitystore/groupMembership:GroupMembership")]
+    public sealed class GroupMembershipArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identifier for a group in the Identity Store.
+        /// </summary>
+        [Input("groupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
+
+        public string? GroupId => _mGroupId.GetValue("groupId");
+
+        /// <summary>
+        /// Identity Store ID associated with the Single Sign-On Instance.
+        /// </summary>
+        [Input("identityStoreId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
+
+        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+
+        /// <summary>
+        /// The identifier for a user in the Identity Store.
+        /// </summary>
+        [Input("memberId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMemberId;
+
+        public string? MemberId => _mMemberId.GetValue("memberId");
     }
 }

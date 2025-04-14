@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WorkLink
 {
     [PolicyResourceType("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")]
-    public sealed class WebsiteCertificateAuthorityAssociation : global::Pulumi.PolicyResource
+    public sealed class WebsiteCertificateAuthorityAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The root certificate of the Certificate Authority.
         /// </summary>
         [Input("certificate")]
-        public string? Certificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
+
+        public string? Certificate => _mCertificate.GetValue("certificate");
 
         /// <summary>
         /// The certificate name to display.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// The ARN of the fleet.
         /// </summary>
         [Input("fleetArn")]
-        public string? FleetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetArn;
+
+        public string? FleetArn => _mFleetArn.GetValue("fleetArn");
 
         /// <summary>
         /// A unique identifier for the Certificate Authority.
         /// </summary>
         [Input("websiteCaId")]
-        public string? WebsiteCaId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteCaId;
+
+        public string? WebsiteCaId => _mWebsiteCaId.GetValue("websiteCaId");
+    }
+
+    [PolicyResourceType("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")]
+    public sealed class WebsiteCertificateAuthorityAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The root certificate of the Certificate Authority.
+        /// </summary>
+        [Input("certificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
+
+        public string? Certificate => _mCertificate.GetValue("certificate");
+
+        /// <summary>
+        /// The certificate name to display.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// The ARN of the fleet.
+        /// </summary>
+        [Input("fleetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetArn;
+
+        public string? FleetArn => _mFleetArn.GetValue("fleetArn");
     }
 }

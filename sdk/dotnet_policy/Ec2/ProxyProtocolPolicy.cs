@@ -11,20 +11,50 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")]
-    public sealed class ProxyProtocolPolicy : global::Pulumi.PolicyResource
+    public sealed class ProxyProtocolPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of instance ports to which the policy
         /// should be applied. This can be specified if the protocol is SSL or TCP.
         /// </summary>
         [Input("instancePorts")]
-        public List<string>? InstancePorts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstancePorts;
+
+        public List<string>? InstancePorts => _mInstancePorts.GetValue("instancePorts");
 
         /// <summary>
         /// The load balancer to which the policy
         /// should be attached.
         /// </summary>
         [Input("loadBalancer")]
-        public string? LoadBalancer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
+
+        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
+    }
+
+    [PolicyResourceType("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")]
+    public sealed class ProxyProtocolPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of instance ports to which the policy
+        /// should be applied. This can be specified if the protocol is SSL or TCP.
+        /// </summary>
+        [Input("instancePorts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstancePorts;
+
+        public List<string>? InstancePorts => _mInstancePorts.GetValue("instancePorts");
+
+        /// <summary>
+        /// The load balancer to which the policy
+        /// should be attached.
+        /// </summary>
+        [Input("loadBalancer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
+
+        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
     }
 }

@@ -11,21 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Shield
 {
     [PolicyResourceType("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")]
-    public sealed class ApplicationLayerAutomaticResponse : global::Pulumi.PolicyResource
+    public sealed class ApplicationLayerAutomaticResponse : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// One of `COUNT` or `BLOCK`
         /// </summary>
         [Input("action")]
-        public string? Action;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
 
         /// <summary>
         /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         [Input("timeouts")]
-        public ApplicationLayerAutomaticResponseTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationLayerAutomaticResponseTimeouts> _mTimeouts;
+
+        public Outputs.ApplicationLayerAutomaticResponseTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")]
+    public sealed class ApplicationLayerAutomaticResponseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// One of `COUNT` or `BLOCK`
+        /// </summary>
+        [Input("action")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
+
+        /// <summary>
+        /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationLayerAutomaticResponseTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ApplicationLayerAutomaticResponseTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

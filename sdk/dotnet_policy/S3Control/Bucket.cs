@@ -11,48 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/bucket:Bucket")]
-    public sealed class Bucket : global::Pulumi.PolicyResource
+    public sealed class Bucket : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
-        public string? BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucket");
 
         /// <summary>
         /// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("creationDate")]
-        public string? CreationDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
+
+        public string? CreationDate => _mCreationDate.GetValue("creationDate");
 
         /// <summary>
         /// Identifier of the Outpost to contain this bucket.
         /// </summary>
         [Input("outpostId")]
-        public string? OutpostId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
+
+        public string? OutpostId => _mOutpostId.GetValue("outpostId");
 
         /// <summary>
         /// Boolean whether Public Access Block is enabled.
         /// </summary>
         [Input("publicAccessBlockEnabled")]
-        public bool? PublicAccessBlockEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPublicAccessBlockEnabled;
+
+        public bool? PublicAccessBlockEnabled => _mPublicAccessBlockEnabled.GetValue("publicAccessBlockEnabled");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:s3control/bucket:Bucket")]
+    public sealed class BucketArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucket");
+
+        /// <summary>
+        /// Identifier of the Outpost to contain this bucket.
+        /// </summary>
+        [Input("outpostId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
+
+        public string? OutpostId => _mOutpostId.GetValue("outpostId");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CostExplorer
 {
     [PolicyResourceType("aws:costexplorer/anomalySubscription:AnomalySubscription")]
-    public sealed class AnomalySubscription : global::Pulumi.PolicyResource
+    public sealed class AnomalySubscription : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// ARN of the anomaly subscription.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         /// </summary>
         [Input("frequency")]
-        public string? Frequency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFrequency;
+
+        public string? Frequency => _mFrequency.GetValue("frequency");
 
         /// <summary>
         /// A list of cost anomaly monitors.
         /// </summary>
         [Input("monitorArnLists")]
-        public List<string>? MonitorArnLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMonitorArnLists;
+
+        public List<string>? MonitorArnLists => _mMonitorArnLists.GetValue("monitorArnLists");
 
         /// <summary>
         /// The name for the subscription.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A subscriber configuration. Multiple subscribers can be defined.
         /// </summary>
         [Input("subscribers")]
-        public List<AnomalySubscriptionSubscriber>? Subscribers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnomalySubscriptionSubscriber>> _mSubscribers;
+
+        public List<Outputs.AnomalySubscriptionSubscriber>? Subscribers => _mSubscribers.GetValue("subscribers");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         /// </summary>
         [Input("thresholdExpression")]
-        public AnomalySubscriptionThresholdExpression? ThresholdExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AnomalySubscriptionThresholdExpression> _mThresholdExpression;
+
+        public Outputs.AnomalySubscriptionThresholdExpression? ThresholdExpression => _mThresholdExpression.GetValue("thresholdExpression");
+    }
+
+    [PolicyResourceType("aws:costexplorer/anomalySubscription:AnomalySubscription")]
+    public sealed class AnomalySubscriptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
+        /// </summary>
+        [Input("frequency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFrequency;
+
+        public string? Frequency => _mFrequency.GetValue("frequency");
+
+        /// <summary>
+        /// A list of cost anomaly monitors.
+        /// </summary>
+        [Input("monitorArnLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMonitorArnLists;
+
+        public List<string>? MonitorArnLists => _mMonitorArnLists.GetValue("monitorArnLists");
+
+        /// <summary>
+        /// The name for the subscription.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A subscriber configuration. Multiple subscribers can be defined.
+        /// </summary>
+        [Input("subscribers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnomalySubscriptionSubscriberArgs>> _mSubscribers;
+
+        public List<Inputs.AnomalySubscriptionSubscriberArgs>? Subscribers => _mSubscribers.GetValue("subscribers");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        /// </summary>
+        [Input("thresholdExpression")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AnomalySubscriptionThresholdExpressionArgs> _mThresholdExpression;
+
+        public Inputs.AnomalySubscriptionThresholdExpressionArgs? ThresholdExpression => _mThresholdExpression.GetValue("thresholdExpression");
     }
 }

@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GuardDuty
 {
     [PolicyResourceType("aws:guardduty/detectorFeature:DetectorFeature")]
-    public sealed class DetectorFeature : global::Pulumi.PolicyResource
+    public sealed class DetectorFeature : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         /// </summary>
         [Input("additionalConfigurations")]
-        public List<DetectorFeatureAdditionalConfiguration>? AdditionalConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DetectorFeatureAdditionalConfiguration>> _mAdditionalConfigurations;
+
+        public List<Outputs.DetectorFeatureAdditionalConfiguration>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
 
         /// <summary>
         /// Amazon GuardDuty detector ID.
         /// </summary>
         [Input("detectorId")]
-        public string? DetectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
 
         /// <summary>
         /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:guardduty/detectorFeature:DetectorFeature")]
+    public sealed class DetectorFeatureArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        /// </summary>
+        [Input("additionalConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DetectorFeatureAdditionalConfigurationArgs>> _mAdditionalConfigurations;
+
+        public List<Inputs.DetectorFeatureAdditionalConfigurationArgs>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
+
+        /// <summary>
+        /// Amazon GuardDuty detector ID.
+        /// </summary>
+        [Input("detectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+
+        /// <summary>
+        /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
     }
 }

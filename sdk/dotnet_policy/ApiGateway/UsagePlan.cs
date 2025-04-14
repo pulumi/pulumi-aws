@@ -11,57 +11,148 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/usagePlan:UsagePlan")]
-    public sealed class UsagePlan : global::Pulumi.PolicyResource
+    public sealed class UsagePlan : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Associated API stages of the usage plan.
         /// </summary>
         [Input("apiStages")]
-        public List<UsagePlanApiStage>? ApiStages;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UsagePlanApiStage>> _mApiStages;
+
+        public List<Outputs.UsagePlanApiStage>? ApiStages => _mApiStages.GetValue("apiStages");
 
         /// <summary>
         /// ARN
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of a usage plan.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the usage plan.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         /// </summary>
         [Input("productCode")]
-        public string? ProductCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductCode;
+
+        public string? ProductCode => _mProductCode.GetValue("productCode");
 
         /// <summary>
         /// Quota of the usage plan.
         /// </summary>
         [Input("quotaSettings")]
-        public UsagePlanQuotaSettings? QuotaSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UsagePlanQuotaSettings> _mQuotaSettings;
+
+        public Outputs.UsagePlanQuotaSettings? QuotaSettings => _mQuotaSettings.GetValue("quotaSettings");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Throttling limits of the usage plan.
         /// </summary>
         [Input("throttleSettings")]
-        public UsagePlanThrottleSettings? ThrottleSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UsagePlanThrottleSettings> _mThrottleSettings;
+
+        public Outputs.UsagePlanThrottleSettings? ThrottleSettings => _mThrottleSettings.GetValue("throttleSettings");
+    }
+
+    [PolicyResourceType("aws:apigateway/usagePlan:UsagePlan")]
+    public sealed class UsagePlanArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Associated API stages of the usage plan.
+        /// </summary>
+        [Input("apiStages")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UsagePlanApiStageArgs>> _mApiStages;
+
+        public List<Inputs.UsagePlanApiStageArgs>? ApiStages => _mApiStages.GetValue("apiStages");
+
+        /// <summary>
+        /// Description of a usage plan.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the usage plan.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+        /// </summary>
+        [Input("productCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductCode;
+
+        public string? ProductCode => _mProductCode.GetValue("productCode");
+
+        /// <summary>
+        /// Quota of the usage plan.
+        /// </summary>
+        [Input("quotaSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UsagePlanQuotaSettingsArgs> _mQuotaSettings;
+
+        public Inputs.UsagePlanQuotaSettingsArgs? QuotaSettings => _mQuotaSettings.GetValue("quotaSettings");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Throttling limits of the usage plan.
+        /// </summary>
+        [Input("throttleSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UsagePlanThrottleSettingsArgs> _mThrottleSettings;
+
+        public Inputs.UsagePlanThrottleSettingsArgs? ThrottleSettings => _mThrottleSettings.GetValue("throttleSettings");
     }
 }

@@ -11,30 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Inspector2
 {
     [PolicyResourceType("aws:inspector2/memberAssociation:MemberAssociation")]
-    public sealed class MemberAssociation : global::Pulumi.PolicyResource
+    public sealed class MemberAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the account to associate
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// Account ID of the delegated administrator account
         /// </summary>
         [Input("delegatedAdminAccountId")]
-        public string? DelegatedAdminAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccountId;
+
+        public string? DelegatedAdminAccountId => _mDelegatedAdminAccountId.GetValue("delegatedAdminAccountId");
 
         /// <summary>
         /// Status of the member relationship
         /// </summary>
         [Input("relationshipStatus")]
-        public string? RelationshipStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRelationshipStatus;
+
+        public string? RelationshipStatus => _mRelationshipStatus.GetValue("relationshipStatus");
 
         /// <summary>
         /// Date and time of the last update of the relationship
         /// </summary>
         [Input("updatedAt")]
-        public string? UpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
+
+        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+    }
+
+    [PolicyResourceType("aws:inspector2/memberAssociation:MemberAssociation")]
+    public sealed class MemberAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the account to associate
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
     }
 }

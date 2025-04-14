@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/organizationsFeatures:OrganizationsFeatures")]
-    public sealed class OrganizationsFeatures : global::Pulumi.PolicyResource
+    public sealed class OrganizationsFeatures : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         /// </summary>
         [Input("enabledFeatures")]
-        public List<string>? EnabledFeatures;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledFeatures;
+
+        public List<string>? EnabledFeatures => _mEnabledFeatures.GetValue("enabledFeatures");
+    }
+
+    [PolicyResourceType("aws:iam/organizationsFeatures:OrganizationsFeatures")]
+    public sealed class OrganizationsFeaturesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
+        /// </summary>
+        [Input("enabledFeatures")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledFeatures;
+
+        public List<string>? EnabledFeatures => _mEnabledFeatures.GetValue("enabledFeatures");
     }
 }

@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Dax
 {
     [PolicyResourceType("aws:dax/subnetGroup:SubnetGroup")]
-    public sealed class SubnetGroup : global::Pulumi.PolicyResource
+    public sealed class SubnetGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A description of the subnet group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the subnet group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A list of VPC subnet IDs for the subnet group.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// VPC ID of the subnet group.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:dax/subnetGroup:SubnetGroup")]
+    public sealed class SubnetGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the subnet group.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the subnet group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of VPC subnet IDs for the subnet group.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
     }
 }

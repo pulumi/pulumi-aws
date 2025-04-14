@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")]
-    public sealed class BucketRequestPaymentConfigurationV2 : global::Pulumi.PolicyResource
+    public sealed class BucketRequestPaymentConfigurationV2 : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
-        public string? ExpectedBucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
 
         /// <summary>
         /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         /// </summary>
         [Input("payer")]
-        public string? Payer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPayer;
+
+        public string? Payer => _mPayer.GetValue("payer");
+    }
+
+    [PolicyResourceType("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")]
+    public sealed class BucketRequestPaymentConfigurationV2Args : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+
+        /// <summary>
+        /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+        /// </summary>
+        [Input("payer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPayer;
+
+        public string? Payer => _mPayer.GetValue("payer");
     }
 }

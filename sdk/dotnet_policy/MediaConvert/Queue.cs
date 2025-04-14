@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MediaConvert
 {
     [PolicyResourceType("aws:mediaconvert/queue:Queue")]
-    public sealed class Queue : global::Pulumi.PolicyResource
+    public sealed class Queue : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Arn of the queue
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         /// </summary>
         [Input("concurrentJobs")]
-        public int? ConcurrentJobs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentJobs;
+
+        public int? ConcurrentJobs => _mConcurrentJobs.GetValue("concurrentJobs");
 
         /// <summary>
         /// A description of the queue
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A unique identifier describing the queue
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
         /// </summary>
         [Input("pricingPlan")]
-        public string? PricingPlan;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPricingPlan;
+
+        public string? PricingPlan => _mPricingPlan.GetValue("pricingPlan");
 
         /// <summary>
         /// A detail pricing plan of the  reserved queue. See below.
         /// </summary>
         [Input("reservationPlanSettings")]
-        public QueueReservationPlanSettings? ReservationPlanSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.QueueReservationPlanSettings> _mReservationPlanSettings;
+
+        public Outputs.QueueReservationPlanSettings? ReservationPlanSettings => _mReservationPlanSettings.GetValue("reservationPlanSettings");
 
         /// <summary>
         /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:mediaconvert/queue:Queue")]
+    public sealed class QueueArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+        /// </summary>
+        [Input("concurrentJobs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentJobs;
+
+        public int? ConcurrentJobs => _mConcurrentJobs.GetValue("concurrentJobs");
+
+        /// <summary>
+        /// A description of the queue
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A unique identifier describing the queue
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
+        /// </summary>
+        [Input("pricingPlan")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPricingPlan;
+
+        public string? PricingPlan => _mPricingPlan.GetValue("pricingPlan");
+
+        /// <summary>
+        /// A detail pricing plan of the  reserved queue. See below.
+        /// </summary>
+        [Input("reservationPlanSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.QueueReservationPlanSettingsArgs> _mReservationPlanSettings;
+
+        public Inputs.QueueReservationPlanSettingsArgs? ReservationPlanSettings => _mReservationPlanSettings.GetValue("reservationPlanSettings");
+
+        /// <summary>
+        /// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

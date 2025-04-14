@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2
 {
     [PolicyResourceType("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")]
-    public sealed class ApplicationSnapshot : global::Pulumi.PolicyResource
+    public sealed class ApplicationSnapshot : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         /// </summary>
         [Input("applicationName")]
-        public string? ApplicationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationName;
+
+        public string? ApplicationName => _mApplicationName.GetValue("applicationName");
 
         /// <summary>
         /// The current application version ID when the snapshot was created.
         /// </summary>
         [Input("applicationVersionId")]
-        public int? ApplicationVersionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationVersionId;
+
+        public int? ApplicationVersionId => _mApplicationVersionId.GetValue("applicationVersionId");
 
         /// <summary>
         /// The timestamp of the application snapshot.
         /// </summary>
         [Input("snapshotCreationTimestamp")]
-        public string? SnapshotCreationTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotCreationTimestamp;
+
+        public string? SnapshotCreationTimestamp => _mSnapshotCreationTimestamp.GetValue("snapshotCreationTimestamp");
 
         /// <summary>
         /// The name of the application snapshot.
         /// </summary>
         [Input("snapshotName")]
-        public string? SnapshotName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
+
+        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
+    }
+
+    [PolicyResourceType("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")]
+    public sealed class ApplicationSnapshotArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        /// </summary>
+        [Input("applicationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationName;
+
+        public string? ApplicationName => _mApplicationName.GetValue("applicationName");
+
+        /// <summary>
+        /// The name of the application snapshot.
+        /// </summary>
+        [Input("snapshotName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
+
+        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
     }
 }

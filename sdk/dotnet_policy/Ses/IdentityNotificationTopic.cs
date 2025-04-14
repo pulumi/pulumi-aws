@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/identityNotificationTopic:IdentityNotificationTopic")]
-    public sealed class IdentityNotificationTopic : global::Pulumi.PolicyResource
+    public sealed class IdentityNotificationTopic : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
         /// </summary>
         [Input("identity")]
-        public string? Identity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
+
+        public string? Identity => _mIdentity.GetValue("identity");
 
         /// <summary>
         /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         /// </summary>
         [Input("includeOriginalHeaders")]
-        public bool? IncludeOriginalHeaders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeOriginalHeaders;
+
+        public bool? IncludeOriginalHeaders => _mIncludeOriginalHeaders.GetValue("includeOriginalHeaders");
 
         /// <summary>
         /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
         [Input("notificationType")]
-        public string? NotificationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
+
+        public string? NotificationType => _mNotificationType.GetValue("notificationType");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
         [Input("topicArn")]
-        public string? TopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
+
+        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+    }
+
+    [PolicyResourceType("aws:ses/identityNotificationTopic:IdentityNotificationTopic")]
+    public sealed class IdentityNotificationTopicArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
+        /// </summary>
+        [Input("identity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
+
+        public string? Identity => _mIdentity.GetValue("identity");
+
+        /// <summary>
+        /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
+        /// </summary>
+        [Input("includeOriginalHeaders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeOriginalHeaders;
+
+        public bool? IncludeOriginalHeaders => _mIncludeOriginalHeaders.GetValue("includeOriginalHeaders");
+
+        /// <summary>
+        /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
+        /// </summary>
+        [Input("notificationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
+
+        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
+        /// </summary>
+        [Input("topicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
+
+        public string? TopicArn => _mTopicArn.GetValue("topicArn");
     }
 }

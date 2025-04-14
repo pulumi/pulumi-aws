@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ram
 {
     [PolicyResourceType("aws:ram/resourceAssociation:ResourceAssociation")]
-    public sealed class ResourceAssociation : global::Pulumi.PolicyResource
+    public sealed class ResourceAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the RAM Resource Share.
         /// </summary>
         [Input("resourceShareArn")]
-        public string? ResourceShareArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
+
+        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
+    }
+
+    [PolicyResourceType("aws:ram/resourceAssociation:ResourceAssociation")]
+    public sealed class ResourceAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the RAM Resource Share.
+        /// </summary>
+        [Input("resourceShareArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
+
+        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
     }
 }

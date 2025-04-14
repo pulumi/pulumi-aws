@@ -11,61 +11,137 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppConfig
 {
     [PolicyResourceType("aws:appconfig/environment:Environment")]
-    public sealed class Environment : global::Pulumi.PolicyResource
+    public sealed class Environment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AppConfig application ID. Must be between 4 and 7 characters in length.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// ARN of the AppConfig Environment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the environment. Can be at most 1024 characters.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// AppConfig environment ID.
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         /// <summary>
         /// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         /// </summary>
         [Input("monitors")]
-        public List<EnvironmentMonitor>? Monitors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentMonitor>> _mMonitors;
+
+        public List<Outputs.EnvironmentMonitor>? Monitors => _mMonitors.GetValue("monitors");
 
         /// <summary>
         /// Name for the environment. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
         /// or `ROLLED_BACK`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:appconfig/environment:Environment")]
+    public sealed class EnvironmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AppConfig application ID. Must be between 4 and 7 characters in length.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// Description of the environment. Can be at most 1024 characters.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+        /// </summary>
+        [Input("monitors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EnvironmentMonitorArgs>> _mMonitors;
+
+        public List<Inputs.EnvironmentMonitorArgs>? Monitors => _mMonitors.GetValue("monitors");
+
+        /// <summary>
+        /// Name for the environment. Must be between 1 and 64 characters in length.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

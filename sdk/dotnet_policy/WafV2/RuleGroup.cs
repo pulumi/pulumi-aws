@@ -11,75 +11,196 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafV2
 {
     [PolicyResourceType("aws:wafv2/ruleGroup:RuleGroup")]
-    public sealed class RuleGroup : global::Pulumi.PolicyResource
+    public sealed class RuleGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the WAF rule group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         /// </summary>
         [Input("capacity")]
-        public int? Capacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCapacity;
+
+        public int? Capacity => _mCapacity.GetValue("capacity");
 
         /// <summary>
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         /// </summary>
         [Input("customResponseBodies")]
-        public List<RuleGroupCustomResponseBody>? CustomResponseBodies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupCustomResponseBody>> _mCustomResponseBodies;
+
+        public List<Outputs.RuleGroupCustomResponseBody>? CustomResponseBodies => _mCustomResponseBodies.GetValue("customResponseBodies");
 
         /// <summary>
         /// A friendly description of the rule group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         [Input("lockToken")]
-        public string? LockToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLockToken;
+
+        public string? LockToken => _mLockToken.GetValue("lockToken");
 
         /// <summary>
         /// A friendly name of the rule group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         /// </summary>
         [Input("rules")]
-        public List<RuleGroupRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRule>> _mRules;
+
+        public List<Outputs.RuleGroupRule>? Rules => _mRules.GetValue("rules");
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
         [Input("scope")]
-        public string? Scope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
 
         /// <summary>
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         /// </summary>
         [Input("visibilityConfig")]
-        public RuleGroupVisibilityConfig? VisibilityConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupVisibilityConfig> _mVisibilityConfig;
+
+        public Outputs.RuleGroupVisibilityConfig? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
+    }
+
+    [PolicyResourceType("aws:wafv2/ruleGroup:RuleGroup")]
+    public sealed class RuleGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+        /// </summary>
+        [Input("capacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCapacity;
+
+        public int? Capacity => _mCapacity.GetValue("capacity");
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
+        [Input("customResponseBodies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupCustomResponseBodyArgs>> _mCustomResponseBodies;
+
+        public List<Inputs.RuleGroupCustomResponseBodyArgs>? CustomResponseBodies => _mCustomResponseBodies.GetValue("customResponseBodies");
+
+        /// <summary>
+        /// A friendly description of the rule group.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A friendly name of the rule group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleArgs>> _mRules;
+
+        public List<Inputs.RuleGroupRuleArgs>? Rules => _mRules.GetValue("rules");
+
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
+        [Input("scope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
+
+        /// <summary>
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// </summary>
+        [Input("visibilityConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupVisibilityConfigArgs> _mVisibilityConfig;
+
+        public Inputs.RuleGroupVisibilityConfigArgs? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
     }
 }

@@ -11,72 +11,157 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppRunner
 {
     [PolicyResourceType("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion")]
-    public sealed class AutoScalingConfigurationVersion : global::Pulumi.PolicyResource
+    public sealed class AutoScalingConfigurationVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of this auto scaling configuration version.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the auto scaling configuration.
         /// </summary>
         [Input("autoScalingConfigurationName")]
-        public string? AutoScalingConfigurationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationName;
+
+        public string? AutoScalingConfigurationName => _mAutoScalingConfigurationName.GetValue("autoScalingConfigurationName");
 
         /// <summary>
         /// The revision of this auto scaling configuration.
         /// </summary>
         [Input("autoScalingConfigurationRevision")]
-        public int? AutoScalingConfigurationRevision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAutoScalingConfigurationRevision;
+
+        public int? AutoScalingConfigurationRevision => _mAutoScalingConfigurationRevision.GetValue("autoScalingConfigurationRevision");
 
         [Input("hasAssociatedService")]
-        public bool? HasAssociatedService;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHasAssociatedService;
+
+        public bool? HasAssociatedService => _mHasAssociatedService.GetValue("hasAssociatedService");
 
         [Input("isDefault")]
-        public bool? IsDefault;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
+
+        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
 
         /// <summary>
         /// Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
         /// </summary>
         [Input("latest")]
-        public bool? Latest;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mLatest;
+
+        public bool? Latest => _mLatest.GetValue("latest");
 
         /// <summary>
         /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         /// </summary>
         [Input("maxConcurrency")]
-        public int? MaxConcurrency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrency;
+
+        public int? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
 
         /// <summary>
         /// Maximal number of instances that App Runner provisions for your service.
         /// </summary>
         [Input("maxSize")]
-        public int? MaxSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
+
+        public int? MaxSize => _mMaxSize.GetValue("maxSize");
 
         /// <summary>
         /// Minimal number of instances that App Runner provisions for your service.
         /// </summary>
         [Input("minSize")]
-        public int? MinSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
+
+        public int? MinSize => _mMinSize.GetValue("minSize");
 
         /// <summary>
         /// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion")]
+    public sealed class AutoScalingConfigurationVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the auto scaling configuration.
+        /// </summary>
+        [Input("autoScalingConfigurationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationName;
+
+        public string? AutoScalingConfigurationName => _mAutoScalingConfigurationName.GetValue("autoScalingConfigurationName");
+
+        /// <summary>
+        /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
+        /// </summary>
+        [Input("maxConcurrency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrency;
+
+        public int? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
+
+        /// <summary>
+        /// Maximal number of instances that App Runner provisions for your service.
+        /// </summary>
+        [Input("maxSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
+
+        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+
+        /// <summary>
+        /// Minimal number of instances that App Runner provisions for your service.
+        /// </summary>
+        [Input("minSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
+
+        public int? MinSize => _mMinSize.GetValue("minSize");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

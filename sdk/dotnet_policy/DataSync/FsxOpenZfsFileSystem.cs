@@ -11,60 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataSync
 {
     [PolicyResourceType("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem")]
-    public sealed class FsxOpenZfsFileSystem : global::Pulumi.PolicyResource
+    public sealed class FsxOpenZfsFileSystem : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The time that the FSx for openzfs location was created.
         /// </summary>
         [Input("creationTime")]
-        public string? CreationTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
+
+        public string? CreationTime => _mCreationTime.GetValue("creationTime");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
         /// </summary>
         [Input("fsxFilesystemArn")]
-        public string? FsxFilesystemArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFsxFilesystemArn;
+
+        public string? FsxFilesystemArn => _mFsxFilesystemArn.GetValue("fsxFilesystemArn");
 
         /// <summary>
         /// The type of protocol that DataSync uses to access your file system. See below.
         /// </summary>
         [Input("protocol")]
-        public FsxOpenZfsFileSystemProtocol? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FsxOpenZfsFileSystemProtocol> _mProtocol;
+
+        public Outputs.FsxOpenZfsFileSystemProtocol? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         /// </summary>
         [Input("securityGroupArns")]
-        public List<string>? SecurityGroupArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
+
+        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         /// </summary>
         [Input("subdirectory")]
-        public string? Subdirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The URL of the FSx for openzfs location that was described.
         /// </summary>
         [Input("uri")]
-        public string? Uri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
+
+        public string? Uri => _mUri.GetValue("uri");
+    }
+
+    [PolicyResourceType("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem")]
+    public sealed class FsxOpenZfsFileSystemArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
+        /// </summary>
+        [Input("fsxFilesystemArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFsxFilesystemArn;
+
+        public string? FsxFilesystemArn => _mFsxFilesystemArn.GetValue("fsxFilesystemArn");
+
+        /// <summary>
+        /// The type of protocol that DataSync uses to access your file system. See below.
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FsxOpenZfsFileSystemProtocolArgs> _mProtocol;
+
+        public Inputs.FsxOpenZfsFileSystemProtocolArgs? Protocol => _mProtocol.GetValue("protocol");
+
+        /// <summary>
+        /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
+        /// </summary>
+        [Input("securityGroupArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
+
+        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+
+        /// <summary>
+        /// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
+        /// </summary>
+        [Input("subdirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

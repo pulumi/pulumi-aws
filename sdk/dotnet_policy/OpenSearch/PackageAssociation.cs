@@ -11,21 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/packageAssociation:PackageAssociation")]
-    public sealed class PackageAssociation : global::Pulumi.PolicyResource
+    public sealed class PackageAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the domain to associate the package with.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// Internal ID of the package to associate with a domain.
         /// </summary>
         [Input("packageId")]
-        public string? PackageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageId;
+
+        public string? PackageId => _mPackageId.GetValue("packageId");
 
         [Input("referencePath")]
-        public string? ReferencePath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReferencePath;
+
+        public string? ReferencePath => _mReferencePath.GetValue("referencePath");
+    }
+
+    [PolicyResourceType("aws:opensearch/packageAssociation:PackageAssociation")]
+    public sealed class PackageAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the domain to associate the package with.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// Internal ID of the package to associate with a domain.
+        /// </summary>
+        [Input("packageId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageId;
+
+        public string? PackageId => _mPackageId.GetValue("packageId");
     }
 }

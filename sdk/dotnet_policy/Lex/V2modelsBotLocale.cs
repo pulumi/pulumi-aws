@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/v2modelsBotLocale:V2modelsBotLocale")]
-    public sealed class V2modelsBotLocale : global::Pulumi.PolicyResource
+    public sealed class V2modelsBotLocale : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the bot to create the locale for.
         /// </summary>
         [Input("botId")]
-        public string? BotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
+
+        public string? BotId => _mBotId.GetValue("botId");
 
         /// <summary>
         /// Version of the bot to create the locale for. This can only be the draft version of the bot.
         /// </summary>
         [Input("botVersion")]
-        public string? BotVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
 
         /// <summary>
         /// Description of the bot locale. Use this to help identify the bot locale in lists.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
         /// </summary>
         [Input("localeId")]
-        public string? LocaleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
+
+        public string? LocaleId => _mLocaleId.GetValue("localeId");
 
         /// <summary>
         /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
@@ -43,21 +55,108 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// The following arguments are optional:
         /// </summary>
         [Input("nLuIntentConfidenceThreshold")]
-        public double? NLuIntentConfidenceThreshold;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mNLuIntentConfidenceThreshold;
+
+        public double? NLuIntentConfidenceThreshold => _mNLuIntentConfidenceThreshold.GetValue("nLuIntentConfidenceThreshold");
 
         /// <summary>
         /// Specified locale name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("timeouts")]
-        public V2modelsBotLocaleTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsBotLocaleTimeouts> _mTimeouts;
+
+        public Outputs.V2modelsBotLocaleTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         /// </summary>
         [Input("voiceSettings")]
-        public V2modelsBotLocaleVoiceSettings? VoiceSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsBotLocaleVoiceSettings> _mVoiceSettings;
+
+        public Outputs.V2modelsBotLocaleVoiceSettings? VoiceSettings => _mVoiceSettings.GetValue("voiceSettings");
+    }
+
+    [PolicyResourceType("aws:lex/v2modelsBotLocale:V2modelsBotLocale")]
+    public sealed class V2modelsBotLocaleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the bot to create the locale for.
+        /// </summary>
+        [Input("botId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
+
+        public string? BotId => _mBotId.GetValue("botId");
+
+        /// <summary>
+        /// Version of the bot to create the locale for. This can only be the draft version of the bot.
+        /// </summary>
+        [Input("botVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+
+        /// <summary>
+        /// Description of the bot locale. Use this to help identify the bot locale in lists.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
+        /// </summary>
+        [Input("localeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
+
+        public string? LocaleId => _mLocaleId.GetValue("localeId");
+
+        /// <summary>
+        /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("nLuIntentConfidenceThreshold")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mNLuIntentConfidenceThreshold;
+
+        public double? NLuIntentConfidenceThreshold => _mNLuIntentConfidenceThreshold.GetValue("nLuIntentConfidenceThreshold");
+
+        /// <summary>
+        /// Specified locale name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsBotLocaleTimeoutsArgs> _mTimeouts;
+
+        public Inputs.V2modelsBotLocaleTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+        /// </summary>
+        [Input("voiceSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsBotLocaleVoiceSettingsArgs> _mVoiceSettings;
+
+        public Inputs.V2modelsBotLocaleVoiceSettingsArgs? VoiceSettings => _mVoiceSettings.GetValue("voiceSettings");
     }
 }

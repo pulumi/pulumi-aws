@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeBuild
 {
     [PolicyResourceType("aws:codebuild/fleet:Fleet")]
-    public sealed class Fleet : global::Pulumi.PolicyResource
+    public sealed class Fleet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Fleet.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Number of machines allocated to the ﬂeet.
         /// </summary>
         [Input("baseCapacity")]
-        public int? BaseCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBaseCapacity;
+
+        public int? BaseCapacity => _mBaseCapacity.GetValue("baseCapacity");
 
         /// <summary>
         /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
         /// </summary>
         [Input("computeConfiguration")]
-        public FleetComputeConfiguration? ComputeConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetComputeConfiguration> _mComputeConfiguration;
+
+        public Outputs.FleetComputeConfiguration? ComputeConfiguration => _mComputeConfiguration.GetValue("computeConfiguration");
 
         /// <summary>
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         /// </summary>
         [Input("computeType")]
-        public string? ComputeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputeType;
+
+        public string? ComputeType => _mComputeType.GetValue("computeType");
 
         /// <summary>
         /// Creation time of the fleet.
         /// </summary>
         [Input("created")]
-        public string? Created;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreated;
+
+        public string? Created => _mCreated.GetValue("created");
 
         /// <summary>
         /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
@@ -49,63 +64,201 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// The following arguments are optional:
         /// </summary>
         [Input("environmentType")]
-        public string? EnvironmentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentType;
+
+        public string? EnvironmentType => _mEnvironmentType.GetValue("environmentType");
 
         /// <summary>
         /// The service role associated with the compute fleet.
         /// </summary>
         [Input("fleetServiceRole")]
-        public string? FleetServiceRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetServiceRole;
+
+        public string? FleetServiceRole => _mFleetServiceRole.GetValue("fleetServiceRole");
 
         /// <summary>
         /// The Amazon Machine Image (AMI) of the compute fleet.
         /// </summary>
         [Input("imageId")]
-        public string? ImageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
 
         /// <summary>
         /// Last modification time of the fleet.
         /// </summary>
         [Input("lastModified")]
-        public string? LastModified;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
+
+        public string? LastModified => _mLastModified.GetValue("lastModified");
 
         /// <summary>
         /// Fleet name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         /// </summary>
         [Input("overflowBehavior")]
-        public string? OverflowBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOverflowBehavior;
+
+        public string? OverflowBehavior => _mOverflowBehavior.GetValue("overflowBehavior");
 
         /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Input("scalingConfiguration")]
-        public FleetScalingConfiguration? ScalingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetScalingConfiguration> _mScalingConfiguration;
+
+        public Outputs.FleetScalingConfiguration? ScalingConfiguration => _mScalingConfiguration.GetValue("scalingConfiguration");
 
         /// <summary>
         /// Nested attribute containing information about the current status of the fleet.
         /// </summary>
         [Input("statuses")]
-        public List<FleetStatus>? Statuses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetStatus>> _mStatuses;
+
+        public List<Outputs.FleetStatus>? Statuses => _mStatuses.GetValue("statuses");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block. See `vpc_config` below.
         /// </summary>
         [Input("vpcConfigs")]
-        public List<FleetVpcConfig>? VpcConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetVpcConfig>> _mVpcConfigs;
+
+        public List<Outputs.FleetVpcConfig>? VpcConfigs => _mVpcConfigs.GetValue("vpcConfigs");
+    }
+
+    [PolicyResourceType("aws:codebuild/fleet:Fleet")]
+    public sealed class FleetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Number of machines allocated to the ﬂeet.
+        /// </summary>
+        [Input("baseCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBaseCapacity;
+
+        public int? BaseCapacity => _mBaseCapacity.GetValue("baseCapacity");
+
+        /// <summary>
+        /// The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
+        /// </summary>
+        [Input("computeConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetComputeConfigurationArgs> _mComputeConfiguration;
+
+        public Inputs.FleetComputeConfigurationArgs? ComputeConfiguration => _mComputeConfiguration.GetValue("computeConfiguration");
+
+        /// <summary>
+        /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
+        /// </summary>
+        [Input("computeType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputeType;
+
+        public string? ComputeType => _mComputeType.GetValue("computeType");
+
+        /// <summary>
+        /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("environmentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentType;
+
+        public string? EnvironmentType => _mEnvironmentType.GetValue("environmentType");
+
+        /// <summary>
+        /// The service role associated with the compute fleet.
+        /// </summary>
+        [Input("fleetServiceRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetServiceRole;
+
+        public string? FleetServiceRole => _mFleetServiceRole.GetValue("fleetServiceRole");
+
+        /// <summary>
+        /// The Amazon Machine Image (AMI) of the compute fleet.
+        /// </summary>
+        [Input("imageId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
+
+        /// <summary>
+        /// Fleet name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
+        /// </summary>
+        [Input("overflowBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOverflowBehavior;
+
+        public string? OverflowBehavior => _mOverflowBehavior.GetValue("overflowBehavior");
+
+        /// <summary>
+        /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
+        /// </summary>
+        [Input("scalingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetScalingConfigurationArgs> _mScalingConfiguration;
+
+        public Inputs.FleetScalingConfigurationArgs? ScalingConfiguration => _mScalingConfiguration.GetValue("scalingConfiguration");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block. See `vpc_config` below.
+        /// </summary>
+        [Input("vpcConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FleetVpcConfigArgs>> _mVpcConfigs;
+
+        public List<Inputs.FleetVpcConfigArgs>? VpcConfigs => _mVpcConfigs.GetValue("vpcConfigs");
     }
 }

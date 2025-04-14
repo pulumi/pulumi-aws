@@ -11,66 +11,166 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transfer
 {
     [PolicyResourceType("aws:transfer/agreement:Agreement")]
-    public sealed class Agreement : global::Pulumi.PolicyResource
+    public sealed class Agreement : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
         [Input("accessRole")]
-        public string? AccessRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRole;
+
+        public string? AccessRole => _mAccessRole.GetValue("accessRole");
 
         /// <summary>
         /// The unique identifier for the AS2 agreement.
         /// </summary>
         [Input("agreementId")]
-        public string? AgreementId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgreementId;
+
+        public string? AgreementId => _mAgreementId.GetValue("agreementId");
 
         /// <summary>
         /// The ARN of the agreement.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The landing directory for the files transferred by using the AS2 protocol.
         /// </summary>
         [Input("baseDirectory")]
-        public string? BaseDirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseDirectory;
+
+        public string? BaseDirectory => _mBaseDirectory.GetValue("baseDirectory");
 
         /// <summary>
         /// The Optional description of the transdfer.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The unique identifier for the AS2 local profile.
         /// </summary>
         [Input("localProfileId")]
-        public string? LocalProfileId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalProfileId;
+
+        public string? LocalProfileId => _mLocalProfileId.GetValue("localProfileId");
 
         /// <summary>
         /// The unique identifier for the AS2 partner profile.
         /// </summary>
         [Input("partnerProfileId")]
-        public string? PartnerProfileId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerProfileId;
+
+        public string? PartnerProfileId => _mPartnerProfileId.GetValue("partnerProfileId");
 
         /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Input("serverId")]
-        public string? ServerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
+
+        public string? ServerId => _mServerId.GetValue("serverId");
 
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:transfer/agreement:Agreement")]
+    public sealed class AgreementArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        /// </summary>
+        [Input("accessRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRole;
+
+        public string? AccessRole => _mAccessRole.GetValue("accessRole");
+
+        /// <summary>
+        /// The landing directory for the files transferred by using the AS2 protocol.
+        /// </summary>
+        [Input("baseDirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseDirectory;
+
+        public string? BaseDirectory => _mBaseDirectory.GetValue("baseDirectory");
+
+        /// <summary>
+        /// The Optional description of the transdfer.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The unique identifier for the AS2 local profile.
+        /// </summary>
+        [Input("localProfileId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalProfileId;
+
+        public string? LocalProfileId => _mLocalProfileId.GetValue("localProfileId");
+
+        /// <summary>
+        /// The unique identifier for the AS2 partner profile.
+        /// </summary>
+        [Input("partnerProfileId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerProfileId;
+
+        public string? PartnerProfileId => _mPartnerProfileId.GetValue("partnerProfileId");
+
+        /// <summary>
+        /// The unique server identifier for the server instance. This is the specific server the agreement uses.
+        /// </summary>
+        [Input("serverId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
+
+        public string? ServerId => _mServerId.GetValue("serverId");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

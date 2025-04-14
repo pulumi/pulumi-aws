@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
 {
     [PolicyResourceType("aws:globalaccelerator/accelerator:Accelerator")]
-    public sealed class Accelerator : global::Pulumi.PolicyResource
+    public sealed class Accelerator : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The attributes of the accelerator. Fields documented below.
         /// </summary>
         [Input("attributes")]
-        public AcceleratorAttributes? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AcceleratorAttributes> _mAttributes;
+
+        public Outputs.AcceleratorAttributes? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         /// </summary>
         [Input("dnsName")]
-        public string? DnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
+
+        public string? DnsName => _mDnsName.GetValue("dnsName");
 
         /// <summary>
         /// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         /// </summary>
         [Input("dualStackDnsName")]
-        public string? DualStackDnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDualStackDnsName;
+
+        public string? DualStackDnsName => _mDualStackDnsName.GetValue("dualStackDnsName");
 
         /// <summary>
         /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// -  The Global Accelerator Route 53 zone ID that can be used to
@@ -49,42 +64,121 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
 
         /// <summary>
         /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         /// </summary>
         [Input("ipAddressType")]
-        public string? IpAddressType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
 
         /// <summary>
         /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         /// </summary>
         [Input("ipAddresses")]
-        public List<string>? IpAddresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpAddresses;
+
+        public List<string>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
 
         /// <summary>
         /// IP address set associated with the accelerator.
         /// </summary>
         [Input("ipSets")]
-        public List<AcceleratorIpSet>? IpSets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AcceleratorIpSet>> _mIpSets;
+
+        public List<Outputs.AcceleratorIpSet>? IpSets => _mIpSets.GetValue("ipSets");
 
         /// <summary>
         /// The name of the accelerator.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:globalaccelerator/accelerator:Accelerator")]
+    public sealed class AcceleratorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The attributes of the accelerator. Fields documented below.
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AcceleratorAttributesArgs> _mAttributes;
+
+        public Inputs.AcceleratorAttributesArgs? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
+        /// </summary>
+        [Input("ipAddressType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+
+        /// <summary>
+        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        /// </summary>
+        [Input("ipAddresses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpAddresses;
+
+        public List<string>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
+
+        /// <summary>
+        /// The name of the accelerator.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

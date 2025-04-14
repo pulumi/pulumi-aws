@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ivs
 {
     [PolicyResourceType("aws:ivs/playbackKeyPair:PlaybackKeyPair")]
-    public sealed class PlaybackKeyPair : global::Pulumi.PolicyResource
+    public sealed class PlaybackKeyPair : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Playback Key Pair.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Key-pair identifier.
         /// </summary>
         [Input("fingerprint")]
-        public string? Fingerprint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFingerprint;
+
+        public string? Fingerprint => _mFingerprint.GetValue("fingerprint");
 
         /// <summary>
         /// Playback Key Pair name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
@@ -37,18 +46,60 @@ namespace Pulumi.PolicyPacks.Aws.Ivs
         /// The following arguments are optional:
         /// </summary>
         [Input("publicKey")]
-        public string? PublicKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ivs/playbackKeyPair:PlaybackKeyPair")]
+    public sealed class PlaybackKeyPairArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Playback Key Pair name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("publicKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

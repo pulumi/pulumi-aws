@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/retentionConfiguration:RetentionConfiguration")]
-    public sealed class RetentionConfiguration : global::Pulumi.PolicyResource
+    public sealed class RetentionConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the retention configuration object. The object is always named **default**.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The number of days AWS Config stores historical information.
         /// </summary>
         [Input("retentionPeriodInDays")]
-        public int? RetentionPeriodInDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriodInDays;
+
+        public int? RetentionPeriodInDays => _mRetentionPeriodInDays.GetValue("retentionPeriodInDays");
+    }
+
+    [PolicyResourceType("aws:cfg/retentionConfiguration:RetentionConfiguration")]
+    public sealed class RetentionConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The number of days AWS Config stores historical information.
+        /// </summary>
+        [Input("retentionPeriodInDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriodInDays;
+
+        public int? RetentionPeriodInDays => _mRetentionPeriodInDays.GetValue("retentionPeriodInDays");
     }
 }

@@ -11,39 +11,94 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/openIdConnectProvider:OpenIdConnectProvider")]
-    public sealed class OpenIdConnectProvider : global::Pulumi.PolicyResource
+    public sealed class OpenIdConnectProvider : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN assigned by AWS for this provider.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         /// </summary>
         [Input("clientIdLists")]
-        public List<string>? ClientIdLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientIdLists;
+
+        public List<string>? ClientIdLists => _mClientIdLists.GetValue("clientIdLists");
 
         /// <summary>
         /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("thumbprintLists")]
-        public List<string>? ThumbprintLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mThumbprintLists;
+
+        public List<string>? ThumbprintLists => _mThumbprintLists.GetValue("thumbprintLists");
 
         /// <summary>
         /// URL of the identity provider, corresponding to the `iss` claim.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
+    }
+
+    [PolicyResourceType("aws:iam/openIdConnectProvider:OpenIdConnectProvider")]
+    public sealed class OpenIdConnectProviderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
+        /// </summary>
+        [Input("clientIdLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientIdLists;
+
+        public List<string>? ClientIdLists => _mClientIdLists.GetValue("clientIdLists");
+
+        /// <summary>
+        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("thumbprintLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mThumbprintLists;
+
+        public List<string>? ThumbprintLists => _mThumbprintLists.GetValue("thumbprintLists");
+
+        /// <summary>
+        /// URL of the identity provider, corresponding to the `iss` claim.
+        /// </summary>
+        [Input("url")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
     }
 }

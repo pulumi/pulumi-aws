@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chime
 {
     [PolicyResourceType("aws:chime/voiceConnector:VoiceConnector")]
-    public sealed class VoiceConnector : global::Pulumi.PolicyResource
+    public sealed class VoiceConnector : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         /// </summary>
         [Input("awsRegion")]
-        public string? AwsRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
+
+        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
 
         /// <summary>
         /// The name of the Amazon Chime Voice Connector.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The outbound host name for the Amazon Chime Voice Connector.
         /// </summary>
         [Input("outboundHostName")]
-        public string? OutboundHostName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutboundHostName;
+
+        public string? OutboundHostName => _mOutboundHostName.GetValue("outboundHostName");
 
         /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
@@ -43,18 +55,69 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// The following arguments are optional:
         /// </summary>
         [Input("requireEncryption")]
-        public bool? RequireEncryption;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireEncryption;
+
+        public bool? RequireEncryption => _mRequireEncryption.GetValue("requireEncryption");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:chime/voiceConnector:VoiceConnector")]
+    public sealed class VoiceConnectorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
+        /// </summary>
+        [Input("awsRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
+
+        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+
+        /// <summary>
+        /// The name of the Amazon Chime Voice Connector.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// When enabled, requires encryption for the Amazon Chime Voice Connector.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("requireEncryption")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireEncryption;
+
+        public bool? RequireEncryption => _mRequireEncryption.GetValue("requireEncryption");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

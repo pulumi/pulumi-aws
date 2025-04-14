@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/resourcePolicy:ResourcePolicy")]
-    public sealed class ResourcePolicy : global::Pulumi.PolicyResource
+    public sealed class ResourcePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The content of the resource policy being updated.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+    }
+
+    [PolicyResourceType("aws:redshift/resourcePolicy:ResourcePolicy")]
+    public sealed class ResourcePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The content of the resource policy being updated.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
     }
 }

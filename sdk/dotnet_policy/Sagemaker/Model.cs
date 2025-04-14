@@ -11,66 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/model:Model")]
-    public sealed class Model : global::Pulumi.PolicyResource
+    public sealed class Model : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this model.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         /// </summary>
         [Input("containers")]
-        public List<ModelContainer>? Containers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ModelContainer>> _mContainers;
+
+        public List<Outputs.ModelContainer>? Containers => _mContainers.GetValue("containers");
 
         /// <summary>
         /// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         /// </summary>
         [Input("enableNetworkIsolation")]
-        public bool? EnableNetworkIsolation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkIsolation;
+
+        public bool? EnableNetworkIsolation => _mEnableNetworkIsolation.GetValue("enableNetworkIsolation");
 
         /// <summary>
         /// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
         /// </summary>
         [Input("executionRoleArn")]
-        public string? ExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
 
         /// <summary>
         /// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         /// </summary>
         [Input("inferenceExecutionConfig")]
-        public ModelInferenceExecutionConfig? InferenceExecutionConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ModelInferenceExecutionConfig> _mInferenceExecutionConfig;
+
+        public Outputs.ModelInferenceExecutionConfig? InferenceExecutionConfig => _mInferenceExecutionConfig.GetValue("inferenceExecutionConfig");
 
         /// <summary>
         /// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         /// </summary>
         [Input("primaryContainer")]
-        public ModelPrimaryContainer? PrimaryContainer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ModelPrimaryContainer> _mPrimaryContainer;
+
+        public Outputs.ModelPrimaryContainer? PrimaryContainer => _mPrimaryContainer.GetValue("primaryContainer");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
         /// </summary>
         [Input("vpcConfig")]
-        public ModelVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ModelVpcConfig> _mVpcConfig;
+
+        public Outputs.ModelVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+    }
+
+    [PolicyResourceType("aws:sagemaker/model:Model")]
+    public sealed class ModelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+        /// </summary>
+        [Input("containers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ModelContainerArgs>> _mContainers;
+
+        public List<Inputs.ModelContainerArgs>? Containers => _mContainers.GetValue("containers");
+
+        /// <summary>
+        /// Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
+        /// </summary>
+        [Input("enableNetworkIsolation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkIsolation;
+
+        public bool? EnableNetworkIsolation => _mEnableNetworkIsolation.GetValue("enableNetworkIsolation");
+
+        /// <summary>
+        /// A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
+        /// </summary>
+        [Input("executionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+
+        /// <summary>
+        /// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+        /// </summary>
+        [Input("inferenceExecutionConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelInferenceExecutionConfigArgs> _mInferenceExecutionConfig;
+
+        public Inputs.ModelInferenceExecutionConfigArgs? InferenceExecutionConfig => _mInferenceExecutionConfig.GetValue("inferenceExecutionConfig");
+
+        /// <summary>
+        /// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        /// </summary>
+        [Input("primaryContainer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelPrimaryContainerArgs> _mPrimaryContainer;
+
+        public Inputs.ModelPrimaryContainerArgs? PrimaryContainer => _mPrimaryContainer.GetValue("primaryContainer");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.ModelVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
     }
 }

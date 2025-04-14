@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
 {
     [PolicyResourceType("aws:verifiedpermissions/identitySource:IdentitySource")]
-    public sealed class IdentitySource : global::Pulumi.PolicyResource
+    public sealed class IdentitySource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         /// </summary>
         [Input("configuration")]
-        public IdentitySourceConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IdentitySourceConfiguration> _mConfiguration;
+
+        public Outputs.IdentitySourceConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// Specifies the ID of the policy store in which you want to store this identity source.
         /// </summary>
         [Input("policyStoreId")]
-        public string? PolicyStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
 
         /// <summary>
         /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         /// </summary>
         [Input("principalEntityType")]
-        public string? PrincipalEntityType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalEntityType;
+
+        public string? PrincipalEntityType => _mPrincipalEntityType.GetValue("principalEntityType");
+    }
+
+    [PolicyResourceType("aws:verifiedpermissions/identitySource:IdentitySource")]
+    public sealed class IdentitySourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationArgs> _mConfiguration;
+
+        public Inputs.IdentitySourceConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// Specifies the ID of the policy store in which you want to store this identity source.
+        /// </summary>
+        [Input("policyStoreId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+
+        /// <summary>
+        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// </summary>
+        [Input("principalEntityType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalEntityType;
+
+        public string? PrincipalEntityType => _mPrincipalEntityType.GetValue("principalEntityType");
     }
 }

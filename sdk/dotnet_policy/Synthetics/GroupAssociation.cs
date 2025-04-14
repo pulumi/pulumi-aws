@@ -11,27 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Synthetics
 {
     [PolicyResourceType("aws:synthetics/groupAssociation:GroupAssociation")]
-    public sealed class GroupAssociation : global::Pulumi.PolicyResource
+    public sealed class GroupAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the canary.
         /// </summary>
         [Input("canaryArn")]
-        public string? CanaryArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCanaryArn;
+
+        public string? CanaryArn => _mCanaryArn.GetValue("canaryArn");
 
         [Input("groupArn")]
-        public string? GroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupArn;
+
+        public string? GroupArn => _mGroupArn.GetValue("groupArn");
 
         /// <summary>
         /// ID of the Group.
         /// </summary>
         [Input("groupId")]
-        public string? GroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
+
+        public string? GroupId => _mGroupId.GetValue("groupId");
 
         /// <summary>
         /// Name of the group that the canary will be associated with.
         /// </summary>
         [Input("groupName")]
-        public string? GroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+
+        public string? GroupName => _mGroupName.GetValue("groupName");
+    }
+
+    [PolicyResourceType("aws:synthetics/groupAssociation:GroupAssociation")]
+    public sealed class GroupAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the canary.
+        /// </summary>
+        [Input("canaryArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCanaryArn;
+
+        public string? CanaryArn => _mCanaryArn.GetValue("canaryArn");
+
+        /// <summary>
+        /// Name of the group that the canary will be associated with.
+        /// </summary>
+        [Input("groupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+
+        public string? GroupName => _mGroupName.GetValue("groupName");
     }
 }

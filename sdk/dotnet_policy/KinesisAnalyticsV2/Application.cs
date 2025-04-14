@@ -11,102 +11,244 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2
 {
     [PolicyResourceType("aws:kinesisanalyticsv2/application:Application")]
-    public sealed class Application : global::Pulumi.PolicyResource
+    public sealed class Application : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The application's configuration
         /// </summary>
         [Input("applicationConfiguration")]
-        public ApplicationApplicationConfiguration? ApplicationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationApplicationConfiguration> _mApplicationConfiguration;
+
+        public Outputs.ApplicationApplicationConfiguration? ApplicationConfiguration => _mApplicationConfiguration.GetValue("applicationConfiguration");
 
         /// <summary>
         /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         /// </summary>
         [Input("applicationMode")]
-        public string? ApplicationMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationMode;
+
+        public string? ApplicationMode => _mApplicationMode.GetValue("applicationMode");
 
         /// <summary>
         /// The ARN of the application.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A CloudWatch log stream to monitor application configuration errors.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
-        public ApplicationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationCloudwatchLoggingOptions> _mCloudwatchLoggingOptions;
+
+        public Outputs.ApplicationCloudwatchLoggingOptions? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
 
         /// <summary>
         /// The current timestamp when the application was created.
         /// </summary>
         [Input("createTimestamp")]
-        public string? CreateTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTimestamp;
+
+        public string? CreateTimestamp => _mCreateTimestamp.GetValue("createTimestamp");
 
         /// <summary>
         /// A summary description of the application.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Whether to force stop an unresponsive Flink-based application.
         /// </summary>
         [Input("forceStop")]
-        public bool? ForceStop;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceStop;
+
+        public bool? ForceStop => _mForceStop.GetValue("forceStop");
 
         /// <summary>
         /// The current timestamp when the application was last updated.
         /// </summary>
         [Input("lastUpdateTimestamp")]
-        public string? LastUpdateTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdateTimestamp;
+
+        public string? LastUpdateTimestamp => _mLastUpdateTimestamp.GetValue("lastUpdateTimestamp");
 
         /// <summary>
         /// The name of the application.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         /// </summary>
         [Input("runtimeEnvironment")]
-        public string? RuntimeEnvironment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeEnvironment;
+
+        public string? RuntimeEnvironment => _mRuntimeEnvironment.GetValue("runtimeEnvironment");
 
         /// <summary>
         /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         /// </summary>
         [Input("serviceExecutionRole")]
-        public string? ServiceExecutionRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRole;
+
+        public string? ServiceExecutionRole => _mServiceExecutionRole.GetValue("serviceExecutionRole");
 
         /// <summary>
         /// Whether to start or stop the application.
         /// </summary>
         [Input("startApplication")]
-        public bool? StartApplication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartApplication;
+
+        public bool? StartApplication => _mStartApplication.GetValue("startApplication");
 
         /// <summary>
         /// The status of the application.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         /// </summary>
         [Input("versionId")]
-        public int? VersionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersionId;
+
+        public int? VersionId => _mVersionId.GetValue("versionId");
+    }
+
+    [PolicyResourceType("aws:kinesisanalyticsv2/application:Application")]
+    public sealed class ApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The application's configuration
+        /// </summary>
+        [Input("applicationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationArgs> _mApplicationConfiguration;
+
+        public Inputs.ApplicationApplicationConfigurationArgs? ApplicationConfiguration => _mApplicationConfiguration.GetValue("applicationConfiguration");
+
+        /// <summary>
+        /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        /// </summary>
+        [Input("applicationMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationMode;
+
+        public string? ApplicationMode => _mApplicationMode.GetValue("applicationMode");
+
+        /// <summary>
+        /// A CloudWatch log stream to monitor application configuration errors.
+        /// </summary>
+        [Input("cloudwatchLoggingOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
+
+        public Inputs.ApplicationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+
+        /// <summary>
+        /// A summary description of the application.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Whether to force stop an unresponsive Flink-based application.
+        /// </summary>
+        [Input("forceStop")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceStop;
+
+        public bool? ForceStop => _mForceStop.GetValue("forceStop");
+
+        /// <summary>
+        /// The name of the application.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
+        /// </summary>
+        [Input("runtimeEnvironment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeEnvironment;
+
+        public string? RuntimeEnvironment => _mRuntimeEnvironment.GetValue("runtimeEnvironment");
+
+        /// <summary>
+        /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// </summary>
+        [Input("serviceExecutionRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRole;
+
+        public string? ServiceExecutionRole => _mServiceExecutionRole.GetValue("serviceExecutionRole");
+
+        /// <summary>
+        /// Whether to start or stop the application.
+        /// </summary>
+        [Input("startApplication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartApplication;
+
+        public bool? StartApplication => _mStartApplication.GetValue("startApplication");
+
+        /// <summary>
+        /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

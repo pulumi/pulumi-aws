@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectoryService
 {
     [PolicyResourceType("aws:directoryservice/logService:LogService")]
-    public sealed class LogService : global::Pulumi.PolicyResource
+    public sealed class LogService : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of directory.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         /// </summary>
         [Input("logGroupName")]
-        public string? LogGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+    }
+
+    [PolicyResourceType("aws:directoryservice/logService:LogService")]
+    public sealed class LogServiceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of directory.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
+        /// </summary>
+        [Input("logGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
     }
 }

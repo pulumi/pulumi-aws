@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeCommit
 {
     [PolicyResourceType("aws:codecommit/trigger:Trigger")]
-    public sealed class Trigger : global::Pulumi.PolicyResource
+    public sealed class Trigger : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// System-generated unique identifier.
         /// </summary>
         [Input("configurationId")]
-        public string? ConfigurationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationId;
+
+        public string? ConfigurationId => _mConfigurationId.GetValue("configurationId");
 
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
         /// </summary>
         [Input("repositoryName")]
-        public string? RepositoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
 
         /// <summary>
         /// The name of the trigger.
         /// </summary>
         [Input("triggers")]
-        public List<TriggerTrigger>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TriggerTrigger>> _mTriggers;
+
+        public List<Outputs.TriggerTrigger>? Triggers => _mTriggers.GetValue("triggers");
+    }
+
+    [PolicyResourceType("aws:codecommit/trigger:Trigger")]
+    public sealed class TriggerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name for the repository. This needs to be less than 100 characters.
+        /// </summary>
+        [Input("repositoryName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+
+        /// <summary>
+        /// The name of the trigger.
+        /// </summary>
+        [Input("triggers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TriggerTriggerArgs>> _mTriggers;
+
+        public List<Inputs.TriggerTriggerArgs>? Triggers => _mTriggers.GetValue("triggers");
     }
 }

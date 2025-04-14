@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VpcLattice
 {
     [PolicyResourceType("aws:vpclattice/accessLogSubscription:AccessLogSubscription")]
-    public sealed class AccessLogSubscription : global::Pulumi.PolicyResource
+    public sealed class AccessLogSubscription : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the access log subscription.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the log destination.
         /// </summary>
         [Input("destinationArn")]
-        public string? DestinationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service network or service.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -37,18 +46,69 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// The following arguments are optional:
         /// </summary>
         [Input("resourceIdentifier")]
-        public string? ResourceIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
+
+        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
 
         /// <summary>
         /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
         /// </summary>
         [Input("serviceNetworkLogType")]
-        public string? ServiceNetworkLogType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkLogType;
+
+        public string? ServiceNetworkLogType => _mServiceNetworkLogType.GetValue("serviceNetworkLogType");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:vpclattice/accessLogSubscription:AccessLogSubscription")]
+    public sealed class AccessLogSubscriptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the log destination.
+        /// </summary>
+        [Input("destinationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+
+        /// <summary>
+        /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("resourceIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
+
+        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
+
+        /// <summary>
+        /// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        /// </summary>
+        [Input("serviceNetworkLogType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNetworkLogType;
+
+        public string? ServiceNetworkLogType => _mServiceNetworkLogType.GetValue("serviceNetworkLogType");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

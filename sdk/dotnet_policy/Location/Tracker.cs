@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Location
 {
     [PolicyResourceType("aws:location/tracker:Tracker")]
-    public sealed class Tracker : global::Pulumi.PolicyResource
+    public sealed class Tracker : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The timestamp for when the tracker resource was created in ISO 8601 format.
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// The optional description for the tracker resource.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
         /// </summary>
         [Input("positionFiltering")]
-        public string? PositionFiltering;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPositionFiltering;
+
+        public string? PositionFiltering => _mPositionFiltering.GetValue("positionFiltering");
 
         /// <summary>
         /// Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Input("trackerArn")]
-        public string? TrackerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerArn;
+
+        public string? TrackerArn => _mTrackerArn.GetValue("trackerArn");
 
         /// <summary>
         /// The name of the tracker resource.
@@ -61,12 +82,69 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// The following arguments are optional:
         /// </summary>
         [Input("trackerName")]
-        public string? TrackerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerName;
+
+        public string? TrackerName => _mTrackerName.GetValue("trackerName");
 
         /// <summary>
         /// The timestamp for when the tracker resource was last updated in ISO 8601 format.
         /// </summary>
         [Input("updateTime")]
-        public string? UpdateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
+
+        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+    }
+
+    [PolicyResourceType("aws:location/tracker:Tracker")]
+    public sealed class TrackerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The optional description for the tracker resource.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
+        /// </summary>
+        [Input("positionFiltering")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPositionFiltering;
+
+        public string? PositionFiltering => _mPositionFiltering.GetValue("positionFiltering");
+
+        /// <summary>
+        /// Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The name of the tracker resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("trackerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerName;
+
+        public string? TrackerName => _mTrackerName.GetValue("trackerName");
     }
 }

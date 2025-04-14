@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kinesis
 {
     [PolicyResourceType("aws:kinesis/streamConsumer:StreamConsumer")]
-    public sealed class StreamConsumer : global::Pulumi.PolicyResource
+    public sealed class StreamConsumer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the stream consumer.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         /// </summary>
         [Input("creationTimestamp")]
-        public string? CreationTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTimestamp;
+
+        public string? CreationTimestamp => _mCreationTimestamp.GetValue("creationTimestamp");
 
         /// <summary>
         /// Name of the stream consumer.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         /// </summary>
         [Input("streamArn")]
-        public string? StreamArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
+
+        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+    }
+
+    [PolicyResourceType("aws:kinesis/streamConsumer:StreamConsumer")]
+    public sealed class StreamConsumerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the stream consumer.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// </summary>
+        [Input("streamArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
+
+        public string? StreamArn => _mStreamArn.GetValue("streamArn");
     }
 }

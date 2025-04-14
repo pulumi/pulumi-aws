@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration")]
-    public sealed class ApplicationAssignmentConfiguration : global::Pulumi.PolicyResource
+    public sealed class ApplicationAssignmentConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the application.
         /// </summary>
         [Input("applicationArn")]
-        public string? ApplicationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
+
+        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
 
         /// <summary>
         /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
         /// </summary>
         [Input("assignmentRequired")]
-        public bool? AssignmentRequired;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignmentRequired;
+
+        public bool? AssignmentRequired => _mAssignmentRequired.GetValue("assignmentRequired");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration")]
+    public sealed class ApplicationAssignmentConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the application.
+        /// </summary>
+        [Input("applicationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
+
+        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+
+        /// <summary>
+        /// Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
+        /// </summary>
+        [Input("assignmentRequired")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignmentRequired;
+
+        public bool? AssignmentRequired => _mAssignmentRequired.GetValue("assignmentRequired");
     }
 }

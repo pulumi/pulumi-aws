@@ -11,60 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer
 {
     [PolicyResourceType("aws:computeoptimizer/recommendationPreferences:RecommendationPreferences")]
-    public sealed class RecommendationPreferences : global::Pulumi.PolicyResource
+    public sealed class RecommendationPreferences : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         /// </summary>
         [Input("enhancedInfrastructureMetrics")]
-        public string? EnhancedInfrastructureMetrics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnhancedInfrastructureMetrics;
+
+        public string? EnhancedInfrastructureMetrics => _mEnhancedInfrastructureMetrics.GetValue("enhancedInfrastructureMetrics");
 
         /// <summary>
         /// The provider of the external metrics recommendation preference. See External Metrics Preference below.
         /// </summary>
         [Input("externalMetricsPreference")]
-        public RecommendationPreferencesExternalMetricsPreference? ExternalMetricsPreference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RecommendationPreferencesExternalMetricsPreference> _mExternalMetricsPreference;
+
+        public Outputs.RecommendationPreferencesExternalMetricsPreference? ExternalMetricsPreference => _mExternalMetricsPreference.GetValue("externalMetricsPreference");
 
         /// <summary>
         /// The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         /// </summary>
         [Input("inferredWorkloadTypes")]
-        public string? InferredWorkloadTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInferredWorkloadTypes;
+
+        public string? InferredWorkloadTypes => _mInferredWorkloadTypes.GetValue("inferredWorkloadTypes");
 
         /// <summary>
         /// The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         /// </summary>
         [Input("lookBackPeriod")]
-        public string? LookBackPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLookBackPeriod;
+
+        public string? LookBackPeriod => _mLookBackPeriod.GetValue("lookBackPeriod");
 
         /// <summary>
         /// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         /// </summary>
         [Input("preferredResources")]
-        public List<RecommendationPreferencesPreferredResource>? PreferredResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecommendationPreferencesPreferredResource>> _mPreferredResources;
+
+        public List<Outputs.RecommendationPreferencesPreferredResource>? PreferredResources => _mPreferredResources.GetValue("preferredResources");
 
         /// <summary>
         /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         /// </summary>
         [Input("savingsEstimationMode")]
-        public string? SavingsEstimationMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSavingsEstimationMode;
+
+        public string? SavingsEstimationMode => _mSavingsEstimationMode.GetValue("savingsEstimationMode");
 
         /// <summary>
         /// The scope of the recommendation preferences. See Scope below.
         /// </summary>
         [Input("scope")]
-        public RecommendationPreferencesScope? Scope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RecommendationPreferencesScope> _mScope;
+
+        public Outputs.RecommendationPreferencesScope? Scope => _mScope.GetValue("scope");
 
         /// <summary>
         /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
         /// </summary>
         [Input("utilizationPreferences")]
-        public List<RecommendationPreferencesUtilizationPreference>? UtilizationPreferences;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecommendationPreferencesUtilizationPreference>> _mUtilizationPreferences;
+
+        public List<Outputs.RecommendationPreferencesUtilizationPreference>? UtilizationPreferences => _mUtilizationPreferences.GetValue("utilizationPreferences");
+    }
+
+    [PolicyResourceType("aws:computeoptimizer/recommendationPreferences:RecommendationPreferences")]
+    public sealed class RecommendationPreferencesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
+        /// </summary>
+        [Input("enhancedInfrastructureMetrics")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnhancedInfrastructureMetrics;
+
+        public string? EnhancedInfrastructureMetrics => _mEnhancedInfrastructureMetrics.GetValue("enhancedInfrastructureMetrics");
+
+        /// <summary>
+        /// The provider of the external metrics recommendation preference. See External Metrics Preference below.
+        /// </summary>
+        [Input("externalMetricsPreference")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs> _mExternalMetricsPreference;
+
+        public Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs? ExternalMetricsPreference => _mExternalMetricsPreference.GetValue("externalMetricsPreference");
+
+        /// <summary>
+        /// The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
+        /// </summary>
+        [Input("inferredWorkloadTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInferredWorkloadTypes;
+
+        public string? InferredWorkloadTypes => _mInferredWorkloadTypes.GetValue("inferredWorkloadTypes");
+
+        /// <summary>
+        /// The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
+        /// </summary>
+        [Input("lookBackPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLookBackPeriod;
+
+        public string? LookBackPeriod => _mLookBackPeriod.GetValue("lookBackPeriod");
+
+        /// <summary>
+        /// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
+        /// </summary>
+        [Input("preferredResources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecommendationPreferencesPreferredResourceArgs>> _mPreferredResources;
+
+        public List<Inputs.RecommendationPreferencesPreferredResourceArgs>? PreferredResources => _mPreferredResources.GetValue("preferredResources");
+
+        /// <summary>
+        /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
+        /// </summary>
+        [Input("resourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
+
+        /// <summary>
+        /// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
+        /// </summary>
+        [Input("savingsEstimationMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSavingsEstimationMode;
+
+        public string? SavingsEstimationMode => _mSavingsEstimationMode.GetValue("savingsEstimationMode");
+
+        /// <summary>
+        /// The scope of the recommendation preferences. See Scope below.
+        /// </summary>
+        [Input("scope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RecommendationPreferencesScopeArgs> _mScope;
+
+        public Inputs.RecommendationPreferencesScopeArgs? Scope => _mScope.GetValue("scope");
+
+        /// <summary>
+        /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
+        /// </summary>
+        [Input("utilizationPreferences")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>> _mUtilizationPreferences;
+
+        public List<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>? UtilizationPreferences => _mUtilizationPreferences.GetValue("utilizationPreferences");
     }
 }

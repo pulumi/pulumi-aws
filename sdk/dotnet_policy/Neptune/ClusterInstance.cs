@@ -11,170 +11,419 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Neptune
 {
     [PolicyResourceType("aws:neptune/clusterInstance:ClusterInstance")]
-    public sealed class ClusterInstance : global::Pulumi.PolicyResource
+    public sealed class ClusterInstance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The hostname of the instance. See also `endpoint` and `port`.
         /// </summary>
         [Input("address")]
-        public string? Address;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
+
+        public string? Address => _mAddress.GetValue("address");
 
         /// <summary>
         /// Specifies whether any instance modifications
         /// are applied immediately, or during the next maintenance window. Default is`false`.
         /// </summary>
         [Input("applyImmediately")]
-        public bool? ApplyImmediately;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of neptune instance
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
-        public bool? AutoMinorVersionUpgrade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
 
         /// <summary>
         /// The EC2 Availability Zone that the neptune instance is created in.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The region-unique, immutable identifier for the neptune instance.
         /// </summary>
         [Input("dbiResourceId")]
-        public string? DbiResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbiResourceId;
+
+        public string? DbiResourceId => _mDbiResourceId.GetValue("dbiResourceId");
 
         /// <summary>
         /// The connection endpoint in `address:port` format.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// The neptune engine version. Currently configuring this argumnet has no effect.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("identifier")]
-        public string? Identifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
+
+        public string? Identifier => _mIdentifier.GetValue("identifier");
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Input("identifierPrefix")]
-        public string? IdentifierPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
+
+        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
 
         /// <summary>
         /// The instance class to use.
         /// </summary>
         [Input("instanceClass")]
-        public string? InstanceClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceClass;
+
+        public string? InstanceClass => _mInstanceClass.GetValue("instanceClass");
 
         /// <summary>
         /// The ARN for the KMS encryption key if one is set to the neptune cluster.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// The name of the neptune parameter group to associate with this instance.
         /// </summary>
         [Input("neptuneParameterGroupName")]
-        public string? NeptuneParameterGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneParameterGroupName;
+
+        public string? NeptuneParameterGroupName => _mNeptuneParameterGroupName.GetValue("neptuneParameterGroupName");
 
         /// <summary>
         /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
         /// </summary>
         [Input("neptuneSubnetGroupName")]
-        public string? NeptuneSubnetGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneSubnetGroupName;
+
+        public string? NeptuneSubnetGroupName => _mNeptuneSubnetGroupName.GetValue("neptuneSubnetGroupName");
 
         /// <summary>
         /// The port on which the DB accepts connections. Defaults to `8182`.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
         /// </summary>
         [Input("preferredBackupWindow")]
-        public string? PreferredBackupWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
+
+        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
 
         /// <summary>
         /// The window to perform maintenance in.
         /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         /// </summary>
         [Input("preferredMaintenanceWindow")]
-        public string? PreferredMaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
 
         /// <summary>
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         /// </summary>
         [Input("promotionTier")]
-        public int? PromotionTier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPromotionTier;
+
+        public int? PromotionTier => _mPromotionTier.GetValue("promotionTier");
 
         /// <summary>
         /// Bool to control if instance is publicly accessible. Default is `false`.
         /// </summary>
         [Input("publiclyAccessible")]
-        public bool? PubliclyAccessible;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB instance is deleted.
         /// </summary>
         [Input("skipFinalSnapshot")]
-        public bool? SkipFinalSnapshot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
+
+        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
 
         /// <summary>
         /// Specifies whether the neptune cluster is encrypted.
         /// </summary>
         [Input("storageEncrypted")]
-        public bool? StorageEncrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
+
+        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
 
         /// <summary>
         /// Storage type associated with the cluster `standard/iopt1`.
         /// </summary>
         [Input("storageType")]
-        public string? StorageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
 
         /// <summary>
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         /// </summary>
         [Input("writer")]
-        public bool? Writer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWriter;
+
+        public bool? Writer => _mWriter.GetValue("writer");
+    }
+
+    [PolicyResourceType("aws:neptune/clusterInstance:ClusterInstance")]
+    public sealed class ClusterInstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether any instance modifications
+        /// are applied immediately, or during the next maintenance window. Default is`false`.
+        /// </summary>
+        [Input("applyImmediately")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+
+        /// <summary>
+        /// Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+
+        /// <summary>
+        /// The EC2 Availability Zone that the neptune instance is created in.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// The identifier of the `aws.neptune.Cluster` in which to launch this instance.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// The neptune engine version. Currently configuring this argumnet has no effect.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
+        /// </summary>
+        [Input("identifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
+
+        public string? Identifier => _mIdentifier.GetValue("identifier");
+
+        /// <summary>
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// </summary>
+        [Input("identifierPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
+
+        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
+
+        /// <summary>
+        /// The instance class to use.
+        /// </summary>
+        [Input("instanceClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceClass;
+
+        public string? InstanceClass => _mInstanceClass.GetValue("instanceClass");
+
+        /// <summary>
+        /// The name of the neptune parameter group to associate with this instance.
+        /// </summary>
+        [Input("neptuneParameterGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneParameterGroupName;
+
+        public string? NeptuneParameterGroupName => _mNeptuneParameterGroupName.GetValue("neptuneParameterGroupName");
+
+        /// <summary>
+        /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
+        /// </summary>
+        [Input("neptuneSubnetGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNeptuneSubnetGroupName;
+
+        public string? NeptuneSubnetGroupName => _mNeptuneSubnetGroupName.GetValue("neptuneSubnetGroupName");
+
+        /// <summary>
+        /// The port on which the DB accepts connections. Defaults to `8182`.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// The daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00"
+        /// </summary>
+        [Input("preferredBackupWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
+
+        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+
+        /// <summary>
+        /// The window to perform maintenance in.
+        /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+        /// </summary>
+        [Input("preferredMaintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+
+        /// <summary>
+        /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+        /// </summary>
+        [Input("promotionTier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPromotionTier;
+
+        public int? PromotionTier => _mPromotionTier.GetValue("promotionTier");
+
+        /// <summary>
+        /// Bool to control if instance is publicly accessible. Default is `false`.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+
+        /// <summary>
+        /// Determines whether a final DB snapshot is created before the DB instance is deleted.
+        /// </summary>
+        [Input("skipFinalSnapshot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
+
+        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+
+        /// <summary>
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

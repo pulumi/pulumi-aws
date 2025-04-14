@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ebs
 {
     [PolicyResourceType("aws:ebs/defaultKmsKey:DefaultKmsKey")]
-    public sealed class DefaultKmsKey : global::Pulumi.PolicyResource
+    public sealed class DefaultKmsKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         /// </summary>
         [Input("keyArn")]
-        public string? KeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
+
+        public string? KeyArn => _mKeyArn.GetValue("keyArn");
+    }
+
+    [PolicyResourceType("aws:ebs/defaultKmsKey:DefaultKmsKey")]
+    public sealed class DefaultKmsKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        /// </summary>
+        [Input("keyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
+
+        public string? KeyArn => _mKeyArn.GetValue("keyArn");
     }
 }

@@ -11,54 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/endpointAuthorization:EndpointAuthorization")]
-    public sealed class EndpointAuthorization : global::Pulumi.PolicyResource
+    public sealed class EndpointAuthorization : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Web Services account ID to grant access to.
         /// </summary>
         [Input("account")]
-        public string? Account;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
+
+        public string? Account => _mAccount.GetValue("account");
 
         /// <summary>
         /// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
         /// </summary>
         [Input("allowedAllVpcs")]
-        public bool? AllowedAllVpcs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowedAllVpcs;
+
+        public bool? AllowedAllVpcs => _mAllowedAllVpcs.GetValue("allowedAllVpcs");
 
         /// <summary>
         /// The cluster identifier of the cluster to grant access to.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The number of Redshift-managed VPC endpoints created for the authorization.
         /// </summary>
         [Input("endpointCount")]
-        public int? EndpointCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mEndpointCount;
+
+        public int? EndpointCount => _mEndpointCount.GetValue("endpointCount");
 
         /// <summary>
         /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
         /// </summary>
         [Input("forceDelete")]
-        public bool? ForceDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
 
         /// <summary>
         /// The Amazon Web Services account ID of the grantee of the cluster.
         /// </summary>
         [Input("grantee")]
-        public string? Grantee;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrantee;
+
+        public string? Grantee => _mGrantee.GetValue("grantee");
 
         /// <summary>
         /// The Amazon Web Services account ID of the cluster owner.
         /// </summary>
         [Input("grantor")]
-        public string? Grantor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrantor;
+
+        public string? Grantor => _mGrantor.GetValue("grantor");
 
         /// <summary>
         /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         /// </summary>
         [Input("vpcIds")]
-        public List<string>? VpcIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcIds;
+
+        public List<string>? VpcIds => _mVpcIds.GetValue("vpcIds");
+    }
+
+    [PolicyResourceType("aws:redshift/endpointAuthorization:EndpointAuthorization")]
+    public sealed class EndpointAuthorizationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Web Services account ID to grant access to.
+        /// </summary>
+        [Input("account")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
+
+        public string? Account => _mAccount.GetValue("account");
+
+        /// <summary>
+        /// The cluster identifier of the cluster to grant access to.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
+        /// </summary>
+        [Input("forceDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+
+        /// <summary>
+        /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+        /// </summary>
+        [Input("vpcIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcIds;
+
+        public List<string>? VpcIds => _mVpcIds.GetValue("vpcIds");
     }
 }

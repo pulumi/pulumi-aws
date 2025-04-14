@@ -11,46 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rbin
 {
     [PolicyResourceType("aws:rbin/rule:Rule")]
-    public sealed class Rule : global::Pulumi.PolicyResource
+    public sealed class Rule : global::Pulumi.PolicyResourceOutput
     {
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The retention rule description.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Information about the retention rule lock configuration. See `lock_configuration` below.
         /// </summary>
         [Input("lockConfiguration")]
-        public RuleLockConfiguration? LockConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleLockConfiguration> _mLockConfiguration;
+
+        public Outputs.RuleLockConfiguration? LockConfiguration => _mLockConfiguration.GetValue("lockConfiguration");
 
         /// <summary>
         /// (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
         /// </summary>
         [Input("lockEndTime")]
-        public string? LockEndTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLockEndTime;
+
+        public string? LockEndTime => _mLockEndTime.GetValue("lockEndTime");
 
         /// <summary>
         /// (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
         /// </summary>
         [Input("lockState")]
-        public string? LockState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLockState;
+
+        public string? LockState => _mLockState.GetValue("lockState");
 
         /// <summary>
         /// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         /// </summary>
         [Input("resourceTags")]
-        public List<RuleResourceTag>? ResourceTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleResourceTag>> _mResourceTags;
+
+        public List<Outputs.RuleResourceTag>? ResourceTags => _mResourceTags.GetValue("resourceTags");
 
         /// <summary>
         /// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
@@ -58,18 +79,87 @@ namespace Pulumi.PolicyPacks.Aws.Rbin
         /// The following arguments are optional:
         /// </summary>
         [Input("retentionPeriod")]
-        public RuleRetentionPeriod? RetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleRetentionPeriod> _mRetentionPeriod;
+
+        public Outputs.RuleRetentionPeriod? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
 
         /// <summary>
         /// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:rbin/rule:Rule")]
+    public sealed class RuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The retention rule description.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Information about the retention rule lock configuration. See `lock_configuration` below.
+        /// </summary>
+        [Input("lockConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleLockConfigurationArgs> _mLockConfiguration;
+
+        public Inputs.RuleLockConfigurationArgs? LockConfiguration => _mLockConfiguration.GetValue("lockConfiguration");
+
+        /// <summary>
+        /// Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        /// </summary>
+        [Input("resourceTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleResourceTagArgs>> _mResourceTags;
+
+        public List<Inputs.RuleResourceTagArgs>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+
+        /// <summary>
+        /// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+        /// </summary>
+        [Input("resourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
+
+        /// <summary>
+        /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("retentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleRetentionPeriodArgs> _mRetentionPeriod;
+
+        public Inputs.RuleRetentionPeriodArgs? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

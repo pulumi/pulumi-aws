@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
 {
     [PolicyResourceType("aws:elasticbeanstalk/environment:Environment")]
-    public sealed class Environment : global::Pulumi.PolicyResource
+    public sealed class Environment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of all option settings configured in this Environment. These
@@ -19,80 +19,119 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// the configuration.
         /// </summary>
         [Input("allSettings")]
-        public List<EnvironmentAllSetting>? AllSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentAllSetting>> _mAllSettings;
+
+        public List<Outputs.EnvironmentAllSetting>? AllSettings => _mAllSettings.GetValue("allSettings");
 
         /// <summary>
         /// Name of the application that contains the version
         /// to be deployed
         /// </summary>
         [Input("application")]
-        public string? Application;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
+
+        public string? Application => _mApplication.GetValue("application");
 
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The autoscaling groups used by this Environment.
         /// </summary>
         [Input("autoscalingGroups")]
-        public List<string>? AutoscalingGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoscalingGroups;
+
+        public List<string>? AutoscalingGroups => _mAutoscalingGroups.GetValue("autoscalingGroups");
 
         /// <summary>
         /// Fully qualified DNS name for this Environment.
         /// </summary>
         [Input("cname")]
-        public string? Cname;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCname;
+
+        public string? Cname => _mCname.GetValue("cname");
 
         /// <summary>
         /// Prefix to use for the fully qualified DNS name of
         /// the Environment.
         /// </summary>
         [Input("cnamePrefix")]
-        public string? CnamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCnamePrefix;
+
+        public string? CnamePrefix => _mCnamePrefix.GetValue("cnamePrefix");
 
         /// <summary>
         /// Short description of the Environment
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The URL to the Load Balancer for this Environment
         /// </summary>
         [Input("endpointUrl")]
-        public string? EndpointUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointUrl;
+
+        public string? EndpointUrl => _mEndpointUrl.GetValue("endpointUrl");
 
         /// <summary>
         /// Instances used by this Environment.
         /// </summary>
         [Input("instances")]
-        public List<string>? Instances;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstances;
+
+        public List<string>? Instances => _mInstances.GetValue("instances");
 
         /// <summary>
         /// Launch configurations in use by this Environment.
         /// </summary>
         [Input("launchConfigurations")]
-        public List<string>? LaunchConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLaunchConfigurations;
+
+        public List<string>? LaunchConfigurations => _mLaunchConfigurations.GetValue("launchConfigurations");
 
         /// <summary>
         /// Elastic load balancers in use by this Environment.
         /// </summary>
         [Input("loadBalancers")]
-        public List<string>? LoadBalancers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancers;
+
+        public List<string>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
 
         /// <summary>
         /// A unique name for this Environment. This name is used
         /// in the application URL
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
         /// </summary>
         [Input("platformArn")]
-        public string? PlatformArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformArn;
+
+        public string? PlatformArn => _mPlatformArn.GetValue("platformArn");
 
         /// <summary>
         /// The time between polling the AWS API to
@@ -101,13 +140,19 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// use the default behavior, which is an exponential backoff
         /// </summary>
         [Input("pollInterval")]
-        public string? PollInterval;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPollInterval;
+
+        public string? PollInterval => _mPollInterval.GetValue("pollInterval");
 
         /// <summary>
         /// SQS queues in use by this Environment.
         /// </summary>
         [Input("queues")]
-        public List<string>? Queues;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mQueues;
+
+        public List<string>? Queues => _mQueues.GetValue("queues");
 
         /// <summary>
         /// Option settings to configure the new Environment. These
@@ -115,53 +160,77 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// below in Option Settings
         /// </summary>
         [Input("settings")]
-        public List<EnvironmentSetting>? Settings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentSetting>> _mSettings;
+
+        public List<Outputs.EnvironmentSetting>? Settings => _mSettings.GetValue("settings");
 
         /// <summary>
         /// A solution stack to base your environment
         /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
         [Input("solutionStackName")]
-        public string? SolutionStackName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSolutionStackName;
+
+        public string? SolutionStackName => _mSolutionStackName.GetValue("solutionStackName");
 
         /// <summary>
         /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The name of the Elastic Beanstalk Configuration
         /// template to use in deployment
         /// </summary>
         [Input("templateName")]
-        public string? TemplateName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
+
+        public string? TemplateName => _mTemplateName.GetValue("templateName");
 
         /// <summary>
         /// Elastic Beanstalk Environment tier. Valid values are `Worker`
         /// or `WebServer`. If tier is left blank `WebServer` will be used.
         /// </summary>
         [Input("tier")]
-        public string? Tier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
+
+        public string? Tier => _mTier.GetValue("tier");
 
         /// <summary>
         /// Autoscaling triggers in use by this Environment.
         /// </summary>
         [Input("triggers")]
-        public List<string>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTriggers;
+
+        public List<string>? Triggers => _mTriggers.GetValue("triggers");
 
         /// <summary>
         /// The name of the Elastic Beanstalk Application Version
         /// to use in deployment.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// The maximum
@@ -170,6 +239,146 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// out.
         /// </summary>
         [Input("waitForReadyTimeout")]
-        public string? WaitForReadyTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWaitForReadyTimeout;
+
+        public string? WaitForReadyTimeout => _mWaitForReadyTimeout.GetValue("waitForReadyTimeout");
+    }
+
+    [PolicyResourceType("aws:elasticbeanstalk/environment:Environment")]
+    public sealed class EnvironmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the application that contains the version
+        /// to be deployed
+        /// </summary>
+        [Input("application")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
+
+        public string? Application => _mApplication.GetValue("application");
+
+        /// <summary>
+        /// Prefix to use for the fully qualified DNS name of
+        /// the Environment.
+        /// </summary>
+        [Input("cnamePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCnamePrefix;
+
+        public string? CnamePrefix => _mCnamePrefix.GetValue("cnamePrefix");
+
+        /// <summary>
+        /// Short description of the Environment
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A unique name for this Environment. This name is used
+        /// in the application URL
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
+        /// to use in deployment
+        /// </summary>
+        [Input("platformArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformArn;
+
+        public string? PlatformArn => _mPlatformArn.GetValue("platformArn");
+
+        /// <summary>
+        /// The time between polling the AWS API to
+        /// check if changes have been applied. Use this to adjust the rate of API calls
+        /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
+        /// use the default behavior, which is an exponential backoff
+        /// </summary>
+        [Input("pollInterval")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPollInterval;
+
+        public string? PollInterval => _mPollInterval.GetValue("pollInterval");
+
+        /// <summary>
+        /// Option settings to configure the new Environment. These
+        /// override specific values that are set as defaults. The format is detailed
+        /// below in Option Settings
+        /// </summary>
+        [Input("settings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EnvironmentSettingArgs>> _mSettings;
+
+        public List<Inputs.EnvironmentSettingArgs>? Settings => _mSettings.GetValue("settings");
+
+        /// <summary>
+        /// A solution stack to base your environment
+        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        /// </summary>
+        [Input("solutionStackName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSolutionStackName;
+
+        public string? SolutionStackName => _mSolutionStackName.GetValue("solutionStackName");
+
+        /// <summary>
+        /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The name of the Elastic Beanstalk Configuration
+        /// template to use in deployment
+        /// </summary>
+        [Input("templateName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
+
+        public string? TemplateName => _mTemplateName.GetValue("templateName");
+
+        /// <summary>
+        /// Elastic Beanstalk Environment tier. Valid values are `Worker`
+        /// or `WebServer`. If tier is left blank `WebServer` will be used.
+        /// </summary>
+        [Input("tier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
+
+        public string? Tier => _mTier.GetValue("tier");
+
+        /// <summary>
+        /// The name of the Elastic Beanstalk Application Version
+        /// to use in deployment.
+        /// </summary>
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+
+        /// <summary>
+        /// The maximum
+        /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
+        /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
+        /// out.
+        /// </summary>
+        [Input("waitForReadyTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWaitForReadyTimeout;
+
+        public string? WaitForReadyTimeout => _mWaitForReadyTimeout.GetValue("waitForReadyTimeout");
     }
 }

@@ -11,66 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/dataQualityRuleset:DataQualityRuleset")]
-    public sealed class DataQualityRuleset : global::Pulumi.PolicyResource
+    public sealed class DataQualityRuleset : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Glue Data Quality Ruleset.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The time and date that this data quality ruleset was created.
         /// </summary>
         [Input("createdOn")]
-        public string? CreatedOn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedOn;
+
+        public string? CreatedOn => _mCreatedOn.GetValue("createdOn");
 
         /// <summary>
         /// Description of the data quality ruleset.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The time and date that this data quality ruleset was created.
         /// </summary>
         [Input("lastModifiedOn")]
-        public string? LastModifiedOn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedOn;
+
+        public string? LastModifiedOn => _mLastModifiedOn.GetValue("lastModifiedOn");
 
         /// <summary>
         /// Name of the data quality ruleset.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
         /// </summary>
         [Input("recommendationRunId")]
-        public string? RecommendationRunId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecommendationRunId;
+
+        public string? RecommendationRunId => _mRecommendationRunId.GetValue("recommendationRunId");
 
         /// <summary>
         /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         /// </summary>
         [Input("ruleset")]
-        public string? Ruleset;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleset;
+
+        public string? Ruleset => _mRuleset.GetValue("ruleset");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         /// </summary>
         [Input("targetTable")]
-        public DataQualityRulesetTargetTable? TargetTable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityRulesetTargetTable> _mTargetTable;
+
+        public Outputs.DataQualityRulesetTargetTable? TargetTable => _mTargetTable.GetValue("targetTable");
+    }
+
+    [PolicyResourceType("aws:glue/dataQualityRuleset:DataQualityRuleset")]
+    public sealed class DataQualityRulesetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the data quality ruleset.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the data quality ruleset.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
+        /// </summary>
+        [Input("ruleset")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleset;
+
+        public string? Ruleset => _mRuleset.GetValue("ruleset");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        /// </summary>
+        [Input("targetTable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityRulesetTargetTableArgs> _mTargetTable;
+
+        public Inputs.DataQualityRulesetTargetTableArgs? TargetTable => _mTargetTable.GetValue("targetTable");
     }
 }

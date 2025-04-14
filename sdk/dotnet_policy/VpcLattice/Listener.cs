@@ -11,73 +11,177 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VpcLattice
 {
     [PolicyResourceType("aws:vpclattice/listener:Listener")]
-    public sealed class Listener : global::Pulumi.PolicyResource
+    public sealed class Listener : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the listener.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Date and time that the listener was created, specified in ISO-8601 format.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Default action block for the default listener rule. Default action blocks are defined below.
         /// </summary>
         [Input("defaultAction")]
-        public ListenerDefaultAction? DefaultAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerDefaultAction> _mDefaultAction;
+
+        public Outputs.ListenerDefaultAction? DefaultAction => _mDefaultAction.GetValue("defaultAction");
 
         [Input("lastUpdatedAt")]
-        public string? LastUpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedAt;
+
+        public string? LastUpdatedAt => _mLastUpdatedAt.GetValue("lastUpdatedAt");
 
         /// <summary>
         /// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         /// </summary>
         [Input("listenerId")]
-        public string? ListenerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerId;
+
+        public string? ListenerId => _mListenerId.GetValue("listenerId");
 
         /// <summary>
         /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         /// </summary>
         [Input("protocol")]
-        public string? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// </summary>
         [Input("serviceArn")]
-        public string? ServiceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
+
+        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
 
         /// <summary>
         /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         /// </summary>
         [Input("serviceIdentifier")]
-        public string? ServiceIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIdentifier;
+
+        public string? ServiceIdentifier => _mServiceIdentifier.GetValue("serviceIdentifier");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:vpclattice/listener:Listener")]
+    public sealed class ListenerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Default action block for the default listener rule. Default action blocks are defined below.
+        /// </summary>
+        [Input("defaultAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerDefaultActionArgs> _mDefaultAction;
+
+        public Inputs.ListenerDefaultActionArgs? DefaultAction => _mDefaultAction.GetValue("defaultAction");
+
+        /// <summary>
+        /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        /// </summary>
+        [Input("serviceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
+
+        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+
+        /// <summary>
+        /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        /// &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
+        /// </summary>
+        [Input("serviceIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIdentifier;
+
+        public string? ServiceIdentifier => _mServiceIdentifier.GetValue("serviceIdentifier");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

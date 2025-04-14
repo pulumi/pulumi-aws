@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/accountAlias:AccountAlias")]
-    public sealed class AccountAlias : global::Pulumi.PolicyResource
+    public sealed class AccountAlias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The account alias
         /// </summary>
         [Input("accountAlias")]
-        public string? Alias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("accountAlias");
+    }
+
+    [PolicyResourceType("aws:iam/accountAlias:AccountAlias")]
+    public sealed class AccountAliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The account alias
+        /// </summary>
+        [Input("accountAlias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("accountAlias");
     }
 }

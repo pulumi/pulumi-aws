@@ -11,102 +11,262 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/mLTransform:MLTransform")]
-    public sealed class MLTransform : global::Pulumi.PolicyResource
+    public sealed class MLTransform : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue ML Transform.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the ML Transform.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Input("glueVersion")]
-        public string? GlueVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
+
+        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
 
         /// <summary>
         /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         /// </summary>
         [Input("inputRecordTables")]
-        public List<MLTransformInputRecordTable>? InputRecordTables;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MLTransformInputRecordTable>> _mInputRecordTables;
+
+        public List<Outputs.MLTransformInputRecordTable>? InputRecordTables => _mInputRecordTables.GetValue("inputRecordTables");
 
         /// <summary>
         /// The number of labels available for this transform.
         /// </summary>
         [Input("labelCount")]
-        public int? LabelCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLabelCount;
+
+        public int? LabelCount => _mLabelCount.GetValue("labelCount");
 
         /// <summary>
         /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         /// </summary>
         [Input("maxCapacity")]
-        public double? MaxCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mMaxCapacity;
+
+        public double? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
 
         /// <summary>
         /// The maximum number of times to retry this ML Transform if it fails.
         /// </summary>
         [Input("maxRetries")]
-        public int? MaxRetries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
+
+        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
 
         /// <summary>
         /// The name you assign to this ML Transform. It must be unique in your account.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
         /// </summary>
         [Input("numberOfWorkers")]
-        public int? NumberOfWorkers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
+
+        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
 
         /// <summary>
         /// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         /// </summary>
         [Input("parameters")]
-        public MLTransformParameters? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MLTransformParameters> _mParameters;
+
+        public Outputs.MLTransformParameters? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// The ARN of the IAM role associated with this ML Transform.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The object that represents the schema that this transform accepts. see Schema.
         /// </summary>
         [Input("schemas")]
-        public List<MLTransformSchema>? Schemas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MLTransformSchema>> _mSchemas;
+
+        public List<Outputs.MLTransformSchema>? Schemas => _mSchemas.GetValue("schemas");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>
         [Input("timeout")]
-        public int? Timeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
+
+        public int? Timeout => _mTimeout.GetValue("timeout");
 
         /// <summary>
         /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         /// </summary>
         [Input("workerType")]
-        public string? WorkerType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
+
+        public string? WorkerType => _mWorkerType.GetValue("workerType");
+    }
+
+    [PolicyResourceType("aws:glue/mLTransform:MLTransform")]
+    public sealed class MLTransformArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the ML Transform.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// </summary>
+        [Input("glueVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
+
+        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
+
+        /// <summary>
+        /// A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+        /// </summary>
+        [Input("inputRecordTables")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MLTransformInputRecordTableArgs>> _mInputRecordTables;
+
+        public List<Inputs.MLTransformInputRecordTableArgs>? InputRecordTables => _mInputRecordTables.GetValue("inputRecordTables");
+
+        /// <summary>
+        /// The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
+        /// </summary>
+        [Input("maxCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mMaxCapacity;
+
+        public double? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+
+        /// <summary>
+        /// The maximum number of times to retry this ML Transform if it fails.
+        /// </summary>
+        [Input("maxRetries")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
+
+        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
+
+        /// <summary>
+        /// The name you assign to this ML Transform. It must be unique in your account.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+        /// </summary>
+        [Input("numberOfWorkers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
+
+        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
+
+        /// <summary>
+        /// The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MLTransformParametersArgs> _mParameters;
+
+        public Inputs.MLTransformParametersArgs? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// The ARN of the IAM role associated with this ML Transform.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
+        /// </summary>
+        [Input("timeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
+
+        public int? Timeout => _mTimeout.GetValue("timeout");
+
+        /// <summary>
+        /// The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
+        /// </summary>
+        [Input("workerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
+
+        public string? WorkerType => _mWorkerType.GetValue("workerType");
     }
 }

@@ -11,56 +11,138 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Emr
 {
     [PolicyResourceType("aws:emr/instanceFleet:InstanceFleet")]
-    public sealed class InstanceFleet : global::Pulumi.PolicyResource
+    public sealed class InstanceFleet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clusterId")]
-        public string? ClusterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
 
         /// <summary>
         /// Configuration block for instance fleet
         /// </summary>
         [Input("instanceTypeConfigs")]
-        public List<InstanceFleetInstanceTypeConfig>? InstanceTypeConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceFleetInstanceTypeConfig>> _mInstanceTypeConfigs;
+
+        public List<Outputs.InstanceFleetInstanceTypeConfig>? InstanceTypeConfigs => _mInstanceTypeConfigs.GetValue("instanceTypeConfigs");
 
         /// <summary>
         /// Configuration block for launch specification
         /// </summary>
         [Input("launchSpecifications")]
-        public InstanceFleetLaunchSpecifications? LaunchSpecifications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceFleetLaunchSpecifications> _mLaunchSpecifications;
+
+        public Outputs.InstanceFleetLaunchSpecifications? LaunchSpecifications => _mLaunchSpecifications.GetValue("launchSpecifications");
 
         /// <summary>
         /// Friendly name given to the instance fleet.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The number of On-Demand units that have been provisioned for the instance
         /// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
         /// </summary>
         [Input("provisionedOnDemandCapacity")]
-        public int? ProvisionedOnDemandCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedOnDemandCapacity;
+
+        public int? ProvisionedOnDemandCapacity => _mProvisionedOnDemandCapacity.GetValue("provisionedOnDemandCapacity");
 
         /// <summary>
         /// The number of Spot units that have been provisioned for this instance fleet
         /// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
         /// </summary>
         [Input("provisionedSpotCapacity")]
-        public int? ProvisionedSpotCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedSpotCapacity;
+
+        public int? ProvisionedSpotCapacity => _mProvisionedSpotCapacity.GetValue("provisionedSpotCapacity");
 
         /// <summary>
         /// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         /// </summary>
         [Input("targetOnDemandCapacity")]
-        public int? TargetOnDemandCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTargetOnDemandCapacity;
+
+        public int? TargetOnDemandCapacity => _mTargetOnDemandCapacity.GetValue("targetOnDemandCapacity");
 
         /// <summary>
         /// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         /// </summary>
         [Input("targetSpotCapacity")]
-        public int? TargetSpotCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTargetSpotCapacity;
+
+        public int? TargetSpotCapacity => _mTargetSpotCapacity.GetValue("targetSpotCapacity");
+    }
+
+    [PolicyResourceType("aws:emr/instanceFleet:InstanceFleet")]
+    public sealed class InstanceFleetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("clusterId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
+
+        /// <summary>
+        /// Configuration block for instance fleet
+        /// </summary>
+        [Input("instanceTypeConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceFleetInstanceTypeConfigArgs>> _mInstanceTypeConfigs;
+
+        public List<Inputs.InstanceFleetInstanceTypeConfigArgs>? InstanceTypeConfigs => _mInstanceTypeConfigs.GetValue("instanceTypeConfigs");
+
+        /// <summary>
+        /// Configuration block for launch specification
+        /// </summary>
+        [Input("launchSpecifications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceFleetLaunchSpecificationsArgs> _mLaunchSpecifications;
+
+        public Inputs.InstanceFleetLaunchSpecificationsArgs? LaunchSpecifications => _mLaunchSpecifications.GetValue("launchSpecifications");
+
+        /// <summary>
+        /// Friendly name given to the instance fleet.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        /// </summary>
+        [Input("targetOnDemandCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTargetOnDemandCapacity;
+
+        public int? TargetOnDemandCapacity => _mTargetOnDemandCapacity.GetValue("targetOnDemandCapacity");
+
+        /// <summary>
+        /// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        /// </summary>
+        [Input("targetSpotCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTargetSpotCapacity;
+
+        public int? TargetSpotCapacity => _mTargetSpotCapacity.GetValue("targetSpotCapacity");
     }
 }

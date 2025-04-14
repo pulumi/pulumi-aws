@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AutoScaling
 {
     [PolicyResourceType("aws:autoscaling/group:Group")]
-    public sealed class Group : global::Pulumi.PolicyResource
+    public sealed class Group : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN for this Auto Scaling Group
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         /// </summary>
         [Input("availabilityZoneDistribution")]
-        public GroupAvailabilityZoneDistribution? AvailabilityZoneDistribution;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupAvailabilityZoneDistribution> _mAvailabilityZoneDistribution;
+
+        public Outputs.GroupAvailabilityZoneDistribution? AvailabilityZoneDistribution => _mAvailabilityZoneDistribution.GetValue("availabilityZoneDistribution");
 
         /// <summary>
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         [Input("availabilityZones")]
-        public List<string>? AvailabilityZones;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
 
         /// <summary>
         /// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         /// </summary>
         [Input("capacityRebalance")]
-        public bool? CapacityRebalance;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCapacityRebalance;
+
+        public bool? CapacityRebalance => _mCapacityRebalance.GetValue("capacityRebalance");
 
         /// <summary>
         /// Reserved.
         /// </summary>
         [Input("context")]
-        public string? Context;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
+
+        public string? Context => _mContext.GetValue("context");
 
         /// <summary>
         /// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         /// </summary>
         [Input("defaultCooldown")]
-        public int? DefaultCooldown;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultCooldown;
+
+        public int? DefaultCooldown => _mDefaultCooldown.GetValue("defaultCooldown");
 
         /// <summary>
         /// Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         /// </summary>
         [Input("defaultInstanceWarmup")]
-        public int? DefaultInstanceWarmup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultInstanceWarmup;
+
+        public int? DefaultInstanceWarmup => _mDefaultInstanceWarmup.GetValue("defaultInstanceWarmup");
 
         /// <summary>
         /// Number of Amazon EC2 instances that
@@ -61,19 +82,28 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// Capacity below.)
         /// </summary>
         [Input("desiredCapacity")]
-        public int? DesiredCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
+
+        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
 
         /// <summary>
         /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         /// </summary>
         [Input("desiredCapacityType")]
-        public string? DesiredCapacityType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredCapacityType;
+
+        public string? DesiredCapacityType => _mDesiredCapacityType.GetValue("desiredCapacityType");
 
         /// <summary>
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         [Input("enabledMetrics")]
-        public List<string>? EnabledMetrics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledMetrics;
+
+        public List<string>? EnabledMetrics => _mEnabledMetrics.GetValue("enabledMetrics");
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting
@@ -83,31 +113,46 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// behavior and potentially leaves resources dangling.
         /// </summary>
         [Input("forceDelete")]
-        public bool? ForceDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         /// </summary>
         [Input("forceDeleteWarmPool")]
-        public bool? ForceDeleteWarmPool;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDeleteWarmPool;
+
+        public bool? ForceDeleteWarmPool => _mForceDeleteWarmPool.GetValue("forceDeleteWarmPool");
 
         /// <summary>
         /// Time (in seconds) after instance comes into service before checking health.
         /// </summary>
         [Input("healthCheckGracePeriod")]
-        public int? HealthCheckGracePeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckGracePeriod;
+
+        public int? HealthCheckGracePeriod => _mHealthCheckGracePeriod.GetValue("healthCheckGracePeriod");
 
         /// <summary>
         /// "EC2" or "ELB". Controls how health checking is done.
         /// </summary>
         [Input("healthCheckType")]
-        public string? HealthCheckType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckType;
+
+        public string? HealthCheckType => _mHealthCheckType.GetValue("healthCheckType");
 
         /// <summary>
         /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         /// </summary>
         [Input("ignoreFailedScalingActivities")]
-        public bool? IgnoreFailedScalingActivities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreFailedScalingActivities;
+
+        public bool? IgnoreFailedScalingActivities => _mIgnoreFailedScalingActivities.GetValue("ignoreFailedScalingActivities");
 
         /// <summary>
         /// One or more
@@ -119,13 +164,19 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>
         [Input("initialLifecycleHooks")]
-        public List<GroupInitialLifecycleHook>? InitialLifecycleHooks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupInitialLifecycleHook>> _mInitialLifecycleHooks;
+
+        public List<Outputs.GroupInitialLifecycleHook>? InitialLifecycleHooks => _mInitialLifecycleHooks.GetValue("initialLifecycleHooks");
 
         /// <summary>
         /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         /// </summary>
         [Input("instanceMaintenancePolicy")]
-        public GroupInstanceMaintenancePolicy? InstanceMaintenancePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupInstanceMaintenancePolicy> _mInstanceMaintenancePolicy;
+
+        public Outputs.GroupInstanceMaintenancePolicy? InstanceMaintenancePolicy => _mInstanceMaintenancePolicy.GetValue("instanceMaintenancePolicy");
 
         /// <summary>
         /// If this block is configured, start an
@@ -133,44 +184,65 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// when this Auto Scaling Group is updated. Defined below.
         /// </summary>
         [Input("instanceRefresh")]
-        public GroupInstanceRefresh? InstanceRefresh;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupInstanceRefresh> _mInstanceRefresh;
+
+        public Outputs.GroupInstanceRefresh? InstanceRefresh => _mInstanceRefresh.GetValue("instanceRefresh");
 
         /// <summary>
         /// Name of the launch configuration to use.
         /// </summary>
         [Input("launchConfiguration")]
-        public string? LaunchConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchConfiguration;
+
+        public string? LaunchConfiguration => _mLaunchConfiguration.GetValue("launchConfiguration");
 
         /// <summary>
         /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         /// </summary>
         [Input("launchTemplate")]
-        public GroupLaunchTemplate? LaunchTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupLaunchTemplate> _mLaunchTemplate;
+
+        public Outputs.GroupLaunchTemplate? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
 
         /// <summary>
         /// List of elastic load balancer names to add to the autoscaling
         /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         /// </summary>
         [Input("loadBalancers")]
-        public List<string>? LoadBalancers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancers;
+
+        public List<string>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
 
         /// <summary>
         /// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
         [Input("maxInstanceLifetime")]
-        public int? MaxInstanceLifetime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxInstanceLifetime;
+
+        public int? MaxInstanceLifetime => _mMaxInstanceLifetime.GetValue("maxInstanceLifetime");
 
         /// <summary>
         /// Maximum size of the Auto Scaling Group.
         /// </summary>
         [Input("maxSize")]
-        public int? MaxSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
+
+        public int? MaxSize => _mMaxSize.GetValue("maxSize");
 
         /// <summary>
         /// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         /// </summary>
         [Input("metricsGranularity")]
-        public string? MetricsGranularity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricsGranularity;
+
+        public string? MetricsGranularity => _mMetricsGranularity.GetValue("metricsGranularity");
 
         /// <summary>
         /// Setting this causes Pulumi to wait for
@@ -179,45 +251,66 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// (See also Waiting for Capacity below.)
         /// </summary>
         [Input("minElbCapacity")]
-        public int? MinElbCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinElbCapacity;
+
+        public int? MinElbCapacity => _mMinElbCapacity.GetValue("minElbCapacity");
 
         /// <summary>
         /// Minimum size of the Auto Scaling Group.
         /// (See also Waiting for Capacity below.)
         /// </summary>
         [Input("minSize")]
-        public int? MinSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
+
+        public int? MinSize => _mMinSize.GetValue("minSize");
 
         /// <summary>
         /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         /// </summary>
         [Input("mixedInstancesPolicy")]
-        public GroupMixedInstancesPolicy? MixedInstancesPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupMixedInstancesPolicy> _mMixedInstancesPolicy;
+
+        public Outputs.GroupMixedInstancesPolicy? MixedInstancesPolicy => _mMixedInstancesPolicy.GetValue("mixedInstancesPolicy");
 
         /// <summary>
         /// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Name of the placement group into which you'll launch your instances, if any.
         /// </summary>
         [Input("placementGroup")]
-        public string? PlacementGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroup;
+
+        public string? PlacementGroup => _mPlacementGroup.GetValue("placementGroup");
 
         /// <summary>
         /// Predicted capacity of the group.
         /// </summary>
         [Input("predictedCapacity")]
-        public int? PredictedCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPredictedCapacity;
+
+        public int? PredictedCapacity => _mPredictedCapacity.GetValue("predictedCapacity");
 
         /// <summary>
         /// Whether newly launched instances
@@ -227,50 +320,74 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// in the Amazon EC2 Auto Scaling User Guide.
         /// </summary>
         [Input("protectFromScaleIn")]
-        public bool? ProtectFromScaleIn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mProtectFromScaleIn;
+
+        public bool? ProtectFromScaleIn => _mProtectFromScaleIn.GetValue("protectFromScaleIn");
 
         /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services
         /// </summary>
         [Input("serviceLinkedRoleArn")]
-        public string? ServiceLinkedRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceLinkedRoleArn;
+
+        public string? ServiceLinkedRoleArn => _mServiceLinkedRoleArn.GetValue("serviceLinkedRoleArn");
 
         /// <summary>
         /// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
         /// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
         /// </summary>
         [Input("suspendedProcesses")]
-        public List<string>? SuspendedProcesses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuspendedProcesses;
+
+        public List<string>? SuspendedProcesses => _mSuspendedProcesses.GetValue("suspendedProcesses");
 
         /// <summary>
         /// Configuration block(s) containing resource tags. See Tag below for more details.
         /// </summary>
         [Input("tags")]
-        public List<GroupTag>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupTag>> _mTags;
+
+        public List<Outputs.GroupTag>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
         [Input("targetGroupArns")]
-        public List<string>? TargetGroupArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetGroupArns;
+
+        public List<string>? TargetGroupArns => _mTargetGroupArns.GetValue("targetGroupArns");
 
         /// <summary>
         /// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
         /// </summary>
         [Input("terminationPolicies")]
-        public List<string>? TerminationPolicies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTerminationPolicies;
+
+        public List<string>? TerminationPolicies => _mTerminationPolicies.GetValue("terminationPolicies");
 
         /// <summary>
         /// Attaches one or more traffic sources to the specified Auto Scaling group.
         /// </summary>
         [Input("trafficSources")]
-        public List<GroupTrafficSource>? TrafficSources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupTrafficSource>> _mTrafficSources;
+
+        public List<Outputs.GroupTrafficSource>? TrafficSources => _mTrafficSources.GetValue("trafficSources");
 
         /// <summary>
         /// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
         [Input("vpcZoneIdentifiers")]
-        public List<string>? VpcZoneIdentifiers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcZoneIdentifiers;
+
+        public List<string>? VpcZoneIdentifiers => _mVpcZoneIdentifiers.GetValue("vpcZoneIdentifiers");
 
         /// <summary>
         /// Maximum
@@ -280,7 +397,10 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// the provider to skip all Capacity Waiting behavior.
         /// </summary>
         [Input("waitForCapacityTimeout")]
-        public string? WaitForCapacityTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWaitForCapacityTimeout;
+
+        public string? WaitForCapacityTimeout => _mWaitForCapacityTimeout.GetValue("waitForCapacityTimeout");
 
         /// <summary>
         /// Setting this will cause Pulumi to wait
@@ -290,19 +410,426 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// (See also Waiting for Capacity below.)
         /// </summary>
         [Input("waitForElbCapacity")]
-        public int? WaitForElbCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWaitForElbCapacity;
+
+        public int? WaitForElbCapacity => _mWaitForElbCapacity.GetValue("waitForElbCapacity");
 
         /// <summary>
         /// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
         /// to the specified Auto Scaling group. Defined below
         /// </summary>
         [Input("warmPool")]
-        public GroupWarmPool? WarmPool;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupWarmPool> _mWarmPool;
+
+        public Outputs.GroupWarmPool? WarmPool => _mWarmPool.GetValue("warmPool");
 
         /// <summary>
         /// Current size of the warm pool.
         /// </summary>
         [Input("warmPoolSize")]
-        public int? WarmPoolSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWarmPoolSize;
+
+        public int? WarmPoolSize => _mWarmPoolSize.GetValue("warmPoolSize");
+    }
+
+    [PolicyResourceType("aws:autoscaling/group:Group")]
+    public sealed class GroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        /// </summary>
+        [Input("availabilityZoneDistribution")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupAvailabilityZoneDistributionArgs> _mAvailabilityZoneDistribution;
+
+        public Inputs.GroupAvailabilityZoneDistributionArgs? AvailabilityZoneDistribution => _mAvailabilityZoneDistribution.GetValue("availabilityZoneDistribution");
+
+        /// <summary>
+        /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
+        /// </summary>
+        [Input("availabilityZones")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+
+        /// <summary>
+        /// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        /// </summary>
+        [Input("capacityRebalance")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCapacityRebalance;
+
+        public bool? CapacityRebalance => _mCapacityRebalance.GetValue("capacityRebalance");
+
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
+
+        public string? Context => _mContext.GetValue("context");
+
+        /// <summary>
+        /// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        /// </summary>
+        [Input("defaultCooldown")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultCooldown;
+
+        public int? DefaultCooldown => _mDefaultCooldown.GetValue("defaultCooldown");
+
+        /// <summary>
+        /// Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        /// </summary>
+        [Input("defaultInstanceWarmup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultInstanceWarmup;
+
+        public int? DefaultInstanceWarmup => _mDefaultInstanceWarmup.GetValue("defaultInstanceWarmup");
+
+        /// <summary>
+        /// Number of Amazon EC2 instances that
+        /// should be running in the group. (See also Waiting for
+        /// Capacity below.)
+        /// </summary>
+        [Input("desiredCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
+
+        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
+
+        /// <summary>
+        /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
+        /// </summary>
+        [Input("desiredCapacityType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredCapacityType;
+
+        public string? DesiredCapacityType => _mDesiredCapacityType.GetValue("desiredCapacityType");
+
+        /// <summary>
+        /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        /// </summary>
+        [Input("enabledMetrics")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledMetrics;
+
+        public List<string>? EnabledMetrics => _mEnabledMetrics.GetValue("enabledMetrics");
+
+        /// <summary>
+        /// Allows deleting the Auto Scaling Group without waiting
+        /// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
+        /// even if it's in the process of scaling a resource. Normally, this provider
+        /// drains all the instances before deleting the group. This bypasses that
+        /// behavior and potentially leaves resources dangling.
+        /// </summary>
+        [Input("forceDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+
+        /// <summary>
+        /// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+        /// </summary>
+        [Input("forceDeleteWarmPool")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDeleteWarmPool;
+
+        public bool? ForceDeleteWarmPool => _mForceDeleteWarmPool.GetValue("forceDeleteWarmPool");
+
+        /// <summary>
+        /// Time (in seconds) after instance comes into service before checking health.
+        /// </summary>
+        [Input("healthCheckGracePeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckGracePeriod;
+
+        public int? HealthCheckGracePeriod => _mHealthCheckGracePeriod.GetValue("healthCheckGracePeriod");
+
+        /// <summary>
+        /// "EC2" or "ELB". Controls how health checking is done.
+        /// </summary>
+        [Input("healthCheckType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckType;
+
+        public string? HealthCheckType => _mHealthCheckType.GetValue("healthCheckType");
+
+        /// <summary>
+        /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        /// </summary>
+        [Input("ignoreFailedScalingActivities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreFailedScalingActivities;
+
+        public bool? IgnoreFailedScalingActivities => _mIgnoreFailedScalingActivities.GetValue("ignoreFailedScalingActivities");
+
+        /// <summary>
+        /// One or more
+        /// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
+        /// to attach to the Auto Scaling Group **before** instances are launched. The
+        /// syntax is exactly the same as the separate
+        /// `aws.autoscaling.LifecycleHook`
+        /// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
+        /// a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
+        /// </summary>
+        [Input("initialLifecycleHooks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupInitialLifecycleHookArgs>> _mInitialLifecycleHooks;
+
+        public List<Inputs.GroupInitialLifecycleHookArgs>? InitialLifecycleHooks => _mInitialLifecycleHooks.GetValue("initialLifecycleHooks");
+
+        /// <summary>
+        /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
+        /// </summary>
+        [Input("instanceMaintenancePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupInstanceMaintenancePolicyArgs> _mInstanceMaintenancePolicy;
+
+        public Inputs.GroupInstanceMaintenancePolicyArgs? InstanceMaintenancePolicy => _mInstanceMaintenancePolicy.GetValue("instanceMaintenancePolicy");
+
+        /// <summary>
+        /// If this block is configured, start an
+        /// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
+        /// when this Auto Scaling Group is updated. Defined below.
+        /// </summary>
+        [Input("instanceRefresh")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupInstanceRefreshArgs> _mInstanceRefresh;
+
+        public Inputs.GroupInstanceRefreshArgs? InstanceRefresh => _mInstanceRefresh.GetValue("instanceRefresh");
+
+        /// <summary>
+        /// Name of the launch configuration to use.
+        /// </summary>
+        [Input("launchConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchConfiguration;
+
+        public string? LaunchConfiguration => _mLaunchConfiguration.GetValue("launchConfiguration");
+
+        /// <summary>
+        /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+        /// </summary>
+        [Input("launchTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupLaunchTemplateArgs> _mLaunchTemplate;
+
+        public Inputs.GroupLaunchTemplateArgs? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+
+        /// <summary>
+        /// List of elastic load balancer names to add to the autoscaling
+        /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
+        /// </summary>
+        [Input("loadBalancers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancers;
+
+        public List<string>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+
+        /// <summary>
+        /// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
+        /// </summary>
+        [Input("maxInstanceLifetime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxInstanceLifetime;
+
+        public int? MaxInstanceLifetime => _mMaxInstanceLifetime.GetValue("maxInstanceLifetime");
+
+        /// <summary>
+        /// Maximum size of the Auto Scaling Group.
+        /// </summary>
+        [Input("maxSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
+
+        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+
+        /// <summary>
+        /// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
+        /// </summary>
+        [Input("metricsGranularity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricsGranularity;
+
+        public string? MetricsGranularity => _mMetricsGranularity.GetValue("metricsGranularity");
+
+        /// <summary>
+        /// Setting this causes Pulumi to wait for
+        /// this number of instances from this Auto Scaling Group to show up healthy in the
+        /// ELB only on creation. Updates will not wait on ELB instance number changes.
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
+        [Input("minElbCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinElbCapacity;
+
+        public int? MinElbCapacity => _mMinElbCapacity.GetValue("minElbCapacity");
+
+        /// <summary>
+        /// Minimum size of the Auto Scaling Group.
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
+        [Input("minSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
+
+        public int? MinSize => _mMinSize.GetValue("minSize");
+
+        /// <summary>
+        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+        /// </summary>
+        [Input("mixedInstancesPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupMixedInstancesPolicyArgs> _mMixedInstancesPolicy;
+
+        public Inputs.GroupMixedInstancesPolicyArgs? MixedInstancesPolicy => _mMixedInstancesPolicy.GetValue("mixedInstancesPolicy");
+
+        /// <summary>
+        /// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified
+        /// prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Name of the placement group into which you'll launch your instances, if any.
+        /// </summary>
+        [Input("placementGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroup;
+
+        public string? PlacementGroup => _mPlacementGroup.GetValue("placementGroup");
+
+        /// <summary>
+        /// Whether newly launched instances
+        /// are automatically protected from termination by Amazon EC2 Auto Scaling when
+        /// scaling in. For more information about preventing instances from terminating
+        /// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+        /// in the Amazon EC2 Auto Scaling User Guide.
+        /// </summary>
+        [Input("protectFromScaleIn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mProtectFromScaleIn;
+
+        public bool? ProtectFromScaleIn => _mProtectFromScaleIn.GetValue("protectFromScaleIn");
+
+        /// <summary>
+        /// ARN of the service-linked role that the ASG will use to call other AWS services
+        /// </summary>
+        [Input("serviceLinkedRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceLinkedRoleArn;
+
+        public string? ServiceLinkedRoleArn => _mServiceLinkedRoleArn.GetValue("serviceLinkedRoleArn");
+
+        /// <summary>
+        /// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
+        /// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
+        /// </summary>
+        [Input("suspendedProcesses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuspendedProcesses;
+
+        public List<string>? SuspendedProcesses => _mSuspendedProcesses.GetValue("suspendedProcesses");
+
+        /// <summary>
+        /// Configuration block(s) containing resource tags. See Tag below for more details.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupTagArgs>> _mTags;
+
+        public List<Inputs.GroupTagArgs>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+        /// </summary>
+        [Input("targetGroupArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetGroupArns;
+
+        public List<string>? TargetGroupArns => _mTargetGroupArns.GetValue("targetGroupArns");
+
+        /// <summary>
+        /// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
+        /// </summary>
+        [Input("terminationPolicies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTerminationPolicies;
+
+        public List<string>? TerminationPolicies => _mTerminationPolicies.GetValue("terminationPolicies");
+
+        /// <summary>
+        /// Attaches one or more traffic sources to the specified Auto Scaling group.
+        /// </summary>
+        [Input("trafficSources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupTrafficSourceArgs>> _mTrafficSources;
+
+        public List<Inputs.GroupTrafficSourceArgs>? TrafficSources => _mTrafficSources.GetValue("trafficSources");
+
+        /// <summary>
+        /// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
+        /// </summary>
+        [Input("vpcZoneIdentifiers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcZoneIdentifiers;
+
+        public List<string>? VpcZoneIdentifiers => _mVpcZoneIdentifiers.GetValue("vpcZoneIdentifiers");
+
+        /// <summary>
+        /// Maximum
+        /// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
+        /// wait for ASG instances to be healthy before timing out. (See also Waiting
+        /// for Capacity below.) Setting this to "0" causes
+        /// the provider to skip all Capacity Waiting behavior.
+        /// </summary>
+        [Input("waitForCapacityTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWaitForCapacityTimeout;
+
+        public string? WaitForCapacityTimeout => _mWaitForCapacityTimeout.GetValue("waitForCapacityTimeout");
+
+        /// <summary>
+        /// Setting this will cause Pulumi to wait
+        /// for exactly this number of healthy instances from this Auto Scaling Group in
+        /// all attached load balancers on both create and update operations. (Takes
+        /// precedence over `min_elb_capacity` behavior.)
+        /// (See also Waiting for Capacity below.)
+        /// </summary>
+        [Input("waitForElbCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWaitForElbCapacity;
+
+        public int? WaitForElbCapacity => _mWaitForElbCapacity.GetValue("waitForElbCapacity");
+
+        /// <summary>
+        /// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        /// to the specified Auto Scaling group. Defined below
+        /// </summary>
+        [Input("warmPool")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupWarmPoolArgs> _mWarmPool;
+
+        public Inputs.GroupWarmPoolArgs? WarmPool => _mWarmPool.GetValue("warmPool");
     }
 }

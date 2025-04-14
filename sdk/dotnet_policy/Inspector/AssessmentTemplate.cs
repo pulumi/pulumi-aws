@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Inspector
 {
     [PolicyResourceType("aws:inspector/assessmentTemplate:AssessmentTemplate")]
-    public sealed class AssessmentTemplate : global::Pulumi.PolicyResource
+    public sealed class AssessmentTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The template assessment ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The duration of the inspector run.
         /// </summary>
         [Input("duration")]
-        public int? Duration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
+
+        public int? Duration => _mDuration.GetValue("duration");
 
         /// <summary>
         /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         /// </summary>
         [Input("eventSubscriptions")]
-        public List<AssessmentTemplateEventSubscription>? EventSubscriptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AssessmentTemplateEventSubscription>> _mEventSubscriptions;
+
+        public List<Outputs.AssessmentTemplateEventSubscription>? EventSubscriptions => _mEventSubscriptions.GetValue("eventSubscriptions");
 
         /// <summary>
         /// The name of the assessment template.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The rules to be used during the run.
         /// </summary>
         [Input("rulesPackageArns")]
-        public List<string>? RulesPackageArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRulesPackageArns;
+
+        public List<string>? RulesPackageArns => _mRulesPackageArns.GetValue("rulesPackageArns");
 
         /// <summary>
         /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The assessment target ARN to attach the template to.
         /// </summary>
         [Input("targetArn")]
-        public string? TargetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+
+        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+    }
+
+    [PolicyResourceType("aws:inspector/assessmentTemplate:AssessmentTemplate")]
+    public sealed class AssessmentTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The duration of the inspector run.
+        /// </summary>
+        [Input("duration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
+
+        public int? Duration => _mDuration.GetValue("duration");
+
+        /// <summary>
+        /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
+        /// </summary>
+        [Input("eventSubscriptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AssessmentTemplateEventSubscriptionArgs>> _mEventSubscriptions;
+
+        public List<Inputs.AssessmentTemplateEventSubscriptionArgs>? EventSubscriptions => _mEventSubscriptions.GetValue("eventSubscriptions");
+
+        /// <summary>
+        /// The name of the assessment template.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The rules to be used during the run.
+        /// </summary>
+        [Input("rulesPackageArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRulesPackageArns;
+
+        public List<string>? RulesPackageArns => _mRulesPackageArns.GetValue("rulesPackageArns");
+
+        /// <summary>
+        /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The assessment target ARN to attach the template to.
+        /// </summary>
+        [Input("targetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+
+        public string? TargetArn => _mTargetArn.GetValue("targetArn");
     }
 }

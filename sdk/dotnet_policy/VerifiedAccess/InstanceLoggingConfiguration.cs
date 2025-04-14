@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
 {
     [PolicyResourceType("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration")]
-    public sealed class InstanceLoggingConfiguration : global::Pulumi.PolicyResource
+    public sealed class InstanceLoggingConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A block that specifies the configuration options for Verified Access instances. Detailed below.
         /// </summary>
         [Input("accessLogs")]
-        public InstanceLoggingConfigurationAccessLogs? AccessLogs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceLoggingConfigurationAccessLogs> _mAccessLogs;
+
+        public Outputs.InstanceLoggingConfigurationAccessLogs? AccessLogs => _mAccessLogs.GetValue("accessLogs");
 
         /// <summary>
         /// The ID of the Verified Access instance.
         /// </summary>
         [Input("verifiedaccessInstanceId")]
-        public string? VerifiedaccessInstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
+
+        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+    }
+
+    [PolicyResourceType("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration")]
+    public sealed class InstanceLoggingConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A block that specifies the configuration options for Verified Access instances. Detailed below.
+        /// </summary>
+        [Input("accessLogs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceLoggingConfigurationAccessLogsArgs> _mAccessLogs;
+
+        public Inputs.InstanceLoggingConfigurationAccessLogsArgs? AccessLogs => _mAccessLogs.GetValue("accessLogs");
+
+        /// <summary>
+        /// The ID of the Verified Access instance.
+        /// </summary>
+        [Input("verifiedaccessInstanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
+
+        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
     }
 }

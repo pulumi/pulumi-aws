@@ -11,96 +11,217 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Evidently
 {
     [PolicyResourceType("aws:evidently/feature:Feature")]
-    public sealed class Feature : global::Pulumi.PolicyResource
+    public sealed class Feature : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the feature.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The date and time that the feature is created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
         /// </summary>
         [Input("defaultVariation")]
-        public string? DefaultVariation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultVariation;
+
+        public string? DefaultVariation => _mDefaultVariation.GetValue("defaultVariation");
 
         /// <summary>
         /// Specifies the description of the feature.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         /// </summary>
         [Input("entityOverrides")]
-        public Dictionary<string, string>? EntityOverrides;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEntityOverrides;
+
+        public Dictionary<string, string>? EntityOverrides => _mEntityOverrides.GetValue("entityOverrides");
 
         /// <summary>
         /// One or more blocks that define the evaluation rules for the feature. Detailed below
         /// </summary>
         [Input("evaluationRules")]
-        public List<FeatureEvaluationRule>? EvaluationRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FeatureEvaluationRule>> _mEvaluationRules;
+
+        public List<Outputs.FeatureEvaluationRule>? EvaluationRules => _mEvaluationRules.GetValue("evaluationRules");
 
         /// <summary>
         /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         /// </summary>
         [Input("evaluationStrategy")]
-        public string? EvaluationStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEvaluationStrategy;
+
+        public string? EvaluationStrategy => _mEvaluationStrategy.GetValue("evaluationStrategy");
 
         /// <summary>
         /// The date and time that the feature was most recently updated.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         /// <summary>
         /// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The name or ARN of the project that is to contain the new feature.
         /// </summary>
         [Input("project")]
-        public string? Project;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProject;
+
+        public string? Project => _mProject.GetValue("project");
 
         /// <summary>
         /// The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
         /// </summary>
         [Input("valueType")]
-        public string? ValueType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValueType;
+
+        public string? ValueType => _mValueType.GetValue("valueType");
 
         /// <summary>
         /// One or more blocks that contain the configuration of the feature's different variations. Detailed below
         /// </summary>
         [Input("variations")]
-        public List<FeatureVariation>? Variations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FeatureVariation>> _mVariations;
+
+        public List<Outputs.FeatureVariation>? Variations => _mVariations.GetValue("variations");
+    }
+
+    [PolicyResourceType("aws:evidently/feature:Feature")]
+    public sealed class FeatureArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
+        /// </summary>
+        [Input("defaultVariation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultVariation;
+
+        public string? DefaultVariation => _mDefaultVariation.GetValue("defaultVariation");
+
+        /// <summary>
+        /// Specifies the description of the feature.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
+        /// </summary>
+        [Input("entityOverrides")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEntityOverrides;
+
+        public Dictionary<string, string>? EntityOverrides => _mEntityOverrides.GetValue("entityOverrides");
+
+        /// <summary>
+        /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
+        /// </summary>
+        [Input("evaluationStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEvaluationStrategy;
+
+        public string? EvaluationStrategy => _mEvaluationStrategy.GetValue("evaluationStrategy");
+
+        /// <summary>
+        /// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name or ARN of the project that is to contain the new feature.
+        /// </summary>
+        [Input("project")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProject;
+
+        public string? Project => _mProject.GetValue("project");
+
+        /// <summary>
+        /// Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// One or more blocks that contain the configuration of the feature's different variations. Detailed below
+        /// </summary>
+        [Input("variations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FeatureVariationArgs>> _mVariations;
+
+        public List<Inputs.FeatureVariationArgs>? Variations => _mVariations.GetValue("variations");
     }
 }

@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Dlm
 {
     [PolicyResourceType("aws:dlm/lifecyclePolicy:LifecyclePolicy")]
-    public sealed class LifecyclePolicy : global::Pulumi.PolicyResource
+    public sealed class LifecyclePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description for the DLM lifecycle policy.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ARN of an IAM role that is able to be assumed by the DLM service.
         /// </summary>
         [Input("executionRoleArn")]
-        public string? ExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
 
         /// <summary>
         /// See the `policy_details` configuration block. Max of 1.
         /// </summary>
         [Input("policyDetails")]
-        public LifecyclePolicyPolicyDetails? PolicyDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LifecyclePolicyPolicyDetails> _mPolicyDetails;
+
+        public Outputs.LifecyclePolicyPolicyDetails? PolicyDetails => _mPolicyDetails.GetValue("policyDetails");
 
         /// <summary>
         /// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:dlm/lifecyclePolicy:LifecyclePolicy")]
+    public sealed class LifecyclePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description for the DLM lifecycle policy.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ARN of an IAM role that is able to be assumed by the DLM service.
+        /// </summary>
+        [Input("executionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+
+        /// <summary>
+        /// See the `policy_details` configuration block. Max of 1.
+        /// </summary>
+        [Input("policyDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsArgs> _mPolicyDetails;
+
+        public Inputs.LifecyclePolicyPolicyDetailsArgs? PolicyDetails => _mPolicyDetails.GetValue("policyDetails");
+
+        /// <summary>
+        /// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

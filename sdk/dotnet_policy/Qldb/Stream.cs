@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Qldb
 {
     [PolicyResourceType("aws:qldb/stream:Stream")]
-    public sealed class Stream : global::Pulumi.PolicyResource
+    public sealed class Stream : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the QLDB Stream.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         /// </summary>
         [Input("exclusiveEndTime")]
-        public string? ExclusiveEndTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExclusiveEndTime;
+
+        public string? ExclusiveEndTime => _mExclusiveEndTime.GetValue("exclusiveEndTime");
 
         /// <summary>
         /// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
         /// </summary>
         [Input("inclusiveStartTime")]
-        public string? InclusiveStartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInclusiveStartTime;
+
+        public string? InclusiveStartTime => _mInclusiveStartTime.GetValue("inclusiveStartTime");
 
         /// <summary>
         /// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         /// </summary>
         [Input("kinesisConfiguration")]
-        public StreamKinesisConfiguration? KinesisConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamKinesisConfiguration> _mKinesisConfiguration;
+
+        public Outputs.StreamKinesisConfiguration? KinesisConfiguration => _mKinesisConfiguration.GetValue("kinesisConfiguration");
 
         /// <summary>
         /// The name of the QLDB ledger.
         /// </summary>
         [Input("ledgerName")]
-        public string? LedgerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLedgerName;
+
+        public string? LedgerName => _mLedgerName.GetValue("ledgerName");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
         /// </summary>
         [Input("streamName")]
-        public string? StreamName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamName;
+
+        public string? StreamName => _mStreamName.GetValue("streamName");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:qldb/stream:Stream")]
+    public sealed class StreamArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+        /// </summary>
+        [Input("exclusiveEndTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExclusiveEndTime;
+
+        public string? ExclusiveEndTime => _mExclusiveEndTime.GetValue("exclusiveEndTime");
+
+        /// <summary>
+        /// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+        /// </summary>
+        [Input("inclusiveStartTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInclusiveStartTime;
+
+        public string? InclusiveStartTime => _mInclusiveStartTime.GetValue("inclusiveStartTime");
+
+        /// <summary>
+        /// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        /// </summary>
+        [Input("kinesisConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamKinesisConfigurationArgs> _mKinesisConfiguration;
+
+        public Inputs.StreamKinesisConfigurationArgs? KinesisConfiguration => _mKinesisConfiguration.GetValue("kinesisConfiguration");
+
+        /// <summary>
+        /// The name of the QLDB ledger.
+        /// </summary>
+        [Input("ledgerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLedgerName;
+
+        public string? LedgerName => _mLedgerName.GetValue("ledgerName");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+        /// </summary>
+        [Input("streamName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamName;
+
+        public string? StreamName => _mStreamName.GetValue("streamName");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

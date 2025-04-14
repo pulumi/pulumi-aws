@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Macie2
 {
     [PolicyResourceType("aws:macie2/invitationAccepter:InvitationAccepter")]
-    public sealed class InvitationAccepter : global::Pulumi.PolicyResource
+    public sealed class InvitationAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS account ID for the account that sent the invitation.
         /// </summary>
         [Input("administratorAccountId")]
-        public string? AdministratorAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorAccountId;
+
+        public string? AdministratorAccountId => _mAdministratorAccountId.GetValue("administratorAccountId");
 
         /// <summary>
         /// The unique identifier for the invitation.
         /// </summary>
         [Input("invitationId")]
-        public string? InvitationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationId;
+
+        public string? InvitationId => _mInvitationId.GetValue("invitationId");
+    }
+
+    [PolicyResourceType("aws:macie2/invitationAccepter:InvitationAccepter")]
+    public sealed class InvitationAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS account ID for the account that sent the invitation.
+        /// </summary>
+        [Input("administratorAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorAccountId;
+
+        public string? AdministratorAccountId => _mAdministratorAccountId.GetValue("administratorAccountId");
     }
 }

@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/storageLensConfiguration:StorageLensConfiguration")]
-    public sealed class StorageLensConfiguration : global::Pulumi.PolicyResource
+    public sealed class StorageLensConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID of the S3 Storage Lens configuration.
         /// </summary>
         [Input("configId")]
-        public string? ConfigId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigId;
+
+        public string? ConfigId => _mConfigId.GetValue("configId");
 
         /// <summary>
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         /// </summary>
         [Input("storageLensConfiguration")]
-        public StorageLensConfigurationStorageLensConfiguration? StorageLensConfigurationDetail;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfiguration> _mStorageLensConfigurationDetail;
+
+        public Outputs.StorageLensConfigurationStorageLensConfiguration? StorageLensConfigurationDetail => _mStorageLensConfigurationDetail.GetValue("storageLensConfiguration");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:s3control/storageLensConfiguration:StorageLensConfiguration")]
+    public sealed class StorageLensConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The ID of the S3 Storage Lens configuration.
+        /// </summary>
+        [Input("configId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigId;
+
+        public string? ConfigId => _mConfigId.GetValue("configId");
+
+        /// <summary>
+        /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+        /// </summary>
+        [Input("storageLensConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StorageLensConfigurationStorageLensConfigurationArgs> _mStorageLensConfigurationDetail;
+
+        public Inputs.StorageLensConfigurationStorageLensConfigurationArgs? StorageLensConfigurationDetail => _mStorageLensConfigurationDetail.GetValue("storageLensConfiguration");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

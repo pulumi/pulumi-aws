@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Waf
 {
     [PolicyResourceType("aws:waf/regexPatternSet:RegexPatternSet")]
-    public sealed class RegexPatternSet : global::Pulumi.PolicyResource
+    public sealed class RegexPatternSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name or description of the Regex Pattern Set.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         /// </summary>
         [Input("regexPatternStrings")]
-        public List<string>? RegexPatternStrings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegexPatternStrings;
+
+        public List<string>? RegexPatternStrings => _mRegexPatternStrings.GetValue("regexPatternStrings");
+    }
+
+    [PolicyResourceType("aws:waf/regexPatternSet:RegexPatternSet")]
+    public sealed class RegexPatternSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name or description of the Regex Pattern Set.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
+        /// </summary>
+        [Input("regexPatternStrings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegexPatternStrings;
+
+        public List<string>? RegexPatternStrings => _mRegexPatternStrings.GetValue("regexPatternStrings");
     }
 }

@@ -11,60 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/managedPrefixList:ManagedPrefixList")]
-    public sealed class ManagedPrefixList : global::Pulumi.PolicyResource
+    public sealed class ManagedPrefixList : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Address family (`IPv4` or `IPv6`) of this prefix list.
         /// </summary>
         [Input("addressFamily")]
-        public string? AddressFamily;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
 
         /// <summary>
         /// ARN of the prefix list.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         /// </summary>
         [Input("entries")]
-        public List<ManagedPrefixListEntry>? Entries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ManagedPrefixListEntry>> _mEntries;
+
+        public List<Outputs.ManagedPrefixListEntry>? Entries => _mEntries.GetValue("entries");
 
         /// <summary>
         /// Maximum number of entries that this prefix list can contain.
         /// </summary>
         [Input("maxEntries")]
-        public int? MaxEntries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxEntries;
+
+        public int? MaxEntries => _mMaxEntries.GetValue("maxEntries");
 
         /// <summary>
         /// Name of this resource. The name must not start with `com.amazonaws`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ID of the AWS account that owns this prefix list.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Latest version of this prefix list.
         /// </summary>
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:ec2/managedPrefixList:ManagedPrefixList")]
+    public sealed class ManagedPrefixListArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Address family (`IPv4` or `IPv6`) of this prefix list.
+        /// </summary>
+        [Input("addressFamily")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+
+        /// <summary>
+        /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        /// </summary>
+        [Input("entries")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ManagedPrefixListEntryArgs>> _mEntries;
+
+        public List<Inputs.ManagedPrefixListEntryArgs>? Entries => _mEntries.GetValue("entries");
+
+        /// <summary>
+        /// Maximum number of entries that this prefix list can contain.
+        /// </summary>
+        [Input("maxEntries")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxEntries;
+
+        public int? MaxEntries => _mMaxEntries.GetValue("maxEntries");
+
+        /// <summary>
+        /// Name of this resource. The name must not start with `com.amazonaws`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

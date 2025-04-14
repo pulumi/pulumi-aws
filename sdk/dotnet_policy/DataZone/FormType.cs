@@ -11,75 +11,175 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/formType:FormType")]
-    public sealed class FormType : global::Pulumi.PolicyResource
+    public sealed class FormType : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Creation time of the Form Type.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Creator of the Form Type.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// Description of form type. Must have a length of between 1 and 2048 characters.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Identifier of the domain.
         /// </summary>
         [Input("domainIdentifier")]
-        public string? DomainIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
 
         [Input("imports")]
-        public List<FormTypeImport>? Imports;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FormTypeImport>> _mImports;
+
+        public List<Outputs.FormTypeImport>? Imports => _mImports.GetValue("imports");
 
         /// <summary>
         /// Object of the model of the form type that contains the following attributes.
         /// </summary>
         [Input("model")]
-        public FormTypeModel? Model;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FormTypeModel> _mModel;
+
+        public Outputs.FormTypeModel? Model => _mModel.GetValue("model");
 
         /// <summary>
         /// Name of the form type. Must be the name of the structure in smithy document.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Origin domain id of the Form Type.
         /// </summary>
         [Input("originDomainId")]
-        public string? OriginDomainId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOriginDomainId;
+
+        public string? OriginDomainId => _mOriginDomainId.GetValue("originDomainId");
 
         /// <summary>
         /// Origin project id of the Form Type.
         /// </summary>
         [Input("originProjectId")]
-        public string? OriginProjectId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOriginProjectId;
+
+        public string? OriginProjectId => _mOriginProjectId.GetValue("originProjectId");
 
         /// <summary>
         /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         /// </summary>
         [Input("owningProjectIdentifier")]
-        public string? OwningProjectIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwningProjectIdentifier;
+
+        public string? OwningProjectIdentifier => _mOwningProjectIdentifier.GetValue("owningProjectIdentifier");
 
         /// <summary>
         /// Revision of the Form Type.
         /// </summary>
         [Input("revision")]
-        public string? Revision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevision;
+
+        public string? Revision => _mRevision.GetValue("revision");
 
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("timeouts")]
-        public FormTypeTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FormTypeTimeouts> _mTimeouts;
+
+        public Outputs.FormTypeTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:datazone/formType:FormType")]
+    public sealed class FormTypeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of form type. Must have a length of between 1 and 2048 characters.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Identifier of the domain.
+        /// </summary>
+        [Input("domainIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+
+        /// <summary>
+        /// Object of the model of the form type that contains the following attributes.
+        /// </summary>
+        [Input("model")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FormTypeModelArgs> _mModel;
+
+        public Inputs.FormTypeModelArgs? Model => _mModel.GetValue("model");
+
+        /// <summary>
+        /// Name of the form type. Must be the name of the structure in smithy document.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
+        /// </summary>
+        [Input("owningProjectIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwningProjectIdentifier;
+
+        public string? OwningProjectIdentifier => _mOwningProjectIdentifier.GetValue("owningProjectIdentifier");
+
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FormTypeTimeoutsArgs> _mTimeouts;
+
+        public Inputs.FormTypeTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

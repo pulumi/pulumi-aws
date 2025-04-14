@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Acmpca
 {
     [PolicyResourceType("aws:acmpca/permission:Permission")]
-    public sealed class Permission : global::Pulumi.PolicyResource
+    public sealed class Permission : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
         /// </summary>
         [Input("actions")]
-        public List<string>? Actions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mActions;
+
+        public List<string>? Actions => _mActions.GetValue("actions");
 
         /// <summary>
         /// ARN of the CA that grants the permissions.
         /// </summary>
         [Input("certificateAuthorityArn")]
-        public string? CertificateAuthorityArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
+
+        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
 
         /// <summary>
         /// IAM policy that is associated with the permission.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
         /// </summary>
         [Input("principal")]
-        public string? Principal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
 
         /// <summary>
         /// ID of the calling account
         /// </summary>
         [Input("sourceAccount")]
-        public string? SourceAccount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceAccount;
+
+        public string? SourceAccount => _mSourceAccount.GetValue("sourceAccount");
+    }
+
+    [PolicyResourceType("aws:acmpca/permission:Permission")]
+    public sealed class PermissionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
+        /// </summary>
+        [Input("actions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mActions;
+
+        public List<string>? Actions => _mActions.GetValue("actions");
+
+        /// <summary>
+        /// ARN of the CA that grants the permissions.
+        /// </summary>
+        [Input("certificateAuthorityArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
+
+        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+
+        /// <summary>
+        /// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
+        /// </summary>
+        [Input("principal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
+
+        /// <summary>
+        /// ID of the calling account
+        /// </summary>
+        [Input("sourceAccount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceAccount;
+
+        public string? SourceAccount => _mSourceAccount.GetValue("sourceAccount");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")]
-    public sealed class VpcEndpointSubnetAssociation : global::Pulumi.PolicyResource
+    public sealed class VpcEndpointSubnetAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the subnet to be associated with the VPC endpoint.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// The ID of the VPC endpoint with which the subnet will be associated.
         /// </summary>
         [Input("vpcEndpointId")]
-        public string? VpcEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")]
+    public sealed class VpcEndpointSubnetAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the subnet to be associated with the VPC endpoint.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// The ID of the VPC endpoint with which the subnet will be associated.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
     }
 }

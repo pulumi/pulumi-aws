@@ -11,66 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/connectPeer:ConnectPeer")]
-    public sealed class ConnectPeer : global::Pulumi.PolicyResource
+    public sealed class ConnectPeer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// EC2 Transit Gateway Connect Peer ARN
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
         /// </summary>
         [Input("bgpAsn")]
-        public string? BgpAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsn;
+
+        public string? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
 
         /// <summary>
         /// The IP address assigned to customer device, which is used as BGP IP address.
         /// </summary>
         [Input("bgpPeerAddress")]
-        public string? BgpPeerAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpPeerAddress;
+
+        public string? BgpPeerAddress => _mBgpPeerAddress.GetValue("bgpPeerAddress");
 
         /// <summary>
         /// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
         /// </summary>
         [Input("bgpTransitGatewayAddresses")]
-        public List<string>? BgpTransitGatewayAddresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBgpTransitGatewayAddresses;
+
+        public List<string>? BgpTransitGatewayAddresses => _mBgpTransitGatewayAddresses.GetValue("bgpTransitGatewayAddresses");
 
         /// <summary>
         /// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
         /// </summary>
         [Input("insideCidrBlocks")]
-        public List<string>? InsideCidrBlocks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
+
+        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
 
         /// <summary>
         /// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
         /// </summary>
         [Input("peerAddress")]
-        public string? PeerAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAddress;
+
+        public string? PeerAddress => _mPeerAddress.GetValue("peerAddress");
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
         /// </summary>
         [Input("transitGatewayAddress")]
-        public string? TransitGatewayAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAddress;
+
+        public string? TransitGatewayAddress => _mTransitGatewayAddress.GetValue("transitGatewayAddress");
 
         /// <summary>
         /// The Transit Gateway Connect
         /// </summary>
         [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/connectPeer:ConnectPeer")]
+    public sealed class ConnectPeerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
+        /// </summary>
+        [Input("bgpAsn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsn;
+
+        public string? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+
+        /// <summary>
+        /// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
+        /// </summary>
+        [Input("insideCidrBlocks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
+
+        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
+
+        /// <summary>
+        /// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
+        /// </summary>
+        [Input("peerAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAddress;
+
+        public string? PeerAddress => _mPeerAddress.GetValue("peerAddress");
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
+        /// </summary>
+        [Input("transitGatewayAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAddress;
+
+        public string? TransitGatewayAddress => _mTransitGatewayAddress.GetValue("transitGatewayAddress");
+
+        /// <summary>
+        /// The Transit Gateway Connect
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
     }
 }

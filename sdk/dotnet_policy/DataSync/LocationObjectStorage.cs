@@ -11,84 +11,217 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataSync
 {
     [PolicyResourceType("aws:datasync/locationObjectStorage:LocationObjectStorage")]
-    public sealed class LocationObjectStorage : global::Pulumi.PolicyResource
+    public sealed class LocationObjectStorage : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         /// </summary>
         [Input("accessKey")]
-        public string? AccessKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKey;
+
+        public string? AccessKey => _mAccessKey.GetValue("accessKey");
 
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
         /// </summary>
         [Input("agentArns")]
-        public List<string>? AgentArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
+
+        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The bucket on the self-managed object storage server that is used to read data from.
         /// </summary>
         [Input("bucketName")]
-        public string? BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucketName");
 
         /// <summary>
         /// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         /// </summary>
         [Input("secretKey")]
-        public string? SecretKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
+
+        public string? SecretKey => _mSecretKey.GetValue("secretKey");
 
         /// <summary>
         /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         /// </summary>
         [Input("serverCertificate")]
-        public string? ServerCertificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerCertificate;
+
+        public string? ServerCertificate => _mServerCertificate.GetValue("serverCertificate");
 
         /// <summary>
         /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
         /// </summary>
         [Input("serverHostname")]
-        public string? ServerHostname;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerHostname;
+
+        public string? ServerHostname => _mServerHostname.GetValue("serverHostname");
 
         /// <summary>
         /// The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
         /// </summary>
         [Input("serverPort")]
-        public int? ServerPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mServerPort;
+
+        public int? ServerPort => _mServerPort.GetValue("serverPort");
 
         /// <summary>
         /// The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
         /// </summary>
         [Input("serverProtocol")]
-        public string? ServerProtocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerProtocol;
+
+        public string? ServerProtocol => _mServerProtocol.GetValue("serverProtocol");
 
         /// <summary>
         /// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         /// </summary>
         [Input("subdirectory")]
-        public string? Subdirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The URL of the Object Storage location that was described.
         /// </summary>
         [Input("uri")]
-        public string? Uri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
+
+        public string? Uri => _mUri.GetValue("uri");
+    }
+
+    [PolicyResourceType("aws:datasync/locationObjectStorage:LocationObjectStorage")]
+    public sealed class LocationObjectStorageArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+        /// </summary>
+        [Input("accessKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKey;
+
+        public string? AccessKey => _mAccessKey.GetValue("accessKey");
+
+        /// <summary>
+        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// </summary>
+        [Input("agentArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
+
+        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+
+        /// <summary>
+        /// The bucket on the self-managed object storage server that is used to read data from.
+        /// </summary>
+        [Input("bucketName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucketName");
+
+        /// <summary>
+        /// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+        /// </summary>
+        [Input("secretKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
+
+        public string? SecretKey => _mSecretKey.GetValue("secretKey");
+
+        /// <summary>
+        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
+        /// </summary>
+        [Input("serverCertificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerCertificate;
+
+        public string? ServerCertificate => _mServerCertificate.GetValue("serverCertificate");
+
+        /// <summary>
+        /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
+        /// </summary>
+        [Input("serverHostname")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerHostname;
+
+        public string? ServerHostname => _mServerHostname.GetValue("serverHostname");
+
+        /// <summary>
+        /// The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
+        /// </summary>
+        [Input("serverPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mServerPort;
+
+        public int? ServerPort => _mServerPort.GetValue("serverPort");
+
+        /// <summary>
+        /// The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
+        /// </summary>
+        [Input("serverProtocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerProtocol;
+
+        public string? ServerProtocol => _mServerProtocol.GetValue("serverProtocol");
+
+        /// <summary>
+        /// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
+        /// </summary>
+        [Input("subdirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

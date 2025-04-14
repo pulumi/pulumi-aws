@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
 {
     [PolicyResourceType("aws:verifiedpermissions/policyStore:PolicyStore")]
-    public sealed class PolicyStore : global::Pulumi.PolicyResource
+    public sealed class PolicyStore : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Policy Store.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description of the Policy Store.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
         [Input("policyStoreId")]
-        public string? PolicyStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
 
         /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
         [Input("validationSettings")]
-        public PolicyStoreValidationSettings? ValidationSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyStoreValidationSettings> _mValidationSettings;
+
+        public Outputs.PolicyStoreValidationSettings? ValidationSettings => _mValidationSettings.GetValue("validationSettings");
+    }
+
+    [PolicyResourceType("aws:verifiedpermissions/policyStore:PolicyStore")]
+    public sealed class PolicyStoreArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the Policy Store.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Validation settings for the policy store.
+        /// </summary>
+        [Input("validationSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyStoreValidationSettingsArgs> _mValidationSettings;
+
+        public Inputs.PolicyStoreValidationSettingsArgs? ValidationSettings => _mValidationSettings.GetValue("validationSettings");
     }
 }

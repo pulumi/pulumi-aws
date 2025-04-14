@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/modelPackageGroup:ModelPackageGroup")]
-    public sealed class ModelPackageGroup : global::Pulumi.PolicyResource
+    public sealed class ModelPackageGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description for the model group.
         /// </summary>
         [Input("modelPackageGroupDescription")]
-        public string? ModelPackageGroupDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageGroupDescription;
+
+        public string? ModelPackageGroupDescription => _mModelPackageGroupDescription.GetValue("modelPackageGroupDescription");
 
         /// <summary>
         /// The name of the model group.
         /// </summary>
         [Input("modelPackageGroupName")]
-        public string? ModelPackageGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageGroupName;
+
+        public string? ModelPackageGroupName => _mModelPackageGroupName.GetValue("modelPackageGroupName");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/modelPackageGroup:ModelPackageGroup")]
+    public sealed class ModelPackageGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description for the model group.
+        /// </summary>
+        [Input("modelPackageGroupDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageGroupDescription;
+
+        public string? ModelPackageGroupDescription => _mModelPackageGroupDescription.GetValue("modelPackageGroupDescription");
+
+        /// <summary>
+        /// The name of the model group.
+        /// </summary>
+        [Input("modelPackageGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageGroupName;
+
+        public string? ModelPackageGroupName => _mModelPackageGroupName.GetValue("modelPackageGroupName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

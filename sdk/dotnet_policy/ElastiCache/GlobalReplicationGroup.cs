@@ -11,32 +11,44 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElastiCache
 {
     [PolicyResourceType("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")]
-    public sealed class GlobalReplicationGroup : global::Pulumi.PolicyResource
+    public sealed class GlobalReplicationGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the ElastiCache Global Replication Group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A flag that indicate whether the encryption at rest is enabled.
         /// </summary>
         [Input("atRestEncryptionEnabled")]
-        public bool? AtRestEncryptionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAtRestEncryptionEnabled;
+
+        public bool? AtRestEncryptionEnabled => _mAtRestEncryptionEnabled.GetValue("atRestEncryptionEnabled");
 
         /// <summary>
         /// A flag that indicate whether AuthToken (password) is enabled.
         /// </summary>
         [Input("authTokenEnabled")]
-        public bool? AuthTokenEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAuthTokenEnabled;
+
+        public bool? AuthTokenEnabled => _mAuthTokenEnabled.GetValue("authTokenEnabled");
 
         /// <summary>
         /// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         /// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
         /// </summary>
         [Input("automaticFailoverEnabled")]
-        public bool? AutomaticFailoverEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomaticFailoverEnabled;
+
+        public bool? AutomaticFailoverEnabled => _mAutomaticFailoverEnabled.GetValue("automaticFailoverEnabled");
 
         /// <summary>
         /// The instance class used.
@@ -45,19 +57,28 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         /// </summary>
         [Input("cacheNodeType")]
-        public string? CacheNodeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNodeType;
+
+        public string? CacheNodeType => _mCacheNodeType.GetValue("cacheNodeType");
 
         /// <summary>
         /// Indicates whether the Global Datastore is cluster enabled.
         /// </summary>
         [Input("clusterEnabled")]
-        public bool? ClusterEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mClusterEnabled;
+
+        public bool? ClusterEnabled => _mClusterEnabled.GetValue("clusterEnabled");
 
         /// <summary>
         /// The name of the cache engine to be used for the clusters in this global replication group.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// Redis version to use for the Global Replication Group.
@@ -70,44 +91,65 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The full version number of the cache engine running on the members of this global replication group.
         /// </summary>
         [Input("engineVersionActual")]
-        public string? EngineVersionActual;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersionActual;
+
+        public string? EngineVersionActual => _mEngineVersionActual.GetValue("engineVersionActual");
 
         /// <summary>
         /// Set of node groups (shards) on the global replication group.
         /// Has the values:
         /// </summary>
         [Input("globalNodeGroups")]
-        public List<GlobalReplicationGroupGlobalNodeGroup>? GlobalNodeGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GlobalReplicationGroupGlobalNodeGroup>> _mGlobalNodeGroups;
+
+        public List<Outputs.GlobalReplicationGroupGlobalNodeGroup>? GlobalNodeGroups => _mGlobalNodeGroups.GetValue("globalNodeGroups");
 
         /// <summary>
         /// A user-created description for the global replication group.
         /// </summary>
         [Input("globalReplicationGroupDescription")]
-        public string? GlobalReplicationGroupDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupDescription;
+
+        public string? GlobalReplicationGroupDescription => _mGlobalReplicationGroupDescription.GetValue("globalReplicationGroupDescription");
 
         /// <summary>
         /// The full ID of the global replication group.
         /// </summary>
         [Input("globalReplicationGroupId")]
-        public string? GlobalReplicationGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupId;
+
+        public string? GlobalReplicationGroupId => _mGlobalReplicationGroupId.GetValue("globalReplicationGroupId");
 
         /// <summary>
         /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         /// </summary>
         [Input("globalReplicationGroupIdSuffix")]
-        public string? GlobalReplicationGroupIdSuffix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupIdSuffix;
+
+        public string? GlobalReplicationGroupIdSuffix => _mGlobalReplicationGroupIdSuffix.GetValue("globalReplicationGroupIdSuffix");
 
         /// <summary>
         /// The number of node groups (shards) on the global replication group.
         /// </summary>
         [Input("numNodeGroups")]
-        public int? NumNodeGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumNodeGroups;
+
+        public int? NumNodeGroups => _mNumNodeGroups.GetValue("numNodeGroups");
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -116,18 +158,117 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>
         [Input("parameterGroupName")]
-        public string? ParameterGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
+
+        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
 
         /// <summary>
         /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         /// </summary>
         [Input("primaryReplicationGroupId")]
-        public string? PrimaryReplicationGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryReplicationGroupId;
+
+        public string? PrimaryReplicationGroupId => _mPrimaryReplicationGroupId.GetValue("primaryReplicationGroupId");
 
         /// <summary>
         /// A flag that indicates whether the encryption in transit is enabled.
         /// </summary>
         [Input("transitEncryptionEnabled")]
-        public bool? TransitEncryptionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitEncryptionEnabled;
+
+        public bool? TransitEncryptionEnabled => _mTransitEncryptionEnabled.GetValue("transitEncryptionEnabled");
+    }
+
+    [PolicyResourceType("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")]
+    public sealed class GlobalReplicationGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
+        /// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
+        /// </summary>
+        [Input("automaticFailoverEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomaticFailoverEnabled;
+
+        public bool? AutomaticFailoverEnabled => _mAutomaticFailoverEnabled.GetValue("automaticFailoverEnabled");
+
+        /// <summary>
+        /// The instance class used.
+        /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
+        /// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        /// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
+        /// </summary>
+        [Input("cacheNodeType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNodeType;
+
+        public string? CacheNodeType => _mCacheNodeType.GetValue("cacheNodeType");
+
+        /// <summary>
+        /// Redis version to use for the Global Replication Group.
+        /// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+        /// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+        /// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+        /// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
+        /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// A user-created description for the global replication group.
+        /// </summary>
+        [Input("globalReplicationGroupDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupDescription;
+
+        public string? GlobalReplicationGroupDescription => _mGlobalReplicationGroupDescription.GetValue("globalReplicationGroupDescription");
+
+        /// <summary>
+        /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        /// </summary>
+        [Input("globalReplicationGroupIdSuffix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupIdSuffix;
+
+        public string? GlobalReplicationGroupIdSuffix => _mGlobalReplicationGroupIdSuffix.GetValue("globalReplicationGroupIdSuffix");
+
+        /// <summary>
+        /// The number of node groups (shards) on the global replication group.
+        /// </summary>
+        [Input("numNodeGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumNodeGroups;
+
+        public int? NumNodeGroups => _mNumNodeGroups.GetValue("numNodeGroups");
+
+        /// <summary>
+        /// An ElastiCache Parameter Group to use for the Global Replication Group.
+        /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+        /// Specifying without a major version upgrade will fail.
+        /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        /// </summary>
+        [Input("parameterGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
+
+        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+
+        /// <summary>
+        /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        /// </summary>
+        [Input("primaryReplicationGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryReplicationGroupId;
+
+        public string? PrimaryReplicationGroupId => _mPrimaryReplicationGroupId.GetValue("primaryReplicationGroupId");
     }
 }

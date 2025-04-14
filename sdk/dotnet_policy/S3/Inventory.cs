@@ -11,54 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/inventory:Inventory")]
-    public sealed class Inventory : global::Pulumi.PolicyResource
+    public sealed class Inventory : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the source bucket that inventory lists the objects for.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Contains information about where to publish the inventory results (documented below).
         /// </summary>
         [Input("destination")]
-        public InventoryDestination? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InventoryDestination> _mDestination;
+
+        public Outputs.InventoryDestination? Destination => _mDestination.GetValue("destination");
 
         /// <summary>
         /// Specifies whether the inventory is enabled or disabled.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         /// </summary>
         [Input("filter")]
-        public InventoryFilter? Filter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InventoryFilter> _mFilter;
+
+        public Outputs.InventoryFilter? Filter => _mFilter.GetValue("filter");
 
         /// <summary>
         /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
         /// </summary>
         [Input("includedObjectVersions")]
-        public string? IncludedObjectVersions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIncludedObjectVersions;
+
+        public string? IncludedObjectVersions => _mIncludedObjectVersions.GetValue("includedObjectVersions");
 
         /// <summary>
         /// Unique identifier of the inventory configuration for the bucket.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         /// </summary>
         [Input("optionalFields")]
-        public List<string>? OptionalFields;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOptionalFields;
+
+        public List<string>? OptionalFields => _mOptionalFields.GetValue("optionalFields");
 
         /// <summary>
         /// Specifies the schedule for generating inventory results (documented below).
         /// </summary>
         [Input("schedule")]
-        public InventorySchedule? Schedule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InventorySchedule> _mSchedule;
+
+        public Outputs.InventorySchedule? Schedule => _mSchedule.GetValue("schedule");
+    }
+
+    [PolicyResourceType("aws:s3/inventory:Inventory")]
+    public sealed class InventoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the source bucket that inventory lists the objects for.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Contains information about where to publish the inventory results (documented below).
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryDestinationArgs> _mDestination;
+
+        public Inputs.InventoryDestinationArgs? Destination => _mDestination.GetValue("destination");
+
+        /// <summary>
+        /// Specifies whether the inventory is enabled or disabled.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        /// </summary>
+        [Input("filter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryFilterArgs> _mFilter;
+
+        public Inputs.InventoryFilterArgs? Filter => _mFilter.GetValue("filter");
+
+        /// <summary>
+        /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
+        /// </summary>
+        [Input("includedObjectVersions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIncludedObjectVersions;
+
+        public string? IncludedObjectVersions => _mIncludedObjectVersions.GetValue("includedObjectVersions");
+
+        /// <summary>
+        /// Unique identifier of the inventory configuration for the bucket.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        /// </summary>
+        [Input("optionalFields")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOptionalFields;
+
+        public List<string>? OptionalFields => _mOptionalFields.GetValue("optionalFields");
+
+        /// <summary>
+        /// Specifies the schedule for generating inventory results (documented below).
+        /// </summary>
+        [Input("schedule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryScheduleArgs> _mSchedule;
+
+        public Inputs.InventoryScheduleArgs? Schedule => _mSchedule.GetValue("schedule");
     }
 }

@@ -11,39 +11,54 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Comprehend
 {
     [PolicyResourceType("aws:comprehend/entityRecognizer:EntityRecognizer")]
-    public sealed class EntityRecognizer : global::Pulumi.PolicyResource
+    public sealed class EntityRecognizer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Entity Recognizer version.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         /// </summary>
         [Input("dataAccessRoleArn")]
-        public string? DataAccessRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataAccessRoleArn;
+
+        public string? DataAccessRoleArn => _mDataAccessRoleArn.GetValue("dataAccessRoleArn");
 
         /// <summary>
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
         /// </summary>
         [Input("inputDataConfig")]
-        public EntityRecognizerInputDataConfig? InputDataConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EntityRecognizerInputDataConfig> _mInputDataConfig;
+
+        public Outputs.EntityRecognizerInputDataConfig? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
 
         /// <summary>
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
         /// </summary>
         [Input("languageCode")]
-        public string? LanguageCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
 
         /// <summary>
         /// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
         /// </summary>
         [Input("modelKmsKeyId")]
-        public string? ModelKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelKmsKeyId;
+
+        public string? ModelKmsKeyId => _mModelKmsKeyId.GetValue("modelKmsKeyId");
 
         /// <summary>
         /// Name for the Entity Recognizer.
@@ -53,19 +68,28 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Name for the version of the Entity Recognizer.
@@ -77,7 +101,10 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// Conflicts with `version_name_prefix`.
         /// </summary>
         [Input("versionName")]
-        public string? VersionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
+
+        public string? VersionName => _mVersionName.GetValue("versionName");
 
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
@@ -86,19 +113,138 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// Conflicts with `version_name`.
         /// </summary>
         [Input("versionNamePrefix")]
-        public string? VersionNamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionNamePrefix;
+
+        public string? VersionNamePrefix => _mVersionNamePrefix.GetValue("versionNamePrefix");
 
         /// <summary>
         /// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
         /// </summary>
         [Input("volumeKmsKeyId")]
-        public string? VolumeKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeKmsKeyId;
+
+        public string? VolumeKmsKeyId => _mVolumeKmsKeyId.GetValue("volumeKmsKeyId");
 
         /// <summary>
         /// Configuration parameters for VPC to contain Entity Recognizer resources.
         /// See the `vpc_config` Configuration Block section below.
         /// </summary>
         [Input("vpcConfig")]
-        public EntityRecognizerVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EntityRecognizerVpcConfig> _mVpcConfig;
+
+        public Outputs.EntityRecognizerVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+    }
+
+    [PolicyResourceType("aws:comprehend/entityRecognizer:EntityRecognizer")]
+    public sealed class EntityRecognizerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        /// </summary>
+        [Input("dataAccessRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataAccessRoleArn;
+
+        public string? DataAccessRoleArn => _mDataAccessRoleArn.GetValue("dataAccessRoleArn");
+
+        /// <summary>
+        /// Configuration for the training and testing data.
+        /// See the `input_data_config` Configuration Block section below.
+        /// </summary>
+        [Input("inputDataConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EntityRecognizerInputDataConfigArgs> _mInputDataConfig;
+
+        public Inputs.EntityRecognizerInputDataConfigArgs? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
+
+        /// <summary>
+        /// Two-letter language code for the language.
+        /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        /// </summary>
+        [Input("languageCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+
+        /// <summary>
+        /// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
+        /// </summary>
+        [Input("modelKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelKmsKeyId;
+
+        public string? ModelKmsKeyId => _mModelKmsKeyId.GetValue("modelKmsKeyId");
+
+        /// <summary>
+        /// Name for the Entity Recognizer.
+        /// Has a maximum length of 63 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Name for the version of the Entity Recognizer.
+        /// Each version must have a unique name within the Entity Recognizer.
+        /// If omitted, the provider will assign a random, unique version name.
+        /// If explicitly set to `""`, no version name will be set.
+        /// Has a maximum length of 63 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Conflicts with `version_name_prefix`.
+        /// </summary>
+        [Input("versionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
+
+        public string? VersionName => _mVersionName.GetValue("versionName");
+
+        /// <summary>
+        /// Creates a unique version name beginning with the specified prefix.
+        /// Has a maximum length of 37 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Conflicts with `version_name`.
+        /// </summary>
+        [Input("versionNamePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionNamePrefix;
+
+        public string? VersionNamePrefix => _mVersionNamePrefix.GetValue("versionNamePrefix");
+
+        /// <summary>
+        /// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
+        /// </summary>
+        [Input("volumeKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeKmsKeyId;
+
+        public string? VolumeKmsKeyId => _mVolumeKmsKeyId.GetValue("volumeKmsKeyId");
+
+        /// <summary>
+        /// Configuration parameters for VPC to contain Entity Recognizer resources.
+        /// See the `vpc_config` Configuration Block section below.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EntityRecognizerVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.EntityRecognizerVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
     }
 }

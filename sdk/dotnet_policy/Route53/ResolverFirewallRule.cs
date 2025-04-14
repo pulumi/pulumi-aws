@@ -11,72 +11,208 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/resolverFirewallRule:ResolverFirewallRule")]
-    public sealed class ResolverFirewallRule : global::Pulumi.PolicyResource
+    public sealed class ResolverFirewallRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
         /// </summary>
         [Input("action")]
-        public string? Action;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
 
         /// <summary>
         /// The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
         /// </summary>
         [Input("blockOverrideDnsType")]
-        public string? BlockOverrideDnsType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDnsType;
+
+        public string? BlockOverrideDnsType => _mBlockOverrideDnsType.GetValue("blockOverrideDnsType");
 
         /// <summary>
         /// The custom DNS record to send back in response to the query.
         /// </summary>
         [Input("blockOverrideDomain")]
-        public string? BlockOverrideDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDomain;
+
+        public string? BlockOverrideDomain => _mBlockOverrideDomain.GetValue("blockOverrideDomain");
 
         /// <summary>
         /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         /// </summary>
         [Input("blockOverrideTtl")]
-        public int? BlockOverrideTtl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBlockOverrideTtl;
+
+        public int? BlockOverrideTtl => _mBlockOverrideTtl.GetValue("blockOverrideTtl");
 
         /// <summary>
         /// The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         /// </summary>
         [Input("blockResponse")]
-        public string? BlockResponse;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlockResponse;
+
+        public string? BlockResponse => _mBlockResponse.GetValue("blockResponse");
 
         /// <summary>
         /// The ID of the domain list that you want to use in the rule.
         /// </summary>
         [Input("firewallDomainListId")]
-        public string? FirewallDomainListId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainListId;
+
+        public string? FirewallDomainListId => _mFirewallDomainListId.GetValue("firewallDomainListId");
 
         /// <summary>
         /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         /// </summary>
         [Input("firewallDomainRedirectionAction")]
-        public string? FirewallDomainRedirectionAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainRedirectionAction;
+
+        public string? FirewallDomainRedirectionAction => _mFirewallDomainRedirectionAction.GetValue("firewallDomainRedirectionAction");
 
         /// <summary>
         /// The unique identifier of the firewall rule group where you want to create the rule.
         /// </summary>
         [Input("firewallRuleGroupId")]
-        public string? FirewallRuleGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallRuleGroupId;
+
+        public string? FirewallRuleGroupId => _mFirewallRuleGroupId.GetValue("firewallRuleGroupId");
 
         /// <summary>
         /// A name that lets you identify the rule, to manage and use it.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         /// </summary>
         [Input("priority")]
-        public int? Priority;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
 
         /// <summary>
         /// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         /// </summary>
         [Input("qType")]
-        public string? QType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQType;
+
+        public string? QType => _mQType.GetValue("qType");
+    }
+
+    [PolicyResourceType("aws:route53/resolverFirewallRule:ResolverFirewallRule")]
+    public sealed class ResolverFirewallRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
+        /// </summary>
+        [Input("action")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
+
+        /// <summary>
+        /// The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
+        /// </summary>
+        [Input("blockOverrideDnsType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDnsType;
+
+        public string? BlockOverrideDnsType => _mBlockOverrideDnsType.GetValue("blockOverrideDnsType");
+
+        /// <summary>
+        /// The custom DNS record to send back in response to the query.
+        /// </summary>
+        [Input("blockOverrideDomain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDomain;
+
+        public string? BlockOverrideDomain => _mBlockOverrideDomain.GetValue("blockOverrideDomain");
+
+        /// <summary>
+        /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
+        /// </summary>
+        [Input("blockOverrideTtl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBlockOverrideTtl;
+
+        public int? BlockOverrideTtl => _mBlockOverrideTtl.GetValue("blockOverrideTtl");
+
+        /// <summary>
+        /// The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
+        /// </summary>
+        [Input("blockResponse")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlockResponse;
+
+        public string? BlockResponse => _mBlockResponse.GetValue("blockResponse");
+
+        /// <summary>
+        /// The ID of the domain list that you want to use in the rule.
+        /// </summary>
+        [Input("firewallDomainListId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainListId;
+
+        public string? FirewallDomainListId => _mFirewallDomainListId.GetValue("firewallDomainListId");
+
+        /// <summary>
+        /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+        /// </summary>
+        [Input("firewallDomainRedirectionAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainRedirectionAction;
+
+        public string? FirewallDomainRedirectionAction => _mFirewallDomainRedirectionAction.GetValue("firewallDomainRedirectionAction");
+
+        /// <summary>
+        /// The unique identifier of the firewall rule group where you want to create the rule.
+        /// </summary>
+        [Input("firewallRuleGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallRuleGroupId;
+
+        public string? FirewallRuleGroupId => _mFirewallRuleGroupId.GetValue("firewallRuleGroupId");
+
+        /// <summary>
+        /// A name that lets you identify the rule, to manage and use it.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+        /// </summary>
+        [Input("priority")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
+
+        /// <summary>
+        /// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        /// </summary>
+        [Input("qType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQType;
+
+        public string? QType => _mQType.GetValue("qType");
     }
 }

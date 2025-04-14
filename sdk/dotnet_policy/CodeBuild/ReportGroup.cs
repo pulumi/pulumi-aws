@@ -11,54 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeBuild
 {
     [PolicyResourceType("aws:codebuild/reportGroup:ReportGroup")]
-    public sealed class ReportGroup : global::Pulumi.PolicyResource
+    public sealed class ReportGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of Report Group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The date and time this Report Group was created.
         /// </summary>
         [Input("created")]
-        public string? Created;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreated;
+
+        public string? Created => _mCreated.GetValue("created");
 
         /// <summary>
         /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
         /// </summary>
         [Input("deleteReports")]
-        public bool? DeleteReports;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteReports;
+
+        public bool? DeleteReports => _mDeleteReports.GetValue("deleteReports");
 
         /// <summary>
         /// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         /// </summary>
         [Input("exportConfig")]
-        public ReportGroupExportConfig? ExportConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ReportGroupExportConfig> _mExportConfig;
+
+        public Outputs.ReportGroupExportConfig? ExportConfig => _mExportConfig.GetValue("exportConfig");
 
         /// <summary>
         /// The name of a Report Group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:codebuild/reportGroup:ReportGroup")]
+    public sealed class ReportGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
+        /// </summary>
+        [Input("deleteReports")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteReports;
+
+        public bool? DeleteReports => _mDeleteReports.GetValue("deleteReports");
+
+        /// <summary>
+        /// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+        /// </summary>
+        [Input("exportConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ReportGroupExportConfigArgs> _mExportConfig;
+
+        public Inputs.ReportGroupExportConfigArgs? ExportConfig => _mExportConfig.GetValue("exportConfig");
+
+        /// <summary>
+        /// The name of a Report Group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

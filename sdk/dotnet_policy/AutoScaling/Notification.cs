@@ -11,25 +11,66 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AutoScaling
 {
     [PolicyResourceType("aws:autoscaling/notification:Notification")]
-    public sealed class Notification : global::Pulumi.PolicyResource
+    public sealed class Notification : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of AutoScaling Group Names
         /// </summary>
         [Input("groupNames")]
-        public List<string>? GroupNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroupNames;
+
+        public List<string>? GroupNames => _mGroupNames.GetValue("groupNames");
 
         /// <summary>
         /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         /// </summary>
         [Input("notifications")]
-        public List<string>? Notifications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotifications;
+
+        public List<string>? Notifications => _mNotifications.GetValue("notifications");
 
         /// <summary>
         /// Topic ARN for notifications to be sent through
         /// </summary>
         [Input("topicArn")]
-        public string? TopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
+
+        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+    }
+
+    [PolicyResourceType("aws:autoscaling/notification:Notification")]
+    public sealed class NotificationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of AutoScaling Group Names
+        /// </summary>
+        [Input("groupNames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroupNames;
+
+        public List<string>? GroupNames => _mGroupNames.GetValue("groupNames");
+
+        /// <summary>
+        /// List of Notification Types that trigger
+        /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+        /// </summary>
+        [Input("notifications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotifications;
+
+        public List<string>? Notifications => _mNotifications.GetValue("notifications");
+
+        /// <summary>
+        /// Topic ARN for notifications to be sent through
+        /// </summary>
+        [Input("topicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
+
+        public string? TopicArn => _mTopicArn.GetValue("topicArn");
     }
 }

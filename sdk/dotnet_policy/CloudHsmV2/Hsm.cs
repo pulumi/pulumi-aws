@@ -11,48 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudHsmV2
 {
     [PolicyResourceType("aws:cloudhsmv2/hsm:Hsm")]
-    public sealed class Hsm : global::Pulumi.PolicyResource
+    public sealed class Hsm : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The ID of Cloud HSM v2 cluster to which HSM will be added.
         /// </summary>
         [Input("clusterId")]
-        public string? ClusterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
 
         /// <summary>
         /// The id of the ENI interface allocated for HSM module.
         /// </summary>
         [Input("hsmEniId")]
-        public string? HsmEniId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmEniId;
+
+        public string? HsmEniId => _mHsmEniId.GetValue("hsmEniId");
 
         /// <summary>
         /// The id of the HSM module.
         /// </summary>
         [Input("hsmId")]
-        public string? HsmId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmId;
+
+        public string? HsmId => _mHsmId.GetValue("hsmId");
 
         /// <summary>
         /// The state of the HSM module.
         /// </summary>
         [Input("hsmState")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("hsmState");
 
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         /// </summary>
         [Input("ipAddress")]
-        public string? IpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
 
         /// <summary>
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+    }
+
+    [PolicyResourceType("aws:cloudhsmv2/hsm:Hsm")]
+    public sealed class HsmArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// The ID of Cloud HSM v2 cluster to which HSM will be added.
+        /// </summary>
+        [Input("clusterId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
+
+        /// <summary>
+        /// The IP address of HSM module. Must be within the CIDR of selected subnet.
+        /// </summary>
+        [Input("ipAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+
+        /// <summary>
+        /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
     }
 }

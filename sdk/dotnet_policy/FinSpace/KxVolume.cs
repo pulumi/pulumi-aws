@@ -11,16 +11,22 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.FinSpace
 {
     [PolicyResourceType("aws:finspace/kxVolume:KxVolume")]
-    public sealed class KxVolume : global::Pulumi.PolicyResource
+    public sealed class KxVolume : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX volume.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("attachedClusters")]
-        public List<KxVolumeAttachedCluster>? AttachedClusters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxVolumeAttachedCluster>> _mAttachedClusters;
+
+        public List<Outputs.KxVolumeAttachedCluster>? AttachedClusters => _mAttachedClusters.GetValue("attachedClusters");
 
         /// <summary>
         /// The identifier of the AWS Availability Zone IDs.
@@ -28,50 +34,74 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// The following arguments are optional:
         /// </summary>
         [Input("availabilityZones")]
-        public List<string>? AvailabilityZones;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
 
         /// <summary>
         /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
         /// * `SINGLE` - Assigns one availability zone per volume.
         /// </summary>
         [Input("azMode")]
-        public string? AzMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
+
+        public string? AzMode => _mAzMode.GetValue("azMode");
 
         /// <summary>
         /// The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Input("createdTimestamp")]
-        public string? CreatedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
+
+        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
 
         /// <summary>
         /// Description of the volume.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         /// <summary>
         /// Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Input("lastModifiedTimestamp")]
-        public string? LastModifiedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTimestamp;
+
+        public string? LastModifiedTimestamp => _mLastModifiedTimestamp.GetValue("lastModifiedTimestamp");
 
         /// <summary>
         /// Unique name for the volumr that you want to create.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
         /// </summary>
         [Input("nas1Configurations")]
-        public List<KxVolumeNas1Configuration>? Nas1Configurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxVolumeNas1Configuration>> _mNas1Configurations;
+
+        public List<Outputs.KxVolumeNas1Configuration>? Nas1Configurations => _mNas1Configurations.GetValue("nas1Configurations");
 
         /// <summary>
         /// The status of volume creation.
@@ -86,27 +116,121 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * `DELETED` – The volume is successfully deleted.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The error message when a failed state occurs.
         /// </summary>
         [Input("statusReason")]
-        public string? StatusReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
+
+        public string? StatusReason => _mStatusReason.GetValue("statusReason");
 
         /// <summary>
         /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:finspace/kxVolume:KxVolume")]
+    public sealed class KxVolumeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identifier of the AWS Availability Zone IDs.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("availabilityZones")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+
+        /// <summary>
+        /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
+        /// * `SINGLE` - Assigns one availability zone per volume.
+        /// </summary>
+        [Input("azMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
+
+        public string? AzMode => _mAzMode.GetValue("azMode");
+
+        /// <summary>
+        /// Description of the volume.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
+        /// </summary>
+        [Input("environmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+
+        /// <summary>
+        /// Unique name for the volumr that you want to create.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        /// </summary>
+        [Input("nas1Configurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxVolumeNas1ConfigurationArgs>> _mNas1Configurations;
+
+        public List<Inputs.KxVolumeNas1ConfigurationArgs>? Nas1Configurations => _mNas1Configurations.GetValue("nas1Configurations");
+
+        /// <summary>
+        /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

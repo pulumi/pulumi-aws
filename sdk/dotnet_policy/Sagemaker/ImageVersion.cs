@@ -11,39 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/imageVersion:ImageVersion")]
-    public sealed class ImageVersion : global::Pulumi.PolicyResource
+    public sealed class ImageVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The registry path of the container image on which this image version is based.
         /// </summary>
         [Input("baseImage")]
-        public string? BaseImage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseImage;
+
+        public string? BaseImage => _mBaseImage.GetValue("baseImage");
 
         /// <summary>
         /// The registry path of the container image that contains this image version.
         /// </summary>
         [Input("containerImage")]
-        public string? ContainerImage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainerImage;
+
+        public string? ContainerImage => _mContainerImage.GetValue("containerImage");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the image the version is based on.
         /// </summary>
         [Input("imageArn")]
-        public string? ImageArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
+
+        public string? ImageArn => _mImageArn.GetValue("imageArn");
 
         /// <summary>
         /// The name of the image. Must be unique to your account.
         /// </summary>
         [Input("imageName")]
-        public string? ImageName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
+
+        public string? ImageName => _mImageName.GetValue("imageName");
 
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:sagemaker/imageVersion:ImageVersion")]
+    public sealed class ImageVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The registry path of the container image on which this image version is based.
+        /// </summary>
+        [Input("baseImage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseImage;
+
+        public string? BaseImage => _mBaseImage.GetValue("baseImage");
+
+        /// <summary>
+        /// The name of the image. Must be unique to your account.
+        /// </summary>
+        [Input("imageName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
+
+        public string? ImageName => _mImageName.GetValue("imageName");
     }
 }

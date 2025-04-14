@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Oam
 {
     [PolicyResourceType("aws:oam/sinkPolicy:SinkPolicy")]
-    public sealed class SinkPolicy : global::Pulumi.PolicyResource
+    public sealed class SinkPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Sink.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// ID string that AWS generated as part of the sink ARN.
         /// </summary>
         [Input("sinkId")]
-        public string? SinkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSinkId;
+
+        public string? SinkId => _mSinkId.GetValue("sinkId");
 
         /// <summary>
         /// ARN of the sink to attach this policy to.
         /// </summary>
         [Input("sinkIdentifier")]
-        public string? SinkIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSinkIdentifier;
+
+        public string? SinkIdentifier => _mSinkIdentifier.GetValue("sinkIdentifier");
+    }
+
+    [PolicyResourceType("aws:oam/sinkPolicy:SinkPolicy")]
+    public sealed class SinkPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// ARN of the sink to attach this policy to.
+        /// </summary>
+        [Input("sinkIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSinkIdentifier;
+
+        public string? SinkIdentifier => _mSinkIdentifier.GetValue("sinkIdentifier");
     }
 }

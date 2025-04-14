@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")]
-    public sealed class ProxyDefaultTargetGroup : global::Pulumi.PolicyResource
+    public sealed class ProxyDefaultTargetGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The settings that determine the size and behavior of the connection pool for the target group.
         /// </summary>
         [Input("connectionPoolConfig")]
-        public ProxyDefaultTargetGroupConnectionPoolConfig? ConnectionPoolConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProxyDefaultTargetGroupConnectionPoolConfig> _mConnectionPoolConfig;
+
+        public Outputs.ProxyDefaultTargetGroupConnectionPoolConfig? ConnectionPoolConfig => _mConnectionPoolConfig.GetValue("connectionPoolConfig");
 
         /// <summary>
         /// Name of the RDS DB Proxy.
         /// </summary>
         [Input("dbProxyName")]
-        public string? DbProxyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
+
+        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
 
         /// <summary>
         /// The name of the default target group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")]
+    public sealed class ProxyDefaultTargetGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The settings that determine the size and behavior of the connection pool for the target group.
+        /// </summary>
+        [Input("connectionPoolConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs> _mConnectionPoolConfig;
+
+        public Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs? ConnectionPoolConfig => _mConnectionPoolConfig.GetValue("connectionPoolConfig");
+
+        /// <summary>
+        /// Name of the RDS DB Proxy.
+        /// </summary>
+        [Input("dbProxyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
+
+        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
     }
 }

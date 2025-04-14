@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/remediationConfiguration:RemediationConfiguration")]
-    public sealed class RemediationConfiguration : global::Pulumi.PolicyResource
+    public sealed class RemediationConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Config Remediation Configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Remediation is triggered automatically if `true`.
         /// </summary>
         [Input("automatic")]
-        public bool? Automatic;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomatic;
+
+        public bool? Automatic => _mAutomatic.GetValue("automatic");
 
         /// <summary>
         /// Name of the AWS Config rule.
         /// </summary>
         [Input("configRuleName")]
-        public string? ConfigRuleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigRuleName;
+
+        public string? ConfigRuleName => _mConfigRuleName.GetValue("configRuleName");
 
         /// <summary>
         /// Configuration block for execution controls. See below.
         /// </summary>
         [Input("executionControls")]
-        public RemediationConfigurationExecutionControls? ExecutionControls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RemediationConfigurationExecutionControls> _mExecutionControls;
+
+        public Outputs.RemediationConfigurationExecutionControls? ExecutionControls => _mExecutionControls.GetValue("executionControls");
 
         /// <summary>
         /// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         /// </summary>
         [Input("maximumAutomaticAttempts")]
-        public int? MaximumAutomaticAttempts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumAutomaticAttempts;
+
+        public int? MaximumAutomaticAttempts => _mMaximumAutomaticAttempts.GetValue("maximumAutomaticAttempts");
 
         /// <summary>
         /// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         /// </summary>
         [Input("parameters")]
-        public List<RemediationConfigurationParameter>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RemediationConfigurationParameter>> _mParameters;
+
+        public List<Outputs.RemediationConfigurationParameter>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// Type of resource.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         /// </summary>
         [Input("retryAttemptSeconds")]
-        public int? RetryAttemptSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetryAttemptSeconds;
+
+        public int? RetryAttemptSeconds => _mRetryAttemptSeconds.GetValue("retryAttemptSeconds");
 
         /// <summary>
         /// Target ID is the name of the public document.
         /// </summary>
         [Input("targetId")]
-        public string? TargetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
@@ -73,12 +100,114 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// The following arguments are optional:
         /// </summary>
         [Input("targetType")]
-        public string? TargetType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
+
+        public string? TargetType => _mTargetType.GetValue("targetType");
 
         /// <summary>
         /// Version of the target. For example, version of the SSM document
         /// </summary>
         [Input("targetVersion")]
-        public string? TargetVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVersion;
+
+        public string? TargetVersion => _mTargetVersion.GetValue("targetVersion");
+    }
+
+    [PolicyResourceType("aws:cfg/remediationConfiguration:RemediationConfiguration")]
+    public sealed class RemediationConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Remediation is triggered automatically if `true`.
+        /// </summary>
+        [Input("automatic")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomatic;
+
+        public bool? Automatic => _mAutomatic.GetValue("automatic");
+
+        /// <summary>
+        /// Name of the AWS Config rule.
+        /// </summary>
+        [Input("configRuleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigRuleName;
+
+        public string? ConfigRuleName => _mConfigRuleName.GetValue("configRuleName");
+
+        /// <summary>
+        /// Configuration block for execution controls. See below.
+        /// </summary>
+        [Input("executionControls")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RemediationConfigurationExecutionControlsArgs> _mExecutionControls;
+
+        public Inputs.RemediationConfigurationExecutionControlsArgs? ExecutionControls => _mExecutionControls.GetValue("executionControls");
+
+        /// <summary>
+        /// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+        /// </summary>
+        [Input("maximumAutomaticAttempts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumAutomaticAttempts;
+
+        public int? MaximumAutomaticAttempts => _mMaximumAutomaticAttempts.GetValue("maximumAutomaticAttempts");
+
+        /// <summary>
+        /// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RemediationConfigurationParameterArgs>> _mParameters;
+
+        public List<Inputs.RemediationConfigurationParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// Type of resource.
+        /// </summary>
+        [Input("resourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
+
+        /// <summary>
+        /// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+        /// </summary>
+        [Input("retryAttemptSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetryAttemptSeconds;
+
+        public int? RetryAttemptSeconds => _mRetryAttemptSeconds.GetValue("retryAttemptSeconds");
+
+        /// <summary>
+        /// Target ID is the name of the public document.
+        /// </summary>
+        [Input("targetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
+
+        /// <summary>
+        /// Type of the target. Target executes remediation. For example, SSM document.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("targetType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
+
+        public string? TargetType => _mTargetType.GetValue("targetType");
+
+        /// <summary>
+        /// Version of the target. For example, version of the SSM document
+        /// </summary>
+        [Input("targetVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVersion;
+
+        public string? TargetVersion => _mTargetVersion.GetValue("targetVersion");
     }
 }

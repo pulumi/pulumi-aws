@@ -11,34 +11,49 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/userProfile:UserProfile")]
-    public sealed class UserProfile : global::Pulumi.PolicyResource
+    public sealed class UserProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Details about the user profile.
         /// </summary>
         [Input("details")]
-        public List<UserProfileDetail>? Details;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserProfileDetail>> _mDetails;
+
+        public List<Outputs.UserProfileDetail>? Details => _mDetails.GetValue("details");
 
         /// <summary>
         /// The domain identifier.
         /// </summary>
         [Input("domainIdentifier")]
-        public string? DomainIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
 
         /// <summary>
         /// The user profile status.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("timeouts")]
-        public UserProfileTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserProfileTimeouts> _mTimeouts;
+
+        public Outputs.UserProfileTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// The user profile type.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// The user identifier.
@@ -46,12 +61,66 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// The following arguments are optional:
         /// </summary>
         [Input("userIdentifier")]
-        public string? UserIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserIdentifier;
+
+        public string? UserIdentifier => _mUserIdentifier.GetValue("userIdentifier");
 
         /// <summary>
         /// The user type.
         /// </summary>
         [Input("userType")]
-        public string? UserType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserType;
+
+        public string? UserType => _mUserType.GetValue("userType");
+    }
+
+    [PolicyResourceType("aws:datazone/userProfile:UserProfile")]
+    public sealed class UserProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The domain identifier.
+        /// </summary>
+        [Input("domainIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+
+        /// <summary>
+        /// The user profile status.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileTimeoutsArgs> _mTimeouts;
+
+        public Inputs.UserProfileTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// The user identifier.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("userIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserIdentifier;
+
+        public string? UserIdentifier => _mUserIdentifier.GetValue("userIdentifier");
+
+        /// <summary>
+        /// The user type.
+        /// </summary>
+        [Input("userType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserType;
+
+        public string? UserType => _mUserType.GetValue("userType");
     }
 }

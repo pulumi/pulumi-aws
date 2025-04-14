@@ -11,67 +11,97 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MediaLive
 {
     [PolicyResourceType("aws:medialive/channel:Channel")]
-    public sealed class Channel : global::Pulumi.PolicyResource
+    public sealed class Channel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Channel.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         /// </summary>
         [Input("cdiInputSpecification")]
-        public ChannelCdiInputSpecification? CdiInputSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelCdiInputSpecification> _mCdiInputSpecification;
+
+        public Outputs.ChannelCdiInputSpecification? CdiInputSpecification => _mCdiInputSpecification.GetValue("cdiInputSpecification");
 
         /// <summary>
         /// Concise argument description.
         /// </summary>
         [Input("channelClass")]
-        public string? ChannelClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChannelClass;
+
+        public string? ChannelClass => _mChannelClass.GetValue("channelClass");
 
         /// <summary>
         /// ID of the Channel.
         /// </summary>
         [Input("channelId")]
-        public string? ChannelId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChannelId;
+
+        public string? ChannelId => _mChannelId.GetValue("channelId");
 
         /// <summary>
         /// Destinations for channel. See Destinations for more details.
         /// </summary>
         [Input("destinations")]
-        public List<ChannelDestination>? Destinations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelDestination>> _mDestinations;
+
+        public List<Outputs.ChannelDestination>? Destinations => _mDestinations.GetValue("destinations");
 
         /// <summary>
         /// Encoder settings. See Encoder Settings for more details.
         /// </summary>
         [Input("encoderSettings")]
-        public ChannelEncoderSettings? EncoderSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettings> _mEncoderSettings;
+
+        public Outputs.ChannelEncoderSettings? EncoderSettings => _mEncoderSettings.GetValue("encoderSettings");
 
         /// <summary>
         /// Input attachments for the channel. See Input Attachments for more details.
         /// </summary>
         [Input("inputAttachments")]
-        public List<ChannelInputAttachment>? InputAttachments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelInputAttachment>> _mInputAttachments;
+
+        public List<Outputs.ChannelInputAttachment>? InputAttachments => _mInputAttachments.GetValue("inputAttachments");
 
         /// <summary>
         /// Specification of network and file inputs for the channel.
         /// </summary>
         [Input("inputSpecification")]
-        public ChannelInputSpecification? InputSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputSpecification> _mInputSpecification;
+
+        public Outputs.ChannelInputSpecification? InputSpecification => _mInputSpecification.GetValue("inputSpecification");
 
         /// <summary>
         /// The log level to write to Cloudwatch logs.
         /// </summary>
         [Input("logLevel")]
-        public string? LogLevel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogLevel;
+
+        public string? LogLevel => _mLogLevel.GetValue("logLevel");
 
         /// <summary>
         /// Maintenance settings for this channel. See Maintenance for more details.
         /// </summary>
         [Input("maintenance")]
-        public ChannelMaintenance? Maintenance;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelMaintenance> _mMaintenance;
+
+        public Outputs.ChannelMaintenance? Maintenance => _mMaintenance.GetValue("maintenance");
 
         /// <summary>
         /// Name of the Channel.
@@ -79,33 +109,174 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Concise argument description.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Whether to start/stop channel. Default: `false`
         /// </summary>
         [Input("startChannel")]
-        public bool? StartChannel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartChannel;
+
+        public bool? StartChannel => _mStartChannel.GetValue("startChannel");
 
         /// <summary>
         /// A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Settings for the VPC outputs. See VPC for more details.
         /// </summary>
         [Input("vpc")]
-        public ChannelVpc? Vpc;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelVpc> _mVpc;
+
+        public Outputs.ChannelVpc? Vpc => _mVpc.GetValue("vpc");
+    }
+
+    [PolicyResourceType("aws:medialive/channel:Channel")]
+    public sealed class ChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
+        /// </summary>
+        [Input("cdiInputSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelCdiInputSpecificationArgs> _mCdiInputSpecification;
+
+        public Inputs.ChannelCdiInputSpecificationArgs? CdiInputSpecification => _mCdiInputSpecification.GetValue("cdiInputSpecification");
+
+        /// <summary>
+        /// Concise argument description.
+        /// </summary>
+        [Input("channelClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChannelClass;
+
+        public string? ChannelClass => _mChannelClass.GetValue("channelClass");
+
+        /// <summary>
+        /// Destinations for channel. See Destinations for more details.
+        /// </summary>
+        [Input("destinations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelDestinationArgs>> _mDestinations;
+
+        public List<Inputs.ChannelDestinationArgs>? Destinations => _mDestinations.GetValue("destinations");
+
+        /// <summary>
+        /// Encoder settings. See Encoder Settings for more details.
+        /// </summary>
+        [Input("encoderSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsArgs> _mEncoderSettings;
+
+        public Inputs.ChannelEncoderSettingsArgs? EncoderSettings => _mEncoderSettings.GetValue("encoderSettings");
+
+        /// <summary>
+        /// Input attachments for the channel. See Input Attachments for more details.
+        /// </summary>
+        [Input("inputAttachments")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelInputAttachmentArgs>> _mInputAttachments;
+
+        public List<Inputs.ChannelInputAttachmentArgs>? InputAttachments => _mInputAttachments.GetValue("inputAttachments");
+
+        /// <summary>
+        /// Specification of network and file inputs for the channel.
+        /// </summary>
+        [Input("inputSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelInputSpecificationArgs> _mInputSpecification;
+
+        public Inputs.ChannelInputSpecificationArgs? InputSpecification => _mInputSpecification.GetValue("inputSpecification");
+
+        /// <summary>
+        /// The log level to write to Cloudwatch logs.
+        /// </summary>
+        [Input("logLevel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogLevel;
+
+        public string? LogLevel => _mLogLevel.GetValue("logLevel");
+
+        /// <summary>
+        /// Maintenance settings for this channel. See Maintenance for more details.
+        /// </summary>
+        [Input("maintenance")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelMaintenanceArgs> _mMaintenance;
+
+        public Inputs.ChannelMaintenanceArgs? Maintenance => _mMaintenance.GetValue("maintenance");
+
+        /// <summary>
+        /// Name of the Channel.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Concise argument description.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Whether to start/stop channel. Default: `false`
+        /// </summary>
+        [Input("startChannel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartChannel;
+
+        public bool? StartChannel => _mStartChannel.GetValue("startChannel");
+
+        /// <summary>
+        /// A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Settings for the VPC outputs. See VPC for more details.
+        /// </summary>
+        [Input("vpc")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelVpcArgs> _mVpc;
+
+        public Inputs.ChannelVpcArgs? Vpc => _mVpc.GetValue("vpc");
     }
 }

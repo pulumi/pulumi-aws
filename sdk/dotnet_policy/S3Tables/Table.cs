@@ -11,57 +11,81 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Tables
 {
     [PolicyResourceType("aws:s3tables/table:Table")]
-    public sealed class Table : global::Pulumi.PolicyResource
+    public sealed class Table : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the table.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Date and time when the namespace was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Account ID of the account that created the namespace.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// Format of the table.
         /// Must be `ICEBERG`.
         /// </summary>
         [Input("format")]
-        public string? Format;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+
+        public string? Format => _mFormat.GetValue("format");
 
         /// <summary>
-        /// A single table bucket maintenance configuration block.
+        /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
         [Input("maintenanceConfiguration")]
-        public TableMaintenanceConfiguration? MaintenanceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableMaintenanceConfiguration> _mMaintenanceConfiguration;
+
+        public Outputs.TableMaintenanceConfiguration? MaintenanceConfiguration => _mMaintenanceConfiguration.GetValue("maintenanceConfiguration");
 
         /// <summary>
         /// Location of table metadata.
         /// </summary>
         [Input("metadataLocation")]
-        public string? MetadataLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataLocation;
+
+        public string? MetadataLocation => _mMetadataLocation.GetValue("metadataLocation");
 
         /// <summary>
         /// Date and time when the namespace was last modified.
         /// </summary>
         [Input("modifiedAt")]
-        public string? ModifiedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModifiedAt;
+
+        public string? ModifiedAt => _mModifiedAt.GetValue("modifiedAt");
 
         /// <summary>
         /// Account ID of the account that last modified the namespace.
         /// </summary>
         [Input("modifiedBy")]
-        public string? ModifiedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModifiedBy;
+
+        public string? ModifiedBy => _mModifiedBy.GetValue("modifiedBy");
 
         /// <summary>
         /// Name of the table.
@@ -70,7 +94,10 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Name of the namespace for this table.
@@ -78,13 +105,19 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("namespace")]
-        public string? Namespace;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
+
+        public string? Namespace => _mNamespace.GetValue("namespace");
 
         /// <summary>
         /// Account ID of the account that owns the namespace.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
@@ -92,25 +125,95 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// The following argument is optional:
         /// </summary>
         [Input("tableBucketArn")]
-        public string? TableBucketArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
+
+        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
 
         /// <summary>
         /// Type of the table.
         /// One of `customer` or `aws`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Identifier for the current version of table data.
         /// </summary>
         [Input("versionToken")]
-        public string? VersionToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionToken;
+
+        public string? VersionToken => _mVersionToken.GetValue("versionToken");
 
         /// <summary>
         /// S3 URI pointing to the S3 Bucket that contains the table data.
         /// </summary>
         [Input("warehouseLocation")]
-        public string? WarehouseLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWarehouseLocation;
+
+        public string? WarehouseLocation => _mWarehouseLocation.GetValue("warehouseLocation");
+    }
+
+    [PolicyResourceType("aws:s3tables/table:Table")]
+    public sealed class TableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Format of the table.
+        /// Must be `ICEBERG`.
+        /// </summary>
+        [Input("format")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+
+        public string? Format => _mFormat.GetValue("format");
+
+        /// <summary>
+        /// A single table bucket maintenance configuration object.
+        /// See `maintenance_configuration` below.
+        /// </summary>
+        [Input("maintenanceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableMaintenanceConfigurationArgs> _mMaintenanceConfiguration;
+
+        public Inputs.TableMaintenanceConfigurationArgs? MaintenanceConfiguration => _mMaintenanceConfiguration.GetValue("maintenanceConfiguration");
+
+        /// <summary>
+        /// Name of the table.
+        /// Must be between 1 and 255 characters in length.
+        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Name of the namespace for this table.
+        /// Must be between 1 and 255 characters in length.
+        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// </summary>
+        [Input("namespace")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
+
+        public string? Namespace => _mNamespace.GetValue("namespace");
+
+        /// <summary>
+        /// ARN referencing the Table Bucket that contains this Namespace.
+        /// 
+        /// The following argument is optional:
+        /// </summary>
+        [Input("tableBucketArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
+
+        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
     }
 }

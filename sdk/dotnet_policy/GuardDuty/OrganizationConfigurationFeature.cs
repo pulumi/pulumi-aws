@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GuardDuty
 {
     [PolicyResourceType("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")]
-    public sealed class OrganizationConfigurationFeature : global::Pulumi.PolicyResource
+    public sealed class OrganizationConfigurationFeature : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         /// </summary>
         [Input("additionalConfigurations")]
-        public List<OrganizationConfigurationFeatureAdditionalConfiguration>? AdditionalConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationConfigurationFeatureAdditionalConfiguration>> _mAdditionalConfigurations;
+
+        public List<Outputs.OrganizationConfigurationFeatureAdditionalConfiguration>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
 
         /// <summary>
         /// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         /// </summary>
         [Input("autoEnable")]
-        public string? AutoEnable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnable;
+
+        public string? AutoEnable => _mAutoEnable.GetValue("autoEnable");
 
         /// <summary>
         /// The ID of the detector that configures the delegated administrator.
         /// </summary>
         [Input("detectorId")]
-        public string? DetectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
 
         /// <summary>
         /// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")]
+    public sealed class OrganizationConfigurationFeatureArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        /// </summary>
+        [Input("additionalConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs>> _mAdditionalConfigurations;
+
+        public List<Inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
+
+        /// <summary>
+        /// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
+        /// </summary>
+        [Input("autoEnable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnable;
+
+        public string? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+
+        /// <summary>
+        /// The ID of the detector that configures the delegated administrator.
+        /// </summary>
+        [Input("detectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+
+        /// <summary>
+        /// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

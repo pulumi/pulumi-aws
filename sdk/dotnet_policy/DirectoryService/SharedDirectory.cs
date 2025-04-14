@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectoryService
 {
     [PolicyResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]
-    public sealed class SharedDirectory : global::Pulumi.PolicyResource
+    public sealed class SharedDirectory : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         /// </summary>
         [Input("method")]
-        public string? Method;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMethod;
+
+        public string? Method => _mMethod.GetValue("method");
 
         /// <summary>
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         /// </summary>
         [Input("notes")]
-        public string? Notes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotes;
+
+        public string? Notes => _mNotes.GetValue("notes");
 
         /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         /// </summary>
         [Input("sharedDirectoryId")]
-        public string? SharedDirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSharedDirectoryId;
+
+        public string? SharedDirectoryId => _mSharedDirectoryId.GetValue("sharedDirectoryId");
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
@@ -43,6 +55,51 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// The following arguments are optional:
         /// </summary>
         [Input("target")]
-        public SharedDirectoryTarget? Target;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SharedDirectoryTarget> _mTarget;
+
+        public Outputs.SharedDirectoryTarget? Target => _mTarget.GetValue("target");
+    }
+
+    [PolicyResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]
+    public sealed class SharedDirectoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
+        /// </summary>
+        [Input("method")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMethod;
+
+        public string? Method => _mMethod.GetValue("method");
+
+        /// <summary>
+        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
+        /// </summary>
+        [Input("notes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotes;
+
+        public string? Notes => _mNotes.GetValue("notes");
+
+        /// <summary>
+        /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("target")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SharedDirectoryTargetArgs> _mTarget;
+
+        public Inputs.SharedDirectoryTargetArgs? Target => _mTarget.GetValue("target");
     }
 }

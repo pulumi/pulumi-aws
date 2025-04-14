@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/integration:Integration")]
-    public sealed class Integration : global::Pulumi.PolicyResource
+    public sealed class Integration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Set of non-secret key–value pairs that contains additional contextual information about the data.
@@ -19,13 +19,19 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// You can only include this parameter if you specify the `kms_key_id` parameter.
         /// </summary>
         [Input("additionalEncryptionContext")]
-        public Dictionary<string, string>? AdditionalEncryptionContext;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAdditionalEncryptionContext;
+
+        public Dictionary<string, string>? AdditionalEncryptionContext => _mAdditionalEncryptionContext.GetValue("additionalEncryptionContext");
 
         /// <summary>
         /// ARN of the Integration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Data filters for the integration.
@@ -35,13 +41,19 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
         /// </summary>
         [Input("dataFilter")]
-        public string? DataFilter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataFilter;
+
+        public string? DataFilter => _mDataFilter.GetValue("dataFilter");
 
         /// <summary>
         /// Name of the integration.
         /// </summary>
         [Input("integrationName")]
-        public string? IntegrationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationName;
+
+        public string? IntegrationName => _mIntegrationName.GetValue("integrationName");
 
         /// <summary>
         /// KMS key identifier for the key to use to encrypt the integration.
@@ -49,25 +61,37 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// ARN of the database to use as the source for replication.
         /// </summary>
         [Input("sourceArn")]
-        public string? SourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
+
+        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// ARN of the Redshift data warehouse to use as the target for replication.
@@ -75,9 +99,98 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// The following arguments are optional:
         /// </summary>
         [Input("targetArn")]
-        public string? TargetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+
+        public string? TargetArn => _mTargetArn.GetValue("targetArn");
 
         [Input("timeouts")]
-        public IntegrationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntegrationTimeouts> _mTimeouts;
+
+        public Outputs.IntegrationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:rds/integration:Integration")]
+    public sealed class IntegrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set of non-secret key–value pairs that contains additional contextual information about the data.
+        /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+        /// You can only include this parameter if you specify the `kms_key_id` parameter.
+        /// </summary>
+        [Input("additionalEncryptionContext")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAdditionalEncryptionContext;
+
+        public Dictionary<string, string>? AdditionalEncryptionContext => _mAdditionalEncryptionContext.GetValue("additionalEncryptionContext");
+
+        /// <summary>
+        /// Data filters for the integration.
+        /// These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+        /// The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+        /// Multiple expressions are separated by a comma.
+        /// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        /// </summary>
+        [Input("dataFilter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataFilter;
+
+        public string? DataFilter => _mDataFilter.GetValue("dataFilter");
+
+        /// <summary>
+        /// Name of the integration.
+        /// </summary>
+        [Input("integrationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationName;
+
+        public string? IntegrationName => _mIntegrationName.GetValue("integrationName");
+
+        /// <summary>
+        /// KMS key identifier for the key to use to encrypt the integration.
+        /// If you don't specify an encryption key, RDS uses a default AWS owned key.
+        /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// ARN of the database to use as the source for replication.
+        /// </summary>
+        [Input("sourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
+
+        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// ARN of the Redshift data warehouse to use as the target for replication.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("targetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+
+        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntegrationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.IntegrationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

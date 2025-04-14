@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel")]
-    public sealed class ApnsVoipChannel : global::Pulumi.PolicyResource
+    public sealed class ApnsVoipChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The application ID.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
         /// </summary>
         [Input("bundleId")]
-        public string? BundleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
 
         /// <summary>
         /// The pem encoded TLS Certificate from Apple.
         /// </summary>
         [Input("certificate")]
-        public string? Certificate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
+
+        public string? Certificate => _mCertificate.GetValue("certificate");
 
         /// <summary>
         /// The default authentication method used for APNs.
@@ -42,13 +51,19 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
         [Input("defaultAuthenticationMethod")]
-        public string? DefaultAuthenticationMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthenticationMethod;
+
+        public string? DefaultAuthenticationMethod => _mDefaultAuthenticationMethod.GetValue("defaultAuthenticationMethod");
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
@@ -56,24 +71,130 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
         [Input("privateKey")]
-        public string? PrivateKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
+
+        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
 
         /// <summary>
         /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         /// </summary>
         [Input("teamId")]
-        public string? TeamId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTeamId;
+
+        public string? TeamId => _mTeamId.GetValue("teamId");
 
         /// <summary>
         /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
         [Input("tokenKey")]
-        public string? TokenKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKey;
+
+        public string? TokenKey => _mTokenKey.GetValue("tokenKey");
 
         /// <summary>
         /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
         /// </summary>
         [Input("tokenKeyId")]
-        public string? TokenKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKeyId;
+
+        public string? TokenKeyId => _mTokenKeyId.GetValue("tokenKeyId");
+    }
+
+    [PolicyResourceType("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel")]
+    public sealed class ApnsVoipChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+        /// </summary>
+        [Input("bundleId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
+
+        /// <summary>
+        /// The pem encoded TLS Certificate from Apple.
+        /// </summary>
+        [Input("certificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
+
+        public string? Certificate => _mCertificate.GetValue("certificate");
+
+        /// <summary>
+        /// The default authentication method used for APNs.
+        /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
+        /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
+        /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+        /// 
+        /// One of the following sets of credentials is also required.
+        /// 
+        /// If you choose to use __Certificate credentials__ you will have to provide:
+        /// </summary>
+        [Input("defaultAuthenticationMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthenticationMethod;
+
+        public string? DefaultAuthenticationMethod => _mDefaultAuthenticationMethod.GetValue("defaultAuthenticationMethod");
+
+        /// <summary>
+        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// The Certificate Private Key file (ie. `.key` file).
+        /// 
+        /// If you choose to use __Key credentials__ you will have to provide:
+        /// </summary>
+        [Input("privateKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
+
+        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+
+        /// <summary>
+        /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+        /// </summary>
+        [Input("teamId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTeamId;
+
+        public string? TeamId => _mTeamId.GetValue("teamId");
+
+        /// <summary>
+        /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
+        /// </summary>
+        [Input("tokenKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKey;
+
+        public string? TokenKey => _mTokenKey.GetValue("tokenKey");
+
+        /// <summary>
+        /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+        /// </summary>
+        [Input("tokenKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKeyId;
+
+        public string? TokenKeyId => _mTokenKeyId.GetValue("tokenKeyId");
     }
 }

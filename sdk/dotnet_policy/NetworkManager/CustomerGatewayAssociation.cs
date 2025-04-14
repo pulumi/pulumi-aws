@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation")]
-    public sealed class CustomerGatewayAssociation : global::Pulumi.PolicyResource
+    public sealed class CustomerGatewayAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer gateway.
         /// </summary>
         [Input("customerGatewayArn")]
-        public string? CustomerGatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerGatewayArn;
+
+        public string? CustomerGatewayArn => _mCustomerGatewayArn.GetValue("customerGatewayArn");
 
         /// <summary>
         /// The ID of the device.
         /// </summary>
         [Input("deviceId")]
-        public string? DeviceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
+
+        public string? DeviceId => _mDeviceId.GetValue("deviceId");
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
         [Input("globalNetworkId")]
-        public string? GlobalNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
         [Input("linkId")]
-        public string? LinkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
+
+        public string? LinkId => _mLinkId.GetValue("linkId");
+    }
+
+    [PolicyResourceType("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation")]
+    public sealed class CustomerGatewayAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the customer gateway.
+        /// </summary>
+        [Input("customerGatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerGatewayArn;
+
+        public string? CustomerGatewayArn => _mCustomerGatewayArn.GetValue("customerGatewayArn");
+
+        /// <summary>
+        /// The ID of the device.
+        /// </summary>
+        [Input("deviceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
+
+        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+
+        /// <summary>
+        /// The ID of the global network.
+        /// </summary>
+        [Input("globalNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+
+        /// <summary>
+        /// The ID of the link.
+        /// </summary>
+        [Input("linkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
+
+        public string? LinkId => _mLinkId.GetValue("linkId");
     }
 }

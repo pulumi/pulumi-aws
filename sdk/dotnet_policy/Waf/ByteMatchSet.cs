@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Waf
 {
     [PolicyResourceType("aws:waf/byteMatchSet:ByteMatchSet")]
-    public sealed class ByteMatchSet : global::Pulumi.PolicyResource
+    public sealed class ByteMatchSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the byte match set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies the bytes (typically a string that corresponds
@@ -25,12 +28,42 @@ namespace Pulumi.PolicyPacks.Aws.Waf
         /// the location in requests that you want to search, and other settings.
         /// </summary>
         [Input("byteMatchTuples")]
-        public List<ByteMatchSetByteMatchTuple>? ByteMatchTuples;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ByteMatchSetByteMatchTuple>> _mByteMatchTuples;
+
+        public List<Outputs.ByteMatchSetByteMatchTuple>? ByteMatchTuples => _mByteMatchTuples.GetValue("byteMatchTuples");
 
         /// <summary>
         /// The name or description of the Byte Match Set.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:waf/byteMatchSet:ByteMatchSet")]
+    public sealed class ByteMatchSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the bytes (typically a string that corresponds
+        /// with ASCII characters) that you want to search for in web requests,
+        /// the location in requests that you want to search, and other settings.
+        /// </summary>
+        [Input("byteMatchTuples")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ByteMatchSetByteMatchTupleArgs>> _mByteMatchTuples;
+
+        public List<Inputs.ByteMatchSetByteMatchTupleArgs>? ByteMatchTuples => _mByteMatchTuples.GetValue("byteMatchTuples");
+
+        /// <summary>
+        /// The name or description of the Byte Match Set.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

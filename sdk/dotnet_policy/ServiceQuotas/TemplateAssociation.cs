@@ -11,15 +11,31 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceQuotas
 {
     [PolicyResourceType("aws:servicequotas/templateAssociation:TemplateAssociation")]
-    public sealed class TemplateAssociation : global::Pulumi.PolicyResource
+    public sealed class TemplateAssociation : global::Pulumi.PolicyResourceOutput
     {
         [Input("skipDestroy")]
-        public bool? SkipDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
 
         /// <summary>
         /// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:servicequotas/templateAssociation:TemplateAssociation")]
+    public sealed class TemplateAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("skipDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
     }
 }

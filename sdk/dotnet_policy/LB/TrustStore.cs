@@ -11,60 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LB
 {
     [PolicyResourceType("aws:lb/trustStore:TrustStore")]
-    public sealed class TrustStore : global::Pulumi.PolicyResource
+    public sealed class TrustStore : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Trust Store (matches `id`).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ARN suffix for use with CloudWatch Metrics.
         /// </summary>
         [Input("arnSuffix")]
-        public string? ArnSuffix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArnSuffix;
+
+        public string? ArnSuffix => _mArnSuffix.GetValue("arnSuffix");
 
         /// <summary>
         /// S3 Bucket name holding the client certificate CA bundle.
         /// </summary>
         [Input("caCertificatesBundleS3Bucket")]
-        public string? CaCertificatesBundleS3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3Bucket;
+
+        public string? CaCertificatesBundleS3Bucket => _mCaCertificatesBundleS3Bucket.GetValue("caCertificatesBundleS3Bucket");
 
         /// <summary>
         /// S3 object key holding the client certificate CA bundle.
         /// </summary>
         [Input("caCertificatesBundleS3Key")]
-        public string? CaCertificatesBundleS3Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3Key;
+
+        public string? CaCertificatesBundleS3Key => _mCaCertificatesBundleS3Key.GetValue("caCertificatesBundleS3Key");
 
         /// <summary>
         /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
         [Input("caCertificatesBundleS3ObjectVersion")]
-        public string? CaCertificatesBundleS3ObjectVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3ObjectVersion;
+
+        public string? CaCertificatesBundleS3ObjectVersion => _mCaCertificatesBundleS3ObjectVersion.GetValue("caCertificatesBundleS3ObjectVersion");
 
         /// <summary>
         /// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:lb/trustStore:TrustStore")]
+    public sealed class TrustStoreArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// S3 Bucket name holding the client certificate CA bundle.
+        /// </summary>
+        [Input("caCertificatesBundleS3Bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3Bucket;
+
+        public string? CaCertificatesBundleS3Bucket => _mCaCertificatesBundleS3Bucket.GetValue("caCertificatesBundleS3Bucket");
+
+        /// <summary>
+        /// S3 object key holding the client certificate CA bundle.
+        /// </summary>
+        [Input("caCertificatesBundleS3Key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3Key;
+
+        public string? CaCertificatesBundleS3Key => _mCaCertificatesBundleS3Key.GetValue("caCertificatesBundleS3Key");
+
+        /// <summary>
+        /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        /// </summary>
+        [Input("caCertificatesBundleS3ObjectVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3ObjectVersion;
+
+        public string? CaCertificatesBundleS3ObjectVersion => _mCaCertificatesBundleS3ObjectVersion.GetValue("caCertificatesBundleS3ObjectVersion");
+
+        /// <summary>
+        /// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

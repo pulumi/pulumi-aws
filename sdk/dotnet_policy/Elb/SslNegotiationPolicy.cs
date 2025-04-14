@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Elb
 {
     [PolicyResourceType("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")]
-    public sealed class SslNegotiationPolicy : global::Pulumi.PolicyResource
+    public sealed class SslNegotiationPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An SSL Negotiation policy attribute. Each has two properties:
         /// </summary>
         [Input("attributes")]
-        public List<SslNegotiationPolicyAttribute>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SslNegotiationPolicyAttribute>> _mAttributes;
+
+        public List<Outputs.SslNegotiationPolicyAttribute>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// The load balancer port to which the policy
@@ -25,20 +28,29 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// balancer.
         /// </summary>
         [Input("lbPort")]
-        public int? LbPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLbPort;
+
+        public int? LbPort => _mLbPort.GetValue("lbPort");
 
         /// <summary>
         /// The load balancer to which the policy
         /// should be attached.
         /// </summary>
         [Input("loadBalancer")]
-        public string? LoadBalancer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
+
+        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
 
         /// <summary>
         /// The name of the SSL negotiation policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -48,6 +60,65 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         /// </summary>
         [Input("triggers")]
-        public Dictionary<string, string>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+    }
+
+    [PolicyResourceType("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")]
+    public sealed class SslNegotiationPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An SSL Negotiation policy attribute. Each has two properties:
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SslNegotiationPolicyAttributeArgs>> _mAttributes;
+
+        public List<Inputs.SslNegotiationPolicyAttributeArgs>? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// The load balancer port to which the policy
+        /// should be applied. This must be an active listener on the load
+        /// balancer.
+        /// </summary>
+        [Input("lbPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLbPort;
+
+        public int? LbPort => _mLbPort.GetValue("lbPort");
+
+        /// <summary>
+        /// The load balancer to which the policy
+        /// should be attached.
+        /// </summary>
+        [Input("loadBalancer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
+
+        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
+
+        /// <summary>
+        /// The name of the SSL negotiation policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// 
+        /// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+        /// 
+        /// &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
+        /// </summary>
+        [Input("triggers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
     }
 }

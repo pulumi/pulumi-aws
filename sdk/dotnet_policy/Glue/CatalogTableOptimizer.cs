@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/catalogTableOptimizer:CatalogTableOptimizer")]
-    public sealed class CatalogTableOptimizer : global::Pulumi.PolicyResource
+    public sealed class CatalogTableOptimizer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Catalog ID of the table.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
         /// </summary>
         [Input("configuration")]
-        public CatalogTableOptimizerConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableOptimizerConfiguration> _mConfiguration;
+
+        public Outputs.CatalogTableOptimizerConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// The name of the database in the catalog in which the table resides.
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// The name of the table.
         /// </summary>
         [Input("tableName")]
-        public string? TableName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
 
         /// <summary>
         /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:glue/catalogTableOptimizer:CatalogTableOptimizer")]
+    public sealed class CatalogTableOptimizerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Catalog ID of the table.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogTableOptimizerConfigurationArgs> _mConfiguration;
+
+        public Inputs.CatalogTableOptimizerConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// The name of the database in the catalog in which the table resides.
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// The name of the table.
+        /// </summary>
+        [Input("tableName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
+
+        /// <summary>
+        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

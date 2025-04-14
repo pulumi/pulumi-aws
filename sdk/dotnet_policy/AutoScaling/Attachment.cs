@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AutoScaling
 {
     [PolicyResourceType("aws:autoscaling/attachment:Attachment")]
-    public sealed class Attachment : global::Pulumi.PolicyResource
+    public sealed class Attachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of ASG to associate with the ELB.
         /// </summary>
         [Input("autoscalingGroupName")]
-        public string? AutoscalingGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
 
         /// <summary>
         /// Name of the ELB.
         /// </summary>
         [Input("elb")]
-        public string? Elb;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
+
+        public string? Elb => _mElb.GetValue("elb");
 
         /// <summary>
         /// ARN of a load balancer target group.
         /// </summary>
         [Input("lbTargetGroupArn")]
-        public string? LbTargetGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbTargetGroupArn;
+
+        public string? LbTargetGroupArn => _mLbTargetGroupArn.GetValue("lbTargetGroupArn");
+    }
+
+    [PolicyResourceType("aws:autoscaling/attachment:Attachment")]
+    public sealed class AttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of ASG to associate with the ELB.
+        /// </summary>
+        [Input("autoscalingGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+
+        /// <summary>
+        /// Name of the ELB.
+        /// </summary>
+        [Input("elb")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
+
+        public string? Elb => _mElb.GetValue("elb");
+
+        /// <summary>
+        /// ARN of a load balancer target group.
+        /// </summary>
+        [Input("lbTargetGroupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbTargetGroupArn;
+
+        public string? LbTargetGroupArn => _mLbTargetGroupArn.GetValue("lbTargetGroupArn");
     }
 }

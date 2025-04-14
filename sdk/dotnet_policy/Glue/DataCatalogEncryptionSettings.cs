@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")]
-    public sealed class DataCatalogEncryptionSettings : global::Pulumi.PolicyResource
+    public sealed class DataCatalogEncryptionSettings : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// The security configuration to set. see Data Catalog Encryption Settings.
         /// </summary>
         [Input("dataCatalogEncryptionSettings")]
-        public DataCatalogEncryptionSettingsDataCatalogEncryptionSettings? DataCatalogEncryptionSettingsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> _mDataCatalogEncryptionSettingsConfig;
+
+        public Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings? DataCatalogEncryptionSettingsConfig => _mDataCatalogEncryptionSettingsConfig.GetValue("dataCatalogEncryptionSettings");
+    }
+
+    [PolicyResourceType("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")]
+    public sealed class DataCatalogEncryptionSettingsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// The security configuration to set. see Data Catalog Encryption Settings.
+        /// </summary>
+        [Input("dataCatalogEncryptionSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> _mDataCatalogEncryptionSettingsConfig;
+
+        public Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs? DataCatalogEncryptionSettingsConfig => _mDataCatalogEncryptionSettingsConfig.GetValue("dataCatalogEncryptionSettings");
     }
 }

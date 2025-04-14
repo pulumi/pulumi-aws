@@ -11,69 +11,160 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/proxyEndpoint:ProxyEndpoint")]
-    public sealed class ProxyEndpoint : global::Pulumi.PolicyResource
+    public sealed class ProxyEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy endpoint.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
         [Input("dbProxyEndpointName")]
-        public string? DbProxyEndpointName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyEndpointName;
+
+        public string? DbProxyEndpointName => _mDbProxyEndpointName.GetValue("dbProxyEndpointName");
 
         /// <summary>
         /// The name of the DB proxy associated with the DB proxy endpoint that you create.
         /// </summary>
         [Input("dbProxyName")]
-        public string? DbProxyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
+
+        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
 
         /// <summary>
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
         /// </summary>
         [Input("isDefault")]
-        public bool? IsDefault;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
+
+        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         /// </summary>
         [Input("targetRole")]
-        public string? TargetRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetRole;
+
+        public string? TargetRole => _mTargetRole.GetValue("targetRole");
 
         /// <summary>
         /// The VPC ID of the DB proxy endpoint.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
 
         /// <summary>
         /// One or more VPC security group IDs to associate with the new proxy.
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
 
         /// <summary>
         /// One or more VPC subnet IDs to associate with the new proxy.
         /// </summary>
         [Input("vpcSubnetIds")]
-        public List<string>? VpcSubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnetIds;
+
+        public List<string>? VpcSubnetIds => _mVpcSubnetIds.GetValue("vpcSubnetIds");
+    }
+
+    [PolicyResourceType("aws:rds/proxyEndpoint:ProxyEndpoint")]
+    public sealed class ProxyEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        /// </summary>
+        [Input("dbProxyEndpointName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyEndpointName;
+
+        public string? DbProxyEndpointName => _mDbProxyEndpointName.GetValue("dbProxyEndpointName");
+
+        /// <summary>
+        /// The name of the DB proxy associated with the DB proxy endpoint that you create.
+        /// </summary>
+        [Input("dbProxyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
+
+        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+        /// </summary>
+        [Input("targetRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetRole;
+
+        public string? TargetRole => _mTargetRole.GetValue("targetRole");
+
+        /// <summary>
+        /// One or more VPC security group IDs to associate with the new proxy.
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+
+        /// <summary>
+        /// One or more VPC subnet IDs to associate with the new proxy.
+        /// </summary>
+        [Input("vpcSubnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnetIds;
+
+        public List<string>? VpcSubnetIds => _mVpcSubnetIds.GetValue("vpcSubnetIds");
     }
 }

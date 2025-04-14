@@ -11,168 +11,264 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/ami:Ami")]
-    public sealed class Ami : global::Pulumi.PolicyResource
+    public sealed class Ami : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
-        /// Machine architecture for created instances. Defaults to "x86_64".
+        /// Machine architecture for created instances. Defaults to `x86_64`.
         /// </summary>
         [Input("architecture")]
-        public string? Architecture;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
+
+        public string? Architecture => _mArchitecture.GetValue("architecture");
 
         /// <summary>
         /// ARN of the AMI.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         [Input("bootMode")]
-        public string? BootMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootMode;
+
+        public string? BootMode => _mBootMode.GetValue("bootMode");
 
         /// <summary>
         /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
         [Input("deprecationTime")]
-        public string? DeprecationTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeprecationTime;
+
+        public string? DeprecationTime => _mDeprecationTime.GetValue("deprecationTime");
 
         /// <summary>
         /// Longer, human-readable description for the AMI.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         /// </summary>
         [Input("ebsBlockDevices")]
-        public List<AmiEbsBlockDevice>? EbsBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AmiEbsBlockDevice>> _mEbsBlockDevices;
+
+        public List<Outputs.AmiEbsBlockDevice>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
 
         /// <summary>
         /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
         /// </summary>
         [Input("enaSupport")]
-        public bool? EnaSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnaSupport;
+
+        public bool? EnaSupport => _mEnaSupport.GetValue("enaSupport");
 
         /// <summary>
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         /// </summary>
         [Input("ephemeralBlockDevices")]
-        public List<AmiEphemeralBlockDevice>? EphemeralBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AmiEphemeralBlockDevice>> _mEphemeralBlockDevices;
+
+        public List<Outputs.AmiEphemeralBlockDevice>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
 
         /// <summary>
         /// Hypervisor type of the image.
         /// </summary>
         [Input("hypervisor")]
-        public string? Hypervisor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHypervisor;
+
+        public string? Hypervisor => _mHypervisor.GetValue("hypervisor");
 
         [Input("imageLocation")]
-        public string? ImageLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageLocation;
+
+        public string? ImageLocation => _mImageLocation.GetValue("imageLocation");
 
         /// <summary>
         /// AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
         /// </summary>
         [Input("imageOwnerAlias")]
-        public string? ImageOwnerAlias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageOwnerAlias;
+
+        public string? ImageOwnerAlias => _mImageOwnerAlias.GetValue("imageOwnerAlias");
 
         /// <summary>
         /// Type of image.
         /// </summary>
         [Input("imageType")]
-        public string? ImageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageType;
+
+        public string? ImageType => _mImageType.GetValue("imageType");
 
         /// <summary>
         /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         /// </summary>
         [Input("imdsSupport")]
-        public string? ImdsSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImdsSupport;
+
+        public string? ImdsSupport => _mImdsSupport.GetValue("imdsSupport");
 
         [Input("kernelId")]
-        public string? KernelId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKernelId;
+
+        public string? KernelId => _mKernelId.GetValue("kernelId");
+
+        /// <summary>
+        /// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+        /// </summary>
+        [Input("lastLaunchedTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastLaunchedTime;
+
+        public string? LastLaunchedTime => _mLastLaunchedTime.GetValue("lastLaunchedTime");
 
         [Input("manageEbsSnapshots")]
-        public bool? ManageEbsSnapshots;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mManageEbsSnapshots;
+
+        public bool? ManageEbsSnapshots => _mManageEbsSnapshots.GetValue("manageEbsSnapshots");
 
         /// <summary>
         /// Region-unique name for the AMI.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// AWS account ID of the image owner.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// This value is set to windows for Windows AMIs; otherwise, it is blank.
         /// </summary>
         [Input("platform")]
-        public string? Platform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
 
         /// <summary>
         /// Platform details associated with the billing code of the AMI.
         /// </summary>
         [Input("platformDetails")]
-        public string? PlatformDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformDetails;
+
+        public string? PlatformDetails => _mPlatformDetails.GetValue("platformDetails");
 
         /// <summary>
         /// Whether the image has public launch permissions.
         /// </summary>
         [Input("public")]
-        public bool? Public;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPublic;
+
+        public bool? Public => _mPublic.GetValue("public");
 
         [Input("ramdiskId")]
-        public string? RamdiskId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRamdiskId;
+
+        public string? RamdiskId => _mRamdiskId.GetValue("ramdiskId");
 
         /// <summary>
         /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         /// </summary>
         [Input("rootDeviceName")]
-        public string? RootDeviceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceName;
+
+        public string? RootDeviceName => _mRootDeviceName.GetValue("rootDeviceName");
 
         /// <summary>
         /// Snapshot ID for the root volume (for EBS-backed AMIs)
         /// </summary>
         [Input("rootSnapshotId")]
-        public string? RootSnapshotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootSnapshotId;
+
+        public string? RootSnapshotId => _mRootSnapshotId.GetValue("rootSnapshotId");
 
         [Input("sriovNetSupport")]
-        public string? SriovNetSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSriovNetSupport;
+
+        public string? SriovNetSupport => _mSriovNetSupport.GetValue("sriovNetSupport");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         [Input("tpmSupport")]
-        public string? TpmSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTpmSupport;
+
+        public string? TpmSupport => _mTpmSupport.GetValue("tpmSupport");
 
         /// <summary>
         /// Base64 representation of the non-volatile UEFI variable store.
         /// </summary>
         [Input("uefiData")]
-        public string? UefiData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUefiData;
+
+        public string? UefiData => _mUefiData.GetValue("uefiData");
 
         /// <summary>
         /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         /// </summary>
         [Input("usageOperation")]
-        public string? UsageOperation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsageOperation;
+
+        public string? UsageOperation => _mUsageOperation.GetValue("usageOperation");
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances
@@ -180,6 +276,167 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// changes the set of further arguments that are required, as described below.
         /// </summary>
         [Input("virtualizationType")]
-        public string? VirtualizationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualizationType;
+
+        public string? VirtualizationType => _mVirtualizationType.GetValue("virtualizationType");
+    }
+
+    [PolicyResourceType("aws:ec2/ami:Ami")]
+    public sealed class AmiArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Machine architecture for created instances. Defaults to `x86_64`.
+        /// </summary>
+        [Input("architecture")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
+
+        public string? Architecture => _mArchitecture.GetValue("architecture");
+
+        /// <summary>
+        /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// </summary>
+        [Input("bootMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootMode;
+
+        public string? BootMode => _mBootMode.GetValue("bootMode");
+
+        /// <summary>
+        /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        /// </summary>
+        [Input("deprecationTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeprecationTime;
+
+        public string? DeprecationTime => _mDeprecationTime.GetValue("deprecationTime");
+
+        /// <summary>
+        /// Longer, human-readable description for the AMI.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Nested block describing an EBS block device that should be
+        /// attached to created instances. The structure of this block is described below.
+        /// </summary>
+        [Input("ebsBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AmiEbsBlockDeviceArgs>> _mEbsBlockDevices;
+
+        public List<Inputs.AmiEbsBlockDeviceArgs>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+
+        /// <summary>
+        /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("enaSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnaSupport;
+
+        public bool? EnaSupport => _mEnaSupport.GetValue("enaSupport");
+
+        /// <summary>
+        /// Nested block describing an ephemeral block device that
+        /// should be attached to created instances. The structure of this block is described below.
+        /// </summary>
+        [Input("ephemeralBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AmiEphemeralBlockDeviceArgs>> _mEphemeralBlockDevices;
+
+        public List<Inputs.AmiEphemeralBlockDeviceArgs>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+
+        [Input("imageLocation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageLocation;
+
+        public string? ImageLocation => _mImageLocation.GetValue("imageLocation");
+
+        /// <summary>
+        /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
+        /// </summary>
+        [Input("imdsSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImdsSupport;
+
+        public string? ImdsSupport => _mImdsSupport.GetValue("imdsSupport");
+
+        [Input("kernelId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKernelId;
+
+        public string? KernelId => _mKernelId.GetValue("kernelId");
+
+        /// <summary>
+        /// Region-unique name for the AMI.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        [Input("ramdiskId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRamdiskId;
+
+        public string? RamdiskId => _mRamdiskId.GetValue("ramdiskId");
+
+        /// <summary>
+        /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
+        /// </summary>
+        [Input("rootDeviceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceName;
+
+        public string? RootDeviceName => _mRootDeviceName.GetValue("rootDeviceName");
+
+        [Input("sriovNetSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSriovNetSupport;
+
+        public string? SriovNetSupport => _mSriovNetSupport.GetValue("sriovNetSupport");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// </summary>
+        [Input("tpmSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTpmSupport;
+
+        public string? TpmSupport => _mTpmSupport.GetValue("tpmSupport");
+
+        /// <summary>
+        /// Base64 representation of the non-volatile UEFI variable store.
+        /// </summary>
+        [Input("uefiData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUefiData;
+
+        public string? UefiData => _mUefiData.GetValue("uefiData");
+
+        /// <summary>
+        /// Keyword to choose what virtualization mode created instances
+        /// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
+        /// changes the set of further arguments that are required, as described below.
+        /// </summary>
+        [Input("virtualizationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualizationType;
+
+        public string? VirtualizationType => _mVirtualizationType.GetValue("virtualizationType");
     }
 }

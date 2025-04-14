@@ -11,103 +11,151 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Budgets
 {
     [PolicyResourceType("aws:budgets/budget:Budget")]
-    public sealed class Budget : global::Pulumi.PolicyResource
+    public sealed class Budget : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The ARN of the budget.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         /// </summary>
         [Input("autoAdjustData")]
-        public BudgetAutoAdjustData? AutoAdjustData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetAutoAdjustData> _mAutoAdjustData;
+
+        public Outputs.BudgetAutoAdjustData? AutoAdjustData => _mAutoAdjustData.GetValue("autoAdjustData");
 
         /// <summary>
         /// Whether this budget tracks monetary cost or usage.
         /// </summary>
         [Input("budgetType")]
-        public string? BudgetType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetType;
+
+        public string? BudgetType => _mBudgetType.GetValue("budgetType");
 
         /// <summary>
         /// A list of CostFilter name/values pair to apply to budget.
         /// </summary>
         [Input("costFilters")]
-        public List<BudgetCostFilter>? CostFilters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BudgetCostFilter>> _mCostFilters;
+
+        public List<Outputs.BudgetCostFilter>? CostFilters => _mCostFilters.GetValue("costFilters");
 
         /// <summary>
         /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         /// </summary>
         [Input("costTypes")]
-        public BudgetCostTypes? CostTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetCostTypes> _mCostTypes;
+
+        public Outputs.BudgetCostTypes? CostTypes => _mCostTypes.GetValue("costTypes");
 
         /// <summary>
         /// The amount of cost or usage being measured for a budget.
         /// </summary>
         [Input("limitAmount")]
-        public string? LimitAmount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLimitAmount;
+
+        public string? LimitAmount => _mLimitAmount.GetValue("limitAmount");
 
         /// <summary>
         /// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         /// </summary>
         [Input("limitUnit")]
-        public string? LimitUnit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLimitUnit;
+
+        public string? LimitUnit => _mLimitUnit.GetValue("limitUnit");
 
         /// <summary>
         /// The name of a budget. Unique within accounts.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The prefix of the name of a budget. Unique within accounts.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         /// </summary>
         [Input("notifications")]
-        public List<BudgetNotification>? Notifications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BudgetNotification>> _mNotifications;
+
+        public List<Outputs.BudgetNotification>? Notifications => _mNotifications.GetValue("notifications");
 
         /// <summary>
         /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         /// </summary>
         [Input("plannedLimits")]
-        public List<BudgetPlannedLimit>? PlannedLimits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BudgetPlannedLimit>> _mPlannedLimits;
+
+        public List<Outputs.BudgetPlannedLimit>? PlannedLimits => _mPlannedLimits.GetValue("plannedLimits");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         /// </summary>
         [Input("timePeriodEnd")]
-        public string? TimePeriodEnd;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimePeriodEnd;
+
+        public string? TimePeriodEnd => _mTimePeriodEnd.GetValue("timePeriodEnd");
 
         /// <summary>
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         /// </summary>
         [Input("timePeriodStart")]
-        public string? TimePeriodStart;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimePeriodStart;
+
+        public string? TimePeriodStart => _mTimePeriodStart.GetValue("timePeriodStart");
 
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
@@ -115,6 +163,150 @@ namespace Pulumi.PolicyPacks.Aws.Budgets
         /// The following arguments are optional:
         /// </summary>
         [Input("timeUnit")]
-        public string? TimeUnit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimeUnit;
+
+        public string? TimeUnit => _mTimeUnit.GetValue("timeUnit");
+    }
+
+    [PolicyResourceType("aws:budgets/budget:Budget")]
+    public sealed class BudgetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
+        /// </summary>
+        [Input("autoAdjustData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BudgetAutoAdjustDataArgs> _mAutoAdjustData;
+
+        public Inputs.BudgetAutoAdjustDataArgs? AutoAdjustData => _mAutoAdjustData.GetValue("autoAdjustData");
+
+        /// <summary>
+        /// Whether this budget tracks monetary cost or usage.
+        /// </summary>
+        [Input("budgetType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetType;
+
+        public string? BudgetType => _mBudgetType.GetValue("budgetType");
+
+        /// <summary>
+        /// A list of CostFilter name/values pair to apply to budget.
+        /// </summary>
+        [Input("costFilters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BudgetCostFilterArgs>> _mCostFilters;
+
+        public List<Inputs.BudgetCostFilterArgs>? CostFilters => _mCostFilters.GetValue("costFilters");
+
+        /// <summary>
+        /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
+        /// </summary>
+        [Input("costTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BudgetCostTypesArgs> _mCostTypes;
+
+        public Inputs.BudgetCostTypesArgs? CostTypes => _mCostTypes.GetValue("costTypes");
+
+        /// <summary>
+        /// The amount of cost or usage being measured for a budget.
+        /// </summary>
+        [Input("limitAmount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLimitAmount;
+
+        public string? LimitAmount => _mLimitAmount.GetValue("limitAmount");
+
+        /// <summary>
+        /// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        /// </summary>
+        [Input("limitUnit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLimitUnit;
+
+        public string? LimitUnit => _mLimitUnit.GetValue("limitUnit");
+
+        /// <summary>
+        /// The name of a budget. Unique within accounts.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The prefix of the name of a budget. Unique within accounts.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
+        /// </summary>
+        [Input("notifications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BudgetNotificationArgs>> _mNotifications;
+
+        public List<Inputs.BudgetNotificationArgs>? Notifications => _mNotifications.GetValue("notifications");
+
+        /// <summary>
+        /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+        /// </summary>
+        [Input("plannedLimits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BudgetPlannedLimitArgs>> _mPlannedLimits;
+
+        public List<Inputs.BudgetPlannedLimitArgs>? PlannedLimits => _mPlannedLimits.GetValue("plannedLimits");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
+        /// </summary>
+        [Input("timePeriodEnd")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimePeriodEnd;
+
+        public string? TimePeriodEnd => _mTimePeriodEnd.GetValue("timePeriodEnd");
+
+        /// <summary>
+        /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// </summary>
+        [Input("timePeriodStart")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimePeriodStart;
+
+        public string? TimePeriodStart => _mTimePeriodStart.GetValue("timePeriodStart");
+
+        /// <summary>
+        /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("timeUnit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimeUnit;
+
+        public string? TimeUnit => _mTimeUnit.GetValue("timeUnit");
     }
 }

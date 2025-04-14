@@ -11,72 +11,163 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fsx
 {
     [PolicyResourceType("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")]
-    public sealed class OntapStorageVirtualMachine : global::Pulumi.PolicyResource
+    public sealed class OntapStorageVirtualMachine : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         /// </summary>
         [Input("activeDirectoryConfiguration")]
-        public OntapStorageVirtualMachineActiveDirectoryConfiguration? ActiveDirectoryConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration> _mActiveDirectoryConfiguration;
+
+        public Outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration? ActiveDirectoryConfiguration => _mActiveDirectoryConfiguration.GetValue("activeDirectoryConfiguration");
 
         /// <summary>
         /// Amazon Resource Name of the storage virtual machine.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         /// </summary>
         [Input("endpoints")]
-        public List<OntapStorageVirtualMachineEndpoint>? Endpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OntapStorageVirtualMachineEndpoint>> _mEndpoints;
+
+        public List<Outputs.OntapStorageVirtualMachineEndpoint>? Endpoints => _mEndpoints.GetValue("endpoints");
 
         /// <summary>
         /// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         /// </summary>
         [Input("fileSystemId")]
-        public string? FileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
 
         /// <summary>
         /// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         /// </summary>
         [Input("rootVolumeSecurityStyle")]
-        public string? RootVolumeSecurityStyle;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootVolumeSecurityStyle;
+
+        public string? RootVolumeSecurityStyle => _mRootVolumeSecurityStyle.GetValue("rootVolumeSecurityStyle");
 
         /// <summary>
         /// Describes the SVM's subtype, e.g. `DEFAULT`
         /// </summary>
         [Input("subtype")]
-        public string? Subtype;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubtype;
+
+        public string? Subtype => _mSubtype.GetValue("subtype");
 
         /// <summary>
         /// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
         /// </summary>
         [Input("svmAdminPassword")]
-        public string? SvmAdminPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSvmAdminPassword;
+
+        public string? SvmAdminPassword => _mSvmAdminPassword.GetValue("svmAdminPassword");
 
         /// <summary>
         /// A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The SVM's UUID (universally unique identifier).
         /// </summary>
         [Input("uuid")]
-        public string? Uuid;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUuid;
+
+        public string? Uuid => _mUuid.GetValue("uuid");
+    }
+
+    [PolicyResourceType("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")]
+    public sealed class OntapStorageVirtualMachineArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
+        /// </summary>
+        [Input("activeDirectoryConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs> _mActiveDirectoryConfiguration;
+
+        public Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs? ActiveDirectoryConfiguration => _mActiveDirectoryConfiguration.GetValue("activeDirectoryConfiguration");
+
+        /// <summary>
+        /// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+        /// </summary>
+        [Input("fileSystemId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+
+        /// <summary>
+        /// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        /// </summary>
+        [Input("rootVolumeSecurityStyle")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootVolumeSecurityStyle;
+
+        public string? RootVolumeSecurityStyle => _mRootVolumeSecurityStyle.GetValue("rootVolumeSecurityStyle");
+
+        /// <summary>
+        /// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        /// </summary>
+        [Input("svmAdminPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSvmAdminPassword;
+
+        public string? SvmAdminPassword => _mSvmAdminPassword.GetValue("svmAdminPassword");
+
+        /// <summary>
+        /// A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppRunner
 {
     [PolicyResourceType("aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion")]
-    public sealed class DefaultAutoScalingConfigurationVersion : global::Pulumi.PolicyResource
+    public sealed class DefaultAutoScalingConfigurationVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
         /// </summary>
         [Input("autoScalingConfigurationArn")]
-        public string? AutoScalingConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationArn;
+
+        public string? AutoScalingConfigurationArn => _mAutoScalingConfigurationArn.GetValue("autoScalingConfigurationArn");
+    }
+
+    [PolicyResourceType("aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion")]
+    public sealed class DefaultAutoScalingConfigurationVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+        /// </summary>
+        [Input("autoScalingConfigurationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationArn;
+
+        public string? AutoScalingConfigurationArn => _mAutoScalingConfigurationArn.GetValue("autoScalingConfigurationArn");
     }
 }

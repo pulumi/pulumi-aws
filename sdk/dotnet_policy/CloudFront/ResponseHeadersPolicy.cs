@@ -11,60 +11,163 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")]
-    public sealed class ResponseHeadersPolicy : global::Pulumi.PolicyResource
+    public sealed class ResponseHeadersPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The response headers policy ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         /// </summary>
         [Input("corsConfig")]
-        public ResponseHeadersPolicyCorsConfig? CorsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyCorsConfig> _mCorsConfig;
+
+        public Outputs.ResponseHeadersPolicyCorsConfig? CorsConfig => _mCorsConfig.GetValue("corsConfig");
 
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
         [Input("customHeadersConfig")]
-        public ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyCustomHeadersConfig> _mCustomHeadersConfig;
+
+        public Outputs.ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig => _mCustomHeadersConfig.GetValue("customHeadersConfig");
 
         /// <summary>
         /// The current version of the response headers policy.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// A unique name to identify the response headers policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         /// </summary>
         [Input("removeHeadersConfig")]
-        public ResponseHeadersPolicyRemoveHeadersConfig? RemoveHeadersConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyRemoveHeadersConfig> _mRemoveHeadersConfig;
+
+        public Outputs.ResponseHeadersPolicyRemoveHeadersConfig? RemoveHeadersConfig => _mRemoveHeadersConfig.GetValue("removeHeadersConfig");
 
         /// <summary>
         /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         /// </summary>
         [Input("securityHeadersConfig")]
-        public ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicySecurityHeadersConfig> _mSecurityHeadersConfig;
+
+        public Outputs.ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig => _mSecurityHeadersConfig.GetValue("securityHeadersConfig");
 
         /// <summary>
         /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         /// </summary>
         [Input("serverTimingHeadersConfig")]
-        public ResponseHeadersPolicyServerTimingHeadersConfig? ServerTimingHeadersConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyServerTimingHeadersConfig> _mServerTimingHeadersConfig;
+
+        public Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? ServerTimingHeadersConfig => _mServerTimingHeadersConfig.GetValue("serverTimingHeadersConfig");
+    }
+
+    [PolicyResourceType("aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")]
+    public sealed class ResponseHeadersPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+        /// </summary>
+        [Input("corsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicyCorsConfigArgs> _mCorsConfig;
+
+        public Inputs.ResponseHeadersPolicyCorsConfigArgs? CorsConfig => _mCorsConfig.GetValue("corsConfig");
+
+        /// <summary>
+        /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
+        /// </summary>
+        [Input("customHeadersConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs> _mCustomHeadersConfig;
+
+        public Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs? CustomHeadersConfig => _mCustomHeadersConfig.GetValue("customHeadersConfig");
+
+        /// <summary>
+        /// The current version of the response headers policy.
+        /// </summary>
+        [Input("etag")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
+
+        /// <summary>
+        /// A unique name to identify the response headers policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        /// </summary>
+        [Input("removeHeadersConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs> _mRemoveHeadersConfig;
+
+        public Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs? RemoveHeadersConfig => _mRemoveHeadersConfig.GetValue("removeHeadersConfig");
+
+        /// <summary>
+        /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        /// </summary>
+        [Input("securityHeadersConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs> _mSecurityHeadersConfig;
+
+        public Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs? SecurityHeadersConfig => _mSecurityHeadersConfig.GetValue("securityHeadersConfig");
+
+        /// <summary>
+        /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        /// </summary>
+        [Input("serverTimingHeadersConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs> _mServerTimingHeadersConfig;
+
+        public Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs? ServerTimingHeadersConfig => _mServerTimingHeadersConfig.GetValue("serverTimingHeadersConfig");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")]
-    public sealed class ConfigurationPolicyAssociation : global::Pulumi.PolicyResource
+    public sealed class ConfigurationPolicyAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The universally unique identifier (UUID) of the configuration policy.
         /// </summary>
         [Input("policyId")]
-        public string? PolicyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
+
+        public string? PolicyId => _mPolicyId.GetValue("policyId");
 
         /// <summary>
         /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         /// </summary>
         [Input("targetId")]
-        public string? TargetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
+    }
+
+    [PolicyResourceType("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")]
+    public sealed class ConfigurationPolicyAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The universally unique identifier (UUID) of the configuration policy.
+        /// </summary>
+        [Input("policyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
+
+        public string? PolicyId => _mPolicyId.GetValue("policyId");
+
+        /// <summary>
+        /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
+        /// </summary>
+        [Input("targetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
     }
 }

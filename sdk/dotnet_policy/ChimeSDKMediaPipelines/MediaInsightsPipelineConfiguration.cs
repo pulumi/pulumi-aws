@@ -11,45 +11,115 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines
 {
     [PolicyResourceType("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")]
-    public sealed class MediaInsightsPipelineConfiguration : global::Pulumi.PolicyResource
+    public sealed class MediaInsightsPipelineConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Media Insights Pipeline Configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Collection of processors and sinks to transform media and deliver data.
         /// </summary>
         [Input("elements")]
-        public List<MediaInsightsPipelineConfigurationElement>? Elements;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MediaInsightsPipelineConfigurationElement>> _mElements;
+
+        public List<Outputs.MediaInsightsPipelineConfigurationElement>? Elements => _mElements.GetValue("elements");
 
         /// <summary>
         /// Configuration name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         /// </summary>
         [Input("realTimeAlertConfiguration")]
-        public MediaInsightsPipelineConfigurationRealTimeAlertConfiguration? RealTimeAlertConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration> _mRealTimeAlertConfiguration;
+
+        public Outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration? RealTimeAlertConfiguration => _mRealTimeAlertConfiguration.GetValue("realTimeAlertConfiguration");
 
         /// <summary>
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         /// </summary>
         [Input("resourceAccessRoleArn")]
-        public string? ResourceAccessRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAccessRoleArn;
+
+        public string? ResourceAccessRoleArn => _mResourceAccessRoleArn.GetValue("resourceAccessRoleArn");
 
         /// <summary>
         /// Key-value map of tags for the resource.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")]
+    public sealed class MediaInsightsPipelineConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Collection of processors and sinks to transform media and deliver data.
+        /// </summary>
+        [Input("elements")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MediaInsightsPipelineConfigurationElementArgs>> _mElements;
+
+        public List<Inputs.MediaInsightsPipelineConfigurationElementArgs>? Elements => _mElements.GetValue("elements");
+
+        /// <summary>
+        /// Configuration name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+        /// </summary>
+        [Input("realTimeAlertConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs> _mRealTimeAlertConfiguration;
+
+        public Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs? RealTimeAlertConfiguration => _mRealTimeAlertConfiguration.GetValue("realTimeAlertConfiguration");
+
+        /// <summary>
+        /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
+        /// </summary>
+        [Input("resourceAccessRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAccessRoleArn;
+
+        public string? ResourceAccessRoleArn => _mResourceAccessRoleArn.GetValue("resourceAccessRoleArn");
+
+        /// <summary>
+        /// Key-value map of tags for the resource.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

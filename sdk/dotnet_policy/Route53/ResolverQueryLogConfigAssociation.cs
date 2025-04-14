@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")]
-    public sealed class ResolverQueryLogConfigAssociation : global::Pulumi.PolicyResource
+    public sealed class ResolverQueryLogConfigAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         /// </summary>
         [Input("resolverQueryLogConfigId")]
-        public string? ResolverQueryLogConfigId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolverQueryLogConfigId;
+
+        public string? ResolverQueryLogConfigId => _mResolverQueryLogConfigId.GetValue("resolverQueryLogConfigId");
 
         /// <summary>
         /// The ID of a VPC that you want this query logging configuration to log queries for.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
+    }
+
+    [PolicyResourceType("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")]
+    public sealed class ResolverQueryLogConfigAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
+        /// </summary>
+        [Input("resolverQueryLogConfigId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolverQueryLogConfigId;
+
+        public string? ResolverQueryLogConfigId => _mResolverQueryLogConfigId.GetValue("resolverQueryLogConfigId");
+
+        /// <summary>
+        /// The ID of a VPC that you want this query logging configuration to log queries for.
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
     }
 }

@@ -11,48 +11,139 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")]
-    public sealed class AgentAgentCollaborator : global::Pulumi.PolicyResource
+    public sealed class AgentAgentCollaborator : global::Pulumi.PolicyResourceOutput
     {
         [Input("agentDescriptor")]
-        public AgentAgentCollaboratorAgentDescriptor? AgentDescriptor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentCollaboratorAgentDescriptor> _mAgentDescriptor;
+
+        public Outputs.AgentAgentCollaboratorAgentDescriptor? AgentDescriptor => _mAgentDescriptor.GetValue("agentDescriptor");
 
         /// <summary>
         /// ID if the agent to associate the collaborator.
         /// </summary>
         [Input("agentId")]
-        public string? AgentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
 
         [Input("agentVersion")]
-        public string? AgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
 
         /// <summary>
         /// Instruction to give the collaborator.
         /// </summary>
         [Input("collaborationInstruction")]
-        public string? CollaborationInstruction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationInstruction;
+
+        public string? CollaborationInstruction => _mCollaborationInstruction.GetValue("collaborationInstruction");
 
         /// <summary>
         /// ID of the Agent Collaborator.
         /// </summary>
         [Input("collaboratorId")]
-        public string? CollaboratorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaboratorId;
+
+        public string? CollaboratorId => _mCollaboratorId.GetValue("collaboratorId");
 
         [Input("collaboratorName")]
-        public string? CollaboratorName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaboratorName;
+
+        public string? CollaboratorName => _mCollaboratorName.GetValue("collaboratorName");
 
         /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
         [Input("prepareAgent")]
-        public bool? PrepareAgent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
+
+        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
 
         /// <summary>
         /// Configure relaying the history to the collaborator.
         /// </summary>
         [Input("relayConversationHistory")]
-        public string? RelayConversationHistory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRelayConversationHistory;
+
+        public string? RelayConversationHistory => _mRelayConversationHistory.GetValue("relayConversationHistory");
 
         [Input("timeouts")]
-        public AgentAgentCollaboratorTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentCollaboratorTimeouts> _mTimeouts;
+
+        public Outputs.AgentAgentCollaboratorTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")]
+    public sealed class AgentAgentCollaboratorArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("agentDescriptor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentCollaboratorAgentDescriptorArgs> _mAgentDescriptor;
+
+        public Inputs.AgentAgentCollaboratorAgentDescriptorArgs? AgentDescriptor => _mAgentDescriptor.GetValue("agentDescriptor");
+
+        /// <summary>
+        /// ID if the agent to associate the collaborator.
+        /// </summary>
+        [Input("agentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
+
+        [Input("agentVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+
+        /// <summary>
+        /// Instruction to give the collaborator.
+        /// </summary>
+        [Input("collaborationInstruction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationInstruction;
+
+        public string? CollaborationInstruction => _mCollaborationInstruction.GetValue("collaborationInstruction");
+
+        [Input("collaboratorName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCollaboratorName;
+
+        public string? CollaboratorName => _mCollaboratorName.GetValue("collaboratorName");
+
+        /// <summary>
+        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
+        [Input("prepareAgent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
+
+        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+
+        /// <summary>
+        /// Configure relaying the history to the collaborator.
+        /// </summary>
+        [Input("relayConversationHistory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRelayConversationHistory;
+
+        public string? RelayConversationHistory => _mRelayConversationHistory.GetValue("relayConversationHistory");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentCollaboratorTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AgentAgentCollaboratorTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

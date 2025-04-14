@@ -11,90 +11,226 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
 {
     [PolicyResourceType("aws:networkfirewall/firewall:Firewall")]
-    public sealed class Firewall : global::Pulumi.PolicyResource
+    public sealed class Firewall : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the firewall.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("deleteProtection")]
-        public bool? DeleteProtection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteProtection;
+
+        public bool? DeleteProtection => _mDeleteProtection.GetValue("deleteProtection");
 
         /// <summary>
         /// A friendly description of the firewall.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
         [Input("encryptionConfiguration")]
-        public FirewallEncryptionConfiguration? EncryptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirewallEncryptionConfiguration> _mEncryptionConfiguration;
+
+        public Outputs.FirewallEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
         /// </summary>
         [Input("firewallPolicyArn")]
-        public string? FirewallPolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallPolicyArn;
+
+        public string? FirewallPolicyArn => _mFirewallPolicyArn.GetValue("firewallPolicyArn");
 
         /// <summary>
         /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("firewallPolicyChangeProtection")]
-        public bool? FirewallPolicyChangeProtection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFirewallPolicyChangeProtection;
+
+        public bool? FirewallPolicyChangeProtection => _mFirewallPolicyChangeProtection.GetValue("firewallPolicyChangeProtection");
 
         /// <summary>
         /// Nested list of information about the current status of the firewall.
         /// </summary>
         [Input("firewallStatuses")]
-        public List<FirewallFirewallStatus>? FirewallStatuses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FirewallFirewallStatus>> _mFirewallStatuses;
+
+        public List<Outputs.FirewallFirewallStatus>? FirewallStatuses => _mFirewallStatuses.GetValue("firewallStatuses");
 
         /// <summary>
         /// A friendly name of the firewall.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
         /// </summary>
         [Input("subnetChangeProtection")]
-        public bool? SubnetChangeProtection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSubnetChangeProtection;
+
+        public bool? SubnetChangeProtection => _mSubnetChangeProtection.GetValue("subnetChangeProtection");
 
         /// <summary>
         /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
         /// </summary>
         [Input("subnetMappings")]
-        public List<FirewallSubnetMapping>? SubnetMappings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FirewallSubnetMapping>> _mSubnetMappings;
+
+        public List<Outputs.FirewallSubnetMapping>? SubnetMappings => _mSubnetMappings.GetValue("subnetMappings");
 
         /// <summary>
         /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A string token used when updating a firewall.
         /// </summary>
         [Input("updateToken")]
-        public string? UpdateToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateToken;
+
+        public string? UpdateToken => _mUpdateToken.GetValue("updateToken");
 
         /// <summary>
         /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:networkfirewall/firewall:Firewall")]
+    public sealed class FirewallArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
+        /// </summary>
+        [Input("deleteProtection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteProtection;
+
+        public bool? DeleteProtection => _mDeleteProtection.GetValue("deleteProtection");
+
+        /// <summary>
+        /// A friendly description of the firewall.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirewallEncryptionConfigurationArgs> _mEncryptionConfiguration;
+
+        public Inputs.FirewallEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+        /// </summary>
+        [Input("firewallPolicyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallPolicyArn;
+
+        public string? FirewallPolicyArn => _mFirewallPolicyArn.GetValue("firewallPolicyArn");
+
+        /// <summary>
+        /// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
+        /// </summary>
+        [Input("firewallPolicyChangeProtection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFirewallPolicyChangeProtection;
+
+        public bool? FirewallPolicyChangeProtection => _mFirewallPolicyChangeProtection.GetValue("firewallPolicyChangeProtection");
+
+        /// <summary>
+        /// A friendly name of the firewall.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
+        /// </summary>
+        [Input("subnetChangeProtection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSubnetChangeProtection;
+
+        public bool? SubnetChangeProtection => _mSubnetChangeProtection.GetValue("subnetChangeProtection");
+
+        /// <summary>
+        /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
+        /// </summary>
+        [Input("subnetMappings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FirewallSubnetMappingArgs>> _mSubnetMappings;
+
+        public List<Inputs.FirewallSubnetMappingArgs>? SubnetMappings => _mSubnetMappings.GetValue("subnetMappings");
+
+        /// <summary>
+        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

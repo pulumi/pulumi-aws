@@ -11,63 +11,169 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/configurationSet:ConfigurationSet")]
-    public sealed class ConfigurationSet : global::Pulumi.PolicyResource
+    public sealed class ConfigurationSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Configuration Set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
         [Input("configurationSetName")]
-        public string? ConfigurationSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
+
+        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
 
         /// <summary>
         /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
         /// </summary>
         [Input("deliveryOptions")]
-        public ConfigurationSetDeliveryOptions? DeliveryOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetDeliveryOptions> _mDeliveryOptions;
+
+        public Outputs.ConfigurationSetDeliveryOptions? DeliveryOptions => _mDeliveryOptions.GetValue("deliveryOptions");
 
         /// <summary>
         /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
         /// </summary>
         [Input("reputationOptions")]
-        public ConfigurationSetReputationOptions? ReputationOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetReputationOptions> _mReputationOptions;
+
+        public Outputs.ConfigurationSetReputationOptions? ReputationOptions => _mReputationOptions.GetValue("reputationOptions");
 
         /// <summary>
         /// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
         /// </summary>
         [Input("sendingOptions")]
-        public ConfigurationSetSendingOptions? SendingOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetSendingOptions> _mSendingOptions;
+
+        public Outputs.ConfigurationSetSendingOptions? SendingOptions => _mSendingOptions.GetValue("sendingOptions");
 
         /// <summary>
         /// An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
         /// </summary>
         [Input("suppressionOptions")]
-        public ConfigurationSetSuppressionOptions? SuppressionOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetSuppressionOptions> _mSuppressionOptions;
+
+        public Outputs.ConfigurationSetSuppressionOptions? SuppressionOptions => _mSuppressionOptions.GetValue("suppressionOptions");
 
         /// <summary>
         /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
         /// </summary>
         [Input("trackingOptions")]
-        public ConfigurationSetTrackingOptions? TrackingOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetTrackingOptions> _mTrackingOptions;
+
+        public Outputs.ConfigurationSetTrackingOptions? TrackingOptions => _mTrackingOptions.GetValue("trackingOptions");
 
         /// <summary>
         /// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
         /// </summary>
         [Input("vdmOptions")]
-        public ConfigurationSetVdmOptions? VdmOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetVdmOptions> _mVdmOptions;
+
+        public Outputs.ConfigurationSetVdmOptions? VdmOptions => _mVdmOptions.GetValue("vdmOptions");
+    }
+
+    [PolicyResourceType("aws:sesv2/configurationSet:ConfigurationSet")]
+    public sealed class ConfigurationSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the configuration set.
+        /// </summary>
+        [Input("configurationSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
+
+        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
+
+        /// <summary>
+        /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
+        /// </summary>
+        [Input("deliveryOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetDeliveryOptionsArgs> _mDeliveryOptions;
+
+        public Inputs.ConfigurationSetDeliveryOptionsArgs? DeliveryOptions => _mDeliveryOptions.GetValue("deliveryOptions");
+
+        /// <summary>
+        /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
+        /// </summary>
+        [Input("reputationOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetReputationOptionsArgs> _mReputationOptions;
+
+        public Inputs.ConfigurationSetReputationOptionsArgs? ReputationOptions => _mReputationOptions.GetValue("reputationOptions");
+
+        /// <summary>
+        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
+        /// </summary>
+        [Input("sendingOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetSendingOptionsArgs> _mSendingOptions;
+
+        public Inputs.ConfigurationSetSendingOptionsArgs? SendingOptions => _mSendingOptions.GetValue("sendingOptions");
+
+        /// <summary>
+        /// An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
+        /// </summary>
+        [Input("suppressionOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetSuppressionOptionsArgs> _mSuppressionOptions;
+
+        public Inputs.ConfigurationSetSuppressionOptionsArgs? SuppressionOptions => _mSuppressionOptions.GetValue("suppressionOptions");
+
+        /// <summary>
+        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
+        /// </summary>
+        [Input("trackingOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetTrackingOptionsArgs> _mTrackingOptions;
+
+        public Inputs.ConfigurationSetTrackingOptionsArgs? TrackingOptions => _mTrackingOptions.GetValue("trackingOptions");
+
+        /// <summary>
+        /// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
+        /// </summary>
+        [Input("vdmOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetVdmOptionsArgs> _mVdmOptions;
+
+        public Inputs.ConfigurationSetVdmOptionsArgs? VdmOptions => _mVdmOptions.GetValue("vdmOptions");
     }
 }

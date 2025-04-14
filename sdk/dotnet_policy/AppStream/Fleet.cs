@@ -11,103 +11,151 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppStream
 {
     [PolicyResourceType("aws:appstream/fleet:Fleet")]
-    public sealed class Fleet : global::Pulumi.PolicyResource
+    public sealed class Fleet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the appstream fleet.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block for the desired capacity of the fleet. See below.
         /// </summary>
         [Input("computeCapacity")]
-        public FleetComputeCapacity? ComputeCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetComputeCapacity> _mComputeCapacity;
+
+        public Outputs.FleetComputeCapacity? ComputeCapacity => _mComputeCapacity.GetValue("computeCapacity");
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Description to display.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Amount of time that a streaming session remains active after users disconnect.
         /// </summary>
         [Input("disconnectTimeoutInSeconds")]
-        public int? DisconnectTimeoutInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDisconnectTimeoutInSeconds;
+
+        public int? DisconnectTimeoutInSeconds => _mDisconnectTimeoutInSeconds.GetValue("disconnectTimeoutInSeconds");
 
         /// <summary>
         /// Human-readable friendly name for the AppStream fleet.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
         /// </summary>
         [Input("domainJoinInfo")]
-        public FleetDomainJoinInfo? DomainJoinInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetDomainJoinInfo> _mDomainJoinInfo;
+
+        public Outputs.FleetDomainJoinInfo? DomainJoinInfo => _mDomainJoinInfo.GetValue("domainJoinInfo");
 
         /// <summary>
         /// Enables or disables default internet access for the fleet.
         /// </summary>
         [Input("enableDefaultInternetAccess")]
-        public bool? EnableDefaultInternetAccess;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultInternetAccess;
+
+        public bool? EnableDefaultInternetAccess => _mEnableDefaultInternetAccess.GetValue("enableDefaultInternetAccess");
 
         /// <summary>
         /// Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         /// </summary>
         [Input("fleetType")]
-        public string? FleetType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetType;
+
+        public string? FleetType => _mFleetType.GetValue("fleetType");
 
         /// <summary>
         /// ARN of the IAM role to apply to the fleet.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to `0`. Valid value is between `60` and `3600 `seconds.
         /// </summary>
         [Input("idleDisconnectTimeoutInSeconds")]
-        public int? IdleDisconnectTimeoutInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdleDisconnectTimeoutInSeconds;
+
+        public int? IdleDisconnectTimeoutInSeconds => _mIdleDisconnectTimeoutInSeconds.GetValue("idleDisconnectTimeoutInSeconds");
 
         /// <summary>
         /// ARN of the public, private, or shared image to use.
         /// </summary>
         [Input("imageArn")]
-        public string? ImageArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
+
+        public string? ImageArn => _mImageArn.GetValue("imageArn");
 
         /// <summary>
         /// Name of the image used to create the fleet.
         /// </summary>
         [Input("imageName")]
-        public string? ImageName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
+
+        public string? ImageName => _mImageName.GetValue("imageName");
 
         /// <summary>
         /// Instance type to use when launching fleet instances.
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
         /// </summary>
         [Input("maxSessionsPerInstance")]
-        public int? MaxSessionsPerInstance;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSessionsPerInstance;
+
+        public int? MaxSessionsPerInstance => _mMaxSessionsPerInstance.GetValue("maxSessionsPerInstance");
 
         /// <summary>
         /// Maximum amount of time that a streaming session can remain active, in seconds.
         /// </summary>
         [Input("maxUserDurationInSeconds")]
-        public int? MaxUserDurationInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUserDurationInSeconds;
+
+        public int? MaxUserDurationInSeconds => _mMaxUserDurationInSeconds.GetValue("maxUserDurationInSeconds");
 
         /// <summary>
         /// Unique name for the fleet.
@@ -115,33 +163,219 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         /// </summary>
         [Input("streamView")]
-        public string? StreamView;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamView;
+
+        public string? StreamView => _mStreamView.GetValue("streamView");
 
         /// <summary>
         /// Map of tags to attach to AppStream instances.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>
         [Input("vpcConfig")]
-        public FleetVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetVpcConfig> _mVpcConfig;
+
+        public Outputs.FleetVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+    }
+
+    [PolicyResourceType("aws:appstream/fleet:Fleet")]
+    public sealed class FleetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block for the desired capacity of the fleet. See below.
+        /// </summary>
+        [Input("computeCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetComputeCapacityArgs> _mComputeCapacity;
+
+        public Inputs.FleetComputeCapacityArgs? ComputeCapacity => _mComputeCapacity.GetValue("computeCapacity");
+
+        /// <summary>
+        /// Description to display.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Amount of time that a streaming session remains active after users disconnect.
+        /// </summary>
+        [Input("disconnectTimeoutInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDisconnectTimeoutInSeconds;
+
+        public int? DisconnectTimeoutInSeconds => _mDisconnectTimeoutInSeconds.GetValue("disconnectTimeoutInSeconds");
+
+        /// <summary>
+        /// Human-readable friendly name for the AppStream fleet.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
+        /// </summary>
+        [Input("domainJoinInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetDomainJoinInfoArgs> _mDomainJoinInfo;
+
+        public Inputs.FleetDomainJoinInfoArgs? DomainJoinInfo => _mDomainJoinInfo.GetValue("domainJoinInfo");
+
+        /// <summary>
+        /// Enables or disables default internet access for the fleet.
+        /// </summary>
+        [Input("enableDefaultInternetAccess")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultInternetAccess;
+
+        public bool? EnableDefaultInternetAccess => _mEnableDefaultInternetAccess.GetValue("enableDefaultInternetAccess");
+
+        /// <summary>
+        /// Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
+        /// </summary>
+        [Input("fleetType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetType;
+
+        public string? FleetType => _mFleetType.GetValue("fleetType");
+
+        /// <summary>
+        /// ARN of the IAM role to apply to the fleet.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to `0`. Valid value is between `60` and `3600 `seconds.
+        /// </summary>
+        [Input("idleDisconnectTimeoutInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdleDisconnectTimeoutInSeconds;
+
+        public int? IdleDisconnectTimeoutInSeconds => _mIdleDisconnectTimeoutInSeconds.GetValue("idleDisconnectTimeoutInSeconds");
+
+        /// <summary>
+        /// ARN of the public, private, or shared image to use.
+        /// </summary>
+        [Input("imageArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
+
+        public string? ImageArn => _mImageArn.GetValue("imageArn");
+
+        /// <summary>
+        /// Name of the image used to create the fleet.
+        /// </summary>
+        [Input("imageName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
+
+        public string? ImageName => _mImageName.GetValue("imageName");
+
+        /// <summary>
+        /// Instance type to use when launching fleet instances.
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+        /// </summary>
+        [Input("maxSessionsPerInstance")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSessionsPerInstance;
+
+        public int? MaxSessionsPerInstance => _mMaxSessionsPerInstance.GetValue("maxSessionsPerInstance");
+
+        /// <summary>
+        /// Maximum amount of time that a streaming session can remain active, in seconds.
+        /// </summary>
+        [Input("maxUserDurationInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUserDurationInSeconds;
+
+        public int? MaxUserDurationInSeconds => _mMaxUserDurationInSeconds.GetValue("maxUserDurationInSeconds");
+
+        /// <summary>
+        /// Unique name for the fleet.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
+        /// </summary>
+        [Input("streamView")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamView;
+
+        public string? StreamView => _mStreamView.GetValue("streamView");
+
+        /// <summary>
+        /// Map of tags to attach to AppStream instances.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block for the VPC configuration for the image builder. See below.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.FleetVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
     }
 }

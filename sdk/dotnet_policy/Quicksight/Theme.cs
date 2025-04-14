@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/theme:Theme")]
-    public sealed class Theme : global::Pulumi.PolicyResource
+    public sealed class Theme : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the theme.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         /// </summary>
         [Input("baseThemeId")]
-        public string? BaseThemeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseThemeId;
+
+        public string? BaseThemeId => _mBaseThemeId.GetValue("baseThemeId");
 
         /// <summary>
         /// The theme configuration, which contains the theme display properties. See configuration.
@@ -37,66 +46,177 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("configuration")]
-        public ThemeConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ThemeConfiguration> _mConfiguration;
+
+        public Outputs.ThemeConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// The time that the theme was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// The time that the theme was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         /// <summary>
         /// Display name of the theme.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         /// </summary>
         [Input("permissions")]
-        public List<ThemePermission>? Permissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ThemePermission>> _mPermissions;
+
+        public List<Outputs.ThemePermission>? Permissions => _mPermissions.GetValue("permissions");
 
         /// <summary>
         /// The theme creation status.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Identifier of the theme.
         /// </summary>
         [Input("themeId")]
-        public string? ThemeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThemeId;
+
+        public string? ThemeId => _mThemeId.GetValue("themeId");
 
         /// <summary>
         /// A description of the current theme version being created/updated.
         /// </summary>
         [Input("versionDescription")]
-        public string? VersionDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
+
+        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
 
         /// <summary>
         /// The version number of the theme version.
         /// </summary>
         [Input("versionNumber")]
-        public int? VersionNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersionNumber;
+
+        public int? VersionNumber => _mVersionNumber.GetValue("versionNumber");
+    }
+
+    [PolicyResourceType("aws:quicksight/theme:Theme")]
+    public sealed class ThemeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+        /// </summary>
+        [Input("baseThemeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseThemeId;
+
+        public string? BaseThemeId => _mBaseThemeId.GetValue("baseThemeId");
+
+        /// <summary>
+        /// The theme configuration, which contains the theme display properties. See configuration.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationArgs> _mConfiguration;
+
+        public Inputs.ThemeConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// Display name of the theme.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        /// </summary>
+        [Input("permissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ThemePermissionArgs>> _mPermissions;
+
+        public List<Inputs.ThemePermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Identifier of the theme.
+        /// </summary>
+        [Input("themeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThemeId;
+
+        public string? ThemeId => _mThemeId.GetValue("themeId");
+
+        /// <summary>
+        /// A description of the current theme version being created/updated.
+        /// </summary>
+        [Input("versionDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
+
+        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
     }
 }

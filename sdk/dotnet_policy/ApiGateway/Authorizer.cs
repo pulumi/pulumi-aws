@@ -11,67 +11,183 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/authorizer:Authorizer")]
-    public sealed class Authorizer : global::Pulumi.PolicyResource
+    public sealed class Authorizer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the API Gateway Authorizer
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         /// </summary>
         [Input("authorizerCredentials")]
-        public string? AuthorizerCredentials;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerCredentials;
+
+        public string? AuthorizerCredentials => _mAuthorizerCredentials.GetValue("authorizerCredentials");
 
         /// <summary>
         /// TTL of cached authorizer results in seconds. Defaults to `300`.
         /// </summary>
         [Input("authorizerResultTtlInSeconds")]
-        public int? AuthorizerResultTtlInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAuthorizerResultTtlInSeconds;
+
+        public int? AuthorizerResultTtlInSeconds => _mAuthorizerResultTtlInSeconds.GetValue("authorizerResultTtlInSeconds");
 
         /// <summary>
         /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
         /// e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         /// </summary>
         [Input("authorizerUri")]
-        public string? AuthorizerUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerUri;
+
+        public string? AuthorizerUri => _mAuthorizerUri.GetValue("authorizerUri");
 
         /// <summary>
         /// Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         /// </summary>
         [Input("identitySource")]
-        public string? IdentitySource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentitySource;
+
+        public string? IdentitySource => _mIdentitySource.GetValue("identitySource");
 
         /// <summary>
         /// Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         /// </summary>
         [Input("identityValidationExpression")]
-        public string? IdentityValidationExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityValidationExpression;
+
+        public string? IdentityValidationExpression => _mIdentityValidationExpression.GetValue("identityValidationExpression");
 
         /// <summary>
         /// Name of the authorizer
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         /// </summary>
         [Input("providerArns")]
-        public List<string>? ProviderArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProviderArns;
+
+        public List<string>? ProviderArns => _mProviderArns.GetValue("providerArns");
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:apigateway/authorizer:Authorizer")]
+    public sealed class AuthorizerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
+        /// </summary>
+        [Input("authorizerCredentials")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerCredentials;
+
+        public string? AuthorizerCredentials => _mAuthorizerCredentials.GetValue("authorizerCredentials");
+
+        /// <summary>
+        /// TTL of cached authorizer results in seconds. Defaults to `300`.
+        /// </summary>
+        [Input("authorizerResultTtlInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAuthorizerResultTtlInSeconds;
+
+        public int? AuthorizerResultTtlInSeconds => _mAuthorizerResultTtlInSeconds.GetValue("authorizerResultTtlInSeconds");
+
+        /// <summary>
+        /// Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`,
+        /// e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        /// </summary>
+        [Input("authorizerUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerUri;
+
+        public string? AuthorizerUri => _mAuthorizerUri.GetValue("authorizerUri");
+
+        /// <summary>
+        /// Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
+        /// </summary>
+        [Input("identitySource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentitySource;
+
+        public string? IdentitySource => _mIdentitySource.GetValue("identitySource");
+
+        /// <summary>
+        /// Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
+        /// </summary>
+        [Input("identityValidationExpression")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityValidationExpression;
+
+        public string? IdentityValidationExpression => _mIdentityValidationExpression.GetValue("identityValidationExpression");
+
+        /// <summary>
+        /// Name of the authorizer
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+        /// </summary>
+        [Input("providerArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProviderArns;
+
+        public List<string>? ProviderArns => _mProviderArns.GetValue("providerArns");
+
+        /// <summary>
+        /// ID of the associated REST API
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

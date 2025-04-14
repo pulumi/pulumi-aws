@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
 {
     [PolicyResourceType("aws:ec2clientvpn/networkAssociation:NetworkAssociation")]
-    public sealed class NetworkAssociation : global::Pulumi.PolicyResource
+    public sealed class NetworkAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The unique ID of the target network association.
         /// </summary>
         [Input("associationId")]
-        public string? AssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
+
+        public string? AssociationId => _mAssociationId.GetValue("associationId");
 
         /// <summary>
         /// The ID of the Client VPN endpoint.
         /// </summary>
         [Input("clientVpnEndpointId")]
-        public string? ClientVpnEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
+
+        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
 
         /// <summary>
         /// The ID of the subnet to associate with the Client VPN endpoint.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// The ID of the VPC in which the target subnet is located.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2clientvpn/networkAssociation:NetworkAssociation")]
+    public sealed class NetworkAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Client VPN endpoint.
+        /// </summary>
+        [Input("clientVpnEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
+
+        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
+
+        /// <summary>
+        /// The ID of the subnet to associate with the Client VPN endpoint.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
     }
 }

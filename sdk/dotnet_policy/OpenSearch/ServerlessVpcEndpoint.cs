@@ -11,28 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint")]
-    public sealed class ServerlessVpcEndpoint : global::Pulumi.PolicyResource
+    public sealed class ServerlessVpcEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the interface endpoint.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         [Input("timeouts")]
-        public ServerlessVpcEndpointTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessVpcEndpointTimeouts> _mTimeouts;
+
+        public Outputs.ServerlessVpcEndpointTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// ID of the VPC from which you'll access OpenSearch Serverless.
@@ -40,6 +52,57 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// The following arguments are optional:
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint")]
+    public sealed class ServerlessVpcEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the interface endpoint.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessVpcEndpointTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ServerlessVpcEndpointTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// ID of the VPC from which you'll access OpenSearch Serverless.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

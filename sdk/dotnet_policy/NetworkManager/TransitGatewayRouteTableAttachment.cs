@@ -11,90 +11,163 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment")]
-    public sealed class TransitGatewayRouteTableAttachment : global::Pulumi.PolicyResource
+    public sealed class TransitGatewayRouteTableAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Attachment Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The policy rule number associated with the attachment.
         /// </summary>
         [Input("attachmentPolicyRuleNumber")]
-        public int? AttachmentPolicyRuleNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAttachmentPolicyRuleNumber;
+
+        public int? AttachmentPolicyRuleNumber => _mAttachmentPolicyRuleNumber.GetValue("attachmentPolicyRuleNumber");
 
         /// <summary>
         /// The type of attachment.
         /// </summary>
         [Input("attachmentType")]
-        public string? AttachmentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
+
+        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
 
         /// <summary>
         /// The ARN of the core network.
         /// </summary>
         [Input("coreNetworkArn")]
-        public string? CoreNetworkArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
+
+        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
 
         /// <summary>
         /// The ID of the core network.
         /// </summary>
         [Input("coreNetworkId")]
-        public string? CoreNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
 
         /// <summary>
         /// The edge location for the peer.
         /// </summary>
         [Input("edgeLocation")]
-        public string? EdgeLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
+
+        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
 
         /// <summary>
         /// The ID of the attachment account owner.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// The ID of the peer for the attachment.
         /// </summary>
         [Input("peeringId")]
-        public string? PeeringId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeeringId;
+
+        public string? PeeringId => _mPeeringId.GetValue("peeringId");
 
         /// <summary>
         /// The attachment resource ARN.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The name of the segment attachment.
         /// </summary>
         [Input("segmentName")]
-        public string? SegmentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentName;
+
+        public string? SegmentName => _mSegmentName.GetValue("segmentName");
 
         /// <summary>
         /// The state of the attachment.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ARN of the transit gateway route table for the attachment.
         /// </summary>
         [Input("transitGatewayRouteTableArn")]
-        public string? TransitGatewayRouteTableArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableArn;
+
+        public string? TransitGatewayRouteTableArn => _mTransitGatewayRouteTableArn.GetValue("transitGatewayRouteTableArn");
+    }
+
+    [PolicyResourceType("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment")]
+    public sealed class TransitGatewayRouteTableAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the peer for the attachment.
+        /// </summary>
+        [Input("peeringId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeeringId;
+
+        public string? PeeringId => _mPeeringId.GetValue("peeringId");
+
+        /// <summary>
+        /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ARN of the transit gateway route table for the attachment.
+        /// </summary>
+        [Input("transitGatewayRouteTableArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableArn;
+
+        public string? TransitGatewayRouteTableArn => _mTransitGatewayRouteTableArn.GetValue("transitGatewayRouteTableArn");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy")]
-    public sealed class LogDataProtectionPolicy : global::Pulumi.PolicyResource
+    public sealed class LogDataProtectionPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the log group under which the log stream is to be created.
         /// </summary>
         [Input("logGroupName")]
-        public string? LogGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
 
         /// <summary>
         /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy")]
+    public sealed class LogDataProtectionPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the log group under which the log stream is to be created.
+        /// </summary>
+        [Input("logGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+
+        /// <summary>
+        /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
     }
 }

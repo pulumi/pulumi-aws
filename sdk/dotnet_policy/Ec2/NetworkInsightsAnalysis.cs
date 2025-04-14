@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis")]
-    public sealed class NetworkInsightsAnalysis : global::Pulumi.PolicyResource
+    public sealed class NetworkInsightsAnalysis : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Potential intermediate components of a feasible path. Described below.
         /// </summary>
         [Input("alternatePathHints")]
-        public List<NetworkInsightsAnalysisAlternatePathHint>? AlternatePathHints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisAlternatePathHint>> _mAlternatePathHints;
+
+        public List<Outputs.NetworkInsightsAnalysisAlternatePathHint>? AlternatePathHints => _mAlternatePathHints.GetValue("alternatePathHints");
 
         /// <summary>
         /// ARN of the Network Insights Analysis.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
         /// </summary>
         [Input("explanations")]
-        public List<NetworkInsightsAnalysisExplanation>? Explanations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisExplanation>> _mExplanations;
+
+        public List<Outputs.NetworkInsightsAnalysisExplanation>? Explanations => _mExplanations.GetValue("explanations");
 
         /// <summary>
         /// A list of ARNs for resources the path must traverse.
         /// </summary>
         [Input("filterInArns")]
-        public List<string>? FilterInArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFilterInArns;
+
+        public List<string>? FilterInArns => _mFilterInArns.GetValue("filterInArns");
 
         /// <summary>
         /// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         /// </summary>
         [Input("forwardPathComponents")]
-        public List<NetworkInsightsAnalysisForwardPathComponent>? ForwardPathComponents;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisForwardPathComponent>> _mForwardPathComponents;
+
+        public List<Outputs.NetworkInsightsAnalysisForwardPathComponent>? ForwardPathComponents => _mForwardPathComponents.GetValue("forwardPathComponents");
 
         /// <summary>
         /// ID of the Network Insights Path to run an analysis on.
@@ -49,60 +64,132 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The following arguments are optional:
         /// </summary>
         [Input("networkInsightsPathId")]
-        public string? NetworkInsightsPathId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInsightsPathId;
+
+        public string? NetworkInsightsPathId => _mNetworkInsightsPathId.GetValue("networkInsightsPathId");
 
         /// <summary>
         /// Set to `true` if the destination was reachable.
         /// </summary>
         [Input("pathFound")]
-        public bool? PathFound;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPathFound;
+
+        public bool? PathFound => _mPathFound.GetValue("pathFound");
 
         /// <summary>
         /// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         /// </summary>
         [Input("returnPathComponents")]
-        public List<NetworkInsightsAnalysisReturnPathComponent>? ReturnPathComponents;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisReturnPathComponent>> _mReturnPathComponents;
+
+        public List<Outputs.NetworkInsightsAnalysisReturnPathComponent>? ReturnPathComponents => _mReturnPathComponents.GetValue("returnPathComponents");
 
         /// <summary>
         /// The date/time the analysis was started.
         /// </summary>
         [Input("startDate")]
-        public string? StartDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
+
+        public string? StartDate => _mStartDate.GetValue("startDate");
 
         /// <summary>
         /// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A message to provide more context when the `status` is `failed`.
         /// </summary>
         [Input("statusMessage")]
-        public string? StatusMessage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
+
+        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         /// </summary>
         [Input("waitForCompletion")]
-        public bool? WaitForCompletion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForCompletion;
+
+        public bool? WaitForCompletion => _mWaitForCompletion.GetValue("waitForCompletion");
 
         /// <summary>
         /// The warning message.
         /// </summary>
         [Input("warningMessage")]
-        public string? WarningMessage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWarningMessage;
+
+        public string? WarningMessage => _mWarningMessage.GetValue("warningMessage");
+    }
+
+    [PolicyResourceType("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis")]
+    public sealed class NetworkInsightsAnalysisArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of ARNs for resources the path must traverse.
+        /// </summary>
+        [Input("filterInArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFilterInArns;
+
+        public List<string>? FilterInArns => _mFilterInArns.GetValue("filterInArns");
+
+        /// <summary>
+        /// ID of the Network Insights Path to run an analysis on.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("networkInsightsPathId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInsightsPathId;
+
+        public string? NetworkInsightsPathId => _mNetworkInsightsPathId.GetValue("networkInsightsPathId");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
+        /// </summary>
+        [Input("waitForCompletion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForCompletion;
+
+        public bool? WaitForCompletion => _mWaitForCompletion.GetValue("waitForCompletion");
     }
 }

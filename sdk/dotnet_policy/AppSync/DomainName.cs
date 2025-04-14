@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/domainName:DomainName")]
-    public sealed class DomainName : global::Pulumi.PolicyResource
+    public sealed class DomainName : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Domain name that AppSync provides.
         /// </summary>
         [Input("appsyncDomainName")]
-        public string? AppsyncDomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppsyncDomainName;
+
+        public string? AppsyncDomainName => _mAppsyncDomainName.GetValue("appsyncDomainName");
 
         /// <summary>
         /// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
         /// </summary>
         [Input("certificateArn")]
-        public string? CertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
 
         /// <summary>
         /// A description of the Domain Name.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Domain name.
         /// </summary>
         [Input("domainName")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("domainName");
 
         /// <summary>
         /// ID of your Amazon Route 53 hosted zone.
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+    }
+
+    [PolicyResourceType("aws:appsync/domainName:DomainName")]
+    public sealed class DomainNameArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
+        /// </summary>
+        [Input("certificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+
+        /// <summary>
+        /// A description of the Domain Name.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Domain name.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("domainName");
     }
 }

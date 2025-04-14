@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Keyspaces
 {
     [PolicyResourceType("aws:keyspaces/keyspace:Keyspace")]
-    public sealed class Keyspace : global::Pulumi.PolicyResource
+    public sealed class Keyspace : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the keyspace.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the keyspace to be created.
@@ -25,24 +28,69 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The replication specification of the keyspace.
         /// </summary>
         [Input("replicationSpecification")]
-        public KeyspaceReplicationSpecification? ReplicationSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KeyspaceReplicationSpecification> _mReplicationSpecification;
+
+        public Outputs.KeyspaceReplicationSpecification? ReplicationSpecification => _mReplicationSpecification.GetValue("replicationSpecification");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:keyspaces/keyspace:Keyspace")]
+    public sealed class KeyspaceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the keyspace to be created.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The replication specification of the keyspace.
+        /// </summary>
+        [Input("replicationSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KeyspaceReplicationSpecificationArgs> _mReplicationSpecification;
+
+        public Inputs.KeyspaceReplicationSpecificationArgs? ReplicationSpecification => _mReplicationSpecification.GetValue("replicationSpecification");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

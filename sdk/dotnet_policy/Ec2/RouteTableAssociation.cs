@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/routeTableAssociation:RouteTableAssociation")]
-    public sealed class RouteTableAssociation : global::Pulumi.PolicyResource
+    public sealed class RouteTableAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
         /// </summary>
         [Input("gatewayId")]
-        public string? GatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
+
+        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
 
         /// <summary>
         /// The ID of the routing table to associate with.
         /// </summary>
         [Input("routeTableId")]
-        public string? RouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
 
         /// <summary>
         /// The subnet ID to create an association. Conflicts with `gateway_id`.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+    }
+
+    [PolicyResourceType("aws:ec2/routeTableAssociation:RouteTableAssociation")]
+    public sealed class RouteTableAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The gateway ID to create an association. Conflicts with `subnet_id`.
+        /// </summary>
+        [Input("gatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
+
+        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
+
+        /// <summary>
+        /// The ID of the routing table to associate with.
+        /// </summary>
+        [Input("routeTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+
+        /// <summary>
+        /// The subnet ID to create an association. Conflicts with `gateway_id`.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
     }
 }

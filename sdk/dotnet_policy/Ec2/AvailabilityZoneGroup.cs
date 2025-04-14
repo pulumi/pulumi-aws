@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")]
-    public sealed class AvailabilityZoneGroup : global::Pulumi.PolicyResource
+    public sealed class AvailabilityZoneGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the Availability Zone Group.
         /// </summary>
         [Input("groupName")]
-        public string? GroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+
+        public string? GroupName => _mGroupName.GetValue("groupName");
 
         /// <summary>
         /// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         /// </summary>
         [Input("optInStatus")]
-        public string? OptInStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptInStatus;
+
+        public string? OptInStatus => _mOptInStatus.GetValue("optInStatus");
+    }
+
+    [PolicyResourceType("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")]
+    public sealed class AvailabilityZoneGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Availability Zone Group.
+        /// </summary>
+        [Input("groupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+
+        public string? GroupName => _mGroupName.GetValue("groupName");
+
+        /// <summary>
+        /// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
+        /// </summary>
+        [Input("optInStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptInStatus;
+
+        public string? OptInStatus => _mOptInStatus.GetValue("optInStatus");
     }
 }

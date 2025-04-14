@@ -11,27 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transfer
 {
     [PolicyResourceType("aws:transfer/sshKey:SshKey")]
-    public sealed class SshKey : global::Pulumi.PolicyResource
+    public sealed class SshKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The public key portion of an SSH key pair.
         /// </summary>
         [Input("body")]
-        public string? Body;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
+
+        public string? Body => _mBody.GetValue("body");
 
         /// <summary>
         /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId")]
-        public string? ServerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
+
+        public string? ServerId => _mServerId.GetValue("serverId");
 
         [Input("sshKeyId")]
-        public string? SshKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSshKeyId;
+
+        public string? SshKeyId => _mSshKeyId.GetValue("sshKeyId");
 
         /// <summary>
         /// The name of the user account that is assigned to one or more servers.
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:transfer/sshKey:SshKey")]
+    public sealed class SshKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The public key portion of an SSH key pair.
+        /// </summary>
+        [Input("body")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
+
+        public string? Body => _mBody.GetValue("body");
+
+        /// <summary>
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// </summary>
+        [Input("serverId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
+
+        public string? ServerId => _mServerId.GetValue("serverId");
+
+        /// <summary>
+        /// The name of the user account that is assigned to one or more servers.
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

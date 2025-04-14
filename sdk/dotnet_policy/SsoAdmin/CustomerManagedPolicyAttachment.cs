@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment")]
-    public sealed class CustomerManagedPolicyAttachment : global::Pulumi.PolicyResource
+    public sealed class CustomerManagedPolicyAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the name and path of a customer managed policy. See below.
         /// </summary>
         [Input("customerManagedPolicyReference")]
-        public CustomerManagedPolicyAttachmentCustomerManagedPolicyReference? CustomerManagedPolicyReference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference> _mCustomerManagedPolicyReference;
+
+        public Outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference? CustomerManagedPolicyReference => _mCustomerManagedPolicyReference.GetValue("customerManagedPolicyReference");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Input("instanceArn")]
-        public string? InstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
         [Input("permissionSetArn")]
-        public string? PermissionSetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
+
+        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment")]
+    public sealed class CustomerManagedPolicyAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the name and path of a customer managed policy. See below.
+        /// </summary>
+        [Input("customerManagedPolicyReference")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs> _mCustomerManagedPolicyReference;
+
+        public Inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs? CustomerManagedPolicyReference => _mCustomerManagedPolicyReference.GetValue("customerManagedPolicyReference");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
+        [Input("instanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
+        [Input("permissionSetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
+
+        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
     }
 }

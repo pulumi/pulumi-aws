@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")]
-    public sealed class PrincipalPortfolioAssociation : global::Pulumi.PolicyResource
+    public sealed class PrincipalPortfolioAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
         [Input("acceptLanguage")]
-        public string? AcceptLanguage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
 
         /// <summary>
         /// Portfolio identifier.
         /// </summary>
         [Input("portfolioId")]
-        public string? PortfolioId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
+
+        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
 
         /// <summary>
         /// Principal ARN.
@@ -31,12 +37,60 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// The following arguments are optional:
         /// </summary>
         [Input("principalArn")]
-        public string? PrincipalArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
+
+        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
 
         /// <summary>
         /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         /// </summary>
         [Input("principalType")]
-        public string? PrincipalType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
+
+        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")]
+    public sealed class PrincipalPortfolioAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
+        [Input("portfolioId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
+
+        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
+
+        /// <summary>
+        /// Principal ARN.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("principalArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
+
+        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+
+        /// <summary>
+        /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
+        /// </summary>
+        [Input("principalType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
+
+        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
     }
 }

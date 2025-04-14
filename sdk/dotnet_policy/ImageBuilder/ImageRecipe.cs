@@ -11,85 +11,124 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ImageBuilder
 {
     [PolicyResourceType("aws:imagebuilder/imageRecipe:ImageRecipe")]
-    public sealed class ImageRecipe : global::Pulumi.PolicyResource
+    public sealed class ImageRecipe : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block(s) with block device mappings for the image recipe. Detailed below.
         /// </summary>
         [Input("blockDeviceMappings")]
-        public List<ImageRecipeBlockDeviceMapping>? BlockDeviceMappings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageRecipeBlockDeviceMapping>> _mBlockDeviceMappings;
+
+        public List<Outputs.ImageRecipeBlockDeviceMapping>? BlockDeviceMappings => _mBlockDeviceMappings.GetValue("blockDeviceMappings");
 
         /// <summary>
         /// Ordered configuration block(s) with components for the image recipe. Detailed below.
         /// </summary>
         [Input("components")]
-        public List<ImageRecipeComponent>? Components;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageRecipeComponent>> _mComponents;
+
+        public List<Outputs.ImageRecipeComponent>? Components => _mComponents.GetValue("components");
 
         /// <summary>
         /// Date the image recipe was created.
         /// </summary>
         [Input("dateCreated")]
-        public string? DateCreated;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
+
+        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
 
         /// <summary>
         /// Description of the image recipe.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the image recipe.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Owner of the image recipe.
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         /// </summary>
         [Input("parentImage")]
-        public string? ParentImage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentImage;
+
+        public string? ParentImage => _mParentImage.GetValue("parentImage");
 
         /// <summary>
         /// Platform of the image recipe.
         /// </summary>
         [Input("platform")]
-        public string? Platform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
 
         /// <summary>
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         /// </summary>
         [Input("systemsManagerAgent")]
-        public ImageRecipeSystemsManagerAgent? SystemsManagerAgent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageRecipeSystemsManagerAgent> _mSystemsManagerAgent;
+
+        public Outputs.ImageRecipeSystemsManagerAgent? SystemsManagerAgent => _mSystemsManagerAgent.GetValue("systemsManagerAgent");
 
         /// <summary>
         /// Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         /// </summary>
         [Input("userDataBase64")]
-        public string? UserDataBase64;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserDataBase64;
+
+        public string? UserDataBase64 => _mUserDataBase64.GetValue("userDataBase64");
 
         /// <summary>
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
@@ -97,12 +136,114 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// The following attributes are optional:
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// The working directory to be used during build and test workflows.
         /// </summary>
         [Input("workingDirectory")]
-        public string? WorkingDirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkingDirectory;
+
+        public string? WorkingDirectory => _mWorkingDirectory.GetValue("workingDirectory");
+    }
+
+    [PolicyResourceType("aws:imagebuilder/imageRecipe:ImageRecipe")]
+    public sealed class ImageRecipeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block(s) with block device mappings for the image recipe. Detailed below.
+        /// </summary>
+        [Input("blockDeviceMappings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ImageRecipeBlockDeviceMappingArgs>> _mBlockDeviceMappings;
+
+        public List<Inputs.ImageRecipeBlockDeviceMappingArgs>? BlockDeviceMappings => _mBlockDeviceMappings.GetValue("blockDeviceMappings");
+
+        /// <summary>
+        /// Ordered configuration block(s) with components for the image recipe. Detailed below.
+        /// </summary>
+        [Input("components")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ImageRecipeComponentArgs>> _mComponents;
+
+        public List<Inputs.ImageRecipeComponentArgs>? Components => _mComponents.GetValue("components");
+
+        /// <summary>
+        /// Description of the image recipe.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the image recipe.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
+        /// </summary>
+        [Input("parentImage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentImage;
+
+        public string? ParentImage => _mParentImage.GetValue("parentImage");
+
+        /// <summary>
+        /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+        /// </summary>
+        [Input("systemsManagerAgent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageRecipeSystemsManagerAgentArgs> _mSystemsManagerAgent;
+
+        public Inputs.ImageRecipeSystemsManagerAgentArgs? SystemsManagerAgent => _mSystemsManagerAgent.GetValue("systemsManagerAgent");
+
+        /// <summary>
+        /// Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
+        /// </summary>
+        [Input("userDataBase64")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserDataBase64;
+
+        public string? UserDataBase64 => _mUserDataBase64.GetValue("userDataBase64");
+
+        /// <summary>
+        /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+        /// 
+        /// The following attributes are optional:
+        /// </summary>
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+
+        /// <summary>
+        /// The working directory to be used during build and test workflows.
+        /// </summary>
+        [Input("workingDirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkingDirectory;
+
+        public string? WorkingDirectory => _mWorkingDirectory.GetValue("workingDirectory");
     }
 }

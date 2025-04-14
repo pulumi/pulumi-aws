@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/smsChannel:SmsChannel")]
-    public sealed class SmsChannel : global::Pulumi.PolicyResource
+    public sealed class SmsChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the application.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// Whether the channel is enabled or disabled. By default, it is set to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Maximum number of promotional messages that can be sent per second.
         /// </summary>
         [Input("promotionalMessagesPerSecond")]
-        public int? PromotionalMessagesPerSecond;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPromotionalMessagesPerSecond;
+
+        public int? PromotionalMessagesPerSecond => _mPromotionalMessagesPerSecond.GetValue("promotionalMessagesPerSecond");
 
         /// <summary>
         /// Identifier of the sender for your messages.
         /// </summary>
         [Input("senderId")]
-        public string? SenderId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSenderId;
+
+        public string? SenderId => _mSenderId.GetValue("senderId");
 
         /// <summary>
         /// Short Code registered with the phone provider.
         /// </summary>
         [Input("shortCode")]
-        public string? ShortCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShortCode;
+
+        public string? ShortCode => _mShortCode.GetValue("shortCode");
 
         /// <summary>
         /// Maximum number of transactional messages per second that can be sent.
         /// </summary>
         [Input("transactionalMessagesPerSecond")]
-        public int? TransactionalMessagesPerSecond;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTransactionalMessagesPerSecond;
+
+        public int? TransactionalMessagesPerSecond => _mTransactionalMessagesPerSecond.GetValue("transactionalMessagesPerSecond");
+    }
+
+    [PolicyResourceType("aws:pinpoint/smsChannel:SmsChannel")]
+    public sealed class SmsChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the application.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// Whether the channel is enabled or disabled. By default, it is set to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Identifier of the sender for your messages.
+        /// </summary>
+        [Input("senderId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSenderId;
+
+        public string? SenderId => _mSenderId.GetValue("senderId");
+
+        /// <summary>
+        /// Short Code registered with the phone provider.
+        /// </summary>
+        [Input("shortCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShortCode;
+
+        public string? ShortCode => _mShortCode.GetValue("shortCode");
     }
 }

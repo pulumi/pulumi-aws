@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/agentAgentAlias:AgentAgentAlias")]
-    public sealed class AgentAgentAlias : global::Pulumi.PolicyResource
+    public sealed class AgentAgentAlias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the alias.
         /// </summary>
         [Input("agentAliasArn")]
-        public string? AgentAliasArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentAliasArn;
+
+        public string? AgentAliasArn => _mAgentAliasArn.GetValue("agentAliasArn");
 
         /// <summary>
         /// Unique identifier of the alias.
         /// </summary>
         [Input("agentAliasId")]
-        public string? AgentAliasId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentAliasId;
+
+        public string? AgentAliasId => _mAgentAliasId.GetValue("agentAliasId");
 
         /// <summary>
         /// Name of the alias.
         /// </summary>
         [Input("agentAliasName")]
-        public string? AgentAliasName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentAliasName;
+
+        public string? AgentAliasName => _mAgentAliasName.GetValue("agentAliasName");
 
         /// <summary>
         /// Identifier of the agent to create an alias for.
@@ -37,33 +46,108 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Input("agentId")]
-        public string? AgentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
 
         /// <summary>
         /// Description of the alias.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         /// </summary>
         [Input("routingConfigurations")]
-        public List<AgentAgentAliasRoutingConfiguration>? RoutingConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentAliasRoutingConfiguration>> _mRoutingConfigurations;
+
+        public List<Outputs.AgentAgentAliasRoutingConfiguration>? RoutingConfigurations => _mRoutingConfigurations.GetValue("routingConfigurations");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public AgentAgentAliasTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentAliasTimeouts> _mTimeouts;
+
+        public Outputs.AgentAgentAliasTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:bedrock/agentAgentAlias:AgentAgentAlias")]
+    public sealed class AgentAgentAliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the alias.
+        /// </summary>
+        [Input("agentAliasName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentAliasName;
+
+        public string? AgentAliasName => _mAgentAliasName.GetValue("agentAliasName");
+
+        /// <summary>
+        /// Identifier of the agent to create an alias for.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("agentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
+
+        /// <summary>
+        /// Description of the alias.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        /// </summary>
+        [Input("routingConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentAliasRoutingConfigurationArgs>> _mRoutingConfigurations;
+
+        public List<Inputs.AgentAgentAliasRoutingConfigurationArgs>? RoutingConfigurations => _mRoutingConfigurations.GetValue("routingConfigurations");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentAliasTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AgentAgentAliasTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

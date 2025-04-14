@@ -11,49 +11,89 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsmIncidents
 {
     [PolicyResourceType("aws:ssmincidents/replicationSet:ReplicationSet")]
-    public sealed class ReplicationSet : global::Pulumi.PolicyResource
+    public sealed class ReplicationSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the replication set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the user who created the replication set.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// If `true`, the last region in a replication set cannot be deleted.
         /// </summary>
         [Input("deletionProtected")]
-        public bool? DeletionProtected;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtected;
+
+        public bool? DeletionProtected => _mDeletionProtected.GetValue("deletionProtected");
 
         /// <summary>
         /// A timestamp showing when the replication set was last modified.
         /// </summary>
         [Input("lastModifiedBy")]
-        public string? LastModifiedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedBy;
+
+        public string? LastModifiedBy => _mLastModifiedBy.GetValue("lastModifiedBy");
 
         [Input("regions")]
-        public List<ReplicationSetRegion>? Regions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReplicationSetRegion>> _mRegions;
+
+        public List<Outputs.ReplicationSetRegion>? Regions => _mRegions.GetValue("regions");
 
         /// <summary>
         /// The current status of the Region.
         /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ssmincidents/replicationSet:ReplicationSet")]
+    public sealed class ReplicationSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("regions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReplicationSetRegionArgs>> _mRegions;
+
+        public List<Inputs.ReplicationSetRegionArgs>? Regions => _mRegions.GetValue("regions");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

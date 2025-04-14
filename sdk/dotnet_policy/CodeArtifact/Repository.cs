@@ -11,66 +11,163 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeArtifact
 {
     [PolicyResourceType("aws:codeartifact/repository:Repository")]
-    public sealed class Repository : global::Pulumi.PolicyResource
+    public sealed class Repository : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The account number of the AWS account that manages the repository.
         /// </summary>
         [Input("administratorAccount")]
-        public string? AdministratorAccount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorAccount;
+
+        public string? AdministratorAccount => _mAdministratorAccount.GetValue("administratorAccount");
 
         /// <summary>
         /// The ARN of the repository.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The description of the repository.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The domain that contains the created repository.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// The account number of the AWS account that owns the domain.
         /// </summary>
         [Input("domainOwner")]
-        public string? DomainOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOwner;
+
+        public string? DomainOwner => _mDomainOwner.GetValue("domainOwner");
 
         /// <summary>
         /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
         /// </summary>
         [Input("externalConnections")]
-        public RepositoryExternalConnections? ExternalConnections;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryExternalConnections> _mExternalConnections;
+
+        public Outputs.RepositoryExternalConnections? ExternalConnections => _mExternalConnections.GetValue("externalConnections");
 
         /// <summary>
         /// The name of the repository to create.
         /// </summary>
         [Input("repository")]
-        public string? RepositoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repository");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         /// </summary>
         [Input("upstreams")]
-        public List<RepositoryUpstream>? Upstreams;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RepositoryUpstream>> _mUpstreams;
+
+        public List<Outputs.RepositoryUpstream>? Upstreams => _mUpstreams.GetValue("upstreams");
+    }
+
+    [PolicyResourceType("aws:codeartifact/repository:Repository")]
+    public sealed class RepositoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the repository.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The domain that contains the created repository.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// The account number of the AWS account that owns the domain.
+        /// </summary>
+        [Input("domainOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOwner;
+
+        public string? DomainOwner => _mDomainOwner.GetValue("domainOwner");
+
+        /// <summary>
+        /// An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
+        /// </summary>
+        [Input("externalConnections")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryExternalConnectionsArgs> _mExternalConnections;
+
+        public Inputs.RepositoryExternalConnectionsArgs? ExternalConnections => _mExternalConnections.GetValue("externalConnections");
+
+        /// <summary>
+        /// The name of the repository to create.
+        /// </summary>
+        [Input("repository")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repository");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
+        /// </summary>
+        [Input("upstreams")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RepositoryUpstreamArgs>> _mUpstreams;
+
+        public List<Inputs.RepositoryUpstreamArgs>? Upstreams => _mUpstreams.GetValue("upstreams");
     }
 }

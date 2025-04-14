@@ -11,45 +11,112 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault")]
-    public sealed class LogicallyAirGappedVault : global::Pulumi.PolicyResource
+    public sealed class LogicallyAirGappedVault : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Logically Air Gapped Backup Vault.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         /// </summary>
         [Input("maxRetentionDays")]
-        public int? MaxRetentionDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetentionDays;
+
+        public int? MaxRetentionDays => _mMaxRetentionDays.GetValue("maxRetentionDays");
 
         /// <summary>
         /// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         /// </summary>
         [Input("minRetentionDays")]
-        public int? MinRetentionDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinRetentionDays;
+
+        public int? MinRetentionDays => _mMinRetentionDays.GetValue("minRetentionDays");
 
         /// <summary>
         /// Name of the Logically Air Gapped Backup Vault to create.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public LogicallyAirGappedVaultTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LogicallyAirGappedVaultTimeouts> _mTimeouts;
+
+        public Outputs.LogicallyAirGappedVaultTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault")]
+    public sealed class LogicallyAirGappedVaultArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
+        /// </summary>
+        [Input("maxRetentionDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetentionDays;
+
+        public int? MaxRetentionDays => _mMaxRetentionDays.GetValue("maxRetentionDays");
+
+        /// <summary>
+        /// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
+        /// </summary>
+        [Input("minRetentionDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinRetentionDays;
+
+        public int? MinRetentionDays => _mMinRetentionDays.GetValue("minRetentionDays");
+
+        /// <summary>
+        /// Name of the Logically Air Gapped Backup Vault to create.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LogicallyAirGappedVaultTimeoutsArgs> _mTimeouts;
+
+        public Inputs.LogicallyAirGappedVaultTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

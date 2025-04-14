@@ -11,33 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")]
-    public sealed class VpcIpamOrganizationAdminAccount : global::Pulumi.PolicyResource
+    public sealed class VpcIpamOrganizationAdminAccount : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Organizations ARN for the delegate account.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("delegatedAdminAccountId")]
-        public string? DelegatedAdminAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccountId;
+
+        public string? DelegatedAdminAccountId => _mDelegatedAdminAccountId.GetValue("delegatedAdminAccountId");
 
         /// <summary>
         /// The Organizations email for the delegate account.
         /// </summary>
         [Input("email")]
-        public string? Email;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
 
         /// <summary>
         /// The Organizations name for the delegate account.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The AWS service principal.
         /// </summary>
         [Input("servicePrincipal")]
-        public string? ServicePrincipal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServicePrincipal;
+
+        public string? ServicePrincipal => _mServicePrincipal.GetValue("servicePrincipal");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")]
+    public sealed class VpcIpamOrganizationAdminAccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("delegatedAdminAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccountId;
+
+        public string? DelegatedAdminAccountId => _mDelegatedAdminAccountId.GetValue("delegatedAdminAccountId");
     }
 }

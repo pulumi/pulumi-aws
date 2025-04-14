@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Grafana
 {
     [PolicyResourceType("aws:grafana/workspaceApiKey:WorkspaceApiKey")]
-    public sealed class WorkspaceApiKey : global::Pulumi.PolicyResource
+    public sealed class WorkspaceApiKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         /// </summary>
         [Input("key")]
-        public string? Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
 
         /// <summary>
         /// Specifies the name of the API key. Key names must be unique to the workspace.
         /// </summary>
         [Input("keyName")]
-        public string? KeyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
 
         /// <summary>
         /// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         /// </summary>
         [Input("keyRole")]
-        public string? KeyRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyRole;
+
+        public string? KeyRole => _mKeyRole.GetValue("keyRole");
 
         /// <summary>
         /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         /// </summary>
         [Input("secondsToLive")]
-        public int? SecondsToLive;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsToLive;
+
+        public int? SecondsToLive => _mSecondsToLive.GetValue("secondsToLive");
 
         /// <summary>
         /// The ID of the workspace that the API key is valid for.
         /// </summary>
         [Input("workspaceId")]
-        public string? WorkspaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+    }
+
+    [PolicyResourceType("aws:grafana/workspaceApiKey:WorkspaceApiKey")]
+    public sealed class WorkspaceApiKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the name of the API key. Key names must be unique to the workspace.
+        /// </summary>
+        [Input("keyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
+
+        /// <summary>
+        /// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+        /// </summary>
+        [Input("keyRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyRole;
+
+        public string? KeyRole => _mKeyRole.GetValue("keyRole");
+
+        /// <summary>
+        /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
+        /// </summary>
+        [Input("secondsToLive")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsToLive;
+
+        public int? SecondsToLive => _mSecondsToLive.GetValue("secondsToLive");
+
+        /// <summary>
+        /// The ID of the workspace that the API key is valid for.
+        /// </summary>
+        [Input("workspaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
     }
 }

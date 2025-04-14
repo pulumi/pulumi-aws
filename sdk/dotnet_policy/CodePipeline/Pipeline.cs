@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodePipeline
 {
     [PolicyResourceType("aws:codepipeline/pipeline:Pipeline")]
-    public sealed class Pipeline : global::Pulumi.PolicyResource
+    public sealed class Pipeline : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Codepipeline ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// One or more artifact_store blocks. Artifact stores are documented below.
         /// </summary>
         [Input("artifactStores")]
-        public List<PipelineArtifactStore>? ArtifactStores;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineArtifactStore>> _mArtifactStores;
+
+        public List<Outputs.PipelineArtifactStore>? ArtifactStores => _mArtifactStores.GetValue("artifactStores");
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
@@ -31,60 +37,177 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline
         /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Input("executionMode")]
-        public string? ExecutionMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionMode;
+
+        public string? ExecutionMode => _mExecutionMode.GetValue("executionMode");
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         /// </summary>
         [Input("pipelineType")]
-        public string? PipelineType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineType;
+
+        public string? PipelineType => _mPipelineType.GetValue("pipelineType");
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// A stage block. Stages are documented below.
         /// </summary>
         [Input("stages")]
-        public List<PipelineStage>? Stages;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineStage>> _mStages;
+
+        public List<Outputs.PipelineStage>? Stages => _mStages.GetValue("stages");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
         /// </summary>
         [Input("triggerAlls")]
-        public List<PipelineTriggerAll>? TriggerAlls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineTriggerAll>> _mTriggerAlls;
+
+        public List<Outputs.PipelineTriggerAll>? TriggerAlls => _mTriggerAlls.GetValue("triggerAlls");
 
         /// <summary>
         /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         /// </summary>
         [Input("triggers")]
-        public List<PipelineTrigger>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineTrigger>> _mTriggers;
+
+        public List<Outputs.PipelineTrigger>? Triggers => _mTriggers.GetValue("triggers");
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         /// </summary>
         [Input("variables")]
-        public List<PipelineVariable>? Variables;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineVariable>> _mVariables;
+
+        public List<Outputs.PipelineVariable>? Variables => _mVariables.GetValue("variables");
+    }
+
+    [PolicyResourceType("aws:codepipeline/pipeline:Pipeline")]
+    public sealed class PipelineArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// One or more artifact_store blocks. Artifact stores are documented below.
+        /// </summary>
+        [Input("artifactStores")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineArtifactStoreArgs>> _mArtifactStores;
+
+        public List<Inputs.PipelineArtifactStoreArgs>? ArtifactStores => _mArtifactStores.GetValue("artifactStores");
+
+        /// <summary>
+        /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+        /// </summary>
+        [Input("executionMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionMode;
+
+        public string? ExecutionMode => _mExecutionMode.GetValue("executionMode");
+
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
+        /// </summary>
+        [Input("pipelineType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineType;
+
+        public string? PipelineType => _mPipelineType.GetValue("pipelineType");
+
+        /// <summary>
+        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// A stage block. Stages are documented below.
+        /// </summary>
+        [Input("stages")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineStageArgs>> _mStages;
+
+        public List<Inputs.PipelineStageArgs>? Stages => _mStages.GetValue("stages");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        /// </summary>
+        [Input("triggers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineTriggerArgs>> _mTriggers;
+
+        public List<Inputs.PipelineTriggerArgs>? Triggers => _mTriggers.GetValue("triggers");
+
+        /// <summary>
+        /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// </summary>
+        [Input("variables")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineVariableArgs>> _mVariables;
+
+        public List<Inputs.PipelineVariableArgs>? Variables => _mVariables.GetValue("variables");
     }
 }

@@ -11,67 +11,97 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/dataSource:DataSource")]
-    public sealed class DataSource : global::Pulumi.PolicyResource
+    public sealed class DataSource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the data source
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         /// </summary>
         [Input("credentials")]
-        public DataSourceCredentials? Credentials;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceCredentials> _mCredentials;
+
+        public Outputs.DataSourceCredentials? Credentials => _mCredentials.GetValue("credentials");
 
         /// <summary>
         /// An identifier for the data source.
         /// </summary>
         [Input("dataSourceId")]
-        public string? DataSourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceId;
+
+        public string? DataSourceId => _mDataSourceId.GetValue("dataSourceId");
 
         /// <summary>
         /// A name for the data source, maximum of 128 characters.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The parameters used to connect to this data source (exactly one).
         /// </summary>
         [Input("parameters")]
-        public DataSourceParameters? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceParameters> _mParameters;
+
+        public Outputs.DataSourceParameters? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         /// </summary>
         [Input("permissions")]
-        public List<DataSourcePermission>? Permissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSourcePermission>> _mPermissions;
+
+        public List<Outputs.DataSourcePermission>? Permissions => _mPermissions.GetValue("permissions");
 
         /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         /// </summary>
         [Input("sslProperties")]
-        public DataSourceSslProperties? SslProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceSslProperties> _mSslProperties;
+
+        public Outputs.DataSourceSslProperties? SslProperties => _mSslProperties.GetValue("sslProperties");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
@@ -79,12 +109,114 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         /// </summary>
         [Input("vpcConnectionProperties")]
-        public DataSourceVpcConnectionProperties? VpcConnectionProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceVpcConnectionProperties> _mVpcConnectionProperties;
+
+        public Outputs.DataSourceVpcConnectionProperties? VpcConnectionProperties => _mVpcConnectionProperties.GetValue("vpcConnectionProperties");
+    }
+
+    [PolicyResourceType("aws:quicksight/dataSource:DataSource")]
+    public sealed class DataSourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+        /// </summary>
+        [Input("credentials")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceCredentialsArgs> _mCredentials;
+
+        public Inputs.DataSourceCredentialsArgs? Credentials => _mCredentials.GetValue("credentials");
+
+        /// <summary>
+        /// An identifier for the data source.
+        /// </summary>
+        [Input("dataSourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceId;
+
+        public string? DataSourceId => _mDataSourceId.GetValue("dataSourceId");
+
+        /// <summary>
+        /// A name for the data source, maximum of 128 characters.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The parameters used to connect to this data source (exactly one).
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceParametersArgs> _mParameters;
+
+        public Inputs.DataSourceParametersArgs? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+        /// </summary>
+        [Input("permissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSourcePermissionArgs>> _mPermissions;
+
+        public List<Inputs.DataSourcePermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+
+        /// <summary>
+        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+        /// </summary>
+        [Input("sslProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceSslPropertiesArgs> _mSslProperties;
+
+        public Inputs.DataSourceSslPropertiesArgs? SslProperties => _mSslProperties.GetValue("sslProperties");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+        /// </summary>
+        [Input("vpcConnectionProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceVpcConnectionPropertiesArgs> _mVpcConnectionProperties;
+
+        public Inputs.DataSourceVpcConnectionPropertiesArgs? VpcConnectionProperties => _mVpcConnectionProperties.GetValue("vpcConnectionProperties");
     }
 }

@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
 {
     [PolicyResourceType("aws:elasticbeanstalk/applicationVersion:ApplicationVersion")]
-    public sealed class ApplicationVersion : global::Pulumi.PolicyResource
+    public sealed class ApplicationVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the Beanstalk Application the version is associated with.
         /// </summary>
         [Input("application")]
-        public string? Application;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
+
+        public string? Application => _mApplication.GetValue("application");
 
         /// <summary>
         /// ARN assigned by AWS for this Elastic Beanstalk Application.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// S3 bucket that contains the Application Version source bundle.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Short description of the Application Version.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         /// </summary>
         [Input("forceDelete")]
-        public bool? ForceDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
 
         /// <summary>
         /// S3 object that is the Application Version source bundle.
         /// </summary>
         [Input("key")]
-        public string? Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
 
         /// <summary>
         /// Unique name for the this Application Version.
@@ -55,24 +73,114 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
         /// </summary>
         [Input("process")]
-        public bool? Process;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mProcess;
+
+        public bool? Process => _mProcess.GetValue("process");
 
         /// <summary>
         /// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:elasticbeanstalk/applicationVersion:ApplicationVersion")]
+    public sealed class ApplicationVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Beanstalk Application the version is associated with.
+        /// </summary>
+        [Input("application")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
+
+        public string? Application => _mApplication.GetValue("application");
+
+        /// <summary>
+        /// S3 bucket that contains the Application Version source bundle.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Short description of the Application Version.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
+        /// </summary>
+        [Input("forceDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+
+        /// <summary>
+        /// S3 object that is the Application Version source bundle.
+        /// </summary>
+        [Input("key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
+
+        /// <summary>
+        /// Unique name for the this Application Version.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
+        /// </summary>
+        [Input("process")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mProcess;
+
+        public bool? Process => _mProcess.GetValue("process");
+
+        /// <summary>
+        /// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

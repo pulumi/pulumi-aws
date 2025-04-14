@@ -11,96 +11,190 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/hostedConnection:HostedConnection")]
-    public sealed class HostedConnection : global::Pulumi.PolicyResource
+    public sealed class HostedConnection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Direct Connect endpoint on which the physical connection terminates.
         /// </summary>
         [Input("awsDevice")]
-        public string? AwsDevice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsDevice;
+
+        public string? AwsDevice => _mAwsDevice.GetValue("awsDevice");
 
         /// <summary>
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         /// </summary>
         [Input("bandwidth")]
-        public string? Bandwidth;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBandwidth;
+
+        public string? Bandwidth => _mBandwidth.GetValue("bandwidth");
 
         /// <summary>
         /// The ID of the interconnect or LAG.
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
 
         /// <summary>
         /// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
         [Input("hasLogicalRedundancy")]
-        public string? HasLogicalRedundancy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHasLogicalRedundancy;
+
+        public string? HasLogicalRedundancy => _mHasLogicalRedundancy.GetValue("hasLogicalRedundancy");
 
         /// <summary>
         /// Boolean value representing if jumbo frames have been enabled for this connection.
         /// </summary>
         [Input("jumboFrameCapable")]
-        public bool? JumboFrameCapable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mJumboFrameCapable;
+
+        public bool? JumboFrameCapable => _mJumboFrameCapable.GetValue("jumboFrameCapable");
 
         /// <summary>
         /// The ID of the LAG.
         /// </summary>
         [Input("lagId")]
-        public string? LagId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLagId;
+
+        public string? LagId => _mLagId.GetValue("lagId");
 
         /// <summary>
         /// The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
         /// </summary>
         [Input("loaIssueTime")]
-        public string? LoaIssueTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoaIssueTime;
+
+        public string? LoaIssueTime => _mLoaIssueTime.GetValue("loaIssueTime");
 
         /// <summary>
         /// The location of the connection.
         /// </summary>
         [Input("location")]
-        public string? Location;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
+
+        public string? Location => _mLocation.GetValue("location");
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ID of the AWS account of the customer for the connection.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// The name of the AWS Direct Connect service provider associated with the connection.
         /// </summary>
         [Input("partnerName")]
-        public string? PartnerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerName;
+
+        public string? PartnerName => _mPartnerName.GetValue("partnerName");
 
         /// <summary>
         /// The name of the service provider associated with the connection.
         /// </summary>
         [Input("providerName")]
-        public string? ProviderName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+
+        public string? ProviderName => _mProviderName.GetValue("providerName");
 
         /// <summary>
         /// The AWS Region where the connection is located.
         /// </summary>
         [Input("region")]
-        public string? Region;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
 
         /// <summary>
         /// The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// The dedicated VLAN provisioned to the hosted connection.
         /// </summary>
         [Input("vlan")]
-        public int? Vlan;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
+
+        public int? Vlan => _mVlan.GetValue("vlan");
+    }
+
+    [PolicyResourceType("aws:directconnect/hostedConnection:HostedConnection")]
+    public sealed class HostedConnectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
+        /// </summary>
+        [Input("bandwidth")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBandwidth;
+
+        public string? Bandwidth => _mBandwidth.GetValue("bandwidth");
+
+        /// <summary>
+        /// The ID of the interconnect or LAG.
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+
+        /// <summary>
+        /// The name of the connection.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ID of the AWS account of the customer for the connection.
+        /// </summary>
+        [Input("ownerAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+
+        /// <summary>
+        /// The dedicated VLAN provisioned to the hosted connection.
+        /// </summary>
+        [Input("vlan")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
+
+        public int? Vlan => _mVlan.GetValue("vlan");
     }
 }

@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Msk
 {
     [PolicyResourceType("aws:msk/vpcConnection:VpcConnection")]
-    public sealed class VpcConnection : global::Pulumi.PolicyResource
+    public sealed class VpcConnection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPC connection.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         /// </summary>
         [Input("authentication")]
-        public string? Authentication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthentication;
+
+        public string? Authentication => _mAuthentication.GetValue("authentication");
 
         /// <summary>
         /// The list of subnets in the client VPC to connect to.
         /// </summary>
         [Input("clientSubnets")]
-        public List<string>? ClientSubnets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientSubnets;
+
+        public List<string>? ClientSubnets => _mClientSubnets.GetValue("clientSubnets");
 
         /// <summary>
         /// The security groups to attach to the ENIs for the broker nodes.
         /// </summary>
         [Input("securityGroups")]
-        public List<string>? SecurityGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
         [Input("targetClusterArn")]
-        public string? TargetClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetClusterArn;
+
+        public string? TargetClusterArn => _mTargetClusterArn.GetValue("targetClusterArn");
 
         /// <summary>
         /// The VPC ID of the remote client.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:msk/vpcConnection:VpcConnection")]
+    public sealed class VpcConnectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
+        /// </summary>
+        [Input("authentication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthentication;
+
+        public string? Authentication => _mAuthentication.GetValue("authentication");
+
+        /// <summary>
+        /// The list of subnets in the client VPC to connect to.
+        /// </summary>
+        [Input("clientSubnets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientSubnets;
+
+        public List<string>? ClientSubnets => _mClientSubnets.GetValue("clientSubnets");
+
+        /// <summary>
+        /// The security groups to attach to the ENIs for the broker nodes.
+        /// </summary>
+        [Input("securityGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster.
+        /// </summary>
+        [Input("targetClusterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetClusterArn;
+
+        public string? TargetClusterArn => _mTargetClusterArn.GetValue("targetClusterArn");
+
+        /// <summary>
+        /// The VPC ID of the remote client.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GameLift
 {
     [PolicyResourceType("aws:gamelift/gameSessionQueue:GameSessionQueue")]
-    public sealed class GameSessionQueue : global::Pulumi.PolicyResource
+    public sealed class GameSessionQueue : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Game Session Queue ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Information to be added to all events that are related to this game session queue.
         /// </summary>
         [Input("customEventData")]
-        public string? CustomEventData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomEventData;
+
+        public string? CustomEventData => _mCustomEventData.GetValue("customEventData");
 
         /// <summary>
         /// List of fleet/alias ARNs used by session queue for placing game sessions.
         /// </summary>
         [Input("destinations")]
-        public List<string>? Destinations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDestinations;
+
+        public List<string>? Destinations => _mDestinations.GetValue("destinations");
 
         /// <summary>
         /// Name of the session queue.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// An SNS topic ARN that is set up to receive game session placement notifications.
         /// </summary>
         [Input("notificationTarget")]
-        public string? NotificationTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTarget;
+
+        public string? NotificationTarget => _mNotificationTarget.GetValue("notificationTarget");
 
         /// <summary>
         /// One or more policies used to choose fleet based on player latency. See below.
         /// </summary>
         [Input("playerLatencyPolicies")]
-        public List<GameSessionQueuePlayerLatencyPolicy>? PlayerLatencyPolicies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GameSessionQueuePlayerLatencyPolicy>> _mPlayerLatencyPolicies;
+
+        public List<Outputs.GameSessionQueuePlayerLatencyPolicy>? PlayerLatencyPolicies => _mPlayerLatencyPolicies.GetValue("playerLatencyPolicies");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Maximum time a game session request can remain in the queue.
         /// </summary>
         [Input("timeoutInSeconds")]
-        public int? TimeoutInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInSeconds;
+
+        public int? TimeoutInSeconds => _mTimeoutInSeconds.GetValue("timeoutInSeconds");
+    }
+
+    [PolicyResourceType("aws:gamelift/gameSessionQueue:GameSessionQueue")]
+    public sealed class GameSessionQueueArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Information to be added to all events that are related to this game session queue.
+        /// </summary>
+        [Input("customEventData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomEventData;
+
+        public string? CustomEventData => _mCustomEventData.GetValue("customEventData");
+
+        /// <summary>
+        /// List of fleet/alias ARNs used by session queue for placing game sessions.
+        /// </summary>
+        [Input("destinations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDestinations;
+
+        public List<string>? Destinations => _mDestinations.GetValue("destinations");
+
+        /// <summary>
+        /// Name of the session queue.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
+        [Input("notificationTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTarget;
+
+        public string? NotificationTarget => _mNotificationTarget.GetValue("notificationTarget");
+
+        /// <summary>
+        /// One or more policies used to choose fleet based on player latency. See below.
+        /// </summary>
+        [Input("playerLatencyPolicies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>> _mPlayerLatencyPolicies;
+
+        public List<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>? PlayerLatencyPolicies => _mPlayerLatencyPolicies.GetValue("playerLatencyPolicies");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Maximum time a game session request can remain in the queue.
+        /// </summary>
+        [Input("timeoutInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInSeconds;
+
+        public int? TimeoutInSeconds => _mTimeoutInSeconds.GetValue("timeoutInSeconds");
     }
 }

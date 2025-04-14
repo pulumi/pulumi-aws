@@ -11,57 +11,142 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Msk
 {
     [PolicyResourceType("aws:msk/replicator:Replicator")]
-    public sealed class Replicator : global::Pulumi.PolicyResource
+    public sealed class Replicator : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Replicator.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("currentVersion")]
-        public string? CurrentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCurrentVersion;
+
+        public string? CurrentVersion => _mCurrentVersion.GetValue("currentVersion");
 
         /// <summary>
         /// A summary description of the replicator.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A list of Kafka clusters which are targets of the replicator.
         /// </summary>
         [Input("kafkaClusters")]
-        public List<ReplicatorKafkaCluster>? KafkaClusters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReplicatorKafkaCluster>> _mKafkaClusters;
+
+        public List<Outputs.ReplicatorKafkaCluster>? KafkaClusters => _mKafkaClusters.GetValue("kafkaClusters");
 
         /// <summary>
         /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         /// </summary>
         [Input("replicationInfoList")]
-        public ReplicatorReplicationInfoList? ReplicationInfoList;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicatorReplicationInfoList> _mReplicationInfoList;
+
+        public Outputs.ReplicatorReplicationInfoList? ReplicationInfoList => _mReplicationInfoList.GetValue("replicationInfoList");
 
         /// <summary>
         /// The name of the replicator.
         /// </summary>
         [Input("replicatorName")]
-        public string? ReplicatorName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicatorName;
+
+        public string? ReplicatorName => _mReplicatorName.GetValue("replicatorName");
 
         /// <summary>
         /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         /// </summary>
         [Input("serviceExecutionRoleArn")]
-        public string? ServiceExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRoleArn;
+
+        public string? ServiceExecutionRoleArn => _mServiceExecutionRoleArn.GetValue("serviceExecutionRoleArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:msk/replicator:Replicator")]
+    public sealed class ReplicatorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A summary description of the replicator.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A list of Kafka clusters which are targets of the replicator.
+        /// </summary>
+        [Input("kafkaClusters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReplicatorKafkaClusterArgs>> _mKafkaClusters;
+
+        public List<Inputs.ReplicatorKafkaClusterArgs>? KafkaClusters => _mKafkaClusters.GetValue("kafkaClusters");
+
+        /// <summary>
+        /// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        /// </summary>
+        [Input("replicationInfoList")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ReplicatorReplicationInfoListArgs> _mReplicationInfoList;
+
+        public Inputs.ReplicatorReplicationInfoListArgs? ReplicationInfoList => _mReplicationInfoList.GetValue("replicationInfoList");
+
+        /// <summary>
+        /// The name of the replicator.
+        /// </summary>
+        [Input("replicatorName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicatorName;
+
+        public string? ReplicatorName => _mReplicatorName.GetValue("replicatorName");
+
+        /// <summary>
+        /// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
+        /// </summary>
+        [Input("serviceExecutionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRoleArn;
+
+        public string? ServiceExecutionRoleArn => _mServiceExecutionRoleArn.GetValue("serviceExecutionRoleArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

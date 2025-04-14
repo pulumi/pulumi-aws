@@ -11,54 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppRunner
 {
     [PolicyResourceType("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration")]
-    public sealed class ObservabilityConfiguration : global::Pulumi.PolicyResource
+    public sealed class ObservabilityConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of this observability configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
         /// </summary>
         [Input("latest")]
-        public bool? Latest;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mLatest;
+
+        public bool? Latest => _mLatest.GetValue("latest");
 
         /// <summary>
         /// Name of the observability configuration.
         /// </summary>
         [Input("observabilityConfigurationName")]
-        public string? ObservabilityConfigurationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mObservabilityConfigurationName;
+
+        public string? ObservabilityConfigurationName => _mObservabilityConfigurationName.GetValue("observabilityConfigurationName");
 
         /// <summary>
         /// The revision of this observability configuration.
         /// </summary>
         [Input("observabilityConfigurationRevision")]
-        public int? ObservabilityConfigurationRevision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mObservabilityConfigurationRevision;
+
+        public int? ObservabilityConfigurationRevision => _mObservabilityConfigurationRevision.GetValue("observabilityConfigurationRevision");
 
         /// <summary>
         /// Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         /// </summary>
         [Input("traceConfiguration")]
-        public ObservabilityConfigurationTraceConfiguration? TraceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ObservabilityConfigurationTraceConfiguration> _mTraceConfiguration;
+
+        public Outputs.ObservabilityConfigurationTraceConfiguration? TraceConfiguration => _mTraceConfiguration.GetValue("traceConfiguration");
+    }
+
+    [PolicyResourceType("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration")]
+    public sealed class ObservabilityConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the observability configuration.
+        /// </summary>
+        [Input("observabilityConfigurationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mObservabilityConfigurationName;
+
+        public string? ObservabilityConfigurationName => _mObservabilityConfigurationName.GetValue("observabilityConfigurationName");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// </summary>
+        [Input("traceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ObservabilityConfigurationTraceConfigurationArgs> _mTraceConfiguration;
+
+        public Inputs.ObservabilityConfigurationTraceConfigurationArgs? TraceConfiguration => _mTraceConfiguration.GetValue("traceConfiguration");
     }
 }

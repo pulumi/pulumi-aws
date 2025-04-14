@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/signingCertificate:SigningCertificate")]
-    public sealed class SigningCertificate : global::Pulumi.PolicyResource
+    public sealed class SigningCertificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The contents of the signing certificate in PEM-encoded format.
         /// </summary>
         [Input("certificateBody")]
-        public string? CertificateBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
+
+        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
 
         /// <summary>
         /// The ID for the signing certificate.
         /// </summary>
         [Input("certificateId")]
-        public string? CertificateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateId;
+
+        public string? CertificateId => _mCertificateId.GetValue("certificateId");
 
         /// <summary>
         /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The name of the user the signing certificate is for.
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:iam/signingCertificate:SigningCertificate")]
+    public sealed class SigningCertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The contents of the signing certificate in PEM-encoded format.
+        /// </summary>
+        [Input("certificateBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
+
+        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+
+        /// <summary>
+        /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// The name of the user the signing certificate is for.
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

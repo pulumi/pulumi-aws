@@ -11,69 +11,160 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transfer
 {
     [PolicyResourceType("aws:transfer/certificate:Certificate")]
-    public sealed class Certificate : global::Pulumi.PolicyResource
+    public sealed class Certificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An date when the certificate becomes active
         /// </summary>
         [Input("activeDate")]
-        public string? ActiveDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActiveDate;
+
+        public string? ActiveDate => _mActiveDate.GetValue("activeDate");
 
         /// <summary>
         /// The ARN of the certificate
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The valid certificate file required for the transfer.
         /// </summary>
         [Input("certificate")]
-        public string? CertificateFile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateFile;
+
+        public string? CertificateFile => _mCertificateFile.GetValue("certificate");
 
         /// <summary>
         /// The optional list of certificate that make up the chain for the certificate that is being imported.
         /// </summary>
         [Input("certificateChain")]
-        public string? CertificateChain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+
+        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
 
         /// <summary>
         /// The unique identifier for the AS2 certificate
         /// </summary>
         [Input("certificateId")]
-        public string? CertificateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateId;
+
+        public string? CertificateId => _mCertificateId.GetValue("certificateId");
 
         /// <summary>
         /// A short description that helps identify the certificate.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// An date when the certificate becomes inactive
         /// </summary>
         [Input("inactiveDate")]
-        public string? InactiveDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInactiveDate;
+
+        public string? InactiveDate => _mInactiveDate.GetValue("inactiveDate");
 
         /// <summary>
         /// The private key associated with the certificate being imported.
         /// </summary>
         [Input("privateKey")]
-        public string? PrivateKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
+
+        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         /// </summary>
         [Input("usage")]
-        public string? Usage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsage;
+
+        public string? Usage => _mUsage.GetValue("usage");
+    }
+
+    [PolicyResourceType("aws:transfer/certificate:Certificate")]
+    public sealed class CertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The valid certificate file required for the transfer.
+        /// </summary>
+        [Input("certificate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateFile;
+
+        public string? CertificateFile => _mCertificateFile.GetValue("certificate");
+
+        /// <summary>
+        /// The optional list of certificate that make up the chain for the certificate that is being imported.
+        /// </summary>
+        [Input("certificateChain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+
+        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+
+        /// <summary>
+        /// A short description that helps identify the certificate.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The private key associated with the certificate being imported.
+        /// </summary>
+        [Input("privateKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
+
+        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        /// </summary>
+        [Input("usage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsage;
+
+        public string? Usage => _mUsage.GetValue("usage");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/userGroupMembership:UserGroupMembership")]
-    public sealed class UserGroupMembership : global::Pulumi.PolicyResource
+    public sealed class UserGroupMembership : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of IAM Groups to add the user to
         /// </summary>
         [Input("groups")]
-        public List<string>? Groups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
+
+        public List<string>? Groups => _mGroups.GetValue("groups");
 
         /// <summary>
         /// The name of the IAM User to add to groups
         /// </summary>
         [Input("user")]
-        public string? User;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
+    }
+
+    [PolicyResourceType("aws:iam/userGroupMembership:UserGroupMembership")]
+    public sealed class UserGroupMembershipArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of IAM Groups to add the user to
+        /// </summary>
+        [Input("groups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
+
+        public List<string>? Groups => _mGroups.GetValue("groups");
+
+        /// <summary>
+        /// The name of the IAM User to add to groups
+        /// </summary>
+        [Input("user")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")]
-    public sealed class SnapshotCreateVolumePermission : global::Pulumi.PolicyResource
+    public sealed class SnapshotCreateVolumePermission : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// A snapshot ID
         /// </summary>
         [Input("snapshotId")]
-        public string? SnapshotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
+
+        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+    }
+
+    [PolicyResourceType("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")]
+    public sealed class SnapshotCreateVolumePermissionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// A snapshot ID
+        /// </summary>
+        [Input("snapshotId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
+
+        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
     }
 }

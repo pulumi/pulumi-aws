@@ -11,66 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/pipeline:Pipeline")]
-    public sealed class Pipeline : global::Pulumi.PolicyResource
+    public sealed class Pipeline : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         /// </summary>
         [Input("parallelismConfiguration")]
-        public PipelineParallelismConfiguration? ParallelismConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineParallelismConfiguration> _mParallelismConfiguration;
+
+        public Outputs.PipelineParallelismConfiguration? ParallelismConfiguration => _mParallelismConfiguration.GetValue("parallelismConfiguration");
 
         /// <summary>
         /// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         /// </summary>
         [Input("pipelineDefinition")]
-        public string? PipelineDefinition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDefinition;
+
+        public string? PipelineDefinition => _mPipelineDefinition.GetValue("pipelineDefinition");
 
         /// <summary>
         /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         /// </summary>
         [Input("pipelineDefinitionS3Location")]
-        public PipelinePipelineDefinitionS3Location? PipelineDefinitionS3Location;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelinePipelineDefinitionS3Location> _mPipelineDefinitionS3Location;
+
+        public Outputs.PipelinePipelineDefinitionS3Location? PipelineDefinitionS3Location => _mPipelineDefinitionS3Location.GetValue("pipelineDefinitionS3Location");
 
         /// <summary>
         /// A description of the pipeline.
         /// </summary>
         [Input("pipelineDescription")]
-        public string? PipelineDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDescription;
+
+        public string? PipelineDescription => _mPipelineDescription.GetValue("pipelineDescription");
 
         /// <summary>
         /// The display name of the pipeline.
         /// </summary>
         [Input("pipelineDisplayName")]
-        public string? PipelineDisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDisplayName;
+
+        public string? PipelineDisplayName => _mPipelineDisplayName.GetValue("pipelineDisplayName");
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
         [Input("pipelineName")]
-        public string? PipelineName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineName;
+
+        public string? PipelineName => _mPipelineName.GetValue("pipelineName");
 
         /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/pipeline:Pipeline")]
+    public sealed class PipelineArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
+        /// </summary>
+        [Input("parallelismConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineParallelismConfigurationArgs> _mParallelismConfiguration;
+
+        public Inputs.PipelineParallelismConfigurationArgs? ParallelismConfiguration => _mParallelismConfiguration.GetValue("parallelismConfiguration");
+
+        /// <summary>
+        /// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
+        /// </summary>
+        [Input("pipelineDefinition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDefinition;
+
+        public string? PipelineDefinition => _mPipelineDefinition.GetValue("pipelineDefinition");
+
+        /// <summary>
+        /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        /// </summary>
+        [Input("pipelineDefinitionS3Location")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelinePipelineDefinitionS3LocationArgs> _mPipelineDefinitionS3Location;
+
+        public Inputs.PipelinePipelineDefinitionS3LocationArgs? PipelineDefinitionS3Location => _mPipelineDefinitionS3Location.GetValue("pipelineDefinitionS3Location");
+
+        /// <summary>
+        /// A description of the pipeline.
+        /// </summary>
+        [Input("pipelineDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDescription;
+
+        public string? PipelineDescription => _mPipelineDescription.GetValue("pipelineDescription");
+
+        /// <summary>
+        /// The display name of the pipeline.
+        /// </summary>
+        [Input("pipelineDisplayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDisplayName;
+
+        public string? PipelineDisplayName => _mPipelineDisplayName.GetValue("pipelineDisplayName");
+
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
+        [Input("pipelineName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineName;
+
+        public string? PipelineName => _mPipelineName.GetValue("pipelineName");
+
+        /// <summary>
+        /// The ARN of the IAM role the pipeline will execute as.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

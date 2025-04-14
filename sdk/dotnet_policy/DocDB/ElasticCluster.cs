@@ -11,73 +11,106 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DocDB
 {
     [PolicyResourceType("aws:docdb/elasticCluster:ElasticCluster")]
-    public sealed class ElasticCluster : global::Pulumi.PolicyResource
+    public sealed class ElasticCluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the Elastic DocumentDB cluster administrator
         /// </summary>
         [Input("adminUserName")]
-        public string? AdminUserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserName;
+
+        public string? AdminUserName => _mAdminUserName.GetValue("adminUserName");
 
         /// <summary>
         /// Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         /// </summary>
         [Input("adminUserPassword")]
-        public string? AdminUserPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserPassword;
+
+        public string? AdminUserPassword => _mAdminUserPassword.GetValue("adminUserPassword");
 
         /// <summary>
         /// ARN of the DocumentDB Elastic Cluster
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
         /// </summary>
         [Input("authType")]
-        public string? AuthType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
+
+        public string? AuthType => _mAuthType.GetValue("authType");
 
         /// <summary>
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         /// </summary>
         [Input("backupRetentionPeriod")]
-        public int? BackupRetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
+
+        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
 
         /// <summary>
         /// The DNS address of the DocDB instance
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Name of the Elastic DocumentDB cluster
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         /// </summary>
         [Input("preferredBackupWindow")]
-        public string? PreferredBackupWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
+
+        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
 
         /// <summary>
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         /// </summary>
         [Input("preferredMaintenanceWindow")]
-        public string? PreferredMaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
 
         /// <summary>
         /// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         /// </summary>
         [Input("shardCapacity")]
-        public int? ShardCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mShardCapacity;
+
+        public int? ShardCapacity => _mShardCapacity.GetValue("shardCapacity");
 
         /// <summary>
         /// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -85,30 +118,177 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// The following arguments are optional:
         /// </summary>
         [Input("shardCount")]
-        public int? ShardCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mShardCount;
+
+        public int? ShardCount => _mShardCount.GetValue("shardCount");
 
         /// <summary>
         /// IDs of subnets in which the Elastic DocumentDB Cluster operates.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ElasticClusterTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ElasticClusterTimeouts> _mTimeouts;
+
+        public Outputs.ElasticClusterTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+    }
+
+    [PolicyResourceType("aws:docdb/elasticCluster:ElasticCluster")]
+    public sealed class ElasticClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Elastic DocumentDB cluster administrator
+        /// </summary>
+        [Input("adminUserName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserName;
+
+        public string? AdminUserName => _mAdminUserName.GetValue("adminUserName");
+
+        /// <summary>
+        /// Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
+        /// </summary>
+        [Input("adminUserPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserPassword;
+
+        public string? AdminUserPassword => _mAdminUserPassword.GetValue("adminUserPassword");
+
+        /// <summary>
+        /// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
+        /// </summary>
+        [Input("authType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
+
+        public string? AuthType => _mAuthType.GetValue("authType");
+
+        /// <summary>
+        /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        /// </summary>
+        [Input("backupRetentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
+
+        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+
+        /// <summary>
+        /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Name of the Elastic DocumentDB cluster
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+        /// </summary>
+        [Input("preferredBackupWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
+
+        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+
+        /// <summary>
+        /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        /// </summary>
+        [Input("preferredMaintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+
+        /// <summary>
+        /// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
+        /// </summary>
+        [Input("shardCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mShardCapacity;
+
+        public int? ShardCapacity => _mShardCapacity.GetValue("shardCapacity");
+
+        /// <summary>
+        /// Number of shards assigned to the elastic cluster. Maximum is 32
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("shardCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mShardCount;
+
+        public int? ShardCount => _mShardCount.GetValue("shardCount");
+
+        /// <summary>
+        /// IDs of subnets in which the Elastic DocumentDB Cluster operates.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ElasticClusterTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ElasticClusterTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
     }
 }

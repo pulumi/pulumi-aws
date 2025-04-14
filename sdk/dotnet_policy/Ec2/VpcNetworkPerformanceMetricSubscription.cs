@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")]
-    public sealed class VpcNetworkPerformanceMetricSubscription : global::Pulumi.PolicyResource
+    public sealed class VpcNetworkPerformanceMetricSubscription : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         /// </summary>
         [Input("destination")]
-        public string? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
 
         /// <summary>
         /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         /// </summary>
         [Input("metric")]
-        public string? Metric;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetric;
+
+        public string? Metric => _mMetric.GetValue("metric");
 
         /// <summary>
         /// The data aggregation time for the subscription.
         /// </summary>
         [Input("period")]
-        public string? Period;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeriod;
+
+        public string? Period => _mPeriod.GetValue("period");
 
         /// <summary>
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         /// </summary>
         [Input("source")]
-        public string? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
+
+        public string? Source => _mSource.GetValue("source");
 
         /// <summary>
         /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         /// </summary>
         [Input("statistic")]
-        public string? Statistic;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatistic;
+
+        public string? Statistic => _mStatistic.GetValue("statistic");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")]
+    public sealed class VpcNetworkPerformanceMetricSubscriptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
+
+        /// <summary>
+        /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        /// </summary>
+        [Input("metric")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetric;
+
+        public string? Metric => _mMetric.GetValue("metric");
+
+        /// <summary>
+        /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
+
+        public string? Source => _mSource.GetValue("source");
+
+        /// <summary>
+        /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+        /// </summary>
+        [Input("statistic")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatistic;
+
+        public string? Statistic => _mStatistic.GetValue("statistic");
     }
 }

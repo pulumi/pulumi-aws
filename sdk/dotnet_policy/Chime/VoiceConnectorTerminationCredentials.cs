@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chime
 {
     [PolicyResourceType("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials")]
-    public sealed class VoiceConnectorTerminationCredentials : global::Pulumi.PolicyResource
+    public sealed class VoiceConnectorTerminationCredentials : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of termination SIP credentials.
         /// </summary>
         [Input("credentials")]
-        public List<VoiceConnectorTerminationCredentialsCredential>? Credentials;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VoiceConnectorTerminationCredentialsCredential>> _mCredentials;
+
+        public List<Outputs.VoiceConnectorTerminationCredentialsCredential>? Credentials => _mCredentials.GetValue("credentials");
 
         /// <summary>
         /// Amazon Chime Voice Connector ID.
         /// </summary>
         [Input("voiceConnectorId")]
-        public string? VoiceConnectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
+
+        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+    }
+
+    [PolicyResourceType("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials")]
+    public sealed class VoiceConnectorTerminationCredentialsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of termination SIP credentials.
+        /// </summary>
+        [Input("credentials")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs>> _mCredentials;
+
+        public List<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs>? Credentials => _mCredentials.GetValue("credentials");
+
+        /// <summary>
+        /// Amazon Chime Voice Connector ID.
+        /// </summary>
+        [Input("voiceConnectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
+
+        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
     }
 }

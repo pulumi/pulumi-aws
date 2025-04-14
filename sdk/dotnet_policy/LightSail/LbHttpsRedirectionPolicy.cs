@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")]
-    public sealed class LbHttpsRedirectionPolicy : global::Pulumi.PolicyResource
+    public sealed class LbHttpsRedirectionPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// The name of the load balancer to which you want to enable http to https redirection.
         /// </summary>
         [Input("lbName")]
-        public string? LbName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
+    }
+
+    [PolicyResourceType("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")]
+    public sealed class LbHttpsRedirectionPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// The name of the load balancer to which you want to enable http to https redirection.
+        /// </summary>
+        [Input("lbName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
     }
 }

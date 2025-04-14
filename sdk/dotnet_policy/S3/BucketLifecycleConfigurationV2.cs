@@ -11,33 +11,94 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")]
-    public sealed class BucketLifecycleConfigurationV2 : global::Pulumi.PolicyResource
+    public sealed class BucketLifecycleConfigurationV2 : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
         [Input("expectedBucketOwner")]
-        public string? ExpectedBucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
 
         /// <summary>
         /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
         [Input("rules")]
-        public List<BucketLifecycleConfigurationV2Rule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketLifecycleConfigurationV2Rule>> _mRules;
+
+        public List<Outputs.BucketLifecycleConfigurationV2Rule>? Rules => _mRules.GetValue("rules");
 
         [Input("timeouts")]
-        public BucketLifecycleConfigurationV2Timeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketLifecycleConfigurationV2Timeouts> _mTimeouts;
+
+        public Outputs.BucketLifecycleConfigurationV2Timeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         /// </summary>
         [Input("transitionDefaultMinimumObjectSize")]
-        public string? TransitionDefaultMinimumObjectSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionDefaultMinimumObjectSize;
+
+        public string? TransitionDefaultMinimumObjectSize => _mTransitionDefaultMinimumObjectSize.GetValue("transitionDefaultMinimumObjectSize");
+    }
+
+    [PolicyResourceType("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")]
+    public sealed class BucketLifecycleConfigurationV2Args : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the source S3 bucket you want Amazon S3 to monitor.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+
+        /// <summary>
+        /// List of configuration blocks describing the rules managing the replication. See below.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLifecycleConfigurationV2RuleArgs>> _mRules;
+
+        public List<Inputs.BucketLifecycleConfigurationV2RuleArgs>? Rules => _mRules.GetValue("rules");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationV2TimeoutsArgs> _mTimeouts;
+
+        public Inputs.BucketLifecycleConfigurationV2TimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        /// </summary>
+        [Input("transitionDefaultMinimumObjectSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionDefaultMinimumObjectSize;
+
+        public string? TransitionDefaultMinimumObjectSize => _mTransitionDefaultMinimumObjectSize.GetValue("transitionDefaultMinimumObjectSize");
     }
 }

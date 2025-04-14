@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
 {
     [PolicyResourceType("aws:route53recoveryreadiness/cell:Cell")]
-    public sealed class Cell : global::Pulumi.PolicyResource
+    public sealed class Cell : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the cell
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Unique name describing the cell.
@@ -25,30 +28,78 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// The following arguments are optional:
         /// </summary>
         [Input("cellName")]
-        public string? CellName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCellName;
+
+        public string? CellName => _mCellName.GetValue("cellName");
 
         /// <summary>
         /// List of cell arns to add as nested fault domains within this cell.
         /// </summary>
         [Input("cells")]
-        public List<string>? Cells;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCells;
+
+        public List<string>? Cells => _mCells.GetValue("cells");
 
         /// <summary>
         /// List of readiness scopes (recovery groups or cells) that contain this cell.
         /// </summary>
         [Input("parentReadinessScopes")]
-        public List<string>? ParentReadinessScopes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mParentReadinessScopes;
+
+        public List<string>? ParentReadinessScopes => _mParentReadinessScopes.GetValue("parentReadinessScopes");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:route53recoveryreadiness/cell:Cell")]
+    public sealed class CellArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique name describing the cell.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("cellName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCellName;
+
+        public string? CellName => _mCellName.GetValue("cellName");
+
+        /// <summary>
+        /// List of cell arns to add as nested fault domains within this cell.
+        /// </summary>
+        [Input("cells")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCells;
+
+        public List<string>? Cells => _mCells.GetValue("cells");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

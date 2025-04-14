@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Location
 {
     [PolicyResourceType("aws:location/map:Map")]
-    public sealed class Map : global::Pulumi.PolicyResource
+    public sealed class Map : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block with the map style selected from an available data provider. Detailed below.
         /// </summary>
         [Input("configuration")]
-        public MapConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MapConfiguration> _mConfiguration;
+
+        public Outputs.MapConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// The timestamp for when the map resource was created in ISO 8601 format.
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// An optional description for the map resource.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
         /// </summary>
         [Input("mapArn")]
-        public string? MapArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMapArn;
+
+        public string? MapArn => _mMapArn.GetValue("mapArn");
 
         /// <summary>
         /// The name for the map resource.
@@ -43,24 +55,78 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// The following arguments are optional:
         /// </summary>
         [Input("mapName")]
-        public string? MapName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMapName;
+
+        public string? MapName => _mMapName.GetValue("mapName");
 
         /// <summary>
         /// Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The timestamp for when the map resource was last updated in ISO 8601 format.
         /// </summary>
         [Input("updateTime")]
-        public string? UpdateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
+
+        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+    }
+
+    [PolicyResourceType("aws:location/map:Map")]
+    public sealed class MapArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block with the map style selected from an available data provider. Detailed below.
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MapConfigurationArgs> _mConfiguration;
+
+        public Inputs.MapConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// An optional description for the map resource.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name for the map resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("mapName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMapName;
+
+        public string? MapName => _mMapName.GetValue("mapName");
+
+        /// <summary>
+        /// Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

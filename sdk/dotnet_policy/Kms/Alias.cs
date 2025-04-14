@@ -11,37 +11,84 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kms
 {
     [PolicyResourceType("aws:kms/alias:Alias")]
-    public sealed class Alias : global::Pulumi.PolicyResource
+    public sealed class Alias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key alias.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates an unique alias beginning with the specified prefix.
         /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target key identifier.
         /// </summary>
         [Input("targetKeyArn")]
-        public string? TargetKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetKeyArn;
+
+        public string? TargetKeyArn => _mTargetKeyArn.GetValue("targetKeyArn");
 
         /// <summary>
         /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
         /// </summary>
         [Input("targetKeyId")]
-        public string? TargetKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetKeyId;
+
+        public string? TargetKeyId => _mTargetKeyId.GetValue("targetKeyId");
+    }
+
+    [PolicyResourceType("aws:kms/alias:Alias")]
+    public sealed class AliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates an unique alias beginning with the specified prefix.
+        /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
+        /// </summary>
+        [Input("targetKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetKeyId;
+
+        public string? TargetKeyId => _mTargetKeyId.GetValue("targetKeyId");
     }
 }

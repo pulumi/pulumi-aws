@@ -11,46 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.M2
 {
     [PolicyResourceType("aws:m2/environment:Environment")]
-    public sealed class Environment : global::Pulumi.PolicyResource
+    public sealed class Environment : global::Pulumi.PolicyResourceOutput
     {
         [Input("applyChangesDuringMaintenanceWindow")]
-        public bool? ApplyChangesDuringMaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyChangesDuringMaintenanceWindow;
+
+        public bool? ApplyChangesDuringMaintenanceWindow => _mApplyChangesDuringMaintenanceWindow.GetValue("applyChangesDuringMaintenanceWindow");
 
         /// <summary>
         /// ARN of the Environment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Engine type must be `microfocus` or `bluage`.
         /// </summary>
         [Input("engineType")]
-        public string? EngineType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
+
+        public string? EngineType => _mEngineType.GetValue("engineType");
 
         /// <summary>
         /// The specific version of the engine for the Environment.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The id of the Environment.
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         /// <summary>
         /// Force update the environment even if applications are running.
         /// </summary>
         [Input("forceUpdate")]
-        public bool? ForceUpdate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdate;
+
+        public bool? ForceUpdate => _mForceUpdate.GetValue("forceUpdate");
 
         [Input("highAvailabilityConfig")]
-        public EnvironmentHighAvailabilityConfig? HighAvailabilityConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentHighAvailabilityConfig> _mHighAvailabilityConfig;
+
+        public Outputs.EnvironmentHighAvailabilityConfig? HighAvailabilityConfig => _mHighAvailabilityConfig.GetValue("highAvailabilityConfig");
 
         /// <summary>
         /// M2 Instance Type.
@@ -58,63 +82,234 @@ namespace Pulumi.PolicyPacks.Aws.M2
         /// The following arguments are optional:
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// ARN of the KMS key to use for the Environment.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// ARN of the load balancer created by the Environment.
         /// </summary>
         [Input("loadBalancerArn")]
-        public string? LoadBalancerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerArn;
+
+        public string? LoadBalancerArn => _mLoadBalancerArn.GetValue("loadBalancerArn");
 
         /// <summary>
         /// Name of the runtime environment. Must be unique within the account.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         /// </summary>
         [Input("preferredMaintenanceWindow")]
-        public string? PreferredMaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
 
         /// <summary>
         /// Allow applications deployed to this environment to be publicly accessible.
         /// </summary>
         [Input("publiclyAccessible")]
-        public bool? PubliclyAccessible;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
 
         /// <summary>
         /// List of security group ids.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         [Input("storageConfiguration")]
-        public EnvironmentStorageConfiguration? StorageConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentStorageConfiguration> _mStorageConfiguration;
+
+        public Outputs.EnvironmentStorageConfiguration? StorageConfiguration => _mStorageConfiguration.GetValue("storageConfiguration");
 
         /// <summary>
         /// List of subnet ids to deploy environment to.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public EnvironmentTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentTimeouts> _mTimeouts;
+
+        public Outputs.EnvironmentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:m2/environment:Environment")]
+    public sealed class EnvironmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("applyChangesDuringMaintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyChangesDuringMaintenanceWindow;
+
+        public bool? ApplyChangesDuringMaintenanceWindow => _mApplyChangesDuringMaintenanceWindow.GetValue("applyChangesDuringMaintenanceWindow");
+
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Engine type must be `microfocus` or `bluage`.
+        /// </summary>
+        [Input("engineType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
+
+        public string? EngineType => _mEngineType.GetValue("engineType");
+
+        /// <summary>
+        /// The specific version of the engine for the Environment.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// Force update the environment even if applications are running.
+        /// </summary>
+        [Input("forceUpdate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdate;
+
+        public bool? ForceUpdate => _mForceUpdate.GetValue("forceUpdate");
+
+        [Input("highAvailabilityConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentHighAvailabilityConfigArgs> _mHighAvailabilityConfig;
+
+        public Inputs.EnvironmentHighAvailabilityConfigArgs? HighAvailabilityConfig => _mHighAvailabilityConfig.GetValue("highAvailabilityConfig");
+
+        /// <summary>
+        /// M2 Instance Type.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// ARN of the KMS key to use for the Environment.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Name of the runtime environment. Must be unique within the account.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
+        /// </summary>
+        [Input("preferredMaintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+
+        /// <summary>
+        /// Allow applications deployed to this environment to be publicly accessible.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+
+        /// <summary>
+        /// List of security group ids.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        [Input("storageConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentStorageConfigurationArgs> _mStorageConfiguration;
+
+        public Inputs.EnvironmentStorageConfigurationArgs? StorageConfiguration => _mStorageConfiguration.GetValue("storageConfiguration");
+
+        /// <summary>
+        /// List of subnet ids to deploy environment to.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentTimeoutsArgs> _mTimeouts;
+
+        public Inputs.EnvironmentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

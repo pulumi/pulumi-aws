@@ -11,98 +11,143 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/eventTarget:EventTarget")]
-    public sealed class EventTarget : global::Pulumi.PolicyResource
+    public sealed class EventTarget : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("appsyncTarget")]
-        public EventTargetAppsyncTarget? AppsyncTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetAppsyncTarget> _mAppsyncTarget;
+
+        public Outputs.EventTargetAppsyncTarget? AppsyncTarget => _mAppsyncTarget.GetValue("appsyncTarget");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("batchTarget")]
-        public EventTargetBatchTarget? BatchTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetBatchTarget> _mBatchTarget;
+
+        public Outputs.EventTargetBatchTarget? BatchTarget => _mBatchTarget.GetValue("batchTarget");
 
         /// <summary>
         /// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("deadLetterConfig")]
-        public EventTargetDeadLetterConfig? DeadLetterConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetDeadLetterConfig> _mDeadLetterConfig;
+
+        public Outputs.EventTargetDeadLetterConfig? DeadLetterConfig => _mDeadLetterConfig.GetValue("deadLetterConfig");
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("ecsTarget")]
-        public EventTargetEcsTarget? EcsTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetEcsTarget> _mEcsTarget;
+
+        public Outputs.EventTargetEcsTarget? EcsTarget => _mEcsTarget.GetValue("ecsTarget");
 
         /// <summary>
         /// The name or ARN of the event bus to associate with the rule.
         /// If you omit this, the `default` event bus is used.
         /// </summary>
         [Input("eventBusName")]
-        public string? EventBusName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
+
+        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
 
         /// <summary>
         /// Used to delete managed rules created by AWS. Defaults to `false`.
         /// </summary>
         [Input("forceDestroy")]
-        public bool? ForceDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
         /// </summary>
         [Input("httpTarget")]
-        public EventTargetHttpTarget? HttpTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetHttpTarget> _mHttpTarget;
+
+        public Outputs.EventTargetHttpTarget? HttpTarget => _mHttpTarget.GetValue("httpTarget");
 
         /// <summary>
         /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
         /// </summary>
         [Input("input")]
-        public string? Input;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInput;
+
+        public string? Input => _mInput.GetValue("input");
 
         /// <summary>
         /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
         /// </summary>
         [Input("inputPath")]
-        public string? InputPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputPath;
+
+        public string? InputPath => _mInputPath.GetValue("inputPath");
 
         /// <summary>
         /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         /// </summary>
         [Input("inputTransformer")]
-        public EventTargetInputTransformer? InputTransformer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetInputTransformer> _mInputTransformer;
+
+        public Outputs.EventTargetInputTransformer? InputTransformer => _mInputTransformer.GetValue("inputTransformer");
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("kinesisTarget")]
-        public EventTargetKinesisTarget? KinesisTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetKinesisTarget> _mKinesisTarget;
+
+        public Outputs.EventTargetKinesisTarget? KinesisTarget => _mKinesisTarget.GetValue("kinesisTarget");
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("redshiftTarget")]
-        public EventTargetRedshiftTarget? RedshiftTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetRedshiftTarget> _mRedshiftTarget;
+
+        public Outputs.EventTargetRedshiftTarget? RedshiftTarget => _mRedshiftTarget.GetValue("redshiftTarget");
 
         /// <summary>
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("retryPolicy")]
-        public EventTargetRetryPolicy? RetryPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetRetryPolicy> _mRetryPolicy;
+
+        public Outputs.EventTargetRetryPolicy? RetryPolicy => _mRetryPolicy.GetValue("retryPolicy");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The name of the rule you want to add targets to.
@@ -110,30 +155,232 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// The following arguments are optional:
         /// </summary>
         [Input("rule")]
-        public string? Rule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRule;
+
+        public string? Rule => _mRule.GetValue("rule");
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         /// </summary>
         [Input("runCommandTargets")]
-        public List<EventTargetRunCommandTarget>? RunCommandTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventTargetRunCommandTarget>> _mRunCommandTargets;
+
+        public List<Outputs.EventTargetRunCommandTarget>? RunCommandTargets => _mRunCommandTargets.GetValue("runCommandTargets");
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("sagemakerPipelineTarget")]
-        public EventTargetSagemakerPipelineTarget? SagemakerPipelineTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetSagemakerPipelineTarget> _mSagemakerPipelineTarget;
+
+        public Outputs.EventTargetSagemakerPipelineTarget? SagemakerPipelineTarget => _mSagemakerPipelineTarget.GetValue("sagemakerPipelineTarget");
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("sqsTarget")]
-        public EventTargetSqsTarget? SqsTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventTargetSqsTarget> _mSqsTarget;
+
+        public Outputs.EventTargetSqsTarget? SqsTarget => _mSqsTarget.GetValue("sqsTarget");
 
         /// <summary>
         /// The unique target assignment ID. If missing, will generate a random, unique id.
         /// </summary>
         [Input("targetId")]
-        public string? TargetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/eventTarget:EventTarget")]
+    public sealed class EventTargetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("appsyncTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetAppsyncTargetArgs> _mAppsyncTarget;
+
+        public Inputs.EventTargetAppsyncTargetArgs? AppsyncTarget => _mAppsyncTarget.GetValue("appsyncTarget");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the target.
+        /// </summary>
+        [Input("arn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("batchTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetBatchTargetArgs> _mBatchTarget;
+
+        public Inputs.EventTargetBatchTargetArgs? BatchTarget => _mBatchTarget.GetValue("batchTarget");
+
+        /// <summary>
+        /// Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("deadLetterConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetDeadLetterConfigArgs> _mDeadLetterConfig;
+
+        public Inputs.EventTargetDeadLetterConfigArgs? DeadLetterConfig => _mDeadLetterConfig.GetValue("deadLetterConfig");
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("ecsTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetEcsTargetArgs> _mEcsTarget;
+
+        public Inputs.EventTargetEcsTargetArgs? EcsTarget => _mEcsTarget.GetValue("ecsTarget");
+
+        /// <summary>
+        /// The name or ARN of the event bus to associate with the rule.
+        /// If you omit this, the `default` event bus is used.
+        /// </summary>
+        [Input("eventBusName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
+
+        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+
+        /// <summary>
+        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// </summary>
+        [Input("forceDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
+        /// </summary>
+        [Input("httpTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetHttpTargetArgs> _mHttpTarget;
+
+        public Inputs.EventTargetHttpTargetArgs? HttpTarget => _mHttpTarget.GetValue("httpTarget");
+
+        /// <summary>
+        /// Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
+        /// </summary>
+        [Input("input")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInput;
+
+        public string? Input => _mInput.GetValue("input");
+
+        /// <summary>
+        /// The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
+        /// </summary>
+        [Input("inputPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputPath;
+
+        public string? InputPath => _mInputPath.GetValue("inputPath");
+
+        /// <summary>
+        /// Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
+        /// </summary>
+        [Input("inputTransformer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetInputTransformerArgs> _mInputTransformer;
+
+        public Inputs.EventTargetInputTransformerArgs? InputTransformer => _mInputTransformer.GetValue("inputTransformer");
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("kinesisTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetKinesisTargetArgs> _mKinesisTarget;
+
+        public Inputs.EventTargetKinesisTargetArgs? KinesisTarget => _mKinesisTarget.GetValue("kinesisTarget");
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("redshiftTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetRedshiftTargetArgs> _mRedshiftTarget;
+
+        public Inputs.EventTargetRedshiftTargetArgs? RedshiftTarget => _mRedshiftTarget.GetValue("redshiftTarget");
+
+        /// <summary>
+        /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("retryPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetRetryPolicyArgs> _mRetryPolicy;
+
+        public Inputs.EventTargetRetryPolicyArgs? RetryPolicy => _mRetryPolicy.GetValue("retryPolicy");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("rule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRule;
+
+        public string? Rule => _mRule.GetValue("rule");
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
+        /// </summary>
+        [Input("runCommandTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventTargetRunCommandTargetArgs>> _mRunCommandTargets;
+
+        public List<Inputs.EventTargetRunCommandTargetArgs>? RunCommandTargets => _mRunCommandTargets.GetValue("runCommandTargets");
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("sagemakerPipelineTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetSagemakerPipelineTargetArgs> _mSagemakerPipelineTarget;
+
+        public Inputs.EventTargetSagemakerPipelineTargetArgs? SagemakerPipelineTarget => _mSagemakerPipelineTarget.GetValue("sagemakerPipelineTarget");
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("sqsTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventTargetSqsTargetArgs> _mSqsTarget;
+
+        public Inputs.EventTargetSqsTargetArgs? SqsTarget => _mSqsTarget.GetValue("sqsTarget");
+
+        /// <summary>
+        /// The unique target assignment ID. If missing, will generate a random, unique id.
+        /// </summary>
+        [Input("targetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
     }
 }

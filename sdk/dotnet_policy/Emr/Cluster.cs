@@ -11,52 +11,76 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Emr
 {
     [PolicyResourceType("aws:emr/cluster:Cluster")]
-    public sealed class Cluster : global::Pulumi.PolicyResource
+    public sealed class Cluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         /// </summary>
         [Input("additionalInfo")]
-        public string? AdditionalInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalInfo;
+
+        public string? AdditionalInfo => _mAdditionalInfo.GetValue("additionalInfo");
 
         /// <summary>
         /// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         /// </summary>
         [Input("applications")]
-        public List<string>? Applications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mApplications;
+
+        public List<string>? Applications => _mApplications.GetValue("applications");
 
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         /// </summary>
         [Input("autoTerminationPolicy")]
-        public ClusterAutoTerminationPolicy? AutoTerminationPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterAutoTerminationPolicy> _mAutoTerminationPolicy;
+
+        public Outputs.ClusterAutoTerminationPolicy? AutoTerminationPolicy => _mAutoTerminationPolicy.GetValue("autoTerminationPolicy");
 
         /// <summary>
         /// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         /// </summary>
         [Input("autoscalingRole")]
-        public string? AutoscalingRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingRole;
+
+        public string? AutoscalingRole => _mAutoscalingRole.GetValue("autoscalingRole");
 
         /// <summary>
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
         /// </summary>
         [Input("bootstrapActions")]
-        public List<ClusterBootstrapAction>? BootstrapActions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterBootstrapAction>> _mBootstrapActions;
+
+        public List<Outputs.ClusterBootstrapAction>? BootstrapActions => _mBootstrapActions.GetValue("bootstrapActions");
 
         [Input("clusterState")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("clusterState");
 
         /// <summary>
         /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         /// </summary>
         [Input("configurations")]
-        public string? Configurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurations;
+
+        public string? Configurations => _mConfigurations.GetValue("configurations");
 
         /// <summary>
         /// JSON string for supplying list of configurations for the EMR cluster.
@@ -94,115 +118,172 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// ```
         /// </summary>
         [Input("configurationsJson")]
-        public string? ConfigurationsJson;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationsJson;
+
+        public string? ConfigurationsJson => _mConfigurationsJson.GetValue("configurationsJson");
 
         /// <summary>
         /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         /// </summary>
         [Input("coreInstanceFleet")]
-        public ClusterCoreInstanceFleet? CoreInstanceFleet;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterCoreInstanceFleet> _mCoreInstanceFleet;
+
+        public Outputs.ClusterCoreInstanceFleet? CoreInstanceFleet => _mCoreInstanceFleet.GetValue("coreInstanceFleet");
 
         /// <summary>
         /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         /// </summary>
         [Input("coreInstanceGroup")]
-        public ClusterCoreInstanceGroup? CoreInstanceGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterCoreInstanceGroup> _mCoreInstanceGroup;
+
+        public Outputs.ClusterCoreInstanceGroup? CoreInstanceGroup => _mCoreInstanceGroup.GetValue("coreInstanceGroup");
 
         /// <summary>
         /// Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
         /// </summary>
         [Input("customAmiId")]
-        public string? CustomAmiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomAmiId;
+
+        public string? CustomAmiId => _mCustomAmiId.GetValue("customAmiId");
 
         /// <summary>
         /// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
         /// </summary>
         [Input("ebsRootVolumeSize")]
-        public int? EbsRootVolumeSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mEbsRootVolumeSize;
+
+        public int? EbsRootVolumeSize => _mEbsRootVolumeSize.GetValue("ebsRootVolumeSize");
 
         /// <summary>
         /// Attributes for the EC2 instances running the job flow. See below.
         /// </summary>
         [Input("ec2Attributes")]
-        public ClusterEc2Attributes? Ec2Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterEc2Attributes> _mEc2Attributes;
+
+        public Outputs.ClusterEc2Attributes? Ec2Attributes => _mEc2Attributes.GetValue("ec2Attributes");
 
         /// <summary>
         /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
         /// </summary>
         [Input("keepJobFlowAliveWhenNoSteps")]
-        public bool? KeepJobFlowAliveWhenNoSteps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mKeepJobFlowAliveWhenNoSteps;
+
+        public bool? KeepJobFlowAliveWhenNoSteps => _mKeepJobFlowAliveWhenNoSteps.GetValue("keepJobFlowAliveWhenNoSteps");
 
         /// <summary>
         /// Kerberos configuration for the cluster. See below.
         /// </summary>
         [Input("kerberosAttributes")]
-        public ClusterKerberosAttributes? KerberosAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterKerberosAttributes> _mKerberosAttributes;
+
+        public Outputs.ClusterKerberosAttributes? KerberosAttributes => _mKerberosAttributes.GetValue("kerberosAttributes");
 
         /// <summary>
         /// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
         /// </summary>
         [Input("listStepsStates")]
-        public List<string>? ListStepsStates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mListStepsStates;
+
+        public List<string>? ListStepsStates => _mListStepsStates.GetValue("listStepsStates");
 
         /// <summary>
         /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         /// </summary>
         [Input("logEncryptionKmsKeyId")]
-        public string? LogEncryptionKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogEncryptionKmsKeyId;
+
+        public string? LogEncryptionKmsKeyId => _mLogEncryptionKmsKeyId.GetValue("logEncryptionKmsKeyId");
 
         /// <summary>
         /// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         /// </summary>
         [Input("logUri")]
-        public string? LogUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogUri;
+
+        public string? LogUri => _mLogUri.GetValue("logUri");
 
         /// <summary>
         /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         /// </summary>
         [Input("masterInstanceFleet")]
-        public ClusterMasterInstanceFleet? MasterInstanceFleet;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterMasterInstanceFleet> _mMasterInstanceFleet;
+
+        public Outputs.ClusterMasterInstanceFleet? MasterInstanceFleet => _mMasterInstanceFleet.GetValue("masterInstanceFleet");
 
         /// <summary>
         /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         /// </summary>
         [Input("masterInstanceGroup")]
-        public ClusterMasterInstanceGroup? MasterInstanceGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterMasterInstanceGroup> _mMasterInstanceGroup;
+
+        public Outputs.ClusterMasterInstanceGroup? MasterInstanceGroup => _mMasterInstanceGroup.GetValue("masterInstanceGroup");
 
         /// <summary>
         /// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         /// </summary>
         [Input("masterPublicDns")]
-        public string? MasterPublicDns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPublicDns;
+
+        public string? MasterPublicDns => _mMasterPublicDns.GetValue("masterPublicDns");
 
         /// <summary>
         /// Name of the job flow.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The specified placement group configuration for an Amazon EMR cluster.
         /// </summary>
         [Input("placementGroupConfigs")]
-        public List<ClusterPlacementGroupConfig>? PlacementGroupConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterPlacementGroupConfig>> _mPlacementGroupConfigs;
+
+        public List<Outputs.ClusterPlacementGroupConfig>? PlacementGroupConfigs => _mPlacementGroupConfigs.GetValue("placementGroupConfigs");
 
         /// <summary>
         /// Release label for the Amazon EMR release.
         /// </summary>
         [Input("releaseLabel")]
-        public string? ReleaseLabel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
+
+        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
 
         /// <summary>
         /// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         /// </summary>
         [Input("scaleDownBehavior")]
-        public string? ScaleDownBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScaleDownBehavior;
+
+        public string? ScaleDownBehavior => _mScaleDownBehavior.GetValue("scaleDownBehavior");
 
         /// <summary>
         /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
         /// </summary>
         [Input("securityConfiguration")]
-        public string? SecurityConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
+
+        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
 
         /// <summary>
         /// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
@@ -210,48 +291,389 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// The following arguments are optional:
         /// </summary>
         [Input("serviceRole")]
-        public string? ServiceRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
 
         /// <summary>
         /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
         /// </summary>
         [Input("stepConcurrencyLevel")]
-        public int? StepConcurrencyLevel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStepConcurrencyLevel;
+
+        public int? StepConcurrencyLevel => _mStepConcurrencyLevel.GetValue("stepConcurrencyLevel");
 
         /// <summary>
         /// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         /// </summary>
         [Input("steps")]
-        public List<ClusterStep>? Steps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterStep>> _mSteps;
+
+        public List<Outputs.ClusterStep>? Steps => _mSteps.GetValue("steps");
 
         /// <summary>
         /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         /// </summary>
         [Input("terminationProtection")]
-        public bool? TerminationProtection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationProtection;
+
+        public bool? TerminationProtection => _mTerminationProtection.GetValue("terminationProtection");
 
         /// <summary>
         /// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         /// </summary>
         [Input("unhealthyNodeReplacement")]
-        public bool? UnhealthyNodeReplacement;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUnhealthyNodeReplacement;
+
+        public bool? UnhealthyNodeReplacement => _mUnhealthyNodeReplacement.GetValue("unhealthyNodeReplacement");
 
         /// <summary>
         /// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         /// </summary>
         [Input("visibleToAllUsers")]
-        public bool? VisibleToAllUsers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mVisibleToAllUsers;
+
+        public bool? VisibleToAllUsers => _mVisibleToAllUsers.GetValue("visibleToAllUsers");
+    }
+
+    [PolicyResourceType("aws:emr/cluster:Cluster")]
+    public sealed class ClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
+        /// </summary>
+        [Input("additionalInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalInfo;
+
+        public string? AdditionalInfo => _mAdditionalInfo.GetValue("additionalInfo");
+
+        /// <summary>
+        /// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
+        /// </summary>
+        [Input("applications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mApplications;
+
+        public List<string>? Applications => _mApplications.GetValue("applications");
+
+        /// <summary>
+        /// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+        /// </summary>
+        [Input("autoTerminationPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterAutoTerminationPolicyArgs> _mAutoTerminationPolicy;
+
+        public Inputs.ClusterAutoTerminationPolicyArgs? AutoTerminationPolicy => _mAutoTerminationPolicy.GetValue("autoTerminationPolicy");
+
+        /// <summary>
+        /// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+        /// </summary>
+        [Input("autoscalingRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingRole;
+
+        public string? AutoscalingRole => _mAutoscalingRole.GetValue("autoscalingRole");
+
+        /// <summary>
+        /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
+        /// </summary>
+        [Input("bootstrapActions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClusterBootstrapActionArgs>> _mBootstrapActions;
+
+        public List<Inputs.ClusterBootstrapActionArgs>? BootstrapActions => _mBootstrapActions.GetValue("bootstrapActions");
+
+        /// <summary>
+        /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        /// </summary>
+        [Input("configurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurations;
+
+        public string? Configurations => _mConfigurations.GetValue("configurations");
+
+        /// <summary>
+        /// JSON string for supplying list of configurations for the EMR cluster.
+        /// 
+        /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var cluster = new Aws.Emr.Cluster("cluster", new()
+        ///     {
+        ///         ConfigurationsJson = @"[
+        /// {
+        /// ""Classification"": ""hadoop-env"",
+        /// ""Configurations"": [
+        /// {
+        /// ""Classification"": ""export"",
+        /// ""Properties"": {
+        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        /// }
+        /// }
+        /// ],
+        /// ""Properties"": {}
+        /// }
+        /// ]
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        [Input("configurationsJson")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationsJson;
+
+        public string? ConfigurationsJson => _mConfigurationsJson.GetValue("configurationsJson");
+
+        /// <summary>
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
+        /// </summary>
+        [Input("coreInstanceFleet")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterCoreInstanceFleetArgs> _mCoreInstanceFleet;
+
+        public Inputs.ClusterCoreInstanceFleetArgs? CoreInstanceFleet => _mCoreInstanceFleet.GetValue("coreInstanceFleet");
+
+        /// <summary>
+        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
+        /// </summary>
+        [Input("coreInstanceGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterCoreInstanceGroupArgs> _mCoreInstanceGroup;
+
+        public Inputs.ClusterCoreInstanceGroupArgs? CoreInstanceGroup => _mCoreInstanceGroup.GetValue("coreInstanceGroup");
+
+        /// <summary>
+        /// Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
+        /// </summary>
+        [Input("customAmiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomAmiId;
+
+        public string? CustomAmiId => _mCustomAmiId.GetValue("customAmiId");
+
+        /// <summary>
+        /// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+        /// </summary>
+        [Input("ebsRootVolumeSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mEbsRootVolumeSize;
+
+        public int? EbsRootVolumeSize => _mEbsRootVolumeSize.GetValue("ebsRootVolumeSize");
+
+        /// <summary>
+        /// Attributes for the EC2 instances running the job flow. See below.
+        /// </summary>
+        [Input("ec2Attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterEc2AttributesArgs> _mEc2Attributes;
+
+        public Inputs.ClusterEc2AttributesArgs? Ec2Attributes => _mEc2Attributes.GetValue("ec2Attributes");
+
+        /// <summary>
+        /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
+        /// </summary>
+        [Input("keepJobFlowAliveWhenNoSteps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mKeepJobFlowAliveWhenNoSteps;
+
+        public bool? KeepJobFlowAliveWhenNoSteps => _mKeepJobFlowAliveWhenNoSteps.GetValue("keepJobFlowAliveWhenNoSteps");
+
+        /// <summary>
+        /// Kerberos configuration for the cluster. See below.
+        /// </summary>
+        [Input("kerberosAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterKerberosAttributesArgs> _mKerberosAttributes;
+
+        public Inputs.ClusterKerberosAttributesArgs? KerberosAttributes => _mKerberosAttributes.GetValue("kerberosAttributes");
+
+        /// <summary>
+        /// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+        /// </summary>
+        [Input("listStepsStates")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mListStepsStates;
+
+        public List<string>? ListStepsStates => _mListStepsStates.GetValue("listStepsStates");
+
+        /// <summary>
+        /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
+        /// </summary>
+        [Input("logEncryptionKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogEncryptionKmsKeyId;
+
+        public string? LogEncryptionKmsKeyId => _mLogEncryptionKmsKeyId.GetValue("logEncryptionKmsKeyId");
+
+        /// <summary>
+        /// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
+        /// </summary>
+        [Input("logUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogUri;
+
+        public string? LogUri => _mLogUri.GetValue("logUri");
+
+        /// <summary>
+        /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
+        /// </summary>
+        [Input("masterInstanceFleet")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterMasterInstanceFleetArgs> _mMasterInstanceFleet;
+
+        public Inputs.ClusterMasterInstanceFleetArgs? MasterInstanceFleet => _mMasterInstanceFleet.GetValue("masterInstanceFleet");
+
+        /// <summary>
+        /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
+        /// </summary>
+        [Input("masterInstanceGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterMasterInstanceGroupArgs> _mMasterInstanceGroup;
+
+        public Inputs.ClusterMasterInstanceGroupArgs? MasterInstanceGroup => _mMasterInstanceGroup.GetValue("masterInstanceGroup");
+
+        /// <summary>
+        /// Name of the job flow.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The specified placement group configuration for an Amazon EMR cluster.
+        /// </summary>
+        [Input("placementGroupConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClusterPlacementGroupConfigArgs>> _mPlacementGroupConfigs;
+
+        public List<Inputs.ClusterPlacementGroupConfigArgs>? PlacementGroupConfigs => _mPlacementGroupConfigs.GetValue("placementGroupConfigs");
+
+        /// <summary>
+        /// Release label for the Amazon EMR release.
+        /// </summary>
+        [Input("releaseLabel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
+
+        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
+
+        /// <summary>
+        /// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
+        /// </summary>
+        [Input("scaleDownBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScaleDownBehavior;
+
+        public string? ScaleDownBehavior => _mScaleDownBehavior.GetValue("scaleDownBehavior");
+
+        /// <summary>
+        /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
+        /// </summary>
+        [Input("securityConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
+
+        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+
+        /// <summary>
+        /// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("serviceRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+
+        /// <summary>
+        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        /// </summary>
+        [Input("stepConcurrencyLevel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStepConcurrencyLevel;
+
+        public int? StepConcurrencyLevel => _mStepConcurrencyLevel.GetValue("stepConcurrencyLevel");
+
+        /// <summary>
+        /// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
+        /// </summary>
+        [Input("steps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClusterStepArgs>> _mSteps;
+
+        public List<Inputs.ClusterStepArgs>? Steps => _mSteps.GetValue("steps");
+
+        /// <summary>
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+        /// </summary>
+        [Input("terminationProtection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationProtection;
+
+        public bool? TerminationProtection => _mTerminationProtection.GetValue("terminationProtection");
+
+        /// <summary>
+        /// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+        /// </summary>
+        [Input("unhealthyNodeReplacement")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUnhealthyNodeReplacement;
+
+        public bool? UnhealthyNodeReplacement => _mUnhealthyNodeReplacement.GetValue("unhealthyNodeReplacement");
+
+        /// <summary>
+        /// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
+        /// </summary>
+        [Input("visibleToAllUsers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mVisibleToAllUsers;
+
+        public bool? VisibleToAllUsers => _mVisibleToAllUsers.GetValue("visibleToAllUsers");
     }
 }

@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
 {
     [PolicyResourceType("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup")]
-    public sealed class RecoveryGroup : global::Pulumi.PolicyResource
+    public sealed class RecoveryGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the recovery group
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// List of cell arns to add as nested fault domains within this recovery group
         /// </summary>
         [Input("cells")]
-        public List<string>? Cells;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCells;
+
+        public List<string>? Cells => _mCells.GetValue("cells");
 
         /// <summary>
         /// A unique name describing the recovery group.
@@ -31,18 +37,60 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// The following argument are optional:
         /// </summary>
         [Input("recoveryGroupName")]
-        public string? RecoveryGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecoveryGroupName;
+
+        public string? RecoveryGroupName => _mRecoveryGroupName.GetValue("recoveryGroupName");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup")]
+    public sealed class RecoveryGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of cell arns to add as nested fault domains within this recovery group
+        /// </summary>
+        [Input("cells")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCells;
+
+        public List<string>? Cells => _mCells.GetValue("cells");
+
+        /// <summary>
+        /// A unique name describing the recovery group.
+        /// 
+        /// The following argument are optional:
+        /// </summary>
+        [Input("recoveryGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecoveryGroupName;
+
+        public string? RecoveryGroupName => _mRecoveryGroupName.GetValue("recoveryGroupName");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

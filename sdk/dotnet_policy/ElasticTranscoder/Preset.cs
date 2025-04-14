@@ -11,69 +11,193 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
 {
     [PolicyResourceType("aws:elastictranscoder/preset:Preset")]
-    public sealed class Preset : global::Pulumi.PolicyResource
+    public sealed class Preset : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Audio parameters object (documented below).
         /// </summary>
         [Input("audio")]
-        public PresetAudio? Audio;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PresetAudio> _mAudio;
+
+        public Outputs.PresetAudio? Audio => _mAudio.GetValue("audio");
 
         /// <summary>
         /// Codec options for the audio parameters (documented below)
         /// </summary>
         [Input("audioCodecOptions")]
-        public PresetAudioCodecOptions? AudioCodecOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PresetAudioCodecOptions> _mAudioCodecOptions;
+
+        public Outputs.PresetAudioCodecOptions? AudioCodecOptions => _mAudioCodecOptions.GetValue("audioCodecOptions");
 
         /// <summary>
         /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         /// </summary>
         [Input("container")]
-        public string? Container;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainer;
+
+        public string? Container => _mContainer.GetValue("container");
 
         /// <summary>
         /// A description of the preset (maximum 255 characters)
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the preset. (maximum 40 characters)
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Thumbnail parameters object (documented below)
         /// </summary>
         [Input("thumbnails")]
-        public PresetThumbnails? Thumbnails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PresetThumbnails> _mThumbnails;
+
+        public Outputs.PresetThumbnails? Thumbnails => _mThumbnails.GetValue("thumbnails");
 
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Video parameters object (documented below)
         /// </summary>
         [Input("video")]
-        public PresetVideo? Video;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PresetVideo> _mVideo;
+
+        public Outputs.PresetVideo? Video => _mVideo.GetValue("video");
 
         /// <summary>
         /// Codec options for the video parameters
         /// </summary>
         [Input("videoCodecOptions")]
-        public Dictionary<string, string>? VideoCodecOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVideoCodecOptions;
+
+        public Dictionary<string, string>? VideoCodecOptions => _mVideoCodecOptions.GetValue("videoCodecOptions");
 
         /// <summary>
         /// Watermark parameters for the video parameters (documented below)
         /// </summary>
         [Input("videoWatermarks")]
-        public List<PresetVideoWatermark>? VideoWatermarks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PresetVideoWatermark>> _mVideoWatermarks;
+
+        public List<Outputs.PresetVideoWatermark>? VideoWatermarks => _mVideoWatermarks.GetValue("videoWatermarks");
+    }
+
+    [PolicyResourceType("aws:elastictranscoder/preset:Preset")]
+    public sealed class PresetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Audio parameters object (documented below).
+        /// </summary>
+        [Input("audio")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PresetAudioArgs> _mAudio;
+
+        public Inputs.PresetAudioArgs? Audio => _mAudio.GetValue("audio");
+
+        /// <summary>
+        /// Codec options for the audio parameters (documented below)
+        /// </summary>
+        [Input("audioCodecOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PresetAudioCodecOptionsArgs> _mAudioCodecOptions;
+
+        public Inputs.PresetAudioCodecOptionsArgs? AudioCodecOptions => _mAudioCodecOptions.GetValue("audioCodecOptions");
+
+        /// <summary>
+        /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
+        /// </summary>
+        [Input("container")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainer;
+
+        public string? Container => _mContainer.GetValue("container");
+
+        /// <summary>
+        /// A description of the preset (maximum 255 characters)
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the preset. (maximum 40 characters)
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Thumbnail parameters object (documented below)
+        /// </summary>
+        [Input("thumbnails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PresetThumbnailsArgs> _mThumbnails;
+
+        public Inputs.PresetThumbnailsArgs? Thumbnails => _mThumbnails.GetValue("thumbnails");
+
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// Video parameters object (documented below)
+        /// </summary>
+        [Input("video")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PresetVideoArgs> _mVideo;
+
+        public Inputs.PresetVideoArgs? Video => _mVideo.GetValue("video");
+
+        /// <summary>
+        /// Codec options for the video parameters
+        /// </summary>
+        [Input("videoCodecOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVideoCodecOptions;
+
+        public Dictionary<string, string>? VideoCodecOptions => _mVideoCodecOptions.GetValue("videoCodecOptions");
+
+        /// <summary>
+        /// Watermark parameters for the video parameters (documented below)
+        /// </summary>
+        [Input("videoWatermarks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PresetVideoWatermarkArgs>> _mVideoWatermarks;
+
+        public List<Inputs.PresetVideoWatermarkArgs>? VideoWatermarks => _mVideoWatermarks.GetValue("videoWatermarks");
     }
 }

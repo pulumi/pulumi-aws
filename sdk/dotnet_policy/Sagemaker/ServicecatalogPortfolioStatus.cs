@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus")]
-    public sealed class ServicecatalogPortfolioStatus : global::Pulumi.PolicyResource
+    public sealed class ServicecatalogPortfolioStatus : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus")]
+    public sealed class ServicecatalogPortfolioStatusArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
     }
 }

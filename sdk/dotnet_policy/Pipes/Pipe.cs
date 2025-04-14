@@ -11,91 +11,133 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pipes
 {
     [PolicyResourceType("aws:pipes/pipe:Pipe")]
-    public sealed class Pipe : global::Pulumi.PolicyResource
+    public sealed class Pipe : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of this pipe.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description of the pipe. At most 512 characters.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         /// </summary>
         [Input("desiredState")]
-        public string? DesiredState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
+
+        public string? DesiredState => _mDesiredState.GetValue("desiredState");
 
         /// <summary>
         /// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         /// </summary>
         [Input("enrichment")]
-        public string? Enrichment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnrichment;
+
+        public string? Enrichment => _mEnrichment.GetValue("enrichment");
 
         /// <summary>
         /// Parameters to configure enrichment for your pipe. Detailed below.
         /// </summary>
         [Input("enrichmentParameters")]
-        public PipeEnrichmentParameters? EnrichmentParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeEnrichmentParameters> _mEnrichmentParameters;
+
+        public Outputs.PipeEnrichmentParameters? EnrichmentParameters => _mEnrichmentParameters.GetValue("enrichmentParameters");
 
         /// <summary>
         /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         /// </summary>
         [Input("kmsKeyIdentifier")]
-        public string? KmsKeyIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
+
+        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
 
         /// <summary>
         /// Logging configuration settings for the pipe. Detailed below.
         /// </summary>
         [Input("logConfiguration")]
-        public PipeLogConfiguration? LogConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeLogConfiguration> _mLogConfiguration;
+
+        public Outputs.PipeLogConfiguration? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
 
         /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// ARN of the role that allows the pipe to send data to the target.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
         [Input("source")]
-        public string? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
+
+        public string? Source => _mSource.GetValue("source");
 
         /// <summary>
         /// Parameters to configure a source for the pipe. Detailed below.
         /// </summary>
         [Input("sourceParameters")]
-        public PipeSourceParameters? SourceParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeSourceParameters> _mSourceParameters;
+
+        public Outputs.PipeSourceParameters? SourceParameters => _mSourceParameters.GetValue("sourceParameters");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Target resource of the pipe (typically an ARN).
@@ -103,12 +145,150 @@ namespace Pulumi.PolicyPacks.Aws.Pipes
         /// The following arguments are optional:
         /// </summary>
         [Input("target")]
-        public string? Target;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
+
+        public string? Target => _mTarget.GetValue("target");
 
         /// <summary>
         /// Parameters to configure a target for your pipe. Detailed below.
         /// </summary>
         [Input("targetParameters")]
-        public PipeTargetParameters? TargetParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeTargetParameters> _mTargetParameters;
+
+        public Outputs.PipeTargetParameters? TargetParameters => _mTargetParameters.GetValue("targetParameters");
+    }
+
+    [PolicyResourceType("aws:pipes/pipe:Pipe")]
+    public sealed class PipeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the pipe. At most 512 characters.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+        /// </summary>
+        [Input("desiredState")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
+
+        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+
+        /// <summary>
+        /// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
+        /// </summary>
+        [Input("enrichment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnrichment;
+
+        public string? Enrichment => _mEnrichment.GetValue("enrichment");
+
+        /// <summary>
+        /// Parameters to configure enrichment for your pipe. Detailed below.
+        /// </summary>
+        [Input("enrichmentParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeEnrichmentParametersArgs> _mEnrichmentParameters;
+
+        public Inputs.PipeEnrichmentParametersArgs? EnrichmentParameters => _mEnrichmentParameters.GetValue("enrichmentParameters");
+
+        /// <summary>
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
+
+        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+
+        /// <summary>
+        /// Logging configuration settings for the pipe. Detailed below.
+        /// </summary>
+        [Input("logConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeLogConfigurationArgs> _mLogConfiguration;
+
+        public Inputs.PipeLogConfigurationArgs? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+
+        /// <summary>
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// ARN of the role that allows the pipe to send data to the target.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
+
+        public string? Source => _mSource.GetValue("source");
+
+        /// <summary>
+        /// Parameters to configure a source for the pipe. Detailed below.
+        /// </summary>
+        [Input("sourceParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersArgs> _mSourceParameters;
+
+        public Inputs.PipeSourceParametersArgs? SourceParameters => _mSourceParameters.GetValue("sourceParameters");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Target resource of the pipe (typically an ARN).
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("target")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
+
+        public string? Target => _mTarget.GetValue("target");
+
+        /// <summary>
+        /// Parameters to configure a target for your pipe. Detailed below.
+        /// </summary>
+        [Input("targetParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersArgs> _mTargetParameters;
+
+        public Inputs.PipeTargetParametersArgs? TargetParameters => _mTargetParameters.GetValue("targetParameters");
     }
 }

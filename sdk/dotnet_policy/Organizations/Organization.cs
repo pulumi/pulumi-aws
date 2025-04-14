@@ -11,72 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Organizations
 {
     [PolicyResourceType("aws:organizations/organization:Organization")]
-    public sealed class Organization : global::Pulumi.PolicyResource
+    public sealed class Organization : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         /// </summary>
         [Input("accounts")]
-        public List<OrganizationAccount>? Accounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationAccount>> _mAccounts;
+
+        public List<Outputs.OrganizationAccount>? Accounts => _mAccounts.GetValue("accounts");
 
         /// <summary>
         /// ARN of the root
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         /// </summary>
         [Input("awsServiceAccessPrincipals")]
-        public List<string>? AwsServiceAccessPrincipals;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAwsServiceAccessPrincipals;
+
+        public List<string>? AwsServiceAccessPrincipals => _mAwsServiceAccessPrincipals.GetValue("awsServiceAccessPrincipals");
 
         /// <summary>
         /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
         [Input("enabledPolicyTypes")]
-        public List<string>? EnabledPolicyTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledPolicyTypes;
+
+        public List<string>? EnabledPolicyTypes => _mEnabledPolicyTypes.GetValue("enabledPolicyTypes");
 
         /// <summary>
         /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         /// </summary>
         [Input("featureSet")]
-        public string? FeatureSet;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureSet;
+
+        public string? FeatureSet => _mFeatureSet.GetValue("featureSet");
 
         /// <summary>
         /// ARN of the master account
         /// </summary>
         [Input("masterAccountArn")]
-        public string? MasterAccountArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountArn;
+
+        public string? MasterAccountArn => _mMasterAccountArn.GetValue("masterAccountArn");
 
         /// <summary>
         /// Email address of the master account
         /// </summary>
         [Input("masterAccountEmail")]
-        public string? MasterAccountEmail;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountEmail;
+
+        public string? MasterAccountEmail => _mMasterAccountEmail.GetValue("masterAccountEmail");
 
         /// <summary>
         /// Identifier of the master account
         /// </summary>
         [Input("masterAccountId")]
-        public string? MasterAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountId;
+
+        public string? MasterAccountId => _mMasterAccountId.GetValue("masterAccountId");
 
         /// <summary>
         /// Name of the master account
         /// </summary>
         [Input("masterAccountName")]
-        public string? MasterAccountName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountName;
+
+        public string? MasterAccountName => _mMasterAccountName.GetValue("masterAccountName");
 
         /// <summary>
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         /// </summary>
         [Input("nonMasterAccounts")]
-        public List<OrganizationNonMasterAccount>? NonMasterAccounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationNonMasterAccount>> _mNonMasterAccounts;
+
+        public List<Outputs.OrganizationNonMasterAccount>? NonMasterAccounts => _mNonMasterAccounts.GetValue("nonMasterAccounts");
 
         /// <summary>
         /// List of organization roots. All elements have these attributes:
         /// </summary>
         [Input("roots")]
-        public List<OrganizationRoot>? Roots;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationRoot>> _mRoots;
+
+        public List<Outputs.OrganizationRoot>? Roots => _mRoots.GetValue("roots");
+    }
+
+    [PolicyResourceType("aws:organizations/organization:Organization")]
+    public sealed class OrganizationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
+        /// </summary>
+        [Input("awsServiceAccessPrincipals")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAwsServiceAccessPrincipals;
+
+        public List<string>? AwsServiceAccessPrincipals => _mAwsServiceAccessPrincipals.GetValue("awsServiceAccessPrincipals");
+
+        /// <summary>
+        /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// </summary>
+        [Input("enabledPolicyTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledPolicyTypes;
+
+        public List<string>? EnabledPolicyTypes => _mEnabledPolicyTypes.GetValue("enabledPolicyTypes");
+
+        /// <summary>
+        /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
+        /// </summary>
+        [Input("featureSet")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureSet;
+
+        public string? FeatureSet => _mFeatureSet.GetValue("featureSet");
     }
 }

@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/route:Route")]
-    public sealed class Route : global::Pulumi.PolicyResource
+    public sealed class Route : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         /// </summary>
         [Input("carrierGatewayId")]
-        public string? CarrierGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCarrierGatewayId;
+
+        public string? CarrierGatewayId => _mCarrierGatewayId.GetValue("carrierGatewayId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a core network.
         /// </summary>
         [Input("coreNetworkArn")]
-        public string? CoreNetworkArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
+
+        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
 
         /// <summary>
         /// The destination CIDR block.
         /// </summary>
         [Input("destinationCidrBlock")]
-        public string? DestinationCidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
 
         /// <summary>
         /// The destination IPv6 CIDR block.
         /// </summary>
         [Input("destinationIpv6CidrBlock")]
-        public string? DestinationIpv6CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationIpv6CidrBlock;
+
+        public string? DestinationIpv6CidrBlock => _mDestinationIpv6CidrBlock.GetValue("destinationIpv6CidrBlock");
 
         /// <summary>
         /// The ID of a managed prefix list destination.
@@ -43,55 +55,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// One of the following target arguments must be supplied:
         /// </summary>
         [Input("destinationPrefixListId")]
-        public string? DestinationPrefixListId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPrefixListId;
+
+        public string? DestinationPrefixListId => _mDestinationPrefixListId.GetValue("destinationPrefixListId");
 
         /// <summary>
         /// Identifier of a VPC Egress Only Internet Gateway.
         /// </summary>
         [Input("egressOnlyGatewayId")]
-        public string? EgressOnlyGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEgressOnlyGatewayId;
+
+        public string? EgressOnlyGatewayId => _mEgressOnlyGatewayId.GetValue("egressOnlyGatewayId");
 
         /// <summary>
         /// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         /// </summary>
         [Input("gatewayId")]
-        public string? GatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
+
+        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
 
         /// <summary>
         /// Identifier of an EC2 instance.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
 
         /// <summary>
         /// The AWS account ID of the owner of the EC2 instance.
         /// </summary>
         [Input("instanceOwnerId")]
-        public string? InstanceOwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceOwnerId;
+
+        public string? InstanceOwnerId => _mInstanceOwnerId.GetValue("instanceOwnerId");
 
         /// <summary>
         /// Identifier of a Outpost local gateway.
         /// </summary>
         [Input("localGatewayId")]
-        public string? LocalGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayId;
+
+        public string? LocalGatewayId => _mLocalGatewayId.GetValue("localGatewayId");
 
         /// <summary>
         /// Identifier of a VPC NAT gateway.
         /// </summary>
         [Input("natGatewayId")]
-        public string? NatGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNatGatewayId;
+
+        public string? NatGatewayId => _mNatGatewayId.GetValue("natGatewayId");
 
         /// <summary>
         /// Identifier of an EC2 network interface.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         /// </summary>
         [Input("origin")]
-        public string? Origin;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrigin;
+
+        public string? Origin => _mOrigin.GetValue("origin");
 
         /// <summary>
         /// The ID of the routing table.
@@ -99,25 +138,37 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// One of the following destination arguments must be supplied:
         /// </summary>
         [Input("routeTableId")]
-        public string? RouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
 
         /// <summary>
         /// The state of the route - `active` or `blackhole`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Identifier of an EC2 Transit Gateway.
         /// </summary>
         [Input("transitGatewayId")]
-        public string? TransitGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
 
         /// <summary>
         /// Identifier of a VPC Endpoint.
         /// </summary>
         [Input("vpcEndpointId")]
-        public string? VpcEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
 
         /// <summary>
         /// Identifier of a VPC peering connection.
@@ -125,6 +176,145 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
-        public string? VpcPeeringConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcPeeringConnectionId;
+
+        public string? VpcPeeringConnectionId => _mVpcPeeringConnectionId.GetValue("vpcPeeringConnectionId");
+    }
+
+    [PolicyResourceType("aws:ec2/route:Route")]
+    public sealed class RouteArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        /// </summary>
+        [Input("carrierGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCarrierGatewayId;
+
+        public string? CarrierGatewayId => _mCarrierGatewayId.GetValue("carrierGatewayId");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a core network.
+        /// </summary>
+        [Input("coreNetworkArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
+
+        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
+
+        /// <summary>
+        /// The destination CIDR block.
+        /// </summary>
+        [Input("destinationCidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+
+        /// <summary>
+        /// The destination IPv6 CIDR block.
+        /// </summary>
+        [Input("destinationIpv6CidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationIpv6CidrBlock;
+
+        public string? DestinationIpv6CidrBlock => _mDestinationIpv6CidrBlock.GetValue("destinationIpv6CidrBlock");
+
+        /// <summary>
+        /// The ID of a managed prefix list destination.
+        /// 
+        /// One of the following target arguments must be supplied:
+        /// </summary>
+        [Input("destinationPrefixListId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPrefixListId;
+
+        public string? DestinationPrefixListId => _mDestinationPrefixListId.GetValue("destinationPrefixListId");
+
+        /// <summary>
+        /// Identifier of a VPC Egress Only Internet Gateway.
+        /// </summary>
+        [Input("egressOnlyGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEgressOnlyGatewayId;
+
+        public string? EgressOnlyGatewayId => _mEgressOnlyGatewayId.GetValue("egressOnlyGatewayId");
+
+        /// <summary>
+        /// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
+        /// </summary>
+        [Input("gatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
+
+        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
+
+        /// <summary>
+        /// Identifier of a Outpost local gateway.
+        /// </summary>
+        [Input("localGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayId;
+
+        public string? LocalGatewayId => _mLocalGatewayId.GetValue("localGatewayId");
+
+        /// <summary>
+        /// Identifier of a VPC NAT gateway.
+        /// </summary>
+        [Input("natGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNatGatewayId;
+
+        public string? NatGatewayId => _mNatGatewayId.GetValue("natGatewayId");
+
+        /// <summary>
+        /// Identifier of an EC2 network interface.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+
+        /// <summary>
+        /// The ID of the routing table.
+        /// 
+        /// One of the following destination arguments must be supplied:
+        /// </summary>
+        [Input("routeTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+
+        /// <summary>
+        /// Identifier of an EC2 Transit Gateway.
+        /// </summary>
+        [Input("transitGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+
+        /// <summary>
+        /// Identifier of a VPC Endpoint.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+
+        /// <summary>
+        /// Identifier of a VPC peering connection.
+        /// 
+        /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
+        /// </summary>
+        [Input("vpcPeeringConnectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcPeeringConnectionId;
+
+        public string? VpcPeeringConnectionId => _mVpcPeeringConnectionId.GetValue("vpcPeeringConnectionId");
     }
 }

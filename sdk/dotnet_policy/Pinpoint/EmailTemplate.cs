@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/emailTemplate:EmailTemplate")]
-    public sealed class EmailTemplate : global::Pulumi.PolicyResource
+    public sealed class EmailTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the message template.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         /// </summary>
         [Input("emailTemplates")]
-        public List<EmailTemplateEmailTemplate>? EmailTemplates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EmailTemplateEmailTemplate>> _mEmailTemplates;
+
+        public List<Outputs.EmailTemplateEmailTemplate>? EmailTemplates => _mEmailTemplates.GetValue("emailTemplates");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         /// </summary>
         [Input("templateName")]
-        public string? TemplateName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
+
+        public string? TemplateName => _mTemplateName.GetValue("templateName");
+    }
+
+    [PolicyResourceType("aws:pinpoint/emailTemplate:EmailTemplate")]
+    public sealed class EmailTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+        /// </summary>
+        [Input("emailTemplates")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EmailTemplateEmailTemplateArgs>> _mEmailTemplates;
+
+        public List<Inputs.EmailTemplateEmailTemplateArgs>? EmailTemplates => _mEmailTemplates.GetValue("emailTemplates");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+        /// </summary>
+        [Input("templateName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
+
+        public string? TemplateName => _mTemplateName.GetValue("templateName");
     }
 }

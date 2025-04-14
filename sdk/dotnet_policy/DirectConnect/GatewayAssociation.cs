@@ -11,60 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/gatewayAssociation:GatewayAssociation")]
-    public sealed class GatewayAssociation : global::Pulumi.PolicyResource
+    public sealed class GatewayAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         /// </summary>
         [Input("allowedPrefixes")]
-        public List<string>? AllowedPrefixes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedPrefixes;
+
+        public List<string>? AllowedPrefixes => _mAllowedPrefixes.GetValue("allowedPrefixes");
 
         /// <summary>
         /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for single account Direct Connect gateway associations.
         /// </summary>
         [Input("associatedGatewayId")]
-        public string? AssociatedGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayId;
+
+        public string? AssociatedGatewayId => _mAssociatedGatewayId.GetValue("associatedGatewayId");
 
         /// <summary>
         /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for cross-account Direct Connect gateway associations.
         /// </summary>
         [Input("associatedGatewayOwnerAccountId")]
-        public string? AssociatedGatewayOwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayOwnerAccountId;
+
+        public string? AssociatedGatewayOwnerAccountId => _mAssociatedGatewayOwnerAccountId.GetValue("associatedGatewayOwnerAccountId");
 
         /// <summary>
         /// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         /// </summary>
         [Input("associatedGatewayType")]
-        public string? AssociatedGatewayType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayType;
+
+        public string? AssociatedGatewayType => _mAssociatedGatewayType.GetValue("associatedGatewayType");
 
         /// <summary>
         /// The ID of the Direct Connect gateway association.
         /// </summary>
         [Input("dxGatewayAssociationId")]
-        public string? DxGatewayAssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayAssociationId;
+
+        public string? DxGatewayAssociationId => _mDxGatewayAssociationId.GetValue("dxGatewayAssociationId");
 
         /// <summary>
         /// The ID of the Direct Connect gateway.
         /// </summary>
         [Input("dxGatewayId")]
-        public string? DxGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayId;
+
+        public string? DxGatewayId => _mDxGatewayId.GetValue("dxGatewayId");
 
         /// <summary>
         /// The ID of the AWS account that owns the Direct Connect gateway.
         /// </summary>
         [Input("dxGatewayOwnerAccountId")]
-        public string? DxGatewayOwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayOwnerAccountId;
+
+        public string? DxGatewayOwnerAccountId => _mDxGatewayOwnerAccountId.GetValue("dxGatewayOwnerAccountId");
 
         /// <summary>
         /// The ID of the Direct Connect gateway association proposal.
         /// Used for cross-account Direct Connect gateway associations.
         /// </summary>
         [Input("proposalId")]
-        public string? ProposalId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProposalId;
+
+        public string? ProposalId => _mProposalId.GetValue("proposalId");
 
         [Input("vpnGatewayId")]
-        public string? VpnGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+    }
+
+    [PolicyResourceType("aws:directconnect/gatewayAssociation:GatewayAssociation")]
+    public sealed class GatewayAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+        /// </summary>
+        [Input("allowedPrefixes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedPrefixes;
+
+        public List<string>? AllowedPrefixes => _mAllowedPrefixes.GetValue("allowedPrefixes");
+
+        /// <summary>
+        /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
+        /// Used for single account Direct Connect gateway associations.
+        /// </summary>
+        [Input("associatedGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayId;
+
+        public string? AssociatedGatewayId => _mAssociatedGatewayId.GetValue("associatedGatewayId");
+
+        /// <summary>
+        /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
+        /// Used for cross-account Direct Connect gateway associations.
+        /// </summary>
+        [Input("associatedGatewayOwnerAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedGatewayOwnerAccountId;
+
+        public string? AssociatedGatewayOwnerAccountId => _mAssociatedGatewayOwnerAccountId.GetValue("associatedGatewayOwnerAccountId");
+
+        /// <summary>
+        /// The ID of the Direct Connect gateway.
+        /// </summary>
+        [Input("dxGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDxGatewayId;
+
+        public string? DxGatewayId => _mDxGatewayId.GetValue("dxGatewayId");
+
+        /// <summary>
+        /// The ID of the Direct Connect gateway association proposal.
+        /// Used for cross-account Direct Connect gateway associations.
+        /// </summary>
+        [Input("proposalId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProposalId;
+
+        public string? ProposalId => _mProposalId.GetValue("proposalId");
+
+        [Input("vpnGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
     }
 }

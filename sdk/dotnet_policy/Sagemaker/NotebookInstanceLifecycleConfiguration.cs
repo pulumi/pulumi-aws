@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]
-    public sealed class NotebookInstanceLifecycleConfiguration : global::Pulumi.PolicyResource
+    public sealed class NotebookInstanceLifecycleConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         /// </summary>
         [Input("onCreate")]
-        public string? OnCreate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnCreate;
+
+        public string? OnCreate => _mOnCreate.GetValue("onCreate");
 
         /// <summary>
         /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
         /// </summary>
         [Input("onStart")]
-        public string? OnStart;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnStart;
+
+        public string? OnStart => _mOnStart.GetValue("onStart");
+    }
+
+    [PolicyResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]
+    public sealed class NotebookInstanceLifecycleConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
+        /// </summary>
+        [Input("onCreate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnCreate;
+
+        public string? OnCreate => _mOnCreate.GetValue("onCreate");
+
+        /// <summary>
+        /// A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
+        /// </summary>
+        [Input("onStart")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnStart;
+
+        public string? OnStart => _mOnStart.GetValue("onStart");
     }
 }

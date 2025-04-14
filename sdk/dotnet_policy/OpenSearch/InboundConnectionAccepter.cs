@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")]
-    public sealed class InboundConnectionAccepter : global::Pulumi.PolicyResource
+    public sealed class InboundConnectionAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the ID of the connection to accept.
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
 
         /// <summary>
         /// Status of the connection request.
         /// </summary>
         [Input("connectionStatus")]
-        public string? ConnectionStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionStatus;
+
+        public string? ConnectionStatus => _mConnectionStatus.GetValue("connectionStatus");
+    }
+
+    [PolicyResourceType("aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")]
+    public sealed class InboundConnectionAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the ID of the connection to accept.
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
     }
 }

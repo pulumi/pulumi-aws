@@ -11,48 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ControlTower
 {
     [PolicyResourceType("aws:controltower/landingZone:LandingZone")]
-    public sealed class LandingZone : global::Pulumi.PolicyResource
+    public sealed class LandingZone : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the landing zone.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The drift status summary of the landing zone.
         /// </summary>
         [Input("driftStatuses")]
-        public List<LandingZoneDriftStatus>? DriftStatuses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LandingZoneDriftStatus>> _mDriftStatuses;
+
+        public List<Outputs.LandingZoneDriftStatus>? DriftStatuses => _mDriftStatuses.GetValue("driftStatuses");
 
         /// <summary>
         /// The latest available version of the landing zone.
         /// </summary>
         [Input("latestAvailableVersion")]
-        public string? LatestAvailableVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLatestAvailableVersion;
+
+        public string? LatestAvailableVersion => _mLatestAvailableVersion.GetValue("latestAvailableVersion");
 
         /// <summary>
         /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         /// </summary>
         [Input("manifestJson")]
-        public string? ManifestJson;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManifestJson;
+
+        public string? ManifestJson => _mManifestJson.GetValue("manifestJson");
 
         /// <summary>
         /// Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The landing zone version.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:controltower/landingZone:LandingZone")]
+    public sealed class LandingZoneArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
+        /// </summary>
+        [Input("manifestJson")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManifestJson;
+
+        public string? ManifestJson => _mManifestJson.GetValue("manifestJson");
+
+        /// <summary>
+        /// Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The landing zone version.
+        /// </summary>
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.StorageGateway
 {
     [PolicyResourceType("aws:storagegateway/cache:Cache")]
-    public sealed class Cache : global::Pulumi.PolicyResource
+    public sealed class Cache : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         /// </summary>
         [Input("diskId")]
-        public string? DiskId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskId;
+
+        public string? DiskId => _mDiskId.GetValue("diskId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
         [Input("gatewayArn")]
-        public string? GatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+    }
+
+    [PolicyResourceType("aws:storagegateway/cache:Cache")]
+    public sealed class CacheArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        /// </summary>
+        [Input("diskId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskId;
+
+        public string? DiskId => _mDiskId.GetValue("diskId");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the gateway.
+        /// </summary>
+        [Input("gatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
     }
 }

@@ -11,21 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Shield
 {
     [PolicyResourceType("aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation")]
-    public sealed class DrtAccessLogBucketAssociation : global::Pulumi.PolicyResource
+    public sealed class DrtAccessLogBucketAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon S3 bucket that contains the logs that you want to share.
         /// </summary>
         [Input("logBucket")]
-        public string? LogBucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogBucket;
+
+        public string? LogBucket => _mLogBucket.GetValue("logBucket");
 
         /// <summary>
         /// The ID of the Role Arn association used for allowing Shield DRT Access.
         /// </summary>
         [Input("roleArnAssociationId")]
-        public string? RoleArnAssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArnAssociationId;
+
+        public string? RoleArnAssociationId => _mRoleArnAssociationId.GetValue("roleArnAssociationId");
 
         [Input("timeouts")]
-        public DrtAccessLogBucketAssociationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DrtAccessLogBucketAssociationTimeouts> _mTimeouts;
+
+        public Outputs.DrtAccessLogBucketAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation")]
+    public sealed class DrtAccessLogBucketAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon S3 bucket that contains the logs that you want to share.
+        /// </summary>
+        [Input("logBucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogBucket;
+
+        public string? LogBucket => _mLogBucket.GetValue("logBucket");
+
+        /// <summary>
+        /// The ID of the Role Arn association used for allowing Shield DRT Access.
+        /// </summary>
+        [Input("roleArnAssociationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArnAssociationId;
+
+        public string? RoleArnAssociationId => _mRoleArnAssociationId.GetValue("roleArnAssociationId");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DrtAccessLogBucketAssociationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.DrtAccessLogBucketAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

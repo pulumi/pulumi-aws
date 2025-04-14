@@ -11,57 +11,142 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DeviceFarm
 {
     [PolicyResourceType("aws:devicefarm/devicePool:DevicePool")]
-    public sealed class DevicePool : global::Pulumi.PolicyResource
+    public sealed class DevicePool : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name of this Device Pool
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The device pool's description.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The number of devices that Device Farm can add to your device pool.
         /// </summary>
         [Input("maxDevices")]
-        public int? MaxDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxDevices;
+
+        public int? MaxDevices => _mMaxDevices.GetValue("maxDevices");
 
         /// <summary>
         /// The name of the Device Pool
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ARN of the project for the device pool.
         /// </summary>
         [Input("projectArn")]
-        public string? ProjectArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
+
+        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
 
         /// <summary>
         /// The device pool's rules. See Rule.
         /// </summary>
         [Input("rules")]
-        public List<DevicePoolRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DevicePoolRule>> _mRules;
+
+        public List<Outputs.DevicePoolRule>? Rules => _mRules.GetValue("rules");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:devicefarm/devicePool:DevicePool")]
+    public sealed class DevicePoolArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The device pool's description.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The number of devices that Device Farm can add to your device pool.
+        /// </summary>
+        [Input("maxDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxDevices;
+
+        public int? MaxDevices => _mMaxDevices.GetValue("maxDevices");
+
+        /// <summary>
+        /// The name of the Device Pool
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ARN of the project for the device pool.
+        /// </summary>
+        [Input("projectArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
+
+        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
+
+        /// <summary>
+        /// The device pool's rules. See Rule.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DevicePoolRuleArgs>> _mRules;
+
+        public List<Inputs.DevicePoolRuleArgs>? Rules => _mRules.GetValue("rules");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

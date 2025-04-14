@@ -11,78 +11,139 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DocDB
 {
     [PolicyResourceType("aws:docdb/clusterSnapshot:ClusterSnapshot")]
-    public sealed class ClusterSnapshot : global::Pulumi.PolicyResource
+    public sealed class ClusterSnapshot : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
         /// </summary>
         [Input("availabilityZones")]
-        public List<string>? AvailabilityZones;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
 
         /// <summary>
         /// The DocumentDB Cluster Identifier from which to take the snapshot.
         /// </summary>
         [Input("dbClusterIdentifier")]
-        public string? DbClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
+
+        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
         /// </summary>
         [Input("dbClusterSnapshotArn")]
-        public string? DbClusterSnapshotArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterSnapshotArn;
+
+        public string? DbClusterSnapshotArn => _mDbClusterSnapshotArn.GetValue("dbClusterSnapshotArn");
 
         /// <summary>
         /// The Identifier for the snapshot.
         /// </summary>
         [Input("dbClusterSnapshotIdentifier")]
-        public string? DbClusterSnapshotIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterSnapshotIdentifier;
+
+        public string? DbClusterSnapshotIdentifier => _mDbClusterSnapshotIdentifier.GetValue("dbClusterSnapshotIdentifier");
 
         /// <summary>
         /// Specifies the name of the database engine.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// Version of the database engine for this DocumentDB cluster snapshot.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Port that the DocumentDB cluster was listening on at the time of the snapshot.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         [Input("snapshotType")]
-        public string? SnapshotType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotType;
+
+        public string? SnapshotType => _mSnapshotType.GetValue("snapshotType");
 
         [Input("sourceDbClusterSnapshotArn")]
-        public string? SourceDbClusterSnapshotArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbClusterSnapshotArn;
+
+        public string? SourceDbClusterSnapshotArn => _mSourceDbClusterSnapshotArn.GetValue("sourceDbClusterSnapshotArn");
 
         /// <summary>
         /// The status of this DocumentDB Cluster Snapshot.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Specifies whether the DocumentDB cluster snapshot is encrypted.
         /// </summary>
         [Input("storageEncrypted")]
-        public bool? StorageEncrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
+
+        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
 
         /// <summary>
         /// The VPC ID associated with the DocumentDB cluster snapshot.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:docdb/clusterSnapshot:ClusterSnapshot")]
+    public sealed class ClusterSnapshotArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The DocumentDB Cluster Identifier from which to take the snapshot.
+        /// </summary>
+        [Input("dbClusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
+
+        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+
+        /// <summary>
+        /// The Identifier for the snapshot.
+        /// </summary>
+        [Input("dbClusterSnapshotIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterSnapshotIdentifier;
+
+        public string? DbClusterSnapshotIdentifier => _mDbClusterSnapshotIdentifier.GetValue("dbClusterSnapshotIdentifier");
     }
 }

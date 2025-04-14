@@ -11,73 +11,192 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/identityPool:IdentityPool")]
-    public sealed class IdentityPool : global::Pulumi.PolicyResource
+    public sealed class IdentityPool : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Enables or disables the classic / basic authentication flow. Default is `false`.
         /// </summary>
         [Input("allowClassicFlow")]
-        public bool? AllowClassicFlow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowClassicFlow;
+
+        public bool? AllowClassicFlow => _mAllowClassicFlow.GetValue("allowClassicFlow");
 
         /// <summary>
         /// Whether the identity pool supports unauthenticated logins or not.
         /// </summary>
         [Input("allowUnauthenticatedIdentities")]
-        public bool? AllowUnauthenticatedIdentities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowUnauthenticatedIdentities;
+
+        public bool? AllowUnauthenticatedIdentities => _mAllowUnauthenticatedIdentities.GetValue("allowUnauthenticatedIdentities");
 
         /// <summary>
         /// The ARN of the identity pool.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// An array of Amazon Cognito Identity user pools and their client IDs.
         /// </summary>
         [Input("cognitoIdentityProviders")]
-        public List<IdentityPoolCognitoIdentityProvider>? CognitoIdentityProviders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IdentityPoolCognitoIdentityProvider>> _mCognitoIdentityProviders;
+
+        public List<Outputs.IdentityPoolCognitoIdentityProvider>? CognitoIdentityProviders => _mCognitoIdentityProviders.GetValue("cognitoIdentityProviders");
 
         /// <summary>
         /// The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
         /// backend and the Cognito service to communicate about the developer provider.
         /// </summary>
         [Input("developerProviderName")]
-        public string? DeveloperProviderName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeveloperProviderName;
+
+        public string? DeveloperProviderName => _mDeveloperProviderName.GetValue("developerProviderName");
 
         /// <summary>
         /// The Cognito Identity Pool name.
         /// </summary>
         [Input("identityPoolName")]
-        public string? IdentityPoolName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolName;
+
+        public string? IdentityPoolName => _mIdentityPoolName.GetValue("identityPoolName");
 
         /// <summary>
         /// Set of OpendID Connect provider ARNs.
         /// </summary>
         [Input("openidConnectProviderArns")]
-        public List<string>? OpenidConnectProviderArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOpenidConnectProviderArns;
+
+        public List<string>? OpenidConnectProviderArns => _mOpenidConnectProviderArns.GetValue("openidConnectProviderArns");
 
         /// <summary>
         /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         /// </summary>
         [Input("samlProviderArns")]
-        public List<string>? SamlProviderArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSamlProviderArns;
+
+        public List<string>? SamlProviderArns => _mSamlProviderArns.GetValue("samlProviderArns");
 
         /// <summary>
         /// Key-Value pairs mapping provider names to provider app IDs.
         /// </summary>
         [Input("supportedLoginProviders")]
-        public Dictionary<string, string>? SupportedLoginProviders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mSupportedLoginProviders;
+
+        public Dictionary<string, string>? SupportedLoginProviders => _mSupportedLoginProviders.GetValue("supportedLoginProviders");
 
         /// <summary>
         /// A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:cognito/identityPool:IdentityPool")]
+    public sealed class IdentityPoolArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Enables or disables the classic / basic authentication flow. Default is `false`.
+        /// </summary>
+        [Input("allowClassicFlow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowClassicFlow;
+
+        public bool? AllowClassicFlow => _mAllowClassicFlow.GetValue("allowClassicFlow");
+
+        /// <summary>
+        /// Whether the identity pool supports unauthenticated logins or not.
+        /// </summary>
+        [Input("allowUnauthenticatedIdentities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowUnauthenticatedIdentities;
+
+        public bool? AllowUnauthenticatedIdentities => _mAllowUnauthenticatedIdentities.GetValue("allowUnauthenticatedIdentities");
+
+        /// <summary>
+        /// An array of Amazon Cognito Identity user pools and their client IDs.
+        /// </summary>
+        [Input("cognitoIdentityProviders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IdentityPoolCognitoIdentityProviderArgs>> _mCognitoIdentityProviders;
+
+        public List<Inputs.IdentityPoolCognitoIdentityProviderArgs>? CognitoIdentityProviders => _mCognitoIdentityProviders.GetValue("cognitoIdentityProviders");
+
+        /// <summary>
+        /// The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
+        /// backend and the Cognito service to communicate about the developer provider.
+        /// </summary>
+        [Input("developerProviderName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeveloperProviderName;
+
+        public string? DeveloperProviderName => _mDeveloperProviderName.GetValue("developerProviderName");
+
+        /// <summary>
+        /// The Cognito Identity Pool name.
+        /// </summary>
+        [Input("identityPoolName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolName;
+
+        public string? IdentityPoolName => _mIdentityPoolName.GetValue("identityPoolName");
+
+        /// <summary>
+        /// Set of OpendID Connect provider ARNs.
+        /// </summary>
+        [Input("openidConnectProviderArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOpenidConnectProviderArns;
+
+        public List<string>? OpenidConnectProviderArns => _mOpenidConnectProviderArns.GetValue("openidConnectProviderArns");
+
+        /// <summary>
+        /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        /// </summary>
+        [Input("samlProviderArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSamlProviderArns;
+
+        public List<string>? SamlProviderArns => _mSamlProviderArns.GetValue("samlProviderArns");
+
+        /// <summary>
+        /// Key-Value pairs mapping provider names to provider app IDs.
+        /// </summary>
+        [Input("supportedLoginProviders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mSupportedLoginProviders;
+
+        public Dictionary<string, string>? SupportedLoginProviders => _mSupportedLoginProviders.GetValue("supportedLoginProviders");
+
+        /// <summary>
+        /// A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

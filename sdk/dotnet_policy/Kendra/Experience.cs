@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kendra
 {
     [PolicyResourceType("aws:kendra/experience:Experience")]
-    public sealed class Experience : global::Pulumi.PolicyResource
+    public sealed class Experience : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Experience.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         /// </summary>
         [Input("configuration")]
-        public ExperienceConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ExperienceConfiguration> _mConfiguration;
+
+        public Outputs.ExperienceConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// A description for your Amazon Kendra experience.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         /// </summary>
         [Input("endpoints")]
-        public List<ExperienceEndpoint>? Endpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExperienceEndpoint>> _mEndpoints;
+
+        public List<Outputs.ExperienceEndpoint>? Endpoints => _mEndpoints.GetValue("endpoints");
 
         /// <summary>
         /// The unique identifier of the experience.
         /// </summary>
         [Input("experienceId")]
-        public string? ExperienceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExperienceId;
+
+        public string? ExperienceId => _mExperienceId.GetValue("experienceId");
 
         /// <summary>
         /// The identifier of the index for your Amazon Kendra experience.
         /// </summary>
         [Input("indexId")]
-        public string? IndexId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
+
+        public string? IndexId => _mIndexId.GetValue("indexId");
 
         /// <summary>
         /// A name for your Amazon Kendra experience.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
@@ -61,12 +82,69 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// The following arguments are optional:
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The current processing status of your Amazon Kendra experience.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:kendra/experience:Experience")]
+    public sealed class ExperienceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ExperienceConfigurationArgs> _mConfiguration;
+
+        public Inputs.ExperienceConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// A description for your Amazon Kendra experience.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The identifier of the index for your Amazon Kendra experience.
+        /// </summary>
+        [Input("indexId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
+
+        public string? IndexId => _mIndexId.GetValue("indexId");
+
+        /// <summary>
+        /// A name for your Amazon Kendra experience.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
     }
 }

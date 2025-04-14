@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
 {
     [PolicyResourceType("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")]
-    public sealed class ConfigurationTemplate : global::Pulumi.PolicyResource
+    public sealed class ConfigurationTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// name of the application to associate with this configuration template
         /// </summary>
         [Input("application")]
-        public string? Application;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
+
+        public string? Application => _mApplication.GetValue("application");
 
         /// <summary>
         /// Short description of the Template
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ID of the environment used with this configuration template
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         /// <summary>
         /// A unique name for this Template.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Option settings to configure the new Environment. These
@@ -43,13 +55,80 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// below in Option Settings
         /// </summary>
         [Input("settings")]
-        public List<ConfigurationTemplateSetting>? Settings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConfigurationTemplateSetting>> _mSettings;
+
+        public List<Outputs.ConfigurationTemplateSetting>? Settings => _mSettings.GetValue("settings");
 
         /// <summary>
         /// A solution stack to base your Template
         /// off of. Example stacks can be found in the [Amazon API documentation][1]
         /// </summary>
         [Input("solutionStackName")]
-        public string? SolutionStackName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSolutionStackName;
+
+        public string? SolutionStackName => _mSolutionStackName.GetValue("solutionStackName");
+    }
+
+    [PolicyResourceType("aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")]
+    public sealed class ConfigurationTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// name of the application to associate with this configuration template
+        /// </summary>
+        [Input("application")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
+
+        public string? Application => _mApplication.GetValue("application");
+
+        /// <summary>
+        /// Short description of the Template
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ID of the environment used with this configuration template
+        /// </summary>
+        [Input("environmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+
+        /// <summary>
+        /// A unique name for this Template.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Option settings to configure the new Environment. These
+        /// override specific values that are set as defaults. The format is detailed
+        /// below in Option Settings
+        /// </summary>
+        [Input("settings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ConfigurationTemplateSettingArgs>> _mSettings;
+
+        public List<Inputs.ConfigurationTemplateSettingArgs>? Settings => _mSettings.GetValue("settings");
+
+        /// <summary>
+        /// A solution stack to base your Template
+        /// off of. Example stacks can be found in the [Amazon API documentation][1]
+        /// </summary>
+        [Input("solutionStackName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSolutionStackName;
+
+        public string? SolutionStackName => _mSolutionStackName.GetValue("solutionStackName");
     }
 }

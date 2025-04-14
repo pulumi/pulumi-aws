@@ -11,54 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transfer
 {
     [PolicyResourceType("aws:transfer/access:Access")]
-    public sealed class Access : global::Pulumi.PolicyResource
+    public sealed class Access : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
         /// </summary>
         [Input("externalId")]
-        public string? ExternalId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
+
+        public string? ExternalId => _mExternalId.GetValue("externalId");
 
         /// <summary>
         /// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
         /// </summary>
         [Input("homeDirectory")]
-        public string? HomeDirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeDirectory;
+
+        public string? HomeDirectory => _mHomeDirectory.GetValue("homeDirectory");
 
         /// <summary>
         /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
         /// </summary>
         [Input("homeDirectoryMappings")]
-        public List<AccessHomeDirectoryMapping>? HomeDirectoryMappings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AccessHomeDirectoryMapping>> _mHomeDirectoryMappings;
+
+        public List<Outputs.AccessHomeDirectoryMapping>? HomeDirectoryMappings => _mHomeDirectoryMappings.GetValue("homeDirectoryMappings");
 
         /// <summary>
         /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         /// </summary>
         [Input("homeDirectoryType")]
-        public string? HomeDirectoryType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeDirectoryType;
+
+        public string? HomeDirectoryType => _mHomeDirectoryType.GetValue("homeDirectoryType");
 
         /// <summary>
         /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
         /// </summary>
         [Input("posixProfile")]
-        public AccessPosixProfile? PosixProfile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPosixProfile> _mPosixProfile;
+
+        public Outputs.AccessPosixProfile? PosixProfile => _mPosixProfile.GetValue("posixProfile");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
-        public string? Role;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
 
         /// <summary>
         /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId")]
-        public string? ServerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
+
+        public string? ServerId => _mServerId.GetValue("serverId");
+    }
+
+    [PolicyResourceType("aws:transfer/access:Access")]
+    public sealed class AccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        /// </summary>
+        [Input("externalId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
+
+        public string? ExternalId => _mExternalId.GetValue("externalId");
+
+        /// <summary>
+        /// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        /// </summary>
+        [Input("homeDirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeDirectory;
+
+        public string? HomeDirectory => _mHomeDirectory.GetValue("homeDirectory");
+
+        /// <summary>
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        /// </summary>
+        [Input("homeDirectoryMappings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AccessHomeDirectoryMappingArgs>> _mHomeDirectoryMappings;
+
+        public List<Inputs.AccessHomeDirectoryMappingArgs>? HomeDirectoryMappings => _mHomeDirectoryMappings.GetValue("homeDirectoryMappings");
+
+        /// <summary>
+        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// </summary>
+        [Input("homeDirectoryType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeDirectoryType;
+
+        public string? HomeDirectoryType => _mHomeDirectoryType.GetValue("homeDirectoryType");
+
+        /// <summary>
+        /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        /// </summary>
+        [Input("posixProfile")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessPosixProfileArgs> _mPosixProfile;
+
+        public Inputs.AccessPosixProfileArgs? PosixProfile => _mPosixProfile.GetValue("posixProfile");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// </summary>
+        [Input("role")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
+
+        /// <summary>
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// </summary>
+        [Input("serverId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
+
+        public string? ServerId => _mServerId.GetValue("serverId");
     }
 }

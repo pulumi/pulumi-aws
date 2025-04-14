@@ -11,62 +11,149 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/bgpPeer:BgpPeer")]
-    public sealed class BgpPeer : global::Pulumi.PolicyResource
+    public sealed class BgpPeer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         /// </summary>
         [Input("addressFamily")]
-        public string? AddressFamily;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
 
         /// <summary>
         /// The IPv4 CIDR address to use to send traffic to Amazon.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         /// </summary>
         [Input("amazonAddress")]
-        public string? AmazonAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
+
+        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
 
         /// <summary>
         /// The Direct Connect endpoint on which the BGP peer terminates.
         /// </summary>
         [Input("awsDevice")]
-        public string? AwsDevice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsDevice;
+
+        public string? AwsDevice => _mAwsDevice.GetValue("awsDevice");
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         /// </summary>
         [Input("bgpAsn")]
-        public int? BgpAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
+
+        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
 
         /// <summary>
         /// The authentication key for BGP configuration.
         /// </summary>
         [Input("bgpAuthKey")]
-        public string? BgpAuthKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
+
+        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
 
         /// <summary>
         /// The ID of the BGP peer.
         /// </summary>
         [Input("bgpPeerId")]
-        public string? BgpPeerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpPeerId;
+
+        public string? BgpPeerId => _mBgpPeerId.GetValue("bgpPeerId");
 
         /// <summary>
         /// The Up/Down state of the BGP peer.
         /// </summary>
         [Input("bgpStatus")]
-        public string? BgpStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpStatus;
+
+        public string? BgpStatus => _mBgpStatus.GetValue("bgpStatus");
 
         /// <summary>
         /// The IPv4 CIDR destination address to which Amazon should send traffic.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         /// </summary>
         [Input("customerAddress")]
-        public string? CustomerAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
+
+        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
 
         /// <summary>
         /// The ID of the Direct Connect virtual interface on which to create the BGP peer.
         /// </summary>
         [Input("virtualInterfaceId")]
-        public string? VirtualInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualInterfaceId;
+
+        public string? VirtualInterfaceId => _mVirtualInterfaceId.GetValue("virtualInterfaceId");
+    }
+
+    [PolicyResourceType("aws:directconnect/bgpPeer:BgpPeer")]
+    public sealed class BgpPeerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// </summary>
+        [Input("addressFamily")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+
+        /// <summary>
+        /// The IPv4 CIDR address to use to send traffic to Amazon.
+        /// Required for IPv4 BGP peers on public virtual interfaces.
+        /// </summary>
+        [Input("amazonAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
+
+        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
+
+        /// <summary>
+        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// </summary>
+        [Input("bgpAsn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
+
+        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+
+        /// <summary>
+        /// The authentication key for BGP configuration.
+        /// </summary>
+        [Input("bgpAuthKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
+
+        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
+
+        /// <summary>
+        /// The IPv4 CIDR destination address to which Amazon should send traffic.
+        /// Required for IPv4 BGP peers on public virtual interfaces.
+        /// </summary>
+        [Input("customerAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
+
+        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
+
+        /// <summary>
+        /// The ID of the Direct Connect virtual interface on which to create the BGP peer.
+        /// </summary>
+        [Input("virtualInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualInterfaceId;
+
+        public string? VirtualInterfaceId => _mVirtualInterfaceId.GetValue("virtualInterfaceId");
     }
 }

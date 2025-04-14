@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/authenticationProfile:AuthenticationProfile")]
-    public sealed class AuthenticationProfile : global::Pulumi.PolicyResource
+    public sealed class AuthenticationProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
         /// </summary>
         [Input("authenticationProfileContent")]
-        public string? AuthenticationProfileContent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProfileContent;
+
+        public string? AuthenticationProfileContent => _mAuthenticationProfileContent.GetValue("authenticationProfileContent");
 
         /// <summary>
         /// The name of the authentication profile.
         /// </summary>
         [Input("authenticationProfileName")]
-        public string? AuthenticationProfileName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProfileName;
+
+        public string? AuthenticationProfileName => _mAuthenticationProfileName.GetValue("authenticationProfileName");
+    }
+
+    [PolicyResourceType("aws:redshift/authenticationProfile:AuthenticationProfile")]
+    public sealed class AuthenticationProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
+        /// </summary>
+        [Input("authenticationProfileContent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProfileContent;
+
+        public string? AuthenticationProfileContent => _mAuthenticationProfileContent.GetValue("authenticationProfileContent");
+
+        /// <summary>
+        /// The name of the authentication profile.
+        /// </summary>
+        [Input("authenticationProfileName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProfileName;
+
+        public string? AuthenticationProfileName => _mAuthenticationProfileName.GetValue("authenticationProfileName");
     }
 }

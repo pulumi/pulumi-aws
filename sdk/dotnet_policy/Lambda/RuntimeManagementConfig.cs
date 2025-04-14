@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig")]
-    public sealed class RuntimeManagementConfig : global::Pulumi.PolicyResource
+    public sealed class RuntimeManagementConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the function.
         /// </summary>
         [Input("functionArn")]
-        public string? FunctionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
+
+        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
 
         /// <summary>
         /// Name or ARN of the Lambda function.
@@ -25,24 +28,78 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Input("functionName")]
-        public string? FunctionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
 
         /// <summary>
         /// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
         /// </summary>
         [Input("qualifier")]
-        public string? Qualifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
 
         /// <summary>
         /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         /// </summary>
         [Input("runtimeVersionArn")]
-        public string? RuntimeVersionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersionArn;
+
+        public string? RuntimeVersionArn => _mRuntimeVersionArn.GetValue("runtimeVersionArn");
 
         /// <summary>
         /// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         /// </summary>
         [Input("updateRuntimeOn")]
-        public string? UpdateRuntimeOn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateRuntimeOn;
+
+        public string? UpdateRuntimeOn => _mUpdateRuntimeOn.GetValue("updateRuntimeOn");
+    }
+
+    [PolicyResourceType("aws:lambda/runtimeManagementConfig:RuntimeManagementConfig")]
+    public sealed class RuntimeManagementConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name or ARN of the Lambda function.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("functionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
+
+        /// <summary>
+        /// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        /// </summary>
+        [Input("qualifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
+
+        /// <summary>
+        /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
+        /// </summary>
+        [Input("runtimeVersionArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersionArn;
+
+        public string? RuntimeVersionArn => _mRuntimeVersionArn.GetValue("runtimeVersionArn");
+
+        /// <summary>
+        /// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
+        /// </summary>
+        [Input("updateRuntimeOn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateRuntimeOn;
+
+        public string? UpdateRuntimeOn => _mUpdateRuntimeOn.GetValue("updateRuntimeOn");
     }
 }

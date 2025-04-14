@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]
-    public sealed class RestApiPolicy : global::Pulumi.PolicyResource
+    public sealed class RestApiPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// ID of the REST API.
         /// </summary>
         [Input("restApiId")]
-        public string? RestApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+
+        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+    }
+
+    [PolicyResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]
+    public sealed class RestApiPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// JSON formatted policy document that controls access to the API Gateway.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// ID of the REST API.
+        /// </summary>
+        [Input("restApiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+
+        public string? RestApiId => _mRestApiId.GetValue("restApiId");
     }
 }

@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/portfolioShare:PortfolioShare")]
-    public sealed class PortfolioShare : global::Pulumi.PolicyResource
+    public sealed class PortfolioShare : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
         [Input("acceptLanguage")]
-        public string? AcceptLanguage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
 
         /// <summary>
         /// Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         /// </summary>
         [Input("accepted")]
-        public bool? Accepted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAccepted;
+
+        public bool? Accepted => _mAccepted.GetValue("accepted");
 
         /// <summary>
         /// Portfolio identifier.
         /// </summary>
         [Input("portfolioId")]
-        public string? PortfolioId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
+
+        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
 
         /// <summary>
         /// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
         /// </summary>
         [Input("principalId")]
-        public string? PrincipalId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
+
+        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
 
         /// <summary>
         /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         /// </summary>
         [Input("sharePrincipals")]
-        public bool? SharePrincipals;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSharePrincipals;
+
+        public bool? SharePrincipals => _mSharePrincipals.GetValue("sharePrincipals");
 
         /// <summary>
         /// Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
         /// </summary>
         [Input("shareTagOptions")]
-        public bool? ShareTagOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mShareTagOptions;
+
+        public bool? ShareTagOptions => _mShareTagOptions.GetValue("shareTagOptions");
 
         /// <summary>
         /// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -55,12 +73,87 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// The following arguments are optional:
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         /// </summary>
         [Input("waitForAcceptance")]
-        public bool? WaitForAcceptance;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForAcceptance;
+
+        public bool? WaitForAcceptance => _mWaitForAcceptance.GetValue("waitForAcceptance");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/portfolioShare:PortfolioShare")]
+    public sealed class PortfolioShareArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
+        [Input("portfolioId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
+
+        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
+
+        /// <summary>
+        /// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
+        /// </summary>
+        [Input("principalId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
+
+        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
+
+        /// <summary>
+        /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+        /// </summary>
+        [Input("sharePrincipals")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSharePrincipals;
+
+        public bool? SharePrincipals => _mSharePrincipals.GetValue("sharePrincipals");
+
+        /// <summary>
+        /// Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
+        /// </summary>
+        [Input("shareTagOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mShareTagOptions;
+
+        public bool? ShareTagOptions => _mShareTagOptions.GetValue("shareTagOptions");
+
+        /// <summary>
+        /// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
+        /// </summary>
+        [Input("waitForAcceptance")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForAcceptance;
+
+        public bool? WaitForAcceptance => _mWaitForAcceptance.GetValue("waitForAcceptance");
     }
 }

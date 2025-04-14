@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/dashboard:Dashboard")]
-    public sealed class Dashboard : global::Pulumi.PolicyResource
+    public sealed class Dashboard : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the dashboard.
         /// </summary>
         [Input("dashboardArn")]
-        public string? DashboardArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardArn;
+
+        public string? DashboardArn => _mDashboardArn.GetValue("dashboardArn");
 
         /// <summary>
         /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         /// </summary>
         [Input("dashboardBody")]
-        public string? DashboardBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardBody;
+
+        public string? DashboardBody => _mDashboardBody.GetValue("dashboardBody");
 
         /// <summary>
         /// The name of the dashboard.
         /// </summary>
         [Input("dashboardName")]
-        public string? DashboardName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardName;
+
+        public string? DashboardName => _mDashboardName.GetValue("dashboardName");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/dashboard:Dashboard")]
+    public sealed class DashboardArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
+        /// </summary>
+        [Input("dashboardBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardBody;
+
+        public string? DashboardBody => _mDashboardBody.GetValue("dashboardBody");
+
+        /// <summary>
+        /// The name of the dashboard.
+        /// </summary>
+        [Input("dashboardName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardName;
+
+        public string? DashboardName => _mDashboardName.GetValue("dashboardName");
     }
 }

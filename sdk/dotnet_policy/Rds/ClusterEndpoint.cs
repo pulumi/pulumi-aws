@@ -11,60 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/clusterEndpoint:ClusterEndpoint")]
-    public sealed class ClusterEndpoint : global::Pulumi.PolicyResource
+    public sealed class ClusterEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         /// </summary>
         [Input("clusterEndpointIdentifier")]
-        public string? ClusterEndpointIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterEndpointIdentifier;
+
+        public string? ClusterEndpointIdentifier => _mClusterEndpointIdentifier.GetValue("clusterEndpointIdentifier");
 
         /// <summary>
         /// The cluster identifier.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The type of the endpoint. One of: READER , ANY .
         /// </summary>
         [Input("customEndpointType")]
-        public string? CustomEndpointType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomEndpointType;
+
+        public string? CustomEndpointType => _mCustomEndpointType.GetValue("customEndpointType");
 
         /// <summary>
         /// A custom endpoint for the Aurora cluster
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         /// </summary>
         [Input("excludedMembers")]
-        public List<string>? ExcludedMembers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedMembers;
+
+        public List<string>? ExcludedMembers => _mExcludedMembers.GetValue("excludedMembers");
 
         /// <summary>
         /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         /// </summary>
         [Input("staticMembers")]
-        public List<string>? StaticMembers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStaticMembers;
+
+        public List<string>? StaticMembers => _mStaticMembers.GetValue("staticMembers");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:rds/clusterEndpoint:ClusterEndpoint")]
+    public sealed class ClusterEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        /// </summary>
+        [Input("clusterEndpointIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterEndpointIdentifier;
+
+        public string? ClusterEndpointIdentifier => _mClusterEndpointIdentifier.GetValue("clusterEndpointIdentifier");
+
+        /// <summary>
+        /// The cluster identifier.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// The type of the endpoint. One of: READER , ANY .
+        /// </summary>
+        [Input("customEndpointType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomEndpointType;
+
+        public string? CustomEndpointType => _mCustomEndpointType.GetValue("customEndpointType");
+
+        /// <summary>
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
+        /// </summary>
+        [Input("excludedMembers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedMembers;
+
+        public List<string>? ExcludedMembers => _mExcludedMembers.GetValue("excludedMembers");
+
+        /// <summary>
+        /// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
+        /// </summary>
+        [Input("staticMembers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStaticMembers;
+
+        public List<string>? StaticMembers => _mStaticMembers.GetValue("staticMembers");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

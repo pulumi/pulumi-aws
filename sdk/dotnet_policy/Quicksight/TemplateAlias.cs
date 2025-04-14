@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/templateAlias:TemplateAlias")]
-    public sealed class TemplateAlias : global::Pulumi.PolicyResource
+    public sealed class TemplateAlias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Display name of the template alias.
         /// </summary>
         [Input("aliasName")]
-        public string? AliasName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
+
+        public string? AliasName => _mAliasName.GetValue("aliasName");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the template alias.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// ID of the template.
         /// </summary>
         [Input("templateId")]
-        public string? TemplateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateId;
+
+        public string? TemplateId => _mTemplateId.GetValue("templateId");
 
         /// <summary>
         /// Version number of the template.
@@ -43,6 +55,51 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("templateVersionNumber")]
-        public int? TemplateVersionNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTemplateVersionNumber;
+
+        public int? TemplateVersionNumber => _mTemplateVersionNumber.GetValue("templateVersionNumber");
+    }
+
+    [PolicyResourceType("aws:quicksight/templateAlias:TemplateAlias")]
+    public sealed class TemplateAliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Display name of the template alias.
+        /// </summary>
+        [Input("aliasName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
+
+        public string? AliasName => _mAliasName.GetValue("aliasName");
+
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// ID of the template.
+        /// </summary>
+        [Input("templateId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateId;
+
+        public string? TemplateId => _mTemplateId.GetValue("templateId");
+
+        /// <summary>
+        /// Version number of the template.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("templateVersionNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTemplateVersionNumber;
+
+        public int? TemplateVersionNumber => _mTemplateVersionNumber.GetValue("templateVersionNumber");
     }
 }

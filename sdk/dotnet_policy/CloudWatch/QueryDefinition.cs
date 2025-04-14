@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/queryDefinition:QueryDefinition")]
-    public sealed class QueryDefinition : global::Pulumi.PolicyResource
+    public sealed class QueryDefinition : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specific log groups to use with the query.
         /// </summary>
         [Input("logGroupNames")]
-        public List<string>? LogGroupNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogGroupNames;
+
+        public List<string>? LogGroupNames => _mLogGroupNames.GetValue("logGroupNames");
 
         /// <summary>
         /// The name of the query.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The query definition ID.
         /// </summary>
         [Input("queryDefinitionId")]
-        public string? QueryDefinitionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryDefinitionId;
+
+        public string? QueryDefinitionId => _mQueryDefinitionId.GetValue("queryDefinitionId");
 
         /// <summary>
         /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         /// </summary>
         [Input("queryString")]
-        public string? QueryString;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryString;
+
+        public string? QueryString => _mQueryString.GetValue("queryString");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/queryDefinition:QueryDefinition")]
+    public sealed class QueryDefinitionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specific log groups to use with the query.
+        /// </summary>
+        [Input("logGroupNames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogGroupNames;
+
+        public List<string>? LogGroupNames => _mLogGroupNames.GetValue("logGroupNames");
+
+        /// <summary>
+        /// The name of the query.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
+        /// </summary>
+        [Input("queryString")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryString;
+
+        public string? QueryString => _mQueryString.GetValue("queryString");
     }
 }

@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
 {
     [PolicyResourceType("aws:apigatewayv2/apiMapping:ApiMapping")]
-    public sealed class ApiMapping : global::Pulumi.PolicyResource
+    public sealed class ApiMapping : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// API identifier.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         /// </summary>
         [Input("apiMappingKey")]
-        public string? ApiMappingKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiMappingKey;
+
+        public string? ApiMappingKey => _mApiMappingKey.GetValue("apiMappingKey");
 
         /// <summary>
         /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Input("stage")]
-        public string? Stage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
+
+        public string? Stage => _mStage.GetValue("stage");
+    }
+
+    [PolicyResourceType("aws:apigatewayv2/apiMapping:ApiMapping")]
+    public sealed class ApiMappingArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// API identifier.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+        /// </summary>
+        [Input("apiMappingKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiMappingKey;
+
+        public string? ApiMappingKey => _mApiMappingKey.GetValue("apiMappingKey");
+
+        /// <summary>
+        /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
+        /// </summary>
+        [Input("stage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
+
+        public string? Stage => _mStage.GetValue("stage");
     }
 }

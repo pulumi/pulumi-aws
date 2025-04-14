@@ -11,33 +11,45 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/slotType:SlotType")]
-    public sealed class SlotType : global::Pulumi.PolicyResource
+    public sealed class SlotType : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Checksum identifying the version of the slot type that was created. The checksum is
         /// not included as an argument because the resource will add it automatically when updating the slot type.
         /// </summary>
         [Input("checksum")]
-        public string? Checksum;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChecksum;
+
+        public string? Checksum => _mChecksum.GetValue("checksum");
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial resource is created and on each
         /// update. Defaults to `false`.
         /// </summary>
         [Input("createVersion")]
-        public bool? CreateVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
+
+        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
 
         /// <summary>
         /// The date when the slot type version was created.
         /// </summary>
         [Input("createdDate")]
-        public string? CreatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
+
+        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
 
         /// <summary>
         /// A description of the slot type. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A list of EnumerationValue objects that defines the values that
@@ -46,19 +58,28 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// documented under enumeration_value.
         /// </summary>
         [Input("enumerationValues")]
-        public List<SlotTypeEnumerationValue>? EnumerationValues;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SlotTypeEnumerationValue>> _mEnumerationValues;
+
+        public List<Outputs.SlotTypeEnumerationValue>? EnumerationValues => _mEnumerationValues.GetValue("enumerationValues");
 
         /// <summary>
         /// The date when the `$LATEST` version of this slot type was updated.
         /// </summary>
         [Input("lastUpdatedDate")]
-        public string? LastUpdatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
+
+        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
 
         /// <summary>
         /// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Determines the slot resolution strategy that Amazon Lex
@@ -67,12 +88,74 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         /// </summary>
         [Input("valueSelectionStrategy")]
-        public string? ValueSelectionStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValueSelectionStrategy;
+
+        public string? ValueSelectionStrategy => _mValueSelectionStrategy.GetValue("valueSelectionStrategy");
 
         /// <summary>
         /// The version of the slot type.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:lex/slotType:SlotType")]
+    public sealed class SlotTypeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Determines if a new slot type version is created when the initial resource is created and on each
+        /// update. Defaults to `false`.
+        /// </summary>
+        [Input("createVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
+
+        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+
+        /// <summary>
+        /// A description of the slot type. Must be less than or equal to 200 characters in length.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A list of EnumerationValue objects that defines the values that
+        /// the slot type can take. Each value can have a list of synonyms, which are additional values that help
+        /// train the machine learning model about the values that it resolves for a slot. Attributes are
+        /// documented under enumeration_value.
+        /// </summary>
+        [Input("enumerationValues")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SlotTypeEnumerationValueArgs>> _mEnumerationValues;
+
+        public List<Inputs.SlotTypeEnumerationValueArgs>? EnumerationValues => _mEnumerationValues.GetValue("enumerationValues");
+
+        /// <summary>
+        /// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Determines the slot resolution strategy that Amazon Lex
+        /// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
+        /// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
+        /// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
+        /// </summary>
+        [Input("valueSelectionStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValueSelectionStrategy;
+
+        public string? ValueSelectionStrategy => _mValueSelectionStrategy.GetValue("valueSelectionStrategy");
     }
 }

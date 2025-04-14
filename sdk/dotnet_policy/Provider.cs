@@ -11,113 +11,104 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws
 {
     [PolicyResourceType("pulumi:providers:aws")]
-    public sealed class Provider : global::Pulumi.PolicyResource
+    public sealed class Provider : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         [Input("accessKey")]
-        public string? AccessKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKey;
 
-        [Input("allowedAccountIds")]
-        public List<string>? AllowedAccountIds;
-
-        [Input("assumeRole")]
-        public ProviderAssumeRole? AssumeRole;
-
-        [Input("assumeRoleWithWebIdentity")]
-        public ProviderAssumeRoleWithWebIdentity? AssumeRoleWithWebIdentity;
+        public string? AccessKey => _mAccessKey.GetValue("accessKey");
 
         /// <summary>
         /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
         /// variable. (Setting `ca_bundle` in the shared config file is not supported.)
         /// </summary>
         [Input("customCaBundle")]
-        public string? CustomCaBundle;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomCaBundle;
 
-        /// <summary>
-        /// Configuration block with settings to default resource tags across all resources.
-        /// </summary>
-        [Input("defaultTags")]
-        public ProviderDefaultTags? DefaultTags;
+        public string? CustomCaBundle => _mCustomCaBundle.GetValue("customCaBundle");
 
         /// <summary>
         /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
         /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         /// </summary>
         [Input("ec2MetadataServiceEndpoint")]
-        public string? Ec2MetadataServiceEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEc2MetadataServiceEndpoint;
+
+        public string? Ec2MetadataServiceEndpoint => _mEc2MetadataServiceEndpoint.GetValue("ec2MetadataServiceEndpoint");
 
         /// <summary>
         /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
         /// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         /// </summary>
         [Input("ec2MetadataServiceEndpointMode")]
-        public string? Ec2MetadataServiceEndpointMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEc2MetadataServiceEndpointMode;
 
-        [Input("endpoints")]
-        public List<ProviderEndpoint>? Endpoints;
-
-        [Input("forbiddenAccountIds")]
-        public List<string>? ForbiddenAccountIds;
+        public string? Ec2MetadataServiceEndpointMode => _mEc2MetadataServiceEndpointMode.GetValue("ec2MetadataServiceEndpointMode");
 
         /// <summary>
         /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
         /// `http_proxy` environment variables.
         /// </summary>
         [Input("httpProxy")]
-        public string? HttpProxy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpProxy;
+
+        public string? HttpProxy => _mHttpProxy.GetValue("httpProxy");
 
         /// <summary>
         /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
         /// `https_proxy` environment variables.
         /// </summary>
         [Input("httpsProxy")]
-        public string? HttpsProxy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpsProxy;
 
-        /// <summary>
-        /// Configuration block with settings to ignore resource tags across all resources.
-        /// </summary>
-        [Input("ignoreTags")]
-        public ProviderIgnoreTags? IgnoreTags;
-
-        /// <summary>
-        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
-        /// </summary>
-        [Input("insecure")]
-        public bool? Insecure;
-
-        /// <summary>
-        /// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
-        /// </summary>
-        [Input("maxRetries")]
-        public int? MaxRetries;
+        public string? HttpsProxy => _mHttpsProxy.GetValue("httpsProxy");
 
         /// <summary>
         /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
         /// `no_proxy` environment variables.
         /// </summary>
         [Input("noProxy")]
-        public string? NoProxy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNoProxy;
+
+        public string? NoProxy => _mNoProxy.GetValue("noProxy");
 
         /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         /// </summary>
         [Input("profile")]
-        public string? Profile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfile;
+
+        public string? Profile => _mProfile.GetValue("profile");
 
         /// <summary>
         /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         /// </summary>
         [Input("region")]
-        public string? Region;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
 
         /// <summary>
         /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
         /// `AWS_RETRY_MODE` environment variable.
         /// </summary>
         [Input("retryMode")]
-        public string? RetryMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRetryMode;
+
+        public string? RetryMode => _mRetryMode.GetValue("retryMode");
 
         /// <summary>
         /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
@@ -125,7 +116,215 @@ namespace Pulumi.PolicyPacks.Aws
         /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         /// </summary>
         [Input("s3UsEast1RegionalEndpoint")]
-        public string? S3UsEast1RegionalEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3UsEast1RegionalEndpoint;
+
+        public string? S3UsEast1RegionalEndpoint => _mS3UsEast1RegionalEndpoint.GetValue("s3UsEast1RegionalEndpoint");
+
+        /// <summary>
+        /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
+        /// </summary>
+        [Input("secretKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
+
+        public string? SecretKey => _mSecretKey.GetValue("secretKey");
+
+        /// <summary>
+        /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
+        /// </summary>
+        [Input("stsRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStsRegion;
+
+        public string? StsRegion => _mStsRegion.GetValue("stsRegion");
+
+        /// <summary>
+        /// session token. A session token is only required if you are using temporary security credentials.
+        /// </summary>
+        [Input("token")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
+
+        public string? Token => _mToken.GetValue("token");
+    }
+
+    [PolicyResourceType("pulumi:providers:aws")]
+    public sealed class ProviderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
+        /// </summary>
+        [Input("accessKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKey;
+
+        public string? AccessKey => _mAccessKey.GetValue("accessKey");
+
+        [Input("allowedAccountIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedAccountIds;
+
+        public List<string>? AllowedAccountIds => _mAllowedAccountIds.GetValue("allowedAccountIds");
+
+        [Input("assumeRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProviderAssumeRoleArgs> _mAssumeRole;
+
+        public Inputs.ProviderAssumeRoleArgs? AssumeRole => _mAssumeRole.GetValue("assumeRole");
+
+        [Input("assumeRoleWithWebIdentity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProviderAssumeRoleWithWebIdentityArgs> _mAssumeRoleWithWebIdentity;
+
+        public Inputs.ProviderAssumeRoleWithWebIdentityArgs? AssumeRoleWithWebIdentity => _mAssumeRoleWithWebIdentity.GetValue("assumeRoleWithWebIdentity");
+
+        /// <summary>
+        /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
+        /// variable. (Setting `ca_bundle` in the shared config file is not supported.)
+        /// </summary>
+        [Input("customCaBundle")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomCaBundle;
+
+        public string? CustomCaBundle => _mCustomCaBundle.GetValue("customCaBundle");
+
+        /// <summary>
+        /// Configuration block with settings to default resource tags across all resources.
+        /// </summary>
+        [Input("defaultTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProviderDefaultTagsArgs> _mDefaultTags;
+
+        public Inputs.ProviderDefaultTagsArgs? DefaultTags => _mDefaultTags.GetValue("defaultTags");
+
+        /// <summary>
+        /// Address of the EC2 metadata service endpoint to use. Can also be configured using the
+        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+        /// </summary>
+        [Input("ec2MetadataServiceEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEc2MetadataServiceEndpoint;
+
+        public string? Ec2MetadataServiceEndpoint => _mEc2MetadataServiceEndpoint.GetValue("ec2MetadataServiceEndpoint");
+
+        /// <summary>
+        /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
+        /// `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
+        /// </summary>
+        [Input("ec2MetadataServiceEndpointMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEc2MetadataServiceEndpointMode;
+
+        public string? Ec2MetadataServiceEndpointMode => _mEc2MetadataServiceEndpointMode.GetValue("ec2MetadataServiceEndpointMode");
+
+        [Input("endpoints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProviderEndpointArgs>> _mEndpoints;
+
+        public List<Inputs.ProviderEndpointArgs>? Endpoints => _mEndpoints.GetValue("endpoints");
+
+        [Input("forbiddenAccountIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mForbiddenAccountIds;
+
+        public List<string>? ForbiddenAccountIds => _mForbiddenAccountIds.GetValue("forbiddenAccountIds");
+
+        /// <summary>
+        /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or
+        /// `http_proxy` environment variables.
+        /// </summary>
+        [Input("httpProxy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpProxy;
+
+        public string? HttpProxy => _mHttpProxy.GetValue("httpProxy");
+
+        /// <summary>
+        /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
+        /// `https_proxy` environment variables.
+        /// </summary>
+        [Input("httpsProxy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpsProxy;
+
+        public string? HttpsProxy => _mHttpsProxy.GetValue("httpsProxy");
+
+        /// <summary>
+        /// Configuration block with settings to ignore resource tags across all resources.
+        /// </summary>
+        [Input("ignoreTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProviderIgnoreTagsArgs> _mIgnoreTags;
+
+        public Inputs.ProviderIgnoreTagsArgs? IgnoreTags => _mIgnoreTags.GetValue("ignoreTags");
+
+        /// <summary>
+        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
+        /// </summary>
+        [Input("insecure")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInsecure;
+
+        public bool? Insecure => _mInsecure.GetValue("insecure");
+
+        /// <summary>
+        /// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
+        /// </summary>
+        [Input("maxRetries")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
+
+        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
+
+        /// <summary>
+        /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
+        /// `no_proxy` environment variables.
+        /// </summary>
+        [Input("noProxy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNoProxy;
+
+        public string? NoProxy => _mNoProxy.GetValue("noProxy");
+
+        /// <summary>
+        /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        /// </summary>
+        [Input("profile")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfile;
+
+        public string? Profile => _mProfile.GetValue("profile");
+
+        /// <summary>
+        /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        /// </summary>
+        [Input("region")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
+
+        /// <summary>
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        /// `AWS_RETRY_MODE` environment variable.
+        /// </summary>
+        [Input("retryMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRetryMode;
+
+        public string? RetryMode => _mRetryMode.GetValue("retryMode");
+
+        /// <summary>
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// </summary>
+        [Input("s3UsEast1RegionalEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3UsEast1RegionalEndpoint;
+
+        public string? S3UsEast1RegionalEndpoint => _mS3UsEast1RegionalEndpoint.GetValue("s3UsEast1RegionalEndpoint");
 
         /// <summary>
         /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -133,80 +332,119 @@ namespace Pulumi.PolicyPacks.Aws
         /// Specific to the Amazon S3 service.
         /// </summary>
         [Input("s3UsePathStyle")]
-        public bool? S3UsePathStyle;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mS3UsePathStyle;
+
+        public bool? S3UsePathStyle => _mS3UsePathStyle.GetValue("s3UsePathStyle");
 
         /// <summary>
         /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         [Input("secretKey")]
-        public string? SecretKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
+
+        public string? SecretKey => _mSecretKey.GetValue("secretKey");
 
         /// <summary>
         /// List of paths to shared config files. If not set, defaults to [~/.aws/config].
         /// </summary>
         [Input("sharedConfigFiles")]
-        public List<string>? SharedConfigFiles;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSharedConfigFiles;
+
+        public List<string>? SharedConfigFiles => _mSharedConfigFiles.GetValue("sharedConfigFiles");
 
         /// <summary>
         /// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
         /// </summary>
         [Input("sharedCredentialsFiles")]
-        public List<string>? SharedCredentialsFiles;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSharedCredentialsFiles;
+
+        public List<string>? SharedCredentialsFiles => _mSharedCredentialsFiles.GetValue("sharedCredentialsFiles");
 
         /// <summary>
         /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
         /// available/implemented.
         /// </summary>
         [Input("skipCredentialsValidation")]
-        public bool? SkipCredentialsValidation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipCredentialsValidation;
+
+        public bool? SkipCredentialsValidation => _mSkipCredentialsValidation.GetValue("skipCredentialsValidation");
 
         /// <summary>
         /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         /// </summary>
         [Input("skipMetadataApiCheck")]
-        public bool? SkipMetadataApiCheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipMetadataApiCheck;
+
+        public bool? SkipMetadataApiCheck => _mSkipMetadataApiCheck.GetValue("skipMetadataApiCheck");
 
         /// <summary>
         /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
         /// not public (yet).
         /// </summary>
         [Input("skipRegionValidation")]
-        public bool? SkipRegionValidation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipRegionValidation;
+
+        public bool? SkipRegionValidation => _mSkipRegionValidation.GetValue("skipRegionValidation");
 
         /// <summary>
         /// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         /// </summary>
         [Input("skipRequestingAccountId")]
-        public bool? SkipRequestingAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipRequestingAccountId;
+
+        public bool? SkipRequestingAccountId => _mSkipRequestingAccountId.GetValue("skipRequestingAccountId");
 
         /// <summary>
         /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
         /// </summary>
         [Input("stsRegion")]
-        public string? StsRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStsRegion;
+
+        public string? StsRegion => _mStsRegion.GetValue("stsRegion");
 
         /// <summary>
         /// session token. A session token is only required if you are using temporary security credentials.
         /// </summary>
         [Input("token")]
-        public string? Token;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
+
+        public string? Token => _mToken.GetValue("token");
 
         /// <summary>
         /// The capacity of the AWS SDK's token bucket rate limiter.
         /// </summary>
         [Input("tokenBucketRateLimiterCapacity")]
-        public int? TokenBucketRateLimiterCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTokenBucketRateLimiterCapacity;
+
+        public int? TokenBucketRateLimiterCapacity => _mTokenBucketRateLimiterCapacity.GetValue("tokenBucketRateLimiterCapacity");
 
         /// <summary>
         /// Resolve an endpoint with DualStack capability
         /// </summary>
         [Input("useDualstackEndpoint")]
-        public bool? UseDualstackEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseDualstackEndpoint;
+
+        public bool? UseDualstackEndpoint => _mUseDualstackEndpoint.GetValue("useDualstackEndpoint");
 
         /// <summary>
         /// Resolve an endpoint with FIPS capability
         /// </summary>
         [Input("useFipsEndpoint")]
-        public bool? UseFipsEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseFipsEndpoint;
+
+        public bool? UseFipsEndpoint => _mUseFipsEndpoint.GetValue("useFipsEndpoint");
     }
 }

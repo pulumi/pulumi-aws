@@ -11,61 +11,156 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeStarNotifications
 {
     [PolicyResourceType("aws:codestarnotifications/notificationRule:NotificationRule")]
-    public sealed class NotificationRule : global::Pulumi.PolicyResource
+    public sealed class NotificationRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The codestar notification rule ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
         /// </summary>
         [Input("detailType")]
-        public string? DetailType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetailType;
+
+        public string? DetailType => _mDetailType.GetValue("detailType");
 
         /// <summary>
         /// A list of event types associated with this notification rule.
         /// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         /// </summary>
         [Input("eventTypeIds")]
-        public List<string>? EventTypeIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventTypeIds;
+
+        public List<string>? EventTypeIds => _mEventTypeIds.GetValue("eventTypeIds");
 
         /// <summary>
         /// The name of notification rule.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ARN of the resource to associate with the notification rule.
         /// </summary>
         [Input("resource")]
-        public string? Resource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResource;
+
+        public string? Resource => _mResource.GetValue("resource");
 
         /// <summary>
         /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         /// </summary>
         [Input("targets")]
-        public List<NotificationRuleTarget>? Targets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NotificationRuleTarget>> _mTargets;
+
+        public List<Outputs.NotificationRuleTarget>? Targets => _mTargets.GetValue("targets");
+    }
+
+    [PolicyResourceType("aws:codestarnotifications/notificationRule:NotificationRule")]
+    public sealed class NotificationRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
+        /// </summary>
+        [Input("detailType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetailType;
+
+        public string? DetailType => _mDetailType.GetValue("detailType");
+
+        /// <summary>
+        /// A list of event types associated with this notification rule.
+        /// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
+        /// </summary>
+        [Input("eventTypeIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventTypeIds;
+
+        public List<string>? EventTypeIds => _mEventTypeIds.GetValue("eventTypeIds");
+
+        /// <summary>
+        /// The name of notification rule.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ARN of the resource to associate with the notification rule.
+        /// </summary>
+        [Input("resource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResource;
+
+        public string? Resource => _mResource.GetValue("resource");
+
+        /// <summary>
+        /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        /// </summary>
+        [Input("targets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.NotificationRuleTargetArgs>> _mTargets;
+
+        public List<Inputs.NotificationRuleTargetArgs>? Targets => _mTargets.GetValue("targets");
     }
 }

@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ebs
 {
     [PolicyResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]
-    public sealed class EncryptionByDefault : global::Pulumi.PolicyResource
+    public sealed class EncryptionByDefault : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+    }
+
+    [PolicyResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]
+    public sealed class EncryptionByDefaultArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
     }
 }

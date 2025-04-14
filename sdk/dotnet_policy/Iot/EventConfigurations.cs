@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/eventConfigurations:EventConfigurations")]
-    public sealed class EventConfigurations : global::Pulumi.PolicyResource
+    public sealed class EventConfigurations : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
         /// </summary>
         [Input("eventConfigurations")]
-        public Dictionary<string, bool>? Configurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mConfigurations;
+
+        public Dictionary<string, bool>? Configurations => _mConfigurations.GetValue("eventConfigurations");
+    }
+
+    [PolicyResourceType("aws:iot/eventConfigurations:EventConfigurations")]
+    public sealed class EventConfigurationsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
+        /// </summary>
+        [Input("eventConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mConfigurations;
+
+        public Dictionary<string, bool>? Configurations => _mConfigurations.GetValue("eventConfigurations");
     }
 }

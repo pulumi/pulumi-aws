@@ -11,76 +11,112 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/dataSet:DataSet")]
-    public sealed class DataSet : global::Pulumi.PolicyResource
+    public sealed class DataSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the data set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         /// </summary>
         [Input("columnGroups")]
-        public List<DataSetColumnGroup>? ColumnGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetColumnGroup>> _mColumnGroups;
+
+        public List<Outputs.DataSetColumnGroup>? ColumnGroups => _mColumnGroups.GetValue("columnGroups");
 
         /// <summary>
         /// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
         /// </summary>
         [Input("columnLevelPermissionRules")]
-        public List<DataSetColumnLevelPermissionRule>? ColumnLevelPermissionRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetColumnLevelPermissionRule>> _mColumnLevelPermissionRules;
+
+        public List<Outputs.DataSetColumnLevelPermissionRule>? ColumnLevelPermissionRules => _mColumnLevelPermissionRules.GetValue("columnLevelPermissionRules");
 
         /// <summary>
         /// Identifier for the data set.
         /// </summary>
         [Input("dataSetId")]
-        public string? DataSetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
+
+        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
 
         /// <summary>
         /// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
         /// </summary>
         [Input("dataSetUsageConfiguration")]
-        public DataSetDataSetUsageConfiguration? DataSetUsageConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetDataSetUsageConfiguration> _mDataSetUsageConfiguration;
+
+        public Outputs.DataSetDataSetUsageConfiguration? DataSetUsageConfiguration => _mDataSetUsageConfiguration.GetValue("dataSetUsageConfiguration");
 
         /// <summary>
         /// The folder that contains fields and nested subfolders for your dataset. See field_folders.
         /// </summary>
         [Input("fieldFolders")]
-        public List<DataSetFieldFolder>? FieldFolders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetFieldFolder>> _mFieldFolders;
+
+        public List<Outputs.DataSetFieldFolder>? FieldFolders => _mFieldFolders.GetValue("fieldFolders");
 
         /// <summary>
         /// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
         /// </summary>
         [Input("importMode")]
-        public string? ImportMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImportMode;
+
+        public string? ImportMode => _mImportMode.GetValue("importMode");
 
         /// <summary>
         /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
         /// </summary>
         [Input("logicalTableMaps")]
-        public List<DataSetLogicalTableMap>? LogicalTableMaps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetLogicalTableMap>> _mLogicalTableMaps;
+
+        public List<Outputs.DataSetLogicalTableMap>? LogicalTableMaps => _mLogicalTableMaps.GetValue("logicalTableMaps");
 
         /// <summary>
         /// Display name for the dataset.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("outputColumns")]
-        public List<DataSetOutputColumn>? OutputColumns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetOutputColumn>> _mOutputColumns;
+
+        public List<Outputs.DataSetOutputColumn>? OutputColumns => _mOutputColumns.GetValue("outputColumns");
 
         /// <summary>
         /// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         /// </summary>
         [Input("permissions")]
-        public List<DataSetPermission>? Permissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetPermission>> _mPermissions;
+
+        public List<Outputs.DataSetPermission>? Permissions => _mPermissions.GetValue("permissions");
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
@@ -88,36 +124,195 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("physicalTableMaps")]
-        public List<DataSetPhysicalTableMap>? PhysicalTableMaps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetPhysicalTableMap>> _mPhysicalTableMaps;
+
+        public List<Outputs.DataSetPhysicalTableMap>? PhysicalTableMaps => _mPhysicalTableMaps.GetValue("physicalTableMaps");
 
         /// <summary>
         /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         /// </summary>
         [Input("refreshProperties")]
-        public DataSetRefreshProperties? RefreshProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetRefreshProperties> _mRefreshProperties;
+
+        public Outputs.DataSetRefreshProperties? RefreshProperties => _mRefreshProperties.GetValue("refreshProperties");
 
         /// <summary>
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         /// </summary>
         [Input("rowLevelPermissionDataSet")]
-        public DataSetRowLevelPermissionDataSet? RowLevelPermissionDataSet;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetRowLevelPermissionDataSet> _mRowLevelPermissionDataSet;
+
+        public Outputs.DataSetRowLevelPermissionDataSet? RowLevelPermissionDataSet => _mRowLevelPermissionDataSet.GetValue("rowLevelPermissionDataSet");
 
         /// <summary>
         /// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         /// </summary>
         [Input("rowLevelPermissionTagConfiguration")]
-        public DataSetRowLevelPermissionTagConfiguration? RowLevelPermissionTagConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetRowLevelPermissionTagConfiguration> _mRowLevelPermissionTagConfiguration;
+
+        public Outputs.DataSetRowLevelPermissionTagConfiguration? RowLevelPermissionTagConfiguration => _mRowLevelPermissionTagConfiguration.GetValue("rowLevelPermissionTagConfiguration");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:quicksight/dataSet:DataSet")]
+    public sealed class DataSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+        /// </summary>
+        [Input("columnGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetColumnGroupArgs>> _mColumnGroups;
+
+        public List<Inputs.DataSetColumnGroupArgs>? ColumnGroups => _mColumnGroups.GetValue("columnGroups");
+
+        /// <summary>
+        /// A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+        /// </summary>
+        [Input("columnLevelPermissionRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetColumnLevelPermissionRuleArgs>> _mColumnLevelPermissionRules;
+
+        public List<Inputs.DataSetColumnLevelPermissionRuleArgs>? ColumnLevelPermissionRules => _mColumnLevelPermissionRules.GetValue("columnLevelPermissionRules");
+
+        /// <summary>
+        /// Identifier for the data set.
+        /// </summary>
+        [Input("dataSetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
+
+        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+
+        /// <summary>
+        /// The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+        /// </summary>
+        [Input("dataSetUsageConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetDataSetUsageConfigurationArgs> _mDataSetUsageConfiguration;
+
+        public Inputs.DataSetDataSetUsageConfigurationArgs? DataSetUsageConfiguration => _mDataSetUsageConfiguration.GetValue("dataSetUsageConfiguration");
+
+        /// <summary>
+        /// The folder that contains fields and nested subfolders for your dataset. See field_folders.
+        /// </summary>
+        [Input("fieldFolders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetFieldFolderArgs>> _mFieldFolders;
+
+        public List<Inputs.DataSetFieldFolderArgs>? FieldFolders => _mFieldFolders.GetValue("fieldFolders");
+
+        /// <summary>
+        /// Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+        /// </summary>
+        [Input("importMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImportMode;
+
+        public string? ImportMode => _mImportMode.GetValue("importMode");
+
+        /// <summary>
+        /// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+        /// </summary>
+        [Input("logicalTableMaps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetLogicalTableMapArgs>> _mLogicalTableMaps;
+
+        public List<Inputs.DataSetLogicalTableMapArgs>? LogicalTableMaps => _mLogicalTableMaps.GetValue("logicalTableMaps");
+
+        /// <summary>
+        /// Display name for the dataset.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+        /// </summary>
+        [Input("permissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetPermissionArgs>> _mPermissions;
+
+        public List<Inputs.DataSetPermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+
+        /// <summary>
+        /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("physicalTableMaps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetPhysicalTableMapArgs>> _mPhysicalTableMaps;
+
+        public List<Inputs.DataSetPhysicalTableMapArgs>? PhysicalTableMaps => _mPhysicalTableMaps.GetValue("physicalTableMaps");
+
+        /// <summary>
+        /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        /// </summary>
+        [Input("refreshProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetRefreshPropertiesArgs> _mRefreshProperties;
+
+        public Inputs.DataSetRefreshPropertiesArgs? RefreshProperties => _mRefreshProperties.GetValue("refreshProperties");
+
+        /// <summary>
+        /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+        /// </summary>
+        [Input("rowLevelPermissionDataSet")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetRowLevelPermissionDataSetArgs> _mRowLevelPermissionDataSet;
+
+        public Inputs.DataSetRowLevelPermissionDataSetArgs? RowLevelPermissionDataSet => _mRowLevelPermissionDataSet.GetValue("rowLevelPermissionDataSet");
+
+        /// <summary>
+        /// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+        /// </summary>
+        [Input("rowLevelPermissionTagConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetRowLevelPermissionTagConfigurationArgs> _mRowLevelPermissionTagConfiguration;
+
+        public Inputs.DataSetRowLevelPermissionTagConfigurationArgs? RowLevelPermissionTagConfiguration => _mRowLevelPermissionTagConfiguration.GetValue("rowLevelPermissionTagConfiguration");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

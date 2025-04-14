@@ -11,19 +11,48 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/eventBusPolicy:EventBusPolicy")]
-    public sealed class EventBusPolicy : global::Pulumi.PolicyResource
+    public sealed class EventBusPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
         [Input("eventBusName")]
-        public string? EventBusName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
+
+        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
 
         /// <summary>
         /// The text of the policy.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/eventBusPolicy:EventBusPolicy")]
+    public sealed class EventBusPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the event bus to set the permissions on.
+        /// If you omit this, the permissions are set on the `default` event bus.
+        /// </summary>
+        [Input("eventBusName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
+
+        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+
+        /// <summary>
+        /// The text of the policy.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

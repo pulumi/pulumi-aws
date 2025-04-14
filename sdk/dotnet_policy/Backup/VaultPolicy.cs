@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/vaultPolicy:VaultPolicy")]
-    public sealed class VaultPolicy : global::Pulumi.PolicyResource
+    public sealed class VaultPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
         [Input("backupVaultArn")]
-        public string? BackupVaultArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultArn;
+
+        public string? BackupVaultArn => _mBackupVaultArn.GetValue("backupVaultArn");
 
         /// <summary>
         /// Name of the backup vault to add policy for.
         /// </summary>
         [Input("backupVaultName")]
-        public string? BackupVaultName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
+
+        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
 
         /// <summary>
         /// The backup vault access policy document in JSON format.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:backup/vaultPolicy:VaultPolicy")]
+    public sealed class VaultPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the backup vault to add policy for.
+        /// </summary>
+        [Input("backupVaultName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
+
+        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+
+        /// <summary>
+        /// The backup vault access policy document in JSON format.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

@@ -11,27 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fms
 {
     [PolicyResourceType("aws:fms/resourceSet:ResourceSet")]
-    public sealed class ResourceSet : global::Pulumi.PolicyResource
+    public sealed class ResourceSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Resource Set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         /// </summary>
         [Input("resourceSets")]
-        public List<ResourceSetResourceSet>? ResourceSets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResourceSetResourceSet>> _mResourceSets;
+
+        public List<Outputs.ResourceSetResourceSet>? ResourceSets => _mResourceSets.GetValue("resourceSets");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ResourceSetTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceSetTimeouts> _mTimeouts;
+
+        public Outputs.ResourceSetTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:fms/resourceSet:ResourceSet")]
+    public sealed class ResourceSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        /// </summary>
+        [Input("resourceSets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResourceSetResourceSetArgs>> _mResourceSets;
+
+        public List<Inputs.ResourceSetResourceSetArgs>? ResourceSets => _mResourceSets.GetValue("resourceSets");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceSetTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ResourceSetTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

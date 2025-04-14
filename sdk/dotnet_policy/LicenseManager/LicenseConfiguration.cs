@@ -11,66 +11,163 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LicenseManager
 {
     [PolicyResourceType("aws:licensemanager/licenseConfiguration:LicenseConfiguration")]
-    public sealed class LicenseConfiguration : global::Pulumi.PolicyResource
+    public sealed class LicenseConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The license configuration ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the license configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Number of licenses managed by the license configuration.
         /// </summary>
         [Input("licenseCount")]
-        public int? LicenseCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLicenseCount;
+
+        public int? LicenseCount => _mLicenseCount.GetValue("licenseCount");
 
         /// <summary>
         /// Sets the number of available licenses as a hard limit.
         /// </summary>
         [Input("licenseCountHardLimit")]
-        public bool? LicenseCountHardLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mLicenseCountHardLimit;
+
+        public bool? LicenseCountHardLimit => _mLicenseCountHardLimit.GetValue("licenseCountHardLimit");
 
         /// <summary>
         /// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         /// </summary>
         [Input("licenseCountingType")]
-        public string? LicenseCountingType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseCountingType;
+
+        public string? LicenseCountingType => _mLicenseCountingType.GetValue("licenseCountingType");
 
         /// <summary>
         /// Array of configured License Manager rules.
         /// </summary>
         [Input("licenseRules")]
-        public List<string>? LicenseRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLicenseRules;
+
+        public List<string>? LicenseRules => _mLicenseRules.GetValue("licenseRules");
 
         /// <summary>
         /// Name of the license configuration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Account ID of the owner of the license configuration.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:licensemanager/licenseConfiguration:LicenseConfiguration")]
+    public sealed class LicenseConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the license configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Number of licenses managed by the license configuration.
+        /// </summary>
+        [Input("licenseCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLicenseCount;
+
+        public int? LicenseCount => _mLicenseCount.GetValue("licenseCount");
+
+        /// <summary>
+        /// Sets the number of available licenses as a hard limit.
+        /// </summary>
+        [Input("licenseCountHardLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mLicenseCountHardLimit;
+
+        public bool? LicenseCountHardLimit => _mLicenseCountHardLimit.GetValue("licenseCountHardLimit");
+
+        /// <summary>
+        /// Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
+        /// </summary>
+        [Input("licenseCountingType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseCountingType;
+
+        public string? LicenseCountingType => _mLicenseCountingType.GetValue("licenseCountingType");
+
+        /// <summary>
+        /// Array of configured License Manager rules.
+        /// </summary>
+        [Input("licenseRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLicenseRules;
+
+        public List<string>? LicenseRules => _mLicenseRules.GetValue("licenseRules");
+
+        /// <summary>
+        /// Name of the license configuration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

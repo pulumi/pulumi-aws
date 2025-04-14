@@ -11,78 +11,208 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudTrail
 {
     [PolicyResourceType("aws:cloudtrail/eventDataStore:EventDataStore")]
-    public sealed class EventDataStore : global::Pulumi.PolicyResource
+    public sealed class EventDataStore : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         /// </summary>
         [Input("advancedEventSelectors")]
-        public List<EventDataStoreAdvancedEventSelector>? AdvancedEventSelectors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventDataStoreAdvancedEventSelector>> _mAdvancedEventSelectors;
+
+        public List<Outputs.EventDataStoreAdvancedEventSelector>? AdvancedEventSelectors => _mAdvancedEventSelectors.GetValue("advancedEventSelectors");
 
         /// <summary>
         /// ARN of the event data store.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
         /// </summary>
         [Input("billingMode")]
-        public string? BillingMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBillingMode;
+
+        public string? BillingMode => _mBillingMode.GetValue("billingMode");
 
         /// <summary>
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         /// </summary>
         [Input("multiRegionEnabled")]
-        public bool? MultiRegionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiRegionEnabled;
+
+        public bool? MultiRegionEnabled => _mMultiRegionEnabled.GetValue("multiRegionEnabled");
 
         /// <summary>
         /// The name of the event data store.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
         /// </summary>
         [Input("organizationEnabled")]
-        public bool? OrganizationEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOrganizationEnabled;
+
+        public bool? OrganizationEnabled => _mOrganizationEnabled.GetValue("organizationEnabled");
 
         /// <summary>
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         /// </summary>
         [Input("retentionPeriod")]
-        public int? RetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
 
         /// <summary>
         /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         /// </summary>
         [Input("suspend")]
-        public string? Suspend;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSuspend;
+
+        public string? Suspend => _mSuspend.GetValue("suspend");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         /// </summary>
         [Input("terminationProtectionEnabled")]
-        public bool? TerminationProtectionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationProtectionEnabled;
+
+        public bool? TerminationProtectionEnabled => _mTerminationProtectionEnabled.GetValue("terminationProtectionEnabled");
+    }
+
+    [PolicyResourceType("aws:cloudtrail/eventDataStore:EventDataStore")]
+    public sealed class EventDataStoreArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
+        /// </summary>
+        [Input("advancedEventSelectors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventDataStoreAdvancedEventSelectorArgs>> _mAdvancedEventSelectors;
+
+        public List<Inputs.EventDataStoreAdvancedEventSelectorArgs>? AdvancedEventSelectors => _mAdvancedEventSelectors.GetValue("advancedEventSelectors");
+
+        /// <summary>
+        /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+        /// </summary>
+        [Input("billingMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBillingMode;
+
+        public string? BillingMode => _mBillingMode.GetValue("billingMode");
+
+        /// <summary>
+        /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
+        /// </summary>
+        [Input("multiRegionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiRegionEnabled;
+
+        public bool? MultiRegionEnabled => _mMultiRegionEnabled.GetValue("multiRegionEnabled");
+
+        /// <summary>
+        /// The name of the event data store.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+        /// </summary>
+        [Input("organizationEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOrganizationEnabled;
+
+        public bool? OrganizationEnabled => _mOrganizationEnabled.GetValue("organizationEnabled");
+
+        /// <summary>
+        /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
+        /// </summary>
+        [Input("retentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+
+        /// <summary>
+        /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
+        /// </summary>
+        [Input("suspend")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSuspend;
+
+        public string? Suspend => _mSuspend.GetValue("suspend");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
+        /// </summary>
+        [Input("terminationProtectionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationProtectionEnabled;
+
+        public bool? TerminationProtectionEnabled => _mTerminationProtectionEnabled.GetValue("terminationProtectionEnabled");
     }
 }

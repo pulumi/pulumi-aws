@@ -11,74 +11,149 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Efs
 {
     [PolicyResourceType("aws:efs/mountTarget:MountTarget")]
-    public sealed class MountTarget : global::Pulumi.PolicyResource
+    public sealed class MountTarget : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
         /// </summary>
         [Input("availabilityZoneId")]
-        public string? AvailabilityZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
 
         /// <summary>
         /// The name of the Availability Zone (AZ) that the mount target resides in.
         /// </summary>
         [Input("availabilityZoneName")]
-        public string? AvailabilityZoneName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneName;
+
+        public string? AvailabilityZoneName => _mAvailabilityZoneName.GetValue("availabilityZoneName");
 
         /// <summary>
         /// The DNS name for the EFS file system.
         /// </summary>
         [Input("dnsName")]
-        public string? DnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
+
+        public string? DnsName => _mDnsName.GetValue("dnsName");
 
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Input("fileSystemArn")]
-        public string? FileSystemArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemArn;
+
+        public string? FileSystemArn => _mFileSystemArn.GetValue("fileSystemArn");
 
         /// <summary>
         /// The ID of the file system for which the mount target is intended.
         /// </summary>
         [Input("fileSystemId")]
-        public string? FileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
 
         /// <summary>
         /// The address (within the address range of the specified subnet) at
         /// which the file system may be mounted via the mount target.
         /// </summary>
         [Input("ipAddress")]
-        public string? IpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
 
         /// <summary>
         /// The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
         [Input("mountTargetDnsName")]
-        public string? MountTargetDnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMountTargetDnsName;
+
+        public string? MountTargetDnsName => _mMountTargetDnsName.GetValue("mountTargetDnsName");
 
         /// <summary>
         /// The ID of the network interface that Amazon EFS created when it created the mount target.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// AWS account ID that owns the resource.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// A list of up to 5 VPC security group IDs (that must
         /// be for the same VPC as subnet specified) in effect for the mount target.
         /// </summary>
         [Input("securityGroups")]
-        public List<string>? SecurityGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
 
         /// <summary>
         /// The ID of the subnet to add the mount target in.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+    }
+
+    [PolicyResourceType("aws:efs/mountTarget:MountTarget")]
+    public sealed class MountTargetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the file system for which the mount target is intended.
+        /// </summary>
+        [Input("fileSystemId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+
+        /// <summary>
+        /// The address (within the address range of the specified subnet) at
+        /// which the file system may be mounted via the mount target.
+        /// </summary>
+        [Input("ipAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+
+        /// <summary>
+        /// A list of up to 5 VPC security group IDs (that must
+        /// be for the same VPC as subnet specified) in effect for the mount target.
+        /// </summary>
+        [Input("securityGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+
+        /// <summary>
+        /// The ID of the subnet to add the mount target in.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
     }
 }

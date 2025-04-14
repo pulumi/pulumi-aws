@@ -11,48 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/project:Project")]
-    public sealed class Project : global::Pulumi.PolicyResource
+    public sealed class Project : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Project.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description for the project.
         /// </summary>
         [Input("projectDescription")]
-        public string? ProjectDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectDescription;
+
+        public string? ProjectDescription => _mProjectDescription.GetValue("projectDescription");
 
         /// <summary>
         /// The ID of the project.
         /// </summary>
         [Input("projectId")]
-        public string? ProjectId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectId;
+
+        public string? ProjectId => _mProjectId.GetValue("projectId");
 
         /// <summary>
         /// The name of the Project.
         /// </summary>
         [Input("projectName")]
-        public string? ProjectName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
+
+        public string? ProjectName => _mProjectName.GetValue("projectName");
 
         /// <summary>
         /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         /// </summary>
         [Input("serviceCatalogProvisioningDetails")]
-        public ProjectServiceCatalogProvisioningDetails? ServiceCatalogProvisioningDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectServiceCatalogProvisioningDetails> _mServiceCatalogProvisioningDetails;
+
+        public Outputs.ProjectServiceCatalogProvisioningDetails? ServiceCatalogProvisioningDetails => _mServiceCatalogProvisioningDetails.GetValue("serviceCatalogProvisioningDetails");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/project:Project")]
+    public sealed class ProjectArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description for the project.
+        /// </summary>
+        [Input("projectDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectDescription;
+
+        public string? ProjectDescription => _mProjectDescription.GetValue("projectDescription");
+
+        /// <summary>
+        /// The name of the Project.
+        /// </summary>
+        [Input("projectName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
+
+        public string? ProjectName => _mProjectName.GetValue("projectName");
+
+        /// <summary>
+        /// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+        /// </summary>
+        [Input("serviceCatalogProvisioningDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectServiceCatalogProvisioningDetailsArgs> _mServiceCatalogProvisioningDetails;
+
+        public Inputs.ProjectServiceCatalogProvisioningDetailsArgs? ServiceCatalogProvisioningDetails => _mServiceCatalogProvisioningDetails.GetValue("serviceCatalogProvisioningDetails");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

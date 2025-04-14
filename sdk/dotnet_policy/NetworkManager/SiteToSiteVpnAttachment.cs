@@ -11,79 +11,115 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")]
-    public sealed class SiteToSiteVpnAttachment : global::Pulumi.PolicyResource
+    public sealed class SiteToSiteVpnAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the attachment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The policy rule number associated with the attachment.
         /// </summary>
         [Input("attachmentPolicyRuleNumber")]
-        public int? AttachmentPolicyRuleNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAttachmentPolicyRuleNumber;
+
+        public int? AttachmentPolicyRuleNumber => _mAttachmentPolicyRuleNumber.GetValue("attachmentPolicyRuleNumber");
 
         /// <summary>
         /// The type of attachment.
         /// </summary>
         [Input("attachmentType")]
-        public string? AttachmentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
+
+        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
 
         /// <summary>
         /// The ARN of a core network.
         /// </summary>
         [Input("coreNetworkArn")]
-        public string? CoreNetworkArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
+
+        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
 
         /// <summary>
         /// The ID of a core network for the VPN attachment.
         /// </summary>
         [Input("coreNetworkId")]
-        public string? CoreNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
 
         /// <summary>
         /// The Region where the edge is located.
         /// </summary>
         [Input("edgeLocation")]
-        public string? EdgeLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
+
+        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
 
         /// <summary>
         /// The ID of the attachment account owner.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// The attachment resource ARN.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The name of the segment attachment.
         /// </summary>
         [Input("segmentName")]
-        public string? SegmentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentName;
+
+        public string? SegmentName => _mSegmentName.GetValue("segmentName");
 
         /// <summary>
         /// The state of the attachment.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ARN of the site-to-site VPN connection.
@@ -91,6 +127,42 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// The following arguments are optional:
         /// </summary>
         [Input("vpnConnectionArn")]
-        public string? VpnConnectionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnConnectionArn;
+
+        public string? VpnConnectionArn => _mVpnConnectionArn.GetValue("vpnConnectionArn");
+    }
+
+    [PolicyResourceType("aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")]
+    public sealed class SiteToSiteVpnAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of a core network for the VPN attachment.
+        /// </summary>
+        [Input("coreNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+
+        /// <summary>
+        /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ARN of the site-to-site VPN connection.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vpnConnectionArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnConnectionArn;
+
+        public string? VpnConnectionArn => _mVpnConnectionArn.GetValue("vpnConnectionArn");
     }
 }

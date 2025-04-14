@@ -11,51 +11,112 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.EcrPublic
 {
     [PolicyResourceType("aws:ecrpublic/repository:Repository")]
-    public sealed class Repository : global::Pulumi.PolicyResource
+    public sealed class Repository : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Full ARN of the repository.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Catalog data configuration for the repository. See below for schema.
         /// </summary>
         [Input("catalogData")]
-        public RepositoryCatalogData? CatalogData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryCatalogData> _mCatalogData;
+
+        public Outputs.RepositoryCatalogData? CatalogData => _mCatalogData.GetValue("catalogData");
 
         [Input("forceDestroy")]
-        public bool? ForceDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
 
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
         [Input("registryId")]
-        public string? RegistryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
+
+        public string? RegistryId => _mRegistryId.GetValue("registryId");
 
         /// <summary>
         /// Name of the repository.
         /// </summary>
         [Input("repositoryName")]
-        public string? RepositoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
 
         /// <summary>
         /// The URI of the repository.
         /// </summary>
         [Input("repositoryUri")]
-        public string? RepositoryUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryUri;
+
+        public string? RepositoryUri => _mRepositoryUri.GetValue("repositoryUri");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ecrpublic/repository:Repository")]
+    public sealed class RepositoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Catalog data configuration for the repository. See below for schema.
+        /// </summary>
+        [Input("catalogData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryCatalogDataArgs> _mCatalogData;
+
+        public Inputs.RepositoryCatalogDataArgs? CatalogData => _mCatalogData.GetValue("catalogData");
+
+        [Input("forceDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+
+        /// <summary>
+        /// Name of the repository.
+        /// </summary>
+        [Input("repositoryName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

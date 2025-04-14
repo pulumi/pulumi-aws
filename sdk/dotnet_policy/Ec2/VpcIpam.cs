@@ -11,85 +11,182 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcIpam:VpcIpam")]
-    public sealed class VpcIpam : global::Pulumi.PolicyResource
+    public sealed class VpcIpam : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of IPAM
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         /// </summary>
         [Input("cascade")]
-        public bool? Cascade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCascade;
+
+        public bool? Cascade => _mCascade.GetValue("cascade");
 
         /// <summary>
         /// The IPAM's default resource discovery association ID.
         /// </summary>
         [Input("defaultResourceDiscoveryAssociationId")]
-        public string? DefaultResourceDiscoveryAssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResourceDiscoveryAssociationId;
+
+        public string? DefaultResourceDiscoveryAssociationId => _mDefaultResourceDiscoveryAssociationId.GetValue("defaultResourceDiscoveryAssociationId");
 
         /// <summary>
         /// The IPAM's default resource discovery ID.
         /// </summary>
         [Input("defaultResourceDiscoveryId")]
-        public string? DefaultResourceDiscoveryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResourceDiscoveryId;
+
+        public string? DefaultResourceDiscoveryId => _mDefaultResourceDiscoveryId.GetValue("defaultResourceDiscoveryId");
 
         /// <summary>
         /// A description for the IPAM.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
         /// </summary>
         [Input("enablePrivateGua")]
-        public bool? EnablePrivateGua;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrivateGua;
+
+        public bool? EnablePrivateGua => _mEnablePrivateGua.GetValue("enablePrivateGua");
 
         /// <summary>
         /// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         /// </summary>
         [Input("operatingRegions")]
-        public List<VpcIpamOperatingRegion>? OperatingRegions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpcIpamOperatingRegion>> _mOperatingRegions;
+
+        public List<Outputs.VpcIpamOperatingRegion>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
 
         /// <summary>
         /// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         /// </summary>
         [Input("privateDefaultScopeId")]
-        public string? PrivateDefaultScopeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDefaultScopeId;
+
+        public string? PrivateDefaultScopeId => _mPrivateDefaultScopeId.GetValue("privateDefaultScopeId");
 
         /// <summary>
         /// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
         /// IP space. The public scope is intended for all internet-routable IP space.
         /// </summary>
         [Input("publicDefaultScopeId")]
-        public string? PublicDefaultScopeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDefaultScopeId;
+
+        public string? PublicDefaultScopeId => _mPublicDefaultScopeId.GetValue("publicDefaultScopeId");
 
         /// <summary>
         /// The number of scopes in the IPAM.
         /// </summary>
         [Input("scopeCount")]
-        public int? ScopeCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mScopeCount;
+
+        public int? ScopeCount => _mScopeCount.GetValue("scopeCount");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
         /// </summary>
         [Input("tier")]
-        public string? Tier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
+
+        public string? Tier => _mTier.GetValue("tier");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcIpam:VpcIpam")]
+    public sealed class VpcIpamArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+        /// </summary>
+        [Input("cascade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCascade;
+
+        public bool? Cascade => _mCascade.GetValue("cascade");
+
+        /// <summary>
+        /// A description for the IPAM.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+        /// </summary>
+        [Input("enablePrivateGua")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrivateGua;
+
+        public bool? EnablePrivateGua => _mEnablePrivateGua.GetValue("enablePrivateGua");
+
+        /// <summary>
+        /// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+        /// </summary>
+        [Input("operatingRegions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VpcIpamOperatingRegionArgs>> _mOperatingRegions;
+
+        public List<Inputs.VpcIpamOperatingRegionArgs>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+        /// </summary>
+        [Input("tier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
+
+        public string? Tier => _mTier.GetValue("tier");
     }
 }

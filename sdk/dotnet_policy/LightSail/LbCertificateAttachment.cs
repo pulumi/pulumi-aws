@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")]
-    public sealed class LbCertificateAttachment : global::Pulumi.PolicyResource
+    public sealed class LbCertificateAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of your SSL/TLS certificate.
         /// </summary>
         [Input("certificateName")]
-        public string? CertificateName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
+
+        public string? CertificateName => _mCertificateName.GetValue("certificateName");
 
         /// <summary>
         /// The name of the load balancer to which you want to associate the SSL/TLS certificate.
         /// </summary>
         [Input("lbName")]
-        public string? LbName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
+    }
+
+    [PolicyResourceType("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")]
+    public sealed class LbCertificateAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of your SSL/TLS certificate.
+        /// </summary>
+        [Input("certificateName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
+
+        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+
+        /// <summary>
+        /// The name of the load balancer to which you want to associate the SSL/TLS certificate.
+        /// </summary>
+        [Input("lbName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
     }
 }

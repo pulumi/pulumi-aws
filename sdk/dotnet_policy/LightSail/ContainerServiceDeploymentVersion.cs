@@ -11,42 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")]
-    public sealed class ContainerServiceDeploymentVersion : global::Pulumi.PolicyResource
+    public sealed class ContainerServiceDeploymentVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         /// </summary>
         [Input("containers")]
-        public List<ContainerServiceDeploymentVersionContainer>? Containers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ContainerServiceDeploymentVersionContainer>> _mContainers;
+
+        public List<Outputs.ContainerServiceDeploymentVersionContainer>? Containers => _mContainers.GetValue("containers");
 
         /// <summary>
         /// The timestamp when the deployment was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         /// </summary>
         [Input("publicEndpoint")]
-        public ContainerServiceDeploymentVersionPublicEndpoint? PublicEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ContainerServiceDeploymentVersionPublicEndpoint> _mPublicEndpoint;
+
+        public Outputs.ContainerServiceDeploymentVersionPublicEndpoint? PublicEndpoint => _mPublicEndpoint.GetValue("publicEndpoint");
 
         /// <summary>
         /// The name for the container service.
         /// </summary>
         [Input("serviceName")]
-        public string? ServiceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
 
         /// <summary>
         /// The current state of the container service.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// The version number of the deployment.
         /// </summary>
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")]
+    public sealed class ContainerServiceDeploymentVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        /// </summary>
+        [Input("containers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContainerServiceDeploymentVersionContainerArgs>> _mContainers;
+
+        public List<Inputs.ContainerServiceDeploymentVersionContainerArgs>? Containers => _mContainers.GetValue("containers");
+
+        /// <summary>
+        /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        /// </summary>
+        [Input("publicEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs> _mPublicEndpoint;
+
+        public Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs? PublicEndpoint => _mPublicEndpoint.GetValue("publicEndpoint");
+
+        /// <summary>
+        /// The name for the container service.
+        /// </summary>
+        [Input("serviceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
     }
 }

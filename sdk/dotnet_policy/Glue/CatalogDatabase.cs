@@ -11,72 +11,190 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/catalogDatabase:CatalogDatabase")]
-    public sealed class CatalogDatabase : global::Pulumi.PolicyResource
+    public sealed class CatalogDatabase : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Glue Catalog Database.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         /// </summary>
         [Input("createTableDefaultPermissions")]
-        public List<CatalogDatabaseCreateTableDefaultPermission>? CreateTableDefaultPermissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CatalogDatabaseCreateTableDefaultPermission>> _mCreateTableDefaultPermissions;
+
+        public List<Outputs.CatalogDatabaseCreateTableDefaultPermission>? CreateTableDefaultPermissions => _mCreateTableDefaultPermissions.GetValue("createTableDefaultPermissions");
 
         /// <summary>
         /// Description of the database.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         /// </summary>
         [Input("federatedDatabase")]
-        public CatalogDatabaseFederatedDatabase? FederatedDatabase;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogDatabaseFederatedDatabase> _mFederatedDatabase;
+
+        public Outputs.CatalogDatabaseFederatedDatabase? FederatedDatabase => _mFederatedDatabase.GetValue("federatedDatabase");
 
         /// <summary>
         /// Location of the database (for example, an HDFS path).
         /// </summary>
         [Input("locationUri")]
-        public string? LocationUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocationUri;
+
+        public string? LocationUri => _mLocationUri.GetValue("locationUri");
 
         /// <summary>
         /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// List of key-value pairs that define parameters and properties of the database.
         /// </summary>
         [Input("parameters")]
-        public Dictionary<string, string>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block for a target database for resource linking. See `target_database` below.
         /// </summary>
         [Input("targetDatabase")]
-        public CatalogDatabaseTargetDatabase? TargetDatabase;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogDatabaseTargetDatabase> _mTargetDatabase;
+
+        public Outputs.CatalogDatabaseTargetDatabase? TargetDatabase => _mTargetDatabase.GetValue("targetDatabase");
+    }
+
+    [PolicyResourceType("aws:glue/catalogDatabase:CatalogDatabase")]
+    public sealed class CatalogDatabaseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        /// </summary>
+        [Input("createTableDefaultPermissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>> _mCreateTableDefaultPermissions;
+
+        public List<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>? CreateTableDefaultPermissions => _mCreateTableDefaultPermissions.GetValue("createTableDefaultPermissions");
+
+        /// <summary>
+        /// Description of the database.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        /// </summary>
+        [Input("federatedDatabase")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogDatabaseFederatedDatabaseArgs> _mFederatedDatabase;
+
+        public Inputs.CatalogDatabaseFederatedDatabaseArgs? FederatedDatabase => _mFederatedDatabase.GetValue("federatedDatabase");
+
+        /// <summary>
+        /// Location of the database (for example, an HDFS path).
+        /// </summary>
+        [Input("locationUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocationUri;
+
+        public string? LocationUri => _mLocationUri.GetValue("locationUri");
+
+        /// <summary>
+        /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// List of key-value pairs that define parameters and properties of the database.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block for a target database for resource linking. See `target_database` below.
+        /// </summary>
+        [Input("targetDatabase")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogDatabaseTargetDatabaseArgs> _mTargetDatabase;
+
+        public Inputs.CatalogDatabaseTargetDatabaseArgs? TargetDatabase => _mTargetDatabase.GetValue("targetDatabase");
     }
 }

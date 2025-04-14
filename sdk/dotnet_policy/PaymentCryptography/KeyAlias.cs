@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.PaymentCryptography
 {
     [PolicyResourceType("aws:paymentcryptography/keyAlias:KeyAlias")]
-    public sealed class KeyAlias : global::Pulumi.PolicyResource
+    public sealed class KeyAlias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the Key Alias.
@@ -19,12 +19,42 @@ namespace Pulumi.PolicyPacks.Aws.PaymentCryptography
         /// The following arguments are optional:
         /// </summary>
         [Input("aliasName")]
-        public string? AliasName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
+
+        public string? AliasName => _mAliasName.GetValue("aliasName");
 
         /// <summary>
         /// ARN of the key.
         /// </summary>
         [Input("keyArn")]
-        public string? KeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
+
+        public string? KeyArn => _mKeyArn.GetValue("keyArn");
+    }
+
+    [PolicyResourceType("aws:paymentcryptography/keyAlias:KeyAlias")]
+    public sealed class KeyAliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Key Alias.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("aliasName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
+
+        public string? AliasName => _mAliasName.GetValue("aliasName");
+
+        /// <summary>
+        /// ARN of the key.
+        /// </summary>
+        [Input("keyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
+
+        public string? KeyArn => _mKeyArn.GetValue("keyArn");
     }
 }

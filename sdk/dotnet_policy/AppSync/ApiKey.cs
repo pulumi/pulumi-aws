@@ -11,33 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/apiKey:ApiKey")]
-    public sealed class ApiKey : global::Pulumi.PolicyResource
+    public sealed class ApiKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the associated AppSync API
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         [Input("apiKeyId")]
-        public string? ApiKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiKeyId;
+
+        public string? ApiKeyId => _mApiKeyId.GetValue("apiKeyId");
 
         /// <summary>
         /// API key description. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         /// </summary>
         [Input("expires")]
-        public string? Expires;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpires;
+
+        public string? Expires => _mExpires.GetValue("expires");
 
         /// <summary>
         /// API key
         /// </summary>
         [Input("key")]
-        public string? Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
+    }
+
+    [PolicyResourceType("aws:appsync/apiKey:ApiKey")]
+    public sealed class ApiKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the associated AppSync API
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// API key description. Defaults to "Managed by Pulumi".
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+        /// </summary>
+        [Input("expires")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpires;
+
+        public string? Expires => _mExpires.GetValue("expires");
     }
 }

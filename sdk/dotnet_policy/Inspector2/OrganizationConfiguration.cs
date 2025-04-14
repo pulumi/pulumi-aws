@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Inspector2
 {
     [PolicyResourceType("aws:inspector2/organizationConfiguration:OrganizationConfiguration")]
-    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResource
+    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block for auto enabling. See below.
         /// </summary>
         [Input("autoEnable")]
-        public OrganizationConfigurationAutoEnable? AutoEnable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OrganizationConfigurationAutoEnable> _mAutoEnable;
+
+        public Outputs.OrganizationConfigurationAutoEnable? AutoEnable => _mAutoEnable.GetValue("autoEnable");
 
         /// <summary>
         /// Whether your configuration reached the max account limit.
         /// </summary>
         [Input("maxAccountLimitReached")]
-        public bool? MaxAccountLimitReached;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMaxAccountLimitReached;
+
+        public bool? MaxAccountLimitReached => _mMaxAccountLimitReached.GetValue("maxAccountLimitReached");
+    }
+
+    [PolicyResourceType("aws:inspector2/organizationConfiguration:OrganizationConfiguration")]
+    public sealed class OrganizationConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block for auto enabling. See below.
+        /// </summary>
+        [Input("autoEnable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationAutoEnableArgs> _mAutoEnable;
+
+        public Inputs.OrganizationConfigurationAutoEnableArgs? AutoEnable => _mAutoEnable.GetValue("autoEnable");
     }
 }

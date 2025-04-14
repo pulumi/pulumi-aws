@@ -11,132 +11,238 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/snapshot:Snapshot")]
-    public sealed class Snapshot : global::Pulumi.PolicyResource
+    public sealed class Snapshot : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
         /// </summary>
         [Input("allocatedStorage")]
-        public int? AllocatedStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
+
+        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
 
         /// <summary>
         /// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The DB Instance Identifier from which to take the snapshot.
         /// </summary>
         [Input("dbInstanceIdentifier")]
-        public string? DbInstanceIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceIdentifier;
+
+        public string? DbInstanceIdentifier => _mDbInstanceIdentifier.GetValue("dbInstanceIdentifier");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DB snapshot.
         /// </summary>
         [Input("dbSnapshotArn")]
-        public string? DbSnapshotArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSnapshotArn;
+
+        public string? DbSnapshotArn => _mDbSnapshotArn.GetValue("dbSnapshotArn");
 
         /// <summary>
         /// The Identifier for the snapshot.
         /// </summary>
         [Input("dbSnapshotIdentifier")]
-        public string? DbSnapshotIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSnapshotIdentifier;
+
+        public string? DbSnapshotIdentifier => _mDbSnapshotIdentifier.GetValue("dbSnapshotIdentifier");
 
         /// <summary>
         /// Specifies whether the DB snapshot is encrypted.
         /// </summary>
         [Input("encrypted")]
-        public bool? Encrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
+
+        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
 
         /// <summary>
         /// Specifies the name of the database engine.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// Specifies the version of the database engine.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         /// </summary>
         [Input("iops")]
-        public int? Iops;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
+
+        public int? Iops => _mIops.GetValue("iops");
 
         /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// License model information for the restored DB instance.
         /// </summary>
         [Input("licenseModel")]
-        public string? LicenseModel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseModel;
+
+        public string? LicenseModel => _mLicenseModel.GetValue("licenseModel");
 
         /// <summary>
         /// Provides the option group name for the DB snapshot.
         /// </summary>
         [Input("optionGroupName")]
-        public string? OptionGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupName;
+
+        public string? OptionGroupName => _mOptionGroupName.GetValue("optionGroupName");
 
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         /// </summary>
         [Input("sharedAccounts")]
-        public List<string>? SharedAccounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSharedAccounts;
+
+        public List<string>? SharedAccounts => _mSharedAccounts.GetValue("sharedAccounts");
 
         [Input("snapshotType")]
-        public string? SnapshotType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotType;
+
+        public string? SnapshotType => _mSnapshotType.GetValue("snapshotType");
 
         /// <summary>
         /// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         /// </summary>
         [Input("sourceDbSnapshotIdentifier")]
-        public string? SourceDbSnapshotIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbSnapshotIdentifier;
+
+        public string? SourceDbSnapshotIdentifier => _mSourceDbSnapshotIdentifier.GetValue("sourceDbSnapshotIdentifier");
 
         /// <summary>
         /// The region that the DB snapshot was created in or copied from.
         /// </summary>
         [Input("sourceRegion")]
-        public string? SourceRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceRegion;
+
+        public string? SourceRegion => _mSourceRegion.GetValue("sourceRegion");
 
         /// <summary>
         /// Specifies the status of this DB snapshot.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Specifies the storage type associated with DB snapshot.
         /// </summary>
         [Input("storageType")]
-        public string? StorageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Provides the VPC ID associated with the DB snapshot.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:rds/snapshot:Snapshot")]
+    public sealed class SnapshotArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The DB Instance Identifier from which to take the snapshot.
+        /// </summary>
+        [Input("dbInstanceIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceIdentifier;
+
+        public string? DbInstanceIdentifier => _mDbInstanceIdentifier.GetValue("dbInstanceIdentifier");
+
+        /// <summary>
+        /// The Identifier for the snapshot.
+        /// </summary>
+        [Input("dbSnapshotIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSnapshotIdentifier;
+
+        public string? DbSnapshotIdentifier => _mDbSnapshotIdentifier.GetValue("dbSnapshotIdentifier");
+
+        /// <summary>
+        /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        /// </summary>
+        [Input("sharedAccounts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSharedAccounts;
+
+        public List<string>? SharedAccounts => _mSharedAccounts.GetValue("sharedAccounts");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

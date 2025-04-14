@@ -11,117 +11,382 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/topicRule:TopicRule")]
-    public sealed class TopicRule : global::Pulumi.PolicyResource
+    public sealed class TopicRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the topic rule
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("cloudwatchAlarms")]
-        public List<TopicRuleCloudwatchAlarm>? CloudwatchAlarms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleCloudwatchAlarm>> _mCloudwatchAlarms;
+
+        public List<Outputs.TopicRuleCloudwatchAlarm>? CloudwatchAlarms => _mCloudwatchAlarms.GetValue("cloudwatchAlarms");
 
         [Input("cloudwatchLogs")]
-        public List<TopicRuleCloudwatchLog>? CloudwatchLogs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleCloudwatchLog>> _mCloudwatchLogs;
+
+        public List<Outputs.TopicRuleCloudwatchLog>? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
 
         [Input("cloudwatchMetrics")]
-        public List<TopicRuleCloudwatchMetric>? CloudwatchMetrics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleCloudwatchMetric>> _mCloudwatchMetrics;
+
+        public List<Outputs.TopicRuleCloudwatchMetric>? CloudwatchMetrics => _mCloudwatchMetrics.GetValue("cloudwatchMetrics");
 
         /// <summary>
         /// The description of the rule.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         [Input("dynamodbs")]
-        public List<TopicRuleDynamodb>? Dynamodbs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleDynamodb>> _mDynamodbs;
+
+        public List<Outputs.TopicRuleDynamodb>? Dynamodbs => _mDynamodbs.GetValue("dynamodbs");
 
         [Input("dynamodbv2s")]
-        public List<TopicRuleDynamodbv2>? Dynamodbv2s;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleDynamodbv2>> _mDynamodbv2s;
+
+        public List<Outputs.TopicRuleDynamodbv2>? Dynamodbv2s => _mDynamodbv2s.GetValue("dynamodbv2s");
 
         [Input("elasticsearch")]
-        public List<TopicRuleElasticsearch>? Elasticsearch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleElasticsearch>> _mElasticsearch;
+
+        public List<Outputs.TopicRuleElasticsearch>? Elasticsearch => _mElasticsearch.GetValue("elasticsearch");
 
         /// <summary>
         /// Specifies whether the rule is enabled.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         /// </summary>
         [Input("errorAction")]
-        public TopicRuleErrorAction? ErrorAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TopicRuleErrorAction> _mErrorAction;
+
+        public Outputs.TopicRuleErrorAction? ErrorAction => _mErrorAction.GetValue("errorAction");
 
         [Input("firehoses")]
-        public List<TopicRuleFirehose>? Firehoses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleFirehose>> _mFirehoses;
+
+        public List<Outputs.TopicRuleFirehose>? Firehoses => _mFirehoses.GetValue("firehoses");
 
         [Input("https")]
-        public List<TopicRuleHttp>? Https;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleHttp>> _mHttps;
+
+        public List<Outputs.TopicRuleHttp>? Https => _mHttps.GetValue("https");
 
         [Input("iotAnalytics")]
-        public List<TopicRuleIotAnalytic>? IotAnalytics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleIotAnalytic>> _mIotAnalytics;
+
+        public List<Outputs.TopicRuleIotAnalytic>? IotAnalytics => _mIotAnalytics.GetValue("iotAnalytics");
 
         [Input("iotEvents")]
-        public List<TopicRuleIotEvent>? IotEvents;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleIotEvent>> _mIotEvents;
+
+        public List<Outputs.TopicRuleIotEvent>? IotEvents => _mIotEvents.GetValue("iotEvents");
 
         [Input("kafkas")]
-        public List<TopicRuleKafka>? Kafkas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleKafka>> _mKafkas;
+
+        public List<Outputs.TopicRuleKafka>? Kafkas => _mKafkas.GetValue("kafkas");
 
         [Input("kineses")]
-        public List<TopicRuleKinesis>? Kineses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleKinesis>> _mKineses;
+
+        public List<Outputs.TopicRuleKinesis>? Kineses => _mKineses.GetValue("kineses");
 
         [Input("lambdas")]
-        public List<TopicRuleLambda>? Lambdas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleLambda>> _mLambdas;
+
+        public List<Outputs.TopicRuleLambda>? Lambdas => _mLambdas.GetValue("lambdas");
 
         /// <summary>
         /// The name of the rule.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("republishes")]
-        public List<TopicRuleRepublish>? Republishes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleRepublish>> _mRepublishes;
+
+        public List<Outputs.TopicRuleRepublish>? Republishes => _mRepublishes.GetValue("republishes");
 
         [Input("s3")]
-        public List<TopicRuleS3>? S3;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleS3>> _mS3;
+
+        public List<Outputs.TopicRuleS3>? S3 => _mS3.GetValue("s3");
 
         [Input("sns")]
-        public List<TopicRuleSns>? Sns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleSns>> _mSns;
+
+        public List<Outputs.TopicRuleSns>? Sns => _mSns.GetValue("sns");
 
         /// <summary>
         /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         /// </summary>
         [Input("sql")]
-        public string? Sql;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSql;
+
+        public string? Sql => _mSql.GetValue("sql");
 
         /// <summary>
         /// The version of the SQL rules engine to use when evaluating the rule.
         /// </summary>
         [Input("sqlVersion")]
-        public string? SqlVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSqlVersion;
+
+        public string? SqlVersion => _mSqlVersion.GetValue("sqlVersion");
 
         [Input("sqs")]
-        public List<TopicRuleSqs>? Sqs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleSqs>> _mSqs;
+
+        public List<Outputs.TopicRuleSqs>? Sqs => _mSqs.GetValue("sqs");
 
         [Input("stepFunctions")]
-        public List<TopicRuleStepFunction>? StepFunctions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleStepFunction>> _mStepFunctions;
+
+        public List<Outputs.TopicRuleStepFunction>? StepFunctions => _mStepFunctions.GetValue("stepFunctions");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timestreams")]
-        public List<TopicRuleTimestream>? Timestreams;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleTimestream>> _mTimestreams;
+
+        public List<Outputs.TopicRuleTimestream>? Timestreams => _mTimestreams.GetValue("timestreams");
+    }
+
+    [PolicyResourceType("aws:iot/topicRule:TopicRule")]
+    public sealed class TopicRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("cloudwatchAlarms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleCloudwatchAlarmArgs>> _mCloudwatchAlarms;
+
+        public List<Inputs.TopicRuleCloudwatchAlarmArgs>? CloudwatchAlarms => _mCloudwatchAlarms.GetValue("cloudwatchAlarms");
+
+        [Input("cloudwatchLogs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleCloudwatchLogArgs>> _mCloudwatchLogs;
+
+        public List<Inputs.TopicRuleCloudwatchLogArgs>? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
+
+        [Input("cloudwatchMetrics")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleCloudwatchMetricArgs>> _mCloudwatchMetrics;
+
+        public List<Inputs.TopicRuleCloudwatchMetricArgs>? CloudwatchMetrics => _mCloudwatchMetrics.GetValue("cloudwatchMetrics");
+
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        [Input("dynamodbs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleDynamodbArgs>> _mDynamodbs;
+
+        public List<Inputs.TopicRuleDynamodbArgs>? Dynamodbs => _mDynamodbs.GetValue("dynamodbs");
+
+        [Input("dynamodbv2s")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleDynamodbv2Args>> _mDynamodbv2s;
+
+        public List<Inputs.TopicRuleDynamodbv2Args>? Dynamodbv2s => _mDynamodbv2s.GetValue("dynamodbv2s");
+
+        [Input("elasticsearch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleElasticsearchArgs>> _mElasticsearch;
+
+        public List<Inputs.TopicRuleElasticsearchArgs>? Elasticsearch => _mElasticsearch.GetValue("elasticsearch");
+
+        /// <summary>
+        /// Specifies whether the rule is enabled.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
+        /// </summary>
+        [Input("errorAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleErrorActionArgs> _mErrorAction;
+
+        public Inputs.TopicRuleErrorActionArgs? ErrorAction => _mErrorAction.GetValue("errorAction");
+
+        [Input("firehoses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleFirehoseArgs>> _mFirehoses;
+
+        public List<Inputs.TopicRuleFirehoseArgs>? Firehoses => _mFirehoses.GetValue("firehoses");
+
+        [Input("https")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleHttpArgs>> _mHttps;
+
+        public List<Inputs.TopicRuleHttpArgs>? Https => _mHttps.GetValue("https");
+
+        [Input("iotAnalytics")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleIotAnalyticArgs>> _mIotAnalytics;
+
+        public List<Inputs.TopicRuleIotAnalyticArgs>? IotAnalytics => _mIotAnalytics.GetValue("iotAnalytics");
+
+        [Input("iotEvents")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleIotEventArgs>> _mIotEvents;
+
+        public List<Inputs.TopicRuleIotEventArgs>? IotEvents => _mIotEvents.GetValue("iotEvents");
+
+        [Input("kafkas")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleKafkaArgs>> _mKafkas;
+
+        public List<Inputs.TopicRuleKafkaArgs>? Kafkas => _mKafkas.GetValue("kafkas");
+
+        [Input("kineses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleKinesisArgs>> _mKineses;
+
+        public List<Inputs.TopicRuleKinesisArgs>? Kineses => _mKineses.GetValue("kineses");
+
+        [Input("lambdas")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleLambdaArgs>> _mLambdas;
+
+        public List<Inputs.TopicRuleLambdaArgs>? Lambdas => _mLambdas.GetValue("lambdas");
+
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        [Input("republishes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleRepublishArgs>> _mRepublishes;
+
+        public List<Inputs.TopicRuleRepublishArgs>? Republishes => _mRepublishes.GetValue("republishes");
+
+        [Input("s3")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleS3Args>> _mS3;
+
+        public List<Inputs.TopicRuleS3Args>? S3 => _mS3.GetValue("s3");
+
+        [Input("sns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleSnsArgs>> _mSns;
+
+        public List<Inputs.TopicRuleSnsArgs>? Sns => _mSns.GetValue("sns");
+
+        /// <summary>
+        /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
+        /// </summary>
+        [Input("sql")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSql;
+
+        public string? Sql => _mSql.GetValue("sql");
+
+        /// <summary>
+        /// The version of the SQL rules engine to use when evaluating the rule.
+        /// </summary>
+        [Input("sqlVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSqlVersion;
+
+        public string? SqlVersion => _mSqlVersion.GetValue("sqlVersion");
+
+        [Input("sqs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleSqsArgs>> _mSqs;
+
+        public List<Inputs.TopicRuleSqsArgs>? Sqs => _mSqs.GetValue("sqs");
+
+        [Input("stepFunctions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleStepFunctionArgs>> _mStepFunctions;
+
+        public List<Inputs.TopicRuleStepFunctionArgs>? StepFunctions => _mStepFunctions.GetValue("stepFunctions");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timestreams")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleTimestreamArgs>> _mTimestreams;
+
+        public List<Inputs.TopicRuleTimestreamArgs>? Timestreams => _mTimestreams.GetValue("timestreams");
     }
 }

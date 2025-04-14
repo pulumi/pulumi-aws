@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/linkAssociation:LinkAssociation")]
-    public sealed class LinkAssociation : global::Pulumi.PolicyResource
+    public sealed class LinkAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the device.
         /// </summary>
         [Input("deviceId")]
-        public string? DeviceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
+
+        public string? DeviceId => _mDeviceId.GetValue("deviceId");
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
         [Input("globalNetworkId")]
-        public string? GlobalNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
         [Input("linkId")]
-        public string? LinkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
+
+        public string? LinkId => _mLinkId.GetValue("linkId");
+    }
+
+    [PolicyResourceType("aws:networkmanager/linkAssociation:LinkAssociation")]
+    public sealed class LinkAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the device.
+        /// </summary>
+        [Input("deviceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
+
+        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+
+        /// <summary>
+        /// The ID of the global network.
+        /// </summary>
+        [Input("globalNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+
+        /// <summary>
+        /// The ID of the link.
+        /// </summary>
+        [Input("linkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
+
+        public string? LinkId => _mLinkId.GetValue("linkId");
     }
 }

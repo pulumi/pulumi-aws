@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")]
-    public sealed class VpnGatewayAttachment : global::Pulumi.PolicyResource
+    public sealed class VpnGatewayAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
 
         /// <summary>
         /// The ID of the Virtual Private Gateway.
         /// </summary>
         [Input("vpnGatewayId")]
-        public string? VpnGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")]
+    public sealed class VpnGatewayAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+
+        /// <summary>
+        /// The ID of the Virtual Private Gateway.
+        /// </summary>
+        [Input("vpnGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
     }
 }

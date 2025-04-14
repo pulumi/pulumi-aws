@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/gateway:Gateway")]
-    public sealed class Gateway : global::Pulumi.PolicyResource
+    public sealed class Gateway : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         /// </summary>
         [Input("amazonSideAsn")]
-        public string? AmazonSideAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonSideAsn;
+
+        public string? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
 
         /// <summary>
         /// The ARN of the gateway.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// AWS Account ID of the gateway.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+    }
+
+    [PolicyResourceType("aws:directconnect/gateway:Gateway")]
+    public sealed class GatewayArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        /// </summary>
+        [Input("amazonSideAsn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonSideAsn;
+
+        public string? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
+
+        /// <summary>
+        /// The name of the connection.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

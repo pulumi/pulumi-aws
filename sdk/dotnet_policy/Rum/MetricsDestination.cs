@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rum
 {
     [PolicyResourceType("aws:rum/metricsDestination:MetricsDestination")]
-    public sealed class MetricsDestination : global::Pulumi.PolicyResource
+    public sealed class MetricsDestination : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the CloudWatch RUM app monitor that will send the metrics.
         /// </summary>
         [Input("appMonitorName")]
-        public string? AppMonitorName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppMonitorName;
+
+        public string? AppMonitorName => _mAppMonitorName.GetValue("appMonitorName");
 
         /// <summary>
         /// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
         /// </summary>
         [Input("destination")]
-        public string? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
 
         /// <summary>
         /// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         /// </summary>
         [Input("destinationArn")]
-        public string? DestinationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
 
         /// <summary>
         /// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+    }
+
+    [PolicyResourceType("aws:rum/metricsDestination:MetricsDestination")]
+    public sealed class MetricsDestinationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the CloudWatch RUM app monitor that will send the metrics.
+        /// </summary>
+        [Input("appMonitorName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppMonitorName;
+
+        public string? AppMonitorName => _mAppMonitorName.GetValue("appMonitorName");
+
+        /// <summary>
+        /// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+
+        public string? Destination => _mDestination.GetValue("destination");
+
+        /// <summary>
+        /// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+        /// </summary>
+        [Input("destinationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+
+        /// <summary>
+        /// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
     }
 }

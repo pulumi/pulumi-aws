@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/inviteAccepter:InviteAccepter")]
-    public sealed class InviteAccepter : global::Pulumi.PolicyResource
+    public sealed class InviteAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the invitation.
         /// </summary>
         [Input("invitationId")]
-        public string? InvitationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationId;
+
+        public string? InvitationId => _mInvitationId.GetValue("invitationId");
 
         /// <summary>
         /// The account ID of the master Security Hub account whose invitation you're accepting.
         /// </summary>
         [Input("masterId")]
-        public string? MasterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterId;
+
+        public string? MasterId => _mMasterId.GetValue("masterId");
+    }
+
+    [PolicyResourceType("aws:securityhub/inviteAccepter:InviteAccepter")]
+    public sealed class InviteAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The account ID of the master Security Hub account whose invitation you're accepting.
+        /// </summary>
+        [Input("masterId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterId;
+
+        public string? MasterId => _mMasterId.GetValue("masterId");
     }
 }

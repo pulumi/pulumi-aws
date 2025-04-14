@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/dedicatedIpPool:DedicatedIpPool")]
-    public sealed class DedicatedIpPool : global::Pulumi.PolicyResource
+    public sealed class DedicatedIpPool : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Dedicated IP Pool.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the dedicated IP pool.
@@ -25,21 +28,66 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// The following arguments are optional:
         /// </summary>
         [Input("poolName")]
-        public string? PoolName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPoolName;
+
+        public string? PoolName => _mPoolName.GetValue("poolName");
 
         /// <summary>
         /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         /// </summary>
         [Input("scalingMode")]
-        public string? ScalingMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScalingMode;
+
+        public string? ScalingMode => _mScalingMode.GetValue("scalingMode");
 
         /// <summary>
         /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sesv2/dedicatedIpPool:DedicatedIpPool")]
+    public sealed class DedicatedIpPoolArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the dedicated IP pool.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("poolName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPoolName;
+
+        public string? PoolName => _mPoolName.GetValue("poolName");
+
+        /// <summary>
+        /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
+        /// </summary>
+        [Input("scalingMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScalingMode;
+
+        public string? ScalingMode => _mScalingMode.GetValue("scalingMode");
+
+        /// <summary>
+        /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

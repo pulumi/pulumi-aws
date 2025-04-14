@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Auditmanager
 {
     [PolicyResourceType("aws:auditmanager/assessmentReport:AssessmentReport")]
-    public sealed class AssessmentReport : global::Pulumi.PolicyResource
+    public sealed class AssessmentReport : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Unique identifier of the assessment to create the report from.
@@ -19,30 +19,78 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// The following arguments are optional:
         /// </summary>
         [Input("assessmentId")]
-        public string? AssessmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssessmentId;
+
+        public string? AssessmentId => _mAssessmentId.GetValue("assessmentId");
 
         /// <summary>
         /// Name of the user who created the assessment report.
         /// </summary>
         [Input("author")]
-        public string? Author;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthor;
+
+        public string? Author => _mAuthor.GetValue("author");
 
         /// <summary>
         /// Description of the assessment report.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the assessment report.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:auditmanager/assessmentReport:AssessmentReport")]
+    public sealed class AssessmentReportArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique identifier of the assessment to create the report from.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("assessmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssessmentId;
+
+        public string? AssessmentId => _mAssessmentId.GetValue("assessmentId");
+
+        /// <summary>
+        /// Description of the assessment report.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the assessment report.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

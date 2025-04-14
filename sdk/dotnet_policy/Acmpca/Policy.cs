@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Acmpca
 {
     [PolicyResourceType("aws:acmpca/policy:Policy")]
-    public sealed class Policy : global::Pulumi.PolicyResource
+    public sealed class Policy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// JSON-formatted IAM policy to attach to the specified private CA resource.
         /// </summary>
         [Input("policy")]
-        public string? PolicyDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDetails;
+
+        public string? PolicyDetails => _mPolicyDetails.GetValue("policy");
 
         /// <summary>
         /// ARN of the private CA to associate with the policy.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+    }
+
+    [PolicyResourceType("aws:acmpca/policy:Policy")]
+    public sealed class PolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// JSON-formatted IAM policy to attach to the specified private CA resource.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDetails;
+
+        public string? PolicyDetails => _mPolicyDetails.GetValue("policy");
+
+        /// <summary>
+        /// ARN of the private CA to associate with the policy.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
     }
 }

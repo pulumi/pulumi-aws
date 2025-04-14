@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")]
-    public sealed class RealtimeLogConfig : global::Pulumi.PolicyResource
+    public sealed class RealtimeLogConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Amazon Kinesis data streams where real-time log data is sent.
         /// </summary>
         [Input("endpoint")]
-        public RealtimeLogConfigEndpoint? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RealtimeLogConfigEndpoint> _mEndpoint;
+
+        public Outputs.RealtimeLogConfigEndpoint? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         /// </summary>
         [Input("fields")]
-        public List<string>? Fields;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFields;
+
+        public List<string>? Fields => _mFields.GetValue("fields");
 
         /// <summary>
         /// The unique name to identify this real-time log configuration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         /// </summary>
         [Input("samplingRate")]
-        public int? SamplingRate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSamplingRate;
+
+        public int? SamplingRate => _mSamplingRate.GetValue("samplingRate");
+    }
+
+    [PolicyResourceType("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")]
+    public sealed class RealtimeLogConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Kinesis data streams where real-time log data is sent.
+        /// </summary>
+        [Input("endpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RealtimeLogConfigEndpointArgs> _mEndpoint;
+
+        public Inputs.RealtimeLogConfigEndpointArgs? Endpoint => _mEndpoint.GetValue("endpoint");
+
+        /// <summary>
+        /// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+        /// </summary>
+        [Input("fields")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFields;
+
+        public List<string>? Fields => _mFields.GetValue("fields");
+
+        /// <summary>
+        /// The unique name to identify this real-time log configuration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
+        /// </summary>
+        [Input("samplingRate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSamplingRate;
+
+        public int? SamplingRate => _mSamplingRate.GetValue("samplingRate");
     }
 }

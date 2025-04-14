@@ -11,70 +11,171 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppFabric
 {
     [PolicyResourceType("aws:appfabric/appAuthorization:AppAuthorization")]
-    public sealed class AppAuthorization : global::Pulumi.PolicyResource
+    public sealed class AppAuthorization : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
         /// </summary>
         [Input("app")]
-        public string? App;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApp;
+
+        public string? App => _mApp.GetValue("app");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn")]
-        public string? AppBundleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
+
+        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
 
         /// <summary>
         /// ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The authorization type for the app authorization valid values are oauth2 and apiKey.
         /// </summary>
         [Input("authType")]
-        public string? AuthType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
+
+        public string? AuthType => _mAuthType.GetValue("authType");
 
         /// <summary>
         /// The application URL for the OAuth flow.
         /// </summary>
         [Input("authUrl")]
-        public string? AuthUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthUrl;
+
+        public string? AuthUrl => _mAuthUrl.GetValue("authUrl");
 
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
         /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         /// </summary>
         [Input("credential")]
-        public AppAuthorizationCredential? Credential;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAuthorizationCredential> _mCredential;
+
+        public Outputs.AppAuthorizationCredential? Credential => _mCredential.GetValue("credential");
 
         /// <summary>
         /// The user persona of the app authorization.
         /// </summary>
         [Input("persona")]
-        public string? Persona;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPersona;
+
+        public string? Persona => _mPersona.GetValue("persona");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Contains information about an application tenant, such as the application display name and identifier.
         /// </summary>
         [Input("tenants")]
-        public List<AppAuthorizationTenant>? Tenants;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AppAuthorizationTenant>> _mTenants;
+
+        public List<Outputs.AppAuthorizationTenant>? Tenants => _mTenants.GetValue("tenants");
 
         [Input("timeouts")]
-        public AppAuthorizationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAuthorizationTimeouts> _mTimeouts;
+
+        public Outputs.AppAuthorizationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         [Input("updatedAt")]
-        public string? UpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
+
+        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+    }
+
+    [PolicyResourceType("aws:appfabric/appAuthorization:AppAuthorization")]
+    public sealed class AppAuthorizationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+        /// </summary>
+        [Input("app")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApp;
+
+        public string? App => _mApp.GetValue("app");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// </summary>
+        [Input("appBundleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
+
+        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+
+        /// <summary>
+        /// The authorization type for the app authorization valid values are oauth2 and apiKey.
+        /// </summary>
+        [Input("authType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
+
+        public string? AuthType => _mAuthType.GetValue("authType");
+
+        /// <summary>
+        /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
+        /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+        /// </summary>
+        [Input("credential")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppAuthorizationCredentialArgs> _mCredential;
+
+        public Inputs.AppAuthorizationCredentialArgs? Credential => _mCredential.GetValue("credential");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Contains information about an application tenant, such as the application display name and identifier.
+        /// </summary>
+        [Input("tenants")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AppAuthorizationTenantArgs>> _mTenants;
+
+        public List<Inputs.AppAuthorizationTenantArgs>? Tenants => _mTenants.GetValue("tenants");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppAuthorizationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AppAuthorizationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

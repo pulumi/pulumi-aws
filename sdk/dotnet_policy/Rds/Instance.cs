@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/instance:Instance")]
-    public sealed class Instance : global::Pulumi.PolicyResource
+    public sealed class Instance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the DNS address of the DB instance.
         /// </summary>
         [Input("address")]
-        public string? Address;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
+
+        public string? Address => _mAddress.GetValue("address");
 
         /// <summary>
         /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         /// </summary>
         [Input("allocatedStorage")]
-        public int? AllocatedStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
+
+        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
 
         /// <summary>
         /// Indicates that major version
@@ -31,7 +37,10 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// the change is asynchronously applied as soon as possible.
         /// </summary>
         [Input("allowMajorVersionUpgrade")]
-        public bool? AllowMajorVersionUpgrade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
+
+        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
 
         /// <summary>
         /// Specifies whether any database modifications
@@ -40,13 +49,19 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Input("applyImmediately")]
-        public bool? ApplyImmediately;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
 
         /// <summary>
         /// The ARN of the RDS instance.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Indicates that minor engine upgrades
@@ -54,13 +69,19 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Defaults to true.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
-        public bool? AutoMinorVersionUpgrade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
 
         /// <summary>
         /// The AZ for the RDS instance.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The days to retain backups for.
@@ -71,33 +92,48 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// or will use [RDS Blue/Green deployments][blue-green].
         /// </summary>
         [Input("backupRetentionPeriod")]
-        public int? BackupRetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
+
+        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
 
         /// <summary>
         /// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         /// </summary>
         [Input("backupTarget")]
-        public string? BackupTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupTarget;
+
+        public string? BackupTarget => _mBackupTarget.GetValue("backupTarget");
 
         /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
         /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         /// </summary>
         [Input("backupWindow")]
-        public string? BackupWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupWindow;
+
+        public string? BackupWindow => _mBackupWindow.GetValue("backupWindow");
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         /// See `blue_green_update` below.
         /// </summary>
         [Input("blueGreenUpdate")]
-        public InstanceBlueGreenUpdate? BlueGreenUpdate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceBlueGreenUpdate> _mBlueGreenUpdate;
+
+        public Outputs.InstanceBlueGreenUpdate? BlueGreenUpdate => _mBlueGreenUpdate.GetValue("blueGreenUpdate");
 
         /// <summary>
         /// The identifier of the CA certificate for the DB instance.
         /// </summary>
         [Input("caCertIdentifier")]
-        public string? CaCertIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertIdentifier;
+
+        public string? CaCertIdentifier => _mCaCertIdentifier.GetValue("caCertIdentifier");
 
         /// <summary>
         /// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
@@ -107,19 +143,28 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
         /// </summary>
         [Input("characterSetName")]
-        public string? CharacterSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCharacterSetName;
+
+        public string? CharacterSetName => _mCharacterSetName.GetValue("characterSetName");
 
         /// <summary>
         /// Copy all Instance `tags` to snapshots. Default is `false`.
         /// </summary>
         [Input("copyTagsToSnapshot")]
-        public bool? CopyTagsToSnapshot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
+
+        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
 
         /// <summary>
         /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         /// </summary>
         [Input("customIamInstanceProfile")]
-        public string? CustomIamInstanceProfile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomIamInstanceProfile;
+
+        public string? CustomIamInstanceProfile => _mCustomIamInstanceProfile.GetValue("customIamInstanceProfile");
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -129,19 +174,28 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// standalone database.
         /// </summary>
         [Input("customerOwnedIpEnabled")]
-        public bool? CustomerOwnedIpEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCustomerOwnedIpEnabled;
+
+        public bool? CustomerOwnedIpEnabled => _mCustomerOwnedIpEnabled.GetValue("customerOwnedIpEnabled");
 
         /// <summary>
         /// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
         /// </summary>
         [Input("databaseInsightsMode")]
-        public string? DatabaseInsightsMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInsightsMode;
+
+        public string? DatabaseInsightsMode => _mDatabaseInsightsMode.GetValue("databaseInsightsMode");
 
         /// <summary>
         /// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         /// </summary>
         [Input("dbName")]
-        public string? DbName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbName;
+
+        public string? DbName => _mDbName.GetValue("dbName");
 
         /// <summary>
         /// Name of DB subnet group.
@@ -152,97 +206,145 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         /// </summary>
         [Input("dbSubnetGroupName")]
-        public string? DbSubnetGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
+
+        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
 
         /// <summary>
         /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         /// </summary>
         [Input("dedicatedLogVolume")]
-        public bool? DedicatedLogVolume;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDedicatedLogVolume;
+
+        public bool? DedicatedLogVolume => _mDedicatedLogVolume.GetValue("dedicatedLogVolume");
 
         /// <summary>
         /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         /// </summary>
         [Input("deleteAutomatedBackups")]
-        public bool? DeleteAutomatedBackups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAutomatedBackups;
+
+        public bool? DeleteAutomatedBackups => _mDeleteAutomatedBackups.GetValue("deleteAutomatedBackups");
 
         /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
         [Input("deletionProtection")]
-        public bool? DeletionProtection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
+
+        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
 
         /// <summary>
         /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
         [Input("domainAuthSecretArn")]
-        public string? DomainAuthSecretArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainAuthSecretArn;
+
+        public string? DomainAuthSecretArn => _mDomainAuthSecretArn.GetValue("domainAuthSecretArn");
 
         /// <summary>
         /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
         [Input("domainDnsIps")]
-        public List<string>? DomainDnsIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomainDnsIps;
+
+        public List<string>? DomainDnsIps => _mDomainDnsIps.GetValue("domainDnsIps");
 
         /// <summary>
         /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
         [Input("domainFqdn")]
-        public string? DomainFqdn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainFqdn;
+
+        public string? DomainFqdn => _mDomainFqdn.GetValue("domainFqdn");
 
         /// <summary>
         /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
         [Input("domainIamRoleName")]
-        public string? DomainIamRoleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIamRoleName;
+
+        public string? DomainIamRoleName => _mDomainIamRoleName.GetValue("domainIamRoleName");
 
         /// <summary>
         /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
         [Input("domainOu")]
-        public string? DomainOu;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOu;
+
+        public string? DomainOu => _mDomainOu.GetValue("domainOu");
 
         /// <summary>
         /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
         [Input("enabledCloudwatchLogsExports")]
-        public List<string>? EnabledCloudwatchLogsExports;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledCloudwatchLogsExports;
+
+        public List<string>? EnabledCloudwatchLogsExports => _mEnabledCloudwatchLogsExports.GetValue("enabledCloudwatchLogsExports");
 
         /// <summary>
         /// The connection endpoint in `address:port` format.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
         [Input("engineLifecycleSupport")]
-        public string? EngineLifecycleSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineLifecycleSupport;
+
+        public string? EngineLifecycleSupport => _mEngineLifecycleSupport.GetValue("engineLifecycleSupport");
 
         /// <summary>
         /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The running version of the database.
         /// </summary>
         [Input("engineVersionActual")]
-        public string? EngineVersionActual;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersionActual;
+
+        public string? EngineVersionActual => _mEngineVersionActual.GetValue("engineVersionActual");
 
         /// <summary>
         /// The name of your final DB snapshot
@@ -250,38 +352,56 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
-        public string? FinalSnapshotIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
+
+        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
 
         /// <summary>
         /// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
 
         /// <summary>
         /// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
         /// accounts is enabled.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
-        public bool? IamDatabaseAuthenticationEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIamDatabaseAuthenticationEnabled;
+
+        public bool? IamDatabaseAuthenticationEnabled => _mIamDatabaseAuthenticationEnabled.GetValue("iamDatabaseAuthenticationEnabled");
 
         /// <summary>
         /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
         [Input("identifier")]
-        public string? Identifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
+
+        public string? Identifier => _mIdentifier.GetValue("identifier");
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Input("identifierPrefix")]
-        public string? IdentifierPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
+
+        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
 
         /// <summary>
         /// The instance type of the RDS instance.
         /// </summary>
         [Input("instanceClass")]
-        public string? InstanceClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceClass;
+
+        public string? InstanceClass => _mInstanceClass.GetValue("instanceClass");
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
@@ -290,20 +410,29 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("iops")]
-        public int? Iops;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
+
+        public int? Iops => _mIops.GetValue("iops");
 
         /// <summary>
         /// The ARN for the KMS encryption key. If creating an
         /// encrypted replica, set this to the destination KMS ARN.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         /// </summary>
         [Input("latestRestorableTime")]
-        public string? LatestRestorableTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLatestRestorableTime;
+
+        public string? LatestRestorableTime => _mLatestRestorableTime.GetValue("latestRestorableTime");
 
         /// <summary>
         /// License model information for this DB instance. Valid values for this field are as follows:
@@ -314,13 +443,19 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// * RDS for PostgreSQL: `postgresql-license`
         /// </summary>
         [Input("licenseModel")]
-        public string? LicenseModel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseModel;
+
+        public string? LicenseModel => _mLicenseModel.GetValue("licenseModel");
 
         /// <summary>
         /// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
         /// </summary>
         [Input("listenerEndpoints")]
-        public List<InstanceListenerEndpoint>? ListenerEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceListenerEndpoint>> _mListenerEndpoints;
+
+        public List<Outputs.InstanceListenerEndpoint>? ListenerEndpoints => _mListenerEndpoints.GetValue("listenerEndpoints");
 
         /// <summary>
         /// The window to perform maintenance in.
@@ -330,31 +465,46 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// for more information.
         /// </summary>
         [Input("maintenanceWindow")]
-        public string? MaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
+
+        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
 
         /// <summary>
         /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
-        public bool? ManageMasterUserPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mManageMasterUserPassword;
+
+        public bool? ManageMasterUserPassword => _mManageMasterUserPassword.GetValue("manageMasterUserPassword");
 
         /// <summary>
         /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         /// </summary>
         [Input("masterUserSecretKmsKeyId")]
-        public string? MasterUserSecretKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserSecretKmsKeyId;
+
+        public string? MasterUserSecretKmsKeyId => _mMasterUserSecretKmsKeyId.GetValue("masterUserSecretKmsKeyId");
 
         /// <summary>
         /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         /// </summary>
         [Input("masterUserSecrets")]
-        public List<InstanceMasterUserSecret>? MasterUserSecrets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceMasterUserSecret>> _mMasterUserSecrets;
+
+        public List<Outputs.InstanceMasterUserSecret>? MasterUserSecrets => _mMasterUserSecrets.GetValue("masterUserSecrets");
 
         /// <summary>
         /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
         /// </summary>
         [Input("maxAllocatedStorage")]
-        public int? MaxAllocatedStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAllocatedStorage;
+
+        public int? MaxAllocatedStorage => _mMaxAllocatedStorage.GetValue("maxAllocatedStorage");
 
         /// <summary>
         /// The interval, in seconds, between points
@@ -363,7 +513,10 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Values: 0, 1, 5, 10, 15, 30, 60.
         /// </summary>
         [Input("monitoringInterval")]
-        public int? MonitoringInterval;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMonitoringInterval;
+
+        public int? MonitoringInterval => _mMonitoringInterval.GetValue("monitoringInterval");
 
         /// <summary>
         /// The ARN for the IAM role that permits RDS
@@ -373,88 +526,133 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         /// </summary>
         [Input("monitoringRoleArn")]
-        public string? MonitoringRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitoringRoleArn;
+
+        public string? MonitoringRoleArn => _mMonitoringRoleArn.GetValue("monitoringRoleArn");
 
         /// <summary>
         /// Specifies if the RDS instance is multi-AZ
         /// </summary>
         [Input("multiAz")]
-        public bool? MultiAz;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+
+        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
 
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
         /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         /// </summary>
         [Input("ncharCharacterSetName")]
-        public string? NcharCharacterSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNcharCharacterSetName;
+
+        public string? NcharCharacterSetName => _mNcharCharacterSetName.GetValue("ncharCharacterSetName");
 
         /// <summary>
         /// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         /// </summary>
         [Input("networkType")]
-        public string? NetworkType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
+
+        public string? NetworkType => _mNetworkType.GetValue("networkType");
 
         /// <summary>
         /// Name of the DB option group to associate.
         /// </summary>
         [Input("optionGroupName")]
-        public string? OptionGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupName;
+
+        public string? OptionGroupName => _mOptionGroupName.GetValue("optionGroupName");
 
         /// <summary>
         /// Name of the DB parameter group to associate.
         /// </summary>
         [Input("parameterGroupName")]
-        public string? ParameterGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
+
+        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
 
         /// <summary>
         /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         [Input("password")]
-        public string? Password;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
 
         /// <summary>
         /// Specifies whether Performance Insights are enabled. Defaults to false.
         /// </summary>
         [Input("performanceInsightsEnabled")]
-        public bool? PerformanceInsightsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPerformanceInsightsEnabled;
+
+        public bool? PerformanceInsightsEnabled => _mPerformanceInsightsEnabled.GetValue("performanceInsightsEnabled");
 
         /// <summary>
         /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
-        public string? PerformanceInsightsKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceInsightsKmsKeyId;
+
+        public string? PerformanceInsightsKmsKeyId => _mPerformanceInsightsKmsKeyId.GetValue("performanceInsightsKmsKeyId");
 
         /// <summary>
         /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
-        public int? PerformanceInsightsRetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPerformanceInsightsRetentionPeriod;
+
+        public int? PerformanceInsightsRetentionPeriod => _mPerformanceInsightsRetentionPeriod.GetValue("performanceInsightsRetentionPeriod");
 
         /// <summary>
         /// The port on which the DB accepts connections.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// Bool to control if instance is publicly
         /// accessible. Default is `false`.
         /// </summary>
         [Input("publiclyAccessible")]
-        public bool? PubliclyAccessible;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
 
         /// <summary>
         /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
         /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         /// </summary>
         [Input("replicaMode")]
-        public string? ReplicaMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicaMode;
+
+        public string? ReplicaMode => _mReplicaMode.GetValue("replicaMode");
 
         [Input("replicas")]
-        public List<string>? Replicas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReplicas;
+
+        public List<string>? Replicas => _mReplicas.GetValue("replicas");
 
         /// <summary>
         /// Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -465,13 +663,19 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         /// </summary>
         [Input("replicateSourceDb")]
-        public string? ReplicateSourceDb;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicateSourceDb;
+
+        public string? ReplicateSourceDb => _mReplicateSourceDb.GetValue("replicateSourceDb");
 
         /// <summary>
         /// The RDS Resource ID of this instance.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// A configuration block for restoring a DB instance to an arbitrary point in time.
@@ -479,13 +683,19 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// See Restore To Point In Time below for details.
         /// </summary>
         [Input("restoreToPointInTime")]
-        public InstanceRestoreToPointInTime? RestoreToPointInTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceRestoreToPointInTime> _mRestoreToPointInTime;
+
+        public Outputs.InstanceRestoreToPointInTime? RestoreToPointInTime => _mRestoreToPointInTime.GetValue("restoreToPointInTime");
 
         /// <summary>
         /// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         /// </summary>
         [Input("s3Import")]
-        public InstanceS3Import? S3Import;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceS3Import> _mS3Import;
+
+        public Outputs.InstanceS3Import? S3Import => _mS3Import.GetValue("s3Import");
 
         /// <summary>
         /// Determines whether a final DB snapshot is
@@ -495,20 +705,29 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
-        public bool? SkipFinalSnapshot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
+
+        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
 
         /// <summary>
         /// Specifies whether or not to create this database from a snapshot.
         /// This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         /// </summary>
         [Input("snapshotIdentifier")]
-        public string? SnapshotIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
+
+        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
 
         /// <summary>
         /// The RDS instance status.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Specifies whether the DB instance is
@@ -517,13 +736,19 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// default is `false` if not specified.
         /// </summary>
         [Input("storageEncrypted")]
-        public bool? StorageEncrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
+
+        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
 
         /// <summary>
         /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
         [Input("storageThroughput")]
-        public int? StorageThroughput;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageThroughput;
+
+        public int? StorageThroughput => _mStorageThroughput.GetValue("storageThroughput");
 
         /// <summary>
         /// One of "standard" (magnetic), "gp2" (general
@@ -532,19 +757,28 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         /// </summary>
         [Input("storageType")]
-        public string? StorageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Time zone of the DB instance. `timezone` is currently
@@ -554,27 +788,748 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// for more information.
         /// </summary>
         [Input("timezone")]
-        public string? Timezone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
+
+        public string? Timezone => _mTimezone.GetValue("timezone");
 
         /// <summary>
         /// Whether to upgrade the storage file system configuration on the read replica.
         /// Can only be set with `replicate_source_db`.
         /// </summary>
         [Input("upgradeStorageConfig")]
-        public bool? UpgradeStorageConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUpgradeStorageConfig;
+
+        public bool? UpgradeStorageConfig => _mUpgradeStorageConfig.GetValue("upgradeStorageConfig");
 
         /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.
         /// </summary>
         [Input("username")]
-        public string? Username;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
 
         /// <summary>
         /// List of VPC security groups to
         /// associate.
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+    }
+
+    [PolicyResourceType("aws:rds/instance:Instance")]
+    public sealed class InstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
+        /// </summary>
+        [Input("allocatedStorage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
+
+        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
+
+        /// <summary>
+        /// Indicates that major version
+        /// upgrades are allowed. Changing this parameter does not result in an outage and
+        /// the change is asynchronously applied as soon as possible.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
+
+        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+
+        /// <summary>
+        /// Specifies whether any database modifications
+        /// are applied immediately, or during the next maintenance window. Default is
+        /// `false`. See [Amazon RDS Documentation for more
+        /// information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        /// </summary>
+        [Input("applyImmediately")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+
+        /// <summary>
+        /// Indicates that minor engine upgrades
+        /// will be applied automatically to the DB instance during the maintenance window.
+        /// Defaults to true.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+
+        /// <summary>
+        /// The AZ for the RDS instance.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// The days to retain backups for.
+        /// Must be between `0` and `35`.
+        /// Default is `0`.
+        /// Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
+        /// uses low-downtime updates,
+        /// or will use [RDS Blue/Green deployments][blue-green].
+        /// </summary>
+        [Input("backupRetentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
+
+        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+
+        /// <summary>
+        /// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+        /// </summary>
+        [Input("backupTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupTarget;
+
+        public string? BackupTarget => _mBackupTarget.GetValue("backupTarget");
+
+        /// <summary>
+        /// The daily time range (in UTC) during which automated backups are created if they are enabled.
+        /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
+        /// </summary>
+        [Input("backupWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupWindow;
+
+        public string? BackupWindow => _mBackupWindow.GetValue("backupWindow");
+
+        /// <summary>
+        /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
+        /// See `blue_green_update` below.
+        /// </summary>
+        [Input("blueGreenUpdate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceBlueGreenUpdateArgs> _mBlueGreenUpdate;
+
+        public Inputs.InstanceBlueGreenUpdateArgs? BlueGreenUpdate => _mBlueGreenUpdate.GetValue("blueGreenUpdate");
+
+        /// <summary>
+        /// The identifier of the CA certificate for the DB instance.
+        /// </summary>
+        [Input("caCertIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertIdentifier;
+
+        public string? CaCertIdentifier => _mCaCertIdentifier.GetValue("caCertIdentifier");
+
+        /// <summary>
+        /// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+        /// This can't be changed.
+        /// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+        /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+        /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        /// </summary>
+        [Input("characterSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCharacterSetName;
+
+        public string? CharacterSetName => _mCharacterSetName.GetValue("characterSetName");
+
+        /// <summary>
+        /// Copy all Instance `tags` to snapshots. Default is `false`.
+        /// </summary>
+        [Input("copyTagsToSnapshot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
+
+        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
+
+        /// <summary>
+        /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        /// </summary>
+        [Input("customIamInstanceProfile")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomIamInstanceProfile;
+
+        public string? CustomIamInstanceProfile => _mCustomIamInstanceProfile.GetValue("customIamInstanceProfile");
+
+        /// <summary>
+        /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// 
+        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// Replicate database managed by the provider will promote the database to a fully
+        /// standalone database.
+        /// </summary>
+        [Input("customerOwnedIpEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCustomerOwnedIpEnabled;
+
+        public bool? CustomerOwnedIpEnabled => _mCustomerOwnedIpEnabled.GetValue("customerOwnedIpEnabled");
+
+        /// <summary>
+        /// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
+        /// </summary>
+        [Input("databaseInsightsMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInsightsMode;
+
+        public string? DatabaseInsightsMode => _mDatabaseInsightsMode.GetValue("databaseInsightsMode");
+
+        /// <summary>
+        /// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
+        /// </summary>
+        [Input("dbName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbName;
+
+        public string? DbName => _mDbName.GetValue("dbName");
+
+        /// <summary>
+        /// Name of DB subnet group.
+        /// DB instance will be created in the VPC associated with the DB subnet group.
+        /// If unspecified, will be created in the `default` Subnet Group.
+        /// When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+        /// When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+        /// See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
+        /// </summary>
+        [Input("dbSubnetGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
+
+        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
+
+        /// <summary>
+        /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
+        /// </summary>
+        [Input("dedicatedLogVolume")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDedicatedLogVolume;
+
+        public bool? DedicatedLogVolume => _mDedicatedLogVolume.GetValue("dedicatedLogVolume");
+
+        /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
+        /// </summary>
+        [Input("deleteAutomatedBackups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAutomatedBackups;
+
+        public bool? DeleteAutomatedBackups => _mDeleteAutomatedBackups.GetValue("deleteAutomatedBackups");
+
+        /// <summary>
+        /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        /// </summary>
+        [Input("deletionProtection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
+
+        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+
+        /// <summary>
+        /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainAuthSecretArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainAuthSecretArn;
+
+        public string? DomainAuthSecretArn => _mDomainAuthSecretArn.GetValue("domainAuthSecretArn");
+
+        /// <summary>
+        /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainDnsIps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomainDnsIps;
+
+        public List<string>? DomainDnsIps => _mDomainDnsIps.GetValue("domainDnsIps");
+
+        /// <summary>
+        /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainFqdn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainFqdn;
+
+        public string? DomainFqdn => _mDomainFqdn.GetValue("domainFqdn");
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
+        /// </summary>
+        [Input("domainIamRoleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIamRoleName;
+
+        public string? DomainIamRoleName => _mDomainIamRoleName.GetValue("domainIamRoleName");
+
+        /// <summary>
+        /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
+        /// </summary>
+        [Input("domainOu")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOu;
+
+        public string? DomainOu => _mDomainOu.GetValue("domainOu");
+
+        /// <summary>
+        /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
+        /// </summary>
+        [Input("enabledCloudwatchLogsExports")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledCloudwatchLogsExports;
+
+        public List<string>? EnabledCloudwatchLogsExports => _mEnabledCloudwatchLogsExports.GetValue("enabledCloudwatchLogsExports");
+
+        /// <summary>
+        /// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// </summary>
+        [Input("engineLifecycleSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineLifecycleSupport;
+
+        public string? EngineLifecycleSupport => _mEngineLifecycleSupport.GetValue("engineLifecycleSupport");
+
+        /// <summary>
+        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// The name of your final DB snapshot
+        /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
+        /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
+        /// </summary>
+        [Input("finalSnapshotIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
+
+        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+
+        /// <summary>
+        /// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
+        /// accounts is enabled.
+        /// </summary>
+        [Input("iamDatabaseAuthenticationEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIamDatabaseAuthenticationEnabled;
+
+        public bool? IamDatabaseAuthenticationEnabled => _mIamDatabaseAuthenticationEnabled.GetValue("iamDatabaseAuthenticationEnabled");
+
+        /// <summary>
+        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        /// </summary>
+        [Input("identifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
+
+        public string? Identifier => _mIdentifier.GetValue("identifier");
+
+        /// <summary>
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// </summary>
+        [Input("identifierPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
+
+        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
+
+        /// <summary>
+        /// The instance type of the RDS instance.
+        /// </summary>
+        [Input("instanceClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceClass;
+
+        public string? InstanceClass => _mInstanceClass.GetValue("instanceClass");
+
+        /// <summary>
+        /// The amount of provisioned IOPS. Setting this implies a
+        /// storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
+        /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
+        /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+        /// </summary>
+        [Input("iops")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
+
+        public int? Iops => _mIops.GetValue("iops");
+
+        /// <summary>
+        /// The ARN for the KMS encryption key. If creating an
+        /// encrypted replica, set this to the destination KMS ARN.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// License model information for this DB instance. Valid values for this field are as follows:
+        /// * RDS for MariaDB: `general-public-license`
+        /// * RDS for Microsoft SQL Server: `license-included`
+        /// * RDS for MySQL: `general-public-license`
+        /// * RDS for Oracle: `bring-your-own-license | license-included`
+        /// * RDS for PostgreSQL: `postgresql-license`
+        /// </summary>
+        [Input("licenseModel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseModel;
+
+        public string? LicenseModel => _mLicenseModel.GetValue("licenseModel");
+
+        /// <summary>
+        /// The window to perform maintenance in.
+        /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
+        /// Maintenance Window
+        /// docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
+        /// for more information.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
+
+        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+
+        /// <summary>
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mManageMasterUserPassword;
+
+        public bool? ManageMasterUserPassword => _mManageMasterUserPassword.GetValue("manageMasterUserPassword");
+
+        /// <summary>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        /// </summary>
+        [Input("masterUserSecretKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserSecretKmsKeyId;
+
+        public string? MasterUserSecretKmsKeyId => _mMasterUserSecretKmsKeyId.GetValue("masterUserSecretKmsKeyId");
+
+        /// <summary>
+        /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
+        /// </summary>
+        [Input("maxAllocatedStorage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAllocatedStorage;
+
+        public int? MaxAllocatedStorage => _mMaxAllocatedStorage.GetValue("maxAllocatedStorage");
+
+        /// <summary>
+        /// The interval, in seconds, between points
+        /// when Enhanced Monitoring metrics are collected for the DB instance. To disable
+        /// collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
+        /// Values: 0, 1, 5, 10, 15, 30, 60.
+        /// </summary>
+        [Input("monitoringInterval")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMonitoringInterval;
+
+        public int? MonitoringInterval => _mMonitoringInterval.GetValue("monitoringInterval");
+
+        /// <summary>
+        /// The ARN for the IAM role that permits RDS
+        /// to send enhanced monitoring metrics to CloudWatch Logs. You can find more
+        /// information on the [AWS
+        /// Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
+        /// what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
+        /// </summary>
+        [Input("monitoringRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitoringRoleArn;
+
+        public string? MonitoringRoleArn => _mMonitoringRoleArn.GetValue("monitoringRoleArn");
+
+        /// <summary>
+        /// Specifies if the RDS instance is multi-AZ
+        /// </summary>
+        [Input("multiAz")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+
+        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
+
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        /// </summary>
+        [Input("ncharCharacterSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNcharCharacterSetName;
+
+        public string? NcharCharacterSetName => _mNcharCharacterSetName.GetValue("ncharCharacterSetName");
+
+        /// <summary>
+        /// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
+
+        public string? NetworkType => _mNetworkType.GetValue("networkType");
+
+        /// <summary>
+        /// Name of the DB option group to associate.
+        /// </summary>
+        [Input("optionGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupName;
+
+        public string? OptionGroupName => _mOptionGroupName.GetValue("optionGroupName");
+
+        /// <summary>
+        /// Name of the DB parameter group to associate.
+        /// </summary>
+        [Input("parameterGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
+
+        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+
+        /// <summary>
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
+        /// </summary>
+        [Input("password")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
+
+        /// <summary>
+        /// Specifies whether Performance Insights are enabled. Defaults to false.
+        /// </summary>
+        [Input("performanceInsightsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPerformanceInsightsEnabled;
+
+        public bool? PerformanceInsightsEnabled => _mPerformanceInsightsEnabled.GetValue("performanceInsightsEnabled");
+
+        /// <summary>
+        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
+        /// </summary>
+        [Input("performanceInsightsKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceInsightsKmsKeyId;
+
+        public string? PerformanceInsightsKmsKeyId => _mPerformanceInsightsKmsKeyId.GetValue("performanceInsightsKmsKeyId");
+
+        /// <summary>
+        /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// </summary>
+        [Input("performanceInsightsRetentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPerformanceInsightsRetentionPeriod;
+
+        public int? PerformanceInsightsRetentionPeriod => _mPerformanceInsightsRetentionPeriod.GetValue("performanceInsightsRetentionPeriod");
+
+        /// <summary>
+        /// The port on which the DB accepts connections.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// Bool to control if instance is publicly
+        /// accessible. Default is `false`.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+
+        /// <summary>
+        /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+        /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+        /// </summary>
+        [Input("replicaMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicaMode;
+
+        public string? ReplicaMode => _mReplicaMode.GetValue("replicaMode");
+
+        /// <summary>
+        /// Specifies that this resource is a Replica database, and to use this value as the source database.
+        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+        /// If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        /// If replicating an Instance in a different region, use the `arn` of the source DB.
+        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
+        /// </summary>
+        [Input("replicateSourceDb")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicateSourceDb;
+
+        public string? ReplicateSourceDb => _mReplicateSourceDb.GetValue("replicateSourceDb");
+
+        /// <summary>
+        /// A configuration block for restoring a DB instance to an arbitrary point in time.
+        /// Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+        /// See Restore To Point In Time below for details.
+        /// </summary>
+        [Input("restoreToPointInTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceRestoreToPointInTimeArgs> _mRestoreToPointInTime;
+
+        public Inputs.InstanceRestoreToPointInTimeArgs? RestoreToPointInTime => _mRestoreToPointInTime.GetValue("restoreToPointInTime");
+
+        /// <summary>
+        /// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
+        /// </summary>
+        [Input("s3Import")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceS3ImportArgs> _mS3Import;
+
+        public Inputs.InstanceS3ImportArgs? S3Import => _mS3Import.GetValue("s3Import");
+
+        /// <summary>
+        /// Determines whether a final DB snapshot is
+        /// created before the DB instance is deleted. If true is specified, no DBSnapshot
+        /// is created. If false is specified, a DB snapshot is created before the DB
+        /// instance is deleted, using the value from `final_snapshot_identifier`. Default
+        /// is `false`.
+        /// </summary>
+        [Input("skipFinalSnapshot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
+
+        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+
+        /// <summary>
+        /// Specifies whether or not to create this database from a snapshot.
+        /// This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
+        /// </summary>
+        [Input("snapshotIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
+
+        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+
+        /// <summary>
+        /// Specifies whether the DB instance is
+        /// encrypted. Note that if you are creating a cross-region read replica this field
+        /// is ignored and you should instead declare `kms_key_id` with a valid ARN. The
+        /// default is `false` if not specified.
+        /// </summary>
+        [Input("storageEncrypted")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
+
+        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+
+        /// <summary>
+        /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
+        /// </summary>
+        [Input("storageThroughput")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageThroughput;
+
+        public int? StorageThroughput => _mStorageThroughput.GetValue("storageThroughput");
+
+        /// <summary>
+        /// One of "standard" (magnetic), "gp2" (general
+        /// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
+        /// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+        /// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
+        /// </summary>
+        [Input("storageType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Time zone of the DB instance. `timezone` is currently
+        /// only supported by Microsoft SQL Server. The `timezone` can only be set on
+        /// creation. See [MSSQL User
+        /// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
+        /// for more information.
+        /// </summary>
+        [Input("timezone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
+
+        public string? Timezone => _mTimezone.GetValue("timezone");
+
+        /// <summary>
+        /// Whether to upgrade the storage file system configuration on the read replica.
+        /// Can only be set with `replicate_source_db`.
+        /// </summary>
+        [Input("upgradeStorageConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUpgradeStorageConfig;
+
+        public bool? UpgradeStorageConfig => _mUpgradeStorageConfig.GetValue("upgradeStorageConfig");
+
+        /// <summary>
+        /// (Required unless a `snapshot_identifier` or `replicate_source_db`
+        /// is provided) Username for the master DB user. Cannot be specified for a replica.
+        /// </summary>
+        [Input("username")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
+
+        /// <summary>
+        /// List of VPC security groups to
+        /// associate.
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
     }
 }

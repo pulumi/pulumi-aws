@@ -11,55 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
 {
     [PolicyResourceType("aws:verifiedaccess/trustProvider:TrustProvider")]
-    public sealed class TrustProvider : global::Pulumi.PolicyResource
+    public sealed class TrustProvider : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A description for the AWS Verified Access trust provider.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A block of options for device identity based trust providers.
         /// </summary>
         [Input("deviceOptions")]
-        public TrustProviderDeviceOptions? DeviceOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustProviderDeviceOptions> _mDeviceOptions;
+
+        public Outputs.TrustProviderDeviceOptions? DeviceOptions => _mDeviceOptions.GetValue("deviceOptions");
 
         /// <summary>
         /// The type of device-based trust provider.
         /// </summary>
         [Input("deviceTrustProviderType")]
-        public string? DeviceTrustProviderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTrustProviderType;
+
+        public string? DeviceTrustProviderType => _mDeviceTrustProviderType.GetValue("deviceTrustProviderType");
 
         /// <summary>
         /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         /// </summary>
         [Input("nativeApplicationOidcOptions")]
-        public TrustProviderNativeApplicationOidcOptions? NativeApplicationOidcOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustProviderNativeApplicationOidcOptions> _mNativeApplicationOidcOptions;
+
+        public Outputs.TrustProviderNativeApplicationOidcOptions? NativeApplicationOidcOptions => _mNativeApplicationOidcOptions.GetValue("nativeApplicationOidcOptions");
 
         /// <summary>
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
         /// </summary>
         [Input("oidcOptions")]
-        public TrustProviderOidcOptions? OidcOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustProviderOidcOptions> _mOidcOptions;
+
+        public Outputs.TrustProviderOidcOptions? OidcOptions => _mOidcOptions.GetValue("oidcOptions");
 
         /// <summary>
         /// The identifier to be used when working with policy rules.
         /// </summary>
         [Input("policyReferenceName")]
-        public string? PolicyReferenceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyReferenceName;
+
+        public string? PolicyReferenceName => _mPolicyReferenceName.GetValue("policyReferenceName");
 
         [Input("sseSpecification")]
-        public TrustProviderSseSpecification? SseSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustProviderSseSpecification> _mSseSpecification;
+
+        public Outputs.TrustProviderSseSpecification? SseSpecification => _mSseSpecification.GetValue("sseSpecification");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of trust provider can be either user or device-based.
@@ -67,12 +94,111 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// The following arguments are optional:
         /// </summary>
         [Input("trustProviderType")]
-        public string? TrustProviderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustProviderType;
+
+        public string? TrustProviderType => _mTrustProviderType.GetValue("trustProviderType");
 
         /// <summary>
         /// The type of user-based trust provider.
         /// </summary>
         [Input("userTrustProviderType")]
-        public string? UserTrustProviderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserTrustProviderType;
+
+        public string? UserTrustProviderType => _mUserTrustProviderType.GetValue("userTrustProviderType");
+    }
+
+    [PolicyResourceType("aws:verifiedaccess/trustProvider:TrustProvider")]
+    public sealed class TrustProviderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description for the AWS Verified Access trust provider.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A block of options for device identity based trust providers.
+        /// </summary>
+        [Input("deviceOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustProviderDeviceOptionsArgs> _mDeviceOptions;
+
+        public Inputs.TrustProviderDeviceOptionsArgs? DeviceOptions => _mDeviceOptions.GetValue("deviceOptions");
+
+        /// <summary>
+        /// The type of device-based trust provider.
+        /// </summary>
+        [Input("deviceTrustProviderType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTrustProviderType;
+
+        public string? DeviceTrustProviderType => _mDeviceTrustProviderType.GetValue("deviceTrustProviderType");
+
+        /// <summary>
+        /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        /// </summary>
+        [Input("nativeApplicationOidcOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustProviderNativeApplicationOidcOptionsArgs> _mNativeApplicationOidcOptions;
+
+        public Inputs.TrustProviderNativeApplicationOidcOptionsArgs? NativeApplicationOidcOptions => _mNativeApplicationOidcOptions.GetValue("nativeApplicationOidcOptions");
+
+        /// <summary>
+        /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        /// </summary>
+        [Input("oidcOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustProviderOidcOptionsArgs> _mOidcOptions;
+
+        public Inputs.TrustProviderOidcOptionsArgs? OidcOptions => _mOidcOptions.GetValue("oidcOptions");
+
+        /// <summary>
+        /// The identifier to be used when working with policy rules.
+        /// </summary>
+        [Input("policyReferenceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyReferenceName;
+
+        public string? PolicyReferenceName => _mPolicyReferenceName.GetValue("policyReferenceName");
+
+        [Input("sseSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustProviderSseSpecificationArgs> _mSseSpecification;
+
+        public Inputs.TrustProviderSseSpecificationArgs? SseSpecification => _mSseSpecification.GetValue("sseSpecification");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of trust provider can be either user or device-based.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("trustProviderType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustProviderType;
+
+        public string? TrustProviderType => _mTrustProviderType.GetValue("trustProviderType");
+
+        /// <summary>
+        /// The type of user-based trust provider.
+        /// </summary>
+        [Input("userTrustProviderType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserTrustProviderType;
+
+        public string? UserTrustProviderType => _mUserTrustProviderType.GetValue("userTrustProviderType");
     }
 }

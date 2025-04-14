@@ -11,85 +11,124 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule")]
-    public sealed class OrganizationCustomPolicyRule : global::Pulumi.PolicyResource
+    public sealed class OrganizationCustomPolicyRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the rule
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// List of AWS account identifiers to exclude from the rule
         /// </summary>
         [Input("debugLogDeliveryAccounts")]
-        public List<string>? DebugLogDeliveryAccounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDebugLogDeliveryAccounts;
+
+        public List<string>? DebugLogDeliveryAccounts => _mDebugLogDeliveryAccounts.GetValue("debugLogDeliveryAccounts");
 
         /// <summary>
         /// Description of the rule
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// List of AWS account identifiers to exclude from the rule
         /// </summary>
         [Input("excludedAccounts")]
-        public List<string>? ExcludedAccounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedAccounts;
+
+        public List<string>? ExcludedAccounts => _mExcludedAccounts.GetValue("excludedAccounts");
 
         /// <summary>
         /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
         /// </summary>
         [Input("inputParameters")]
-        public string? InputParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputParameters;
+
+        public string? InputParameters => _mInputParameters.GetValue("inputParameters");
 
         /// <summary>
         /// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         /// </summary>
         [Input("maximumExecutionFrequency")]
-        public string? MaximumExecutionFrequency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
+
+        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
 
         /// <summary>
         /// name of the rule
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// runtime system for your organization AWS Config Custom Policy rules
         /// </summary>
         [Input("policyRuntime")]
-        public string? PolicyRuntime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRuntime;
+
+        public string? PolicyRuntime => _mPolicyRuntime.GetValue("policyRuntime");
 
         /// <summary>
         /// policy definition containing the logic for your organization AWS Config Custom Policy rule
         /// </summary>
         [Input("policyText")]
-        public string? PolicyText;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyText;
+
+        public string? PolicyText => _mPolicyText.GetValue("policyText");
 
         /// <summary>
         /// Identifier of the AWS resource to evaluate
         /// </summary>
         [Input("resourceIdScope")]
-        public string? ResourceIdScope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdScope;
+
+        public string? ResourceIdScope => _mResourceIdScope.GetValue("resourceIdScope");
 
         /// <summary>
         /// List of types of AWS resources to evaluate
         /// </summary>
         [Input("resourceTypesScopes")]
-        public List<string>? ResourceTypesScopes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypesScopes;
+
+        public List<string>? ResourceTypesScopes => _mResourceTypesScopes.GetValue("resourceTypesScopes");
 
         /// <summary>
         /// Tag key of AWS resources to evaluate
         /// </summary>
         [Input("tagKeyScope")]
-        public string? TagKeyScope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagKeyScope;
+
+        public string? TagKeyScope => _mTagKeyScope.GetValue("tagKeyScope");
 
         /// <summary>
         /// Tag value of AWS resources to evaluate
         /// </summary>
         [Input("tagValueScope")]
-        public string? TagValueScope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagValueScope;
+
+        public string? TagValueScope => _mTagValueScope.GetValue("tagValueScope");
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
@@ -97,6 +136,132 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// The following arguments are optional:
         /// </summary>
         [Input("triggerTypes")]
-        public List<string>? TriggerTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTriggerTypes;
+
+        public List<string>? TriggerTypes => _mTriggerTypes.GetValue("triggerTypes");
+    }
+
+    [PolicyResourceType("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule")]
+    public sealed class OrganizationCustomPolicyRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of AWS account identifiers to exclude from the rule
+        /// </summary>
+        [Input("debugLogDeliveryAccounts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDebugLogDeliveryAccounts;
+
+        public List<string>? DebugLogDeliveryAccounts => _mDebugLogDeliveryAccounts.GetValue("debugLogDeliveryAccounts");
+
+        /// <summary>
+        /// Description of the rule
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// List of AWS account identifiers to exclude from the rule
+        /// </summary>
+        [Input("excludedAccounts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedAccounts;
+
+        public List<string>? ExcludedAccounts => _mExcludedAccounts.GetValue("excludedAccounts");
+
+        /// <summary>
+        /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
+        /// </summary>
+        [Input("inputParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputParameters;
+
+        public string? InputParameters => _mInputParameters.GetValue("inputParameters");
+
+        /// <summary>
+        /// Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
+        /// </summary>
+        [Input("maximumExecutionFrequency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
+
+        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
+
+        /// <summary>
+        /// name of the rule
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// runtime system for your organization AWS Config Custom Policy rules
+        /// </summary>
+        [Input("policyRuntime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRuntime;
+
+        public string? PolicyRuntime => _mPolicyRuntime.GetValue("policyRuntime");
+
+        /// <summary>
+        /// policy definition containing the logic for your organization AWS Config Custom Policy rule
+        /// </summary>
+        [Input("policyText")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyText;
+
+        public string? PolicyText => _mPolicyText.GetValue("policyText");
+
+        /// <summary>
+        /// Identifier of the AWS resource to evaluate
+        /// </summary>
+        [Input("resourceIdScope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdScope;
+
+        public string? ResourceIdScope => _mResourceIdScope.GetValue("resourceIdScope");
+
+        /// <summary>
+        /// List of types of AWS resources to evaluate
+        /// </summary>
+        [Input("resourceTypesScopes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypesScopes;
+
+        public List<string>? ResourceTypesScopes => _mResourceTypesScopes.GetValue("resourceTypesScopes");
+
+        /// <summary>
+        /// Tag key of AWS resources to evaluate
+        /// </summary>
+        [Input("tagKeyScope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagKeyScope;
+
+        public string? TagKeyScope => _mTagKeyScope.GetValue("tagKeyScope");
+
+        /// <summary>
+        /// Tag value of AWS resources to evaluate
+        /// </summary>
+        [Input("tagValueScope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagValueScope;
+
+        public string? TagValueScope => _mTagValueScope.GetValue("tagValueScope");
+
+        /// <summary>
+        /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("triggerTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTriggerTypes;
+
+        public List<string>? TriggerTypes => _mTriggerTypes.GetValue("triggerTypes");
     }
 }

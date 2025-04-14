@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fms
 {
     [PolicyResourceType("aws:fms/adminAccount:AdminAccount")]
-    public sealed class AdminAccount : global::Pulumi.PolicyResource
+    public sealed class AdminAccount : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+    }
+
+    [PolicyResourceType("aws:fms/adminAccount:AdminAccount")]
+    public sealed class AdminAccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
     }
 }

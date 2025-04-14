@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/domainIdentityVerification:DomainIdentityVerification")]
-    public sealed class DomainIdentityVerification : global::Pulumi.PolicyResource
+    public sealed class DomainIdentityVerification : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the domain identity.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The domain name of the SES domain identity to verify.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+    }
+
+    [PolicyResourceType("aws:ses/domainIdentityVerification:DomainIdentityVerification")]
+    public sealed class DomainIdentityVerificationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The domain name of the SES domain identity to verify.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
     }
 }

@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig")]
-    public sealed class ServerlessSecurityConfig : global::Pulumi.PolicyResource
+    public sealed class ServerlessSecurityConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Version of the configuration.
         /// </summary>
         [Input("configVersion")]
-        public string? ConfigVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigVersion;
+
+        public string? ConfigVersion => _mConfigVersion.GetValue("configVersion");
 
         /// <summary>
         /// Description of the security configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration block for SAML options.
         /// </summary>
         [Input("samlOptions")]
-        public ServerlessSecurityConfigSamlOptions? SamlOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessSecurityConfigSamlOptions> _mSamlOptions;
+
+        public Outputs.ServerlessSecurityConfigSamlOptions? SamlOptions => _mSamlOptions.GetValue("samlOptions");
 
         /// <summary>
         /// Type of configuration. Must be `saml`.
@@ -43,6 +55,51 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// The following arguments are optional:
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig")]
+    public sealed class ServerlessSecurityConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the security configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration block for SAML options.
+        /// </summary>
+        [Input("samlOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessSecurityConfigSamlOptionsArgs> _mSamlOptions;
+
+        public Inputs.ServerlessSecurityConfigSamlOptionsArgs? SamlOptions => _mSamlOptions.GetValue("samlOptions");
+
+        /// <summary>
+        /// Type of configuration. Must be `saml`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

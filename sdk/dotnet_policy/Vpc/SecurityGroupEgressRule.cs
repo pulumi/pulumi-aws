@@ -11,84 +11,217 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Vpc
 {
     [PolicyResourceType("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")]
-    public sealed class SecurityGroupEgressRule : global::Pulumi.PolicyResource
+    public sealed class SecurityGroupEgressRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the security group rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The destination IPv4 CIDR range.
         /// </summary>
         [Input("cidrIpv4")]
-        public string? CidrIpv4;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrIpv4;
+
+        public string? CidrIpv4 => _mCidrIpv4.GetValue("cidrIpv4");
 
         /// <summary>
         /// The destination IPv6 CIDR range.
         /// </summary>
         [Input("cidrIpv6")]
-        public string? CidrIpv6;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrIpv6;
+
+        public string? CidrIpv6 => _mCidrIpv6.GetValue("cidrIpv6");
 
         /// <summary>
         /// The security group rule description.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         /// </summary>
         [Input("fromPort")]
-        public int? FromPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
+
+        public int? FromPort => _mFromPort.GetValue("fromPort");
 
         /// <summary>
         /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         /// </summary>
         [Input("ipProtocol")]
-        public string? IpProtocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpProtocol;
+
+        public string? IpProtocol => _mIpProtocol.GetValue("ipProtocol");
 
         /// <summary>
         /// The ID of the destination prefix list.
         /// </summary>
         [Input("prefixListId")]
-        public string? PrefixListId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+
+        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
 
         /// <summary>
         /// The destination security group that is referenced in the rule.
         /// </summary>
         [Input("referencedSecurityGroupId")]
-        public string? ReferencedSecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReferencedSecurityGroupId;
+
+        public string? ReferencedSecurityGroupId => _mReferencedSecurityGroupId.GetValue("referencedSecurityGroupId");
 
         /// <summary>
         /// The ID of the security group.
         /// </summary>
         [Input("securityGroupId")]
-        public string? SecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
 
         /// <summary>
         /// The ID of the security group rule.
         /// </summary>
         [Input("securityGroupRuleId")]
-        public string? SecurityGroupRuleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupRuleId;
+
+        public string? SecurityGroupRuleId => _mSecurityGroupRuleId.GetValue("securityGroupRuleId");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         /// </summary>
         [Input("toPort")]
-        public int? ToPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
+
+        public int? ToPort => _mToPort.GetValue("toPort");
+    }
+
+    [PolicyResourceType("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")]
+    public sealed class SecurityGroupEgressRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The destination IPv4 CIDR range.
+        /// </summary>
+        [Input("cidrIpv4")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrIpv4;
+
+        public string? CidrIpv4 => _mCidrIpv4.GetValue("cidrIpv4");
+
+        /// <summary>
+        /// The destination IPv6 CIDR range.
+        /// </summary>
+        [Input("cidrIpv6")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrIpv6;
+
+        public string? CidrIpv6 => _mCidrIpv6.GetValue("cidrIpv6");
+
+        /// <summary>
+        /// The security group rule description.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+        /// </summary>
+        [Input("fromPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
+
+        public int? FromPort => _mFromPort.GetValue("fromPort");
+
+        /// <summary>
+        /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
+        /// </summary>
+        [Input("ipProtocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpProtocol;
+
+        public string? IpProtocol => _mIpProtocol.GetValue("ipProtocol");
+
+        /// <summary>
+        /// The ID of the destination prefix list.
+        /// </summary>
+        [Input("prefixListId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+
+        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+
+        /// <summary>
+        /// The destination security group that is referenced in the rule.
+        /// </summary>
+        [Input("referencedSecurityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReferencedSecurityGroupId;
+
+        public string? ReferencedSecurityGroupId => _mReferencedSecurityGroupId.GetValue("referencedSecurityGroupId");
+
+        /// <summary>
+        /// The ID of the security group.
+        /// </summary>
+        [Input("securityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+        /// </summary>
+        [Input("toPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
+
+        public int? ToPort => _mToPort.GetValue("toPort");
     }
 }

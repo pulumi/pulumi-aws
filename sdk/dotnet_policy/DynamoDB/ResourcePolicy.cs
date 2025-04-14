@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DynamoDB
 {
     [PolicyResourceType("aws:dynamodb/resourcePolicy:ResourcePolicy")]
-    public sealed class ResourcePolicy : global::Pulumi.PolicyResource
+    public sealed class ResourcePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
         /// </summary>
         [Input("confirmRemoveSelfResourceAccess")]
-        public bool? ConfirmRemoveSelfResourceAccess;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mConfirmRemoveSelfResourceAccess;
+
+        public bool? ConfirmRemoveSelfResourceAccess => _mConfirmRemoveSelfResourceAccess.GetValue("confirmRemoveSelfResourceAccess");
 
         /// <summary>
         /// n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
@@ -25,18 +28,60 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// The following arguments are optional:
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
         /// </summary>
         [Input("revisionId")]
-        public string? RevisionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevisionId;
+
+        public string? RevisionId => _mRevisionId.GetValue("revisionId");
+    }
+
+    [PolicyResourceType("aws:dynamodb/resourcePolicy:ResourcePolicy")]
+    public sealed class ResourcePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
+        /// </summary>
+        [Input("confirmRemoveSelfResourceAccess")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mConfirmRemoveSelfResourceAccess;
+
+        public bool? ConfirmRemoveSelfResourceAccess => _mConfirmRemoveSelfResourceAccess.GetValue("confirmRemoveSelfResourceAccess");
+
+        /// <summary>
+        /// n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
     }
 }

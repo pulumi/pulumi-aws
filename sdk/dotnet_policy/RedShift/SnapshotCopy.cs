@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/snapshotCopy:SnapshotCopy")]
-    public sealed class SnapshotCopy : global::Pulumi.PolicyResource
+    public sealed class SnapshotCopy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the source cluster.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// AWS Region to copy snapshots to.
@@ -25,24 +28,87 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// The following arguments are optional:
         /// </summary>
         [Input("destinationRegion")]
-        public string? DestinationRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
+
+        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
 
         /// <summary>
         /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
         /// </summary>
         [Input("manualSnapshotRetentionPeriod")]
-        public int? ManualSnapshotRetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mManualSnapshotRetentionPeriod;
+
+        public int? ManualSnapshotRetentionPeriod => _mManualSnapshotRetentionPeriod.GetValue("manualSnapshotRetentionPeriod");
 
         /// <summary>
         /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         /// </summary>
         [Input("retentionPeriod")]
-        public int? RetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
 
         /// <summary>
         /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         /// </summary>
         [Input("snapshotCopyGrantName")]
-        public string? SnapshotCopyGrantName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotCopyGrantName;
+
+        public string? SnapshotCopyGrantName => _mSnapshotCopyGrantName.GetValue("snapshotCopyGrantName");
+    }
+
+    [PolicyResourceType("aws:redshift/snapshotCopy:SnapshotCopy")]
+    public sealed class SnapshotCopyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the source cluster.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// AWS Region to copy snapshots to.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("destinationRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
+
+        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
+
+        /// <summary>
+        /// Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
+        /// </summary>
+        [Input("manualSnapshotRetentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mManualSnapshotRetentionPeriod;
+
+        public int? ManualSnapshotRetentionPeriod => _mManualSnapshotRetentionPeriod.GetValue("manualSnapshotRetentionPeriod");
+
+        /// <summary>
+        /// Number of days to retain automated snapshots in the destination region after they are copied from the source region.
+        /// </summary>
+        [Input("retentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+
+        /// <summary>
+        /// Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+        /// </summary>
+        [Input("snapshotCopyGrantName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotCopyGrantName;
+
+        public string? SnapshotCopyGrantName => _mSnapshotCopyGrantName.GetValue("snapshotCopyGrantName");
     }
 }

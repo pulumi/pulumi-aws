@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Elb
 {
     [PolicyResourceType("aws:elb/attachment:Attachment")]
-    public sealed class Attachment : global::Pulumi.PolicyResource
+    public sealed class Attachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the ELB.
         /// </summary>
         [Input("elb")]
-        public string? Elb;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
+
+        public string? Elb => _mElb.GetValue("elb");
 
         /// <summary>
         /// Instance ID to place in the ELB pool.
         /// </summary>
         [Input("instance")]
-        public string? Instance;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
+
+        public string? Instance => _mInstance.GetValue("instance");
+    }
+
+    [PolicyResourceType("aws:elb/attachment:Attachment")]
+    public sealed class AttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the ELB.
+        /// </summary>
+        [Input("elb")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
+
+        public string? Elb => _mElb.GetValue("elb");
+
+        /// <summary>
+        /// Instance ID to place in the ELB pool.
+        /// </summary>
+        [Input("instance")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
+
+        public string? Instance => _mInstance.GetValue("instance");
     }
 }

@@ -11,54 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/functionUrl:FunctionUrl")]
-    public sealed class FunctionUrl : global::Pulumi.PolicyResource
+    public sealed class FunctionUrl : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
         /// </summary>
         [Input("authorizationType")]
-        public string? AuthorizationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationType;
+
+        public string? AuthorizationType => _mAuthorizationType.GetValue("authorizationType");
 
         /// <summary>
         /// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
         /// </summary>
         [Input("cors")]
-        public FunctionUrlCors? Cors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionUrlCors> _mCors;
+
+        public Outputs.FunctionUrlCors? Cors => _mCors.GetValue("cors");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the function.
         /// </summary>
         [Input("functionArn")]
-        public string? FunctionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
+
+        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
 
         /// <summary>
         /// The name (or ARN) of the Lambda function.
         /// </summary>
         [Input("functionName")]
-        public string? FunctionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
 
         /// <summary>
         /// The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
         /// </summary>
         [Input("functionUrl")]
-        public string? FunctionUrlResult;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionUrlResult;
+
+        public string? FunctionUrlResult => _mFunctionUrlResult.GetValue("functionUrl");
 
         /// <summary>
         /// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
         /// </summary>
         [Input("invokeMode")]
-        public string? InvokeMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvokeMode;
+
+        public string? InvokeMode => _mInvokeMode.GetValue("invokeMode");
 
         /// <summary>
         /// The alias name or `"$LATEST"`.
         /// </summary>
         [Input("qualifier")]
-        public string? Qualifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
 
         /// <summary>
         /// A generated ID for the endpoint.
         /// </summary>
         [Input("urlId")]
-        public string? UrlId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrlId;
+
+        public string? UrlId => _mUrlId.GetValue("urlId");
+    }
+
+    [PolicyResourceType("aws:lambda/functionUrl:FunctionUrl")]
+    public sealed class FunctionUrlArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+        /// </summary>
+        [Input("authorizationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationType;
+
+        public string? AuthorizationType => _mAuthorizationType.GetValue("authorizationType");
+
+        /// <summary>
+        /// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+        /// </summary>
+        [Input("cors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionUrlCorsArgs> _mCors;
+
+        public Inputs.FunctionUrlCorsArgs? Cors => _mCors.GetValue("cors");
+
+        /// <summary>
+        /// The name (or ARN) of the Lambda function.
+        /// </summary>
+        [Input("functionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
+
+        /// <summary>
+        /// Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+        /// </summary>
+        [Input("invokeMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvokeMode;
+
+        public string? InvokeMode => _mInvokeMode.GetValue("invokeMode");
+
+        /// <summary>
+        /// The alias name or `"$LATEST"`.
+        /// </summary>
+        [Input("qualifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
     }
 }

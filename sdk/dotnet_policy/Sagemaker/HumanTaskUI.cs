@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/humanTaskUI:HumanTaskUI")]
-    public sealed class HumanTaskUI : global::Pulumi.PolicyResource
+    public sealed class HumanTaskUI : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the Human Task UI.
         /// </summary>
         [Input("humanTaskUiName")]
-        public string? HumanTaskUiName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHumanTaskUiName;
+
+        public string? HumanTaskUiName => _mHumanTaskUiName.GetValue("humanTaskUiName");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Liquid template for the worker user interface. See UI Template below.
         /// </summary>
         [Input("uiTemplate")]
-        public HumanTaskUIUiTemplate? UiTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.HumanTaskUIUiTemplate> _mUiTemplate;
+
+        public Outputs.HumanTaskUIUiTemplate? UiTemplate => _mUiTemplate.GetValue("uiTemplate");
+    }
+
+    [PolicyResourceType("aws:sagemaker/humanTaskUI:HumanTaskUI")]
+    public sealed class HumanTaskUIArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Human Task UI.
+        /// </summary>
+        [Input("humanTaskUiName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHumanTaskUiName;
+
+        public string? HumanTaskUiName => _mHumanTaskUiName.GetValue("humanTaskUiName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The Liquid template for the worker user interface. See UI Template below.
+        /// </summary>
+        [Input("uiTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.HumanTaskUIUiTemplateArgs> _mUiTemplate;
+
+        public Inputs.HumanTaskUIUiTemplateArgs? UiTemplate => _mUiTemplate.GetValue("uiTemplate");
     }
 }

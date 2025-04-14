@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ControlTower
 {
     [PolicyResourceType("aws:controltower/controlTowerControl:ControlTowerControl")]
-    public sealed class ControlTowerControl : global::Pulumi.PolicyResource
+    public sealed class ControlTowerControl : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the EnabledControl resource.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         /// </summary>
         [Input("controlIdentifier")]
-        public string? ControlIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlIdentifier;
+
+        public string? ControlIdentifier => _mControlIdentifier.GetValue("controlIdentifier");
 
         /// <summary>
         /// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         /// </summary>
         [Input("parameters")]
-        public List<ControlTowerControlParameter>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ControlTowerControlParameter>> _mParameters;
+
+        public List<Outputs.ControlTowerControlParameter>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// The ARN of the organizational unit.
@@ -37,6 +46,42 @@ namespace Pulumi.PolicyPacks.Aws.ControlTower
         /// The following arguments are optional:
         /// </summary>
         [Input("targetIdentifier")]
-        public string? TargetIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetIdentifier;
+
+        public string? TargetIdentifier => _mTargetIdentifier.GetValue("targetIdentifier");
+    }
+
+    [PolicyResourceType("aws:controltower/controlTowerControl:ControlTowerControl")]
+    public sealed class ControlTowerControlArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        /// </summary>
+        [Input("controlIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlIdentifier;
+
+        public string? ControlIdentifier => _mControlIdentifier.GetValue("controlIdentifier");
+
+        /// <summary>
+        /// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ControlTowerControlParameterArgs>> _mParameters;
+
+        public List<Inputs.ControlTowerControlParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// The ARN of the organizational unit.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("targetIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetIdentifier;
+
+        public string? TargetIdentifier => _mTargetIdentifier.GetValue("targetIdentifier");
     }
 }

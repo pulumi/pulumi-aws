@@ -11,216 +11,568 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/eventSourceMapping:EventSourceMapping")]
-    public sealed class EventSourceMapping : global::Pulumi.PolicyResource
+    public sealed class EventSourceMapping : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         /// </summary>
         [Input("amazonManagedKafkaEventSourceConfig")]
-        public EventSourceMappingAmazonManagedKafkaEventSourceConfig? AmazonManagedKafkaEventSourceConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig> _mAmazonManagedKafkaEventSourceConfig;
+
+        public Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig? AmazonManagedKafkaEventSourceConfig => _mAmazonManagedKafkaEventSourceConfig.GetValue("amazonManagedKafkaEventSourceConfig");
 
         /// <summary>
         /// The event source mapping ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         /// </summary>
         [Input("batchSize")]
-        public int? BatchSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
+
+        public int? BatchSize => _mBatchSize.GetValue("batchSize");
 
         /// <summary>
         /// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         /// </summary>
         [Input("bisectBatchOnFunctionError")]
-        public bool? BisectBatchOnFunctionError;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBisectBatchOnFunctionError;
+
+        public bool? BisectBatchOnFunctionError => _mBisectBatchOnFunctionError.GetValue("bisectBatchOnFunctionError");
 
         /// <summary>
         /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
         [Input("destinationConfig")]
-        public EventSourceMappingDestinationConfig? DestinationConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingDestinationConfig> _mDestinationConfig;
+
+        public Outputs.EventSourceMappingDestinationConfig? DestinationConfig => _mDestinationConfig.GetValue("destinationConfig");
 
         /// <summary>
         /// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         /// </summary>
         [Input("documentDbEventSourceConfig")]
-        public EventSourceMappingDocumentDbEventSourceConfig? DocumentDbEventSourceConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingDocumentDbEventSourceConfig> _mDocumentDbEventSourceConfig;
+
+        public Outputs.EventSourceMappingDocumentDbEventSourceConfig? DocumentDbEventSourceConfig => _mDocumentDbEventSourceConfig.GetValue("documentDbEventSourceConfig");
 
         /// <summary>
         /// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         /// </summary>
         [Input("eventSourceArn")]
-        public string? EventSourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceArn;
+
+        public string? EventSourceArn => _mEventSourceArn.GetValue("eventSourceArn");
 
         /// <summary>
         /// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         /// </summary>
         [Input("filterCriteria")]
-        public EventSourceMappingFilterCriteria? FilterCriteria;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingFilterCriteria> _mFilterCriteria;
+
+        public Outputs.EventSourceMappingFilterCriteria? FilterCriteria => _mFilterCriteria.GetValue("filterCriteria");
 
         /// <summary>
         /// The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         /// </summary>
         [Input("functionArn")]
-        public string? FunctionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
+
+        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
 
         /// <summary>
         /// The name or the ARN of the Lambda function that will be subscribing to events.
         /// </summary>
         [Input("functionName")]
-        public string? FunctionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
 
         /// <summary>
         /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         /// </summary>
         [Input("functionResponseTypes")]
-        public List<string>? FunctionResponseTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFunctionResponseTypes;
+
+        public List<string>? FunctionResponseTypes => _mFunctionResponseTypes.GetValue("functionResponseTypes");
 
         /// <summary>
         /// The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// The date this resource was last modified.
         /// </summary>
         [Input("lastModified")]
-        public string? LastModified;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
+
+        public string? LastModified => _mLastModified.GetValue("lastModified");
 
         /// <summary>
         /// The result of the last AWS Lambda invocation of your Lambda function.
         /// </summary>
         [Input("lastProcessingResult")]
-        public string? LastProcessingResult;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastProcessingResult;
+
+        public string? LastProcessingResult => _mLastProcessingResult.GetValue("lastProcessingResult");
 
         /// <summary>
         /// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
-        public int? MaximumBatchingWindowInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
+
+        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
 
         /// <summary>
         /// - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         /// </summary>
         [Input("maximumRecordAgeInSeconds")]
-        public int? MaximumRecordAgeInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRecordAgeInSeconds;
+
+        public int? MaximumRecordAgeInSeconds => _mMaximumRecordAgeInSeconds.GetValue("maximumRecordAgeInSeconds");
 
         /// <summary>
         /// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         /// </summary>
         [Input("maximumRetryAttempts")]
-        public int? MaximumRetryAttempts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
+
+        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
 
         /// <summary>
         /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
         /// </summary>
         [Input("metricsConfig")]
-        public EventSourceMappingMetricsConfig? MetricsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingMetricsConfig> _mMetricsConfig;
+
+        public Outputs.EventSourceMappingMetricsConfig? MetricsConfig => _mMetricsConfig.GetValue("metricsConfig");
 
         /// <summary>
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         /// </summary>
         [Input("parallelizationFactor")]
-        public int? ParallelizationFactor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mParallelizationFactor;
+
+        public int? ParallelizationFactor => _mParallelizationFactor.GetValue("parallelizationFactor");
 
         /// <summary>
         /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         /// </summary>
         [Input("provisionedPollerConfig")]
-        public EventSourceMappingProvisionedPollerConfig? ProvisionedPollerConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingProvisionedPollerConfig> _mProvisionedPollerConfig;
+
+        public Outputs.EventSourceMappingProvisionedPollerConfig? ProvisionedPollerConfig => _mProvisionedPollerConfig.GetValue("provisionedPollerConfig");
 
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         /// </summary>
         [Input("queues")]
-        public string? Queues;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueues;
+
+        public string? Queues => _mQueues.GetValue("queues");
 
         /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         /// </summary>
         [Input("scalingConfig")]
-        public EventSourceMappingScalingConfig? ScalingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingScalingConfig> _mScalingConfig;
+
+        public Outputs.EventSourceMappingScalingConfig? ScalingConfig => _mScalingConfig.GetValue("scalingConfig");
 
         /// <summary>
         /// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         /// </summary>
         [Input("selfManagedEventSource")]
-        public EventSourceMappingSelfManagedEventSource? SelfManagedEventSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingSelfManagedEventSource> _mSelfManagedEventSource;
+
+        public Outputs.EventSourceMappingSelfManagedEventSource? SelfManagedEventSource => _mSelfManagedEventSource.GetValue("selfManagedEventSource");
 
         /// <summary>
         /// Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         /// </summary>
         [Input("selfManagedKafkaEventSourceConfig")]
-        public EventSourceMappingSelfManagedKafkaEventSourceConfig? SelfManagedKafkaEventSourceConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig> _mSelfManagedKafkaEventSourceConfig;
+
+        public Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig? SelfManagedKafkaEventSourceConfig => _mSelfManagedKafkaEventSourceConfig.GetValue("selfManagedKafkaEventSourceConfig");
 
         /// <summary>
         /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
         /// </summary>
         [Input("sourceAccessConfigurations")]
-        public List<EventSourceMappingSourceAccessConfiguration>? SourceAccessConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventSourceMappingSourceAccessConfiguration>> _mSourceAccessConfigurations;
+
+        public List<Outputs.EventSourceMappingSourceAccessConfiguration>? SourceAccessConfigurations => _mSourceAccessConfigurations.GetValue("sourceAccessConfigurations");
 
         /// <summary>
         /// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         /// </summary>
         [Input("startingPosition")]
-        public string? StartingPosition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPosition;
+
+        public string? StartingPosition => _mStartingPosition.GetValue("startingPosition");
 
         /// <summary>
         /// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         /// </summary>
         [Input("startingPositionTimestamp")]
-        public string? StartingPositionTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPositionTimestamp;
+
+        public string? StartingPositionTimestamp => _mStartingPositionTimestamp.GetValue("startingPositionTimestamp");
 
         /// <summary>
         /// The state of the event source mapping.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// The reason the event source mapping is in its current state.
         /// </summary>
         [Input("stateTransitionReason")]
-        public string? StateTransitionReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStateTransitionReason;
+
+        public string? StateTransitionReason => _mStateTransitionReason.GetValue("stateTransitionReason");
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         /// </summary>
         [Input("topics")]
-        public List<string>? Topics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTopics;
+
+        public List<string>? Topics => _mTopics.GetValue("topics");
 
         /// <summary>
         /// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
         /// </summary>
         [Input("tumblingWindowInSeconds")]
-        public int? TumblingWindowInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTumblingWindowInSeconds;
+
+        public int? TumblingWindowInSeconds => _mTumblingWindowInSeconds.GetValue("tumblingWindowInSeconds");
 
         /// <summary>
         /// The UUID of the created event source mapping.
         /// </summary>
         [Input("uuid")]
-        public string? Uuid;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUuid;
+
+        public string? Uuid => _mUuid.GetValue("uuid");
+    }
+
+    [PolicyResourceType("aws:lambda/eventSourceMapping:EventSourceMapping")]
+    public sealed class EventSourceMappingArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
+        /// </summary>
+        [Input("amazonManagedKafkaEventSourceConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs> _mAmazonManagedKafkaEventSourceConfig;
+
+        public Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs? AmazonManagedKafkaEventSourceConfig => _mAmazonManagedKafkaEventSourceConfig.GetValue("amazonManagedKafkaEventSourceConfig");
+
+        /// <summary>
+        /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
+        /// </summary>
+        [Input("batchSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
+
+        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+
+        /// <summary>
+        /// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+        /// </summary>
+        [Input("bisectBatchOnFunctionError")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBisectBatchOnFunctionError;
+
+        public bool? BisectBatchOnFunctionError => _mBisectBatchOnFunctionError.GetValue("bisectBatchOnFunctionError");
+
+        /// <summary>
+        /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
+        /// </summary>
+        [Input("destinationConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingDestinationConfigArgs> _mDestinationConfig;
+
+        public Inputs.EventSourceMappingDestinationConfigArgs? DestinationConfig => _mDestinationConfig.GetValue("destinationConfig");
+
+        /// <summary>
+        /// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+        /// </summary>
+        [Input("documentDbEventSourceConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs> _mDocumentDbEventSourceConfig;
+
+        public Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs? DocumentDbEventSourceConfig => _mDocumentDbEventSourceConfig.GetValue("documentDbEventSourceConfig");
+
+        /// <summary>
+        /// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
+        /// </summary>
+        [Input("eventSourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceArn;
+
+        public string? EventSourceArn => _mEventSourceArn.GetValue("eventSourceArn");
+
+        /// <summary>
+        /// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+        /// </summary>
+        [Input("filterCriteria")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingFilterCriteriaArgs> _mFilterCriteria;
+
+        public Inputs.EventSourceMappingFilterCriteriaArgs? FilterCriteria => _mFilterCriteria.GetValue("filterCriteria");
+
+        /// <summary>
+        /// The name or the ARN of the Lambda function that will be subscribing to events.
+        /// </summary>
+        [Input("functionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
+
+        /// <summary>
+        /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
+        /// </summary>
+        [Input("functionResponseTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFunctionResponseTypes;
+
+        public List<string>? FunctionResponseTypes => _mFunctionResponseTypes.GetValue("functionResponseTypes");
+
+        /// <summary>
+        /// The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+
+        /// <summary>
+        /// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
+        /// </summary>
+        [Input("maximumBatchingWindowInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
+
+        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
+
+        /// <summary>
+        /// - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+        /// </summary>
+        [Input("maximumRecordAgeInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRecordAgeInSeconds;
+
+        public int? MaximumRecordAgeInSeconds => _mMaximumRecordAgeInSeconds.GetValue("maximumRecordAgeInSeconds");
+
+        /// <summary>
+        /// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+        /// </summary>
+        [Input("maximumRetryAttempts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
+
+        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
+
+        /// <summary>
+        /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        /// </summary>
+        [Input("metricsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingMetricsConfigArgs> _mMetricsConfig;
+
+        public Inputs.EventSourceMappingMetricsConfigArgs? MetricsConfig => _mMetricsConfig.GetValue("metricsConfig");
+
+        /// <summary>
+        /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+        /// </summary>
+        [Input("parallelizationFactor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mParallelizationFactor;
+
+        public int? ParallelizationFactor => _mParallelizationFactor.GetValue("parallelizationFactor");
+
+        /// <summary>
+        /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        /// </summary>
+        [Input("provisionedPollerConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingProvisionedPollerConfigArgs> _mProvisionedPollerConfig;
+
+        public Inputs.EventSourceMappingProvisionedPollerConfigArgs? ProvisionedPollerConfig => _mProvisionedPollerConfig.GetValue("provisionedPollerConfig");
+
+        /// <summary>
+        /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
+        /// </summary>
+        [Input("queues")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueues;
+
+        public string? Queues => _mQueues.GetValue("queues");
+
+        /// <summary>
+        /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+        /// </summary>
+        [Input("scalingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingScalingConfigArgs> _mScalingConfig;
+
+        public Inputs.EventSourceMappingScalingConfigArgs? ScalingConfig => _mScalingConfig.GetValue("scalingConfig");
+
+        /// <summary>
+        /// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+        /// </summary>
+        [Input("selfManagedEventSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingSelfManagedEventSourceArgs> _mSelfManagedEventSource;
+
+        public Inputs.EventSourceMappingSelfManagedEventSourceArgs? SelfManagedEventSource => _mSelfManagedEventSource.GetValue("selfManagedEventSource");
+
+        /// <summary>
+        /// Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
+        /// </summary>
+        [Input("selfManagedKafkaEventSourceConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs> _mSelfManagedKafkaEventSourceConfig;
+
+        public Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs? SelfManagedKafkaEventSourceConfig => _mSelfManagedKafkaEventSourceConfig.GetValue("selfManagedKafkaEventSourceConfig");
+
+        /// <summary>
+        /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+        /// </summary>
+        [Input("sourceAccessConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventSourceMappingSourceAccessConfigurationArgs>> _mSourceAccessConfigurations;
+
+        public List<Inputs.EventSourceMappingSourceAccessConfigurationArgs>? SourceAccessConfigurations => _mSourceAccessConfigurations.GetValue("sourceAccessConfigurations");
+
+        /// <summary>
+        /// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
+        /// </summary>
+        [Input("startingPosition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPosition;
+
+        public string? StartingPosition => _mStartingPosition.GetValue("startingPosition");
+
+        /// <summary>
+        /// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+        /// </summary>
+        [Input("startingPositionTimestamp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPositionTimestamp;
+
+        public string? StartingPositionTimestamp => _mStartingPositionTimestamp.GetValue("startingPositionTimestamp");
+
+        /// <summary>
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
+        /// </summary>
+        [Input("topics")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTopics;
+
+        public List<string>? Topics => _mTopics.GetValue("topics");
+
+        /// <summary>
+        /// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+        /// </summary>
+        [Input("tumblingWindowInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTumblingWindowInSeconds;
+
+        public int? TumblingWindowInSeconds => _mTumblingWindowInSeconds.GetValue("tumblingWindowInSeconds");
     }
 }

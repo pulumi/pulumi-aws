@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/v2modelsBotVersion:V2modelsBotVersion")]
-    public sealed class V2modelsBotVersion : global::Pulumi.PolicyResource
+    public sealed class V2modelsBotVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Idientifier of the bot to create the version for.
         /// </summary>
         [Input("botId")]
-        public string? BotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
+
+        public string? BotId => _mBotId.GetValue("botId");
 
         /// <summary>
         /// Version number assigned to the version.
         /// </summary>
         [Input("botVersion")]
-        public string? BotVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
 
         /// <summary>
         /// A description of the version. Use the description to help identify the version in lists.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
@@ -38,9 +47,64 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
         /// </summary>
         [Input("localeSpecification")]
-        public Dictionary<string, V2modelsBotVersionLocaleSpecification>? LocaleSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>> _mLocaleSpecification;
+
+        public Dictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>? LocaleSpecification => _mLocaleSpecification.GetValue("localeSpecification");
 
         [Input("timeouts")]
-        public V2modelsBotVersionTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsBotVersionTimeouts> _mTimeouts;
+
+        public Outputs.V2modelsBotVersionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:lex/v2modelsBotVersion:V2modelsBotVersion")]
+    public sealed class V2modelsBotVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Idientifier of the bot to create the version for.
+        /// </summary>
+        [Input("botId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
+
+        public string? BotId => _mBotId.GetValue("botId");
+
+        /// <summary>
+        /// Version number assigned to the version.
+        /// </summary>
+        [Input("botVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+
+        /// <summary>
+        /// A description of the version. Use the description to help identify the version in lists.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        /// 
+        /// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
+        /// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
+        /// </summary>
+        [Input("localeSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Inputs.V2modelsBotVersionLocaleSpecificationArgs>> _mLocaleSpecification;
+
+        public Dictionary<string, Inputs.V2modelsBotVersionLocaleSpecificationArgs>? LocaleSpecification => _mLocaleSpecification.GetValue("localeSpecification");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsBotVersionTimeoutsArgs> _mTimeouts;
+
+        public Inputs.V2modelsBotVersionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

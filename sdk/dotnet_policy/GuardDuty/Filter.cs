@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GuardDuty
 {
     [PolicyResourceType("aws:guardduty/filter:Filter")]
-    public sealed class Filter : global::Pulumi.PolicyResource
+    public sealed class Filter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
         /// </summary>
         [Input("action")]
-        public string? Action;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
 
         /// <summary>
         /// The ARN of the GuardDuty filter.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the filter.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// ID of a GuardDuty detector, attached to your account.
         /// </summary>
         [Input("detectorId")]
-        public string? DetectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
 
         /// <summary>
         /// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
         /// </summary>
         [Input("findingCriteria")]
-        public FilterFindingCriteria? FindingCriteria;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FilterFindingCriteria> _mFindingCriteria;
+
+        public Outputs.FilterFindingCriteria? FindingCriteria => _mFindingCriteria.GetValue("findingCriteria");
 
         /// <summary>
         /// The name of your filter.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
         /// </summary>
         [Input("rank")]
-        public int? Rank;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRank;
+
+        public int? Rank => _mRank.GetValue("rank");
 
         /// <summary>
         /// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:guardduty/filter:Filter")]
+    public sealed class FilterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
+        /// </summary>
+        [Input("action")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
+
+        /// <summary>
+        /// Description of the filter.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// ID of a GuardDuty detector, attached to your account.
+        /// </summary>
+        [Input("detectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+
+        /// <summary>
+        /// Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
+        /// </summary>
+        [Input("findingCriteria")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FilterFindingCriteriaArgs> _mFindingCriteria;
+
+        public Inputs.FilterFindingCriteriaArgs? FindingCriteria => _mFindingCriteria.GetValue("findingCriteria");
+
+        /// <summary>
+        /// The name of your filter.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+        /// </summary>
+        [Input("rank")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRank;
+
+        public int? Rank => _mRank.GetValue("rank");
+
+        /// <summary>
+        /// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/groupPolicyAttachment:GroupPolicyAttachment")]
-    public sealed class GroupPolicyAttachment : global::Pulumi.PolicyResource
+    public sealed class GroupPolicyAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The group the policy should be applied to
         /// </summary>
         [Input("group")]
-        public string? Group;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
+
+        public string? Group => _mGroup.GetValue("group");
 
         /// <summary>
         /// The ARN of the policy you want to apply
         /// </summary>
         [Input("policyArn")]
-        public string? PolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+    }
+
+    [PolicyResourceType("aws:iam/groupPolicyAttachment:GroupPolicyAttachment")]
+    public sealed class GroupPolicyAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The group the policy should be applied to
+        /// </summary>
+        [Input("group")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
+
+        public string? Group => _mGroup.GetValue("group");
+
+        /// <summary>
+        /// The ARN of the policy you want to apply
+        /// </summary>
+        [Input("policyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
     }
 }

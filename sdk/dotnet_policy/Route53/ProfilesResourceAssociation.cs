@@ -11,54 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/profilesResourceAssociation:ProfilesResourceAssociation")]
-    public sealed class ProfilesResourceAssociation : global::Pulumi.PolicyResource
+    public sealed class ProfilesResourceAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the Profile Resource Association.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// ID of the profile associated with the VPC.
         /// </summary>
         [Input("profileId")]
-        public string? ProfileId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileId;
+
+        public string? ProfileId => _mProfileId.GetValue("profileId");
 
         /// <summary>
         /// Resource ID of the resource to be associated with the profile.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// Resource properties for the resource to be associated with the profile.
         /// </summary>
         [Input("resourceProperties")]
-        public string? ResourceProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceProperties;
+
+        public string? ResourceProperties => _mResourceProperties.GetValue("resourceProperties");
 
         /// <summary>
         /// Type of resource associated with the profile.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Status message of the Profile Resource Association.
         /// </summary>
         [Input("statusMessage")]
-        public string? StatusMessage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
+
+        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
 
         [Input("timeouts")]
-        public ProfilesResourceAssociationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfilesResourceAssociationTimeouts> _mTimeouts;
+
+        public Outputs.ProfilesResourceAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:route53/profilesResourceAssociation:ProfilesResourceAssociation")]
+    public sealed class ProfilesResourceAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Profile Resource Association.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ID of the profile associated with the VPC.
+        /// </summary>
+        [Input("profileId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileId;
+
+        public string? ProfileId => _mProfileId.GetValue("profileId");
+
+        /// <summary>
+        /// Resource ID of the resource to be associated with the profile.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+
+        /// <summary>
+        /// Resource properties for the resource to be associated with the profile.
+        /// </summary>
+        [Input("resourceProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceProperties;
+
+        public string? ResourceProperties => _mResourceProperties.GetValue("resourceProperties");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfilesResourceAssociationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ProfilesResourceAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

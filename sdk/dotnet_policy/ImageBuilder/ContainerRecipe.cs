@@ -11,115 +11,169 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ImageBuilder
 {
     [PolicyResourceType("aws:imagebuilder/containerRecipe:ContainerRecipe")]
-    public sealed class ContainerRecipe : global::Pulumi.PolicyResource
+    public sealed class ContainerRecipe : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Ordered configuration block(s) with components for the container recipe. Detailed below.
         /// </summary>
         [Input("components")]
-        public List<ContainerRecipeComponent>? Components;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ContainerRecipeComponent>> _mComponents;
+
+        public List<Outputs.ContainerRecipeComponent>? Components => _mComponents.GetValue("components");
 
         /// <summary>
         /// The type of the container to create. Valid values: `DOCKER`.
         /// </summary>
         [Input("containerType")]
-        public string? ContainerType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainerType;
+
+        public string? ContainerType => _mContainerType.GetValue("containerType");
 
         /// <summary>
         /// Date the container recipe was created.
         /// </summary>
         [Input("dateCreated")]
-        public string? DateCreated;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
+
+        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
 
         /// <summary>
         /// The description of the container recipe.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The Dockerfile template used to build the image as an inline data blob.
         /// </summary>
         [Input("dockerfileTemplateData")]
-        public string? DockerfileTemplateData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDockerfileTemplateData;
+
+        public string? DockerfileTemplateData => _mDockerfileTemplateData.GetValue("dockerfileTemplateData");
 
         /// <summary>
         /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         /// </summary>
         [Input("dockerfileTemplateUri")]
-        public string? DockerfileTemplateUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDockerfileTemplateUri;
+
+        public string? DockerfileTemplateUri => _mDockerfileTemplateUri.GetValue("dockerfileTemplateUri");
 
         /// <summary>
         /// A flag that indicates if the target container is encrypted.
         /// </summary>
         [Input("encrypted")]
-        public bool? Encrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
+
+        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
 
         /// <summary>
         /// Configuration block used to configure an instance for building and testing container images. Detailed below.
         /// </summary>
         [Input("instanceConfiguration")]
-        public ContainerRecipeInstanceConfiguration? InstanceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ContainerRecipeInstanceConfiguration> _mInstanceConfiguration;
+
+        public Outputs.ContainerRecipeInstanceConfiguration? InstanceConfiguration => _mInstanceConfiguration.GetValue("instanceConfiguration");
 
         /// <summary>
         /// The KMS key used to encrypt the container image.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The name of the container recipe.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Owner of the container recipe.
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// The base image for the container recipe.
         /// </summary>
         [Input("parentImage")]
-        public string? ParentImage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentImage;
+
+        public string? ParentImage => _mParentImage.GetValue("parentImage");
 
         /// <summary>
         /// Platform of the container recipe.
         /// </summary>
         [Input("platform")]
-        public string? Platform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
 
         /// <summary>
         /// Specifies the operating system platform when you use a custom base image.
         /// </summary>
         [Input("platformOverride")]
-        public string? PlatformOverride;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformOverride;
+
+        public string? PlatformOverride => _mPlatformOverride.GetValue("platformOverride");
 
         /// <summary>
         /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The destination repository for the container image. Detailed below.
         /// </summary>
         [Input("targetRepository")]
-        public ContainerRecipeTargetRepository? TargetRepository;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ContainerRecipeTargetRepository> _mTargetRepository;
+
+        public Outputs.ContainerRecipeTargetRepository? TargetRepository => _mTargetRepository.GetValue("targetRepository");
 
         /// <summary>
         /// Version of the container recipe.
@@ -127,12 +181,150 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// The following attributes are optional:
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// The working directory to be used during build and test workflows.
         /// </summary>
         [Input("workingDirectory")]
-        public string? WorkingDirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkingDirectory;
+
+        public string? WorkingDirectory => _mWorkingDirectory.GetValue("workingDirectory");
+    }
+
+    [PolicyResourceType("aws:imagebuilder/containerRecipe:ContainerRecipe")]
+    public sealed class ContainerRecipeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Ordered configuration block(s) with components for the container recipe. Detailed below.
+        /// </summary>
+        [Input("components")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContainerRecipeComponentArgs>> _mComponents;
+
+        public List<Inputs.ContainerRecipeComponentArgs>? Components => _mComponents.GetValue("components");
+
+        /// <summary>
+        /// The type of the container to create. Valid values: `DOCKER`.
+        /// </summary>
+        [Input("containerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainerType;
+
+        public string? ContainerType => _mContainerType.GetValue("containerType");
+
+        /// <summary>
+        /// The description of the container recipe.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The Dockerfile template used to build the image as an inline data blob.
+        /// </summary>
+        [Input("dockerfileTemplateData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDockerfileTemplateData;
+
+        public string? DockerfileTemplateData => _mDockerfileTemplateData.GetValue("dockerfileTemplateData");
+
+        /// <summary>
+        /// The Amazon S3 URI for the Dockerfile that will be used to build the container image.
+        /// </summary>
+        [Input("dockerfileTemplateUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDockerfileTemplateUri;
+
+        public string? DockerfileTemplateUri => _mDockerfileTemplateUri.GetValue("dockerfileTemplateUri");
+
+        /// <summary>
+        /// Configuration block used to configure an instance for building and testing container images. Detailed below.
+        /// </summary>
+        [Input("instanceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerRecipeInstanceConfigurationArgs> _mInstanceConfiguration;
+
+        public Inputs.ContainerRecipeInstanceConfigurationArgs? InstanceConfiguration => _mInstanceConfiguration.GetValue("instanceConfiguration");
+
+        /// <summary>
+        /// The KMS key used to encrypt the container image.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// The name of the container recipe.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The base image for the container recipe.
+        /// </summary>
+        [Input("parentImage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentImage;
+
+        public string? ParentImage => _mParentImage.GetValue("parentImage");
+
+        /// <summary>
+        /// Specifies the operating system platform when you use a custom base image.
+        /// </summary>
+        [Input("platformOverride")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformOverride;
+
+        public string? PlatformOverride => _mPlatformOverride.GetValue("platformOverride");
+
+        /// <summary>
+        /// Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The destination repository for the container image. Detailed below.
+        /// </summary>
+        [Input("targetRepository")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerRecipeTargetRepositoryArgs> _mTargetRepository;
+
+        public Inputs.ContainerRecipeTargetRepositoryArgs? TargetRepository => _mTargetRepository.GetValue("targetRepository");
+
+        /// <summary>
+        /// Version of the container recipe.
+        /// 
+        /// The following attributes are optional:
+        /// </summary>
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+
+        /// <summary>
+        /// The working directory to be used during build and test workflows.
+        /// </summary>
+        [Input("workingDirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkingDirectory;
+
+        public string? WorkingDirectory => _mWorkingDirectory.GetValue("workingDirectory");
     }
 }

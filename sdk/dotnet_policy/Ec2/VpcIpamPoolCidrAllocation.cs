@@ -11,57 +11,133 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation")]
-    public sealed class VpcIpamPoolCidrAllocation : global::Pulumi.PolicyResource
+    public sealed class VpcIpamPoolCidrAllocation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The CIDR you want to assign to the pool.
         /// </summary>
         [Input("cidr")]
-        public string? Cidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+
+        public string? Cidr => _mCidr.GetValue("cidr");
 
         /// <summary>
         /// The description for the allocation.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Exclude a particular CIDR range from being returned by the pool.
         /// </summary>
         [Input("disallowedCidrs")]
-        public List<string>? DisallowedCidrs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisallowedCidrs;
+
+        public List<string>? DisallowedCidrs => _mDisallowedCidrs.GetValue("disallowedCidrs");
 
         [Input("ipamPoolAllocationId")]
-        public string? IpamPoolAllocationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolAllocationId;
+
+        public string? IpamPoolAllocationId => _mIpamPoolAllocationId.GetValue("ipamPoolAllocationId");
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
         /// </summary>
         [Input("ipamPoolId")]
-        public string? IpamPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
+
+        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
 
         /// <summary>
         /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         /// </summary>
         [Input("netmaskLength")]
-        public int? NetmaskLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNetmaskLength;
+
+        public int? NetmaskLength => _mNetmaskLength.GetValue("netmaskLength");
 
         /// <summary>
         /// The ID of the resource.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// The owner of the resource.
         /// </summary>
         [Input("resourceOwner")]
-        public string? ResourceOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceOwner;
+
+        public string? ResourceOwner => _mResourceOwner.GetValue("resourceOwner");
 
         /// <summary>
         /// The type of the resource.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation")]
+    public sealed class VpcIpamPoolCidrAllocationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The CIDR you want to assign to the pool.
+        /// </summary>
+        [Input("cidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+
+        public string? Cidr => _mCidr.GetValue("cidr");
+
+        /// <summary>
+        /// The description for the allocation.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
+        [Input("disallowedCidrs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisallowedCidrs;
+
+        public List<string>? DisallowedCidrs => _mDisallowedCidrs.GetValue("disallowedCidrs");
+
+        /// <summary>
+        /// The ID of the pool to which you want to assign a CIDR.
+        /// </summary>
+        [Input("ipamPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
+
+        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+
+        /// <summary>
+        /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        /// </summary>
+        [Input("netmaskLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNetmaskLength;
+
+        public int? NetmaskLength => _mNetmaskLength.GetValue("netmaskLength");
     }
 }

@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/insight:Insight")]
-    public sealed class Insight : global::Pulumi.PolicyResource
+    public sealed class Insight : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the insight.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         /// </summary>
         [Input("filters")]
-        public InsightFilters? Filters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InsightFilters> _mFilters;
+
+        public Outputs.InsightFilters? Filters => _mFilters.GetValue("filters");
 
         /// <summary>
         /// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         /// </summary>
         [Input("groupByAttribute")]
-        public string? GroupByAttribute;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupByAttribute;
+
+        public string? GroupByAttribute => _mGroupByAttribute.GetValue("groupByAttribute");
 
         /// <summary>
         /// The name of the custom insight.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:securityhub/insight:Insight")]
+    public sealed class InsightArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+        /// </summary>
+        [Input("filters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InsightFiltersArgs> _mFilters;
+
+        public Inputs.InsightFiltersArgs? Filters => _mFilters.GetValue("filters");
+
+        /// <summary>
+        /// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        /// </summary>
+        [Input("groupByAttribute")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupByAttribute;
+
+        public string? GroupByAttribute => _mGroupByAttribute.GetValue("groupByAttribute");
+
+        /// <summary>
+        /// The name of the custom insight.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

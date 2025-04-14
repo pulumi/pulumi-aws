@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
 {
     [PolicyResourceType("aws:devopsguru/notificationChannel:NotificationChannel")]
-    public sealed class NotificationChannel : global::Pulumi.PolicyResource
+    public sealed class NotificationChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
         /// </summary>
         [Input("filters")]
-        public NotificationChannelFilters? Filters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NotificationChannelFilters> _mFilters;
+
+        public Outputs.NotificationChannelFilters? Filters => _mFilters.GetValue("filters");
 
         /// <summary>
         /// SNS noficiation channel configurations. See the `sns` argument reference below.
@@ -25,6 +28,33 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
         /// The following arguments are optional:
         /// </summary>
         [Input("sns")]
-        public NotificationChannelSns? Sns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NotificationChannelSns> _mSns;
+
+        public Outputs.NotificationChannelSns? Sns => _mSns.GetValue("sns");
+    }
+
+    [PolicyResourceType("aws:devopsguru/notificationChannel:NotificationChannel")]
+    public sealed class NotificationChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        /// </summary>
+        [Input("filters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NotificationChannelFiltersArgs> _mFilters;
+
+        public Inputs.NotificationChannelFiltersArgs? Filters => _mFilters.GetValue("filters");
+
+        /// <summary>
+        /// SNS noficiation channel configurations. See the `sns` argument reference below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("sns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NotificationChannelSnsArgs> _mSns;
+
+        public Inputs.NotificationChannelSnsArgs? Sns => _mSns.GetValue("sns");
     }
 }

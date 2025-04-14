@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kms
 {
     [PolicyResourceType("aws:kms/ciphertext:Ciphertext")]
-    public sealed class Ciphertext : global::Pulumi.PolicyResource
+    public sealed class Ciphertext : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Base64 encoded ciphertext
         /// </summary>
         [Input("ciphertextBlob")]
-        public string? CiphertextBlob;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCiphertextBlob;
+
+        public string? CiphertextBlob => _mCiphertextBlob.GetValue("ciphertextBlob");
 
         /// <summary>
         /// An optional mapping that makes up the encryption context.
         /// </summary>
         [Input("context")]
-        public Dictionary<string, string>? Context;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mContext;
+
+        public Dictionary<string, string>? Context => _mContext.GetValue("context");
 
         /// <summary>
         /// Globally unique key ID for the customer master key.
         /// </summary>
         [Input("keyId")]
-        public string? KeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
 
         /// <summary>
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         /// </summary>
         [Input("plaintext")]
-        public string? Plaintext;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlaintext;
+
+        public string? Plaintext => _mPlaintext.GetValue("plaintext");
+    }
+
+    [PolicyResourceType("aws:kms/ciphertext:Ciphertext")]
+    public sealed class CiphertextArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An optional mapping that makes up the encryption context.
+        /// </summary>
+        [Input("context")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mContext;
+
+        public Dictionary<string, string>? Context => _mContext.GetValue("context");
+
+        /// <summary>
+        /// Globally unique key ID for the customer master key.
+        /// </summary>
+        [Input("keyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
+
+        /// <summary>
+        /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+        /// </summary>
+        [Input("plaintext")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlaintext;
+
+        public string? Plaintext => _mPlaintext.GetValue("plaintext");
     }
 }

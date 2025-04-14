@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AutoScaling
 {
     [PolicyResourceType("aws:autoscaling/policy:Policy")]
-    public sealed class Policy : global::Pulumi.PolicyResource
+    public sealed class Policy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         /// </summary>
         [Input("adjustmentType")]
-        public string? AdjustmentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdjustmentType;
+
+        public string? AdjustmentType => _mAdjustmentType.GetValue("adjustmentType");
 
         /// <summary>
         /// ARN assigned by AWS to the scaling policy.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the autoscaling group.
         /// </summary>
         [Input("autoscalingGroupName")]
-        public string? AutoscalingGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
 
         /// <summary>
         /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         /// </summary>
         [Input("cooldown")]
-        public int? Cooldown;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCooldown;
+
+        public int? Cooldown => _mCooldown.GetValue("cooldown");
 
         /// <summary>
         /// Whether the scaling policy is enabled or disabled. Default: `true`.
@@ -43,19 +55,28 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         /// </summary>
         [Input("estimatedInstanceWarmup")]
-        public int? EstimatedInstanceWarmup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mEstimatedInstanceWarmup;
+
+        public int? EstimatedInstanceWarmup => _mEstimatedInstanceWarmup.GetValue("estimatedInstanceWarmup");
 
         /// <summary>
         /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         /// </summary>
         [Input("metricAggregationType")]
-        public string? MetricAggregationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricAggregationType;
+
+        public string? MetricAggregationType => _mMetricAggregationType.GetValue("metricAggregationType");
 
         /// <summary>
         /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
@@ -63,25 +84,37 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// The following arguments are only available to "SimpleScaling" type policies:
         /// </summary>
         [Input("minAdjustmentMagnitude")]
-        public int? MinAdjustmentMagnitude;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinAdjustmentMagnitude;
+
+        public int? MinAdjustmentMagnitude => _mMinAdjustmentMagnitude.GetValue("minAdjustmentMagnitude");
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         /// </summary>
         [Input("policyType")]
-        public string? PolicyType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
+
+        public string? PolicyType => _mPolicyType.GetValue("policyType");
 
         /// <summary>
         /// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         /// </summary>
         [Input("predictiveScalingConfiguration")]
-        public PolicyPredictiveScalingConfiguration? PredictiveScalingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyPredictiveScalingConfiguration> _mPredictiveScalingConfiguration;
+
+        public Outputs.PolicyPredictiveScalingConfiguration? PredictiveScalingConfiguration => _mPredictiveScalingConfiguration.GetValue("predictiveScalingConfiguration");
 
         /// <summary>
         /// Number of members by which to
@@ -89,7 +122,10 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// up. A negative value scales down.
         /// </summary>
         [Input("scalingAdjustment")]
-        public int? ScalingAdjustment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mScalingAdjustment;
+
+        public int? ScalingAdjustment => _mScalingAdjustment.GetValue("scalingAdjustment");
 
         /// <summary>
         /// Set of adjustments that manage
@@ -128,7 +164,10 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// The following fields are available in step adjustments:
         /// </summary>
         [Input("stepAdjustments")]
-        public List<PolicyStepAdjustment>? StepAdjustments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PolicyStepAdjustment>> _mStepAdjustments;
+
+        public List<Outputs.PolicyStepAdjustment>? StepAdjustments => _mStepAdjustments.GetValue("stepAdjustments");
 
         /// <summary>
         /// Target tracking policy. These have the following structure:
@@ -159,6 +198,194 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// The following fields are available in target tracking configuration:
         /// </summary>
         [Input("targetTrackingConfiguration")]
-        public PolicyTargetTrackingConfiguration? TargetTrackingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyTargetTrackingConfiguration> _mTargetTrackingConfiguration;
+
+        public Outputs.PolicyTargetTrackingConfiguration? TargetTrackingConfiguration => _mTargetTrackingConfiguration.GetValue("targetTrackingConfiguration");
+    }
+
+    [PolicyResourceType("aws:autoscaling/policy:Policy")]
+    public sealed class PolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+        /// </summary>
+        [Input("adjustmentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdjustmentType;
+
+        public string? AdjustmentType => _mAdjustmentType.GetValue("adjustmentType");
+
+        /// <summary>
+        /// Name of the autoscaling group.
+        /// </summary>
+        [Input("autoscalingGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+
+        /// <summary>
+        /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        /// </summary>
+        [Input("cooldown")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCooldown;
+
+        public int? Cooldown => _mCooldown.GetValue("cooldown");
+
+        /// <summary>
+        /// Whether the scaling policy is enabled or disabled. Default: `true`.
+        /// 
+        /// The following argument is only available to "SimpleScaling" and "StepScaling" type policies:
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
+        /// </summary>
+        [Input("estimatedInstanceWarmup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mEstimatedInstanceWarmup;
+
+        public int? EstimatedInstanceWarmup => _mEstimatedInstanceWarmup.GetValue("estimatedInstanceWarmup");
+
+        /// <summary>
+        /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+        /// </summary>
+        [Input("metricAggregationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricAggregationType;
+
+        public string? MetricAggregationType => _mMetricAggregationType.GetValue("metricAggregationType");
+
+        /// <summary>
+        /// Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
+        /// 
+        /// The following arguments are only available to "SimpleScaling" type policies:
+        /// </summary>
+        [Input("minAdjustmentMagnitude")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinAdjustmentMagnitude;
+
+        public int? MinAdjustmentMagnitude => _mMinAdjustmentMagnitude.GetValue("minAdjustmentMagnitude");
+
+        /// <summary>
+        /// Name of the policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
+        /// </summary>
+        [Input("policyType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
+
+        public string? PolicyType => _mPolicyType.GetValue("policyType");
+
+        /// <summary>
+        /// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        /// </summary>
+        [Input("predictiveScalingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationArgs> _mPredictiveScalingConfiguration;
+
+        public Inputs.PolicyPredictiveScalingConfigurationArgs? PredictiveScalingConfiguration => _mPredictiveScalingConfiguration.GetValue("predictiveScalingConfiguration");
+
+        /// <summary>
+        /// Number of members by which to
+        /// scale, when the adjustment bounds are breached. A positive value scales
+        /// up. A negative value scales down.
+        /// </summary>
+        [Input("scalingAdjustment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mScalingAdjustment;
+
+        public int? ScalingAdjustment => _mScalingAdjustment.GetValue("scalingAdjustment");
+
+        /// <summary>
+        /// Set of adjustments that manage
+        /// group scaling. These have the following structure:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.AutoScaling.Policy("example", new()
+        ///     {
+        ///         StepAdjustments = new[]
+        ///         {
+        ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
+        ///             {
+        ///                 ScalingAdjustment = -1,
+        ///                 MetricIntervalLowerBound = "1",
+        ///                 MetricIntervalUpperBound = "2",
+        ///             },
+        ///             new Aws.AutoScaling.Inputs.PolicyStepAdjustmentArgs
+        ///             {
+        ///                 ScalingAdjustment = 1,
+        ///                 MetricIntervalLowerBound = "2",
+        ///                 MetricIntervalUpperBound = "3",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// The following fields are available in step adjustments:
+        /// </summary>
+        [Input("stepAdjustments")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PolicyStepAdjustmentArgs>> _mStepAdjustments;
+
+        public List<Inputs.PolicyStepAdjustmentArgs>? StepAdjustments => _mStepAdjustments.GetValue("stepAdjustments");
+
+        /// <summary>
+        /// Target tracking policy. These have the following structure:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Aws.AutoScaling.Policy("example", new()
+        ///     {
+        ///         TargetTrackingConfiguration = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationArgs
+        ///         {
+        ///             PredefinedMetricSpecification = new Aws.AutoScaling.Inputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs
+        ///             {
+        ///                 PredefinedMetricType = "ASGAverageCPUUtilization",
+        ///             },
+        ///             TargetValue = 40,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// The following fields are available in target tracking configuration:
+        /// </summary>
+        [Input("targetTrackingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyTargetTrackingConfigurationArgs> _mTargetTrackingConfiguration;
+
+        public Inputs.PolicyTargetTrackingConfigurationArgs? TargetTrackingConfiguration => _mTargetTrackingConfiguration.GetValue("targetTrackingConfiguration");
     }
 }

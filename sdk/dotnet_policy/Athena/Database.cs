@@ -11,54 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Athena
 {
     [PolicyResourceType("aws:athena/database:Database")]
-    public sealed class Database : global::Pulumi.PolicyResource
+    public sealed class Database : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
         [Input("aclConfiguration")]
-        public DatabaseAclConfiguration? AclConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DatabaseAclConfiguration> _mAclConfiguration;
+
+        public Outputs.DatabaseAclConfiguration? AclConfiguration => _mAclConfiguration.GetValue("aclConfiguration");
 
         /// <summary>
         /// Name of S3 bucket to save the results of the query execution.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Description of the database.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
         [Input("encryptionConfiguration")]
-        public DatabaseEncryptionConfiguration? EncryptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DatabaseEncryptionConfiguration> _mEncryptionConfiguration;
+
+        public Outputs.DatabaseEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
 
         /// <summary>
         /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         /// </summary>
         [Input("expectedBucketOwner")]
-        public string? ExpectedBucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
 
         /// <summary>
         /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         /// </summary>
         [Input("forceDestroy")]
-        public bool? ForceDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
 
         /// <summary>
         /// Name of the database to create.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value map of custom metadata properties for the database definition.
         /// </summary>
         [Input("properties")]
-        public Dictionary<string, string>? Properties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProperties;
+
+        public Dictionary<string, string>? Properties => _mProperties.GetValue("properties");
+    }
+
+    [PolicyResourceType("aws:athena/database:Database")]
+    public sealed class DatabaseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        /// </summary>
+        [Input("aclConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DatabaseAclConfigurationArgs> _mAclConfiguration;
+
+        public Inputs.DatabaseAclConfigurationArgs? AclConfiguration => _mAclConfiguration.GetValue("aclConfiguration");
+
+        /// <summary>
+        /// Name of S3 bucket to save the results of the query execution.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Description of the database.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DatabaseEncryptionConfigurationArgs> _mEncryptionConfiguration;
+
+        public Inputs.DatabaseEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+
+        /// <summary>
+        /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+
+        /// <summary>
+        /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
+        /// </summary>
+        [Input("forceDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+
+        /// <summary>
+        /// Name of the database to create.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value map of custom metadata properties for the database definition.
+        /// </summary>
+        [Input("properties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProperties;
+
+        public Dictionary<string, string>? Properties => _mProperties.GetValue("properties");
     }
 }

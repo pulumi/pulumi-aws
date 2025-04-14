@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")]
-    public sealed class VpnGatewayRoutePropagation : global::Pulumi.PolicyResource
+    public sealed class VpnGatewayRoutePropagation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The id of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>
         [Input("routeTableId")]
-        public string? RouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
 
         /// <summary>
         /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
         /// </summary>
         [Input("vpnGatewayId")]
-        public string? VpnGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")]
+    public sealed class VpnGatewayRoutePropagationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The id of the `aws.ec2.RouteTable` to propagate routes into.
+        /// </summary>
+        [Input("routeTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+
+        /// <summary>
+        /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
+        /// </summary>
+        [Input("vpnGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
+
+        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
     }
 }

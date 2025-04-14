@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cloud9
 {
     [PolicyResourceType("aws:cloud9/environmentMembership:EnvironmentMembership")]
-    public sealed class EnvironmentMembership : global::Pulumi.PolicyResource
+    public sealed class EnvironmentMembership : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the environment that contains the environment member you want to add.
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         /// <summary>
         /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         /// </summary>
         [Input("permissions")]
-        public string? Permissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissions;
+
+        public string? Permissions => _mPermissions.GetValue("permissions");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the environment member you want to add.
         /// </summary>
         [Input("userArn")]
-        public string? UserArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
+
+        public string? UserArn => _mUserArn.GetValue("userArn");
 
         /// <summary>
         /// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         /// </summary>
         [Input("userId")]
-        public string? UserId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
+
+        public string? UserId => _mUserId.GetValue("userId");
+    }
+
+    [PolicyResourceType("aws:cloud9/environmentMembership:EnvironmentMembership")]
+    public sealed class EnvironmentMembershipArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the environment that contains the environment member you want to add.
+        /// </summary>
+        [Input("environmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+
+        /// <summary>
+        /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
+        /// </summary>
+        [Input("permissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissions;
+
+        public string? Permissions => _mPermissions.GetValue("permissions");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the environment member you want to add.
+        /// </summary>
+        [Input("userArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
+
+        public string? UserArn => _mUserArn.GetValue("userArn");
     }
 }

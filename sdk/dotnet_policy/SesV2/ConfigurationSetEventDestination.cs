@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination")]
-    public sealed class ConfigurationSetEventDestination : global::Pulumi.PolicyResource
+    public sealed class ConfigurationSetEventDestination : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
         [Input("configurationSetName")]
-        public string? ConfigurationSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
+
+        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
 
         /// <summary>
         /// A name that identifies the event destination within the configuration set.
         /// </summary>
         [Input("eventDestination")]
-        public ConfigurationSetEventDestinationEventDestination? EventDestination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetEventDestinationEventDestination> _mEventDestination;
+
+        public Outputs.ConfigurationSetEventDestinationEventDestination? EventDestination => _mEventDestination.GetValue("eventDestination");
 
         /// <summary>
         /// An object that defines the event destination. See `event_destination` Block for details.
         /// </summary>
         [Input("eventDestinationName")]
-        public string? EventDestinationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventDestinationName;
+
+        public string? EventDestinationName => _mEventDestinationName.GetValue("eventDestinationName");
+    }
+
+    [PolicyResourceType("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination")]
+    public sealed class ConfigurationSetEventDestinationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the configuration set.
+        /// </summary>
+        [Input("configurationSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSetName;
+
+        public string? ConfigurationSetName => _mConfigurationSetName.GetValue("configurationSetName");
+
+        /// <summary>
+        /// A name that identifies the event destination within the configuration set.
+        /// </summary>
+        [Input("eventDestination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetEventDestinationEventDestinationArgs> _mEventDestination;
+
+        public Inputs.ConfigurationSetEventDestinationEventDestinationArgs? EventDestination => _mEventDestination.GetValue("eventDestination");
+
+        /// <summary>
+        /// An object that defines the event destination. See `event_destination` Block for details.
+        /// </summary>
+        [Input("eventDestinationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventDestinationName;
+
+        public string? EventDestinationName => _mEventDestinationName.GetValue("eventDestinationName");
     }
 }

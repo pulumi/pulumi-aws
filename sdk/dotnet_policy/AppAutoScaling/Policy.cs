@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppAutoScaling
 {
     [PolicyResourceType("aws:appautoscaling/policy:Policy")]
-    public sealed class Policy : global::Pulumi.PolicyResource
+    public sealed class Policy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of CloudWatch alarm ARNs associated with the scaling policy.
         /// </summary>
         [Input("alarmArns")]
-        public List<string>? AlarmArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarmArns;
+
+        public List<string>? AlarmArns => _mAlarmArns.GetValue("alarmArns");
 
         /// <summary>
         /// ARN assigned by AWS to the scaling policy.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the policy. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
         /// </summary>
         [Input("policyType")]
-        public string? PolicyType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
+
+        public string? PolicyType => _mPolicyType.GetValue("policyType");
 
         /// <summary>
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
         [Input("scalableDimension")]
-        public string? ScalableDimension;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
+
+        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
 
         /// <summary>
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         /// </summary>
         [Input("serviceNamespace")]
-        public string? ServiceNamespace;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
+
+        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
 
         /// <summary>
         /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         /// </summary>
         [Input("stepScalingPolicyConfiguration")]
-        public PolicyStepScalingPolicyConfiguration? StepScalingPolicyConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyStepScalingPolicyConfiguration> _mStepScalingPolicyConfiguration;
+
+        public Outputs.PolicyStepScalingPolicyConfiguration? StepScalingPolicyConfiguration => _mStepScalingPolicyConfiguration.GetValue("stepScalingPolicyConfiguration");
 
         /// <summary>
         /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         /// </summary>
         [Input("targetTrackingScalingPolicyConfiguration")]
-        public PolicyTargetTrackingScalingPolicyConfiguration? TargetTrackingScalingPolicyConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyTargetTrackingScalingPolicyConfiguration> _mTargetTrackingScalingPolicyConfiguration;
+
+        public Outputs.PolicyTargetTrackingScalingPolicyConfiguration? TargetTrackingScalingPolicyConfiguration => _mTargetTrackingScalingPolicyConfiguration.GetValue("targetTrackingScalingPolicyConfiguration");
+    }
+
+    [PolicyResourceType("aws:appautoscaling/policy:Policy")]
+    public sealed class PolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the policy. Must be between 1 and 255 characters in length.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
+        /// </summary>
+        [Input("policyType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
+
+        public string? PolicyType => _mPolicyType.GetValue("policyType");
+
+        /// <summary>
+        /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
+
+        /// <summary>
+        /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
+        /// </summary>
+        [Input("scalableDimension")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
+
+        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
+
+        /// <summary>
+        /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
+        /// </summary>
+        [Input("serviceNamespace")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
+
+        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
+
+        /// <summary>
+        /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        /// </summary>
+        [Input("stepScalingPolicyConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyStepScalingPolicyConfigurationArgs> _mStepScalingPolicyConfiguration;
+
+        public Inputs.PolicyStepScalingPolicyConfigurationArgs? StepScalingPolicyConfiguration => _mStepScalingPolicyConfiguration.GetValue("stepScalingPolicyConfiguration");
+
+        /// <summary>
+        /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        /// </summary>
+        [Input("targetTrackingScalingPolicyConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs> _mTargetTrackingScalingPolicyConfiguration;
+
+        public Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs? TargetTrackingScalingPolicyConfiguration => _mTargetTrackingScalingPolicyConfiguration.GetValue("targetTrackingScalingPolicyConfiguration");
     }
 }

@@ -11,101 +11,149 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DynamoDB
 {
     [PolicyResourceType("aws:dynamodb/tableExport:TableExport")]
-    public sealed class TableExport : global::Pulumi.PolicyResource
+    public sealed class TableExport : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Table Export.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Billable size of the table export.
         /// </summary>
         [Input("billedSizeInBytes")]
-        public int? BilledSizeInBytes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBilledSizeInBytes;
+
+        public int? BilledSizeInBytes => _mBilledSizeInBytes.GetValue("billedSizeInBytes");
 
         /// <summary>
         /// Time at which the export task completed.
         /// </summary>
         [Input("endTime")]
-        public string? EndTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
+
+        public string? EndTime => _mEndTime.GetValue("endTime");
 
         /// <summary>
         /// Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         /// </summary>
         [Input("exportFormat")]
-        public string? ExportFormat;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportFormat;
+
+        public string? ExportFormat => _mExportFormat.GetValue("exportFormat");
 
         /// <summary>
         /// Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
         /// </summary>
         [Input("exportStatus")]
-        public string? ExportStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportStatus;
+
+        public string? ExportStatus => _mExportStatus.GetValue("exportStatus");
 
         /// <summary>
         /// Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         /// </summary>
         [Input("exportTime")]
-        public string? ExportTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportTime;
+
+        public string? ExportTime => _mExportTime.GetValue("exportTime");
 
         /// <summary>
         /// Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
         /// `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         /// </summary>
         [Input("exportType")]
-        public string? ExportType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportType;
+
+        public string? ExportType => _mExportType.GetValue("exportType");
 
         [Input("incrementalExportSpecification")]
-        public TableExportIncrementalExportSpecification? IncrementalExportSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableExportIncrementalExportSpecification> _mIncrementalExportSpecification;
+
+        public Outputs.TableExportIncrementalExportSpecification? IncrementalExportSpecification => _mIncrementalExportSpecification.GetValue("incrementalExportSpecification");
 
         /// <summary>
         /// Number of items exported.
         /// </summary>
         [Input("itemCount")]
-        public int? ItemCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mItemCount;
+
+        public int? ItemCount => _mItemCount.GetValue("itemCount");
 
         /// <summary>
         /// Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
         /// </summary>
         [Input("manifestFilesS3Key")]
-        public string? ManifestFilesS3Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManifestFilesS3Key;
+
+        public string? ManifestFilesS3Key => _mManifestFilesS3Key.GetValue("manifestFilesS3Key");
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         /// </summary>
         [Input("s3Bucket")]
-        public string? S3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
 
         /// <summary>
         /// ID of the AWS account that owns the bucket the export will be stored in.
         /// </summary>
         [Input("s3BucketOwner")]
-        public string? S3BucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketOwner;
+
+        public string? S3BucketOwner => _mS3BucketOwner.GetValue("s3BucketOwner");
 
         /// <summary>
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         /// </summary>
         [Input("s3Prefix")]
-        public string? S3Prefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
+
+        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
 
         /// <summary>
         /// Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
         /// </summary>
         [Input("s3SseAlgorithm")]
-        public string? S3SseAlgorithm;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3SseAlgorithm;
+
+        public string? S3SseAlgorithm => _mS3SseAlgorithm.GetValue("s3SseAlgorithm");
 
         /// <summary>
         /// ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
         /// </summary>
         [Input("s3SseKmsKeyId")]
-        public string? S3SseKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3SseKmsKeyId;
+
+        public string? S3SseKmsKeyId => _mS3SseKmsKeyId.GetValue("s3SseKmsKeyId");
 
         /// <summary>
         /// Time at which the export task began.
         /// </summary>
         [Input("startTime")]
-        public string? StartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
+
+        public string? StartTime => _mStartTime.GetValue("startTime");
 
         /// <summary>
         /// ARN associated with the table to export.
@@ -113,6 +161,103 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// The following arguments are optional:
         /// </summary>
         [Input("tableArn")]
-        public string? TableArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableArn;
+
+        public string? TableArn => _mTableArn.GetValue("tableArn");
+    }
+
+    [PolicyResourceType("aws:dynamodb/tableExport:TableExport")]
+    public sealed class TableExportArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
+        /// </summary>
+        [Input("exportFormat")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportFormat;
+
+        public string? ExportFormat => _mExportFormat.GetValue("exportFormat");
+
+        /// <summary>
+        /// Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
+        /// </summary>
+        [Input("exportTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportTime;
+
+        public string? ExportTime => _mExportTime.GetValue("exportTime");
+
+        /// <summary>
+        /// Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
+        /// `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
+        /// </summary>
+        [Input("exportType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportType;
+
+        public string? ExportType => _mExportType.GetValue("exportType");
+
+        [Input("incrementalExportSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableExportIncrementalExportSpecificationArgs> _mIncrementalExportSpecification;
+
+        public Inputs.TableExportIncrementalExportSpecificationArgs? IncrementalExportSpecification => _mIncrementalExportSpecification.GetValue("incrementalExportSpecification");
+
+        /// <summary>
+        /// Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
+        /// </summary>
+        [Input("s3Bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+
+        /// <summary>
+        /// ID of the AWS account that owns the bucket the export will be stored in.
+        /// </summary>
+        [Input("s3BucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketOwner;
+
+        public string? S3BucketOwner => _mS3BucketOwner.GetValue("s3BucketOwner");
+
+        /// <summary>
+        /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
+        /// </summary>
+        [Input("s3Prefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
+
+        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+
+        /// <summary>
+        /// Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
+        /// </summary>
+        [Input("s3SseAlgorithm")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3SseAlgorithm;
+
+        public string? S3SseAlgorithm => _mS3SseAlgorithm.GetValue("s3SseAlgorithm");
+
+        /// <summary>
+        /// ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
+        /// </summary>
+        [Input("s3SseKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3SseKmsKeyId;
+
+        public string? S3SseKmsKeyId => _mS3SseKmsKeyId.GetValue("s3SseKmsKeyId");
+
+        /// <summary>
+        /// ARN associated with the table to export.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("tableArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableArn;
+
+        public string? TableArn => _mTableArn.GetValue("tableArn");
     }
 }

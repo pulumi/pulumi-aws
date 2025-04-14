@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudSearch
 {
     [PolicyResourceType("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")]
-    public sealed class DomainServiceAccessPolicy : global::Pulumi.PolicyResource
+    public sealed class DomainServiceAccessPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
         /// </summary>
         [Input("accessPolicy")]
-        public string? AccessPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicy;
+
+        public string? AccessPolicy => _mAccessPolicy.GetValue("accessPolicy");
 
         /// <summary>
         /// The CloudSearch domain name the policy applies to.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+    }
+
+    [PolicyResourceType("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")]
+    public sealed class DomainServiceAccessPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
+        /// </summary>
+        [Input("accessPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicy;
+
+        public string? AccessPolicy => _mAccessPolicy.GetValue("accessPolicy");
+
+        /// <summary>
+        /// The CloudSearch domain name the policy applies to.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
     }
 }

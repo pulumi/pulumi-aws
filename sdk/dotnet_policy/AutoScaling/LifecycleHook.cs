@@ -11,54 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AutoScaling
 {
     [PolicyResourceType("aws:autoscaling/lifecycleHook:LifecycleHook")]
-    public sealed class LifecycleHook : global::Pulumi.PolicyResource
+    public sealed class LifecycleHook : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the Auto Scaling group to which you want to assign the lifecycle hook
         /// </summary>
         [Input("autoscalingGroupName")]
-        public string? AutoscalingGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
 
         /// <summary>
         /// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
         /// </summary>
         [Input("defaultResult")]
-        public string? DefaultResult;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResult;
+
+        public string? DefaultResult => _mDefaultResult.GetValue("defaultResult");
 
         /// <summary>
         /// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
         /// </summary>
         [Input("heartbeatTimeout")]
-        public int? HeartbeatTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHeartbeatTimeout;
+
+        public int? HeartbeatTimeout => _mHeartbeatTimeout.GetValue("heartbeatTimeout");
 
         /// <summary>
         /// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
         /// </summary>
         [Input("lifecycleTransition")]
-        public string? LifecycleTransition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleTransition;
+
+        public string? LifecycleTransition => _mLifecycleTransition.GetValue("lifecycleTransition");
 
         /// <summary>
         /// Name of the lifecycle hook.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         /// </summary>
         [Input("notificationMetadata")]
-        public string? NotificationMetadata;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationMetadata;
+
+        public string? NotificationMetadata => _mNotificationMetadata.GetValue("notificationMetadata");
 
         /// <summary>
         /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         /// </summary>
         [Input("notificationTargetArn")]
-        public string? NotificationTargetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTargetArn;
+
+        public string? NotificationTargetArn => _mNotificationTargetArn.GetValue("notificationTargetArn");
 
         /// <summary>
         /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+    }
+
+    [PolicyResourceType("aws:autoscaling/lifecycleHook:LifecycleHook")]
+    public sealed class LifecycleHookArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Auto Scaling group to which you want to assign the lifecycle hook
+        /// </summary>
+        [Input("autoscalingGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+
+        /// <summary>
+        /// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
+        /// </summary>
+        [Input("defaultResult")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResult;
+
+        public string? DefaultResult => _mDefaultResult.GetValue("defaultResult");
+
+        /// <summary>
+        /// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
+        /// </summary>
+        [Input("heartbeatTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHeartbeatTimeout;
+
+        public int? HeartbeatTimeout => _mHeartbeatTimeout.GetValue("heartbeatTimeout");
+
+        /// <summary>
+        /// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
+        /// </summary>
+        [Input("lifecycleTransition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleTransition;
+
+        public string? LifecycleTransition => _mLifecycleTransition.GetValue("lifecycleTransition");
+
+        /// <summary>
+        /// Name of the lifecycle hook.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
+        /// </summary>
+        [Input("notificationMetadata")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationMetadata;
+
+        public string? NotificationMetadata => _mNotificationMetadata.GetValue("notificationMetadata");
+
+        /// <summary>
+        /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
+        /// </summary>
+        [Input("notificationTargetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTargetArn;
+
+        public string? NotificationTargetArn => _mNotificationTargetArn.GetValue("notificationTargetArn");
+
+        /// <summary>
+        /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
     }
 }

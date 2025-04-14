@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]
-    public sealed class LaunchConfiguration : global::Pulumi.PolicyResource
+    public sealed class LaunchConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name of the launch configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Associate a public ip address with an instance in a VPC.
         /// </summary>
         [Input("associatePublicIpAddress")]
-        public bool? AssociatePublicIpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociatePublicIpAddress;
+
+        public bool? AssociatePublicIpAddress => _mAssociatePublicIpAddress.GetValue("associatePublicIpAddress");
 
         /// <summary>
         /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
         /// </summary>
         [Input("ebsBlockDevices")]
-        public List<LaunchConfigurationEbsBlockDevice>? EbsBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchConfigurationEbsBlockDevice>> _mEbsBlockDevices;
+
+        public List<Outputs.LaunchConfigurationEbsBlockDevice>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
 
         /// <summary>
         /// If true, the launched EC2 instance will be EBS-optimized.
         /// </summary>
         [Input("ebsOptimized")]
-        public bool? EbsOptimized;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
 
         /// <summary>
         /// Enables/disables detailed monitoring. This is enabled by default.
         /// </summary>
         [Input("enableMonitoring")]
-        public bool? EnableMonitoring;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMonitoring;
+
+        public bool? EnableMonitoring => _mEnableMonitoring.GetValue("enableMonitoring");
 
         /// <summary>
         /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         /// </summary>
         [Input("ephemeralBlockDevices")]
-        public List<LaunchConfigurationEphemeralBlockDevice>? EphemeralBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchConfigurationEphemeralBlockDevice>> _mEphemeralBlockDevices;
+
+        public List<Outputs.LaunchConfigurationEphemeralBlockDevice>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
 
         /// <summary>
         /// The name attribute of the IAM instance profile to associate with launched instances.
         /// </summary>
         [Input("iamInstanceProfile")]
-        public string? IamInstanceProfile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamInstanceProfile;
+
+        public string? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
 
         /// <summary>
         /// The EC2 image ID to launch.
         /// </summary>
         [Input("imageId")]
-        public string? ImageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
 
         /// <summary>
         /// The size of instance to launch.
@@ -67,66 +91,267 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The following arguments are optional:
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// The key name that should be used for the instance.
         /// </summary>
         [Input("keyName")]
-        public string? KeyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
 
         /// <summary>
         /// The metadata options for the instance.
         /// </summary>
         [Input("metadataOptions")]
-        public LaunchConfigurationMetadataOptions? MetadataOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchConfigurationMetadataOptions> _mMetadataOptions;
+
+        public Outputs.LaunchConfigurationMetadataOptions? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
 
         /// <summary>
         /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         /// </summary>
         [Input("placementTenancy")]
-        public string? PlacementTenancy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementTenancy;
+
+        public string? PlacementTenancy => _mPlacementTenancy.GetValue("placementTenancy");
 
         /// <summary>
         /// Customize details about the root block device of the instance. See Block Devices below for details.
         /// </summary>
         [Input("rootBlockDevice")]
-        public LaunchConfigurationRootBlockDevice? RootBlockDevice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchConfigurationRootBlockDevice> _mRootBlockDevice;
+
+        public Outputs.LaunchConfigurationRootBlockDevice? RootBlockDevice => _mRootBlockDevice.GetValue("rootBlockDevice");
 
         /// <summary>
         /// A list of associated security group IDS.
         /// </summary>
         [Input("securityGroups")]
-        public List<string>? SecurityGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
 
         /// <summary>
         /// The maximum price to use for reserving spot instances.
         /// </summary>
         [Input("spotPrice")]
-        public string? SpotPrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpotPrice;
+
+        public string? SpotPrice => _mSpotPrice.GetValue("spotPrice");
 
         /// <summary>
         /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         /// </summary>
         [Input("userData")]
-        public string? UserData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+
+        public string? UserData => _mUserData.GetValue("userData");
 
         /// <summary>
         /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         /// </summary>
         [Input("userDataBase64")]
-        public string? UserDataBase64;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserDataBase64;
+
+        public string? UserDataBase64 => _mUserDataBase64.GetValue("userDataBase64");
+    }
+
+    [PolicyResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]
+    public sealed class LaunchConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Associate a public ip address with an instance in a VPC.
+        /// </summary>
+        [Input("associatePublicIpAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociatePublicIpAddress;
+
+        public bool? AssociatePublicIpAddress => _mAssociatePublicIpAddress.GetValue("associatePublicIpAddress");
+
+        /// <summary>
+        /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
+        /// </summary>
+        [Input("ebsBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchConfigurationEbsBlockDeviceArgs>> _mEbsBlockDevices;
+
+        public List<Inputs.LaunchConfigurationEbsBlockDeviceArgs>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+
+        /// <summary>
+        /// If true, the launched EC2 instance will be EBS-optimized.
+        /// </summary>
+        [Input("ebsOptimized")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+
+        /// <summary>
+        /// Enables/disables detailed monitoring. This is enabled by default.
+        /// </summary>
+        [Input("enableMonitoring")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMonitoring;
+
+        public bool? EnableMonitoring => _mEnableMonitoring.GetValue("enableMonitoring");
+
+        /// <summary>
+        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        /// </summary>
+        [Input("ephemeralBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>> _mEphemeralBlockDevices;
+
+        public List<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+
+        /// <summary>
+        /// The name attribute of the IAM instance profile to associate with launched instances.
+        /// </summary>
+        [Input("iamInstanceProfile")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamInstanceProfile;
+
+        public string? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
+
+        /// <summary>
+        /// The EC2 image ID to launch.
+        /// </summary>
+        [Input("imageId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
+
+        /// <summary>
+        /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// The key name that should be used for the instance.
+        /// </summary>
+        [Input("keyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
+
+        /// <summary>
+        /// The metadata options for the instance.
+        /// </summary>
+        [Input("metadataOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchConfigurationMetadataOptionsArgs> _mMetadataOptions;
+
+        public Inputs.LaunchConfigurationMetadataOptionsArgs? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
+
+        /// <summary>
+        /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        /// </summary>
+        [Input("placementTenancy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementTenancy;
+
+        public string? PlacementTenancy => _mPlacementTenancy.GetValue("placementTenancy");
+
+        /// <summary>
+        /// Customize details about the root block device of the instance. See Block Devices below for details.
+        /// </summary>
+        [Input("rootBlockDevice")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchConfigurationRootBlockDeviceArgs> _mRootBlockDevice;
+
+        public Inputs.LaunchConfigurationRootBlockDeviceArgs? RootBlockDevice => _mRootBlockDevice.GetValue("rootBlockDevice");
+
+        /// <summary>
+        /// A list of associated security group IDS.
+        /// </summary>
+        [Input("securityGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+
+        /// <summary>
+        /// The maximum price to use for reserving spot instances.
+        /// </summary>
+        [Input("spotPrice")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpotPrice;
+
+        public string? SpotPrice => _mSpotPrice.GetValue("spotPrice");
+
+        /// <summary>
+        /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
+        /// </summary>
+        [Input("userData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+
+        public string? UserData => _mUserData.GetValue("userData");
+
+        /// <summary>
+        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
+        /// </summary>
+        [Input("userDataBase64")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserDataBase64;
+
+        public string? UserDataBase64 => _mUserDataBase64.GetValue("userDataBase64");
     }
 }

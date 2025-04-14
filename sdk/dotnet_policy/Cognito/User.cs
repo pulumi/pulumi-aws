@@ -11,85 +11,130 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/user:User")]
-    public sealed class User : global::Pulumi.PolicyResource
+    public sealed class User : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A map that contains user attributes and attribute values to be set for the user.
         /// </summary>
         [Input("attributes")]
-        public Dictionary<string, string>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
         /// </summary>
         [Input("clientMetadata")]
-        public Dictionary<string, string>? ClientMetadata;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mClientMetadata;
+
+        public Dictionary<string, string>? ClientMetadata => _mClientMetadata.GetValue("clientMetadata");
 
         [Input("creationDate")]
-        public string? CreationDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
+
+        public string? CreationDate => _mCreationDate.GetValue("creationDate");
 
         /// <summary>
         /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
         /// </summary>
         [Input("desiredDeliveryMediums")]
-        public List<string>? DesiredDeliveryMediums;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDesiredDeliveryMediums;
+
+        public List<string>? DesiredDeliveryMediums => _mDesiredDeliveryMediums.GetValue("desiredDeliveryMediums");
 
         /// <summary>
         /// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
         /// </summary>
         [Input("forceAliasCreation")]
-        public bool? ForceAliasCreation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceAliasCreation;
+
+        public bool? ForceAliasCreation => _mForceAliasCreation.GetValue("forceAliasCreation");
 
         [Input("lastModifiedDate")]
-        public string? LastModifiedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedDate;
+
+        public string? LastModifiedDate => _mLastModifiedDate.GetValue("lastModifiedDate");
 
         /// <summary>
         /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
         /// </summary>
         [Input("messageAction")]
-        public string? MessageAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMessageAction;
+
+        public string? MessageAction => _mMessageAction.GetValue("messageAction");
 
         [Input("mfaSettingLists")]
-        public List<string>? MfaSettingLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMfaSettingLists;
+
+        public List<string>? MfaSettingLists => _mMfaSettingLists.GetValue("mfaSettingLists");
 
         /// <summary>
         /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
         /// </summary>
         [Input("password")]
-        public string? Password;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
 
         [Input("preferredMfaSetting")]
-        public string? PreferredMfaSetting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMfaSetting;
+
+        public string? PreferredMfaSetting => _mPreferredMfaSetting.GetValue("preferredMfaSetting");
 
         /// <summary>
         /// current user status.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// unique user id that is never reassignable to another user.
         /// </summary>
         [Input("sub")]
-        public string? Sub;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSub;
+
+        public string? Sub => _mSub.GetValue("sub");
 
         /// <summary>
         /// The user's temporary password. Conflicts with `password`.
         /// </summary>
         [Input("temporaryPassword")]
-        public string? TemporaryPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemporaryPassword;
+
+        public string? TemporaryPassword => _mTemporaryPassword.GetValue("temporaryPassword");
 
         /// <summary>
         /// The user pool ID for the user pool where the user will be created.
         /// </summary>
         [Input("userPoolId")]
-        public string? UserPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
 
         /// <summary>
         /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
@@ -97,7 +142,10 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// The following arguments are optional:
         /// </summary>
         [Input("username")]
-        public string? Username;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
 
         /// <summary>
         /// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
@@ -105,6 +153,116 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user's password in Cognito.
         /// </summary>
         [Input("validationData")]
-        public Dictionary<string, string>? ValidationData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mValidationData;
+
+        public Dictionary<string, string>? ValidationData => _mValidationData.GetValue("validationData");
+    }
+
+    [PolicyResourceType("aws:cognito/user:User")]
+    public sealed class UserArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A map that contains user attributes and attribute values to be set for the user.
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+        /// </summary>
+        [Input("clientMetadata")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mClientMetadata;
+
+        public Dictionary<string, string>? ClientMetadata => _mClientMetadata.GetValue("clientMetadata");
+
+        /// <summary>
+        /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
+        /// </summary>
+        [Input("desiredDeliveryMediums")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDesiredDeliveryMediums;
+
+        public List<string>? DesiredDeliveryMediums => _mDesiredDeliveryMediums.GetValue("desiredDeliveryMediums");
+
+        /// <summary>
+        /// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
+        /// </summary>
+        [Input("forceAliasCreation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceAliasCreation;
+
+        public bool? ForceAliasCreation => _mForceAliasCreation.GetValue("forceAliasCreation");
+
+        /// <summary>
+        /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
+        /// </summary>
+        [Input("messageAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMessageAction;
+
+        public string? MessageAction => _mMessageAction.GetValue("messageAction");
+
+        /// <summary>
+        /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
+        /// </summary>
+        [Input("password")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
+
+        /// <summary>
+        /// The user's temporary password. Conflicts with `password`.
+        /// </summary>
+        [Input("temporaryPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemporaryPassword;
+
+        public string? TemporaryPassword => _mTemporaryPassword.GetValue("temporaryPassword");
+
+        /// <summary>
+        /// The user pool ID for the user pool where the user will be created.
+        /// </summary>
+        [Input("userPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+
+        /// <summary>
+        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("username")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
+
+        /// <summary>
+        /// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+        /// 
+        /// &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user's password in Cognito.
+        /// </summary>
+        [Input("validationData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mValidationData;
+
+        public Dictionary<string, string>? ValidationData => _mValidationData.GetValue("validationData");
     }
 }

@@ -11,90 +11,253 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/resolver:Resolver")]
-    public sealed class Resolver : global::Pulumi.PolicyResource
+    public sealed class Resolver : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// API ID for the GraphQL API.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// ARN
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Caching Config. See Caching Config.
         /// </summary>
         [Input("cachingConfig")]
-        public ResolverCachingConfig? CachingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResolverCachingConfig> _mCachingConfig;
+
+        public Outputs.ResolverCachingConfig? CachingConfig => _mCachingConfig.GetValue("cachingConfig");
 
         /// <summary>
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
         [Input("code")]
-        public string? Code;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+
+        public string? Code => _mCode.GetValue("code");
 
         /// <summary>
         /// Data source name.
         /// </summary>
         [Input("dataSource")]
-        public string? DataSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
+
+        public string? DataSource => _mDataSource.GetValue("dataSource");
 
         /// <summary>
         /// Field name from the schema defined in the GraphQL API.
         /// </summary>
         [Input("field")]
-        public string? Field;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mField;
+
+        public string? Field => _mField.GetValue("field");
 
         /// <summary>
         /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
         /// </summary>
         [Input("kind")]
-        public string? Kind;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKind;
+
+        public string? Kind => _mKind.GetValue("kind");
 
         /// <summary>
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
         [Input("maxBatchSize")]
-        public int? MaxBatchSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBatchSize;
+
+        public int? MaxBatchSize => _mMaxBatchSize.GetValue("maxBatchSize");
 
         /// <summary>
         /// The caching configuration for the resolver. See Pipeline Config.
         /// </summary>
         [Input("pipelineConfig")]
-        public ResolverPipelineConfig? PipelineConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResolverPipelineConfig> _mPipelineConfig;
+
+        public Outputs.ResolverPipelineConfig? PipelineConfig => _mPipelineConfig.GetValue("pipelineConfig");
 
         /// <summary>
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("requestTemplate")]
-        public string? RequestTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestTemplate;
+
+        public string? RequestTemplate => _mRequestTemplate.GetValue("requestTemplate");
 
         /// <summary>
         /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("responseTemplate")]
-        public string? ResponseTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResponseTemplate;
+
+        public string? ResponseTemplate => _mResponseTemplate.GetValue("responseTemplate");
 
         /// <summary>
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         /// </summary>
         [Input("runtime")]
-        public ResolverRuntime? Runtime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResolverRuntime> _mRuntime;
+
+        public Outputs.ResolverRuntime? Runtime => _mRuntime.GetValue("runtime");
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.
         /// </summary>
         [Input("syncConfig")]
-        public ResolverSyncConfig? SyncConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResolverSyncConfig> _mSyncConfig;
+
+        public Outputs.ResolverSyncConfig? SyncConfig => _mSyncConfig.GetValue("syncConfig");
 
         /// <summary>
         /// Type name from the schema defined in the GraphQL API.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:appsync/resolver:Resolver")]
+    public sealed class ResolverArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// API ID for the GraphQL API.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// The Caching Config. See Caching Config.
+        /// </summary>
+        [Input("cachingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResolverCachingConfigArgs> _mCachingConfig;
+
+        public Inputs.ResolverCachingConfigArgs? CachingConfig => _mCachingConfig.GetValue("cachingConfig");
+
+        /// <summary>
+        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// </summary>
+        [Input("code")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+
+        public string? Code => _mCode.GetValue("code");
+
+        /// <summary>
+        /// Data source name.
+        /// </summary>
+        [Input("dataSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
+
+        public string? DataSource => _mDataSource.GetValue("dataSource");
+
+        /// <summary>
+        /// Field name from the schema defined in the GraphQL API.
+        /// </summary>
+        [Input("field")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mField;
+
+        public string? Field => _mField.GetValue("field");
+
+        /// <summary>
+        /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
+        /// </summary>
+        [Input("kind")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKind;
+
+        public string? Kind => _mKind.GetValue("kind");
+
+        /// <summary>
+        /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// </summary>
+        [Input("maxBatchSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBatchSize;
+
+        public int? MaxBatchSize => _mMaxBatchSize.GetValue("maxBatchSize");
+
+        /// <summary>
+        /// The caching configuration for the resolver. See Pipeline Config.
+        /// </summary>
+        [Input("pipelineConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResolverPipelineConfigArgs> _mPipelineConfig;
+
+        public Inputs.ResolverPipelineConfigArgs? PipelineConfig => _mPipelineConfig.GetValue("pipelineConfig");
+
+        /// <summary>
+        /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        /// </summary>
+        [Input("requestTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestTemplate;
+
+        public string? RequestTemplate => _mRequestTemplate.GetValue("requestTemplate");
+
+        /// <summary>
+        /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
+        /// </summary>
+        [Input("responseTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResponseTemplate;
+
+        public string? ResponseTemplate => _mResponseTemplate.GetValue("responseTemplate");
+
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        /// </summary>
+        [Input("runtime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResolverRuntimeArgs> _mRuntime;
+
+        public Inputs.ResolverRuntimeArgs? Runtime => _mRuntime.GetValue("runtime");
+
+        /// <summary>
+        /// Describes a Sync configuration for a resolver. See Sync Config.
+        /// </summary>
+        [Input("syncConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResolverSyncConfigArgs> _mSyncConfig;
+
+        public Inputs.ResolverSyncConfigArgs? SyncConfig => _mSyncConfig.GetValue("syncConfig");
+
+        /// <summary>
+        /// Type name from the schema defined in the GraphQL API.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

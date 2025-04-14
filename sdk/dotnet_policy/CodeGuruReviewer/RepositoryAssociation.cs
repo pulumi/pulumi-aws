@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer
 {
     [PolicyResourceType("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")]
-    public sealed class RepositoryAssociation : global::Pulumi.PolicyResource
+    public sealed class RepositoryAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) identifying the repository association.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID of the repository association.
         /// </summary>
         [Input("associationId")]
-        public string? AssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
+
+        public string? AssociationId => _mAssociationId.GetValue("associationId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         /// </summary>
         [Input("connectionArn")]
-        public string? ConnectionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionArn;
+
+        public string? ConnectionArn => _mConnectionArn.GetValue("connectionArn");
 
         /// <summary>
         /// An object describing the KMS key to asssociate. Block is documented below.
         /// </summary>
         [Input("kmsKeyDetails")]
-        public RepositoryAssociationKmsKeyDetails? KmsKeyDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryAssociationKmsKeyDetails> _mKmsKeyDetails;
+
+        public Outputs.RepositoryAssociationKmsKeyDetails? KmsKeyDetails => _mKmsKeyDetails.GetValue("kmsKeyDetails");
 
         /// <summary>
         /// The name of the repository.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The owner of the repository.
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// The provider type of the repository association.
         /// </summary>
         [Input("providerType")]
-        public string? ProviderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
 
         /// <summary>
         /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
@@ -61,27 +82,75 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer
         /// The following arguments are optional:
         /// </summary>
         [Input("repository")]
-        public RepositoryAssociationRepository? Repository;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryAssociationRepository> _mRepository;
+
+        public Outputs.RepositoryAssociationRepository? Repository => _mRepository.GetValue("repository");
 
         [Input("s3RepositoryDetails")]
-        public List<RepositoryAssociationS3RepositoryDetail>? S3RepositoryDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RepositoryAssociationS3RepositoryDetail>> _mS3RepositoryDetails;
+
+        public List<Outputs.RepositoryAssociationS3RepositoryDetail>? S3RepositoryDetails => _mS3RepositoryDetails.GetValue("s3RepositoryDetails");
 
         /// <summary>
         /// The state of the repository association.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// A description of why the repository association is in the current state.
         /// </summary>
         [Input("stateReason")]
-        public string? StateReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStateReason;
+
+        public string? StateReason => _mStateReason.GetValue("stateReason");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")]
+    public sealed class RepositoryAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An object describing the KMS key to asssociate. Block is documented below.
+        /// </summary>
+        [Input("kmsKeyDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryAssociationKmsKeyDetailsArgs> _mKmsKeyDetails;
+
+        public Inputs.RepositoryAssociationKmsKeyDetailsArgs? KmsKeyDetails => _mKmsKeyDetails.GetValue("kmsKeyDetails");
+
+        /// <summary>
+        /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("repository")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryAssociationRepositoryArgs> _mRepository;
+
+        public Inputs.RepositoryAssociationRepositoryArgs? Repository => _mRepository.GetValue("repository");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

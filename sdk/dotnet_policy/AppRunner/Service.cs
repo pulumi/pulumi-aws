@@ -11,67 +11,97 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppRunner
 {
     [PolicyResourceType("aws:apprunner/service:Service")]
-    public sealed class Service : global::Pulumi.PolicyResource
+    public sealed class Service : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the App Runner service.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
         /// </summary>
         [Input("autoScalingConfigurationArn")]
-        public string? AutoScalingConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationArn;
+
+        public string? AutoScalingConfigurationArn => _mAutoScalingConfigurationArn.GetValue("autoScalingConfigurationArn");
 
         /// <summary>
         /// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         /// </summary>
         [Input("encryptionConfiguration")]
-        public ServiceEncryptionConfiguration? EncryptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceEncryptionConfiguration> _mEncryptionConfiguration;
+
+        public Outputs.ServiceEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
 
         /// <summary>
         /// Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         /// </summary>
         [Input("healthCheckConfiguration")]
-        public ServiceHealthCheckConfiguration? HealthCheckConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceHealthCheckConfiguration> _mHealthCheckConfiguration;
+
+        public Outputs.ServiceHealthCheckConfiguration? HealthCheckConfiguration => _mHealthCheckConfiguration.GetValue("healthCheckConfiguration");
 
         /// <summary>
         /// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         /// </summary>
         [Input("instanceConfiguration")]
-        public ServiceInstanceConfiguration? InstanceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceInstanceConfiguration> _mInstanceConfiguration;
+
+        public Outputs.ServiceInstanceConfiguration? InstanceConfiguration => _mInstanceConfiguration.GetValue("instanceConfiguration");
 
         /// <summary>
         /// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         /// </summary>
         [Input("networkConfiguration")]
-        public ServiceNetworkConfiguration? NetworkConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceNetworkConfiguration> _mNetworkConfiguration;
+
+        public Outputs.ServiceNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
 
         /// <summary>
         /// The observability configuration of your service. See Observability Configuration below for more details.
         /// </summary>
         [Input("observabilityConfiguration")]
-        public ServiceObservabilityConfiguration? ObservabilityConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceObservabilityConfiguration> _mObservabilityConfiguration;
+
+        public Outputs.ServiceObservabilityConfiguration? ObservabilityConfiguration => _mObservabilityConfiguration.GetValue("observabilityConfiguration");
 
         /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         /// </summary>
         [Input("serviceId")]
-        public string? ServiceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
+
+        public string? ServiceId => _mServiceId.GetValue("serviceId");
 
         /// <summary>
         /// Name of the service.
         /// </summary>
         [Input("serviceName")]
-        public string? ServiceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
 
         /// <summary>
         /// Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         /// </summary>
         [Input("serviceUrl")]
-        public string? ServiceUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceUrl;
+
+        public string? ServiceUrl => _mServiceUrl.GetValue("serviceUrl");
 
         /// <summary>
         /// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -79,24 +109,123 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// The following arguments are optional:
         /// </summary>
         [Input("sourceConfiguration")]
-        public ServiceSourceConfiguration? SourceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceSourceConfiguration> _mSourceConfiguration;
+
+        public Outputs.ServiceSourceConfiguration? SourceConfiguration => _mSourceConfiguration.GetValue("sourceConfiguration");
 
         /// <summary>
         /// Current state of the App Runner service.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:apprunner/service:Service")]
+    public sealed class ServiceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
+        /// </summary>
+        [Input("autoScalingConfigurationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationArn;
+
+        public string? AutoScalingConfigurationArn => _mAutoScalingConfigurationArn.GetValue("autoScalingConfigurationArn");
+
+        /// <summary>
+        /// An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceEncryptionConfigurationArgs> _mEncryptionConfiguration;
+
+        public Inputs.ServiceEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+
+        /// <summary>
+        /// Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+        /// </summary>
+        [Input("healthCheckConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceHealthCheckConfigurationArgs> _mHealthCheckConfiguration;
+
+        public Inputs.ServiceHealthCheckConfigurationArgs? HealthCheckConfiguration => _mHealthCheckConfiguration.GetValue("healthCheckConfiguration");
+
+        /// <summary>
+        /// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+        /// </summary>
+        [Input("instanceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceInstanceConfigurationArgs> _mInstanceConfiguration;
+
+        public Inputs.ServiceInstanceConfigurationArgs? InstanceConfiguration => _mInstanceConfiguration.GetValue("instanceConfiguration");
+
+        /// <summary>
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        /// </summary>
+        [Input("networkConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceNetworkConfigurationArgs> _mNetworkConfiguration;
+
+        public Inputs.ServiceNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+
+        /// <summary>
+        /// The observability configuration of your service. See Observability Configuration below for more details.
+        /// </summary>
+        [Input("observabilityConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceObservabilityConfigurationArgs> _mObservabilityConfiguration;
+
+        public Inputs.ServiceObservabilityConfigurationArgs? ObservabilityConfiguration => _mObservabilityConfiguration.GetValue("observabilityConfiguration");
+
+        /// <summary>
+        /// Name of the service.
+        /// </summary>
+        [Input("serviceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
+
+        /// <summary>
+        /// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("sourceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceSourceConfigurationArgs> _mSourceConfiguration;
+
+        public Inputs.ServiceSourceConfigurationArgs? SourceConfiguration => _mSourceConfiguration.GetValue("sourceConfiguration");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafRegional
 {
     [PolicyResourceType("aws:wafregional/webAcl:WebAcl")]
-    public sealed class WebAcl : global::Pulumi.PolicyResource
+    public sealed class WebAcl : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the WAF Regional WebACL.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
         /// </summary>
         [Input("defaultAction")]
-        public WebAclDefaultAction? DefaultAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclDefaultAction> _mDefaultAction;
+
+        public Outputs.WebAclDefaultAction? DefaultAction => _mDefaultAction.GetValue("defaultAction");
 
         /// <summary>
         /// Configuration block to enable WAF logging. Detailed below.
         /// </summary>
         [Input("loggingConfiguration")]
-        public WebAclLoggingConfiguration? LoggingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclLoggingConfiguration> _mLoggingConfiguration;
+
+        public Outputs.WebAclLoggingConfiguration? LoggingConfiguration => _mLoggingConfiguration.GetValue("loggingConfiguration");
 
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this web ACL.
         /// </summary>
         [Input("metricName")]
-        public string? MetricName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
+
+        public string? MetricName => _mMetricName.GetValue("metricName");
 
         /// <summary>
         /// The name or description of the web ACL.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Set of configuration blocks containing rules for the web ACL. Detailed below.
         /// </summary>
         [Input("rules")]
-        public List<WebAclRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRule>> _mRules;
+
+        public List<Outputs.WebAclRule>? Rules => _mRules.GetValue("rules");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:wafregional/webAcl:WebAcl")]
+    public sealed class WebAclArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
+        /// </summary>
+        [Input("defaultAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclDefaultActionArgs> _mDefaultAction;
+
+        public Inputs.WebAclDefaultActionArgs? DefaultAction => _mDefaultAction.GetValue("defaultAction");
+
+        /// <summary>
+        /// Configuration block to enable WAF logging. Detailed below.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclLoggingConfigurationArgs> _mLoggingConfiguration;
+
+        public Inputs.WebAclLoggingConfigurationArgs? LoggingConfiguration => _mLoggingConfiguration.GetValue("loggingConfiguration");
+
+        /// <summary>
+        /// The name or description for the Amazon CloudWatch metric of this web ACL.
+        /// </summary>
+        [Input("metricName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
+
+        public string? MetricName => _mMetricName.GetValue("metricName");
+
+        /// <summary>
+        /// The name or description of the web ACL.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Set of configuration blocks containing rules for the web ACL. Detailed below.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleArgs>> _mRules;
+
+        public List<Inputs.WebAclRuleArgs>? Rules => _mRules.GetValue("rules");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

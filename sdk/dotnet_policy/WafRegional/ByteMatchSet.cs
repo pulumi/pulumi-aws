@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafRegional
 {
     [PolicyResourceType("aws:wafregional/byteMatchSet:ByteMatchSet")]
-    public sealed class ByteMatchSet : global::Pulumi.PolicyResource
+    public sealed class ByteMatchSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         /// </summary>
         [Input("byteMatchTuples")]
-        public List<ByteMatchSetByteMatchTuple>? ByteMatchTuples;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ByteMatchSetByteMatchTuple>> _mByteMatchTuples;
+
+        public List<Outputs.ByteMatchSetByteMatchTuple>? ByteMatchTuples => _mByteMatchTuples.GetValue("byteMatchTuples");
 
         /// <summary>
         /// The name or description of the ByteMatchSet.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:wafregional/byteMatchSet:ByteMatchSet")]
+    public sealed class ByteMatchSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
+        /// </summary>
+        [Input("byteMatchTuples")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ByteMatchSetByteMatchTupleArgs>> _mByteMatchTuples;
+
+        public List<Inputs.ByteMatchSetByteMatchTupleArgs>? ByteMatchTuples => _mByteMatchTuples.GetValue("byteMatchTuples");
+
+        /// <summary>
+        /// The name or description of the ByteMatchSet.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

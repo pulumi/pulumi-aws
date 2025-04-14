@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.StorageGateway
 {
     [PolicyResourceType("aws:storagegateway/uploadBuffer:UploadBuffer")]
-    public sealed class UploadBuffer : global::Pulumi.PolicyResource
+    public sealed class UploadBuffer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         /// </summary>
         [Input("diskId")]
-        public string? DiskId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskId;
+
+        public string? DiskId => _mDiskId.GetValue("diskId");
 
         /// <summary>
         /// Local disk path. For example, `/dev/nvme1n1`.
         /// </summary>
         [Input("diskPath")]
-        public string? DiskPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskPath;
+
+        public string? DiskPath => _mDiskPath.GetValue("diskPath");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
         [Input("gatewayArn")]
-        public string? GatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+    }
+
+    [PolicyResourceType("aws:storagegateway/uploadBuffer:UploadBuffer")]
+    public sealed class UploadBufferArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
+        /// </summary>
+        [Input("diskId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskId;
+
+        public string? DiskId => _mDiskId.GetValue("diskId");
+
+        /// <summary>
+        /// Local disk path. For example, `/dev/nvme1n1`.
+        /// </summary>
+        [Input("diskPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDiskPath;
+
+        public string? DiskPath => _mDiskPath.GetValue("diskPath");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the gateway.
+        /// </summary>
+        [Input("gatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
     }
 }

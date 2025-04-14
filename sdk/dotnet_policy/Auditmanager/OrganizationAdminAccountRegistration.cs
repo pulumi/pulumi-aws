@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Auditmanager
 {
     [PolicyResourceType("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration")]
-    public sealed class OrganizationAdminAccountRegistration : global::Pulumi.PolicyResource
+    public sealed class OrganizationAdminAccountRegistration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier for the organization administrator account.
         /// </summary>
         [Input("adminAccountId")]
-        public string? AdminAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminAccountId;
+
+        public string? AdminAccountId => _mAdminAccountId.GetValue("adminAccountId");
 
         /// <summary>
         /// Identifier for the organization.
         /// </summary>
         [Input("organizationId")]
-        public string? OrganizationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationId;
+
+        public string? OrganizationId => _mOrganizationId.GetValue("organizationId");
+    }
+
+    [PolicyResourceType("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration")]
+    public sealed class OrganizationAdminAccountRegistrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier for the organization administrator account.
+        /// </summary>
+        [Input("adminAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminAccountId;
+
+        public string? AdminAccountId => _mAdminAccountId.GetValue("adminAccountId");
     }
 }

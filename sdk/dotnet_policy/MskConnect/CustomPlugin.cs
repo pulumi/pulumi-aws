@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MskConnect
 {
     [PolicyResourceType("aws:mskconnect/customPlugin:CustomPlugin")]
-    public sealed class CustomPlugin : global::Pulumi.PolicyResource
+    public sealed class CustomPlugin : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// the Amazon Resource Name (ARN) of the custom plugin.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         /// </summary>
         [Input("contentType")]
-        public string? ContentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
+
+        public string? ContentType => _mContentType.GetValue("contentType");
 
         /// <summary>
         /// A summary description of the custom plugin.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// an ID of the latest successfully created revision of the custom plugin.
         /// </summary>
         [Input("latestRevision")]
-        public int? LatestRevision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLatestRevision;
+
+        public int? LatestRevision => _mLatestRevision.GetValue("latestRevision");
 
         /// <summary>
         /// Information about the location of a custom plugin. See `location` Block for details.
         /// </summary>
         [Input("location")]
-        public CustomPluginLocation? Location;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomPluginLocation> _mLocation;
+
+        public Outputs.CustomPluginLocation? Location => _mLocation.GetValue("location");
 
         /// <summary>
         /// The name of the custom plugin..
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// the state of the custom plugin.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -61,12 +82,69 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect
         /// The following arguments are optional:
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:mskconnect/customPlugin:CustomPlugin")]
+    public sealed class CustomPluginArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
+        /// </summary>
+        [Input("contentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
+
+        public string? ContentType => _mContentType.GetValue("contentType");
+
+        /// <summary>
+        /// A summary description of the custom plugin.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Information about the location of a custom plugin. See `location` Block for details.
+        /// </summary>
+        [Input("location")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomPluginLocationArgs> _mLocation;
+
+        public Inputs.CustomPluginLocationArgs? Location => _mLocation.GetValue("location");
+
+        /// <summary>
+        /// The name of the custom plugin..
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

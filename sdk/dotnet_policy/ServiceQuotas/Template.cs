@@ -11,54 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceQuotas
 {
     [PolicyResourceType("aws:servicequotas/template:Template")]
-    public sealed class Template : global::Pulumi.PolicyResource
+    public sealed class Template : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Indicates whether the quota is global.
         /// </summary>
         [Input("globalQuota")]
-        public bool? GlobalQuota;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mGlobalQuota;
+
+        public bool? GlobalQuota => _mGlobalQuota.GetValue("globalQuota");
 
         /// <summary>
         /// Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
         /// </summary>
         [Input("quotaCode")]
-        public string? QuotaCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaCode;
+
+        public string? QuotaCode => _mQuotaCode.GetValue("quotaCode");
 
         /// <summary>
         /// Quota name.
         /// </summary>
         [Input("quotaName")]
-        public string? QuotaName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaName;
+
+        public string? QuotaName => _mQuotaName.GetValue("quotaName");
 
         /// <summary>
         /// AWS Region to which the template applies.
         /// </summary>
         [Input("region")]
-        public string? Region;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
 
         /// <summary>
         /// Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
         /// </summary>
         [Input("serviceCode")]
-        public string? ServiceCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceCode;
+
+        public string? ServiceCode => _mServiceCode.GetValue("serviceCode");
 
         /// <summary>
         /// Service name.
         /// </summary>
         [Input("serviceName")]
-        public string? ServiceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
 
         /// <summary>
         /// Unit of measurement.
         /// </summary>
         [Input("unit")]
-        public string? Unit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
+
+        public string? Unit => _mUnit.GetValue("unit");
 
         /// <summary>
         /// The new, increased value for the quota.
         /// </summary>
         [Input("value")]
-        public double? Value;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mValue;
+
+        public double? Value => _mValue.GetValue("value");
+    }
+
+    [PolicyResourceType("aws:servicequotas/template:Template")]
+    public sealed class TemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
+        /// </summary>
+        [Input("quotaCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaCode;
+
+        public string? QuotaCode => _mQuotaCode.GetValue("quotaCode");
+
+        /// <summary>
+        /// AWS Region to which the template applies.
+        /// </summary>
+        [Input("region")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
+
+        /// <summary>
+        /// Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
+        /// </summary>
+        [Input("serviceCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceCode;
+
+        public string? ServiceCode => _mServiceCode.GetValue("serviceCode");
+
+        /// <summary>
+        /// The new, increased value for the quota.
+        /// </summary>
+        [Input("value")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mValue;
+
+        public double? Value => _mValue.GetValue("value");
     }
 }

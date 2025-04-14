@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.TimestreamWrite
 {
     [PolicyResourceType("aws:timestreamwrite/table:Table")]
-    public sealed class Table : global::Pulumi.PolicyResource
+    public sealed class Table : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN that uniquely identifies this table.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the Timestream database.
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
         /// </summary>
         [Input("magneticStoreWriteProperties")]
-        public TableMagneticStoreWriteProperties? MagneticStoreWriteProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableMagneticStoreWriteProperties> _mMagneticStoreWriteProperties;
+
+        public Outputs.TableMagneticStoreWriteProperties? MagneticStoreWriteProperties => _mMagneticStoreWriteProperties.GetValue("magneticStoreWriteProperties");
 
         /// <summary>
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         /// </summary>
         [Input("retentionProperties")]
-        public TableRetentionProperties? RetentionProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableRetentionProperties> _mRetentionProperties;
+
+        public Outputs.TableRetentionProperties? RetentionProperties => _mRetentionProperties.GetValue("retentionProperties");
 
         /// <summary>
         /// The schema of the table. See Schema below for more details.
         /// </summary>
         [Input("schema")]
-        public TableSchema? Schema;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableSchema> _mSchema;
+
+        public Outputs.TableSchema? Schema => _mSchema.GetValue("schema");
 
         /// <summary>
         /// The name of the Timestream table.
         /// </summary>
         [Input("tableName")]
-        public string? TableName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:timestreamwrite/table:Table")]
+    public sealed class TableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Timestream database.
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+        /// </summary>
+        [Input("magneticStoreWriteProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableMagneticStoreWritePropertiesArgs> _mMagneticStoreWriteProperties;
+
+        public Inputs.TableMagneticStoreWritePropertiesArgs? MagneticStoreWriteProperties => _mMagneticStoreWriteProperties.GetValue("magneticStoreWriteProperties");
+
+        /// <summary>
+        /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
+        /// </summary>
+        [Input("retentionProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableRetentionPropertiesArgs> _mRetentionProperties;
+
+        public Inputs.TableRetentionPropertiesArgs? RetentionProperties => _mRetentionProperties.GetValue("retentionProperties");
+
+        /// <summary>
+        /// The schema of the table. See Schema below for more details.
+        /// </summary>
+        [Input("schema")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableSchemaArgs> _mSchema;
+
+        public Inputs.TableSchemaArgs? Schema => _mSchema.GetValue("schema");
+
+        /// <summary>
+        /// The name of the Timestream table.
+        /// </summary>
+        [Input("tableName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
+
+        /// <summary>
+        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

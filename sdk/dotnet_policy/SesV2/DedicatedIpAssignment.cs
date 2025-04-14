@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment")]
-    public sealed class DedicatedIpAssignment : global::Pulumi.PolicyResource
+    public sealed class DedicatedIpAssignment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Dedicated IP address.
         /// </summary>
         [Input("destinationPoolName")]
-        public string? DestinationPoolName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPoolName;
+
+        public string? DestinationPoolName => _mDestinationPoolName.GetValue("destinationPoolName");
 
         /// <summary>
         /// Dedicated IP address.
         /// </summary>
         [Input("ip")]
-        public string? Ip;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIp;
+
+        public string? Ip => _mIp.GetValue("ip");
+    }
+
+    [PolicyResourceType("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment")]
+    public sealed class DedicatedIpAssignmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Dedicated IP address.
+        /// </summary>
+        [Input("destinationPoolName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationPoolName;
+
+        public string? DestinationPoolName => _mDestinationPoolName.GetValue("destinationPoolName");
+
+        /// <summary>
+        /// Dedicated IP address.
+        /// </summary>
+        [Input("ip")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIp;
+
+        public string? Ip => _mIp.GetValue("ip");
     }
 }

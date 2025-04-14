@@ -11,36 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/policyTable:PolicyTable")]
-    public sealed class PolicyTable : global::Pulumi.PolicyResource
+    public sealed class PolicyTable : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The state of the EC2 Transit Gateway Policy Table.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// EC2 Transit Gateway identifier.
         /// </summary>
         [Input("transitGatewayId")]
-        public string? TransitGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/policyTable:PolicyTable")]
+    public sealed class PolicyTableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// EC2 Transit Gateway identifier.
+        /// </summary>
+        [Input("transitGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
     }
 }

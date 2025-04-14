@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/connection:Connection")]
-    public sealed class Connection : global::Pulumi.PolicyResource
+    public sealed class Connection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Glue Connection.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
@@ -31,25 +37,37 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         [Input("connectionProperties")]
-        public Dictionary<string, string>? ConnectionProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConnectionProperties;
+
+        public Dictionary<string, string>? ConnectionProperties => _mConnectionProperties.GetValue("connectionProperties");
 
         /// <summary>
         /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
         [Input("connectionType")]
-        public string? ConnectionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
+
+        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
 
         /// <summary>
         /// Description of the connection.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// List of criteria that can be used in selecting this connection.
         /// </summary>
         [Input("matchCriterias")]
-        public List<string>? MatchCriterias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchCriterias;
+
+        public List<string>? MatchCriterias => _mMatchCriterias.GetValue("matchCriterias");
 
         /// <summary>
         /// Name of the connection.
@@ -57,24 +75,116 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         /// </summary>
         [Input("physicalConnectionRequirements")]
-        public ConnectionPhysicalConnectionRequirements? PhysicalConnectionRequirements;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectionPhysicalConnectionRequirements> _mPhysicalConnectionRequirements;
+
+        public Outputs.ConnectionPhysicalConnectionRequirements? PhysicalConnectionRequirements => _mPhysicalConnectionRequirements.GetValue("physicalConnectionRequirements");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:glue/connection:Connection")]
+    public sealed class ConnectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+        /// 
+        /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
+        /// </summary>
+        [Input("connectionProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConnectionProperties;
+
+        public Dictionary<string, string>? ConnectionProperties => _mConnectionProperties.GetValue("connectionProperties");
+
+        /// <summary>
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
+        /// </summary>
+        [Input("connectionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
+
+        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+
+        /// <summary>
+        /// Description of the connection.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// List of criteria that can be used in selecting this connection.
+        /// </summary>
+        [Input("matchCriterias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchCriterias;
+
+        public List<string>? MatchCriterias => _mMatchCriterias.GetValue("matchCriterias");
+
+        /// <summary>
+        /// Name of the connection.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
+        /// </summary>
+        [Input("physicalConnectionRequirements")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectionPhysicalConnectionRequirementsArgs> _mPhysicalConnectionRequirements;
+
+        public Inputs.ConnectionPhysicalConnectionRequirementsArgs? PhysicalConnectionRequirements => _mPhysicalConnectionRequirements.GetValue("physicalConnectionRequirements");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

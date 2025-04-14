@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")]
-    public sealed class DataShareConsumerAssociation : global::Pulumi.PolicyResource
+    public sealed class DataShareConsumerAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether to allow write operations for a datashare.
         /// </summary>
         [Input("allowWrites")]
-        public bool? AllowWrites;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowWrites;
+
+        public bool? AllowWrites => _mAllowWrites.GetValue("allowWrites");
 
         /// <summary>
         /// Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
         /// </summary>
         [Input("associateEntireAccount")]
-        public bool? AssociateEntireAccount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociateEntireAccount;
+
+        public bool? AssociateEntireAccount => _mAssociateEntireAccount.GetValue("associateEntireAccount");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
         /// </summary>
         [Input("consumerArn")]
-        public string? ConsumerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerArn;
+
+        public string? ConsumerArn => _mConsumerArn.GetValue("consumerArn");
 
         /// <summary>
         /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
         /// </summary>
         [Input("consumerRegion")]
-        public string? ConsumerRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerRegion;
+
+        public string? ConsumerRegion => _mConsumerRegion.GetValue("consumerRegion");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
@@ -43,18 +55,78 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// The following arguments are optional:
         /// </summary>
         [Input("dataShareArn")]
-        public string? DataShareArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataShareArn;
+
+        public string? DataShareArn => _mDataShareArn.GetValue("dataShareArn");
 
         /// <summary>
         /// Identifier of a datashare to show its managing entity.
         /// </summary>
         [Input("managedBy")]
-        public string? ManagedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManagedBy;
+
+        public string? ManagedBy => _mManagedBy.GetValue("managedBy");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the producer.
         /// </summary>
         [Input("producerArn")]
-        public string? ProducerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProducerArn;
+
+        public string? ProducerArn => _mProducerArn.GetValue("producerArn");
+    }
+
+    [PolicyResourceType("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")]
+    public sealed class DataShareConsumerAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to allow write operations for a datashare.
+        /// </summary>
+        [Input("allowWrites")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowWrites;
+
+        public bool? AllowWrites => _mAllowWrites.GetValue("allowWrites");
+
+        /// <summary>
+        /// Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
+        /// </summary>
+        [Input("associateEntireAccount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociateEntireAccount;
+
+        public bool? AssociateEntireAccount => _mAssociateEntireAccount.GetValue("associateEntireAccount");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
+        /// </summary>
+        [Input("consumerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerArn;
+
+        public string? ConsumerArn => _mConsumerArn.GetValue("consumerArn");
+
+        /// <summary>
+        /// From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
+        /// </summary>
+        [Input("consumerRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerRegion;
+
+        public string? ConsumerRegion => _mConsumerRegion.GetValue("consumerRegion");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("dataShareArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataShareArn;
+
+        public string? DataShareArn => _mDataShareArn.GetValue("dataShareArn");
     }
 }

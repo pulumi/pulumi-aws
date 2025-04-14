@@ -11,33 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LakeFormation
 {
     [PolicyResourceType("aws:lakeformation/optIn:OptIn")]
-    public sealed class OptIn : global::Pulumi.PolicyResource
+    public sealed class OptIn : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         /// </summary>
         [Input("conditions")]
-        public List<OptInCondition>? Conditions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInCondition>> _mConditions;
+
+        public List<Outputs.OptInCondition>? Conditions => _mConditions.GetValue("conditions");
 
         /// <summary>
         /// Last modified date and time of the record.
         /// </summary>
         [Input("lastModified")]
-        public string? LastModified;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
+
+        public string? LastModified => _mLastModified.GetValue("lastModified");
 
         [Input("lastUpdatedBy")]
-        public string? LastUpdatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedBy;
+
+        public string? LastUpdatedBy => _mLastUpdatedBy.GetValue("lastUpdatedBy");
 
         /// <summary>
         /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
         /// </summary>
         [Input("principals")]
-        public List<OptInPrincipal>? Principals;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInPrincipal>> _mPrincipals;
+
+        public List<Outputs.OptInPrincipal>? Principals => _mPrincipals.GetValue("principals");
 
         /// <summary>
         /// Structure for the resource. See Resource for more details.
         /// </summary>
         [Input("resourceDatas")]
-        public List<OptInResourceData>? ResourceDatas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInResourceData>> _mResourceDatas;
+
+        public List<Outputs.OptInResourceData>? ResourceDatas => _mResourceDatas.GetValue("resourceDatas");
+    }
+
+    [PolicyResourceType("aws:lakeformation/optIn:OptIn")]
+    public sealed class OptInArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        /// </summary>
+        [Input("conditions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OptInConditionArgs>> _mConditions;
+
+        public List<Inputs.OptInConditionArgs>? Conditions => _mConditions.GetValue("conditions");
+
+        /// <summary>
+        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        /// </summary>
+        [Input("principals")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OptInPrincipalArgs>> _mPrincipals;
+
+        public List<Inputs.OptInPrincipalArgs>? Principals => _mPrincipals.GetValue("principals");
+
+        /// <summary>
+        /// Structure for the resource. See Resource for more details.
+        /// </summary>
+        [Input("resourceDatas")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OptInResourceDataArgs>> _mResourceDatas;
+
+        public List<Inputs.OptInResourceDataArgs>? ResourceDatas => _mResourceDatas.GetValue("resourceDatas");
     }
 }

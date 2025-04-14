@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ImageBuilder
 {
     [PolicyResourceType("aws:imagebuilder/distributionConfiguration:DistributionConfiguration")]
-    public sealed class DistributionConfiguration : global::Pulumi.PolicyResource
+    public sealed class DistributionConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the distribution configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Date the distribution configuration was created.
         /// </summary>
         [Input("dateCreated")]
-        public string? DateCreated;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
+
+        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
 
         /// <summary>
         /// Date the distribution configuration was updated.
         /// </summary>
         [Input("dateUpdated")]
-        public string? DateUpdated;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDateUpdated;
+
+        public string? DateUpdated => _mDateUpdated.GetValue("dateUpdated");
 
         /// <summary>
         /// Description of the distribution configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// One or more configuration blocks with distribution settings. Detailed below.
@@ -43,24 +55,78 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// The following arguments are optional:
         /// </summary>
         [Input("distributions")]
-        public List<DistributionConfigurationDistribution>? Distributions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionConfigurationDistribution>> _mDistributions;
+
+        public List<Outputs.DistributionConfigurationDistribution>? Distributions => _mDistributions.GetValue("distributions");
 
         /// <summary>
         /// Name of the distribution configuration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:imagebuilder/distributionConfiguration:DistributionConfiguration")]
+    public sealed class DistributionConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the distribution configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// One or more configuration blocks with distribution settings. Detailed below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("distributions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionConfigurationDistributionArgs>> _mDistributions;
+
+        public List<Inputs.DistributionConfigurationDistributionArgs>? Distributions => _mDistributions.GetValue("distributions");
+
+        /// <summary>
+        /// Name of the distribution configuration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecr
 {
     [PolicyResourceType("aws:ecr/lifecyclePolicy:LifecyclePolicy")]
-    public sealed class LifecyclePolicy : global::Pulumi.PolicyResource
+    public sealed class LifecyclePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
         [Input("registryId")]
-        public string? RegistryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
+
+        public string? RegistryId => _mRegistryId.GetValue("registryId");
 
         /// <summary>
         /// Name of the repository to apply the policy.
         /// </summary>
         [Input("repository")]
-        public string? Repository;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
+
+        public string? Repository => _mRepository.GetValue("repository");
+    }
+
+    [PolicyResourceType("aws:ecr/lifecyclePolicy:LifecyclePolicy")]
+    public sealed class LifecyclePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// Name of the repository to apply the policy.
+        /// </summary>
+        [Input("repository")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
+
+        public string? Repository => _mRepository.GetValue("repository");
     }
 }

@@ -11,72 +11,181 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer")]
-    public sealed class MlflowTrackingServer : global::Pulumi.PolicyResource
+    public sealed class MlflowTrackingServer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         /// </summary>
         [Input("artifactStoreUri")]
-        public string? ArtifactStoreUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactStoreUri;
+
+        public string? ArtifactStoreUri => _mArtifactStoreUri.GetValue("artifactStoreUri");
 
         /// <summary>
         /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
         /// </summary>
         [Input("automaticModelRegistration")]
-        public bool? AutomaticModelRegistration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomaticModelRegistration;
+
+        public bool? AutomaticModelRegistration => _mAutomaticModelRegistration.GetValue("automaticModelRegistration");
 
         /// <summary>
         /// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         /// </summary>
         [Input("mlflowVersion")]
-        public string? MlflowVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMlflowVersion;
+
+        public string? MlflowVersion => _mMlflowVersion.GetValue("mlflowVersion");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
         /// </summary>
         [Input("trackingServerName")]
-        public string? TrackingServerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerName;
+
+        public string? TrackingServerName => _mTrackingServerName.GetValue("trackingServerName");
 
         /// <summary>
         /// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         /// </summary>
         [Input("trackingServerSize")]
-        public string? TrackingServerSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerSize;
+
+        public string? TrackingServerSize => _mTrackingServerSize.GetValue("trackingServerSize");
 
         /// <summary>
         /// The URL to connect to the MLflow user interface for the described tracking server.
         /// </summary>
         [Input("trackingServerUrl")]
-        public string? TrackingServerUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerUrl;
+
+        public string? TrackingServerUrl => _mTrackingServerUrl.GetValue("trackingServerUrl");
 
         /// <summary>
         /// The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         /// </summary>
         [Input("weeklyMaintenanceWindowStart")]
-        public string? WeeklyMaintenanceWindowStart;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceWindowStart;
+
+        public string? WeeklyMaintenanceWindowStart => _mWeeklyMaintenanceWindowStart.GetValue("weeklyMaintenanceWindowStart");
+    }
+
+    [PolicyResourceType("aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer")]
+    public sealed class MlflowTrackingServerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
+        /// </summary>
+        [Input("artifactStoreUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactStoreUri;
+
+        public string? ArtifactStoreUri => _mArtifactStoreUri.GetValue("artifactStoreUri");
+
+        /// <summary>
+        /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+        /// </summary>
+        [Input("automaticModelRegistration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomaticModelRegistration;
+
+        public bool? AutomaticModelRegistration => _mAutomaticModelRegistration.GetValue("automaticModelRegistration");
+
+        /// <summary>
+        /// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
+        /// </summary>
+        [Input("mlflowVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMlflowVersion;
+
+        public string? MlflowVersion => _mMlflowVersion.GetValue("mlflowVersion");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
+        /// </summary>
+        [Input("trackingServerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerName;
+
+        public string? TrackingServerName => _mTrackingServerName.GetValue("trackingServerName");
+
+        /// <summary>
+        /// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
+        /// </summary>
+        [Input("trackingServerSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerSize;
+
+        public string? TrackingServerSize => _mTrackingServerSize.GetValue("trackingServerSize");
+
+        /// <summary>
+        /// The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
+        /// </summary>
+        [Input("weeklyMaintenanceWindowStart")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceWindowStart;
+
+        public string? WeeklyMaintenanceWindowStart => _mWeeklyMaintenanceWindowStart.GetValue("weeklyMaintenanceWindowStart");
     }
 }

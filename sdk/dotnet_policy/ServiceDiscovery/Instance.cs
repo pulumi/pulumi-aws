@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery
 {
     [PolicyResourceType("aws:servicediscovery/instance:Instance")]
-    public sealed class Instance : global::Pulumi.PolicyResource
+    public sealed class Instance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
         /// </summary>
         [Input("attributes")]
-        public Dictionary<string, string>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// The ID of the service instance.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
 
         /// <summary>
         /// The ID of the service that you want to use to create the instance.
         /// </summary>
         [Input("serviceId")]
-        public string? ServiceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
+
+        public string? ServiceId => _mServiceId.GetValue("serviceId");
+    }
+
+    [PolicyResourceType("aws:servicediscovery/instance:Instance")]
+    public sealed class InstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// The ID of the service instance.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+
+        /// <summary>
+        /// The ID of the service that you want to use to create the instance.
+        /// </summary>
+        [Input("serviceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
+
+        public string? ServiceId => _mServiceId.GetValue("serviceId");
     }
 }

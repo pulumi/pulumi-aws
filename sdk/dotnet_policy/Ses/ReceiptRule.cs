@@ -11,96 +11,271 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/receiptRule:ReceiptRule")]
-    public sealed class ReceiptRule : global::Pulumi.PolicyResource
+    public sealed class ReceiptRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of Add Header Action blocks. Documented below.
         /// </summary>
         [Input("addHeaderActions")]
-        public List<ReceiptRuleAddHeaderAction>? AddHeaderActions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleAddHeaderAction>> _mAddHeaderActions;
+
+        public List<Outputs.ReceiptRuleAddHeaderAction>? AddHeaderActions => _mAddHeaderActions.GetValue("addHeaderActions");
 
         /// <summary>
         /// The name of the rule to place this rule after
         /// </summary>
         [Input("after")]
-        public string? After;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAfter;
+
+        public string? After => _mAfter.GetValue("after");
 
         /// <summary>
         /// The SES receipt rule ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A list of Bounce Action blocks. Documented below.
         /// </summary>
         [Input("bounceActions")]
-        public List<ReceiptRuleBounceAction>? BounceActions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleBounceAction>> _mBounceActions;
+
+        public List<Outputs.ReceiptRuleBounceAction>? BounceActions => _mBounceActions.GetValue("bounceActions");
 
         /// <summary>
         /// If true, the rule will be enabled
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// A list of Lambda Action blocks. Documented below.
         /// </summary>
         [Input("lambdaActions")]
-        public List<ReceiptRuleLambdaAction>? LambdaActions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleLambdaAction>> _mLambdaActions;
+
+        public List<Outputs.ReceiptRuleLambdaAction>? LambdaActions => _mLambdaActions.GetValue("lambdaActions");
 
         /// <summary>
         /// The name of the rule
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A list of email addresses
         /// </summary>
         [Input("recipients")]
-        public List<string>? Recipients;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecipients;
+
+        public List<string>? Recipients => _mRecipients.GetValue("recipients");
 
         /// <summary>
         /// The name of the rule set
         /// </summary>
         [Input("ruleSetName")]
-        public string? RuleSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
+
+        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
 
         /// <summary>
         /// A list of S3 Action blocks. Documented below.
         /// </summary>
         [Input("s3Actions")]
-        public List<ReceiptRuleS3Action>? S3Actions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleS3Action>> _mS3Actions;
+
+        public List<Outputs.ReceiptRuleS3Action>? S3Actions => _mS3Actions.GetValue("s3Actions");
 
         /// <summary>
         /// If true, incoming emails will be scanned for spam and viruses
         /// </summary>
         [Input("scanEnabled")]
-        public bool? ScanEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mScanEnabled;
+
+        public bool? ScanEnabled => _mScanEnabled.GetValue("scanEnabled");
 
         /// <summary>
         /// A list of SNS Action blocks. Documented below.
         /// </summary>
         [Input("snsActions")]
-        public List<ReceiptRuleSnsAction>? SnsActions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleSnsAction>> _mSnsActions;
+
+        public List<Outputs.ReceiptRuleSnsAction>? SnsActions => _mSnsActions.GetValue("snsActions");
 
         /// <summary>
         /// A list of Stop Action blocks. Documented below.
         /// </summary>
         [Input("stopActions")]
-        public List<ReceiptRuleStopAction>? StopActions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleStopAction>> _mStopActions;
+
+        public List<Outputs.ReceiptRuleStopAction>? StopActions => _mStopActions.GetValue("stopActions");
 
         /// <summary>
         /// `Require` or `Optional`
         /// </summary>
         [Input("tlsPolicy")]
-        public string? TlsPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTlsPolicy;
+
+        public string? TlsPolicy => _mTlsPolicy.GetValue("tlsPolicy");
 
         /// <summary>
         /// A list of WorkMail Action blocks. Documented below.
         /// </summary>
         [Input("workmailActions")]
-        public List<ReceiptRuleWorkmailAction>? WorkmailActions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleWorkmailAction>> _mWorkmailActions;
+
+        public List<Outputs.ReceiptRuleWorkmailAction>? WorkmailActions => _mWorkmailActions.GetValue("workmailActions");
+    }
+
+    [PolicyResourceType("aws:ses/receiptRule:ReceiptRule")]
+    public sealed class ReceiptRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of Add Header Action blocks. Documented below.
+        /// </summary>
+        [Input("addHeaderActions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleAddHeaderActionArgs>> _mAddHeaderActions;
+
+        public List<Inputs.ReceiptRuleAddHeaderActionArgs>? AddHeaderActions => _mAddHeaderActions.GetValue("addHeaderActions");
+
+        /// <summary>
+        /// The name of the rule to place this rule after
+        /// </summary>
+        [Input("after")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAfter;
+
+        public string? After => _mAfter.GetValue("after");
+
+        /// <summary>
+        /// A list of Bounce Action blocks. Documented below.
+        /// </summary>
+        [Input("bounceActions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleBounceActionArgs>> _mBounceActions;
+
+        public List<Inputs.ReceiptRuleBounceActionArgs>? BounceActions => _mBounceActions.GetValue("bounceActions");
+
+        /// <summary>
+        /// If true, the rule will be enabled
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// A list of Lambda Action blocks. Documented below.
+        /// </summary>
+        [Input("lambdaActions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleLambdaActionArgs>> _mLambdaActions;
+
+        public List<Inputs.ReceiptRuleLambdaActionArgs>? LambdaActions => _mLambdaActions.GetValue("lambdaActions");
+
+        /// <summary>
+        /// The name of the rule
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of email addresses
+        /// </summary>
+        [Input("recipients")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecipients;
+
+        public List<string>? Recipients => _mRecipients.GetValue("recipients");
+
+        /// <summary>
+        /// The name of the rule set
+        /// </summary>
+        [Input("ruleSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
+
+        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
+
+        /// <summary>
+        /// A list of S3 Action blocks. Documented below.
+        /// </summary>
+        [Input("s3Actions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleS3ActionArgs>> _mS3Actions;
+
+        public List<Inputs.ReceiptRuleS3ActionArgs>? S3Actions => _mS3Actions.GetValue("s3Actions");
+
+        /// <summary>
+        /// If true, incoming emails will be scanned for spam and viruses
+        /// </summary>
+        [Input("scanEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mScanEnabled;
+
+        public bool? ScanEnabled => _mScanEnabled.GetValue("scanEnabled");
+
+        /// <summary>
+        /// A list of SNS Action blocks. Documented below.
+        /// </summary>
+        [Input("snsActions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleSnsActionArgs>> _mSnsActions;
+
+        public List<Inputs.ReceiptRuleSnsActionArgs>? SnsActions => _mSnsActions.GetValue("snsActions");
+
+        /// <summary>
+        /// A list of Stop Action blocks. Documented below.
+        /// </summary>
+        [Input("stopActions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleStopActionArgs>> _mStopActions;
+
+        public List<Inputs.ReceiptRuleStopActionArgs>? StopActions => _mStopActions.GetValue("stopActions");
+
+        /// <summary>
+        /// `Require` or `Optional`
+        /// </summary>
+        [Input("tlsPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTlsPolicy;
+
+        public string? TlsPolicy => _mTlsPolicy.GetValue("tlsPolicy");
+
+        /// <summary>
+        /// A list of WorkMail Action blocks. Documented below.
+        /// </summary>
+        [Input("workmailActions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleWorkmailActionArgs>> _mWorkmailActions;
+
+        public List<Inputs.ReceiptRuleWorkmailActionArgs>? WorkmailActions => _mWorkmailActions.GetValue("workmailActions");
     }
 }

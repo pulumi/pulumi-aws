@@ -11,101 +11,272 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFormation
 {
     [PolicyResourceType("aws:cloudformation/stack:Stack")]
-    public sealed class Stack : global::Pulumi.PolicyResource
+    public sealed class Stack : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of capabilities.
         /// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
         /// </summary>
         [Input("capabilities")]
-        public List<string>? Capabilities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapabilities;
+
+        public List<string>? Capabilities => _mCapabilities.GetValue("capabilities");
 
         /// <summary>
         /// Set to true to disable rollback of the stack if stack creation failed.
         /// Conflicts with `on_failure`.
         /// </summary>
         [Input("disableRollback")]
-        public bool? DisableRollback;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableRollback;
+
+        public bool? DisableRollback => _mDisableRollback.GetValue("disableRollback");
 
         /// <summary>
         /// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// Stack name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A list of SNS topic ARNs to publish stack related events.
         /// </summary>
         [Input("notificationArns")]
-        public List<string>? NotificationArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationArns;
+
+        public List<string>? NotificationArns => _mNotificationArns.GetValue("notificationArns");
 
         /// <summary>
         /// Action to be taken if stack creation fails. This must be
         /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
         /// </summary>
         [Input("onFailure")]
-        public string? OnFailure;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnFailure;
+
+        public string? OnFailure => _mOnFailure.GetValue("onFailure");
 
         /// <summary>
         /// A map of outputs from the stack.
         /// </summary>
         [Input("outputs")]
-        public Dictionary<string, string>? Outputs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mOutputs;
+
+        public Dictionary<string, string>? Outputs => _mOutputs.GetValue("outputs");
 
         /// <summary>
         /// A map of Parameter structures that specify input parameters for the stack.
         /// </summary>
         [Input("parameters")]
-        public Dictionary<string, string>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// Structure containing the stack policy body.
         /// Conflicts w/ `policy_url`.
         /// </summary>
         [Input("policyBody")]
-        public string? PolicyBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyBody;
+
+        public string? PolicyBody => _mPolicyBody.GetValue("policyBody");
 
         /// <summary>
         /// Location of a file containing the stack policy.
         /// Conflicts w/ `policy_body`.
         /// </summary>
         [Input("policyUrl")]
-        public string? PolicyUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyUrl;
+
+        public string? PolicyUrl => _mPolicyUrl.GetValue("policyUrl");
 
         /// <summary>
         /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Structure containing the template body (max size: 51,200 bytes).
         /// </summary>
         [Input("templateBody")]
-        public string? TemplateBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
+
+        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
 
         /// <summary>
         /// Location of a file containing the template body (max size: 460,800 bytes).
         /// </summary>
         [Input("templateUrl")]
-        public string? TemplateUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
+
+        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
 
         /// <summary>
         /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         /// </summary>
         [Input("timeoutInMinutes")]
-        public int? TimeoutInMinutes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInMinutes;
+
+        public int? TimeoutInMinutes => _mTimeoutInMinutes.GetValue("timeoutInMinutes");
+    }
+
+    [PolicyResourceType("aws:cloudformation/stack:Stack")]
+    public sealed class StackArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of capabilities.
+        /// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
+        /// </summary>
+        [Input("capabilities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapabilities;
+
+        public List<string>? Capabilities => _mCapabilities.GetValue("capabilities");
+
+        /// <summary>
+        /// Set to true to disable rollback of the stack if stack creation failed.
+        /// Conflicts with `on_failure`.
+        /// </summary>
+        [Input("disableRollback")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableRollback;
+
+        public bool? DisableRollback => _mDisableRollback.GetValue("disableRollback");
+
+        /// <summary>
+        /// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// Stack name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of SNS topic ARNs to publish stack related events.
+        /// </summary>
+        [Input("notificationArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationArns;
+
+        public List<string>? NotificationArns => _mNotificationArns.GetValue("notificationArns");
+
+        /// <summary>
+        /// Action to be taken if stack creation fails. This must be
+        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
+        /// </summary>
+        [Input("onFailure")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnFailure;
+
+        public string? OnFailure => _mOnFailure.GetValue("onFailure");
+
+        /// <summary>
+        /// A map of Parameter structures that specify input parameters for the stack.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// Structure containing the stack policy body.
+        /// Conflicts w/ `policy_url`.
+        /// </summary>
+        [Input("policyBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyBody;
+
+        public string? PolicyBody => _mPolicyBody.GetValue("policyBody");
+
+        /// <summary>
+        /// Location of a file containing the stack policy.
+        /// Conflicts w/ `policy_body`.
+        /// </summary>
+        [Input("policyUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyUrl;
+
+        public string? PolicyUrl => _mPolicyUrl.GetValue("policyUrl");
+
+        /// <summary>
+        /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Structure containing the template body (max size: 51,200 bytes).
+        /// </summary>
+        [Input("templateBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
+
+        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+
+        /// <summary>
+        /// Location of a file containing the template body (max size: 460,800 bytes).
+        /// </summary>
+        [Input("templateUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
+
+        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
+
+        /// <summary>
+        /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
+        /// </summary>
+        [Input("timeoutInMinutes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInMinutes;
+
+        public int? TimeoutInMinutes => _mTimeoutInMinutes.GetValue("timeoutInMinutes");
     }
 }

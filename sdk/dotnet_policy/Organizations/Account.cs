@@ -11,49 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Organizations
 {
     [PolicyResourceType("aws:organizations/account:Account")]
-    public sealed class Account : global::Pulumi.PolicyResource
+    public sealed class Account : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN for this account.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         /// </summary>
         [Input("closeOnDeletion")]
-        public bool? CloseOnDeletion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCloseOnDeletion;
+
+        public bool? CloseOnDeletion => _mCloseOnDeletion.GetValue("closeOnDeletion");
 
         /// <summary>
         /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         /// </summary>
         [Input("createGovcloud")]
-        public bool? CreateGovcloud;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateGovcloud;
+
+        public bool? CreateGovcloud => _mCreateGovcloud.GetValue("createGovcloud");
 
         /// <summary>
         /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         /// </summary>
         [Input("email")]
-        public string? Email;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
 
         /// <summary>
         /// ID for a GovCloud account created with the account.
         /// </summary>
         [Input("govcloudId")]
-        public string? GovcloudId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGovcloudId;
+
+        public string? GovcloudId => _mGovcloudId.GetValue("govcloudId");
 
         /// <summary>
         /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
         /// </summary>
         [Input("iamUserAccessToBilling")]
-        public string? IamUserAccessToBilling;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamUserAccessToBilling;
+
+        public string? IamUserAccessToBilling => _mIamUserAccessToBilling.GetValue("iamUserAccessToBilling");
 
         [Input("joinedMethod")]
-        public string? JoinedMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJoinedMethod;
+
+        public string? JoinedMethod => _mJoinedMethod.GetValue("joinedMethod");
 
         [Input("joinedTimestamp")]
-        public string? JoinedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJoinedTimestamp;
+
+        public string? JoinedTimestamp => _mJoinedTimestamp.GetValue("joinedTimestamp");
 
         /// <summary>
         /// Friendly name for the member account.
@@ -61,36 +85,132 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         /// </summary>
         [Input("parentId")]
-        public string? ParentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentId;
+
+        public string? ParentId => _mParentId.GetValue("parentId");
 
         /// <summary>
         /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
         /// </summary>
         [Input("roleName")]
-        public string? RoleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
+
+        public string? RoleName => _mRoleName.GetValue("roleName");
 
         /// <summary>
         /// The status of the account in the organization.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:organizations/account:Account")]
+    public sealed class AccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+        /// </summary>
+        [Input("closeOnDeletion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCloseOnDeletion;
+
+        public bool? CloseOnDeletion => _mCloseOnDeletion.GetValue("closeOnDeletion");
+
+        /// <summary>
+        /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
+        /// </summary>
+        [Input("createGovcloud")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateGovcloud;
+
+        public bool? CreateGovcloud => _mCreateGovcloud.GetValue("createGovcloud");
+
+        /// <summary>
+        /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        /// </summary>
+        [Input("email")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
+
+        /// <summary>
+        /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
+        /// </summary>
+        [Input("iamUserAccessToBilling")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamUserAccessToBilling;
+
+        public string? IamUserAccessToBilling => _mIamUserAccessToBilling.GetValue("iamUserAccessToBilling");
+
+        /// <summary>
+        /// Friendly name for the member account.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
+        /// </summary>
+        [Input("parentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentId;
+
+        public string? ParentId => _mParentId.GetValue("parentId");
+
+        /// <summary>
+        /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
+        /// </summary>
+        [Input("roleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
+
+        public string? RoleName => _mRoleName.GetValue("roleName");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

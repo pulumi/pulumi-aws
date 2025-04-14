@@ -11,103 +11,255 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Connect
 {
     [PolicyResourceType("aws:connect/instance:Instance")]
-    public sealed class Instance : global::Pulumi.PolicyResource
+    public sealed class Instance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the instance.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         /// </summary>
         [Input("autoResolveBestVoicesEnabled")]
-        public bool? AutoResolveBestVoicesEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoResolveBestVoicesEnabled;
+
+        public bool? AutoResolveBestVoicesEnabled => _mAutoResolveBestVoicesEnabled.GetValue("autoResolveBestVoicesEnabled");
 
         /// <summary>
         /// Specifies whether contact flow logs are enabled. Defaults to `false`.
         /// </summary>
         [Input("contactFlowLogsEnabled")]
-        public bool? ContactFlowLogsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mContactFlowLogsEnabled;
+
+        public bool? ContactFlowLogsEnabled => _mContactFlowLogsEnabled.GetValue("contactFlowLogsEnabled");
 
         /// <summary>
         /// Specifies whether contact lens is enabled. Defaults to `true`.
         /// </summary>
         [Input("contactLensEnabled")]
-        public bool? ContactLensEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mContactLensEnabled;
+
+        public bool? ContactLensEnabled => _mContactLensEnabled.GetValue("contactLensEnabled");
 
         /// <summary>
         /// When the instance was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         /// </summary>
         [Input("earlyMediaEnabled")]
-        public bool? EarlyMediaEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEarlyMediaEnabled;
+
+        public bool? EarlyMediaEnabled => _mEarlyMediaEnabled.GetValue("earlyMediaEnabled");
 
         /// <summary>
         /// Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         /// </summary>
         [Input("identityManagementType")]
-        public string? IdentityManagementType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityManagementType;
+
+        public string? IdentityManagementType => _mIdentityManagementType.GetValue("identityManagementType");
 
         /// <summary>
         /// Specifies whether inbound calls are enabled.
         /// </summary>
         [Input("inboundCallsEnabled")]
-        public bool? InboundCallsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInboundCallsEnabled;
+
+        public bool? InboundCallsEnabled => _mInboundCallsEnabled.GetValue("inboundCallsEnabled");
 
         /// <summary>
         /// Specifies the name of the instance. Required if `directory_id` not specified.
         /// </summary>
         [Input("instanceAlias")]
-        public string? InstanceAlias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceAlias;
+
+        public string? InstanceAlias => _mInstanceAlias.GetValue("instanceAlias");
 
         /// <summary>
         /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         /// </summary>
         [Input("multiPartyConferenceEnabled")]
-        public bool? MultiPartyConferenceEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiPartyConferenceEnabled;
+
+        public bool? MultiPartyConferenceEnabled => _mMultiPartyConferenceEnabled.GetValue("multiPartyConferenceEnabled");
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
         /// </summary>
         [Input("outboundCallsEnabled")]
-        public bool? OutboundCallsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOutboundCallsEnabled;
+
+        public bool? OutboundCallsEnabled => _mOutboundCallsEnabled.GetValue("outboundCallsEnabled");
 
         /// <summary>
         /// The service role of the instance.
         /// </summary>
         [Input("serviceRole")]
-        public string? ServiceRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
 
         /// <summary>
         /// The state of the instance.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:connect/instance:Instance")]
+    public sealed class InstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("autoResolveBestVoicesEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoResolveBestVoicesEnabled;
+
+        public bool? AutoResolveBestVoicesEnabled => _mAutoResolveBestVoicesEnabled.GetValue("autoResolveBestVoicesEnabled");
+
+        /// <summary>
+        /// Specifies whether contact flow logs are enabled. Defaults to `false`.
+        /// </summary>
+        [Input("contactFlowLogsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mContactFlowLogsEnabled;
+
+        public bool? ContactFlowLogsEnabled => _mContactFlowLogsEnabled.GetValue("contactFlowLogsEnabled");
+
+        /// <summary>
+        /// Specifies whether contact lens is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("contactLensEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mContactLensEnabled;
+
+        public bool? ContactLensEnabled => _mContactLensEnabled.GetValue("contactLensEnabled");
+
+        /// <summary>
+        /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
+        /// </summary>
+        [Input("earlyMediaEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEarlyMediaEnabled;
+
+        public bool? EarlyMediaEnabled => _mEarlyMediaEnabled.GetValue("earlyMediaEnabled");
+
+        /// <summary>
+        /// Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
+        /// </summary>
+        [Input("identityManagementType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityManagementType;
+
+        public string? IdentityManagementType => _mIdentityManagementType.GetValue("identityManagementType");
+
+        /// <summary>
+        /// Specifies whether inbound calls are enabled.
+        /// </summary>
+        [Input("inboundCallsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInboundCallsEnabled;
+
+        public bool? InboundCallsEnabled => _mInboundCallsEnabled.GetValue("inboundCallsEnabled");
+
+        /// <summary>
+        /// Specifies the name of the instance. Required if `directory_id` not specified.
+        /// </summary>
+        [Input("instanceAlias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceAlias;
+
+        public string? InstanceAlias => _mInstanceAlias.GetValue("instanceAlias");
+
+        /// <summary>
+        /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("multiPartyConferenceEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiPartyConferenceEnabled;
+
+        public bool? MultiPartyConferenceEnabled => _mMultiPartyConferenceEnabled.GetValue("multiPartyConferenceEnabled");
+
+        /// <summary>
+        /// Specifies whether outbound calls are enabled.
+        /// </summary>
+        [Input("outboundCallsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOutboundCallsEnabled;
+
+        public bool? OutboundCallsEnabled => _mOutboundCallsEnabled.GetValue("outboundCallsEnabled");
+
+        /// <summary>
+        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

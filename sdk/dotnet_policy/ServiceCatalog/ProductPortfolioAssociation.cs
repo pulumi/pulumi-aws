@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation")]
-    public sealed class ProductPortfolioAssociation : global::Pulumi.PolicyResource
+    public sealed class ProductPortfolioAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
         [Input("acceptLanguage")]
-        public string? AcceptLanguage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
 
         /// <summary>
         /// Portfolio identifier.
         /// </summary>
         [Input("portfolioId")]
-        public string? PortfolioId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
+
+        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
 
         /// <summary>
         /// Product identifier.
@@ -31,12 +37,60 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// The following arguments are optional:
         /// </summary>
         [Input("productId")]
-        public string? ProductId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
+
+        public string? ProductId => _mProductId.GetValue("productId");
 
         /// <summary>
         /// Identifier of the source portfolio.
         /// </summary>
         [Input("sourcePortfolioId")]
-        public string? SourcePortfolioId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourcePortfolioId;
+
+        public string? SourcePortfolioId => _mSourcePortfolioId.GetValue("sourcePortfolioId");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation")]
+    public sealed class ProductPortfolioAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
+        [Input("portfolioId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
+
+        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
+
+        /// <summary>
+        /// Product identifier.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("productId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
+
+        public string? ProductId => _mProductId.GetValue("productId");
+
+        /// <summary>
+        /// Identifier of the source portfolio.
+        /// </summary>
+        [Input("sourcePortfolioId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourcePortfolioId;
+
+        public string? SourcePortfolioId => _mSourcePortfolioId.GetValue("sourcePortfolioId");
     }
 }

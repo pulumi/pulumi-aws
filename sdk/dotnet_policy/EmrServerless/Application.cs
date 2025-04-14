@@ -11,90 +11,244 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.EmrServerless
 {
     [PolicyResourceType("aws:emrserverless/application:Application")]
-    public sealed class Application : global::Pulumi.PolicyResource
+    public sealed class Application : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         /// </summary>
         [Input("architecture")]
-        public string? Architecture;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
+
+        public string? Architecture => _mArchitecture.GetValue("architecture");
 
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The configuration for an application to automatically start on job submission.
         /// </summary>
         [Input("autoStartConfiguration")]
-        public ApplicationAutoStartConfiguration? AutoStartConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationAutoStartConfiguration> _mAutoStartConfiguration;
+
+        public Outputs.ApplicationAutoStartConfiguration? AutoStartConfiguration => _mAutoStartConfiguration.GetValue("autoStartConfiguration");
 
         /// <summary>
         /// The configuration for an application to automatically stop after a certain amount of time being idle.
         /// </summary>
         [Input("autoStopConfiguration")]
-        public ApplicationAutoStopConfiguration? AutoStopConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationAutoStopConfiguration> _mAutoStopConfiguration;
+
+        public Outputs.ApplicationAutoStopConfiguration? AutoStopConfiguration => _mAutoStopConfiguration.GetValue("autoStopConfiguration");
 
         /// <summary>
         /// The image configuration applied to all worker types.
         /// </summary>
         [Input("imageConfiguration")]
-        public ApplicationImageConfiguration? ImageConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationImageConfiguration> _mImageConfiguration;
+
+        public Outputs.ApplicationImageConfiguration? ImageConfiguration => _mImageConfiguration.GetValue("imageConfiguration");
 
         /// <summary>
         /// The capacity to initialize when the application is created.
         /// </summary>
         [Input("initialCapacities")]
-        public List<ApplicationInitialCapacity>? InitialCapacities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationInitialCapacity>> _mInitialCapacities;
+
+        public List<Outputs.ApplicationInitialCapacity>? InitialCapacities => _mInitialCapacities.GetValue("initialCapacities");
 
         /// <summary>
         /// Enables the interactive use cases to use when running an application.
         /// </summary>
         [Input("interactiveConfiguration")]
-        public ApplicationInteractiveConfiguration? InteractiveConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationInteractiveConfiguration> _mInteractiveConfiguration;
+
+        public Outputs.ApplicationInteractiveConfiguration? InteractiveConfiguration => _mInteractiveConfiguration.GetValue("interactiveConfiguration");
 
         /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
         [Input("maximumCapacity")]
-        public ApplicationMaximumCapacity? MaximumCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationMaximumCapacity> _mMaximumCapacity;
+
+        public Outputs.ApplicationMaximumCapacity? MaximumCapacity => _mMaximumCapacity.GetValue("maximumCapacity");
 
         /// <summary>
         /// The name of the application.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The network configuration for customer VPC connectivity.
         /// </summary>
         [Input("networkConfiguration")]
-        public ApplicationNetworkConfiguration? NetworkConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationNetworkConfiguration> _mNetworkConfiguration;
+
+        public Outputs.ApplicationNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
 
         /// <summary>
         /// The EMR release version associated with the application.
         /// </summary>
         [Input("releaseLabel")]
-        public string? ReleaseLabel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
+
+        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of application you want to start, such as `spark` or `hive`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:emrserverless/application:Application")]
+    public sealed class ApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
+        /// </summary>
+        [Input("architecture")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
+
+        public string? Architecture => _mArchitecture.GetValue("architecture");
+
+        /// <summary>
+        /// The configuration for an application to automatically start on job submission.
+        /// </summary>
+        [Input("autoStartConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationAutoStartConfigurationArgs> _mAutoStartConfiguration;
+
+        public Inputs.ApplicationAutoStartConfigurationArgs? AutoStartConfiguration => _mAutoStartConfiguration.GetValue("autoStartConfiguration");
+
+        /// <summary>
+        /// The configuration for an application to automatically stop after a certain amount of time being idle.
+        /// </summary>
+        [Input("autoStopConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationAutoStopConfigurationArgs> _mAutoStopConfiguration;
+
+        public Inputs.ApplicationAutoStopConfigurationArgs? AutoStopConfiguration => _mAutoStopConfiguration.GetValue("autoStopConfiguration");
+
+        /// <summary>
+        /// The image configuration applied to all worker types.
+        /// </summary>
+        [Input("imageConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationImageConfigurationArgs> _mImageConfiguration;
+
+        public Inputs.ApplicationImageConfigurationArgs? ImageConfiguration => _mImageConfiguration.GetValue("imageConfiguration");
+
+        /// <summary>
+        /// The capacity to initialize when the application is created.
+        /// </summary>
+        [Input("initialCapacities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationInitialCapacityArgs>> _mInitialCapacities;
+
+        public List<Inputs.ApplicationInitialCapacityArgs>? InitialCapacities => _mInitialCapacities.GetValue("initialCapacities");
+
+        /// <summary>
+        /// Enables the interactive use cases to use when running an application.
+        /// </summary>
+        [Input("interactiveConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationInteractiveConfigurationArgs> _mInteractiveConfiguration;
+
+        public Inputs.ApplicationInteractiveConfigurationArgs? InteractiveConfiguration => _mInteractiveConfiguration.GetValue("interactiveConfiguration");
+
+        /// <summary>
+        /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
+        /// </summary>
+        [Input("maximumCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationMaximumCapacityArgs> _mMaximumCapacity;
+
+        public Inputs.ApplicationMaximumCapacityArgs? MaximumCapacity => _mMaximumCapacity.GetValue("maximumCapacity");
+
+        /// <summary>
+        /// The name of the application.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The network configuration for customer VPC connectivity.
+        /// </summary>
+        [Input("networkConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationNetworkConfigurationArgs> _mNetworkConfiguration;
+
+        public Inputs.ApplicationNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+
+        /// <summary>
+        /// The EMR release version associated with the application.
+        /// </summary>
+        [Input("releaseLabel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
+
+        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of application you want to start, such as `spark` or `hive`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

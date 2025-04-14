@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/rolePolicyAttachment:RolePolicyAttachment")]
-    public sealed class RolePolicyAttachment : global::Pulumi.PolicyResource
+    public sealed class RolePolicyAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the policy you want to apply
         /// </summary>
         [Input("policyArn")]
-        public string? PolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
 
         /// <summary>
         /// The name of the IAM role to which the policy should be applied
         /// </summary>
         [Input("role")]
-        public string? Role;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
+    }
+
+    [PolicyResourceType("aws:iam/rolePolicyAttachment:RolePolicyAttachment")]
+    public sealed class RolePolicyAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the policy you want to apply
+        /// </summary>
+        [Input("policyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+
+        /// <summary>
+        /// The name of the IAM role to which the policy should be applied
+        /// </summary>
+        [Input("role")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
     }
 }

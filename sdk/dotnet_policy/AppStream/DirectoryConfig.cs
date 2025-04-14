@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppStream
 {
     [PolicyResourceType("aws:appstream/directoryConfig:DirectoryConfig")]
-    public sealed class DirectoryConfig : global::Pulumi.PolicyResource
+    public sealed class DirectoryConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Fully qualified name of the directory.
         /// </summary>
         [Input("directoryName")]
-        public string? DirectoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryName;
+
+        public string? DirectoryName => _mDirectoryName.GetValue("directoryName");
 
         /// <summary>
         /// Distinguished names of the organizational units for computer accounts.
         /// </summary>
         [Input("organizationalUnitDistinguishedNames")]
-        public List<string>? OrganizationalUnitDistinguishedNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationalUnitDistinguishedNames;
+
+        public List<string>? OrganizationalUnitDistinguishedNames => _mOrganizationalUnitDistinguishedNames.GetValue("organizationalUnitDistinguishedNames");
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         /// </summary>
         [Input("serviceAccountCredentials")]
-        public DirectoryConfigServiceAccountCredentials? ServiceAccountCredentials;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryConfigServiceAccountCredentials> _mServiceAccountCredentials;
+
+        public Outputs.DirectoryConfigServiceAccountCredentials? ServiceAccountCredentials => _mServiceAccountCredentials.GetValue("serviceAccountCredentials");
+    }
+
+    [PolicyResourceType("aws:appstream/directoryConfig:DirectoryConfig")]
+    public sealed class DirectoryConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Fully qualified name of the directory.
+        /// </summary>
+        [Input("directoryName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryName;
+
+        public string? DirectoryName => _mDirectoryName.GetValue("directoryName");
+
+        /// <summary>
+        /// Distinguished names of the organizational units for computer accounts.
+        /// </summary>
+        [Input("organizationalUnitDistinguishedNames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationalUnitDistinguishedNames;
+
+        public List<string>? OrganizationalUnitDistinguishedNames => _mOrganizationalUnitDistinguishedNames.GetValue("organizationalUnitDistinguishedNames");
+
+        /// <summary>
+        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+        /// </summary>
+        [Input("serviceAccountCredentials")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryConfigServiceAccountCredentialsArgs> _mServiceAccountCredentials;
+
+        public Inputs.DirectoryConfigServiceAccountCredentialsArgs? ServiceAccountCredentials => _mServiceAccountCredentials.GetValue("serviceAccountCredentials");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation")]
-    public sealed class VpcEndpointRouteTableAssociation : global::Pulumi.PolicyResource
+    public sealed class VpcEndpointRouteTableAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         /// </summary>
         [Input("routeTableId")]
-        public string? RouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
 
         /// <summary>
         /// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         /// </summary>
         [Input("vpcEndpointId")]
-        public string? VpcEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation")]
+    public sealed class VpcEndpointRouteTableAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
+        /// </summary>
+        [Input("routeTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
+
+        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+
+        /// <summary>
+        /// Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Shield
 {
     [PolicyResourceType("aws:shield/proactiveEngagement:ProactiveEngagement")]
-    public sealed class ProactiveEngagement : global::Pulumi.PolicyResource
+    public sealed class ProactiveEngagement : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         /// </summary>
         [Input("emergencyContacts")]
-        public List<ProactiveEngagementEmergencyContact>? EmergencyContacts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProactiveEngagementEmergencyContact>> _mEmergencyContacts;
+
+        public List<Outputs.ProactiveEngagementEmergencyContact>? EmergencyContacts => _mEmergencyContacts.GetValue("emergencyContacts");
 
         /// <summary>
         /// Boolean value indicating if Proactive Engagement should be enabled or not.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+    }
+
+    [PolicyResourceType("aws:shield/proactiveEngagement:ProactiveEngagement")]
+    public sealed class ProactiveEngagementArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+        /// </summary>
+        [Input("emergencyContacts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProactiveEngagementEmergencyContactArgs>> _mEmergencyContacts;
+
+        public List<Inputs.ProactiveEngagementEmergencyContactArgs>? EmergencyContacts => _mEmergencyContacts.GetValue("emergencyContacts");
+
+        /// <summary>
+        /// Boolean value indicating if Proactive Engagement should be enabled or not.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
     }
 }

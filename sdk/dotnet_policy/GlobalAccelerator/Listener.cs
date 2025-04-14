@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
 {
     [PolicyResourceType("aws:globalaccelerator/listener:Listener")]
-    public sealed class Listener : global::Pulumi.PolicyResource
+    public sealed class Listener : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of your accelerator.
         /// </summary>
         [Input("acceleratorArn")]
-        public string? AcceleratorArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorArn;
+
+        public string? AcceleratorArn => _mAcceleratorArn.GetValue("acceleratorArn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         /// </summary>
         [Input("clientAffinity")]
-        public string? ClientAffinity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientAffinity;
+
+        public string? ClientAffinity => _mClientAffinity.GetValue("clientAffinity");
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
         [Input("portRanges")]
-        public List<ListenerPortRange>? PortRanges;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerPortRange>> _mPortRanges;
+
+        public List<Outputs.ListenerPortRange>? PortRanges => _mPortRanges.GetValue("portRanges");
 
         /// <summary>
         /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         /// </summary>
         [Input("protocol")]
-        public string? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
+    }
+
+    [PolicyResourceType("aws:globalaccelerator/listener:Listener")]
+    public sealed class ListenerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of your accelerator.
+        /// </summary>
+        [Input("acceleratorArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorArn;
+
+        public string? AcceleratorArn => _mAcceleratorArn.GetValue("acceleratorArn");
+
+        /// <summary>
+        /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
+        /// </summary>
+        [Input("clientAffinity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientAffinity;
+
+        public string? ClientAffinity => _mClientAffinity.GetValue("clientAffinity");
+
+        /// <summary>
+        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// </summary>
+        [Input("portRanges")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerPortRangeArgs>> _mPortRanges;
+
+        public List<Inputs.ListenerPortRangeArgs>? PortRanges => _mPortRanges.GetValue("portRanges");
+
+        /// <summary>
+        /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
     }
 }

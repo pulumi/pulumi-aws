@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ResourceGroups
 {
     [PolicyResourceType("aws:resourcegroups/resource:Resource")]
-    public sealed class Resource : global::Pulumi.PolicyResource
+    public sealed class Resource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name or ARN of the resource group to add resources to.
         /// </summary>
         [Input("groupArn")]
-        public string? GroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupArn;
+
+        public string? GroupArn => _mGroupArn.GetValue("groupArn");
 
         /// <summary>
         /// ARN of the resource to be added to the group.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The resource type of a resource, such as `AWS::EC2::Instance`.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
+    }
+
+    [PolicyResourceType("aws:resourcegroups/resource:Resource")]
+    public sealed class ResourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name or ARN of the resource group to add resources to.
+        /// </summary>
+        [Input("groupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupArn;
+
+        public string? GroupArn => _mGroupArn.GetValue("groupArn");
+
+        /// <summary>
+        /// ARN of the resource to be added to the group.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
     }
 }

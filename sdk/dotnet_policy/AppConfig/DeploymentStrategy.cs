@@ -11,66 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppConfig
 {
     [PolicyResourceType("aws:appconfig/deploymentStrategy:DeploymentStrategy")]
-    public sealed class DeploymentStrategy : global::Pulumi.PolicyResource
+    public sealed class DeploymentStrategy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the AppConfig Deployment Strategy.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
         /// </summary>
         [Input("deploymentDurationInMinutes")]
-        public int? DeploymentDurationInMinutes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentDurationInMinutes;
+
+        public int? DeploymentDurationInMinutes => _mDeploymentDurationInMinutes.GetValue("deploymentDurationInMinutes");
 
         /// <summary>
         /// Description of the deployment strategy. Can be at most 1024 characters.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         /// </summary>
         [Input("finalBakeTimeInMinutes")]
-        public int? FinalBakeTimeInMinutes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFinalBakeTimeInMinutes;
+
+        public int? FinalBakeTimeInMinutes => _mFinalBakeTimeInMinutes.GetValue("finalBakeTimeInMinutes");
 
         /// <summary>
         /// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         /// </summary>
         [Input("growthFactor")]
-        public double? GrowthFactor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mGrowthFactor;
+
+        public double? GrowthFactor => _mGrowthFactor.GetValue("growthFactor");
 
         /// <summary>
         /// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         /// </summary>
         [Input("growthType")]
-        public string? GrowthType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrowthType;
+
+        public string? GrowthType => _mGrowthType.GetValue("growthType");
 
         /// <summary>
         /// Name for the deployment strategy. Must be between 1 and 64 characters in length.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         /// </summary>
         [Input("replicateTo")]
-        public string? ReplicateTo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicateTo;
+
+        public string? ReplicateTo => _mReplicateTo.GetValue("replicateTo");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:appconfig/deploymentStrategy:DeploymentStrategy")]
+    public sealed class DeploymentStrategyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
+        /// </summary>
+        [Input("deploymentDurationInMinutes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentDurationInMinutes;
+
+        public int? DeploymentDurationInMinutes => _mDeploymentDurationInMinutes.GetValue("deploymentDurationInMinutes");
+
+        /// <summary>
+        /// Description of the deployment strategy. Can be at most 1024 characters.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
+        /// </summary>
+        [Input("finalBakeTimeInMinutes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFinalBakeTimeInMinutes;
+
+        public int? FinalBakeTimeInMinutes => _mFinalBakeTimeInMinutes.GetValue("finalBakeTimeInMinutes");
+
+        /// <summary>
+        /// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
+        /// </summary>
+        [Input("growthFactor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mGrowthFactor;
+
+        public double? GrowthFactor => _mGrowthFactor.GetValue("growthFactor");
+
+        /// <summary>
+        /// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
+        /// </summary>
+        [Input("growthType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrowthType;
+
+        public string? GrowthType => _mGrowthType.GetValue("growthType");
+
+        /// <summary>
+        /// Name for the deployment strategy. Must be between 1 and 64 characters in length.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
+        /// </summary>
+        [Input("replicateTo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicateTo;
+
+        public string? ReplicateTo => _mReplicateTo.GetValue("replicateTo");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

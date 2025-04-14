@@ -11,15 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CostOptimizationHub
 {
     [PolicyResourceType("aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus")]
-    public sealed class EnrollmentStatus : global::Pulumi.PolicyResource
+    public sealed class EnrollmentStatus : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         /// </summary>
         [Input("includeMemberAccounts")]
-        public bool? IncludeMemberAccounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeMemberAccounts;
+
+        public bool? IncludeMemberAccounts => _mIncludeMemberAccounts.GetValue("includeMemberAccounts");
 
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus")]
+    public sealed class EnrollmentStatusArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
+        /// </summary>
+        [Input("includeMemberAccounts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeMemberAccounts;
+
+        public bool? IncludeMemberAccounts => _mIncludeMemberAccounts.GetValue("includeMemberAccounts");
     }
 }

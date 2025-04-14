@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AutoScaling
 {
     [PolicyResourceType("aws:autoscaling/tag:Tag")]
-    public sealed class Tag : global::Pulumi.PolicyResource
+    public sealed class Tag : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the Autoscaling Group to apply the tag to.
         /// </summary>
         [Input("autoscalingGroupName")]
-        public string? AutoscalingGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
 
         /// <summary>
         /// Tag to create. The `tag` block is documented below.
         /// </summary>
         [Input("tag")]
-        public TagTag? TagDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TagTag> _mTagDetails;
+
+        public Outputs.TagTag? TagDetails => _mTagDetails.GetValue("tag");
+    }
+
+    [PolicyResourceType("aws:autoscaling/tag:Tag")]
+    public sealed class TagArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Autoscaling Group to apply the tag to.
+        /// </summary>
+        [Input("autoscalingGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+
+        /// <summary>
+        /// Tag to create. The `tag` block is documented below.
+        /// </summary>
+        [Input("tag")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TagTagArgs> _mTagDetails;
+
+        public Inputs.TagTagArgs? TagDetails => _mTagDetails.GetValue("tag");
     }
 }

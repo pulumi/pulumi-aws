@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/catalogTable:CatalogTable")]
-    public sealed class CatalogTable : global::Pulumi.PolicyResource
+    public sealed class CatalogTable : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Glue Table.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
@@ -31,84 +37,267 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// The follow arguments are optional:
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// Description of the table.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration block for open table formats. See `open_table_format_input` below.
         /// </summary>
         [Input("openTableFormatInput")]
-        public CatalogTableOpenTableFormatInput? OpenTableFormatInput;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableOpenTableFormatInput> _mOpenTableFormatInput;
+
+        public Outputs.CatalogTableOpenTableFormatInput? OpenTableFormatInput => _mOpenTableFormatInput.GetValue("openTableFormatInput");
 
         /// <summary>
         /// Owner of the table.
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
         [Input("parameters")]
-        public Dictionary<string, string>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         /// </summary>
         [Input("partitionIndices")]
-        public List<CatalogTablePartitionIndex>? PartitionIndices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CatalogTablePartitionIndex>> _mPartitionIndices;
+
+        public List<Outputs.CatalogTablePartitionIndex>? PartitionIndices => _mPartitionIndices.GetValue("partitionIndices");
 
         /// <summary>
         /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         /// </summary>
         [Input("partitionKeys")]
-        public List<CatalogTablePartitionKey>? PartitionKeys;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CatalogTablePartitionKey>> _mPartitionKeys;
+
+        public List<Outputs.CatalogTablePartitionKey>? PartitionKeys => _mPartitionKeys.GetValue("partitionKeys");
 
         /// <summary>
         /// Retention time for this table.
         /// </summary>
         [Input("retention")]
-        public int? Retention;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetention;
+
+        public int? Retention => _mRetention.GetValue("retention");
 
         /// <summary>
         /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
         [Input("storageDescriptor")]
-        public CatalogTableStorageDescriptor? StorageDescriptor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableStorageDescriptor> _mStorageDescriptor;
+
+        public Outputs.CatalogTableStorageDescriptor? StorageDescriptor => _mStorageDescriptor.GetValue("storageDescriptor");
 
         /// <summary>
         /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         /// </summary>
         [Input("tableType")]
-        public string? TableType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableType;
+
+        public string? TableType => _mTableType.GetValue("tableType");
 
         /// <summary>
         /// Configuration block of a target table for resource linking. See `target_table` below.
         /// </summary>
         [Input("targetTable")]
-        public CatalogTableTargetTable? TargetTable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableTargetTable> _mTargetTable;
+
+        public Outputs.CatalogTableTargetTable? TargetTable => _mTargetTable.GetValue("targetTable");
 
         /// <summary>
         /// If the table is a view, the expanded text of the view; otherwise null.
         /// </summary>
         [Input("viewExpandedText")]
-        public string? ViewExpandedText;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mViewExpandedText;
+
+        public string? ViewExpandedText => _mViewExpandedText.GetValue("viewExpandedText");
 
         /// <summary>
         /// If the table is a view, the original text of the view; otherwise null.
         /// </summary>
         [Input("viewOriginalText")]
-        public string? ViewOriginalText;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mViewOriginalText;
+
+        public string? ViewOriginalText => _mViewOriginalText.GetValue("viewOriginalText");
+    }
+
+    [PolicyResourceType("aws:glue/catalogTable:CatalogTable")]
+    public sealed class CatalogTableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// 
+        /// The follow arguments are optional:
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// Description of the table.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// </summary>
+        [Input("openTableFormatInput")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogTableOpenTableFormatInputArgs> _mOpenTableFormatInput;
+
+        public Inputs.CatalogTableOpenTableFormatInputArgs? OpenTableFormatInput => _mOpenTableFormatInput.GetValue("openTableFormatInput");
+
+        /// <summary>
+        /// Owner of the table.
+        /// </summary>
+        [Input("owner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
+
+        /// <summary>
+        /// Properties associated with this table, as a list of key-value pairs.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        /// </summary>
+        [Input("partitionIndices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CatalogTablePartitionIndexArgs>> _mPartitionIndices;
+
+        public List<Inputs.CatalogTablePartitionIndexArgs>? PartitionIndices => _mPartitionIndices.GetValue("partitionIndices");
+
+        /// <summary>
+        /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        /// </summary>
+        [Input("partitionKeys")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CatalogTablePartitionKeyArgs>> _mPartitionKeys;
+
+        public List<Inputs.CatalogTablePartitionKeyArgs>? PartitionKeys => _mPartitionKeys.GetValue("partitionKeys");
+
+        /// <summary>
+        /// Retention time for this table.
+        /// </summary>
+        [Input("retention")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetention;
+
+        public int? Retention => _mRetention.GetValue("retention");
+
+        /// <summary>
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// </summary>
+        [Input("storageDescriptor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogTableStorageDescriptorArgs> _mStorageDescriptor;
+
+        public Inputs.CatalogTableStorageDescriptorArgs? StorageDescriptor => _mStorageDescriptor.GetValue("storageDescriptor");
+
+        /// <summary>
+        /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
+        /// </summary>
+        [Input("tableType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableType;
+
+        public string? TableType => _mTableType.GetValue("tableType");
+
+        /// <summary>
+        /// Configuration block of a target table for resource linking. See `target_table` below.
+        /// </summary>
+        [Input("targetTable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogTableTargetTableArgs> _mTargetTable;
+
+        public Inputs.CatalogTableTargetTableArgs? TargetTable => _mTargetTable.GetValue("targetTable");
+
+        /// <summary>
+        /// If the table is a view, the expanded text of the view; otherwise null.
+        /// </summary>
+        [Input("viewExpandedText")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mViewExpandedText;
+
+        public string? ViewExpandedText => _mViewExpandedText.GetValue("viewExpandedText");
+
+        /// <summary>
+        /// If the table is a view, the original text of the view; otherwise null.
+        /// </summary>
+        [Input("viewOriginalText")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mViewOriginalText;
+
+        public string? ViewOriginalText => _mViewOriginalText.GetValue("viewOriginalText");
     }
 }

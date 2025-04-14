@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]
-    public sealed class BaiduChannel : global::Pulumi.PolicyResource
+    public sealed class BaiduChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Platform credential API key from Baidu.
         /// </summary>
         [Input("apiKey")]
-        public string? ApiKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
+
+        public string? ApiKey => _mApiKey.GetValue("apiKey");
 
         /// <summary>
         /// The application ID.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// Specifies whether to enable the channel. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Platform credential Secret key from Baidu.
         /// </summary>
         [Input("secretKey")]
-        public string? SecretKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
+
+        public string? SecretKey => _mSecretKey.GetValue("secretKey");
+    }
+
+    [PolicyResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]
+    public sealed class BaiduChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Platform credential API key from Baidu.
+        /// </summary>
+        [Input("apiKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
+
+        public string? ApiKey => _mApiKey.GetValue("apiKey");
+
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// Specifies whether to enable the channel. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Platform credential Secret key from Baidu.
+        /// </summary>
+        [Input("secretKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
+
+        public string? SecretKey => _mSecretKey.GetValue("secretKey");
     }
 }

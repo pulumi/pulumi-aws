@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AutoScaling
 {
     [PolicyResourceType("aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")]
-    public sealed class TrafficSourceAttachment : global::Pulumi.PolicyResource
+    public sealed class TrafficSourceAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the Auto Scaling group.
         /// </summary>
         [Input("autoscalingGroupName")]
-        public string? AutoscalingGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
 
         /// <summary>
         /// The unique identifiers of a traffic sources.
         /// </summary>
         [Input("trafficSource")]
-        public TrafficSourceAttachmentTrafficSource? TrafficSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrafficSourceAttachmentTrafficSource> _mTrafficSource;
+
+        public Outputs.TrafficSourceAttachmentTrafficSource? TrafficSource => _mTrafficSource.GetValue("trafficSource");
+    }
+
+    [PolicyResourceType("aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment")]
+    public sealed class TrafficSourceAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Auto Scaling group.
+        /// </summary>
+        [Input("autoscalingGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
+
+        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+
+        /// <summary>
+        /// The unique identifiers of a traffic sources.
+        /// </summary>
+        [Input("trafficSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrafficSourceAttachmentTrafficSourceArgs> _mTrafficSource;
+
+        public Inputs.TrafficSourceAttachmentTrafficSourceArgs? TrafficSource => _mTrafficSource.GetValue("trafficSource");
     }
 }

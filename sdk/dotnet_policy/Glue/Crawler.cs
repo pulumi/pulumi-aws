@@ -11,150 +11,424 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/crawler:Crawler")]
-    public sealed class Crawler : global::Pulumi.PolicyResource
+    public sealed class Crawler : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the crawler
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         /// </summary>
         [Input("catalogTargets")]
-        public List<CrawlerCatalogTarget>? CatalogTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerCatalogTarget>> _mCatalogTargets;
+
+        public List<Outputs.CrawlerCatalogTarget>? CatalogTargets => _mCatalogTargets.GetValue("catalogTargets");
 
         /// <summary>
         /// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         /// </summary>
         [Input("classifiers")]
-        public List<string>? Classifiers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClassifiers;
+
+        public List<string>? Classifiers => _mClassifiers.GetValue("classifiers");
 
         /// <summary>
         /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         /// </summary>
         [Input("configuration")]
-        public string? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguration;
+
+        public string? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// Glue database where results are written.
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// List of nested Delta Lake target arguments. See Delta Target below.
         /// </summary>
         [Input("deltaTargets")]
-        public List<CrawlerDeltaTarget>? DeltaTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerDeltaTarget>> _mDeltaTargets;
+
+        public List<Outputs.CrawlerDeltaTarget>? DeltaTargets => _mDeltaTargets.GetValue("deltaTargets");
 
         /// <summary>
         /// Description of the crawler.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// List of nested DynamoDB target arguments. See Dynamodb Target below.
         /// </summary>
         [Input("dynamodbTargets")]
-        public List<CrawlerDynamodbTarget>? DynamodbTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerDynamodbTarget>> _mDynamodbTargets;
+
+        public List<Outputs.CrawlerDynamodbTarget>? DynamodbTargets => _mDynamodbTargets.GetValue("dynamodbTargets");
 
         /// <summary>
         /// List of nested Hudi target arguments. See Iceberg Target below.
         /// </summary>
         [Input("hudiTargets")]
-        public List<CrawlerHudiTarget>? HudiTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerHudiTarget>> _mHudiTargets;
+
+        public List<Outputs.CrawlerHudiTarget>? HudiTargets => _mHudiTargets.GetValue("hudiTargets");
 
         /// <summary>
         /// List of nested Iceberg target arguments. See Iceberg Target below.
         /// </summary>
         [Input("icebergTargets")]
-        public List<CrawlerIcebergTarget>? IcebergTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerIcebergTarget>> _mIcebergTargets;
+
+        public List<Outputs.CrawlerIcebergTarget>? IcebergTargets => _mIcebergTargets.GetValue("icebergTargets");
 
         /// <summary>
         /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
         [Input("jdbcTargets")]
-        public List<CrawlerJdbcTarget>? JdbcTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerJdbcTarget>> _mJdbcTargets;
+
+        public List<Outputs.CrawlerJdbcTarget>? JdbcTargets => _mJdbcTargets.GetValue("jdbcTargets");
 
         /// <summary>
         /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         /// </summary>
         [Input("lakeFormationConfiguration")]
-        public CrawlerLakeFormationConfiguration? LakeFormationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CrawlerLakeFormationConfiguration> _mLakeFormationConfiguration;
+
+        public Outputs.CrawlerLakeFormationConfiguration? LakeFormationConfiguration => _mLakeFormationConfiguration.GetValue("lakeFormationConfiguration");
 
         /// <summary>
         /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         /// </summary>
         [Input("lineageConfiguration")]
-        public CrawlerLineageConfiguration? LineageConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CrawlerLineageConfiguration> _mLineageConfiguration;
+
+        public Outputs.CrawlerLineageConfiguration? LineageConfiguration => _mLineageConfiguration.GetValue("lineageConfiguration");
 
         /// <summary>
         /// List of nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
         [Input("mongodbTargets")]
-        public List<CrawlerMongodbTarget>? MongodbTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerMongodbTarget>> _mMongodbTargets;
+
+        public List<Outputs.CrawlerMongodbTarget>? MongodbTargets => _mMongodbTargets.GetValue("mongodbTargets");
 
         /// <summary>
         /// Name of the crawler.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         /// </summary>
         [Input("recrawlPolicy")]
-        public CrawlerRecrawlPolicy? RecrawlPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CrawlerRecrawlPolicy> _mRecrawlPolicy;
+
+        public Outputs.CrawlerRecrawlPolicy? RecrawlPolicy => _mRecrawlPolicy.GetValue("recrawlPolicy");
 
         /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         /// </summary>
         [Input("role")]
-        public string? Role;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
 
         /// <summary>
         /// List of nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
         [Input("s3Targets")]
-        public List<CrawlerS3Target>? S3Targets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerS3Target>> _mS3Targets;
+
+        public List<Outputs.CrawlerS3Target>? S3Targets => _mS3Targets.GetValue("s3Targets");
 
         /// <summary>
         /// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         /// </summary>
         [Input("schedule")]
-        public string? Schedule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
+
+        public string? Schedule => _mSchedule.GetValue("schedule");
 
         /// <summary>
         /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         /// </summary>
         [Input("schemaChangePolicy")]
-        public CrawlerSchemaChangePolicy? SchemaChangePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CrawlerSchemaChangePolicy> _mSchemaChangePolicy;
+
+        public Outputs.CrawlerSchemaChangePolicy? SchemaChangePolicy => _mSchemaChangePolicy.GetValue("schemaChangePolicy");
 
         /// <summary>
         /// The name of Security Configuration to be used by the crawler
         /// </summary>
         [Input("securityConfiguration")]
-        public string? SecurityConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
+
+        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
 
         /// <summary>
         /// The table prefix used for catalog tables that are created.
         /// </summary>
         [Input("tablePrefix")]
-        public string? TablePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTablePrefix;
+
+        public string? TablePrefix => _mTablePrefix.GetValue("tablePrefix");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:glue/crawler:Crawler")]
+    public sealed class CrawlerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        /// </summary>
+        [Input("catalogTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerCatalogTargetArgs>> _mCatalogTargets;
+
+        public List<Inputs.CrawlerCatalogTargetArgs>? CatalogTargets => _mCatalogTargets.GetValue("catalogTargets");
+
+        /// <summary>
+        /// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
+        /// </summary>
+        [Input("classifiers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClassifiers;
+
+        public List<string>? Classifiers => _mClassifiers.GetValue("classifiers");
+
+        /// <summary>
+        /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguration;
+
+        public string? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// Glue database where results are written.
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// List of nested Delta Lake target arguments. See Delta Target below.
+        /// </summary>
+        [Input("deltaTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerDeltaTargetArgs>> _mDeltaTargets;
+
+        public List<Inputs.CrawlerDeltaTargetArgs>? DeltaTargets => _mDeltaTargets.GetValue("deltaTargets");
+
+        /// <summary>
+        /// Description of the crawler.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// List of nested DynamoDB target arguments. See Dynamodb Target below.
+        /// </summary>
+        [Input("dynamodbTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerDynamodbTargetArgs>> _mDynamodbTargets;
+
+        public List<Inputs.CrawlerDynamodbTargetArgs>? DynamodbTargets => _mDynamodbTargets.GetValue("dynamodbTargets");
+
+        /// <summary>
+        /// List of nested Hudi target arguments. See Iceberg Target below.
+        /// </summary>
+        [Input("hudiTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerHudiTargetArgs>> _mHudiTargets;
+
+        public List<Inputs.CrawlerHudiTargetArgs>? HudiTargets => _mHudiTargets.GetValue("hudiTargets");
+
+        /// <summary>
+        /// List of nested Iceberg target arguments. See Iceberg Target below.
+        /// </summary>
+        [Input("icebergTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerIcebergTargetArgs>> _mIcebergTargets;
+
+        public List<Inputs.CrawlerIcebergTargetArgs>? IcebergTargets => _mIcebergTargets.GetValue("icebergTargets");
+
+        /// <summary>
+        /// List of nested JDBC target arguments. See JDBC Target below.
+        /// </summary>
+        [Input("jdbcTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerJdbcTargetArgs>> _mJdbcTargets;
+
+        public List<Inputs.CrawlerJdbcTargetArgs>? JdbcTargets => _mJdbcTargets.GetValue("jdbcTargets");
+
+        /// <summary>
+        /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
+        /// </summary>
+        [Input("lakeFormationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CrawlerLakeFormationConfigurationArgs> _mLakeFormationConfiguration;
+
+        public Inputs.CrawlerLakeFormationConfigurationArgs? LakeFormationConfiguration => _mLakeFormationConfiguration.GetValue("lakeFormationConfiguration");
+
+        /// <summary>
+        /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
+        /// </summary>
+        [Input("lineageConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CrawlerLineageConfigurationArgs> _mLineageConfiguration;
+
+        public Inputs.CrawlerLineageConfigurationArgs? LineageConfiguration => _mLineageConfiguration.GetValue("lineageConfiguration");
+
+        /// <summary>
+        /// List of nested MongoDB target arguments. See MongoDB Target below.
+        /// </summary>
+        [Input("mongodbTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerMongodbTargetArgs>> _mMongodbTargets;
+
+        public List<Inputs.CrawlerMongodbTargetArgs>? MongodbTargets => _mMongodbTargets.GetValue("mongodbTargets");
+
+        /// <summary>
+        /// Name of the crawler.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        /// </summary>
+        [Input("recrawlPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CrawlerRecrawlPolicyArgs> _mRecrawlPolicy;
+
+        public Inputs.CrawlerRecrawlPolicyArgs? RecrawlPolicy => _mRecrawlPolicy.GetValue("recrawlPolicy");
+
+        /// <summary>
+        /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+        /// </summary>
+        [Input("role")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
+
+        /// <summary>
+        /// List of nested Amazon S3 target arguments. See S3 Target below.
+        /// </summary>
+        [Input("s3Targets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerS3TargetArgs>> _mS3Targets;
+
+        public List<Inputs.CrawlerS3TargetArgs>? S3Targets => _mS3Targets.GetValue("s3Targets");
+
+        /// <summary>
+        /// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
+        /// </summary>
+        [Input("schedule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
+
+        public string? Schedule => _mSchedule.GetValue("schedule");
+
+        /// <summary>
+        /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
+        /// </summary>
+        [Input("schemaChangePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CrawlerSchemaChangePolicyArgs> _mSchemaChangePolicy;
+
+        public Inputs.CrawlerSchemaChangePolicyArgs? SchemaChangePolicy => _mSchemaChangePolicy.GetValue("schemaChangePolicy");
+
+        /// <summary>
+        /// The name of Security Configuration to be used by the crawler
+        /// </summary>
+        [Input("securityConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
+
+        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+
+        /// <summary>
+        /// The table prefix used for catalog tables that are created.
+        /// </summary>
+        [Input("tablePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTablePrefix;
+
+        public string? TablePrefix => _mTablePrefix.GetValue("tablePrefix");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

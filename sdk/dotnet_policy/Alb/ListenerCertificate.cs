@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Alb
 {
     [PolicyResourceType("aws:alb/listenerCertificate:ListenerCertificate")]
-    public sealed class ListenerCertificate : global::Pulumi.PolicyResource
+    public sealed class ListenerCertificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the certificate to attach to the listener.
         /// </summary>
         [Input("certificateArn")]
-        public string? CertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
 
         /// <summary>
         /// The ARN of the listener to which to attach the certificate.
         /// </summary>
         [Input("listenerArn")]
-        public string? ListenerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
+
+        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+    }
+
+    [PolicyResourceType("aws:alb/listenerCertificate:ListenerCertificate")]
+    public sealed class ListenerCertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the certificate to attach to the listener.
+        /// </summary>
+        [Input("certificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+
+        /// <summary>
+        /// The ARN of the listener to which to attach the certificate.
+        /// </summary>
+        [Input("listenerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
+
+        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
     }
 }

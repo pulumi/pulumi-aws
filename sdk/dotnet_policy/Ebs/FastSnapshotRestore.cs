@@ -11,27 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ebs
 {
     [PolicyResourceType("aws:ebs/fastSnapshotRestore:FastSnapshotRestore")]
-    public sealed class FastSnapshotRestore : global::Pulumi.PolicyResource
+    public sealed class FastSnapshotRestore : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Availability zone in which to enable fast snapshot restores.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// ID of the snapshot.
         /// </summary>
         [Input("snapshotId")]
-        public string? SnapshotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
+
+        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
 
         /// <summary>
         /// State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         [Input("timeouts")]
-        public FastSnapshotRestoreTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FastSnapshotRestoreTimeouts> _mTimeouts;
+
+        public Outputs.FastSnapshotRestoreTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:ebs/fastSnapshotRestore:FastSnapshotRestore")]
+    public sealed class FastSnapshotRestoreArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Availability zone in which to enable fast snapshot restores.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// ID of the snapshot.
+        /// </summary>
+        [Input("snapshotId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
+
+        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FastSnapshotRestoreTimeoutsArgs> _mTimeouts;
+
+        public Inputs.FastSnapshotRestoreTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

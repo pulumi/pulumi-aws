@@ -11,46 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase")]
-    public sealed class AgentKnowledgeBase : global::Pulumi.PolicyResource
+    public sealed class AgentKnowledgeBase : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the knowledge base.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Time at which the knowledge base was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Description of the knowledge base.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         [Input("failureReasons")]
-        public List<string>? FailureReasons;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFailureReasons;
+
+        public List<string>? FailureReasons => _mFailureReasons.GetValue("failureReasons");
 
         /// <summary>
         /// Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         /// </summary>
         [Input("knowledgeBaseConfiguration")]
-        public AgentKnowledgeBaseKnowledgeBaseConfiguration? KnowledgeBaseConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration> _mKnowledgeBaseConfiguration;
+
+        public Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration? KnowledgeBaseConfiguration => _mKnowledgeBaseConfiguration.GetValue("knowledgeBaseConfiguration");
 
         /// <summary>
         /// Name of the knowledge base.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
@@ -58,27 +79,108 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Input("storageConfiguration")]
-        public AgentKnowledgeBaseStorageConfiguration? StorageConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfiguration> _mStorageConfiguration;
+
+        public Outputs.AgentKnowledgeBaseStorageConfiguration? StorageConfiguration => _mStorageConfiguration.GetValue("storageConfiguration");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public AgentKnowledgeBaseTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseTimeouts> _mTimeouts;
+
+        public Outputs.AgentKnowledgeBaseTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Time at which the knowledge base was last updated.
         /// </summary>
         [Input("updatedAt")]
-        public string? UpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
+
+        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+    }
+
+    [PolicyResourceType("aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase")]
+    public sealed class AgentKnowledgeBaseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the knowledge base.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
+        /// </summary>
+        [Input("knowledgeBaseConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> _mKnowledgeBaseConfiguration;
+
+        public Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs? KnowledgeBaseConfiguration => _mKnowledgeBaseConfiguration.GetValue("knowledgeBaseConfiguration");
+
+        /// <summary>
+        /// Name of the knowledge base.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("storageConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseStorageConfigurationArgs> _mStorageConfiguration;
+
+        public Inputs.AgentKnowledgeBaseStorageConfigurationArgs? StorageConfiguration => _mStorageConfiguration.GetValue("storageConfiguration");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AgentKnowledgeBaseTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

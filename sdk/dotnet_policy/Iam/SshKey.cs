@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/sshKey:SshKey")]
-    public sealed class SshKey : global::Pulumi.PolicyResource
+    public sealed class SshKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
         /// </summary>
         [Input("encoding")]
-        public string? Encoding;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncoding;
+
+        public string? Encoding => _mEncoding.GetValue("encoding");
 
         /// <summary>
         /// The MD5 message digest of the SSH public key.
         /// </summary>
         [Input("fingerprint")]
-        public string? Fingerprint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFingerprint;
+
+        public string? Fingerprint => _mFingerprint.GetValue("fingerprint");
 
         /// <summary>
         /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
         /// </summary>
         [Input("publicKey")]
-        public string? PublicKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
 
         /// <summary>
         /// The unique identifier for the SSH public key.
         /// </summary>
         [Input("sshPublicKeyId")]
-        public string? SshPublicKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSshPublicKeyId;
+
+        public string? SshPublicKeyId => _mSshPublicKeyId.GetValue("sshPublicKeyId");
 
         /// <summary>
         /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The name of the IAM user to associate the SSH public key with.
         /// </summary>
         [Input("username")]
-        public string? Username;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
+    }
+
+    [PolicyResourceType("aws:iam/sshKey:SshKey")]
+    public sealed class SshKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
+        /// </summary>
+        [Input("encoding")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncoding;
+
+        public string? Encoding => _mEncoding.GetValue("encoding");
+
+        /// <summary>
+        /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
+        /// </summary>
+        [Input("publicKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+
+        /// <summary>
+        /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// The name of the IAM user to associate the SSH public key with.
+        /// </summary>
+        [Input("username")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
     }
 }

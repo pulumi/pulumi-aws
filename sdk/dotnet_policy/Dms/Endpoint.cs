@@ -11,67 +11,97 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Dms
 {
     [PolicyResourceType("aws:dms/endpoint:Endpoint")]
-    public sealed class Endpoint : global::Pulumi.PolicyResource
+    public sealed class Endpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN for the certificate.
         /// </summary>
         [Input("certificateArn")]
-        public string? CertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
 
         /// <summary>
         /// Name of the endpoint database.
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// Configuration block for OpenSearch settings. See below.
         /// </summary>
         [Input("elasticsearchSettings")]
-        public EndpointElasticsearchSettings? ElasticsearchSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointElasticsearchSettings> _mElasticsearchSettings;
+
+        public Outputs.EndpointElasticsearchSettings? ElasticsearchSettings => _mElasticsearchSettings.GetValue("elasticsearchSettings");
 
         /// <summary>
         /// ARN for the endpoint.
         /// </summary>
         [Input("endpointArn")]
-        public string? EndpointArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointArn;
+
+        public string? EndpointArn => _mEndpointArn.GetValue("endpointArn");
 
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         /// </summary>
         [Input("endpointId")]
-        public string? EndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
+
+        public string? EndpointId => _mEndpointId.GetValue("endpointId");
 
         /// <summary>
         /// Type of endpoint. Valid values are `source`, `target`.
         /// </summary>
         [Input("endpointType")]
-        public string? EndpointType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
+
+        public string? EndpointType => _mEndpointType.GetValue("endpointType");
 
         /// <summary>
         /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         /// </summary>
         [Input("engineName")]
-        public string? EngineName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineName;
+
+        public string? EngineName => _mEngineName.GetValue("engineName");
 
         /// <summary>
         /// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
         /// </summary>
         [Input("extraConnectionAttributes")]
-        public string? ExtraConnectionAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExtraConnectionAttributes;
+
+        public string? ExtraConnectionAttributes => _mExtraConnectionAttributes.GetValue("extraConnectionAttributes");
 
         /// <summary>
         /// Configuration block for Kafka settings. See below.
         /// </summary>
         [Input("kafkaSettings")]
-        public EndpointKafkaSettings? KafkaSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointKafkaSettings> _mKafkaSettings;
+
+        public Outputs.EndpointKafkaSettings? KafkaSettings => _mKafkaSettings.GetValue("kafkaSettings");
 
         /// <summary>
         /// Configuration block for Kinesis settings. See below.
         /// </summary>
         [Input("kinesisSettings")]
-        public EndpointKinesisSettings? KinesisSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointKinesisSettings> _mKinesisSettings;
+
+        public Outputs.EndpointKinesisSettings? KinesisSettings => _mKinesisSettings.GetValue("kinesisSettings");
 
         /// <summary>
         /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
@@ -79,49 +109,76 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// The following arguments are optional:
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// Configuration block for MongoDB settings. See below.
         /// </summary>
         [Input("mongodbSettings")]
-        public EndpointMongodbSettings? MongodbSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointMongodbSettings> _mMongodbSettings;
+
+        public Outputs.EndpointMongodbSettings? MongodbSettings => _mMongodbSettings.GetValue("mongodbSettings");
 
         /// <summary>
         /// Password to be used to login to the endpoint database.
         /// </summary>
         [Input("password")]
-        public string? Password;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
 
         [Input("pauseReplicationTasks")]
-        public bool? PauseReplicationTasks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPauseReplicationTasks;
+
+        public bool? PauseReplicationTasks => _mPauseReplicationTasks.GetValue("pauseReplicationTasks");
 
         /// <summary>
         /// Port used by the endpoint database.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// Configuration block for Postgres settings. See below.
         /// </summary>
         [Input("postgresSettings")]
-        public EndpointPostgresSettings? PostgresSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointPostgresSettings> _mPostgresSettings;
+
+        public Outputs.EndpointPostgresSettings? PostgresSettings => _mPostgresSettings.GetValue("postgresSettings");
 
         [Input("redisSettings")]
-        public EndpointRedisSettings? RedisSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointRedisSettings> _mRedisSettings;
+
+        public Outputs.EndpointRedisSettings? RedisSettings => _mRedisSettings.GetValue("redisSettings");
 
         /// <summary>
         /// Configuration block for Redshift settings. See below.
         /// </summary>
         [Input("redshiftSettings")]
-        public EndpointRedshiftSettings? RedshiftSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointRedshiftSettings> _mRedshiftSettings;
+
+        public Outputs.EndpointRedshiftSettings? RedshiftSettings => _mRedshiftSettings.GetValue("redshiftSettings");
 
         /// <summary>
         /// (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         /// </summary>
         [Input("s3Settings")]
-        public EndpointS3Settings? S3Settings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointS3Settings> _mS3Settings;
+
+        public Outputs.EndpointS3Settings? S3Settings => _mS3Settings.GetValue("s3Settings");
 
         /// <summary>
         /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
@@ -129,48 +186,299 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
         [Input("secretsManagerAccessRoleArn")]
-        public string? SecretsManagerAccessRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerAccessRoleArn;
+
+        public string? SecretsManagerAccessRoleArn => _mSecretsManagerAccessRoleArn.GetValue("secretsManagerAccessRoleArn");
 
         /// <summary>
         /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
         [Input("secretsManagerArn")]
-        public string? SecretsManagerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerArn;
+
+        public string? SecretsManagerArn => _mSecretsManagerArn.GetValue("secretsManagerArn");
 
         /// <summary>
         /// Host name of the server.
         /// </summary>
         [Input("serverName")]
-        public string? ServerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerName;
+
+        public string? ServerName => _mServerName.GetValue("serverName");
 
         /// <summary>
         /// ARN used by the service access IAM role for dynamodb endpoints.
         /// </summary>
         [Input("serviceAccessRole")]
-        public string? ServiceAccessRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRole;
+
+        public string? ServiceAccessRole => _mServiceAccessRole.GetValue("serviceAccessRole");
 
         /// <summary>
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         /// </summary>
         [Input("sslMode")]
-        public string? SslMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSslMode;
+
+        public string? SslMode => _mSslMode.GetValue("sslMode");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// User name to be used to login to the endpoint database.
         /// </summary>
         [Input("username")]
-        public string? Username;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
+    }
+
+    [PolicyResourceType("aws:dms/endpoint:Endpoint")]
+    public sealed class EndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN for the certificate.
+        /// </summary>
+        [Input("certificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+
+        /// <summary>
+        /// Name of the endpoint database.
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// Configuration block for OpenSearch settings. See below.
+        /// </summary>
+        [Input("elasticsearchSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointElasticsearchSettingsArgs> _mElasticsearchSettings;
+
+        public Inputs.EndpointElasticsearchSettingsArgs? ElasticsearchSettings => _mElasticsearchSettings.GetValue("elasticsearchSettings");
+
+        /// <summary>
+        /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
+        /// </summary>
+        [Input("endpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
+
+        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+
+        /// <summary>
+        /// Type of endpoint. Valid values are `source`, `target`.
+        /// </summary>
+        [Input("endpointType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
+
+        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+
+        /// <summary>
+        /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+        /// </summary>
+        [Input("engineName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineName;
+
+        public string? EngineName => _mEngineName.GetValue("engineName");
+
+        /// <summary>
+        /// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
+        /// </summary>
+        [Input("extraConnectionAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExtraConnectionAttributes;
+
+        public string? ExtraConnectionAttributes => _mExtraConnectionAttributes.GetValue("extraConnectionAttributes");
+
+        /// <summary>
+        /// Configuration block for Kafka settings. See below.
+        /// </summary>
+        [Input("kafkaSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointKafkaSettingsArgs> _mKafkaSettings;
+
+        public Inputs.EndpointKafkaSettingsArgs? KafkaSettings => _mKafkaSettings.GetValue("kafkaSettings");
+
+        /// <summary>
+        /// Configuration block for Kinesis settings. See below.
+        /// </summary>
+        [Input("kinesisSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointKinesisSettingsArgs> _mKinesisSettings;
+
+        public Inputs.EndpointKinesisSettingsArgs? KinesisSettings => _mKinesisSettings.GetValue("kinesisSettings");
+
+        /// <summary>
+        /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+
+        /// <summary>
+        /// Configuration block for MongoDB settings. See below.
+        /// </summary>
+        [Input("mongodbSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointMongodbSettingsArgs> _mMongodbSettings;
+
+        public Inputs.EndpointMongodbSettingsArgs? MongodbSettings => _mMongodbSettings.GetValue("mongodbSettings");
+
+        /// <summary>
+        /// Password to be used to login to the endpoint database.
+        /// </summary>
+        [Input("password")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
+
+        [Input("pauseReplicationTasks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPauseReplicationTasks;
+
+        public bool? PauseReplicationTasks => _mPauseReplicationTasks.GetValue("pauseReplicationTasks");
+
+        /// <summary>
+        /// Port used by the endpoint database.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// Configuration block for Postgres settings. See below.
+        /// </summary>
+        [Input("postgresSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointPostgresSettingsArgs> _mPostgresSettings;
+
+        public Inputs.EndpointPostgresSettingsArgs? PostgresSettings => _mPostgresSettings.GetValue("postgresSettings");
+
+        [Input("redisSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointRedisSettingsArgs> _mRedisSettings;
+
+        public Inputs.EndpointRedisSettingsArgs? RedisSettings => _mRedisSettings.GetValue("redisSettings");
+
+        /// <summary>
+        /// Configuration block for Redshift settings. See below.
+        /// </summary>
+        [Input("redshiftSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointRedshiftSettingsArgs> _mRedshiftSettings;
+
+        public Inputs.EndpointRedshiftSettingsArgs? RedshiftSettings => _mRedshiftSettings.GetValue("redshiftSettings");
+
+        /// <summary>
+        /// (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
+        /// </summary>
+        [Input("s3Settings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointS3SettingsArgs> _mS3Settings;
+
+        public Inputs.EndpointS3SettingsArgs? S3Settings => _mS3Settings.GetValue("s3Settings");
+
+        /// <summary>
+        /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
+        /// 
+        /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
+        /// </summary>
+        [Input("secretsManagerAccessRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerAccessRoleArn;
+
+        public string? SecretsManagerAccessRoleArn => _mSecretsManagerAccessRoleArn.GetValue("secretsManagerAccessRoleArn");
+
+        /// <summary>
+        /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
+        /// </summary>
+        [Input("secretsManagerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerArn;
+
+        public string? SecretsManagerArn => _mSecretsManagerArn.GetValue("secretsManagerArn");
+
+        /// <summary>
+        /// Host name of the server.
+        /// </summary>
+        [Input("serverName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerName;
+
+        public string? ServerName => _mServerName.GetValue("serverName");
+
+        /// <summary>
+        /// ARN used by the service access IAM role for dynamodb endpoints.
+        /// </summary>
+        [Input("serviceAccessRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRole;
+
+        public string? ServiceAccessRole => _mServiceAccessRole.GetValue("serviceAccessRole");
+
+        /// <summary>
+        /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
+        /// </summary>
+        [Input("sslMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSslMode;
+
+        public string? SslMode => _mSslMode.GetValue("sslMode");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// User name to be used to login to the endpoint database.
+        /// </summary>
+        [Input("username")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
     }
 }

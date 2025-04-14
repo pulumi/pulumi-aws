@@ -11,60 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectoryService
 {
     [PolicyResourceType("aws:directoryservice/radiusSettings:RadiusSettings")]
-    public sealed class RadiusSettings : global::Pulumi.PolicyResource
+    public sealed class RadiusSettings : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
         /// </summary>
         [Input("authenticationProtocol")]
-        public string? AuthenticationProtocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProtocol;
+
+        public string? AuthenticationProtocol => _mAuthenticationProtocol.GetValue("authenticationProtocol");
 
         /// <summary>
         /// The identifier of the directory for which you want to manager RADIUS settings.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// Display label.
         /// </summary>
         [Input("displayLabel")]
-        public string? DisplayLabel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayLabel;
+
+        public string? DisplayLabel => _mDisplayLabel.GetValue("displayLabel");
 
         /// <summary>
         /// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
         /// </summary>
         [Input("radiusPort")]
-        public int? RadiusPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusPort;
+
+        public int? RadiusPort => _mRadiusPort.GetValue("radiusPort");
 
         /// <summary>
         /// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         /// </summary>
         [Input("radiusRetries")]
-        public int? RadiusRetries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusRetries;
+
+        public int? RadiusRetries => _mRadiusRetries.GetValue("radiusRetries");
 
         /// <summary>
         /// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         /// </summary>
         [Input("radiusServers")]
-        public List<string>? RadiusServers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRadiusServers;
+
+        public List<string>? RadiusServers => _mRadiusServers.GetValue("radiusServers");
 
         /// <summary>
         /// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
         /// </summary>
         [Input("radiusTimeout")]
-        public int? RadiusTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusTimeout;
+
+        public int? RadiusTimeout => _mRadiusTimeout.GetValue("radiusTimeout");
 
         /// <summary>
         /// Required for enabling RADIUS on the directory.
         /// </summary>
         [Input("sharedSecret")]
-        public string? SharedSecret;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSharedSecret;
+
+        public string? SharedSecret => _mSharedSecret.GetValue("sharedSecret");
 
         /// <summary>
         /// Not currently used.
         /// </summary>
         [Input("useSameUsername")]
-        public bool? UseSameUsername;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseSameUsername;
+
+        public bool? UseSameUsername => _mUseSameUsername.GetValue("useSameUsername");
+    }
+
+    [PolicyResourceType("aws:directoryservice/radiusSettings:RadiusSettings")]
+    public sealed class RadiusSettingsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
+        /// </summary>
+        [Input("authenticationProtocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationProtocol;
+
+        public string? AuthenticationProtocol => _mAuthenticationProtocol.GetValue("authenticationProtocol");
+
+        /// <summary>
+        /// The identifier of the directory for which you want to manager RADIUS settings.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// Display label.
+        /// </summary>
+        [Input("displayLabel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayLabel;
+
+        public string? DisplayLabel => _mDisplayLabel.GetValue("displayLabel");
+
+        /// <summary>
+        /// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
+        /// </summary>
+        [Input("radiusPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusPort;
+
+        public int? RadiusPort => _mRadiusPort.GetValue("radiusPort");
+
+        /// <summary>
+        /// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
+        /// </summary>
+        [Input("radiusRetries")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusRetries;
+
+        public int? RadiusRetries => _mRadiusRetries.GetValue("radiusRetries");
+
+        /// <summary>
+        /// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
+        /// </summary>
+        [Input("radiusServers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRadiusServers;
+
+        public List<string>? RadiusServers => _mRadiusServers.GetValue("radiusServers");
+
+        /// <summary>
+        /// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
+        /// </summary>
+        [Input("radiusTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRadiusTimeout;
+
+        public int? RadiusTimeout => _mRadiusTimeout.GetValue("radiusTimeout");
+
+        /// <summary>
+        /// Required for enabling RADIUS on the directory.
+        /// </summary>
+        [Input("sharedSecret")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSharedSecret;
+
+        public string? SharedSecret => _mSharedSecret.GetValue("sharedSecret");
+
+        /// <summary>
+        /// Not currently used.
+        /// </summary>
+        [Input("useSameUsername")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseSameUsername;
+
+        public bool? UseSameUsername => _mUseSameUsername.GetValue("useSameUsername");
     }
 }

@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint")]
-    public sealed class ObjectLambdaAccessPoint : global::Pulumi.PolicyResource
+    public sealed class ObjectLambdaAccessPoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// Alias for the S3 Object Lambda Access Point.
         /// </summary>
         [Input("alias")]
-        public string? Alias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         /// </summary>
         [Input("configuration")]
-        public ObjectLambdaAccessPointConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ObjectLambdaAccessPointConfiguration> _mConfiguration;
+
+        public Outputs.ObjectLambdaAccessPointConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// The name for this Object Lambda Access Point.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint")]
+    public sealed class ObjectLambdaAccessPointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ObjectLambdaAccessPointConfigurationArgs> _mConfiguration;
+
+        public Inputs.ObjectLambdaAccessPointConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// The name for this Object Lambda Access Point.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

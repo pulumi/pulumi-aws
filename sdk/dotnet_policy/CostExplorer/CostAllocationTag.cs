@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CostExplorer
 {
     [PolicyResourceType("aws:costexplorer/costAllocationTag:CostAllocationTag")]
-    public sealed class CostAllocationTag : global::Pulumi.PolicyResource
+    public sealed class CostAllocationTag : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The key for the cost allocation tag.
         /// </summary>
         [Input("tagKey")]
-        public string? TagKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagKey;
+
+        public string? TagKey => _mTagKey.GetValue("tagKey");
 
         /// <summary>
         /// The type of cost allocation tag.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:costexplorer/costAllocationTag:CostAllocationTag")]
+    public sealed class CostAllocationTagArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// The key for the cost allocation tag.
+        /// </summary>
+        [Input("tagKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagKey;
+
+        public string? TagKey => _mTagKey.GetValue("tagKey");
     }
 }

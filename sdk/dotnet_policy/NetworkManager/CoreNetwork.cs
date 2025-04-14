@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/coreNetwork:CoreNetwork")]
-    public sealed class CoreNetwork : global::Pulumi.PolicyResource
+    public sealed class CoreNetwork : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Core Network Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         /// </summary>
         [Input("basePolicyDocument")]
-        public string? BasePolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasePolicyDocument;
+
+        public string? BasePolicyDocument => _mBasePolicyDocument.GetValue("basePolicyDocument");
 
         /// <summary>
         /// The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         /// </summary>
         [Input("basePolicyRegion")]
-        public string? BasePolicyRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasePolicyRegion;
+
+        public string? BasePolicyRegion => _mBasePolicyRegion.GetValue("basePolicyRegion");
 
         /// <summary>
         /// A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         /// </summary>
         [Input("basePolicyRegions")]
-        public List<string>? BasePolicyRegions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBasePolicyRegions;
+
+        public List<string>? BasePolicyRegions => _mBasePolicyRegions.GetValue("basePolicyRegions");
 
         /// <summary>
         /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
@@ -66,54 +78,173 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// ```
         /// </summary>
         [Input("createBasePolicy")]
-        public bool? CreateBasePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateBasePolicy;
+
+        public bool? CreateBasePolicy => _mCreateBasePolicy.GetValue("createBasePolicy");
 
         /// <summary>
         /// Timestamp when a core network was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Description of the Core Network.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// One or more blocks detailing the edges within a core network. Detailed below.
         /// </summary>
         [Input("edges")]
-        public List<CoreNetworkEdge>? Edges;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CoreNetworkEdge>> _mEdges;
+
+        public List<Outputs.CoreNetworkEdge>? Edges => _mEdges.GetValue("edges");
 
         /// <summary>
         /// The ID of the global network that a core network will be a part of.
         /// </summary>
         [Input("globalNetworkId")]
-        public string? GlobalNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
 
         /// <summary>
         /// One or more blocks detailing the segments within a core network. Detailed below.
         /// </summary>
         [Input("segments")]
-        public List<CoreNetworkSegment>? Segments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CoreNetworkSegment>> _mSegments;
+
+        public List<Outputs.CoreNetworkSegment>? Segments => _mSegments.GetValue("segments");
 
         /// <summary>
         /// Current state of a core network.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:networkmanager/coreNetwork:CoreNetwork")]
+    public sealed class CoreNetworkArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+        /// </summary>
+        [Input("basePolicyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasePolicyDocument;
+
+        public string? BasePolicyDocument => _mBasePolicyDocument.GetValue("basePolicyDocument");
+
+        /// <summary>
+        /// The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+        /// </summary>
+        [Input("basePolicyRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasePolicyRegion;
+
+        public string? BasePolicyRegion => _mBasePolicyRegion.GetValue("basePolicyRegion");
+
+        /// <summary>
+        /// A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+        /// </summary>
+        [Input("basePolicyRegions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBasePolicyRegions;
+
+        public List<string>? BasePolicyRegions => _mBasePolicyRegions.GetValue("basePolicyRegions");
+
+        /// <summary>
+        /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+        /// 
+        /// ```json
+        /// {
+        /// "version": "2021.12",
+        /// "core-network-configuration": {
+        /// "asn-ranges": [
+        /// "64512-65534"
+        /// ],
+        /// "vpn-ecmp-support": false,
+        /// "edge-locations": [
+        /// {
+        /// "location": "us-east-1"
+        /// }
+        /// ]
+        /// },
+        /// "segments": [
+        /// {
+        /// "name": "segment",
+        /// "description": "base-policy",
+        /// "isolate-attachments": false,
+        /// "require-attachment-acceptance": false
+        /// }
+        /// ]
+        /// }
+        /// ```
+        /// </summary>
+        [Input("createBasePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateBasePolicy;
+
+        public bool? CreateBasePolicy => _mCreateBasePolicy.GetValue("createBasePolicy");
+
+        /// <summary>
+        /// Description of the Core Network.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ID of the global network that a core network will be a part of.
+        /// </summary>
+        [Input("globalNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+
+        /// <summary>
+        /// Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

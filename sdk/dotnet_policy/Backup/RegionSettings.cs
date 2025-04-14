@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/regionSettings:RegionSettings")]
-    public sealed class RegionSettings : global::Pulumi.PolicyResource
+    public sealed class RegionSettings : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         /// </summary>
         [Input("resourceTypeManagementPreference")]
-        public Dictionary<string, bool>? ResourceTypeManagementPreference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResourceTypeManagementPreference;
+
+        public Dictionary<string, bool>? ResourceTypeManagementPreference => _mResourceTypeManagementPreference.GetValue("resourceTypeManagementPreference");
 
         /// <summary>
         /// A map of services along with the opt-in preferences for the Region.
         /// </summary>
         [Input("resourceTypeOptInPreference")]
-        public Dictionary<string, bool>? ResourceTypeOptInPreference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResourceTypeOptInPreference;
+
+        public Dictionary<string, bool>? ResourceTypeOptInPreference => _mResourceTypeOptInPreference.GetValue("resourceTypeOptInPreference");
+    }
+
+    [PolicyResourceType("aws:backup/regionSettings:RegionSettings")]
+    public sealed class RegionSettingsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
+        /// </summary>
+        [Input("resourceTypeManagementPreference")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResourceTypeManagementPreference;
+
+        public Dictionary<string, bool>? ResourceTypeManagementPreference => _mResourceTypeManagementPreference.GetValue("resourceTypeManagementPreference");
+
+        /// <summary>
+        /// A map of services along with the opt-in preferences for the Region.
+        /// </summary>
+        [Input("resourceTypeOptInPreference")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResourceTypeOptInPreference;
+
+        public Dictionary<string, bool>? ResourceTypeOptInPreference => _mResourceTypeOptInPreference.GetValue("resourceTypeOptInPreference");
     }
 }

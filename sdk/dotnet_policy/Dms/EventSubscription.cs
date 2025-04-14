@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Dms
 {
     [PolicyResourceType("aws:dms/eventSubscription:EventSubscription")]
-    public sealed class EventSubscription : global::Pulumi.PolicyResource
+    public sealed class EventSubscription : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DMS Event Subscription.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether the event subscription should be enabled.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         /// </summary>
         [Input("eventCategories")]
-        public List<string>? EventCategories;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventCategories;
+
+        public List<string>? EventCategories => _mEventCategories.GetValue("eventCategories");
 
         /// <summary>
         /// Name of event subscription.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// SNS topic arn to send events on.
         /// </summary>
         [Input("snsTopicArn")]
-        public string? SnsTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
 
         /// <summary>
         /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
         /// </summary>
         [Input("sourceIds")]
-        public List<string>? SourceIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSourceIds;
+
+        public List<string>? SourceIds => _mSourceIds.GetValue("sourceIds");
 
         /// <summary>
         /// Type of source for events. Valid values: `replication-instance` or `replication-task`
         /// </summary>
         [Input("sourceType")]
-        public string? SourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
+
+        public string? SourceType => _mSourceType.GetValue("sourceType");
 
         /// <summary>
         /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:dms/eventSubscription:EventSubscription")]
+    public sealed class EventSubscriptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether the event subscription should be enabled.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
+        /// </summary>
+        [Input("eventCategories")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventCategories;
+
+        public List<string>? EventCategories => _mEventCategories.GetValue("eventCategories");
+
+        /// <summary>
+        /// Name of event subscription.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// SNS topic arn to send events on.
+        /// </summary>
+        [Input("snsTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+
+        /// <summary>
+        /// Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
+        /// </summary>
+        [Input("sourceIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSourceIds;
+
+        public List<string>? SourceIds => _mSourceIds.GetValue("sourceIds");
+
+        /// <summary>
+        /// Type of source for events. Valid values: `replication-instance` or `replication-task`
+        /// </summary>
+        [Input("sourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
+
+        public string? SourceType => _mSourceType.GetValue("sourceType");
+
+        /// <summary>
+        /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

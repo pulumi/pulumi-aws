@@ -11,93 +11,202 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityLake
 {
     [PolicyResourceType("aws:securitylake/subscriber:Subscriber")]
-    public sealed class Subscriber : global::Pulumi.PolicyResource
+    public sealed class Subscriber : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon S3 or Lake Formation access type.
         /// </summary>
         [Input("accessType")]
-        public string? AccessType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessType;
+
+        public string? AccessType => _mAccessType.GetValue("accessType");
 
         /// <summary>
         /// ARN of the Data Lake.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         /// </summary>
         [Input("resourceShareArn")]
-        public string? ResourceShareArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
+
+        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
 
         /// <summary>
         /// The name of the resource share.
         /// </summary>
         [Input("resourceShareName")]
-        public string? ResourceShareName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareName;
+
+        public string? ResourceShareName => _mResourceShareName.GetValue("resourceShareName");
 
         /// <summary>
         /// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The ARN for the Amazon Security Lake Amazon S3 bucket.
         /// </summary>
         [Input("s3BucketArn")]
-        public string? S3BucketArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketArn;
+
+        public string? S3BucketArn => _mS3BucketArn.GetValue("s3BucketArn");
 
         /// <summary>
         /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
         [Input("source")]
-        public SubscriberSource? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SubscriberSource> _mSource;
+
+        public Outputs.SubscriberSource? Source => _mSource.GetValue("source");
 
         /// <summary>
         /// The description for your subscriber account in Security Lake.
         /// </summary>
         [Input("subscriberDescription")]
-        public string? SubscriberDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberDescription;
+
+        public string? SubscriberDescription => _mSubscriberDescription.GetValue("subscriberDescription");
 
         /// <summary>
         /// The subscriber endpoint to which exception messages are posted.
         /// </summary>
         [Input("subscriberEndpoint")]
-        public string? SubscriberEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberEndpoint;
+
+        public string? SubscriberEndpoint => _mSubscriberEndpoint.GetValue("subscriberEndpoint");
 
         /// <summary>
         /// The AWS identity used to access your data. See `subscriber_identity` Block below.
         /// </summary>
         [Input("subscriberIdentity")]
-        public SubscriberSubscriberIdentity? SubscriberIdentity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SubscriberSubscriberIdentity> _mSubscriberIdentity;
+
+        public Outputs.SubscriberSubscriberIdentity? SubscriberIdentity => _mSubscriberIdentity.GetValue("subscriberIdentity");
 
         /// <summary>
         /// The name of your Security Lake subscriber account.
         /// </summary>
         [Input("subscriberName")]
-        public string? SubscriberName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberName;
+
+        public string? SubscriberName => _mSubscriberName.GetValue("subscriberName");
 
         /// <summary>
         /// The subscriber status of the Amazon Security Lake subscriber account.
         /// </summary>
         [Input("subscriberStatus")]
-        public string? SubscriberStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberStatus;
+
+        public string? SubscriberStatus => _mSubscriberStatus.GetValue("subscriberStatus");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public SubscriberTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SubscriberTimeouts> _mTimeouts;
+
+        public Outputs.SubscriberTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:securitylake/subscriber:Subscriber")]
+    public sealed class SubscriberArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon S3 or Lake Formation access type.
+        /// </summary>
+        [Input("accessType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessType;
+
+        public string? AccessType => _mAccessType.GetValue("accessType");
+
+        /// <summary>
+        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberSourceArgs> _mSource;
+
+        public Inputs.SubscriberSourceArgs? Source => _mSource.GetValue("source");
+
+        /// <summary>
+        /// The description for your subscriber account in Security Lake.
+        /// </summary>
+        [Input("subscriberDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberDescription;
+
+        public string? SubscriberDescription => _mSubscriberDescription.GetValue("subscriberDescription");
+
+        /// <summary>
+        /// The AWS identity used to access your data. See `subscriber_identity` Block below.
+        /// </summary>
+        [Input("subscriberIdentity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberSubscriberIdentityArgs> _mSubscriberIdentity;
+
+        public Inputs.SubscriberSubscriberIdentityArgs? SubscriberIdentity => _mSubscriberIdentity.GetValue("subscriberIdentity");
+
+        /// <summary>
+        /// The name of your Security Lake subscriber account.
+        /// </summary>
+        [Input("subscriberName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberName;
+
+        public string? SubscriberName => _mSubscriberName.GetValue("subscriberName");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberTimeoutsArgs> _mTimeouts;
+
+        public Inputs.SubscriberTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

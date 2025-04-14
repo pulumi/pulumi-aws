@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppConfig
 {
     [PolicyResourceType("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")]
-    public sealed class HostedConfigurationVersion : global::Pulumi.PolicyResource
+    public sealed class HostedConfigurationVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Application ID.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// ARN of the AppConfig  hosted configuration version.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration profile ID.
         /// </summary>
         [Input("configurationProfileId")]
-        public string? ConfigurationProfileId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationProfileId;
+
+        public string? ConfigurationProfileId => _mConfigurationProfileId.GetValue("configurationProfileId");
 
         /// <summary>
         /// Content of the configuration or the configuration data.
         /// </summary>
         [Input("content")]
-        public string? Content;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
+
+        public string? Content => _mContent.GetValue("content");
 
         /// <summary>
         /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         /// </summary>
         [Input("contentType")]
-        public string? ContentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
+
+        public string? ContentType => _mContentType.GetValue("contentType");
 
         /// <summary>
         /// Description of the configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Version number of the hosted configuration.
         /// </summary>
         [Input("versionNumber")]
-        public int? VersionNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersionNumber;
+
+        public int? VersionNumber => _mVersionNumber.GetValue("versionNumber");
+    }
+
+    [PolicyResourceType("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")]
+    public sealed class HostedConfigurationVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Application ID.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// Configuration profile ID.
+        /// </summary>
+        [Input("configurationProfileId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationProfileId;
+
+        public string? ConfigurationProfileId => _mConfigurationProfileId.GetValue("configurationProfileId");
+
+        /// <summary>
+        /// Content of the configuration or the configuration data.
+        /// </summary>
+        [Input("content")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
+
+        public string? Content => _mContent.GetValue("content");
+
+        /// <summary>
+        /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
+        /// </summary>
+        [Input("contentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
+
+        public string? ContentType => _mContentType.GetValue("contentType");
+
+        /// <summary>
+        /// Description of the configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
     }
 }

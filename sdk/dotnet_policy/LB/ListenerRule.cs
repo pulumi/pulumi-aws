@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LB
 {
     [PolicyResourceType("aws:lb/listenerRule:ListenerRule")]
-    public sealed class ListenerRule : global::Pulumi.PolicyResource
+    public sealed class ListenerRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An Action block. Action blocks are documented below.
         /// </summary>
         [Input("actions")]
-        public List<ListenerRuleAction>? Actions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerRuleAction>> _mActions;
+
+        public List<Outputs.ListenerRuleAction>? Actions => _mActions.GetValue("actions");
 
         /// <summary>
         /// The ARN of the rule (matches `id`)
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         /// </summary>
         [Input("conditions")]
-        public List<ListenerRuleCondition>? Conditions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerRuleCondition>> _mConditions;
+
+        public List<Outputs.ListenerRuleCondition>? Conditions => _mConditions.GetValue("conditions");
 
         /// <summary>
         /// The ARN of the listener to which to attach the rule.
         /// </summary>
         [Input("listenerArn")]
-        public string? ListenerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
+
+        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
 
         /// <summary>
         /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         /// </summary>
         [Input("priority")]
-        public int? Priority;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:lb/listenerRule:ListenerRule")]
+    public sealed class ListenerRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An Action block. Action blocks are documented below.
+        /// </summary>
+        [Input("actions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerRuleActionArgs>> _mActions;
+
+        public List<Inputs.ListenerRuleActionArgs>? Actions => _mActions.GetValue("actions");
+
+        /// <summary>
+        /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
+        /// </summary>
+        [Input("conditions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerRuleConditionArgs>> _mConditions;
+
+        public List<Inputs.ListenerRuleConditionArgs>? Conditions => _mConditions.GetValue("conditions");
+
+        /// <summary>
+        /// The ARN of the listener to which to attach the rule.
+        /// </summary>
+        [Input("listenerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
+
+        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+
+        /// <summary>
+        /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
+        /// </summary>
+        [Input("priority")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

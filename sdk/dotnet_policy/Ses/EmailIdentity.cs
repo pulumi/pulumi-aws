@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/emailIdentity:EmailIdentity")]
-    public sealed class EmailIdentity : global::Pulumi.PolicyResource
+    public sealed class EmailIdentity : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the email identity.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The email address to assign to SES.
         /// </summary>
         [Input("email")]
-        public string? Email;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
+    }
+
+    [PolicyResourceType("aws:ses/emailIdentity:EmailIdentity")]
+    public sealed class EmailIdentityArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The email address to assign to SES.
+        /// </summary>
+        [Input("email")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
     }
 }

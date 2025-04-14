@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/application:Application")]
-    public sealed class Application : global::Pulumi.PolicyResource
+    public sealed class Application : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("applicationAccount")]
-        public string? ApplicationAccount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationAccount;
+
+        public string? ApplicationAccount => _mApplicationAccount.GetValue("applicationAccount");
 
         /// <summary>
         /// ARN of the application.
         /// </summary>
         [Input("applicationArn")]
-        public string? ApplicationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
+
+        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
 
         /// <summary>
         /// ARN of the application provider.
         /// </summary>
         [Input("applicationProviderArn")]
-        public string? ApplicationProviderArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationProviderArn;
+
+        public string? ApplicationProviderArn => _mApplicationProviderArn.GetValue("applicationProviderArn");
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         /// </summary>
         [Input("clientToken")]
-        public string? ClientToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
+
+        public string? ClientToken => _mClientToken.GetValue("clientToken");
 
         /// <summary>
         /// Description of the application.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// ARN of the instance of IAM Identity Center.
         /// </summary>
         [Input("instanceArn")]
-        public string? InstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
 
         /// <summary>
         /// Name of the application.
@@ -55,30 +73,123 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Options for the portal associated with an application. See `portal_options` below.
         /// </summary>
         [Input("portalOptions")]
-        public ApplicationPortalOptions? PortalOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationPortalOptions> _mPortalOptions;
+
+        public Outputs.ApplicationPortalOptions? PortalOptions => _mPortalOptions.GetValue("portalOptions");
 
         /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/application:Application")]
+    public sealed class ApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the application provider.
+        /// </summary>
+        [Input("applicationProviderArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationProviderArn;
+
+        public string? ApplicationProviderArn => _mApplicationProviderArn.GetValue("applicationProviderArn");
+
+        /// <summary>
+        /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
+        /// </summary>
+        [Input("clientToken")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
+
+        public string? ClientToken => _mClientToken.GetValue("clientToken");
+
+        /// <summary>
+        /// Description of the application.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// ARN of the instance of IAM Identity Center.
+        /// </summary>
+        [Input("instanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+
+        /// <summary>
+        /// Name of the application.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Options for the portal associated with an application. See `portal_options` below.
+        /// </summary>
+        [Input("portalOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationPortalOptionsArgs> _mPortalOptions;
+
+        public Inputs.ApplicationPortalOptionsArgs? PortalOptions => _mPortalOptions.GetValue("portalOptions");
+
+        /// <summary>
+        /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

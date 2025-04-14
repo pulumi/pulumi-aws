@@ -11,60 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/botAlias:BotAlias")]
-    public sealed class BotAlias : global::Pulumi.PolicyResource
+    public sealed class BotAlias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the bot alias.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the bot.
         /// </summary>
         [Input("botName")]
-        public string? BotName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotName;
+
+        public string? BotName => _mBotName.GetValue("botName");
 
         /// <summary>
         /// The version of the bot.
         /// </summary>
         [Input("botVersion")]
-        public string? BotVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
 
         /// <summary>
         /// Checksum of the bot alias.
         /// </summary>
         [Input("checksum")]
-        public string? Checksum;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChecksum;
+
+        public string? Checksum => _mChecksum.GetValue("checksum");
 
         /// <summary>
         /// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         /// </summary>
         [Input("conversationLogs")]
-        public BotAliasConversationLogs? ConversationLogs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BotAliasConversationLogs> _mConversationLogs;
+
+        public Outputs.BotAliasConversationLogs? ConversationLogs => _mConversationLogs.GetValue("conversationLogs");
 
         /// <summary>
         /// The date that the bot alias was created.
         /// </summary>
         [Input("createdDate")]
-        public string? CreatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
+
+        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
 
         /// <summary>
         /// A description of the alias. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         /// </summary>
         [Input("lastUpdatedDate")]
-        public string? LastUpdatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
+
+        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
 
         /// <summary>
         /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:lex/botAlias:BotAlias")]
+    public sealed class BotAliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the bot.
+        /// </summary>
+        [Input("botName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotName;
+
+        public string? BotName => _mBotName.GetValue("botName");
+
+        /// <summary>
+        /// The version of the bot.
+        /// </summary>
+        [Input("botVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+
+        /// <summary>
+        /// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+        /// </summary>
+        [Input("conversationLogs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BotAliasConversationLogsArgs> _mConversationLogs;
+
+        public Inputs.BotAliasConversationLogsArgs? ConversationLogs => _mConversationLogs.GetValue("conversationLogs");
+
+        /// <summary>
+        /// A description of the alias. Must be less than or equal to 200 characters in length.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpnConnectionRoute:VpnConnectionRoute")]
-    public sealed class VpnConnectionRoute : global::Pulumi.PolicyResource
+    public sealed class VpnConnectionRoute : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The CIDR block associated with the local subnet of the customer network.
         /// </summary>
         [Input("destinationCidrBlock")]
-        public string? DestinationCidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
 
         /// <summary>
         /// The ID of the VPN connection.
         /// </summary>
         [Input("vpnConnectionId")]
-        public string? VpnConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnConnectionId;
+
+        public string? VpnConnectionId => _mVpnConnectionId.GetValue("vpnConnectionId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpnConnectionRoute:VpnConnectionRoute")]
+    public sealed class VpnConnectionRouteArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The CIDR block associated with the local subnet of the customer network.
+        /// </summary>
+        [Input("destinationCidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+
+        /// <summary>
+        /// The ID of the VPN connection.
+        /// </summary>
+        [Input("vpnConnectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnConnectionId;
+
+        public string? VpnConnectionId => _mVpnConnectionId.GetValue("vpnConnectionId");
     }
 }

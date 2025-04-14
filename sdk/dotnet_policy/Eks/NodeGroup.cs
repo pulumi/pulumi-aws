@@ -11,115 +11,169 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Eks
 {
     [PolicyResourceType("aws:eks/nodeGroup:NodeGroup")]
-    public sealed class NodeGroup : global::Pulumi.PolicyResource
+    public sealed class NodeGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("amiType")]
-        public string? AmiType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmiType;
+
+        public string? AmiType => _mAmiType.GetValue("amiType");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Node Group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("capacityType")]
-        public string? CapacityType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityType;
+
+        public string? CapacityType => _mCapacityType.GetValue("capacityType");
 
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName")]
-        public string? ClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
 
         /// <summary>
         /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("diskSize")]
-        public int? DiskSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDiskSize;
+
+        public int? DiskSize => _mDiskSize.GetValue("diskSize");
 
         /// <summary>
         /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         /// </summary>
         [Input("forceUpdateVersion")]
-        public bool? ForceUpdateVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdateVersion;
+
+        public bool? ForceUpdateVersion => _mForceUpdateVersion.GetValue("forceUpdateVersion");
 
         /// <summary>
         /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("instanceTypes")]
-        public List<string>? InstanceTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
+
+        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
 
         /// <summary>
         /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         /// </summary>
         [Input("labels")]
-        public Dictionary<string, string>? Labels;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLabels;
+
+        public Dictionary<string, string>? Labels => _mLabels.GetValue("labels");
 
         /// <summary>
         /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
         [Input("launchTemplate")]
-        public NodeGroupLaunchTemplate? LaunchTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupLaunchTemplate> _mLaunchTemplate;
+
+        public Outputs.NodeGroupLaunchTemplate? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
 
         /// <summary>
         /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         /// </summary>
         [Input("nodeGroupName")]
-        public string? NodeGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeGroupName;
+
+        public string? NodeGroupName => _mNodeGroupName.GetValue("nodeGroupName");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         /// </summary>
         [Input("nodeGroupNamePrefix")]
-        public string? NodeGroupNamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeGroupNamePrefix;
+
+        public string? NodeGroupNamePrefix => _mNodeGroupNamePrefix.GetValue("nodeGroupNamePrefix");
 
         /// <summary>
         /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
         /// </summary>
         [Input("nodeRepairConfig")]
-        public NodeGroupNodeRepairConfig? NodeRepairConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupNodeRepairConfig> _mNodeRepairConfig;
+
+        public Outputs.NodeGroupNodeRepairConfig? NodeRepairConfig => _mNodeRepairConfig.GetValue("nodeRepairConfig");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Input("nodeRoleArn")]
-        public string? NodeRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeRoleArn;
+
+        public string? NodeRoleArn => _mNodeRoleArn.GetValue("nodeRoleArn");
 
         /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
         [Input("releaseVersion")]
-        public string? ReleaseVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseVersion;
+
+        public string? ReleaseVersion => _mReleaseVersion.GetValue("releaseVersion");
 
         /// <summary>
         /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
         [Input("remoteAccess")]
-        public NodeGroupRemoteAccess? RemoteAccess;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupRemoteAccess> _mRemoteAccess;
+
+        public Outputs.NodeGroupRemoteAccess? RemoteAccess => _mRemoteAccess.GetValue("remoteAccess");
 
         /// <summary>
         /// List of objects containing information about underlying resources.
         /// </summary>
         [Input("resources")]
-        public List<NodeGroupResource>? Resources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NodeGroupResource>> _mResources;
+
+        public List<Outputs.NodeGroupResource>? Resources => _mResources.GetValue("resources");
 
         /// <summary>
         /// Configuration block with scaling settings. See `scaling_config` below for details.
         /// </summary>
         [Input("scalingConfig")]
-        public NodeGroupScalingConfig? ScalingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupScalingConfig> _mScalingConfig;
+
+        public Outputs.NodeGroupScalingConfig? ScalingConfig => _mScalingConfig.GetValue("scalingConfig");
 
         /// <summary>
         /// Status of the EKS Node Group.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
@@ -127,36 +181,240 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// The following arguments are optional:
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         /// </summary>
         [Input("taints")]
-        public List<NodeGroupTaint>? Taints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NodeGroupTaint>> _mTaints;
+
+        public List<Outputs.NodeGroupTaint>? Taints => _mTaints.GetValue("taints");
 
         /// <summary>
         /// Configuration block with update settings. See `update_config` below for details.
         /// </summary>
         [Input("updateConfig")]
-        public NodeGroupUpdateConfig? UpdateConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupUpdateConfig> _mUpdateConfig;
+
+        public Outputs.NodeGroupUpdateConfig? UpdateConfig => _mUpdateConfig.GetValue("updateConfig");
 
         /// <summary>
         /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:eks/nodeGroup:NodeGroup")]
+    public sealed class NodeGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        [Input("amiType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmiType;
+
+        public string? AmiType => _mAmiType.GetValue("amiType");
+
+        /// <summary>
+        /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        [Input("capacityType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityType;
+
+        public string? CapacityType => _mCapacityType.GetValue("capacityType");
+
+        /// <summary>
+        /// Name of the EKS Cluster.
+        /// </summary>
+        [Input("clusterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
+
+        /// <summary>
+        /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        [Input("diskSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDiskSize;
+
+        public int? DiskSize => _mDiskSize.GetValue("diskSize");
+
+        /// <summary>
+        /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
+        /// </summary>
+        [Input("forceUpdateVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdateVersion;
+
+        public bool? ForceUpdateVersion => _mForceUpdateVersion.GetValue("forceUpdateVersion");
+
+        /// <summary>
+        /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        [Input("instanceTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
+
+        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
+
+        /// <summary>
+        /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
+        /// </summary>
+        [Input("labels")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLabels;
+
+        public Dictionary<string, string>? Labels => _mLabels.GetValue("labels");
+
+        /// <summary>
+        /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
+        /// </summary>
+        [Input("launchTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupLaunchTemplateArgs> _mLaunchTemplate;
+
+        public Inputs.NodeGroupLaunchTemplateArgs? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+
+        /// <summary>
+        /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
+        /// </summary>
+        [Input("nodeGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeGroupName;
+
+        public string? NodeGroupName => _mNodeGroupName.GetValue("nodeGroupName");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        /// </summary>
+        [Input("nodeGroupNamePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeGroupNamePrefix;
+
+        public string? NodeGroupNamePrefix => _mNodeGroupNamePrefix.GetValue("nodeGroupNamePrefix");
+
+        /// <summary>
+        /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        /// </summary>
+        [Input("nodeRepairConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupNodeRepairConfigArgs> _mNodeRepairConfig;
+
+        public Inputs.NodeGroupNodeRepairConfigArgs? NodeRepairConfig => _mNodeRepairConfig.GetValue("nodeRepairConfig");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        /// </summary>
+        [Input("nodeRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNodeRoleArn;
+
+        public string? NodeRoleArn => _mNodeRoleArn.GetValue("nodeRoleArn");
+
+        /// <summary>
+        /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
+        /// </summary>
+        [Input("releaseVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseVersion;
+
+        public string? ReleaseVersion => _mReleaseVersion.GetValue("releaseVersion");
+
+        /// <summary>
+        /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
+        /// </summary>
+        [Input("remoteAccess")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupRemoteAccessArgs> _mRemoteAccess;
+
+        public Inputs.NodeGroupRemoteAccessArgs? RemoteAccess => _mRemoteAccess.GetValue("remoteAccess");
+
+        /// <summary>
+        /// Configuration block with scaling settings. See `scaling_config` below for details.
+        /// </summary>
+        [Input("scalingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupScalingConfigArgs> _mScalingConfig;
+
+        public Inputs.NodeGroupScalingConfigArgs? ScalingConfig => _mScalingConfig.GetValue("scalingConfig");
+
+        /// <summary>
+        /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+        /// </summary>
+        [Input("taints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.NodeGroupTaintArgs>> _mTaints;
+
+        public List<Inputs.NodeGroupTaintArgs>? Taints => _mTaints.GetValue("taints");
+
+        /// <summary>
+        /// Configuration block with update settings. See `update_config` below for details.
+        /// </summary>
+        [Input("updateConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupUpdateConfigArgs> _mUpdateConfig;
+
+        public Inputs.NodeGroupUpdateConfigArgs? UpdateConfig => _mUpdateConfig.GetValue("updateConfig");
+
+        /// <summary>
+        /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
     }
 }

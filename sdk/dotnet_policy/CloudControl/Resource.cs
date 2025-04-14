@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudControl
 {
     [PolicyResourceType("aws:cloudcontrol/resource:Resource")]
-    public sealed class Resource : global::Pulumi.PolicyResource
+    public sealed class Resource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// JSON string matching the CloudFormation resource type schema with desired configuration.
         /// </summary>
         [Input("desiredState")]
-        public string? DesiredState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
+
+        public string? DesiredState => _mDesiredState.GetValue("desiredState");
 
         /// <summary>
         /// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
         /// </summary>
         [Input("properties")]
-        public string? Properties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProperties;
+
+        public string? Properties => _mProperties.GetValue("properties");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         /// </summary>
         [Input("schema")]
-        public string? Schema;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
+
+        public string? Schema => _mSchema.GetValue("schema");
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -43,12 +55,69 @@ namespace Pulumi.PolicyPacks.Aws.CloudControl
         /// The following arguments are optional:
         /// </summary>
         [Input("typeName")]
-        public string? TypeName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTypeName;
+
+        public string? TypeName => _mTypeName.GetValue("typeName");
 
         /// <summary>
         /// Identifier of the CloudFormation resource type version.
         /// </summary>
         [Input("typeVersionId")]
-        public string? TypeVersionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTypeVersionId;
+
+        public string? TypeVersionId => _mTypeVersionId.GetValue("typeVersionId");
+    }
+
+    [PolicyResourceType("aws:cloudcontrol/resource:Resource")]
+    public sealed class ResourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// JSON string matching the CloudFormation resource type schema with desired configuration.
+        /// </summary>
+        [Input("desiredState")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
+
+        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+        /// </summary>
+        [Input("schema")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
+
+        public string? Schema => _mSchema.GetValue("schema");
+
+        /// <summary>
+        /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("typeName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTypeName;
+
+        public string? TypeName => _mTypeName.GetValue("typeName");
+
+        /// <summary>
+        /// Identifier of the CloudFormation resource type version.
+        /// </summary>
+        [Input("typeVersionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTypeVersionId;
+
+        public string? TypeVersionId => _mTypeVersionId.GetValue("typeVersionId");
     }
 }

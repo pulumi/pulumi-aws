@@ -11,103 +11,151 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/managedUserPoolClient:ManagedUserPoolClient")]
-    public sealed class ManagedUserPoolClient : global::Pulumi.PolicyResource
+    public sealed class ManagedUserPoolClient : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
         /// </summary>
         [Input("accessTokenValidity")]
-        public int? AccessTokenValidity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAccessTokenValidity;
+
+        public int? AccessTokenValidity => _mAccessTokenValidity.GetValue("accessTokenValidity");
 
         /// <summary>
         /// List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         [Input("allowedOauthFlows")]
-        public List<string>? AllowedOauthFlows;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOauthFlows;
+
+        public List<string>? AllowedOauthFlows => _mAllowedOauthFlows.GetValue("allowedOauthFlows");
 
         /// <summary>
         /// Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         /// </summary>
         [Input("allowedOauthFlowsUserPoolClient")]
-        public bool? AllowedOauthFlowsUserPoolClient;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowedOauthFlowsUserPoolClient;
+
+        public bool? AllowedOauthFlowsUserPoolClient => _mAllowedOauthFlowsUserPoolClient.GetValue("allowedOauthFlowsUserPoolClient");
 
         /// <summary>
         /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         [Input("allowedOauthScopes")]
-        public List<string>? AllowedOauthScopes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOauthScopes;
+
+        public List<string>? AllowedOauthScopes => _mAllowedOauthScopes.GetValue("allowedOauthScopes");
 
         /// <summary>
         /// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
         /// </summary>
         [Input("analyticsConfiguration")]
-        public ManagedUserPoolClientAnalyticsConfiguration? AnalyticsConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ManagedUserPoolClientAnalyticsConfiguration> _mAnalyticsConfiguration;
+
+        public Outputs.ManagedUserPoolClientAnalyticsConfiguration? AnalyticsConfiguration => _mAnalyticsConfiguration.GetValue("analyticsConfiguration");
 
         /// <summary>
         /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         /// </summary>
         [Input("authSessionValidity")]
-        public int? AuthSessionValidity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAuthSessionValidity;
+
+        public int? AuthSessionValidity => _mAuthSessionValidity.GetValue("authSessionValidity");
 
         /// <summary>
         /// List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         [Input("callbackUrls")]
-        public List<string>? CallbackUrls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCallbackUrls;
+
+        public List<string>? CallbackUrls => _mCallbackUrls.GetValue("callbackUrls");
 
         /// <summary>
         /// Client secret of the user pool client.
         /// </summary>
         [Input("clientSecret")]
-        public string? ClientSecret;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientSecret;
+
+        public string? ClientSecret => _mClientSecret.GetValue("clientSecret");
 
         /// <summary>
         /// Default redirect URI and must be included in the list of callback URLs.
         /// </summary>
         [Input("defaultRedirectUri")]
-        public string? DefaultRedirectUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRedirectUri;
+
+        public string? DefaultRedirectUri => _mDefaultRedirectUri.GetValue("defaultRedirectUri");
 
         /// <summary>
         /// Enables the propagation of additional user context data.
         /// </summary>
         [Input("enablePropagateAdditionalUserContextData")]
-        public bool? EnablePropagateAdditionalUserContextData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePropagateAdditionalUserContextData;
+
+        public bool? EnablePropagateAdditionalUserContextData => _mEnablePropagateAdditionalUserContextData.GetValue("enablePropagateAdditionalUserContextData");
 
         /// <summary>
         /// Enables or disables token revocation.
         /// </summary>
         [Input("enableTokenRevocation")]
-        public bool? EnableTokenRevocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableTokenRevocation;
+
+        public bool? EnableTokenRevocation => _mEnableTokenRevocation.GetValue("enableTokenRevocation");
 
         /// <summary>
         /// List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         /// </summary>
         [Input("explicitAuthFlows")]
-        public List<string>? ExplicitAuthFlows;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExplicitAuthFlows;
+
+        public List<string>? ExplicitAuthFlows => _mExplicitAuthFlows.GetValue("explicitAuthFlows");
 
         /// <summary>
         /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         /// </summary>
         [Input("idTokenValidity")]
-        public int? IdTokenValidity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdTokenValidity;
+
+        public int? IdTokenValidity => _mIdTokenValidity.GetValue("idTokenValidity");
 
         /// <summary>
         /// List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         [Input("logoutUrls")]
-        public List<string>? LogoutUrls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogoutUrls;
+
+        public List<string>? LogoutUrls => _mLogoutUrls.GetValue("logoutUrls");
 
         /// <summary>
         /// Name of the user pool client.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
         /// </summary>
         [Input("namePattern")]
-        public string? NamePattern;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePattern;
+
+        public string? NamePattern => _mNamePattern.GetValue("namePattern");
 
         /// <summary>
         /// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
@@ -115,48 +163,276 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// The following arguments are optional:
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         /// </summary>
         [Input("preventUserExistenceErrors")]
-        public string? PreventUserExistenceErrors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreventUserExistenceErrors;
+
+        public string? PreventUserExistenceErrors => _mPreventUserExistenceErrors.GetValue("preventUserExistenceErrors");
 
         /// <summary>
         /// List of user pool attributes that the application client can read from.
         /// </summary>
         [Input("readAttributes")]
-        public List<string>? ReadAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReadAttributes;
+
+        public List<string>? ReadAttributes => _mReadAttributes.GetValue("readAttributes");
 
         /// <summary>
         /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Input("refreshTokenValidity")]
-        public int? RefreshTokenValidity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRefreshTokenValidity;
+
+        public int? RefreshTokenValidity => _mRefreshTokenValidity.GetValue("refreshTokenValidity");
 
         /// <summary>
         /// List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         [Input("supportedIdentityProviders")]
-        public List<string>? SupportedIdentityProviders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedIdentityProviders;
+
+        public List<string>? SupportedIdentityProviders => _mSupportedIdentityProviders.GetValue("supportedIdentityProviders");
 
         /// <summary>
         /// Configuration block for representing the validity times in units. See details below. Detailed below.
         /// </summary>
         [Input("tokenValidityUnits")]
-        public ManagedUserPoolClientTokenValidityUnits? TokenValidityUnits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ManagedUserPoolClientTokenValidityUnits> _mTokenValidityUnits;
+
+        public Outputs.ManagedUserPoolClientTokenValidityUnits? TokenValidityUnits => _mTokenValidityUnits.GetValue("tokenValidityUnits");
 
         /// <summary>
         /// User pool that the client belongs to.
         /// </summary>
         [Input("userPoolId")]
-        public string? UserPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
 
         /// <summary>
         /// List of user pool attributes that the application client can write to.
         /// </summary>
         [Input("writeAttributes")]
-        public List<string>? WriteAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mWriteAttributes;
+
+        public List<string>? WriteAttributes => _mWriteAttributes.GetValue("writeAttributes");
+    }
+
+    [PolicyResourceType("aws:cognito/managedUserPoolClient:ManagedUserPoolClient")]
+    public sealed class ManagedUserPoolClientArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
+        /// </summary>
+        [Input("accessTokenValidity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAccessTokenValidity;
+
+        public int? AccessTokenValidity => _mAccessTokenValidity.GetValue("accessTokenValidity");
+
+        /// <summary>
+        /// List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// </summary>
+        [Input("allowedOauthFlows")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOauthFlows;
+
+        public List<string>? AllowedOauthFlows => _mAllowedOauthFlows.GetValue("allowedOauthFlows");
+
+        /// <summary>
+        /// Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        /// </summary>
+        [Input("allowedOauthFlowsUserPoolClient")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowedOauthFlowsUserPoolClient;
+
+        public bool? AllowedOauthFlowsUserPoolClient => _mAllowedOauthFlowsUserPoolClient.GetValue("allowedOauthFlowsUserPoolClient");
+
+        /// <summary>
+        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// </summary>
+        [Input("allowedOauthScopes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOauthScopes;
+
+        public List<string>? AllowedOauthScopes => _mAllowedOauthScopes.GetValue("allowedOauthScopes");
+
+        /// <summary>
+        /// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        /// </summary>
+        [Input("analyticsConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ManagedUserPoolClientAnalyticsConfigurationArgs> _mAnalyticsConfiguration;
+
+        public Inputs.ManagedUserPoolClientAnalyticsConfigurationArgs? AnalyticsConfiguration => _mAnalyticsConfiguration.GetValue("analyticsConfiguration");
+
+        /// <summary>
+        /// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+        /// </summary>
+        [Input("authSessionValidity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAuthSessionValidity;
+
+        public int? AuthSessionValidity => _mAuthSessionValidity.GetValue("authSessionValidity");
+
+        /// <summary>
+        /// List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// </summary>
+        [Input("callbackUrls")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCallbackUrls;
+
+        public List<string>? CallbackUrls => _mCallbackUrls.GetValue("callbackUrls");
+
+        /// <summary>
+        /// Default redirect URI and must be included in the list of callback URLs.
+        /// </summary>
+        [Input("defaultRedirectUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRedirectUri;
+
+        public string? DefaultRedirectUri => _mDefaultRedirectUri.GetValue("defaultRedirectUri");
+
+        /// <summary>
+        /// Enables the propagation of additional user context data.
+        /// </summary>
+        [Input("enablePropagateAdditionalUserContextData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePropagateAdditionalUserContextData;
+
+        public bool? EnablePropagateAdditionalUserContextData => _mEnablePropagateAdditionalUserContextData.GetValue("enablePropagateAdditionalUserContextData");
+
+        /// <summary>
+        /// Enables or disables token revocation.
+        /// </summary>
+        [Input("enableTokenRevocation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableTokenRevocation;
+
+        public bool? EnableTokenRevocation => _mEnableTokenRevocation.GetValue("enableTokenRevocation");
+
+        /// <summary>
+        /// List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
+        /// </summary>
+        [Input("explicitAuthFlows")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExplicitAuthFlows;
+
+        public List<string>? ExplicitAuthFlows => _mExplicitAuthFlows.GetValue("explicitAuthFlows");
+
+        /// <summary>
+        /// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
+        /// </summary>
+        [Input("idTokenValidity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdTokenValidity;
+
+        public int? IdTokenValidity => _mIdTokenValidity.GetValue("idTokenValidity");
+
+        /// <summary>
+        /// List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        /// </summary>
+        [Input("logoutUrls")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogoutUrls;
+
+        public List<string>? LogoutUrls => _mLogoutUrls.GetValue("logoutUrls");
+
+        /// <summary>
+        /// Regular expression that matches the name of the existing User Pool Client to be managed. It must only match one User Pool Client.
+        /// </summary>
+        [Input("namePattern")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePattern;
+
+        public string? NamePattern => _mNamePattern.GetValue("namePattern");
+
+        /// <summary>
+        /// String that matches the beginning of the name of the  existing User Pool Client to be managed. It must match only one User Pool Client.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
+        /// </summary>
+        [Input("preventUserExistenceErrors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreventUserExistenceErrors;
+
+        public string? PreventUserExistenceErrors => _mPreventUserExistenceErrors.GetValue("preventUserExistenceErrors");
+
+        /// <summary>
+        /// List of user pool attributes that the application client can read from.
+        /// </summary>
+        [Input("readAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReadAttributes;
+
+        public List<string>? ReadAttributes => _mReadAttributes.GetValue("readAttributes");
+
+        /// <summary>
+        /// Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
+        /// </summary>
+        [Input("refreshTokenValidity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRefreshTokenValidity;
+
+        public int? RefreshTokenValidity => _mRefreshTokenValidity.GetValue("refreshTokenValidity");
+
+        /// <summary>
+        /// List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        /// </summary>
+        [Input("supportedIdentityProviders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedIdentityProviders;
+
+        public List<string>? SupportedIdentityProviders => _mSupportedIdentityProviders.GetValue("supportedIdentityProviders");
+
+        /// <summary>
+        /// Configuration block for representing the validity times in units. See details below. Detailed below.
+        /// </summary>
+        [Input("tokenValidityUnits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ManagedUserPoolClientTokenValidityUnitsArgs> _mTokenValidityUnits;
+
+        public Inputs.ManagedUserPoolClientTokenValidityUnitsArgs? TokenValidityUnits => _mTokenValidityUnits.GetValue("tokenValidityUnits");
+
+        /// <summary>
+        /// User pool that the client belongs to.
+        /// </summary>
+        [Input("userPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+
+        /// <summary>
+        /// List of user pool attributes that the application client can write to.
+        /// </summary>
+        [Input("writeAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mWriteAttributes;
+
+        public List<string>? WriteAttributes => _mWriteAttributes.GetValue("writeAttributes");
     }
 }

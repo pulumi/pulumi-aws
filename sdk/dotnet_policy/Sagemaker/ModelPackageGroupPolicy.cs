@@ -11,15 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")]
-    public sealed class ModelPackageGroupPolicy : global::Pulumi.PolicyResource
+    public sealed class ModelPackageGroupPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the model package group.
         /// </summary>
         [Input("modelPackageGroupName")]
-        public string? ModelPackageGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageGroupName;
+
+        public string? ModelPackageGroupName => _mModelPackageGroupName.GetValue("modelPackageGroupName");
 
         [Input("resourcePolicy")]
-        public string? ResourcePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
+
+        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+    }
+
+    [PolicyResourceType("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")]
+    public sealed class ModelPackageGroupPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the model package group.
+        /// </summary>
+        [Input("modelPackageGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageGroupName;
+
+        public string? ModelPackageGroupName => _mModelPackageGroupName.GetValue("modelPackageGroupName");
+
+        [Input("resourcePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
+
+        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
     }
 }

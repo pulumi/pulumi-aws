@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/resourcePolicy:ResourcePolicy")]
-    public sealed class ResourcePolicy : global::Pulumi.PolicyResource
+    public sealed class ResourcePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         /// </summary>
         [Input("enableHybrid")]
-        public string? EnableHybrid;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnableHybrid;
+
+        public string? EnableHybrid => _mEnableHybrid.GetValue("enableHybrid");
 
         /// <summary>
         /// The policy to be applied to the aws glue data catalog.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:glue/resourcePolicy:ResourcePolicy")]
+    public sealed class ResourcePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
+        /// </summary>
+        [Input("enableHybrid")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnableHybrid;
+
+        public string? EnableHybrid => _mEnableHybrid.GetValue("enableHybrid");
+
+        /// <summary>
+        /// The policy to be applied to the aws glue data catalog.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

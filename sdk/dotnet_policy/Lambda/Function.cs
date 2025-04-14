@@ -11,151 +11,223 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/function:Function")]
-    public sealed class Function : global::Pulumi.PolicyResource
+    public sealed class Function : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         /// </summary>
         [Input("architectures")]
-        public List<string>? Architectures;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mArchitectures;
+
+        public List<string>? Architectures => _mArchitectures.GetValue("architectures");
 
         /// <summary>
         /// Amazon Resource Name (ARN) identifying your Lambda Function.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Input("code")]
-        public Archive? Code;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Archive> _mCode;
+
+        public Archive? Code => _mCode.GetValue("code");
 
         /// <summary>
         /// Base64-encoded representation of raw SHA-256 sum of the zip file.
         /// </summary>
         [Input("codeSha256")]
-        public string? CodeSha256;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCodeSha256;
+
+        public string? CodeSha256 => _mCodeSha256.GetValue("codeSha256");
 
         /// <summary>
         /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         /// </summary>
         [Input("codeSigningConfigArn")]
-        public string? CodeSigningConfigArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCodeSigningConfigArn;
+
+        public string? CodeSigningConfigArn => _mCodeSigningConfigArn.GetValue("codeSigningConfigArn");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("deadLetterConfig")]
-        public FunctionDeadLetterConfig? DeadLetterConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionDeadLetterConfig> _mDeadLetterConfig;
+
+        public Outputs.FunctionDeadLetterConfig? DeadLetterConfig => _mDeadLetterConfig.GetValue("deadLetterConfig");
 
         /// <summary>
         /// Description of what your Lambda Function does.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("environment")]
-        public FunctionEnvironment? Environment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionEnvironment> _mEnvironment;
+
+        public Outputs.FunctionEnvironment? Environment => _mEnvironment.GetValue("environment");
 
         /// <summary>
         /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         /// </summary>
         [Input("ephemeralStorage")]
-        public FunctionEphemeralStorage? EphemeralStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionEphemeralStorage> _mEphemeralStorage;
+
+        public Outputs.FunctionEphemeralStorage? EphemeralStorage => _mEphemeralStorage.GetValue("ephemeralStorage");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("fileSystemConfig")]
-        public FunctionFileSystemConfig? FileSystemConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionFileSystemConfig> _mFileSystemConfig;
+
+        public Outputs.FunctionFileSystemConfig? FileSystemConfig => _mFileSystemConfig.GetValue("fileSystemConfig");
 
         /// <summary>
         /// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         /// </summary>
         [Input("handler")]
-        public string? Handler;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHandler;
+
+        public string? Handler => _mHandler.GetValue("handler");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("imageConfig")]
-        public FunctionImageConfig? ImageConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionImageConfig> _mImageConfig;
+
+        public Outputs.FunctionImageConfig? ImageConfig => _mImageConfig.GetValue("imageConfig");
 
         /// <summary>
         /// ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
         /// </summary>
         [Input("imageUri")]
-        public string? ImageUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageUri;
+
+        public string? ImageUri => _mImageUri.GetValue("imageUri");
 
         /// <summary>
         /// ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
         /// </summary>
         [Input("invokeArn")]
-        public string? InvokeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvokeArn;
+
+        public string? InvokeArn => _mInvokeArn.GetValue("invokeArn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// Date this resource was last modified.
         /// </summary>
         [Input("lastModified")]
-        public string? LastModified;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
+
+        public string? LastModified => _mLastModified.GetValue("lastModified");
 
         /// <summary>
         /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
         /// </summary>
         [Input("layers")]
-        public List<string>? Layers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLayers;
+
+        public List<string>? Layers => _mLayers.GetValue("layers");
 
         /// <summary>
         /// Configuration block used to specify advanced logging settings. Detailed below.
         /// </summary>
         [Input("loggingConfig")]
-        public FunctionLoggingConfig? LoggingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionLoggingConfig> _mLoggingConfig;
+
+        public Outputs.FunctionLoggingConfig? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
 
         /// <summary>
         /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
         /// </summary>
         [Input("memorySize")]
-        public int? MemorySize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMemorySize;
+
+        public int? MemorySize => _mMemorySize.GetValue("memorySize");
 
         /// <summary>
         /// Unique name for your Lambda Function.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         /// </summary>
         [Input("packageType")]
-        public string? PackageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageType;
+
+        public string? PackageType => _mPackageType.GetValue("packageType");
 
         /// <summary>
         /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
         /// </summary>
         [Input("publish")]
-        public bool? Publish;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPublish;
+
+        public bool? Publish => _mPublish.GetValue("publish");
 
         /// <summary>
         /// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
         /// </summary>
         [Input("qualifiedArn")]
-        public string? QualifiedArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifiedArn;
+
+        public string? QualifiedArn => _mQualifiedArn.GetValue("qualifiedArn");
 
         /// <summary>
         /// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
         /// </summary>
         [Input("qualifiedInvokeArn")]
-        public string? QualifiedInvokeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifiedInvokeArn;
+
+        public string? QualifiedInvokeArn => _mQualifiedInvokeArn.GetValue("qualifiedInvokeArn");
 
         /// <summary>
         /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
@@ -164,20 +236,29 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
-        public bool? ReplaceSecurityGroupsOnDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceSecurityGroupsOnDestroy;
+
+        public bool? ReplaceSecurityGroupsOnDestroy => _mReplaceSecurityGroupsOnDestroy.GetValue("replaceSecurityGroupsOnDestroy");
 
         /// <summary>
         /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
         /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         /// </summary>
         [Input("replacementSecurityGroupIds")]
-        public List<string>? ReplacementSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReplacementSecurityGroupIds;
+
+        public List<string>? ReplacementSecurityGroupIds => _mReplacementSecurityGroupIds.GetValue("replacementSecurityGroupIds");
 
         /// <summary>
         /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         /// </summary>
         [Input("reservedConcurrentExecutions")]
-        public int? ReservedConcurrentExecutions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReservedConcurrentExecutions;
+
+        public int? ReservedConcurrentExecutions => _mReservedConcurrentExecutions.GetValue("reservedConcurrentExecutions");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
@@ -185,102 +266,460 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Input("role")]
-        public string? Role;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
 
         /// <summary>
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime")]
-        public string? Runtime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
+
+        public string? Runtime => _mRuntime.GetValue("runtime");
 
         /// <summary>
         /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         /// </summary>
         [Input("s3Bucket")]
-        public string? S3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
 
         /// <summary>
         /// S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
         /// </summary>
         [Input("s3Key")]
-        public string? S3Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
+
+        public string? S3Key => _mS3Key.GetValue("s3Key");
 
         /// <summary>
         /// Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         /// </summary>
         [Input("s3ObjectVersion")]
-        public string? S3ObjectVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectVersion;
+
+        public string? S3ObjectVersion => _mS3ObjectVersion.GetValue("s3ObjectVersion");
 
         /// <summary>
         /// ARN of the signing job.
         /// </summary>
         [Input("signingJobArn")]
-        public string? SigningJobArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningJobArn;
+
+        public string? SigningJobArn => _mSigningJobArn.GetValue("signingJobArn");
 
         /// <summary>
         /// ARN of the signing profile version.
         /// </summary>
         [Input("signingProfileVersionArn")]
-        public string? SigningProfileVersionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningProfileVersionArn;
+
+        public string? SigningProfileVersionArn => _mSigningProfileVersionArn.GetValue("signingProfileVersionArn");
 
         /// <summary>
         /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         /// </summary>
         [Input("skipDestroy")]
-        public bool? SkipDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
 
         /// <summary>
         /// Snap start settings block. Detailed below.
         /// </summary>
         [Input("snapStart")]
-        public FunctionSnapStart? SnapStart;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionSnapStart> _mSnapStart;
+
+        public Outputs.FunctionSnapStart? SnapStart => _mSnapStart.GetValue("snapStart");
 
         /// <summary>
         /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         /// </summary>
         [Input("sourceCodeHash")]
-        public string? SourceCodeHash;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCodeHash;
+
+        public string? SourceCodeHash => _mSourceCodeHash.GetValue("sourceCodeHash");
 
         /// <summary>
         /// Size in bytes of the function .zip file.
         /// </summary>
         [Input("sourceCodeSize")]
-        public int? SourceCodeSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSourceCodeSize;
+
+        public int? SourceCodeSize => _mSourceCodeSize.GetValue("sourceCodeSize");
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         /// </summary>
         [Input("timeout")]
-        public int? Timeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
+
+        public int? Timeout => _mTimeout.GetValue("timeout");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("tracingConfig")]
-        public FunctionTracingConfig? TracingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionTracingConfig> _mTracingConfig;
+
+        public Outputs.FunctionTracingConfig? TracingConfig => _mTracingConfig.GetValue("tracingConfig");
 
         /// <summary>
         /// Latest published version of your Lambda Function.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("vpcConfig")]
-        public FunctionVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionVpcConfig> _mVpcConfig;
+
+        public Outputs.FunctionVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+    }
+
+    [PolicyResourceType("aws:lambda/function:Function")]
+    public sealed class FunctionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
+        /// </summary>
+        [Input("architectures")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mArchitectures;
+
+        public List<string>? Architectures => _mArchitectures.GetValue("architectures");
+
+        /// <summary>
+        /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// </summary>
+        [Input("code")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Archive> _mCode;
+
+        public Archive? Code => _mCode.GetValue("code");
+
+        /// <summary>
+        /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+        /// </summary>
+        [Input("codeSigningConfigArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCodeSigningConfigArn;
+
+        public string? CodeSigningConfigArn => _mCodeSigningConfigArn.GetValue("codeSigningConfigArn");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("deadLetterConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionDeadLetterConfigArgs> _mDeadLetterConfig;
+
+        public Inputs.FunctionDeadLetterConfigArgs? DeadLetterConfig => _mDeadLetterConfig.GetValue("deadLetterConfig");
+
+        /// <summary>
+        /// Description of what your Lambda Function does.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("environment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionEnvironmentArgs> _mEnvironment;
+
+        public Inputs.FunctionEnvironmentArgs? Environment => _mEnvironment.GetValue("environment");
+
+        /// <summary>
+        /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        /// </summary>
+        [Input("ephemeralStorage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionEphemeralStorageArgs> _mEphemeralStorage;
+
+        public Inputs.FunctionEphemeralStorageArgs? EphemeralStorage => _mEphemeralStorage.GetValue("ephemeralStorage");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("fileSystemConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionFileSystemConfigArgs> _mFileSystemConfig;
+
+        public Inputs.FunctionFileSystemConfigArgs? FileSystemConfig => _mFileSystemConfig.GetValue("fileSystemConfig");
+
+        /// <summary>
+        /// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+        /// </summary>
+        [Input("handler")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHandler;
+
+        public string? Handler => _mHandler.GetValue("handler");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("imageConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionImageConfigArgs> _mImageConfig;
+
+        public Inputs.FunctionImageConfigArgs? ImageConfig => _mImageConfig.GetValue("imageConfig");
+
+        /// <summary>
+        /// ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+        /// </summary>
+        [Input("imageUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageUri;
+
+        public string? ImageUri => _mImageUri.GetValue("imageUri");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+
+        /// <summary>
+        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        /// </summary>
+        [Input("layers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLayers;
+
+        public List<string>? Layers => _mLayers.GetValue("layers");
+
+        /// <summary>
+        /// Configuration block used to specify advanced logging settings. Detailed below.
+        /// </summary>
+        [Input("loggingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionLoggingConfigArgs> _mLoggingConfig;
+
+        public Inputs.FunctionLoggingConfigArgs? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
+
+        /// <summary>
+        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+        /// </summary>
+        [Input("memorySize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMemorySize;
+
+        public int? MemorySize => _mMemorySize.GetValue("memorySize");
+
+        /// <summary>
+        /// Unique name for your Lambda Function.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
+        /// </summary>
+        [Input("packageType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageType;
+
+        public string? PackageType => _mPackageType.GetValue("packageType");
+
+        /// <summary>
+        /// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
+        /// </summary>
+        [Input("publish")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPublish;
+
+        public bool? Publish => _mPublish.GetValue("publish");
+
+        /// <summary>
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
+        /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
+        /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
+        /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// </summary>
+        [Input("replaceSecurityGroupsOnDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceSecurityGroupsOnDestroy;
+
+        public bool? ReplaceSecurityGroupsOnDestroy => _mReplaceSecurityGroupsOnDestroy.GetValue("replaceSecurityGroupsOnDestroy");
+
+        /// <summary>
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
+        /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        /// </summary>
+        [Input("replacementSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReplacementSecurityGroupIds;
+
+        public List<string>? ReplacementSecurityGroupIds => _mReplacementSecurityGroupIds.GetValue("replacementSecurityGroupIds");
+
+        /// <summary>
+        /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+        /// </summary>
+        [Input("reservedConcurrentExecutions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReservedConcurrentExecutions;
+
+        public int? ReservedConcurrentExecutions => _mReservedConcurrentExecutions.GetValue("reservedConcurrentExecutions");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("role")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
+
+        /// <summary>
+        /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+        /// </summary>
+        [Input("runtime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
+
+        public string? Runtime => _mRuntime.GetValue("runtime");
+
+        /// <summary>
+        /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+        /// </summary>
+        [Input("s3Bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+
+        /// <summary>
+        /// S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
+        /// </summary>
+        [Input("s3Key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
+
+        public string? S3Key => _mS3Key.GetValue("s3Key");
+
+        /// <summary>
+        /// Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
+        /// </summary>
+        [Input("s3ObjectVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectVersion;
+
+        public string? S3ObjectVersion => _mS3ObjectVersion.GetValue("s3ObjectVersion");
+
+        /// <summary>
+        /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        /// </summary>
+        [Input("skipDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+
+        /// <summary>
+        /// Snap start settings block. Detailed below.
+        /// </summary>
+        [Input("snapStart")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionSnapStartArgs> _mSnapStart;
+
+        public Inputs.FunctionSnapStartArgs? SnapStart => _mSnapStart.GetValue("snapStart");
+
+        /// <summary>
+        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// </summary>
+        [Input("sourceCodeHash")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCodeHash;
+
+        public string? SourceCodeHash => _mSourceCodeHash.GetValue("sourceCodeHash");
+
+        /// <summary>
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+        /// </summary>
+        [Input("timeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
+
+        public int? Timeout => _mTimeout.GetValue("timeout");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("tracingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionTracingConfigArgs> _mTracingConfig;
+
+        public Inputs.FunctionTracingConfigArgs? TracingConfig => _mTracingConfig.GetValue("tracingConfig");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.FunctionVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
     }
 }

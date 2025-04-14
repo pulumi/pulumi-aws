@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DeviceFarm
 {
     [PolicyResourceType("aws:devicefarm/instanceProfile:InstanceProfile")]
-    public sealed class InstanceProfile : global::Pulumi.PolicyResource
+    public sealed class InstanceProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name of this instance profile.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The description of the instance profile.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
         /// </summary>
         [Input("excludeAppPackagesFromCleanups")]
-        public List<string>? ExcludeAppPackagesFromCleanups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludeAppPackagesFromCleanups;
+
+        public List<string>? ExcludeAppPackagesFromCleanups => _mExcludeAppPackagesFromCleanups.GetValue("excludeAppPackagesFromCleanups");
 
         /// <summary>
         /// The name for the instance profile.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
         /// </summary>
         [Input("packageCleanup")]
-        public bool? PackageCleanup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPackageCleanup;
+
+        public bool? PackageCleanup => _mPackageCleanup.GetValue("packageCleanup");
 
         /// <summary>
         /// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
         /// </summary>
         [Input("rebootAfterUse")]
-        public bool? RebootAfterUse;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRebootAfterUse;
+
+        public bool? RebootAfterUse => _mRebootAfterUse.GetValue("rebootAfterUse");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:devicefarm/instanceProfile:InstanceProfile")]
+    public sealed class InstanceProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the instance profile.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
+        /// </summary>
+        [Input("excludeAppPackagesFromCleanups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludeAppPackagesFromCleanups;
+
+        public List<string>? ExcludeAppPackagesFromCleanups => _mExcludeAppPackagesFromCleanups.GetValue("excludeAppPackagesFromCleanups");
+
+        /// <summary>
+        /// The name for the instance profile.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
+        /// </summary>
+        [Input("packageCleanup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPackageCleanup;
+
+        public bool? PackageCleanup => _mPackageCleanup.GetValue("packageCleanup");
+
+        /// <summary>
+        /// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
+        /// </summary>
+        [Input("rebootAfterUse")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRebootAfterUse;
+
+        public bool? RebootAfterUse => _mRebootAfterUse.GetValue("rebootAfterUse");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

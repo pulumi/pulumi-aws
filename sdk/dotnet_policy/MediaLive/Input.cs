@@ -11,88 +11,130 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MediaLive
 {
     [PolicyResourceType("aws:medialive/input:Input")]
-    public sealed class Input : global::Pulumi.PolicyResource
+    public sealed class Input : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Input.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Channels attached to Input.
         /// </summary>
         [Input("attachedChannels")]
-        public List<string>? AttachedChannels;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAttachedChannels;
+
+        public List<string>? AttachedChannels => _mAttachedChannels.GetValue("attachedChannels");
 
         /// <summary>
         /// Destination settings for PUSH type inputs. See Destinations for more details.
         /// </summary>
         [Input("destinations")]
-        public List<InputDestination>? Destinations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputDestination>> _mDestinations;
+
+        public List<Outputs.InputDestination>? Destinations => _mDestinations.GetValue("destinations");
 
         /// <summary>
         /// The input class.
         /// </summary>
         [Input("inputClass")]
-        public string? InputClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputClass;
+
+        public string? InputClass => _mInputClass.GetValue("inputClass");
 
         /// <summary>
         /// Settings for the devices. See Input Devices for more details.
         /// </summary>
         [Input("inputDevices")]
-        public List<InputInputDevice>? InputDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputInputDevice>> _mInputDevices;
+
+        public List<Outputs.InputInputDevice>? InputDevices => _mInputDevices.GetValue("inputDevices");
 
         /// <summary>
         /// A list of IDs for all Inputs which are partners of this one.
         /// </summary>
         [Input("inputPartnerIds")]
-        public List<string>? InputPartnerIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputPartnerIds;
+
+        public List<string>? InputPartnerIds => _mInputPartnerIds.GetValue("inputPartnerIds");
 
         /// <summary>
         /// List of input security groups.
         /// </summary>
         [Input("inputSecurityGroups")]
-        public List<string>? InputSecurityGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputSecurityGroups;
+
+        public List<string>? InputSecurityGroups => _mInputSecurityGroups.GetValue("inputSecurityGroups");
 
         /// <summary>
         /// Source type of the input.
         /// </summary>
         [Input("inputSourceType")]
-        public string? InputSourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputSourceType;
+
+        public string? InputSourceType => _mInputSourceType.GetValue("inputSourceType");
 
         /// <summary>
         /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
         /// </summary>
         [Input("mediaConnectFlows")]
-        public List<InputMediaConnectFlow>? MediaConnectFlows;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputMediaConnectFlow>> _mMediaConnectFlows;
+
+        public List<Outputs.InputMediaConnectFlow>? MediaConnectFlows => _mMediaConnectFlows.GetValue("mediaConnectFlows");
 
         /// <summary>
         /// Name of the input.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ARN of the role this input assumes during and after creation.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The source URLs for a PULL-type input. See Sources for more details.
         /// </summary>
         [Input("sources")]
-        public List<InputSource>? Sources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputSource>> _mSources;
+
+        public List<Outputs.InputSource>? Sources => _mSources.GetValue("sources");
 
         /// <summary>
         /// A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The different types of inputs that AWS Elemental MediaLive supports.
@@ -100,12 +142,114 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// The following arguments are optional:
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Settings for a private VPC Input. See VPC for more details.
         /// </summary>
         [Input("vpc")]
-        public InputVpc? Vpc;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InputVpc> _mVpc;
+
+        public Outputs.InputVpc? Vpc => _mVpc.GetValue("vpc");
+    }
+
+    [PolicyResourceType("aws:medialive/input:Input")]
+    public sealed class InputArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Destination settings for PUSH type inputs. See Destinations for more details.
+        /// </summary>
+        [Input("destinations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputDestinationArgs>> _mDestinations;
+
+        public List<Inputs.InputDestinationArgs>? Destinations => _mDestinations.GetValue("destinations");
+
+        /// <summary>
+        /// Settings for the devices. See Input Devices for more details.
+        /// </summary>
+        [Input("inputDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputInputDeviceArgs>> _mInputDevices;
+
+        public List<Inputs.InputInputDeviceArgs>? InputDevices => _mInputDevices.GetValue("inputDevices");
+
+        /// <summary>
+        /// List of input security groups.
+        /// </summary>
+        [Input("inputSecurityGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputSecurityGroups;
+
+        public List<string>? InputSecurityGroups => _mInputSecurityGroups.GetValue("inputSecurityGroups");
+
+        /// <summary>
+        /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
+        /// </summary>
+        [Input("mediaConnectFlows")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputMediaConnectFlowArgs>> _mMediaConnectFlows;
+
+        public List<Inputs.InputMediaConnectFlowArgs>? MediaConnectFlows => _mMediaConnectFlows.GetValue("mediaConnectFlows");
+
+        /// <summary>
+        /// Name of the input.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ARN of the role this input assumes during and after creation.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// The source URLs for a PULL-type input. See Sources for more details.
+        /// </summary>
+        [Input("sources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputSourceArgs>> _mSources;
+
+        public List<Inputs.InputSourceArgs>? Sources => _mSources.GetValue("sources");
+
+        /// <summary>
+        /// A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The different types of inputs that AWS Elemental MediaLive supports.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// Settings for a private VPC Input. See VPC for more details.
+        /// </summary>
+        [Input("vpc")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InputVpcArgs> _mVpc;
+
+        public Inputs.InputVpcArgs? Vpc => _mVpc.GetValue("vpc");
     }
 }

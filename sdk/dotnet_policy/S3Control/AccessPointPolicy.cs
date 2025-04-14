@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/accessPointPolicy:AccessPointPolicy")]
-    public sealed class AccessPointPolicy : global::Pulumi.PolicyResource
+    public sealed class AccessPointPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the access point that you want to associate with the specified policy.
         /// </summary>
         [Input("accessPointArn")]
-        public string? AccessPointArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointArn;
+
+        public string? AccessPointArn => _mAccessPointArn.GetValue("accessPointArn");
 
         /// <summary>
         /// Indicates whether this access point currently has a policy that allows public access.
         /// </summary>
         [Input("hasPublicAccessPolicy")]
-        public bool? HasPublicAccessPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHasPublicAccessPolicy;
+
+        public bool? HasPublicAccessPolicy => _mHasPublicAccessPolicy.GetValue("hasPublicAccessPolicy");
 
         /// <summary>
         /// The policy that you want to apply to the specified access point.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:s3control/accessPointPolicy:AccessPointPolicy")]
+    public sealed class AccessPointPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the access point that you want to associate with the specified policy.
+        /// </summary>
+        [Input("accessPointArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointArn;
+
+        public string? AccessPointArn => _mAccessPointArn.GetValue("accessPointArn");
+
+        /// <summary>
+        /// The policy that you want to apply to the specified access point.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

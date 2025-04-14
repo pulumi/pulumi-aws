@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
 {
     [PolicyResourceType("aws:devopsguru/resourceCollection:ResourceCollection")]
-    public sealed class ResourceCollection : global::Pulumi.PolicyResource
+    public sealed class ResourceCollection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
         /// </summary>
         [Input("cloudformation")]
-        public ResourceCollectionCloudformation? Cloudformation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceCollectionCloudformation> _mCloudformation;
+
+        public Outputs.ResourceCollectionCloudformation? Cloudformation => _mCloudformation.GetValue("cloudformation");
 
         /// <summary>
         /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
         /// </summary>
         [Input("tags")]
-        public ResourceCollectionTags? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceCollectionTags> _mTags;
+
+        public Outputs.ResourceCollectionTags? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -31,6 +37,42 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
         /// The following arguments are optional:
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:devopsguru/resourceCollection:ResourceCollection")]
+    public sealed class ResourceCollectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+        /// </summary>
+        [Input("cloudformation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceCollectionCloudformationArgs> _mCloudformation;
+
+        public Inputs.ResourceCollectionCloudformationArgs? Cloudformation => _mCloudformation.GetValue("cloudformation");
+
+        /// <summary>
+        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceCollectionTagsArgs> _mTags;
+
+        public Inputs.ResourceCollectionTagsArgs? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

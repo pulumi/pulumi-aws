@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafRegional
 {
     [PolicyResourceType("aws:wafregional/regexMatchSet:RegexMatchSet")]
-    public sealed class RegexMatchSet : global::Pulumi.PolicyResource
+    public sealed class RegexMatchSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name or description of the Regex Match Set.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
         /// </summary>
         [Input("regexMatchTuples")]
-        public List<RegexMatchSetRegexMatchTuple>? RegexMatchTuples;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RegexMatchSetRegexMatchTuple>> _mRegexMatchTuples;
+
+        public List<Outputs.RegexMatchSetRegexMatchTuple>? RegexMatchTuples => _mRegexMatchTuples.GetValue("regexMatchTuples");
+    }
+
+    [PolicyResourceType("aws:wafregional/regexMatchSet:RegexMatchSet")]
+    public sealed class RegexMatchSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name or description of the Regex Match Set.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
+        /// </summary>
+        [Input("regexMatchTuples")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RegexMatchSetRegexMatchTupleArgs>> _mRegexMatchTuples;
+
+        public List<Inputs.RegexMatchSetRegexMatchTupleArgs>? RegexMatchTuples => _mRegexMatchTuples.GetValue("regexMatchTuples");
     }
 }

@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope")]
-    public sealed class ApplicationAccessScope : global::Pulumi.PolicyResource
+    public sealed class ApplicationAccessScope : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the ARN of the application with the access scope with the targets to add or update.
         /// </summary>
         [Input("applicationArn")]
-        public string? ApplicationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
+
+        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
 
         /// <summary>
         /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
         /// </summary>
         [Input("authorizedTargets")]
-        public List<string>? AuthorizedTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorizedTargets;
+
+        public List<string>? AuthorizedTargets => _mAuthorizedTargets.GetValue("authorizedTargets");
 
         /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.
@@ -31,6 +37,42 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// The following arguments are optional:
         /// </summary>
         [Input("scope")]
-        public string? Scope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope")]
+    public sealed class ApplicationAccessScopeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the ARN of the application with the access scope with the targets to add or update.
+        /// </summary>
+        [Input("applicationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
+
+        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+
+        /// <summary>
+        /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
+        /// </summary>
+        [Input("authorizedTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorizedTargets;
+
+        public List<string>? AuthorizedTargets => _mAuthorizedTargets.GetValue("authorizedTargets");
+
+        /// <summary>
+        /// Specifies the name of the access scope to be associated with the specified targets.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("scope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
     }
 }

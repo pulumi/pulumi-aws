@@ -11,121 +11,178 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/domain:Domain")]
-    public sealed class Domain : global::Pulumi.PolicyResource
+    public sealed class Domain : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         /// </summary>
         [Input("appNetworkAccessType")]
-        public string? AppNetworkAccessType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppNetworkAccessType;
+
+        public string? AppNetworkAccessType => _mAppNetworkAccessType.GetValue("appNetworkAccessType");
 
         /// <summary>
         /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         /// </summary>
         [Input("appSecurityGroupManagement")]
-        public string? AppSecurityGroupManagement;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppSecurityGroupManagement;
+
+        public string? AppSecurityGroupManagement => _mAppSecurityGroupManagement.GetValue("appSecurityGroupManagement");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         /// </summary>
         [Input("authMode")]
-        public string? AuthMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthMode;
+
+        public string? AuthMode => _mAuthMode.GetValue("authMode");
 
         /// <summary>
         /// The default space settings. See `default_space_settings` Block below.
         /// </summary>
         [Input("defaultSpaceSettings")]
-        public DomainDefaultSpaceSettings? DefaultSpaceSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDefaultSpaceSettings> _mDefaultSpaceSettings;
+
+        public Outputs.DomainDefaultSpaceSettings? DefaultSpaceSettings => _mDefaultSpaceSettings.GetValue("defaultSpaceSettings");
 
         /// <summary>
         /// The default user settings. See `default_user_settings` Block below.
         /// </summary>
         [Input("defaultUserSettings")]
-        public DomainDefaultUserSettings? DefaultUserSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDefaultUserSettings> _mDefaultUserSettings;
+
+        public Outputs.DomainDefaultUserSettings? DefaultUserSettings => _mDefaultUserSettings.GetValue("defaultUserSettings");
 
         /// <summary>
         /// The domain name.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The domain settings. See `domain_settings` Block below.
         /// </summary>
         [Input("domainSettings")]
-        public DomainDomainSettings? DomainSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDomainSettings> _mDomainSettings;
+
+        public Outputs.DomainDomainSettings? DomainSettings => _mDomainSettings.GetValue("domainSettings");
 
         /// <summary>
         /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         /// </summary>
         [Input("homeEfsFileSystemId")]
-        public string? HomeEfsFileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeEfsFileSystemId;
+
+        public string? HomeEfsFileSystemId => _mHomeEfsFileSystemId.GetValue("homeEfsFileSystemId");
 
         /// <summary>
         /// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         /// </summary>
         [Input("retentionPolicy")]
-        public DomainRetentionPolicy? RetentionPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainRetentionPolicy> _mRetentionPolicy;
+
+        public Outputs.DomainRetentionPolicy? RetentionPolicy => _mRetentionPolicy.GetValue("retentionPolicy");
 
         /// <summary>
         /// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         /// </summary>
         [Input("securityGroupIdForDomainBoundary")]
-        public string? SecurityGroupIdForDomainBoundary;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupIdForDomainBoundary;
+
+        public string? SecurityGroupIdForDomainBoundary => _mSecurityGroupIdForDomainBoundary.GetValue("securityGroupIdForDomainBoundary");
 
         /// <summary>
         /// The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         /// </summary>
         [Input("singleSignOnApplicationArn")]
-        public string? SingleSignOnApplicationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnApplicationArn;
+
+        public string? SingleSignOnApplicationArn => _mSingleSignOnApplicationArn.GetValue("singleSignOnApplicationArn");
 
         /// <summary>
         /// The SSO managed application instance ID.
         /// </summary>
         [Input("singleSignOnManagedApplicationInstanceId")]
-        public string? SingleSignOnManagedApplicationInstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnManagedApplicationInstanceId;
+
+        public string? SingleSignOnManagedApplicationInstanceId => _mSingleSignOnManagedApplicationInstanceId.GetValue("singleSignOnManagedApplicationInstanceId");
 
         /// <summary>
         /// The VPC subnets that Studio uses for communication.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("tagPropagation")]
-        public string? TagPropagation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagPropagation;
+
+        public string? TagPropagation => _mTagPropagation.GetValue("tagPropagation");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The domain's URL.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
 
         /// <summary>
         /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -133,6 +190,132 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// The following arguments are optional:
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:sagemaker/domain:Domain")]
+    public sealed class DomainArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
+        /// </summary>
+        [Input("appNetworkAccessType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppNetworkAccessType;
+
+        public string? AppNetworkAccessType => _mAppNetworkAccessType.GetValue("appNetworkAccessType");
+
+        /// <summary>
+        /// The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
+        /// </summary>
+        [Input("appSecurityGroupManagement")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppSecurityGroupManagement;
+
+        public string? AppSecurityGroupManagement => _mAppSecurityGroupManagement.GetValue("appSecurityGroupManagement");
+
+        /// <summary>
+        /// The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
+        /// </summary>
+        [Input("authMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthMode;
+
+        public string? AuthMode => _mAuthMode.GetValue("authMode");
+
+        /// <summary>
+        /// The default space settings. See `default_space_settings` Block below.
+        /// </summary>
+        [Input("defaultSpaceSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultSpaceSettingsArgs> _mDefaultSpaceSettings;
+
+        public Inputs.DomainDefaultSpaceSettingsArgs? DefaultSpaceSettings => _mDefaultSpaceSettings.GetValue("defaultSpaceSettings");
+
+        /// <summary>
+        /// The default user settings. See `default_user_settings` Block below.
+        /// </summary>
+        [Input("defaultUserSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultUserSettingsArgs> _mDefaultUserSettings;
+
+        public Inputs.DomainDefaultUserSettingsArgs? DefaultUserSettings => _mDefaultUserSettings.GetValue("defaultUserSettings");
+
+        /// <summary>
+        /// The domain name.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// The domain settings. See `domain_settings` Block below.
+        /// </summary>
+        [Input("domainSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDomainSettingsArgs> _mDomainSettings;
+
+        public Inputs.DomainDomainSettingsArgs? DomainSettings => _mDomainSettings.GetValue("domainSettings");
+
+        /// <summary>
+        /// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+        /// </summary>
+        [Input("retentionPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainRetentionPolicyArgs> _mRetentionPolicy;
+
+        public Inputs.DomainRetentionPolicyArgs? RetentionPolicy => _mRetentionPolicy.GetValue("retentionPolicy");
+
+        /// <summary>
+        /// The VPC subnets that Studio uses for communication.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+        /// </summary>
+        [Input("tagPropagation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagPropagation;
+
+        public string? TagPropagation => _mTagPropagation.GetValue("tagPropagation");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

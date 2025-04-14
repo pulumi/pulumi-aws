@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LakeFormation
 {
     [PolicyResourceType("aws:lakeformation/resourceLfTags:ResourceLfTags")]
-    public sealed class ResourceLfTags : global::Pulumi.PolicyResource
+    public sealed class ResourceLfTags : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// Configuration block for a database resource. See below.
         /// </summary>
         [Input("database")]
-        public ResourceLfTagsDatabase? Database;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceLfTagsDatabase> _mDatabase;
+
+        public Outputs.ResourceLfTagsDatabase? Database => _mDatabase.GetValue("database");
 
         /// <summary>
         /// Set of LF-tags to attach to the resource. See below.
@@ -31,13 +37,19 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// Exactly one of the following is required:
         /// </summary>
         [Input("lfTags")]
-        public List<ResourceLfTagsLfTag>? LfTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResourceLfTagsLfTag>> _mLfTags;
+
+        public List<Outputs.ResourceLfTagsLfTag>? LfTags => _mLfTags.GetValue("lfTags");
 
         /// <summary>
         /// Configuration block for a table resource. See below.
         /// </summary>
         [Input("table")]
-        public ResourceLfTagsTable? Table;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceLfTagsTable> _mTable;
+
+        public Outputs.ResourceLfTagsTable? Table => _mTable.GetValue("table");
 
         /// <summary>
         /// Configuration block for a table with columns resource. See below.
@@ -45,6 +57,62 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// The following arguments are optional:
         /// </summary>
         [Input("tableWithColumns")]
-        public ResourceLfTagsTableWithColumns? TableWithColumns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceLfTagsTableWithColumns> _mTableWithColumns;
+
+        public Outputs.ResourceLfTagsTableWithColumns? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
+    }
+
+    [PolicyResourceType("aws:lakeformation/resourceLfTags:ResourceLfTags")]
+    public sealed class ResourceLfTagsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// Configuration block for a database resource. See below.
+        /// </summary>
+        [Input("database")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceLfTagsDatabaseArgs> _mDatabase;
+
+        public Inputs.ResourceLfTagsDatabaseArgs? Database => _mDatabase.GetValue("database");
+
+        /// <summary>
+        /// Set of LF-tags to attach to the resource. See below.
+        /// 
+        /// Exactly one of the following is required:
+        /// </summary>
+        [Input("lfTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResourceLfTagsLfTagArgs>> _mLfTags;
+
+        public List<Inputs.ResourceLfTagsLfTagArgs>? LfTags => _mLfTags.GetValue("lfTags");
+
+        /// <summary>
+        /// Configuration block for a table resource. See below.
+        /// </summary>
+        [Input("table")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceLfTagsTableArgs> _mTable;
+
+        public Inputs.ResourceLfTagsTableArgs? Table => _mTable.GetValue("table");
+
+        /// <summary>
+        /// Configuration block for a table with columns resource. See below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("tableWithColumns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceLfTagsTableWithColumnsArgs> _mTableWithColumns;
+
+        public Inputs.ResourceLfTagsTableWithColumnsArgs? TableWithColumns => _mTableWithColumns.GetValue("tableWithColumns");
     }
 }

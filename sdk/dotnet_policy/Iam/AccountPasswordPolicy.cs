@@ -11,66 +11,181 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/accountPasswordPolicy:AccountPasswordPolicy")]
-    public sealed class AccountPasswordPolicy : global::Pulumi.PolicyResource
+    public sealed class AccountPasswordPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether to allow users to change their own password
         /// </summary>
         [Input("allowUsersToChangePassword")]
-        public bool? AllowUsersToChangePassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowUsersToChangePassword;
+
+        public bool? AllowUsersToChangePassword => _mAllowUsersToChangePassword.GetValue("allowUsersToChangePassword");
 
         /// <summary>
         /// Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
         /// </summary>
         [Input("expirePasswords")]
-        public bool? ExpirePasswords;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mExpirePasswords;
+
+        public bool? ExpirePasswords => _mExpirePasswords.GetValue("expirePasswords");
 
         /// <summary>
         /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         /// </summary>
         [Input("hardExpiry")]
-        public bool? HardExpiry;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHardExpiry;
+
+        public bool? HardExpiry => _mHardExpiry.GetValue("hardExpiry");
 
         /// <summary>
         /// The number of days that an user password is valid.
         /// </summary>
         [Input("maxPasswordAge")]
-        public int? MaxPasswordAge;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxPasswordAge;
+
+        public int? MaxPasswordAge => _mMaxPasswordAge.GetValue("maxPasswordAge");
 
         /// <summary>
         /// Minimum length to require for user passwords.
         /// </summary>
         [Input("minimumPasswordLength")]
-        public int? MinimumPasswordLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumPasswordLength;
+
+        public int? MinimumPasswordLength => _mMinimumPasswordLength.GetValue("minimumPasswordLength");
 
         /// <summary>
         /// The number of previous passwords that users are prevented from reusing.
         /// </summary>
         [Input("passwordReusePrevention")]
-        public int? PasswordReusePrevention;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordReusePrevention;
+
+        public int? PasswordReusePrevention => _mPasswordReusePrevention.GetValue("passwordReusePrevention");
 
         /// <summary>
         /// Whether to require lowercase characters for user passwords.
         /// </summary>
         [Input("requireLowercaseCharacters")]
-        public bool? RequireLowercaseCharacters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireLowercaseCharacters;
+
+        public bool? RequireLowercaseCharacters => _mRequireLowercaseCharacters.GetValue("requireLowercaseCharacters");
 
         /// <summary>
         /// Whether to require numbers for user passwords.
         /// </summary>
         [Input("requireNumbers")]
-        public bool? RequireNumbers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireNumbers;
+
+        public bool? RequireNumbers => _mRequireNumbers.GetValue("requireNumbers");
 
         /// <summary>
         /// Whether to require symbols for user passwords.
         /// </summary>
         [Input("requireSymbols")]
-        public bool? RequireSymbols;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireSymbols;
+
+        public bool? RequireSymbols => _mRequireSymbols.GetValue("requireSymbols");
 
         /// <summary>
         /// Whether to require uppercase characters for user passwords.
         /// </summary>
         [Input("requireUppercaseCharacters")]
-        public bool? RequireUppercaseCharacters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireUppercaseCharacters;
+
+        public bool? RequireUppercaseCharacters => _mRequireUppercaseCharacters.GetValue("requireUppercaseCharacters");
+    }
+
+    [PolicyResourceType("aws:iam/accountPasswordPolicy:AccountPasswordPolicy")]
+    public sealed class AccountPasswordPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to allow users to change their own password
+        /// </summary>
+        [Input("allowUsersToChangePassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowUsersToChangePassword;
+
+        public bool? AllowUsersToChangePassword => _mAllowUsersToChangePassword.GetValue("allowUsersToChangePassword");
+
+        /// <summary>
+        /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
+        /// </summary>
+        [Input("hardExpiry")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHardExpiry;
+
+        public bool? HardExpiry => _mHardExpiry.GetValue("hardExpiry");
+
+        /// <summary>
+        /// The number of days that an user password is valid.
+        /// </summary>
+        [Input("maxPasswordAge")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxPasswordAge;
+
+        public int? MaxPasswordAge => _mMaxPasswordAge.GetValue("maxPasswordAge");
+
+        /// <summary>
+        /// Minimum length to require for user passwords.
+        /// </summary>
+        [Input("minimumPasswordLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumPasswordLength;
+
+        public int? MinimumPasswordLength => _mMinimumPasswordLength.GetValue("minimumPasswordLength");
+
+        /// <summary>
+        /// The number of previous passwords that users are prevented from reusing.
+        /// </summary>
+        [Input("passwordReusePrevention")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordReusePrevention;
+
+        public int? PasswordReusePrevention => _mPasswordReusePrevention.GetValue("passwordReusePrevention");
+
+        /// <summary>
+        /// Whether to require lowercase characters for user passwords.
+        /// </summary>
+        [Input("requireLowercaseCharacters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireLowercaseCharacters;
+
+        public bool? RequireLowercaseCharacters => _mRequireLowercaseCharacters.GetValue("requireLowercaseCharacters");
+
+        /// <summary>
+        /// Whether to require numbers for user passwords.
+        /// </summary>
+        [Input("requireNumbers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireNumbers;
+
+        public bool? RequireNumbers => _mRequireNumbers.GetValue("requireNumbers");
+
+        /// <summary>
+        /// Whether to require symbols for user passwords.
+        /// </summary>
+        [Input("requireSymbols")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireSymbols;
+
+        public bool? RequireSymbols => _mRequireSymbols.GetValue("requireSymbols");
+
+        /// <summary>
+        /// Whether to require uppercase characters for user passwords.
+        /// </summary>
+        [Input("requireUppercaseCharacters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireUppercaseCharacters;
+
+        public bool? RequireUppercaseCharacters => _mRequireUppercaseCharacters.GetValue("requireUppercaseCharacters");
     }
 }

@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecr
 {
     [PolicyResourceType("aws:ecr/registryPolicy:RegistryPolicy")]
-    public sealed class RegistryPolicy : global::Pulumi.PolicyResource
+    public sealed class RegistryPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// The registry ID where the registry was created.
         /// </summary>
         [Input("registryId")]
-        public string? RegistryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
+
+        public string? RegistryId => _mRegistryId.GetValue("registryId");
+    }
+
+    [PolicyResourceType("aws:ecr/registryPolicy:RegistryPolicy")]
+    public sealed class RegistryPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The policy document. This is a JSON formatted string.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

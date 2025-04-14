@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Athena
 {
     [PolicyResourceType("aws:athena/capacityReservation:CapacityReservation")]
-    public sealed class CapacityReservation : global::Pulumi.PolicyResource
+    public sealed class CapacityReservation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Number of data processing units currently allocated.
         /// </summary>
         [Input("allocatedDpus")]
-        public int? AllocatedDpus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedDpus;
+
+        public int? AllocatedDpus => _mAllocatedDpus.GetValue("allocatedDpus");
 
         /// <summary>
         /// ARN of the Capacity Reservation.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the capacity reservation.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Status of the capacity reservation.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Number of data processing units requested. Must be at least `24` units.
@@ -55,9 +73,54 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// The following arguments are optional:
         /// </summary>
         [Input("targetDpus")]
-        public int? TargetDpus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTargetDpus;
+
+        public int? TargetDpus => _mTargetDpus.GetValue("targetDpus");
 
         [Input("timeouts")]
-        public CapacityReservationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CapacityReservationTimeouts> _mTimeouts;
+
+        public Outputs.CapacityReservationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:athena/capacityReservation:CapacityReservation")]
+    public sealed class CapacityReservationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the capacity reservation.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Number of data processing units requested. Must be at least `24` units.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("targetDpus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTargetDpus;
+
+        public int? TargetDpus => _mTargetDpus.GetValue("targetDpus");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CapacityReservationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.CapacityReservationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

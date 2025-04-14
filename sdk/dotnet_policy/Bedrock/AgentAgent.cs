@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/agentAgent:AgentAgent")]
-    public sealed class AgentAgent : global::Pulumi.PolicyResource
+    public sealed class AgentAgent : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the agent.
         /// </summary>
         [Input("agentArn")]
-        public string? AgentArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentArn;
+
+        public string? AgentArn => _mAgentArn.GetValue("agentArn");
 
         /// <summary>
         /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         /// </summary>
         [Input("agentCollaboration")]
-        public string? AgentCollaboration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentCollaboration;
+
+        public string? AgentCollaboration => _mAgentCollaboration.GetValue("agentCollaboration");
 
         /// <summary>
         /// Unique identifier of the agent.
         /// </summary>
         [Input("agentId")]
-        public string? AgentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
 
         /// <summary>
         /// Name of the agent.
         /// </summary>
         [Input("agentName")]
-        public string? AgentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentName;
+
+        public string? AgentName => _mAgentName.GetValue("agentName");
 
         /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the agent.
         /// </summary>
         [Input("agentResourceRoleArn")]
-        public string? AgentResourceRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentResourceRoleArn;
+
+        public string? AgentResourceRoleArn => _mAgentResourceRoleArn.GetValue("agentResourceRoleArn");
 
         /// <summary>
         /// Version of the agent.
         /// </summary>
         [Input("agentVersion")]
-        public string? AgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
 
         /// <summary>
         /// ARN of the AWS KMS key that encrypts the agent.
         /// </summary>
         [Input("customerEncryptionKeyArn")]
-        public string? CustomerEncryptionKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerEncryptionKeyArn;
+
+        public string? CustomerEncryptionKeyArn => _mCustomerEncryptionKeyArn.GetValue("customerEncryptionKeyArn");
 
         /// <summary>
         /// Description of the agent.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Foundation model used for orchestration by the agent.
@@ -67,63 +91,234 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Input("foundationModel")]
-        public string? FoundationModel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFoundationModel;
+
+        public string? FoundationModel => _mFoundationModel.GetValue("foundationModel");
 
         /// <summary>
         /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         /// </summary>
         [Input("guardrailConfigurations")]
-        public List<AgentAgentGuardrailConfiguration>? GuardrailConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentGuardrailConfiguration>> _mGuardrailConfigurations;
+
+        public List<Outputs.AgentAgentGuardrailConfiguration>? GuardrailConfigurations => _mGuardrailConfigurations.GetValue("guardrailConfigurations");
 
         /// <summary>
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         /// </summary>
         [Input("idleSessionTtlInSeconds")]
-        public int? IdleSessionTtlInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
+
+        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
 
         /// <summary>
         /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         /// </summary>
         [Input("instruction")]
-        public string? Instruction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstruction;
+
+        public string? Instruction => _mInstruction.GetValue("instruction");
 
         /// <summary>
         /// Configurations for the agent's ability to retain the conversational context.
         /// </summary>
         [Input("memoryConfigurations")]
-        public List<AgentAgentMemoryConfiguration>? MemoryConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentMemoryConfiguration>> _mMemoryConfigurations;
+
+        public List<Outputs.AgentAgentMemoryConfiguration>? MemoryConfigurations => _mMemoryConfigurations.GetValue("memoryConfigurations");
 
         /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
         [Input("prepareAgent")]
-        public bool? PrepareAgent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
+
+        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
 
         /// <summary>
         /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         /// </summary>
         [Input("promptOverrideConfigurations")]
-        public List<AgentAgentPromptOverrideConfiguration>? PromptOverrideConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentPromptOverrideConfiguration>> _mPromptOverrideConfigurations;
+
+        public List<Outputs.AgentAgentPromptOverrideConfiguration>? PromptOverrideConfigurations => _mPromptOverrideConfigurations.GetValue("promptOverrideConfigurations");
 
         /// <summary>
         /// Whether the in-use check is skipped when deleting the agent.
         /// </summary>
         [Input("skipResourceInUseCheck")]
-        public bool? SkipResourceInUseCheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipResourceInUseCheck;
+
+        public bool? SkipResourceInUseCheck => _mSkipResourceInUseCheck.GetValue("skipResourceInUseCheck");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public AgentAgentTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentTimeouts> _mTimeouts;
+
+        public Outputs.AgentAgentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:bedrock/agentAgent:AgentAgent")]
+    public sealed class AgentAgentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        /// </summary>
+        [Input("agentCollaboration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentCollaboration;
+
+        public string? AgentCollaboration => _mAgentCollaboration.GetValue("agentCollaboration");
+
+        /// <summary>
+        /// Name of the agent.
+        /// </summary>
+        [Input("agentName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentName;
+
+        public string? AgentName => _mAgentName.GetValue("agentName");
+
+        /// <summary>
+        /// ARN of the IAM role with permissions to invoke API operations on the agent.
+        /// </summary>
+        [Input("agentResourceRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentResourceRoleArn;
+
+        public string? AgentResourceRoleArn => _mAgentResourceRoleArn.GetValue("agentResourceRoleArn");
+
+        /// <summary>
+        /// ARN of the AWS KMS key that encrypts the agent.
+        /// </summary>
+        [Input("customerEncryptionKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerEncryptionKeyArn;
+
+        public string? CustomerEncryptionKeyArn => _mCustomerEncryptionKeyArn.GetValue("customerEncryptionKeyArn");
+
+        /// <summary>
+        /// Description of the agent.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Foundation model used for orchestration by the agent.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("foundationModel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFoundationModel;
+
+        public string? FoundationModel => _mFoundationModel.GetValue("foundationModel");
+
+        /// <summary>
+        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        /// </summary>
+        [Input("guardrailConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentGuardrailConfigurationArgs>> _mGuardrailConfigurations;
+
+        public List<Inputs.AgentAgentGuardrailConfigurationArgs>? GuardrailConfigurations => _mGuardrailConfigurations.GetValue("guardrailConfigurations");
+
+        /// <summary>
+        /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
+        /// </summary>
+        [Input("idleSessionTtlInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
+
+        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+
+        /// <summary>
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
+        /// </summary>
+        [Input("instruction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstruction;
+
+        public string? Instruction => _mInstruction.GetValue("instruction");
+
+        /// <summary>
+        /// Configurations for the agent's ability to retain the conversational context.
+        /// </summary>
+        [Input("memoryConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentMemoryConfigurationArgs>> _mMemoryConfigurations;
+
+        public List<Inputs.AgentAgentMemoryConfigurationArgs>? MemoryConfigurations => _mMemoryConfigurations.GetValue("memoryConfigurations");
+
+        /// <summary>
+        /// Whether to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
+        [Input("prepareAgent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
+
+        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+
+        /// <summary>
+        /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        /// </summary>
+        [Input("promptOverrideConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentPromptOverrideConfigurationArgs>> _mPromptOverrideConfigurations;
+
+        public List<Inputs.AgentAgentPromptOverrideConfigurationArgs>? PromptOverrideConfigurations => _mPromptOverrideConfigurations.GetValue("promptOverrideConfigurations");
+
+        /// <summary>
+        /// Whether the in-use check is skipped when deleting the agent.
+        /// </summary>
+        [Input("skipResourceInUseCheck")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipResourceInUseCheck;
+
+        public bool? SkipResourceInUseCheck => _mSkipResourceInUseCheck.GetValue("skipResourceInUseCheck");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AgentAgentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

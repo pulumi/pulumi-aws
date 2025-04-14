@@ -11,28 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/prefixListReference:PrefixListReference")]
-    public sealed class PrefixListReference : global::Pulumi.PolicyResource
+    public sealed class PrefixListReference : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         /// </summary>
         [Input("blackhole")]
-        public bool? Blackhole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBlackhole;
+
+        public bool? Blackhole => _mBlackhole.GetValue("blackhole");
 
         /// <summary>
         /// Identifier of EC2 Prefix List.
         /// </summary>
         [Input("prefixListId")]
-        public string? PrefixListId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+
+        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
 
         [Input("prefixListOwnerId")]
-        public string? PrefixListOwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListOwnerId;
+
+        public string? PrefixListOwnerId => _mPrefixListOwnerId.GetValue("prefixListOwnerId");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
@@ -40,6 +52,51 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId")]
-        public string? TransitGatewayRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
+
+        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/prefixListReference:PrefixListReference")]
+    public sealed class PrefixListReferenceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        /// </summary>
+        [Input("blackhole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBlackhole;
+
+        public bool? Blackhole => _mBlackhole.GetValue("blackhole");
+
+        /// <summary>
+        /// Identifier of EC2 Prefix List.
+        /// </summary>
+        [Input("prefixListId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+
+        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Attachment.
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("transitGatewayRouteTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
+
+        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
     }
 }

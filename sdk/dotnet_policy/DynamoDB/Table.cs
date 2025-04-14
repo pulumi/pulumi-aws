@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DynamoDB
 {
     [PolicyResourceType("aws:dynamodb/table:Table")]
-    public sealed class Table : global::Pulumi.PolicyResource
+    public sealed class Table : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the table
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         /// </summary>
         [Input("attributes")]
-        public List<TableAttribute>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TableAttribute>> _mAttributes;
+
+        public List<Outputs.TableAttribute>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         /// </summary>
         [Input("billingMode")]
-        public string? BillingMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBillingMode;
+
+        public string? BillingMode => _mBillingMode.GetValue("billingMode");
 
         /// <summary>
         /// Enables deletion protection for table. Defaults to `false`.
         /// </summary>
         [Input("deletionProtectionEnabled")]
-        public bool? DeletionProtectionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtectionEnabled;
+
+        public bool? DeletionProtectionEnabled => _mDeletionProtectionEnabled.GetValue("deletionProtectionEnabled");
 
         /// <summary>
         /// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         /// </summary>
         [Input("globalSecondaryIndexes")]
-        public List<TableGlobalSecondaryIndex>? GlobalSecondaryIndexes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TableGlobalSecondaryIndex>> _mGlobalSecondaryIndexes;
+
+        public List<Outputs.TableGlobalSecondaryIndex>? GlobalSecondaryIndexes => _mGlobalSecondaryIndexes.GetValue("globalSecondaryIndexes");
 
         /// <summary>
         /// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         /// </summary>
         [Input("hashKey")]
-        public string? HashKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
+
+        public string? HashKey => _mHashKey.GetValue("hashKey");
 
         /// <summary>
         /// Import Amazon S3 data into a new table. See below.
         /// </summary>
         [Input("importTable")]
-        public TableImportTable? ImportTable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableImportTable> _mImportTable;
+
+        public Outputs.TableImportTable? ImportTable => _mImportTable.GetValue("importTable");
 
         /// <summary>
         /// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         /// </summary>
         [Input("localSecondaryIndexes")]
-        public List<TableLocalSecondaryIndex>? LocalSecondaryIndexes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TableLocalSecondaryIndex>> _mLocalSecondaryIndexes;
+
+        public List<Outputs.TableLocalSecondaryIndex>? LocalSecondaryIndexes => _mLocalSecondaryIndexes.GetValue("localSecondaryIndexes");
 
         /// <summary>
         /// Unique within a region name of the table.
@@ -67,91 +91,136 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// Optional arguments:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Sets the maximum number of read and write units for the specified on-demand table. See below.
         /// </summary>
         [Input("onDemandThroughput")]
-        public TableOnDemandThroughput? OnDemandThroughput;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableOnDemandThroughput> _mOnDemandThroughput;
+
+        public Outputs.TableOnDemandThroughput? OnDemandThroughput => _mOnDemandThroughput.GetValue("onDemandThroughput");
 
         /// <summary>
         /// Enable point-in-time recovery options. See below.
         /// </summary>
         [Input("pointInTimeRecovery")]
-        public TablePointInTimeRecovery? PointInTimeRecovery;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TablePointInTimeRecovery> _mPointInTimeRecovery;
+
+        public Outputs.TablePointInTimeRecovery? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
 
         /// <summary>
         /// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         /// </summary>
         [Input("rangeKey")]
-        public string? RangeKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
+
+        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
 
         /// <summary>
         /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("readCapacity")]
-        public int? ReadCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReadCapacity;
+
+        public int? ReadCapacity => _mReadCapacity.GetValue("readCapacity");
 
         /// <summary>
         /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         /// </summary>
         [Input("replicas")]
-        public List<TableReplica>? Replicas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TableReplica>> _mReplicas;
+
+        public List<Outputs.TableReplica>? Replicas => _mReplicas.GetValue("replicas");
 
         /// <summary>
         /// Time of the point-in-time recovery point to restore.
         /// </summary>
         [Input("restoreDateTime")]
-        public string? RestoreDateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreDateTime;
+
+        public string? RestoreDateTime => _mRestoreDateTime.GetValue("restoreDateTime");
 
         /// <summary>
         /// Name of the table to restore. Must match the name of an existing table.
         /// </summary>
         [Input("restoreSourceName")]
-        public string? RestoreSourceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreSourceName;
+
+        public string? RestoreSourceName => _mRestoreSourceName.GetValue("restoreSourceName");
 
         /// <summary>
         /// ARN of the source table to restore. Must be supplied for cross-region restores.
         /// </summary>
         [Input("restoreSourceTableArn")]
-        public string? RestoreSourceTableArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreSourceTableArn;
+
+        public string? RestoreSourceTableArn => _mRestoreSourceTableArn.GetValue("restoreSourceTableArn");
 
         /// <summary>
         /// If set, restores table to the most recent point-in-time recovery point.
         /// </summary>
         [Input("restoreToLatestTime")]
-        public bool? RestoreToLatestTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRestoreToLatestTime;
+
+        public bool? RestoreToLatestTime => _mRestoreToLatestTime.GetValue("restoreToLatestTime");
 
         /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         /// </summary>
         [Input("serverSideEncryption")]
-        public TableServerSideEncryption? ServerSideEncryption;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableServerSideEncryption> _mServerSideEncryption;
+
+        public Outputs.TableServerSideEncryption? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
 
         /// <summary>
         /// ARN of the Table Stream. Only available when `stream_enabled = true`
         /// </summary>
         [Input("streamArn")]
-        public string? StreamArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
+
+        public string? StreamArn => _mStreamArn.GetValue("streamArn");
 
         /// <summary>
         /// Whether Streams are enabled.
         /// </summary>
         [Input("streamEnabled")]
-        public bool? StreamEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStreamEnabled;
+
+        public bool? StreamEnabled => _mStreamEnabled.GetValue("streamEnabled");
 
         /// <summary>
         /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         /// </summary>
         [Input("streamLabel")]
-        public string? StreamLabel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamLabel;
+
+        public string? StreamLabel => _mStreamLabel.GetValue("streamLabel");
 
         /// <summary>
         /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         /// </summary>
         [Input("streamViewType")]
-        public string? StreamViewType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamViewType;
+
+        public string? StreamViewType => _mStreamViewType.GetValue("streamViewType");
 
         /// <summary>
         /// Storage class of the table.
@@ -159,30 +228,269 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// Default value is `STANDARD`.
         /// </summary>
         [Input("tableClass")]
-        public string? TableClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableClass;
+
+        public string? TableClass => _mTableClass.GetValue("tableClass");
 
         /// <summary>
         /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block for TTL. See below.
         /// </summary>
         [Input("ttl")]
-        public TableTtl? Ttl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableTtl> _mTtl;
+
+        public Outputs.TableTtl? Ttl => _mTtl.GetValue("ttl");
 
         /// <summary>
         /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("writeCapacity")]
-        public int? WriteCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWriteCapacity;
+
+        public int? WriteCapacity => _mWriteCapacity.GetValue("writeCapacity");
+    }
+
+    [PolicyResourceType("aws:dynamodb/table:Table")]
+    public sealed class TableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableAttributeArgs>> _mAttributes;
+
+        public List<Inputs.TableAttributeArgs>? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
+        /// </summary>
+        [Input("billingMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBillingMode;
+
+        public string? BillingMode => _mBillingMode.GetValue("billingMode");
+
+        /// <summary>
+        /// Enables deletion protection for table. Defaults to `false`.
+        /// </summary>
+        [Input("deletionProtectionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtectionEnabled;
+
+        public bool? DeletionProtectionEnabled => _mDeletionProtectionEnabled.GetValue("deletionProtectionEnabled");
+
+        /// <summary>
+        /// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        /// </summary>
+        [Input("globalSecondaryIndexes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableGlobalSecondaryIndexArgs>> _mGlobalSecondaryIndexes;
+
+        public List<Inputs.TableGlobalSecondaryIndexArgs>? GlobalSecondaryIndexes => _mGlobalSecondaryIndexes.GetValue("globalSecondaryIndexes");
+
+        /// <summary>
+        /// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
+        /// </summary>
+        [Input("hashKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
+
+        public string? HashKey => _mHashKey.GetValue("hashKey");
+
+        /// <summary>
+        /// Import Amazon S3 data into a new table. See below.
+        /// </summary>
+        [Input("importTable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableImportTableArgs> _mImportTable;
+
+        public Inputs.TableImportTableArgs? ImportTable => _mImportTable.GetValue("importTable");
+
+        /// <summary>
+        /// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
+        /// </summary>
+        [Input("localSecondaryIndexes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableLocalSecondaryIndexArgs>> _mLocalSecondaryIndexes;
+
+        public List<Inputs.TableLocalSecondaryIndexArgs>? LocalSecondaryIndexes => _mLocalSecondaryIndexes.GetValue("localSecondaryIndexes");
+
+        /// <summary>
+        /// Unique within a region name of the table.
+        /// 
+        /// Optional arguments:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Sets the maximum number of read and write units for the specified on-demand table. See below.
+        /// </summary>
+        [Input("onDemandThroughput")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableOnDemandThroughputArgs> _mOnDemandThroughput;
+
+        public Inputs.TableOnDemandThroughputArgs? OnDemandThroughput => _mOnDemandThroughput.GetValue("onDemandThroughput");
+
+        /// <summary>
+        /// Enable point-in-time recovery options. See below.
+        /// </summary>
+        [Input("pointInTimeRecovery")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TablePointInTimeRecoveryArgs> _mPointInTimeRecovery;
+
+        public Inputs.TablePointInTimeRecoveryArgs? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+
+        /// <summary>
+        /// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
+        /// </summary>
+        [Input("rangeKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
+
+        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
+
+        /// <summary>
+        /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        /// </summary>
+        [Input("readCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReadCapacity;
+
+        public int? ReadCapacity => _mReadCapacity.GetValue("readCapacity");
+
+        /// <summary>
+        /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        /// </summary>
+        [Input("replicas")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableReplicaArgs>> _mReplicas;
+
+        public List<Inputs.TableReplicaArgs>? Replicas => _mReplicas.GetValue("replicas");
+
+        /// <summary>
+        /// Time of the point-in-time recovery point to restore.
+        /// </summary>
+        [Input("restoreDateTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreDateTime;
+
+        public string? RestoreDateTime => _mRestoreDateTime.GetValue("restoreDateTime");
+
+        /// <summary>
+        /// Name of the table to restore. Must match the name of an existing table.
+        /// </summary>
+        [Input("restoreSourceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreSourceName;
+
+        public string? RestoreSourceName => _mRestoreSourceName.GetValue("restoreSourceName");
+
+        /// <summary>
+        /// ARN of the source table to restore. Must be supplied for cross-region restores.
+        /// </summary>
+        [Input("restoreSourceTableArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreSourceTableArn;
+
+        public string? RestoreSourceTableArn => _mRestoreSourceTableArn.GetValue("restoreSourceTableArn");
+
+        /// <summary>
+        /// If set, restores table to the most recent point-in-time recovery point.
+        /// </summary>
+        [Input("restoreToLatestTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRestoreToLatestTime;
+
+        public bool? RestoreToLatestTime => _mRestoreToLatestTime.GetValue("restoreToLatestTime");
+
+        /// <summary>
+        /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
+        /// </summary>
+        [Input("serverSideEncryption")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableServerSideEncryptionArgs> _mServerSideEncryption;
+
+        public Inputs.TableServerSideEncryptionArgs? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+
+        /// <summary>
+        /// Whether Streams are enabled.
+        /// </summary>
+        [Input("streamEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStreamEnabled;
+
+        public bool? StreamEnabled => _mStreamEnabled.GetValue("streamEnabled");
+
+        /// <summary>
+        /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        /// </summary>
+        [Input("streamViewType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamViewType;
+
+        public string? StreamViewType => _mStreamViewType.GetValue("streamViewType");
+
+        /// <summary>
+        /// Storage class of the table.
+        /// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// Default value is `STANDARD`.
+        /// </summary>
+        [Input("tableClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableClass;
+
+        public string? TableClass => _mTableClass.GetValue("tableClass");
+
+        /// <summary>
+        /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block for TTL. See below.
+        /// </summary>
+        [Input("ttl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableTtlArgs> _mTtl;
+
+        public Inputs.TableTtlArgs? Ttl => _mTtl.GetValue("ttl");
+
+        /// <summary>
+        /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        /// </summary>
+        [Input("writeCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWriteCapacity;
+
+        public int? WriteCapacity => _mWriteCapacity.GetValue("writeCapacity");
     }
 }

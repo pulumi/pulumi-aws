@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/hub:Hub")]
-    public sealed class Hub : global::Pulumi.PolicyResource
+    public sealed class Hub : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description of the hub.
         /// </summary>
         [Input("hubDescription")]
-        public string? HubDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHubDescription;
+
+        public string? HubDescription => _mHubDescription.GetValue("hubDescription");
 
         /// <summary>
         /// The display name of the hub.
         /// </summary>
         [Input("hubDisplayName")]
-        public string? HubDisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHubDisplayName;
+
+        public string? HubDisplayName => _mHubDisplayName.GetValue("hubDisplayName");
 
         /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName")]
-        public string? HubName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHubName;
+
+        public string? HubName => _mHubName.GetValue("hubName");
 
         /// <summary>
         /// The searchable keywords for the hub.
         /// </summary>
         [Input("hubSearchKeywords")]
-        public List<string>? HubSearchKeywords;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHubSearchKeywords;
+
+        public List<string>? HubSearchKeywords => _mHubSearchKeywords.GetValue("hubSearchKeywords");
 
         /// <summary>
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         /// </summary>
         [Input("s3StorageConfig")]
-        public HubS3StorageConfig? S3StorageConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.HubS3StorageConfig> _mS3StorageConfig;
+
+        public Outputs.HubS3StorageConfig? S3StorageConfig => _mS3StorageConfig.GetValue("s3StorageConfig");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/hub:Hub")]
+    public sealed class HubArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the hub.
+        /// </summary>
+        [Input("hubDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHubDescription;
+
+        public string? HubDescription => _mHubDescription.GetValue("hubDescription");
+
+        /// <summary>
+        /// The display name of the hub.
+        /// </summary>
+        [Input("hubDisplayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHubDisplayName;
+
+        public string? HubDisplayName => _mHubDisplayName.GetValue("hubDisplayName");
+
+        /// <summary>
+        /// The name of the hub.
+        /// </summary>
+        [Input("hubName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHubName;
+
+        public string? HubName => _mHubName.GetValue("hubName");
+
+        /// <summary>
+        /// The searchable keywords for the hub.
+        /// </summary>
+        [Input("hubSearchKeywords")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHubSearchKeywords;
+
+        public List<string>? HubSearchKeywords => _mHubSearchKeywords.GetValue("hubSearchKeywords");
+
+        /// <summary>
+        /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
+        /// </summary>
+        [Input("s3StorageConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.HubS3StorageConfigArgs> _mS3StorageConfig;
+
+        public Inputs.HubS3StorageConfigArgs? S3StorageConfig => _mS3StorageConfig.GetValue("s3StorageConfig");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

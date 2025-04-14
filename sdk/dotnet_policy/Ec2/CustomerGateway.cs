@@ -11,61 +11,156 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/customerGateway:CustomerGateway")]
-    public sealed class CustomerGateway : global::Pulumi.PolicyResource
+    public sealed class CustomerGateway : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the customer gateway.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         /// </summary>
         [Input("bgpAsn")]
-        public string? BgpAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsn;
+
+        public string? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
 
         /// <summary>
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
         /// </summary>
         [Input("bgpAsnExtended")]
-        public string? BgpAsnExtended;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsnExtended;
+
+        public string? BgpAsnExtended => _mBgpAsnExtended.GetValue("bgpAsnExtended");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the customer gateway certificate.
         /// </summary>
         [Input("certificateArn")]
-        public string? CertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
 
         /// <summary>
         /// A name for the customer gateway device.
         /// </summary>
         [Input("deviceName")]
-        public string? DeviceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
+
+        public string? DeviceName => _mDeviceName.GetValue("deviceName");
 
         /// <summary>
         /// The IPv4 address for the customer gateway device's outside interface.
         /// </summary>
         [Input("ipAddress")]
-        public string? IpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
 
         /// <summary>
         /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of customer gateway. The only type AWS
         /// supports at this time is "ipsec.1".
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:ec2/customerGateway:CustomerGateway")]
+    public sealed class CustomerGatewayArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
+        /// </summary>
+        [Input("bgpAsn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsn;
+
+        public string? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+
+        /// <summary>
+        /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
+        /// </summary>
+        [Input("bgpAsnExtended")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAsnExtended;
+
+        public string? BgpAsnExtended => _mBgpAsnExtended.GetValue("bgpAsnExtended");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
+        /// </summary>
+        [Input("certificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+
+        /// <summary>
+        /// A name for the customer gateway device.
+        /// </summary>
+        [Input("deviceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
+
+        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+
+        /// <summary>
+        /// The IPv4 address for the customer gateway device's outside interface.
+        /// </summary>
+        [Input("ipAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+
+        /// <summary>
+        /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of customer gateway. The only type AWS
+        /// supports at this time is "ipsec.1".
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

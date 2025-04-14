@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/admChannel:AdmChannel")]
-    public sealed class AdmChannel : global::Pulumi.PolicyResource
+    public sealed class AdmChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The application ID.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         /// </summary>
         [Input("clientId")]
-        public string? ClientId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+
+        public string? ClientId => _mClientId.GetValue("clientId");
 
         /// <summary>
         /// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         /// </summary>
         [Input("clientSecret")]
-        public string? ClientSecret;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientSecret;
+
+        public string? ClientSecret => _mClientSecret.GetValue("clientSecret");
 
         /// <summary>
         /// Specifies whether to enable the channel. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+    }
+
+    [PolicyResourceType("aws:pinpoint/admChannel:AdmChannel")]
+    public sealed class AdmChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
+        /// </summary>
+        [Input("clientId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+
+        public string? ClientId => _mClientId.GetValue("clientId");
+
+        /// <summary>
+        /// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
+        /// </summary>
+        [Input("clientSecret")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientSecret;
+
+        public string? ClientSecret => _mClientSecret.GetValue("clientSecret");
+
+        /// <summary>
+        /// Specifies whether to enable the channel. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
     }
 }

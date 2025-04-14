@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logResourcePolicy:LogResourcePolicy")]
-    public sealed class LogResourcePolicy : global::Pulumi.PolicyResource
+    public sealed class LogResourcePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
 
         /// <summary>
         /// Name of the resource policy.
         /// </summary>
         [Input("policyName")]
-        public string? PolicyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
+
+        public string? PolicyName => _mPolicyName.GetValue("policyName");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logResourcePolicy:LogResourcePolicy")]
+    public sealed class LogResourcePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+
+        /// <summary>
+        /// Name of the resource policy.
+        /// </summary>
+        [Input("policyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
+
+        public string? PolicyName => _mPolicyName.GetValue("policyName");
     }
 }

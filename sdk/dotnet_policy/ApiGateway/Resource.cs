@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/resource:Resource")]
-    public sealed class Resource : global::Pulumi.PolicyResource
+    public sealed class Resource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the parent API resource
         /// </summary>
         [Input("parentId")]
-        public string? ParentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentId;
+
+        public string? ParentId => _mParentId.GetValue("parentId");
 
         /// <summary>
         /// Complete path for this API resource, including all parent paths.
         /// </summary>
         [Input("path")]
-        public string? Path;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
+
+        public string? Path => _mPath.GetValue("path");
 
         /// <summary>
         /// Last path segment of this API resource.
         /// </summary>
         [Input("pathPart")]
-        public string? PathPart;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPathPart;
+
+        public string? PathPart => _mPathPart.GetValue("pathPart");
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+    }
+
+    [PolicyResourceType("aws:apigateway/resource:Resource")]
+    public sealed class ResourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the parent API resource
+        /// </summary>
+        [Input("parentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentId;
+
+        public string? ParentId => _mParentId.GetValue("parentId");
+
+        /// <summary>
+        /// Last path segment of this API resource.
+        /// </summary>
+        [Input("pathPart")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPathPart;
+
+        public string? PathPart => _mPathPart.GetValue("pathPart");
+
+        /// <summary>
+        /// ID of the associated REST API
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
     }
 }

@@ -11,84 +11,190 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/schema:Schema")]
-    public sealed class Schema : global::Pulumi.PolicyResource
+    public sealed class Schema : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the schema.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         /// </summary>
         [Input("compatibility")]
-        public string? Compatibility;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCompatibility;
+
+        public string? Compatibility => _mCompatibility.GetValue("compatibility");
 
         /// <summary>
         /// The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         /// </summary>
         [Input("dataFormat")]
-        public string? DataFormat;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
+
+        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
 
         /// <summary>
         /// A description of the schema.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The latest version of the schema associated with the returned schema definition.
         /// </summary>
         [Input("latestSchemaVersion")]
-        public int? LatestSchemaVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLatestSchemaVersion;
+
+        public int? LatestSchemaVersion => _mLatestSchemaVersion.GetValue("latestSchemaVersion");
 
         /// <summary>
         /// The next version of the schema associated with the returned schema definition.
         /// </summary>
         [Input("nextSchemaVersion")]
-        public int? NextSchemaVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNextSchemaVersion;
+
+        public int? NextSchemaVersion => _mNextSchemaVersion.GetValue("nextSchemaVersion");
 
         /// <summary>
         /// The ARN of the Glue Registry to create the schema in.
         /// </summary>
         [Input("registryArn")]
-        public string? RegistryArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryArn;
+
+        public string? RegistryArn => _mRegistryArn.GetValue("registryArn");
 
         /// <summary>
         /// The name of the Glue Registry.
         /// </summary>
         [Input("registryName")]
-        public string? RegistryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryName;
+
+        public string? RegistryName => _mRegistryName.GetValue("registryName");
 
         /// <summary>
         /// The version number of the checkpoint (the last time the compatibility mode was changed).
         /// </summary>
         [Input("schemaCheckpoint")]
-        public int? SchemaCheckpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSchemaCheckpoint;
+
+        public int? SchemaCheckpoint => _mSchemaCheckpoint.GetValue("schemaCheckpoint");
 
         /// <summary>
         /// The schema definition using the `data_format` setting for `schema_name`.
         /// </summary>
         [Input("schemaDefinition")]
-        public string? SchemaDefinition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaDefinition;
+
+        public string? SchemaDefinition => _mSchemaDefinition.GetValue("schemaDefinition");
 
         /// <summary>
         /// The Name of the schema.
         /// </summary>
         [Input("schemaName")]
-        public string? SchemaName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaName;
+
+        public string? SchemaName => _mSchemaName.GetValue("schemaName");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:glue/schema:Schema")]
+    public sealed class SchemaArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
+        /// </summary>
+        [Input("compatibility")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCompatibility;
+
+        public string? Compatibility => _mCompatibility.GetValue("compatibility");
+
+        /// <summary>
+        /// The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
+        /// </summary>
+        [Input("dataFormat")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
+
+        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
+
+        /// <summary>
+        /// A description of the schema.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ARN of the Glue Registry to create the schema in.
+        /// </summary>
+        [Input("registryArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryArn;
+
+        public string? RegistryArn => _mRegistryArn.GetValue("registryArn");
+
+        /// <summary>
+        /// The schema definition using the `data_format` setting for `schema_name`.
+        /// </summary>
+        [Input("schemaDefinition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaDefinition;
+
+        public string? SchemaDefinition => _mSchemaDefinition.GetValue("schemaDefinition");
+
+        /// <summary>
+        /// The Name of the schema.
+        /// </summary>
+        [Input("schemaName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaName;
+
+        public string? SchemaName => _mSchemaName.GetValue("schemaName");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

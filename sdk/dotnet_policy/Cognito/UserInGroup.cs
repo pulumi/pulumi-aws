@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/userInGroup:UserInGroup")]
-    public sealed class UserInGroup : global::Pulumi.PolicyResource
+    public sealed class UserInGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the group to which the user is to be added.
         /// </summary>
         [Input("groupName")]
-        public string? GroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+
+        public string? GroupName => _mGroupName.GetValue("groupName");
 
         /// <summary>
         /// The user pool ID of the user and group.
         /// </summary>
         [Input("userPoolId")]
-        public string? UserPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
 
         /// <summary>
         /// The username of the user to be added to the group.
         /// </summary>
         [Input("username")]
-        public string? Username;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
+    }
+
+    [PolicyResourceType("aws:cognito/userInGroup:UserInGroup")]
+    public sealed class UserInGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the group to which the user is to be added.
+        /// </summary>
+        [Input("groupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+
+        public string? GroupName => _mGroupName.GetValue("groupName");
+
+        /// <summary>
+        /// The user pool ID of the user and group.
+        /// </summary>
+        [Input("userPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+
+        /// <summary>
+        /// The username of the user to be added to the group.
+        /// </summary>
+        [Input("username")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
     }
 }

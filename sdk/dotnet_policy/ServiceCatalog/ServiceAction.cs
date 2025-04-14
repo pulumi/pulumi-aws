@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/serviceAction:ServiceAction")]
-    public sealed class ServiceAction : global::Pulumi.PolicyResource
+    public sealed class ServiceAction : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
         /// </summary>
         [Input("acceptLanguage")]
-        public string? AcceptLanguage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
 
         /// <summary>
         /// Self-service action definition configuration block. Detailed below.
         /// </summary>
         [Input("definition")]
-        public ServiceActionDefinition? Definition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceActionDefinition> _mDefinition;
+
+        public Outputs.ServiceActionDefinition? Definition => _mDefinition.GetValue("definition");
 
         /// <summary>
         /// Self-service action description.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Self-service action name.
@@ -37,6 +46,51 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/serviceAction:ServiceAction")]
+    public sealed class ServiceActionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+
+        /// <summary>
+        /// Self-service action definition configuration block. Detailed below.
+        /// </summary>
+        [Input("definition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceActionDefinitionArgs> _mDefinition;
+
+        public Inputs.ServiceActionDefinitionArgs? Definition => _mDefinition.GetValue("definition");
+
+        /// <summary>
+        /// Self-service action description.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Self-service action name.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

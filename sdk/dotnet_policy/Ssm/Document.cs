@@ -11,144 +11,298 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/document:Document")]
-    public sealed class Document : global::Pulumi.PolicyResource
+    public sealed class Document : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the document.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         /// </summary>
         [Input("attachmentsSources")]
-        public List<DocumentAttachmentsSource>? AttachmentsSources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DocumentAttachmentsSource>> _mAttachmentsSources;
+
+        public List<Outputs.DocumentAttachmentsSource>? AttachmentsSources => _mAttachmentsSources.GetValue("attachmentsSources");
 
         /// <summary>
         /// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         /// </summary>
         [Input("content")]
-        public string? Content;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
+
+        public string? Content => _mContent.GetValue("content");
 
         /// <summary>
         /// The date the document was created.
         /// </summary>
         [Input("createdDate")]
-        public string? CreatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
+
+        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
 
         /// <summary>
         /// The default version of the document.
         /// </summary>
         [Input("defaultVersion")]
-        public string? DefaultVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultVersion;
+
+        public string? DefaultVersion => _mDefaultVersion.GetValue("defaultVersion");
 
         /// <summary>
         /// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         /// </summary>
         [Input("documentFormat")]
-        public string? DocumentFormat;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentFormat;
+
+        public string? DocumentFormat => _mDocumentFormat.GetValue("documentFormat");
 
         /// <summary>
         /// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
         /// </summary>
         [Input("documentType")]
-        public string? DocumentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentType;
+
+        public string? DocumentType => _mDocumentType.GetValue("documentType");
 
         /// <summary>
         /// The document version.
         /// </summary>
         [Input("documentVersion")]
-        public string? DocumentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentVersion;
+
+        public string? DocumentVersion => _mDocumentVersion.GetValue("documentVersion");
 
         /// <summary>
         /// The Sha256 or Sha1 hash created by the system when the document was created.
         /// </summary>
         [Input("hash")]
-        public string? Hash;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHash;
+
+        public string? Hash => _mHash.GetValue("hash");
 
         /// <summary>
         /// The hash type of the document. Valid values: `Sha256`, `Sha1`.
         /// </summary>
         [Input("hashType")]
-        public string? HashType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHashType;
+
+        public string? HashType => _mHashType.GetValue("hashType");
 
         /// <summary>
         /// The latest version of the document.
         /// </summary>
         [Input("latestVersion")]
-        public string? LatestVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLatestVersion;
+
+        public string? LatestVersion => _mLatestVersion.GetValue("latestVersion");
 
         /// <summary>
         /// The name of the document.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Amazon Web Services user that created the document.
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
         /// </summary>
         [Input("parameters")]
-        public List<DocumentParameter>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DocumentParameter>> _mParameters;
+
+        public List<Outputs.DocumentParameter>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// Additional permissions to attach to the document. See Permissions below for details.
         /// </summary>
         [Input("permissions")]
-        public Dictionary<string, string>? Permissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPermissions;
+
+        public Dictionary<string, string>? Permissions => _mPermissions.GetValue("permissions");
 
         /// <summary>
         /// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
         /// </summary>
         [Input("platformTypes")]
-        public List<string>? PlatformTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPlatformTypes;
+
+        public List<string>? PlatformTypes => _mPlatformTypes.GetValue("platformTypes");
 
         /// <summary>
         /// The schema version of the document.
         /// </summary>
         [Input("schemaVersion")]
-        public string? SchemaVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaVersion;
+
+        public string? SchemaVersion => _mSchemaVersion.GetValue("schemaVersion");
 
         /// <summary>
         /// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         /// </summary>
         [Input("targetType")]
-        public string? TargetType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
+
+        public string? TargetType => _mTargetType.GetValue("targetType");
 
         /// <summary>
         /// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         /// </summary>
         [Input("versionName")]
-        public string? VersionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
+
+        public string? VersionName => _mVersionName.GetValue("versionName");
+    }
+
+    [PolicyResourceType("aws:ssm/document:Document")]
+    public sealed class DocumentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+        /// </summary>
+        [Input("attachmentsSources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DocumentAttachmentsSourceArgs>> _mAttachmentsSources;
+
+        public List<Inputs.DocumentAttachmentsSourceArgs>? AttachmentsSources => _mAttachmentsSources.GetValue("attachmentsSources");
+
+        /// <summary>
+        /// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
+        /// </summary>
+        [Input("content")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
+
+        public string? Content => _mContent.GetValue("content");
+
+        /// <summary>
+        /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
+        /// </summary>
+        [Input("documentFormat")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentFormat;
+
+        public string? DocumentFormat => _mDocumentFormat.GetValue("documentFormat");
+
+        /// <summary>
+        /// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
+        /// </summary>
+        [Input("documentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentType;
+
+        public string? DocumentType => _mDocumentType.GetValue("documentType");
+
+        /// <summary>
+        /// The name of the document.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Additional permissions to attach to the document. See Permissions below for details.
+        /// </summary>
+        [Input("permissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPermissions;
+
+        public Dictionary<string, string>? Permissions => _mPermissions.GetValue("permissions");
+
+        /// <summary>
+        /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
+        /// </summary>
+        [Input("targetType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
+
+        public string? TargetType => _mTargetType.GetValue("targetType");
+
+        /// <summary>
+        /// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
+        /// </summary>
+        [Input("versionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
+
+        public string? VersionName => _mVersionName.GetValue("versionName");
     }
 }

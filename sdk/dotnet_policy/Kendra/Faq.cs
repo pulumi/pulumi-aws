@@ -11,84 +11,193 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kendra
 {
     [PolicyResourceType("aws:kendra/faq:Faq")]
-    public sealed class Faq : global::Pulumi.PolicyResource
+    public sealed class Faq : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the FAQ.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Unix datetime that the FAQ was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// When the Status field value is `FAILED`, this contains a message that explains why.
         /// </summary>
         [Input("errorMessage")]
-        public string? ErrorMessage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mErrorMessage;
+
+        public string? ErrorMessage => _mErrorMessage.GetValue("errorMessage");
 
         /// <summary>
         /// The identifier of the FAQ.
         /// </summary>
         [Input("faqId")]
-        public string? FaqId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFaqId;
+
+        public string? FaqId => _mFaqId.GetValue("faqId");
 
         [Input("fileFormat")]
-        public string? FileFormat;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileFormat;
+
+        public string? FileFormat => _mFileFormat.GetValue("fileFormat");
 
         /// <summary>
         /// The identifier of the index for a FAQ.
         /// </summary>
         [Input("indexId")]
-        public string? IndexId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
+
+        public string? IndexId => _mIndexId.GetValue("indexId");
 
         [Input("languageCode")]
-        public string? LanguageCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
 
         /// <summary>
         /// The name that should be associated with the FAQ.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
         /// </summary>
         [Input("s3Path")]
-        public FaqS3Path? S3Path;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FaqS3Path> _mS3Path;
+
+        public Outputs.FaqS3Path? S3Path => _mS3Path.GetValue("s3Path");
 
         /// <summary>
         /// The status of the FAQ. It is ready to use when the status is ACTIVE.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The date and time that the FAQ was last updated.
         /// </summary>
         [Input("updatedAt")]
-        public string? UpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
+
+        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+    }
+
+    [PolicyResourceType("aws:kendra/faq:Faq")]
+    public sealed class FaqArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        [Input("fileFormat")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileFormat;
+
+        public string? FileFormat => _mFileFormat.GetValue("fileFormat");
+
+        /// <summary>
+        /// The identifier of the index for a FAQ.
+        /// </summary>
+        [Input("indexId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
+
+        public string? IndexId => _mIndexId.GetValue("indexId");
+
+        [Input("languageCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+
+        /// <summary>
+        /// The name that should be associated with the FAQ.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// The S3 location of the FAQ input data. Detailed below.
+        /// </summary>
+        [Input("s3Path")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FaqS3PathArgs> _mS3Path;
+
+        public Inputs.FaqS3PathArgs? S3Path => _mS3Path.GetValue("s3Path");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

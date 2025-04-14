@@ -11,117 +11,292 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/customModel:CustomModel")]
-    public sealed class CustomModel : global::Pulumi.PolicyResource
+    public sealed class CustomModel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the base model.
         /// </summary>
         [Input("baseModelIdentifier")]
-        public string? BaseModelIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseModelIdentifier;
+
+        public string? BaseModelIdentifier => _mBaseModelIdentifier.GetValue("baseModelIdentifier");
 
         /// <summary>
         /// The ARN of the output model.
         /// </summary>
         [Input("customModelArn")]
-        public string? CustomModelArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelArn;
+
+        public string? CustomModelArn => _mCustomModelArn.GetValue("customModelArn");
 
         /// <summary>
         /// The custom model is encrypted at rest using this key. Specify the key ARN.
         /// </summary>
         [Input("customModelKmsKeyId")]
-        public string? CustomModelKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelKmsKeyId;
+
+        public string? CustomModelKmsKeyId => _mCustomModelKmsKeyId.GetValue("customModelKmsKeyId");
 
         /// <summary>
         /// Name for the custom model.
         /// </summary>
         [Input("customModelName")]
-        public string? CustomModelName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelName;
+
+        public string? CustomModelName => _mCustomModelName.GetValue("customModelName");
 
         /// <summary>
         /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         /// </summary>
         [Input("customizationType")]
-        public string? CustomizationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomizationType;
+
+        public string? CustomizationType => _mCustomizationType.GetValue("customizationType");
 
         /// <summary>
         /// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         /// </summary>
         [Input("hyperparameters")]
-        public Dictionary<string, string>? Hyperparameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mHyperparameters;
+
+        public Dictionary<string, string>? Hyperparameters => _mHyperparameters.GetValue("hyperparameters");
 
         /// <summary>
         /// The ARN of the customization job.
         /// </summary>
         [Input("jobArn")]
-        public string? JobArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobArn;
+
+        public string? JobArn => _mJobArn.GetValue("jobArn");
 
         /// <summary>
         /// A name for the customization job.
         /// </summary>
         [Input("jobName")]
-        public string? JobName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobName;
+
+        public string? JobName => _mJobName.GetValue("jobName");
 
         /// <summary>
         /// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         /// </summary>
         [Input("jobStatus")]
-        public string? JobStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobStatus;
+
+        public string? JobStatus => _mJobStatus.GetValue("jobStatus");
 
         /// <summary>
         /// S3 location for the output data.
         /// </summary>
         [Input("outputDataConfig")]
-        public CustomModelOutputDataConfig? OutputDataConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelOutputDataConfig> _mOutputDataConfig;
+
+        public Outputs.CustomModelOutputDataConfig? OutputDataConfig => _mOutputDataConfig.GetValue("outputDataConfig");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public CustomModelTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelTimeouts> _mTimeouts;
+
+        public Outputs.CustomModelTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Information about the training dataset.
         /// </summary>
         [Input("trainingDataConfig")]
-        public CustomModelTrainingDataConfig? TrainingDataConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelTrainingDataConfig> _mTrainingDataConfig;
+
+        public Outputs.CustomModelTrainingDataConfig? TrainingDataConfig => _mTrainingDataConfig.GetValue("trainingDataConfig");
 
         /// <summary>
         /// Metrics associated with the customization job.
         /// </summary>
         [Input("trainingMetrics")]
-        public List<CustomModelTrainingMetric>? TrainingMetrics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomModelTrainingMetric>> _mTrainingMetrics;
+
+        public List<Outputs.CustomModelTrainingMetric>? TrainingMetrics => _mTrainingMetrics.GetValue("trainingMetrics");
 
         /// <summary>
         /// Information about the validation dataset.
         /// </summary>
         [Input("validationDataConfig")]
-        public CustomModelValidationDataConfig? ValidationDataConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelValidationDataConfig> _mValidationDataConfig;
+
+        public Outputs.CustomModelValidationDataConfig? ValidationDataConfig => _mValidationDataConfig.GetValue("validationDataConfig");
 
         /// <summary>
         /// The loss metric for each validator that you provided.
         /// </summary>
         [Input("validationMetrics")]
-        public List<CustomModelValidationMetric>? ValidationMetrics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomModelValidationMetric>> _mValidationMetrics;
+
+        public List<Outputs.CustomModelValidationMetric>? ValidationMetrics => _mValidationMetrics.GetValue("validationMetrics");
 
         /// <summary>
         /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
         /// </summary>
         [Input("vpcConfig")]
-        public CustomModelVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomModelVpcConfig> _mVpcConfig;
+
+        public Outputs.CustomModelVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+    }
+
+    [PolicyResourceType("aws:bedrock/customModel:CustomModel")]
+    public sealed class CustomModelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the base model.
+        /// </summary>
+        [Input("baseModelIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseModelIdentifier;
+
+        public string? BaseModelIdentifier => _mBaseModelIdentifier.GetValue("baseModelIdentifier");
+
+        /// <summary>
+        /// The custom model is encrypted at rest using this key. Specify the key ARN.
+        /// </summary>
+        [Input("customModelKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelKmsKeyId;
+
+        public string? CustomModelKmsKeyId => _mCustomModelKmsKeyId.GetValue("customModelKmsKeyId");
+
+        /// <summary>
+        /// Name for the custom model.
+        /// </summary>
+        [Input("customModelName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomModelName;
+
+        public string? CustomModelName => _mCustomModelName.GetValue("customModelName");
+
+        /// <summary>
+        /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
+        /// </summary>
+        [Input("customizationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomizationType;
+
+        public string? CustomizationType => _mCustomizationType.GetValue("customizationType");
+
+        /// <summary>
+        /// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
+        /// </summary>
+        [Input("hyperparameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mHyperparameters;
+
+        public Dictionary<string, string>? Hyperparameters => _mHyperparameters.GetValue("hyperparameters");
+
+        /// <summary>
+        /// A name for the customization job.
+        /// </summary>
+        [Input("jobName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobName;
+
+        public string? JobName => _mJobName.GetValue("jobName");
+
+        /// <summary>
+        /// S3 location for the output data.
+        /// </summary>
+        [Input("outputDataConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelOutputDataConfigArgs> _mOutputDataConfig;
+
+        public Inputs.CustomModelOutputDataConfigArgs? OutputDataConfig => _mOutputDataConfig.GetValue("outputDataConfig");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelTimeoutsArgs> _mTimeouts;
+
+        public Inputs.CustomModelTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Information about the training dataset.
+        /// </summary>
+        [Input("trainingDataConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelTrainingDataConfigArgs> _mTrainingDataConfig;
+
+        public Inputs.CustomModelTrainingDataConfigArgs? TrainingDataConfig => _mTrainingDataConfig.GetValue("trainingDataConfig");
+
+        /// <summary>
+        /// Information about the validation dataset.
+        /// </summary>
+        [Input("validationDataConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelValidationDataConfigArgs> _mValidationDataConfig;
+
+        public Inputs.CustomModelValidationDataConfigArgs? ValidationDataConfig => _mValidationDataConfig.GetValue("validationDataConfig");
+
+        /// <summary>
+        /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomModelVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.CustomModelVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
     }
 }

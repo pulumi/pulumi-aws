@@ -11,96 +11,250 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber")]
-    public sealed class Smsvoicev2PhoneNumber : global::Pulumi.PolicyResource
+    public sealed class Smsvoicev2PhoneNumber : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the phone number.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// By default this is set to `false`. When set to true the phone number can’t be deleted.
         /// </summary>
         [Input("deletionProtectionEnabled")]
-        public bool? DeletionProtectionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtectionEnabled;
+
+        public bool? DeletionProtectionEnabled => _mDeletionProtectionEnabled.GetValue("deletionProtectionEnabled");
 
         /// <summary>
         /// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
         /// </summary>
         [Input("isoCountryCode")]
-        public string? IsoCountryCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIsoCountryCode;
+
+        public string? IsoCountryCode => _mIsoCountryCode.GetValue("isoCountryCode");
 
         /// <summary>
         /// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
         /// </summary>
         [Input("messageType")]
-        public string? MessageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMessageType;
+
+        public string? MessageType => _mMessageType.GetValue("messageType");
 
         /// <summary>
         /// The monthly price, in US dollars, to lease the phone number.
         /// </summary>
         [Input("monthlyLeasingPrice")]
-        public string? MonthlyLeasingPrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonthlyLeasingPrice;
+
+        public string? MonthlyLeasingPrice => _mMonthlyLeasingPrice.GetValue("monthlyLeasingPrice");
 
         /// <summary>
         /// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
         /// </summary>
         [Input("numberCapabilities")]
-        public List<string>? NumberCapabilities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNumberCapabilities;
+
+        public List<string>? NumberCapabilities => _mNumberCapabilities.GetValue("numberCapabilities");
 
         /// <summary>
         /// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
         /// </summary>
         [Input("numberType")]
-        public string? NumberType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNumberType;
+
+        public string? NumberType => _mNumberType.GetValue("numberType");
 
         /// <summary>
         /// The name of the opt-out list to associate with the phone number.
         /// </summary>
         [Input("optOutListName")]
-        public string? OptOutListName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptOutListName;
+
+        public string? OptOutListName => _mOptOutListName.GetValue("optOutListName");
 
         /// <summary>
         /// The new phone number that was requested.
         /// </summary>
         [Input("phoneNumber")]
-        public string? PhoneNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
+
+        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
 
         /// <summary>
         /// Use this field to attach your phone number for an external registration process.
         /// </summary>
         [Input("registrationId")]
-        public string? RegistrationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistrationId;
+
+        public string? RegistrationId => _mRegistrationId.GetValue("registrationId");
 
         /// <summary>
         /// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
         /// </summary>
         [Input("selfManagedOptOutsEnabled")]
-        public bool? SelfManagedOptOutsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSelfManagedOptOutsEnabled;
+
+        public bool? SelfManagedOptOutsEnabled => _mSelfManagedOptOutsEnabled.GetValue("selfManagedOptOutsEnabled");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public Smsvoicev2PhoneNumberTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.Smsvoicev2PhoneNumberTimeouts> _mTimeouts;
+
+        public Outputs.Smsvoicev2PhoneNumberTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the two way channel.
         /// </summary>
         [Input("twoWayChannelArn")]
-        public string? TwoWayChannelArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTwoWayChannelArn;
+
+        public string? TwoWayChannelArn => _mTwoWayChannelArn.GetValue("twoWayChannelArn");
 
         /// <summary>
         /// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
         /// </summary>
         [Input("twoWayChannelEnabled")]
-        public bool? TwoWayChannelEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTwoWayChannelEnabled;
+
+        public bool? TwoWayChannelEnabled => _mTwoWayChannelEnabled.GetValue("twoWayChannelEnabled");
+    }
+
+    [PolicyResourceType("aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber")]
+    public sealed class Smsvoicev2PhoneNumberArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// By default this is set to `false`. When set to true the phone number can’t be deleted.
+        /// </summary>
+        [Input("deletionProtectionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtectionEnabled;
+
+        public bool? DeletionProtectionEnabled => _mDeletionProtectionEnabled.GetValue("deletionProtectionEnabled");
+
+        /// <summary>
+        /// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+        /// </summary>
+        [Input("isoCountryCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIsoCountryCode;
+
+        public string? IsoCountryCode => _mIsoCountryCode.GetValue("isoCountryCode");
+
+        /// <summary>
+        /// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+        /// </summary>
+        [Input("messageType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMessageType;
+
+        public string? MessageType => _mMessageType.GetValue("messageType");
+
+        /// <summary>
+        /// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+        /// </summary>
+        [Input("numberCapabilities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNumberCapabilities;
+
+        public List<string>? NumberCapabilities => _mNumberCapabilities.GetValue("numberCapabilities");
+
+        /// <summary>
+        /// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+        /// </summary>
+        [Input("numberType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNumberType;
+
+        public string? NumberType => _mNumberType.GetValue("numberType");
+
+        /// <summary>
+        /// The name of the opt-out list to associate with the phone number.
+        /// </summary>
+        [Input("optOutListName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOptOutListName;
+
+        public string? OptOutListName => _mOptOutListName.GetValue("optOutListName");
+
+        /// <summary>
+        /// Use this field to attach your phone number for an external registration process.
+        /// </summary>
+        [Input("registrationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistrationId;
+
+        public string? RegistrationId => _mRegistrationId.GetValue("registrationId");
+
+        /// <summary>
+        /// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
+        /// </summary>
+        [Input("selfManagedOptOutsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSelfManagedOptOutsEnabled;
+
+        public bool? SelfManagedOptOutsEnabled => _mSelfManagedOptOutsEnabled.GetValue("selfManagedOptOutsEnabled");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.Smsvoicev2PhoneNumberTimeoutsArgs> _mTimeouts;
+
+        public Inputs.Smsvoicev2PhoneNumberTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the two way channel.
+        /// </summary>
+        [Input("twoWayChannelArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTwoWayChannelArn;
+
+        public string? TwoWayChannelArn => _mTwoWayChannelArn.GetValue("twoWayChannelArn");
+
+        /// <summary>
+        /// By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+        /// </summary>
+        [Input("twoWayChannelEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTwoWayChannelEnabled;
+
+        public bool? TwoWayChannelEnabled => _mTwoWayChannelEnabled.GetValue("twoWayChannelEnabled");
     }
 }

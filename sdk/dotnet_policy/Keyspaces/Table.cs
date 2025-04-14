@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Keyspaces
 {
     [PolicyResourceType("aws:keyspaces/table:Table")]
-    public sealed class Table : global::Pulumi.PolicyResource
+    public sealed class Table : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the table.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies the read/write throughput capacity mode for the table.
         /// </summary>
         [Input("capacitySpecification")]
-        public TableCapacitySpecification? CapacitySpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableCapacitySpecification> _mCapacitySpecification;
+
+        public Outputs.TableCapacitySpecification? CapacitySpecification => _mCapacitySpecification.GetValue("capacitySpecification");
 
         /// <summary>
         /// Enables client-side timestamps for the table. By default, the setting is disabled.
         /// </summary>
         [Input("clientSideTimestamps")]
-        public TableClientSideTimestamps? ClientSideTimestamps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableClientSideTimestamps> _mClientSideTimestamps;
+
+        public Outputs.TableClientSideTimestamps? ClientSideTimestamps => _mClientSideTimestamps.GetValue("clientSideTimestamps");
 
         /// <summary>
         /// A description of the table.
         /// </summary>
         [Input("comment")]
-        public TableComment? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableComment> _mComment;
+
+        public Outputs.TableComment? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         /// </summary>
         [Input("defaultTimeToLive")]
-        public int? DefaultTimeToLive;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTimeToLive;
+
+        public int? DefaultTimeToLive => _mDefaultTimeToLive.GetValue("defaultTimeToLive");
 
         /// <summary>
         /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         /// </summary>
         [Input("encryptionSpecification")]
-        public TableEncryptionSpecification? EncryptionSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableEncryptionSpecification> _mEncryptionSpecification;
+
+        public Outputs.TableEncryptionSpecification? EncryptionSpecification => _mEncryptionSpecification.GetValue("encryptionSpecification");
 
         /// <summary>
         /// The name of the keyspace that the table is going to be created in.
         /// </summary>
         [Input("keyspaceName")]
-        public string? KeyspaceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyspaceName;
+
+        public string? KeyspaceName => _mKeyspaceName.GetValue("keyspaceName");
 
         /// <summary>
         /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         /// </summary>
         [Input("pointInTimeRecovery")]
-        public TablePointInTimeRecovery? PointInTimeRecovery;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TablePointInTimeRecovery> _mPointInTimeRecovery;
+
+        public Outputs.TablePointInTimeRecovery? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
 
         /// <summary>
         /// Describes the schema of the table.
         /// </summary>
         [Input("schemaDefinition")]
-        public TableSchemaDefinition? SchemaDefinition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableSchemaDefinition> _mSchemaDefinition;
+
+        public Outputs.TableSchemaDefinition? SchemaDefinition => _mSchemaDefinition.GetValue("schemaDefinition");
 
         /// <summary>
         /// The name of the table.
@@ -73,24 +100,141 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces
         /// The following arguments are optional:
         /// </summary>
         [Input("tableName")]
-        public string? TableName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         /// </summary>
         [Input("ttl")]
-        public TableTtl? Ttl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TableTtl> _mTtl;
+
+        public Outputs.TableTtl? Ttl => _mTtl.GetValue("ttl");
+    }
+
+    [PolicyResourceType("aws:keyspaces/table:Table")]
+    public sealed class TableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the read/write throughput capacity mode for the table.
+        /// </summary>
+        [Input("capacitySpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableCapacitySpecificationArgs> _mCapacitySpecification;
+
+        public Inputs.TableCapacitySpecificationArgs? CapacitySpecification => _mCapacitySpecification.GetValue("capacitySpecification");
+
+        /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Input("clientSideTimestamps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableClientSideTimestampsArgs> _mClientSideTimestamps;
+
+        public Inputs.TableClientSideTimestampsArgs? ClientSideTimestamps => _mClientSideTimestamps.GetValue("clientSideTimestamps");
+
+        /// <summary>
+        /// A description of the table.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableCommentArgs> _mComment;
+
+        public Inputs.TableCommentArgs? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        /// </summary>
+        [Input("defaultTimeToLive")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTimeToLive;
+
+        public int? DefaultTimeToLive => _mDefaultTimeToLive.GetValue("defaultTimeToLive");
+
+        /// <summary>
+        /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        /// </summary>
+        [Input("encryptionSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableEncryptionSpecificationArgs> _mEncryptionSpecification;
+
+        public Inputs.TableEncryptionSpecificationArgs? EncryptionSpecification => _mEncryptionSpecification.GetValue("encryptionSpecification");
+
+        /// <summary>
+        /// The name of the keyspace that the table is going to be created in.
+        /// </summary>
+        [Input("keyspaceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyspaceName;
+
+        public string? KeyspaceName => _mKeyspaceName.GetValue("keyspaceName");
+
+        /// <summary>
+        /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        /// </summary>
+        [Input("pointInTimeRecovery")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TablePointInTimeRecoveryArgs> _mPointInTimeRecovery;
+
+        public Inputs.TablePointInTimeRecoveryArgs? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+
+        /// <summary>
+        /// Describes the schema of the table.
+        /// </summary>
+        [Input("schemaDefinition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableSchemaDefinitionArgs> _mSchemaDefinition;
+
+        public Inputs.TableSchemaDefinitionArgs? SchemaDefinition => _mSchemaDefinition.GetValue("schemaDefinition");
+
+        /// <summary>
+        /// The name of the table.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("tableName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        /// </summary>
+        [Input("ttl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TableTtlArgs> _mTtl;
+
+        public Inputs.TableTtlArgs? Ttl => _mTtl.GetValue("ttl");
     }
 }

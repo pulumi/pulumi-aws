@@ -11,15 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sqs
 {
     [PolicyResourceType("aws:sqs/queuePolicy:QueuePolicy")]
-    public sealed class QueuePolicy : global::Pulumi.PolicyResource
+    public sealed class QueuePolicy : global::Pulumi.PolicyResourceOutput
     {
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// URL of the SQS Queue to which to attach the policy.
         /// </summary>
         [Input("queueUrl")]
-        public string? QueueUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
+
+        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+    }
+
+    [PolicyResourceType("aws:sqs/queuePolicy:QueuePolicy")]
+    public sealed class QueuePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// URL of the SQS Queue to which to attach the policy.
+        /// </summary>
+        [Input("queueUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
+
+        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
     }
 }

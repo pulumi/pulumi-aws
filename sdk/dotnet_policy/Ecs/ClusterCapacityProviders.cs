@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecs
 {
     [PolicyResourceType("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")]
-    public sealed class ClusterCapacityProviders : global::Pulumi.PolicyResource
+    public sealed class ClusterCapacityProviders : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         /// </summary>
         [Input("capacityProviders")]
-        public List<string>? CapacityProviders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapacityProviders;
+
+        public List<string>? CapacityProviders => _mCapacityProviders.GetValue("capacityProviders");
 
         /// <summary>
         /// Name of the ECS cluster to manage capacity providers for.
         /// </summary>
         [Input("clusterName")]
-        public string? ClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
 
         /// <summary>
         /// Set of capacity provider strategies to use by default for the cluster. Detailed below.
         /// </summary>
         [Input("defaultCapacityProviderStrategies")]
-        public List<ClusterCapacityProvidersDefaultCapacityProviderStrategy>? DefaultCapacityProviderStrategies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>> _mDefaultCapacityProviderStrategies;
+
+        public List<Outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>? DefaultCapacityProviderStrategies => _mDefaultCapacityProviderStrategies.GetValue("defaultCapacityProviderStrategies");
+    }
+
+    [PolicyResourceType("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")]
+    public sealed class ClusterCapacityProvidersArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        /// </summary>
+        [Input("capacityProviders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapacityProviders;
+
+        public List<string>? CapacityProviders => _mCapacityProviders.GetValue("capacityProviders");
+
+        /// <summary>
+        /// Name of the ECS cluster to manage capacity providers for.
+        /// </summary>
+        [Input("clusterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
+
+        /// <summary>
+        /// Set of capacity provider strategies to use by default for the cluster. Detailed below.
+        /// </summary>
+        [Input("defaultCapacityProviderStrategies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>> _mDefaultCapacityProviderStrategies;
+
+        public List<Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>? DefaultCapacityProviderStrategies => _mDefaultCapacityProviderStrategies.GetValue("defaultCapacityProviderStrategies");
     }
 }

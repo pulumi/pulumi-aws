@@ -11,45 +11,106 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transfer
 {
     [PolicyResourceType("aws:transfer/profile:Profile")]
-    public sealed class Profile : global::Pulumi.PolicyResource
+    public sealed class Profile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the profile.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         /// </summary>
         [Input("as2Id")]
-        public string? As2Id;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAs2Id;
+
+        public string? As2Id => _mAs2Id.GetValue("as2Id");
 
         /// <summary>
         /// The list of certificate Ids from the imported certificate operation.
         /// </summary>
         [Input("certificateIds")]
-        public List<string>? CertificateIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCertificateIds;
+
+        public List<string>? CertificateIds => _mCertificateIds.GetValue("certificateIds");
 
         /// <summary>
         /// The unique identifier for the AS2 profile.
         /// </summary>
         [Input("profileId")]
-        public string? ProfileId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileId;
+
+        public string? ProfileId => _mProfileId.GetValue("profileId");
 
         /// <summary>
         /// The profile type should be LOCAL or PARTNER.
         /// </summary>
         [Input("profileType")]
-        public string? ProfileType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileType;
+
+        public string? ProfileType => _mProfileType.GetValue("profileType");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:transfer/profile:Profile")]
+    public sealed class ProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+        /// </summary>
+        [Input("as2Id")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAs2Id;
+
+        public string? As2Id => _mAs2Id.GetValue("as2Id");
+
+        /// <summary>
+        /// The list of certificate Ids from the imported certificate operation.
+        /// </summary>
+        [Input("certificateIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCertificateIds;
+
+        public List<string>? CertificateIds => _mCertificateIds.GetValue("certificateIds");
+
+        /// <summary>
+        /// The profile type should be LOCAL or PARTNER.
+        /// </summary>
+        [Input("profileType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileType;
+
+        public string? ProfileType => _mProfileType.GetValue("profileType");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

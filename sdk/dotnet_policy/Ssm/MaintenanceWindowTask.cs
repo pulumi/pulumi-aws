@@ -11,90 +11,244 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")]
-    public sealed class MaintenanceWindowTask : global::Pulumi.PolicyResource
+    public sealed class MaintenanceWindowTask : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the maintenance window task.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         /// </summary>
         [Input("cutoffBehavior")]
-        public string? CutoffBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCutoffBehavior;
+
+        public string? CutoffBehavior => _mCutoffBehavior.GetValue("cutoffBehavior");
 
         /// <summary>
         /// The description of the maintenance window task.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
         /// </summary>
         [Input("maxConcurrency")]
-        public string? MaxConcurrency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaxConcurrency;
+
+        public string? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
 
         /// <summary>
         /// The maximum number of errors allowed before this task stops being scheduled.
         /// </summary>
         [Input("maxErrors")]
-        public string? MaxErrors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaxErrors;
+
+        public string? MaxErrors => _mMaxErrors.GetValue("maxErrors");
 
         /// <summary>
         /// The name of the maintenance window task.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         /// </summary>
         [Input("priority")]
-        public int? Priority;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
 
         /// <summary>
         /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         /// </summary>
         [Input("serviceRoleArn")]
-        public string? ServiceRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+
+        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
 
         /// <summary>
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
         [Input("targets")]
-        public List<MaintenanceWindowTaskTarget>? Targets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MaintenanceWindowTaskTarget>> _mTargets;
+
+        public List<Outputs.MaintenanceWindowTaskTarget>? Targets => _mTargets.GetValue("targets");
 
         /// <summary>
         /// The ARN of the task to execute.
         /// </summary>
         [Input("taskArn")]
-        public string? TaskArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskArn;
+
+        public string? TaskArn => _mTaskArn.GetValue("taskArn");
 
         /// <summary>
         /// Configuration block with parameters for task execution.
         /// </summary>
         [Input("taskInvocationParameters")]
-        public MaintenanceWindowTaskTaskInvocationParameters? TaskInvocationParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MaintenanceWindowTaskTaskInvocationParameters> _mTaskInvocationParameters;
+
+        public Outputs.MaintenanceWindowTaskTaskInvocationParameters? TaskInvocationParameters => _mTaskInvocationParameters.GetValue("taskInvocationParameters");
 
         /// <summary>
         /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         /// </summary>
         [Input("taskType")]
-        public string? TaskType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskType;
+
+        public string? TaskType => _mTaskType.GetValue("taskType");
 
         /// <summary>
         /// The Id of the maintenance window to register the task with.
         /// </summary>
         [Input("windowId")]
-        public string? WindowId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWindowId;
+
+        public string? WindowId => _mWindowId.GetValue("windowId");
 
         /// <summary>
         /// The ID of the maintenance window task.
         /// </summary>
         [Input("windowTaskId")]
-        public string? WindowTaskId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWindowTaskId;
+
+        public string? WindowTaskId => _mWindowTaskId.GetValue("windowTaskId");
+    }
+
+    [PolicyResourceType("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")]
+    public sealed class MaintenanceWindowTaskArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+        /// </summary>
+        [Input("cutoffBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCutoffBehavior;
+
+        public string? CutoffBehavior => _mCutoffBehavior.GetValue("cutoffBehavior");
+
+        /// <summary>
+        /// The description of the maintenance window task.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The maximum number of targets this task can be run for in parallel.
+        /// </summary>
+        [Input("maxConcurrency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaxConcurrency;
+
+        public string? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
+
+        /// <summary>
+        /// The maximum number of errors allowed before this task stops being scheduled.
+        /// </summary>
+        [Input("maxErrors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMaxErrors;
+
+        public string? MaxErrors => _mMaxErrors.GetValue("maxErrors");
+
+        /// <summary>
+        /// The name of the maintenance window task.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
+        /// </summary>
+        [Input("priority")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
+
+        /// <summary>
+        /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
+        /// </summary>
+        [Input("serviceRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+
+        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+
+        /// <summary>
+        /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        /// </summary>
+        [Input("targets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MaintenanceWindowTaskTargetArgs>> _mTargets;
+
+        public List<Inputs.MaintenanceWindowTaskTargetArgs>? Targets => _mTargets.GetValue("targets");
+
+        /// <summary>
+        /// The ARN of the task to execute.
+        /// </summary>
+        [Input("taskArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskArn;
+
+        public string? TaskArn => _mTaskArn.GetValue("taskArn");
+
+        /// <summary>
+        /// Configuration block with parameters for task execution.
+        /// </summary>
+        [Input("taskInvocationParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs> _mTaskInvocationParameters;
+
+        public Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs? TaskInvocationParameters => _mTaskInvocationParameters.GetValue("taskInvocationParameters");
+
+        /// <summary>
+        /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
+        /// </summary>
+        [Input("taskType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskType;
+
+        public string? TaskType => _mTaskType.GetValue("taskType");
+
+        /// <summary>
+        /// The Id of the maintenance window to register the task with.
+        /// </summary>
+        [Input("windowId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWindowId;
+
+        public string? WindowId => _mWindowId.GetValue("windowId");
     }
 }

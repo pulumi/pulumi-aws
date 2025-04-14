@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/securityGroupAssociation:SecurityGroupAssociation")]
-    public sealed class SecurityGroupAssociation : global::Pulumi.PolicyResource
+    public sealed class SecurityGroupAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
         /// </summary>
         [Input("replaceDefaultAssociation")]
-        public bool? ReplaceDefaultAssociation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceDefaultAssociation;
+
+        public bool? ReplaceDefaultAssociation => _mReplaceDefaultAssociation.GetValue("replaceDefaultAssociation");
 
         /// <summary>
         /// The ID of the security group to be associated with the VPC endpoint.
         /// </summary>
         [Input("securityGroupId")]
-        public string? SecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
 
         /// <summary>
         /// The ID of the VPC endpoint with which the security group will be associated.
         /// </summary>
         [Input("vpcEndpointId")]
-        public string? VpcEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+    }
+
+    [PolicyResourceType("aws:ec2/securityGroupAssociation:SecurityGroupAssociation")]
+    public sealed class SecurityGroupAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
+        /// </summary>
+        [Input("replaceDefaultAssociation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceDefaultAssociation;
+
+        public bool? ReplaceDefaultAssociation => _mReplaceDefaultAssociation.GetValue("replaceDefaultAssociation");
+
+        /// <summary>
+        /// The ID of the security group to be associated with the VPC endpoint.
+        /// </summary>
+        [Input("securityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+
+        /// <summary>
+        /// The ID of the VPC endpoint with which the security group will be associated.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
     }
 }

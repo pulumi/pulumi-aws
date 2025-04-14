@@ -11,60 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
 {
     [PolicyResourceType("aws:redshiftserverless/endpointAccess:EndpointAccess")]
-    public sealed class EndpointAccess : global::Pulumi.PolicyResource
+    public sealed class EndpointAccess : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The DNS address of the VPC endpoint.
         /// </summary>
         [Input("address")]
-        public string? Address;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
+
+        public string? Address => _mAddress.GetValue("address");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
         [Input("endpointName")]
-        public string? EndpointName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
+
+        public string? EndpointName => _mEndpointName.GetValue("endpointName");
 
         /// <summary>
         /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         /// </summary>
         [Input("ownerAccount")]
-        public string? OwnerAccount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccount;
+
+        public string? OwnerAccount => _mOwnerAccount.GetValue("ownerAccount");
 
         /// <summary>
         /// The port that Amazon Redshift Serverless listens on.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// An array of VPC subnet IDs to associate with the endpoint.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         /// </summary>
         [Input("vpcEndpoints")]
-        public List<EndpointAccessVpcEndpoint>? VpcEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointAccessVpcEndpoint>> _mVpcEndpoints;
+
+        public List<Outputs.EndpointAccessVpcEndpoint>? VpcEndpoints => _mVpcEndpoints.GetValue("vpcEndpoints");
 
         /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
 
         /// <summary>
         /// The name of the workgroup.
         /// </summary>
         [Input("workgroupName")]
-        public string? WorkgroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
+
+        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+    }
+
+    [PolicyResourceType("aws:redshiftserverless/endpointAccess:EndpointAccess")]
+    public sealed class EndpointAccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the endpoint.
+        /// </summary>
+        [Input("endpointName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
+
+        public string? EndpointName => _mEndpointName.GetValue("endpointName");
+
+        /// <summary>
+        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        /// </summary>
+        [Input("ownerAccount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccount;
+
+        public string? OwnerAccount => _mOwnerAccount.GetValue("ownerAccount");
+
+        /// <summary>
+        /// An array of VPC subnet IDs to associate with the endpoint.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// An array of security group IDs to associate with the workgroup.
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+
+        /// <summary>
+        /// The name of the workgroup.
+        /// </summary>
+        [Input("workgroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
+
+        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
     }
 }

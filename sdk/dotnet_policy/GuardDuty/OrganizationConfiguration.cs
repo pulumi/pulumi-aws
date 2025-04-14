@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GuardDuty
 {
     [PolicyResourceType("aws:guardduty/organizationConfiguration:OrganizationConfiguration")]
-    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResource
+    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         /// </summary>
         [Input("autoEnable")]
-        public bool? AutoEnable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
+
+        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
 
         /// <summary>
         /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
         [Input("autoEnableOrganizationMembers")]
-        public string? AutoEnableOrganizationMembers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnableOrganizationMembers;
+
+        public string? AutoEnableOrganizationMembers => _mAutoEnableOrganizationMembers.GetValue("autoEnableOrganizationMembers");
 
         /// <summary>
         /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
         /// </summary>
         [Input("datasources")]
-        public OrganizationConfigurationDatasources? Datasources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OrganizationConfigurationDatasources> _mDatasources;
+
+        public Outputs.OrganizationConfigurationDatasources? Datasources => _mDatasources.GetValue("datasources");
 
         /// <summary>
         /// The detector ID of the GuardDuty account.
         /// </summary>
         [Input("detectorId")]
-        public string? DetectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+    }
+
+    [PolicyResourceType("aws:guardduty/organizationConfiguration:OrganizationConfiguration")]
+    public sealed class OrganizationConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        /// </summary>
+        [Input("autoEnable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
+
+        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+
+        /// <summary>
+        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        /// </summary>
+        [Input("autoEnableOrganizationMembers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnableOrganizationMembers;
+
+        public string? AutoEnableOrganizationMembers => _mAutoEnableOrganizationMembers.GetValue("autoEnableOrganizationMembers");
+
+        /// <summary>
+        /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
+        /// </summary>
+        [Input("datasources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationDatasourcesArgs> _mDatasources;
+
+        public Inputs.OrganizationConfigurationDatasourcesArgs? Datasources => _mDatasources.GetValue("datasources");
+
+        /// <summary>
+        /// The detector ID of the GuardDuty account.
+        /// </summary>
+        [Input("detectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
     }
 }

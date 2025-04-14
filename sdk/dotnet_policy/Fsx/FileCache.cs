@@ -11,89 +11,131 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fsx
 {
     [PolicyResourceType("aws:fsx/fileCache:FileCache")]
-    public sealed class FileCache : global::Pulumi.PolicyResource
+    public sealed class FileCache : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the resource.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
         /// </summary>
         [Input("copyTagsToDataRepositoryAssociations")]
-        public bool? CopyTagsToDataRepositoryAssociations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToDataRepositoryAssociations;
+
+        public bool? CopyTagsToDataRepositoryAssociations => _mCopyTagsToDataRepositoryAssociations.GetValue("copyTagsToDataRepositoryAssociations");
 
         /// <summary>
         /// A list of IDs of data repository associations that are associated with this cache.
         /// </summary>
         [Input("dataRepositoryAssociationIds")]
-        public List<string>? DataRepositoryAssociationIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDataRepositoryAssociationIds;
+
+        public List<string>? DataRepositoryAssociationIds => _mDataRepositoryAssociationIds.GetValue("dataRepositoryAssociationIds");
 
         /// <summary>
         /// See the `data_repository_association` configuration block. Max of 8.
         /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
         /// </summary>
         [Input("dataRepositoryAssociations")]
-        public List<FileCacheDataRepositoryAssociation>? DataRepositoryAssociations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FileCacheDataRepositoryAssociation>> _mDataRepositoryAssociations;
+
+        public List<Outputs.FileCacheDataRepositoryAssociation>? DataRepositoryAssociations => _mDataRepositoryAssociations.GetValue("dataRepositoryAssociations");
 
         /// <summary>
         /// The Domain Name System (DNS) name for the cache.
         /// </summary>
         [Input("dnsName")]
-        public string? DnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
+
+        public string? DnsName => _mDnsName.GetValue("dnsName");
 
         /// <summary>
         /// The system-generated, unique ID of the cache.
         /// </summary>
         [Input("fileCacheId")]
-        public string? FileCacheId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileCacheId;
+
+        public string? FileCacheId => _mFileCacheId.GetValue("fileCacheId");
 
         /// <summary>
         /// The type of cache that you're creating. The only supported value is `LUSTRE`.
         /// </summary>
         [Input("fileCacheType")]
-        public string? FileCacheType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileCacheType;
+
+        public string? FileCacheType => _mFileCacheType.GetValue("fileCacheType");
 
         /// <summary>
         /// The version for the type of cache that you're creating. The only supported value is `2.12`.
         /// </summary>
         [Input("fileCacheTypeVersion")]
-        public string? FileCacheTypeVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileCacheTypeVersion;
+
+        public string? FileCacheTypeVersion => _mFileCacheTypeVersion.GetValue("fileCacheTypeVersion");
 
         /// <summary>
         /// Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
         /// </summary>
         [Input("lustreConfigurations")]
-        public List<FileCacheLustreConfiguration>? LustreConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FileCacheLustreConfiguration>> _mLustreConfigurations;
+
+        public List<Outputs.FileCacheLustreConfiguration>? LustreConfigurations => _mLustreConfigurations.GetValue("lustreConfigurations");
 
         /// <summary>
         /// A list of network interface IDs.
         /// </summary>
         [Input("networkInterfaceIds")]
-        public List<string>? NetworkInterfaceIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkInterfaceIds;
+
+        public List<string>? NetworkInterfaceIds => _mNetworkInterfaceIds.GetValue("networkInterfaceIds");
 
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         /// </summary>
         [Input("storageCapacity")]
-        public int? StorageCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
+
+        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
@@ -101,21 +143,130 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// The following arguments are optional:
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of your virtual private cloud (VPC).
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:fsx/fileCache:FileCache")]
+    public sealed class FileCacheArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+        /// </summary>
+        [Input("copyTagsToDataRepositoryAssociations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToDataRepositoryAssociations;
+
+        public bool? CopyTagsToDataRepositoryAssociations => _mCopyTagsToDataRepositoryAssociations.GetValue("copyTagsToDataRepositoryAssociations");
+
+        /// <summary>
+        /// See the `data_repository_association` configuration block. Max of 8.
+        /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+        /// </summary>
+        [Input("dataRepositoryAssociations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FileCacheDataRepositoryAssociationArgs>> _mDataRepositoryAssociations;
+
+        public List<Inputs.FileCacheDataRepositoryAssociationArgs>? DataRepositoryAssociations => _mDataRepositoryAssociations.GetValue("dataRepositoryAssociations");
+
+        /// <summary>
+        /// The type of cache that you're creating. The only supported value is `LUSTRE`.
+        /// </summary>
+        [Input("fileCacheType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileCacheType;
+
+        public string? FileCacheType => _mFileCacheType.GetValue("fileCacheType");
+
+        /// <summary>
+        /// The version for the type of cache that you're creating. The only supported value is `2.12`.
+        /// </summary>
+        [Input("fileCacheTypeVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileCacheTypeVersion;
+
+        public string? FileCacheTypeVersion => _mFileCacheTypeVersion.GetValue("fileCacheTypeVersion");
+
+        /// <summary>
+        /// Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
+        /// </summary>
+        [Input("lustreConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FileCacheLustreConfigurationArgs>> _mLustreConfigurations;
+
+        public List<Inputs.FileCacheLustreConfigurationArgs>? LustreConfigurations => _mLustreConfigurations.GetValue("lustreConfigurations");
+
+        /// <summary>
+        /// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        /// </summary>
+        [Input("storageCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
+
+        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+
+        /// <summary>
+        /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

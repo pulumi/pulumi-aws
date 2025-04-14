@@ -11,48 +11,112 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/thingGroup:ThingGroup")]
-    public sealed class ThingGroup : global::Pulumi.PolicyResource
+    public sealed class ThingGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Thing Group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("metadatas")]
-        public List<ThingGroupMetadata>? Metadatas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ThingGroupMetadata>> _mMetadatas;
+
+        public List<Outputs.ThingGroupMetadata>? Metadatas => _mMetadatas.GetValue("metadatas");
 
         /// <summary>
         /// The name of the Thing Group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The name of the parent Thing Group.
         /// </summary>
         [Input("parentGroupName")]
-        public string? ParentGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentGroupName;
+
+        public string? ParentGroupName => _mParentGroupName.GetValue("parentGroupName");
 
         /// <summary>
         /// The Thing Group properties. Defined below.
         /// </summary>
         [Input("properties")]
-        public ThingGroupProperties? Properties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ThingGroupProperties> _mProperties;
+
+        public Outputs.ThingGroupProperties? Properties => _mProperties.GetValue("properties");
 
         /// <summary>
         /// Key-value mapping of resource tags
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The current version of the Thing Group record in the registry.
         /// </summary>
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:iot/thingGroup:ThingGroup")]
+    public sealed class ThingGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Thing Group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name of the parent Thing Group.
+        /// </summary>
+        [Input("parentGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentGroupName;
+
+        public string? ParentGroupName => _mParentGroupName.GetValue("parentGroupName");
+
+        /// <summary>
+        /// The Thing Group properties. Defined below.
+        /// </summary>
+        [Input("properties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ThingGroupPropertiesArgs> _mProperties;
+
+        public Inputs.ThingGroupPropertiesArgs? Properties => _mProperties.GetValue("properties");
+
+        /// <summary>
+        /// Key-value mapping of resource tags
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

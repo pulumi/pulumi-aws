@@ -11,132 +11,361 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sqs
 {
     [PolicyResourceType("aws:sqs/queue:Queue")]
-    public sealed class Queue : global::Pulumi.PolicyResource
+    public sealed class Queue : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the SQS queue.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing).
         /// </summary>
         [Input("contentBasedDeduplication")]
-        public bool? ContentBasedDeduplication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mContentBasedDeduplication;
+
+        public bool? ContentBasedDeduplication => _mContentBasedDeduplication.GetValue("contentBasedDeduplication");
 
         /// <summary>
         /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         /// </summary>
         [Input("deduplicationScope")]
-        public string? DeduplicationScope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeduplicationScope;
+
+        public string? DeduplicationScope => _mDeduplicationScope.GetValue("deduplicationScope");
 
         /// <summary>
         /// Time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         /// </summary>
         [Input("delaySeconds")]
-        public int? DelaySeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDelaySeconds;
+
+        public int? DelaySeconds => _mDelaySeconds.GetValue("delaySeconds");
 
         /// <summary>
         /// Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
         /// </summary>
         [Input("fifoQueue")]
-        public bool? FifoQueue;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFifoQueue;
+
+        public bool? FifoQueue => _mFifoQueue.GetValue("fifoQueue");
 
         /// <summary>
         /// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
         /// </summary>
         [Input("fifoThroughputLimit")]
-        public string? FifoThroughputLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFifoThroughputLimit;
+
+        public string? FifoThroughputLimit => _mFifoThroughputLimit.GetValue("fifoThroughputLimit");
 
         /// <summary>
         /// Length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         /// </summary>
         [Input("kmsDataKeyReusePeriodSeconds")]
-        public int? KmsDataKeyReusePeriodSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mKmsDataKeyReusePeriodSeconds;
+
+        public int? KmsDataKeyReusePeriodSeconds => _mKmsDataKeyReusePeriodSeconds.GetValue("kmsDataKeyReusePeriodSeconds");
 
         /// <summary>
         /// ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         /// </summary>
         [Input("kmsMasterKeyId")]
-        public string? KmsMasterKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsMasterKeyId;
+
+        public string? KmsMasterKeyId => _mKmsMasterKeyId.GetValue("kmsMasterKeyId");
 
         /// <summary>
         /// Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
         /// </summary>
         [Input("maxMessageSize")]
-        public int? MaxMessageSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxMessageSize;
+
+        public int? MaxMessageSize => _mMaxMessageSize.GetValue("maxMessageSize");
 
         /// <summary>
         /// Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
         /// </summary>
         [Input("messageRetentionSeconds")]
-        public int? MessageRetentionSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMessageRetentionSeconds;
+
+        public int? MessageRetentionSeconds => _mMessageRetentionSeconds.GetValue("messageRetentionSeconds");
 
         /// <summary>
         /// Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
-        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide.
+        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.QueuePolicy` resource instead.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         /// </summary>
         [Input("receiveWaitTimeSeconds")]
-        public int? ReceiveWaitTimeSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReceiveWaitTimeSeconds;
+
+        public int? ReceiveWaitTimeSeconds => _mReceiveWaitTimeSeconds.GetValue("receiveWaitTimeSeconds");
 
         /// <summary>
-        /// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html).
+        /// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedriveAllowPolicy` resource instead.
         /// </summary>
         [Input("redriveAllowPolicy")]
-        public string? RedriveAllowPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedriveAllowPolicy;
+
+        public string? RedriveAllowPolicy => _mRedriveAllowPolicy.GetValue("redriveAllowPolicy");
 
         /// <summary>
-        /// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        /// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
         /// </summary>
         [Input("redrivePolicy")]
-        public string? RedrivePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedrivePolicy;
+
+        public string? RedrivePolicy => _mRedrivePolicy.GetValue("redrivePolicy");
 
         /// <summary>
         /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("sqsManagedSseEnabled")]
-        public bool? SqsManagedSseEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSqsManagedSseEnabled;
+
+        public bool? SqsManagedSseEnabled => _mSqsManagedSseEnabled.GetValue("sqsManagedSseEnabled");
 
         /// <summary>
         /// Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Same as `id`: The URL for the created Amazon SQS queue.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
 
         /// <summary>
         /// Visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         /// </summary>
         [Input("visibilityTimeoutSeconds")]
-        public int? VisibilityTimeoutSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVisibilityTimeoutSeconds;
+
+        public int? VisibilityTimeoutSeconds => _mVisibilityTimeoutSeconds.GetValue("visibilityTimeoutSeconds");
+    }
+
+    [PolicyResourceType("aws:sqs/queue:Queue")]
+    public sealed class QueueArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing).
+        /// </summary>
+        [Input("contentBasedDeduplication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mContentBasedDeduplication;
+
+        public bool? ContentBasedDeduplication => _mContentBasedDeduplication.GetValue("contentBasedDeduplication");
+
+        /// <summary>
+        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        /// </summary>
+        [Input("deduplicationScope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeduplicationScope;
+
+        public string? DeduplicationScope => _mDeduplicationScope.GetValue("deduplicationScope");
+
+        /// <summary>
+        /// Time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
+        /// </summary>
+        [Input("delaySeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDelaySeconds;
+
+        public int? DelaySeconds => _mDelaySeconds.GetValue("delaySeconds");
+
+        /// <summary>
+        /// Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+        /// </summary>
+        [Input("fifoQueue")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFifoQueue;
+
+        public bool? FifoQueue => _mFifoQueue.GetValue("fifoQueue");
+
+        /// <summary>
+        /// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+        /// </summary>
+        [Input("fifoThroughputLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFifoThroughputLimit;
+
+        public string? FifoThroughputLimit => _mFifoThroughputLimit.GetValue("fifoThroughputLimit");
+
+        /// <summary>
+        /// Length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
+        /// </summary>
+        [Input("kmsDataKeyReusePeriodSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mKmsDataKeyReusePeriodSeconds;
+
+        public int? KmsDataKeyReusePeriodSeconds => _mKmsDataKeyReusePeriodSeconds.GetValue("kmsDataKeyReusePeriodSeconds");
+
+        /// <summary>
+        /// ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
+        /// </summary>
+        [Input("kmsMasterKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsMasterKeyId;
+
+        public string? KmsMasterKeyId => _mKmsMasterKeyId.GetValue("kmsMasterKeyId");
+
+        /// <summary>
+        /// Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
+        /// </summary>
+        [Input("maxMessageSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxMessageSize;
+
+        public int? MaxMessageSize => _mMaxMessageSize.GetValue("maxMessageSize");
+
+        /// <summary>
+        /// Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
+        /// </summary>
+        [Input("messageRetentionSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMessageRetentionSeconds;
+
+        public int? MessageRetentionSeconds => _mMessageRetentionSeconds.GetValue("messageRetentionSeconds");
+
+        /// <summary>
+        /// Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.QueuePolicy` resource instead.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
+        /// </summary>
+        [Input("receiveWaitTimeSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReceiveWaitTimeSeconds;
+
+        public int? ReceiveWaitTimeSeconds => _mReceiveWaitTimeSeconds.GetValue("receiveWaitTimeSeconds");
+
+        /// <summary>
+        /// JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedriveAllowPolicy` resource instead.
+        /// </summary>
+        [Input("redriveAllowPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedriveAllowPolicy;
+
+        public string? RedriveAllowPolicy => _mRedriveAllowPolicy.GetValue("redriveAllowPolicy");
+
+        /// <summary>
+        /// JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        /// </summary>
+        [Input("redrivePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedrivePolicy;
+
+        public string? RedrivePolicy => _mRedrivePolicy.GetValue("redrivePolicy");
+
+        /// <summary>
+        /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
+        [Input("sqsManagedSseEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSqsManagedSseEnabled;
+
+        public bool? SqsManagedSseEnabled => _mSqsManagedSseEnabled.GetValue("sqsManagedSseEnabled");
+
+        /// <summary>
+        /// Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
+        /// </summary>
+        [Input("visibilityTimeoutSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVisibilityTimeoutSeconds;
+
+        public int? VisibilityTimeoutSeconds => _mVisibilityTimeoutSeconds.GetValue("visibilityTimeoutSeconds");
     }
 }

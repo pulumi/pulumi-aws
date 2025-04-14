@@ -11,169 +11,250 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fsx
 {
     [PolicyResourceType("aws:fsx/openZfsFileSystem:OpenZfsFileSystem")]
-    public sealed class OpenZfsFileSystem : global::Pulumi.PolicyResource
+    public sealed class OpenZfsFileSystem : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
-        public int? AutomaticBackupRetentionDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticBackupRetentionDays;
+
+        public int? AutomaticBackupRetentionDays => _mAutomaticBackupRetentionDays.GetValue("automaticBackupRetentionDays");
 
         /// <summary>
         /// The ID of the source backup to create the filesystem from.
         /// </summary>
         [Input("backupId")]
-        public string? BackupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupId;
+
+        public string? BackupId => _mBackupId.GetValue("backupId");
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
         /// </summary>
         [Input("copyTagsToBackups")]
-        public bool? CopyTagsToBackups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
+
+        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         /// </summary>
         [Input("copyTagsToVolumes")]
-        public bool? CopyTagsToVolumes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToVolumes;
+
+        public bool? CopyTagsToVolumes => _mCopyTagsToVolumes.GetValue("copyTagsToVolumes");
 
         /// <summary>
         /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
-        public string? DailyAutomaticBackupStartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDailyAutomaticBackupStartTime;
+
+        public string? DailyAutomaticBackupStartTime => _mDailyAutomaticBackupStartTime.GetValue("dailyAutomaticBackupStartTime");
 
         /// <summary>
         /// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
         /// </summary>
         [Input("deleteOptions")]
-        public List<string>? DeleteOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDeleteOptions;
+
+        public List<string>? DeleteOptions => _mDeleteOptions.GetValue("deleteOptions");
 
         /// <summary>
         /// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
         /// </summary>
         [Input("deploymentType")]
-        public string? DeploymentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
+
+        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
 
         /// <summary>
         /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
-        public OpenZfsFileSystemDiskIopsConfiguration? DiskIopsConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OpenZfsFileSystemDiskIopsConfiguration> _mDiskIopsConfiguration;
+
+        public Outputs.OpenZfsFileSystemDiskIopsConfiguration? DiskIopsConfiguration => _mDiskIopsConfiguration.GetValue("diskIopsConfiguration");
 
         /// <summary>
         /// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         /// </summary>
         [Input("dnsName")]
-        public string? DnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
+
+        public string? DnsName => _mDnsName.GetValue("dnsName");
 
         /// <summary>
         /// IP address of the endpoint that is used to access data or to manage the file system.
         /// </summary>
         [Input("endpointIpAddress")]
-        public string? EndpointIpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointIpAddress;
+
+        public string? EndpointIpAddress => _mEndpointIpAddress.GetValue("endpointIpAddress");
 
         /// <summary>
         /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         /// </summary>
         [Input("endpointIpAddressRange")]
-        public string? EndpointIpAddressRange;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointIpAddressRange;
+
+        public string? EndpointIpAddressRange => _mEndpointIpAddressRange.GetValue("endpointIpAddressRange");
 
         /// <summary>
         /// A map of tags to apply to the file system's final backup.
         /// </summary>
         [Input("finalBackupTags")]
-        public Dictionary<string, string>? FinalBackupTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
+
+        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         /// </summary>
         [Input("networkInterfaceIds")]
-        public List<string>? NetworkInterfaceIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkInterfaceIds;
+
+        public List<string>? NetworkInterfaceIds => _mNetworkInterfaceIds.GetValue("networkInterfaceIds");
 
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
         [Input("preferredSubnetId")]
-        public string? PreferredSubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredSubnetId;
+
+        public string? PreferredSubnetId => _mPreferredSubnetId.GetValue("preferredSubnetId");
 
         /// <summary>
         /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         /// </summary>
         [Input("rootVolumeConfiguration")]
-        public OpenZfsFileSystemRootVolumeConfiguration? RootVolumeConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OpenZfsFileSystemRootVolumeConfiguration> _mRootVolumeConfiguration;
+
+        public Outputs.OpenZfsFileSystemRootVolumeConfiguration? RootVolumeConfiguration => _mRootVolumeConfiguration.GetValue("rootVolumeConfiguration");
 
         /// <summary>
         /// Identifier of the root volume, e.g., `fsvol-12345678`
         /// </summary>
         [Input("rootVolumeId")]
-        public string? RootVolumeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRootVolumeId;
+
+        public string? RootVolumeId => _mRootVolumeId.GetValue("rootVolumeId");
 
         /// <summary>
         /// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         /// </summary>
         [Input("routeTableIds")]
-        public List<string>? RouteTableIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRouteTableIds;
+
+        public List<string>? RouteTableIds => _mRouteTableIds.GetValue("routeTableIds");
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
         [Input("skipFinalBackup")]
-        public bool? SkipFinalBackup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
+
+        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
 
         /// <summary>
         /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         /// </summary>
         [Input("storageCapacity")]
-        public int? StorageCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
+
+        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
 
         /// <summary>
         /// The filesystem storage type. Only `SSD` is supported.
         /// </summary>
         [Input("storageType")]
-        public string? StorageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
 
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
@@ -181,18 +262,231 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// The following arguments are optional:
         /// </summary>
         [Input("throughputCapacity")]
-        public int? ThroughputCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mThroughputCapacity;
+
+        public int? ThroughputCapacity => _mThroughputCapacity.GetValue("throughputCapacity");
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Input("weeklyMaintenanceStartTime")]
-        public string? WeeklyMaintenanceStartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
+
+        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
+    }
+
+    [PolicyResourceType("aws:fsx/openZfsFileSystem:OpenZfsFileSystem")]
+    public sealed class OpenZfsFileSystemArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+        /// </summary>
+        [Input("automaticBackupRetentionDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticBackupRetentionDays;
+
+        public int? AutomaticBackupRetentionDays => _mAutomaticBackupRetentionDays.GetValue("automaticBackupRetentionDays");
+
+        /// <summary>
+        /// The ID of the source backup to create the filesystem from.
+        /// </summary>
+        [Input("backupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupId;
+
+        public string? BackupId => _mBackupId.GetValue("backupId");
+
+        /// <summary>
+        /// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+        /// </summary>
+        [Input("copyTagsToBackups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
+
+        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+
+        /// <summary>
+        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// </summary>
+        [Input("copyTagsToVolumes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToVolumes;
+
+        public bool? CopyTagsToVolumes => _mCopyTagsToVolumes.GetValue("copyTagsToVolumes");
+
+        /// <summary>
+        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
+        /// </summary>
+        [Input("dailyAutomaticBackupStartTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDailyAutomaticBackupStartTime;
+
+        public string? DailyAutomaticBackupStartTime => _mDailyAutomaticBackupStartTime.GetValue("dailyAutomaticBackupStartTime");
+
+        /// <summary>
+        /// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+        /// </summary>
+        [Input("deleteOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDeleteOptions;
+
+        public List<string>? DeleteOptions => _mDeleteOptions.GetValue("deleteOptions");
+
+        /// <summary>
+        /// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
+        /// </summary>
+        [Input("deploymentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
+
+        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+
+        /// <summary>
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
+        /// </summary>
+        [Input("diskIopsConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs> _mDiskIopsConfiguration;
+
+        public Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs? DiskIopsConfiguration => _mDiskIopsConfiguration.GetValue("diskIopsConfiguration");
+
+        /// <summary>
+        /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+        /// </summary>
+        [Input("endpointIpAddressRange")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointIpAddressRange;
+
+        public string? EndpointIpAddressRange => _mEndpointIpAddressRange.GetValue("endpointIpAddressRange");
+
+        /// <summary>
+        /// A map of tags to apply to the file system's final backup.
+        /// </summary>
+        [Input("finalBackupTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
+
+        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+
+        /// <summary>
+        /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        /// </summary>
+        [Input("preferredSubnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredSubnetId;
+
+        public string? PreferredSubnetId => _mPreferredSubnetId.GetValue("preferredSubnetId");
+
+        /// <summary>
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
+        /// </summary>
+        [Input("rootVolumeConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs> _mRootVolumeConfiguration;
+
+        public Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs? RootVolumeConfiguration => _mRootVolumeConfiguration.GetValue("rootVolumeConfiguration");
+
+        /// <summary>
+        /// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        /// </summary>
+        [Input("routeTableIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRouteTableIds;
+
+        public List<string>? RouteTableIds => _mRouteTableIds.GetValue("routeTableIds");
+
+        /// <summary>
+        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Input("skipFinalBackup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
+
+        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+
+        /// <summary>
+        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
+        /// </summary>
+        [Input("storageCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
+
+        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+
+        /// <summary>
+        /// The filesystem storage type. Only `SSD` is supported.
+        /// </summary>
+        [Input("storageType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
+
+        /// <summary>
+        /// A list of IDs for the subnets that the file system will be accessible from.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("throughputCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mThroughputCapacity;
+
+        public int? ThroughputCapacity => _mThroughputCapacity.GetValue("throughputCapacity");
+
+        /// <summary>
+        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// </summary>
+        [Input("weeklyMaintenanceStartTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
+
+        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
     }
 }

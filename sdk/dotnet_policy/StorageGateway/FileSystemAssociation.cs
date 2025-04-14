@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.StorageGateway
 {
     [PolicyResourceType("aws:storagegateway/fileSystemAssociation:FileSystemAssociation")]
-    public sealed class FileSystemAssociation : global::Pulumi.PolicyResource
+    public sealed class FileSystemAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the newly created file system association.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
         /// </summary>
         [Input("auditDestinationArn")]
-        public string? AuditDestinationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuditDestinationArn;
+
+        public string? AuditDestinationArn => _mAuditDestinationArn.GetValue("auditDestinationArn");
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
         /// </summary>
         [Input("cacheAttributes")]
-        public FileSystemAssociationCacheAttributes? CacheAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FileSystemAssociationCacheAttributes> _mCacheAttributes;
+
+        public Outputs.FileSystemAssociationCacheAttributes? CacheAttributes => _mCacheAttributes.GetValue("cacheAttributes");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
         [Input("gatewayArn")]
-        public string? GatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         /// </summary>
         [Input("locationArn")]
-        public string? LocationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocationArn;
+
+        public string? LocationArn => _mLocationArn.GetValue("locationArn");
 
         /// <summary>
         /// The password of the user credential.
         /// </summary>
         [Input("password")]
-        public string? Password;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         /// </summary>
         [Input("username")]
-        public string? Username;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
+    }
+
+    [PolicyResourceType("aws:storagegateway/fileSystemAssociation:FileSystemAssociation")]
+    public sealed class FileSystemAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        /// </summary>
+        [Input("auditDestinationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuditDestinationArn;
+
+        public string? AuditDestinationArn => _mAuditDestinationArn.GetValue("auditDestinationArn");
+
+        /// <summary>
+        /// Refresh cache information. see Cache Attributes for more details.
+        /// </summary>
+        [Input("cacheAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FileSystemAssociationCacheAttributesArgs> _mCacheAttributes;
+
+        public Inputs.FileSystemAssociationCacheAttributesArgs? CacheAttributes => _mCacheAttributes.GetValue("cacheAttributes");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the gateway.
+        /// </summary>
+        [Input("gatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        /// </summary>
+        [Input("locationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocationArn;
+
+        public string? LocationArn => _mLocationArn.GetValue("locationArn");
+
+        /// <summary>
+        /// The password of the user credential.
+        /// </summary>
+        [Input("password")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
+        /// </summary>
+        [Input("username")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
     }
 }

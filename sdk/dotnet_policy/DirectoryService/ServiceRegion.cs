@@ -11,42 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectoryService
 {
     [PolicyResourceType("aws:directoryservice/serviceRegion:ServiceRegion")]
-    public sealed class ServiceRegion : global::Pulumi.PolicyResource
+    public sealed class ServiceRegion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         /// </summary>
         [Input("desiredNumberOfDomainControllers")]
-        public int? DesiredNumberOfDomainControllers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredNumberOfDomainControllers;
+
+        public int? DesiredNumberOfDomainControllers => _mDesiredNumberOfDomainControllers.GetValue("desiredNumberOfDomainControllers");
 
         /// <summary>
         /// The identifier of the directory to which you want to add Region replication.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// The name of the Region where you want to add domain controllers for replication.
         /// </summary>
         [Input("regionName")]
-        public string? RegionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
+
+        public string? RegionName => _mRegionName.GetValue("regionName");
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// VPC information in the replicated Region. Detailed below.
         /// </summary>
         [Input("vpcSettings")]
-        public ServiceRegionVpcSettings? VpcSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceRegionVpcSettings> _mVpcSettings;
+
+        public Outputs.ServiceRegionVpcSettings? VpcSettings => _mVpcSettings.GetValue("vpcSettings");
+    }
+
+    [PolicyResourceType("aws:directoryservice/serviceRegion:ServiceRegion")]
+    public sealed class ServiceRegionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
+        /// </summary>
+        [Input("desiredNumberOfDomainControllers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredNumberOfDomainControllers;
+
+        public int? DesiredNumberOfDomainControllers => _mDesiredNumberOfDomainControllers.GetValue("desiredNumberOfDomainControllers");
+
+        /// <summary>
+        /// The identifier of the directory to which you want to add Region replication.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// The name of the Region where you want to add domain controllers for replication.
+        /// </summary>
+        [Input("regionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
+
+        public string? RegionName => _mRegionName.GetValue("regionName");
+
+        /// <summary>
+        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// VPC information in the replicated Region. Detailed below.
+        /// </summary>
+        [Input("vpcSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceRegionVpcSettingsArgs> _mVpcSettings;
+
+        public Inputs.ServiceRegionVpcSettingsArgs? VpcSettings => _mVpcSettings.GetValue("vpcSettings");
     }
 }

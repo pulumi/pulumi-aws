@@ -11,51 +11,130 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput")]
-    public sealed class ProvisionedModelThroughput : global::Pulumi.PolicyResource
+    public sealed class ProvisionedModelThroughput : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         /// </summary>
         [Input("commitmentDuration")]
-        public string? CommitmentDuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCommitmentDuration;
+
+        public string? CommitmentDuration => _mCommitmentDuration.GetValue("commitmentDuration");
 
         /// <summary>
         /// ARN of the model to associate with this Provisioned Throughput.
         /// </summary>
         [Input("modelArn")]
-        public string? ModelArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelArn;
+
+        public string? ModelArn => _mModelArn.GetValue("modelArn");
 
         /// <summary>
         /// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         /// </summary>
         [Input("modelUnits")]
-        public int? ModelUnits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mModelUnits;
+
+        public int? ModelUnits => _mModelUnits.GetValue("modelUnits");
 
         /// <summary>
         /// The ARN of the Provisioned Throughput.
         /// </summary>
         [Input("provisionedModelArn")]
-        public string? ProvisionedModelArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisionedModelArn;
+
+        public string? ProvisionedModelArn => _mProvisionedModelArn.GetValue("provisionedModelArn");
 
         /// <summary>
         /// Unique name for this Provisioned Throughput.
         /// </summary>
         [Input("provisionedModelName")]
-        public string? ProvisionedModelName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisionedModelName;
+
+        public string? ProvisionedModelName => _mProvisionedModelName.GetValue("provisionedModelName");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ProvisionedModelThroughputTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProvisionedModelThroughputTimeouts> _mTimeouts;
+
+        public Outputs.ProvisionedModelThroughputTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput")]
+    public sealed class ProvisionedModelThroughputArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
+        /// </summary>
+        [Input("commitmentDuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCommitmentDuration;
+
+        public string? CommitmentDuration => _mCommitmentDuration.GetValue("commitmentDuration");
+
+        /// <summary>
+        /// ARN of the model to associate with this Provisioned Throughput.
+        /// </summary>
+        [Input("modelArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelArn;
+
+        public string? ModelArn => _mModelArn.GetValue("modelArn");
+
+        /// <summary>
+        /// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
+        /// </summary>
+        [Input("modelUnits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mModelUnits;
+
+        public int? ModelUnits => _mModelUnits.GetValue("modelUnits");
+
+        /// <summary>
+        /// Unique name for this Provisioned Throughput.
+        /// </summary>
+        [Input("provisionedModelName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisionedModelName;
+
+        public string? ProvisionedModelName => _mProvisionedModelName.GetValue("provisionedModelName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProvisionedModelThroughputTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ProvisionedModelThroughputTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

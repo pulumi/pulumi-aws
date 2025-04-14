@@ -11,36 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/hsmClientCertificate:HsmClientCertificate")]
-    public sealed class HsmClientCertificate : global::Pulumi.PolicyResource
+    public sealed class HsmClientCertificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The identifier of the HSM client certificate.
         /// </summary>
         [Input("hsmClientCertificateIdentifier")]
-        public string? HsmClientCertificateIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmClientCertificateIdentifier;
+
+        public string? HsmClientCertificateIdentifier => _mHsmClientCertificateIdentifier.GetValue("hsmClientCertificateIdentifier");
 
         /// <summary>
         /// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
         /// </summary>
         [Input("hsmClientCertificatePublicKey")]
-        public string? HsmClientCertificatePublicKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmClientCertificatePublicKey;
+
+        public string? HsmClientCertificatePublicKey => _mHsmClientCertificatePublicKey.GetValue("hsmClientCertificatePublicKey");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:redshift/hsmClientCertificate:HsmClientCertificate")]
+    public sealed class HsmClientCertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identifier of the HSM client certificate.
+        /// </summary>
+        [Input("hsmClientCertificateIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmClientCertificateIdentifier;
+
+        public string? HsmClientCertificateIdentifier => _mHsmClientCertificateIdentifier.GetValue("hsmClientCertificateIdentifier");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

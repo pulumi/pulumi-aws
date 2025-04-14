@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation")]
-    public sealed class RouteTablePropagation : global::Pulumi.PolicyResource
+    public sealed class RouteTablePropagation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the resource
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// Type of the resource
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// </summary>
         [Input("transitGatewayRouteTableId")]
-        public string? TransitGatewayRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
+
+        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation")]
+    public sealed class RouteTablePropagationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Attachment.
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Route Table.
+        /// </summary>
+        [Input("transitGatewayRouteTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
+
+        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
     }
 }

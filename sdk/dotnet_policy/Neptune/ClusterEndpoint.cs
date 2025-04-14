@@ -11,60 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Neptune
 {
     [PolicyResourceType("aws:neptune/clusterEndpoint:ClusterEndpoint")]
-    public sealed class ClusterEndpoint : global::Pulumi.PolicyResource
+    public sealed class ClusterEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The identifier of the endpoint.
         /// </summary>
         [Input("clusterEndpointIdentifier")]
-        public string? ClusterEndpointIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterEndpointIdentifier;
+
+        public string? ClusterEndpointIdentifier => _mClusterEndpointIdentifier.GetValue("clusterEndpointIdentifier");
 
         /// <summary>
         /// The DB cluster identifier of the DB cluster associated with the endpoint.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The DNS address of the endpoint.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
         /// </summary>
         [Input("endpointType")]
-        public string? EndpointType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
+
+        public string? EndpointType => _mEndpointType.GetValue("endpointType");
 
         /// <summary>
         /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
         /// </summary>
         [Input("excludedMembers")]
-        public List<string>? ExcludedMembers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedMembers;
+
+        public List<string>? ExcludedMembers => _mExcludedMembers.GetValue("excludedMembers");
 
         /// <summary>
         /// List of DB instance identifiers that are part of the custom endpoint group.
         /// </summary>
         [Input("staticMembers")]
-        public List<string>? StaticMembers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStaticMembers;
+
+        public List<string>? StaticMembers => _mStaticMembers.GetValue("staticMembers");
 
         /// <summary>
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:neptune/clusterEndpoint:ClusterEndpoint")]
+    public sealed class ClusterEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identifier of the endpoint.
+        /// </summary>
+        [Input("clusterEndpointIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterEndpointIdentifier;
+
+        public string? ClusterEndpointIdentifier => _mClusterEndpointIdentifier.GetValue("clusterEndpointIdentifier");
+
+        /// <summary>
+        /// The DB cluster identifier of the DB cluster associated with the endpoint.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
+        /// </summary>
+        [Input("endpointType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
+
+        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+
+        /// <summary>
+        /// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+        /// </summary>
+        [Input("excludedMembers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedMembers;
+
+        public List<string>? ExcludedMembers => _mExcludedMembers.GetValue("excludedMembers");
+
+        /// <summary>
+        /// List of DB instance identifiers that are part of the custom endpoint group.
+        /// </summary>
+        [Input("staticMembers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStaticMembers;
+
+        public List<string>? StaticMembers => _mStaticMembers.GetValue("staticMembers");
+
+        /// <summary>
+        /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

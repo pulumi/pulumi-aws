@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafRegional
 {
     [PolicyResourceType("aws:wafregional/geoMatchSet:GeoMatchSet")]
-    public sealed class GeoMatchSet : global::Pulumi.PolicyResource
+    public sealed class GeoMatchSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
         [Input("geoMatchConstraints")]
-        public List<GeoMatchSetGeoMatchConstraint>? GeoMatchConstraints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GeoMatchSetGeoMatchConstraint>> _mGeoMatchConstraints;
+
+        public List<Outputs.GeoMatchSetGeoMatchConstraint>? GeoMatchConstraints => _mGeoMatchConstraints.GetValue("geoMatchConstraints");
 
         /// <summary>
         /// The name or description of the Geo Match Set.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:wafregional/geoMatchSet:GeoMatchSet")]
+    public sealed class GeoMatchSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        /// </summary>
+        [Input("geoMatchConstraints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GeoMatchSetGeoMatchConstraintArgs>> _mGeoMatchConstraints;
+
+        public List<Inputs.GeoMatchSetGeoMatchConstraintArgs>? GeoMatchConstraints => _mGeoMatchConstraints.GetValue("geoMatchConstraints");
+
+        /// <summary>
+        /// The name or description of the Geo Match Set.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

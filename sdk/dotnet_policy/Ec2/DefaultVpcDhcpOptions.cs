@@ -11,51 +11,103 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")]
-    public sealed class DefaultVpcDhcpOptions : global::Pulumi.PolicyResource
+    public sealed class DefaultVpcDhcpOptions : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the DHCP Options Set.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         [Input("domainNameServers")]
-        public string? DomainNameServers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameServers;
+
+        public string? DomainNameServers => _mDomainNameServers.GetValue("domainNameServers");
 
         [Input("ipv6AddressPreferredLeaseTime")]
-        public string? Ipv6AddressPreferredLeaseTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6AddressPreferredLeaseTime;
+
+        public string? Ipv6AddressPreferredLeaseTime => _mIpv6AddressPreferredLeaseTime.GetValue("ipv6AddressPreferredLeaseTime");
 
         /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
         [Input("netbiosNameServers")]
-        public string? NetbiosNameServers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetbiosNameServers;
+
+        public string? NetbiosNameServers => _mNetbiosNameServers.GetValue("netbiosNameServers");
 
         /// <summary>
         /// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         /// </summary>
         [Input("netbiosNodeType")]
-        public string? NetbiosNodeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetbiosNodeType;
+
+        public string? NetbiosNodeType => _mNetbiosNodeType.GetValue("netbiosNodeType");
 
         [Input("ntpServers")]
-        public string? NtpServers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNtpServers;
+
+        public string? NtpServers => _mNtpServers.GetValue("ntpServers");
 
         /// <summary>
         /// The ID of the AWS account that owns the DHCP options set.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")]
+    public sealed class DefaultVpcDhcpOptionsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the AWS account that owns the DHCP options set.
+        /// </summary>
+        [Input("ownerId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

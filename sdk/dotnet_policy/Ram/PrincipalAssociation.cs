@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ram
 {
     [PolicyResourceType("aws:ram/principalAssociation:PrincipalAssociation")]
-    public sealed class PrincipalAssociation : global::Pulumi.PolicyResource
+    public sealed class PrincipalAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         /// </summary>
         [Input("principal")]
-        public string? Principal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource share.
         /// </summary>
         [Input("resourceShareArn")]
-        public string? ResourceShareArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
+
+        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
+    }
+
+    [PolicyResourceType("aws:ram/principalAssociation:PrincipalAssociation")]
+    public sealed class PrincipalAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        /// </summary>
+        [Input("principal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource share.
+        /// </summary>
+        [Input("resourceShareArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
+
+        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
     }
 }

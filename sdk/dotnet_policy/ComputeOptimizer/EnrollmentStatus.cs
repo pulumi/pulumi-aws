@@ -11,27 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer
 {
     [PolicyResourceType("aws:computeoptimizer/enrollmentStatus:EnrollmentStatus")]
-    public sealed class EnrollmentStatus : global::Pulumi.PolicyResource
+    public sealed class EnrollmentStatus : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         /// </summary>
         [Input("includeMemberAccounts")]
-        public bool? IncludeMemberAccounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeMemberAccounts;
+
+        public bool? IncludeMemberAccounts => _mIncludeMemberAccounts.GetValue("includeMemberAccounts");
 
         /// <summary>
         /// The count of organization member accounts that are opted in to the service, if your account is an organization management account.
         /// </summary>
         [Input("numberOfMemberAccountsOptedIn")]
-        public int? NumberOfMemberAccountsOptedIn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfMemberAccountsOptedIn;
+
+        public int? NumberOfMemberAccountsOptedIn => _mNumberOfMemberAccountsOptedIn.GetValue("numberOfMemberAccountsOptedIn");
 
         /// <summary>
         /// The enrollment status of the account. Valid values: `Active`, `Inactive`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("timeouts")]
-        public EnrollmentStatusTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EnrollmentStatusTimeouts> _mTimeouts;
+
+        public Outputs.EnrollmentStatusTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:computeoptimizer/enrollmentStatus:EnrollmentStatus")]
+    public sealed class EnrollmentStatusArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
+        /// </summary>
+        [Input("includeMemberAccounts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeMemberAccounts;
+
+        public bool? IncludeMemberAccounts => _mIncludeMemberAccounts.GetValue("includeMemberAccounts");
+
+        /// <summary>
+        /// The enrollment status of the account. Valid values: `Active`, `Inactive`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EnrollmentStatusTimeoutsArgs> _mTimeouts;
+
+        public Inputs.EnrollmentStatusTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

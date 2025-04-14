@@ -11,97 +11,142 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/product:Product")]
-    public sealed class Product : global::Pulumi.PolicyResource
+    public sealed class Product : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
         [Input("acceptLanguage")]
-        public string? AcceptLanguage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
 
         /// <summary>
         /// ARN of the product.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Time when the product was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Description of the product.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Distributor (i.e., vendor) of the product.
         /// </summary>
         [Input("distributor")]
-        public string? Distributor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistributor;
+
+        public string? Distributor => _mDistributor.GetValue("distributor");
 
         /// <summary>
         /// Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
         /// </summary>
         [Input("hasDefaultPath")]
-        public bool? HasDefaultPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHasDefaultPath;
+
+        public bool? HasDefaultPath => _mHasDefaultPath.GetValue("hasDefaultPath");
 
         /// <summary>
         /// Name of the product.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Owner of the product.
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         /// <summary>
         /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         /// </summary>
         [Input("provisioningArtifactParameters")]
-        public ProductProvisioningArtifactParameters? ProvisioningArtifactParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProductProvisioningArtifactParameters> _mProvisioningArtifactParameters;
+
+        public Outputs.ProductProvisioningArtifactParameters? ProvisioningArtifactParameters => _mProvisioningArtifactParameters.GetValue("provisioningArtifactParameters");
 
         /// <summary>
         /// Status of the product.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Support information about the product.
         /// </summary>
         [Input("supportDescription")]
-        public string? SupportDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportDescription;
+
+        public string? SupportDescription => _mSupportDescription.GetValue("supportDescription");
 
         /// <summary>
         /// Contact email for product support.
         /// </summary>
         [Input("supportEmail")]
-        public string? SupportEmail;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportEmail;
+
+        public string? SupportEmail => _mSupportEmail.GetValue("supportEmail");
 
         /// <summary>
         /// Contact URL for product support.
         /// </summary>
         [Input("supportUrl")]
-        public string? SupportUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportUrl;
+
+        public string? SupportUrl => _mSupportUrl.GetValue("supportUrl");
 
         /// <summary>
         /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
@@ -109,6 +154,114 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// The following arguments are optional:
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/product:Product")]
+    public sealed class ProductArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+
+        /// <summary>
+        /// Description of the product.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Distributor (i.e., vendor) of the product.
+        /// </summary>
+        [Input("distributor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistributor;
+
+        public string? Distributor => _mDistributor.GetValue("distributor");
+
+        /// <summary>
+        /// Name of the product.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Owner of the product.
+        /// </summary>
+        [Input("owner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
+
+        /// <summary>
+        /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
+        /// </summary>
+        [Input("provisioningArtifactParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProductProvisioningArtifactParametersArgs> _mProvisioningArtifactParameters;
+
+        public Inputs.ProductProvisioningArtifactParametersArgs? ProvisioningArtifactParameters => _mProvisioningArtifactParameters.GetValue("provisioningArtifactParameters");
+
+        /// <summary>
+        /// Support information about the product.
+        /// </summary>
+        [Input("supportDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportDescription;
+
+        public string? SupportDescription => _mSupportDescription.GetValue("supportDescription");
+
+        /// <summary>
+        /// Contact email for product support.
+        /// </summary>
+        [Input("supportEmail")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportEmail;
+
+        public string? SupportEmail => _mSupportEmail.GetValue("supportEmail");
+
+        /// <summary>
+        /// Contact URL for product support.
+        /// </summary>
+        [Input("supportUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportUrl;
+
+        public string? SupportUrl => _mSupportUrl.GetValue("supportUrl");
+
+        /// <summary>
+        /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

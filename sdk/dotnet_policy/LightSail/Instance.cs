@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/instance:Instance")]
-    public sealed class Instance : global::Pulumi.PolicyResource
+    public sealed class Instance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The add-on configuration for the instance. Detailed below.
         /// </summary>
         [Input("addOn")]
-        public InstanceAddOn? AddOn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceAddOn> _mAddOn;
+
+        public Outputs.InstanceAddOn? AddOn => _mAddOn.GetValue("addOn");
 
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Availability Zone in which to create your instance. A
@@ -31,7 +37,10 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The ID for a virtual private server image. A list of available
@@ -39,7 +48,10 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         /// </summary>
         [Input("blueprintId")]
-        public string? BlueprintId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintId;
+
+        public string? BlueprintId => _mBlueprintId.GetValue("blueprintId");
 
         /// <summary>
         /// The bundle of specification information. A list of available
@@ -47,91 +59,228 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         /// </summary>
         [Input("bundleId")]
-        public string? BundleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
 
         /// <summary>
         /// The number of vCPUs the instance has.
         /// </summary>
         [Input("cpuCount")]
-        public int? CpuCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCpuCount;
+
+        public int? CpuCount => _mCpuCount.GetValue("cpuCount");
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
         /// </summary>
         [Input("ipAddressType")]
-        public string? IpAddressType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
 
         /// <summary>
         /// List of IPv6 addresses for the Lightsail instance.
         /// </summary>
         [Input("ipv6Addresses")]
-        public List<string>? Ipv6Addresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
+
+        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
 
         /// <summary>
         /// A Boolean value indicating whether this instance has a static IP assigned to it.
         /// </summary>
         [Input("isStaticIp")]
-        public bool? IsStaticIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsStaticIp;
+
+        public bool? IsStaticIp => _mIsStaticIp.GetValue("isStaticIp");
 
         /// <summary>
         /// The name of your key pair. Created in the
         /// Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
         /// </summary>
         [Input("keyPairName")]
-        public string? KeyPairName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPairName;
+
+        public string? KeyPairName => _mKeyPairName.GetValue("keyPairName");
 
         /// <summary>
         /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The private IP address of the instance.
         /// </summary>
         [Input("privateIpAddress")]
-        public string? PrivateIpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
+
+        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
 
         /// <summary>
         /// The public IP address of the instance.
         /// </summary>
         [Input("publicIpAddress")]
-        public string? PublicIpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpAddress;
+
+        public string? PublicIpAddress => _mPublicIpAddress.GetValue("publicIpAddress");
 
         /// <summary>
         /// The amount of RAM in GB on the instance (e.g., 1.0).
         /// </summary>
         [Input("ramSize")]
-        public double? RamSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mRamSize;
+
+        public double? RamSize => _mRamSize.GetValue("ramSize");
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Single lined launch script as a string to configure server with additional user data
         /// </summary>
         [Input("userData")]
-        public string? UserData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+
+        public string? UserData => _mUserData.GetValue("userData");
 
         /// <summary>
         /// The user name for connecting to the instance (e.g., ec2-user).
         /// </summary>
         [Input("username")]
-        public string? Username;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
+
+        public string? Username => _mUsername.GetValue("username");
+    }
+
+    [PolicyResourceType("aws:lightsail/instance:Instance")]
+    public sealed class InstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The add-on configuration for the instance. Detailed below.
+        /// </summary>
+        [Input("addOn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceAddOnArgs> _mAddOn;
+
+        public Inputs.InstanceAddOnArgs? AddOn => _mAddOn.GetValue("addOn");
+
+        /// <summary>
+        /// The Availability Zone in which to create your instance. A
+        /// list of available zones can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// The ID for a virtual private server image. A list of available
+        /// blueprint IDs can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
+        /// </summary>
+        [Input("blueprintId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintId;
+
+        public string? BlueprintId => _mBlueprintId.GetValue("blueprintId");
+
+        /// <summary>
+        /// The bundle of specification information. A list of available
+        /// bundle IDs can be obtained using the AWS CLI command:
+        /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
+        /// </summary>
+        [Input("bundleId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
+
+        /// <summary>
+        /// The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
+        /// </summary>
+        [Input("ipAddressType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+
+        /// <summary>
+        /// The name of your key pair. Created in the
+        /// Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
+        /// </summary>
+        [Input("keyPairName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPairName;
+
+        public string? KeyPairName => _mKeyPairName.GetValue("keyPairName");
+
+        /// <summary>
+        /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Single lined launch script as a string to configure server with additional user data
+        /// </summary>
+        [Input("userData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+
+        public string? UserData => _mUserData.GetValue("userData");
     }
 }

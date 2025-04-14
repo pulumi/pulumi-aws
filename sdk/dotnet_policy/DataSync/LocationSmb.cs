@@ -11,69 +11,178 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataSync
 {
     [PolicyResourceType("aws:datasync/locationSmb:LocationSmb")]
-    public sealed class LocationSmb : global::Pulumi.PolicyResource
+    public sealed class LocationSmb : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
         /// </summary>
         [Input("agentArns")]
-        public List<string>? AgentArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
+
+        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the Windows domain the SMB server belongs to.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         /// </summary>
         [Input("mountOptions")]
-        public LocationSmbMountOptions? MountOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationSmbMountOptions> _mMountOptions;
+
+        public Outputs.LocationSmbMountOptions? MountOptions => _mMountOptions.GetValue("mountOptions");
 
         /// <summary>
         /// The password of the user who can mount the share and has file permissions in the SMB.
         /// </summary>
         [Input("password")]
-        public string? Password;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
 
         /// <summary>
         /// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         /// </summary>
         [Input("serverHostname")]
-        public string? ServerHostname;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerHostname;
+
+        public string? ServerHostname => _mServerHostname.GetValue("serverHostname");
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         /// </summary>
         [Input("subdirectory")]
-        public string? Subdirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("uri")]
-        public string? Uri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
+
+        public string? Uri => _mUri.GetValue("uri");
 
         /// <summary>
         /// The user who can mount the share and has file and folder permissions in the SMB share.
         /// </summary>
         [Input("user")]
-        public string? User;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
+    }
+
+    [PolicyResourceType("aws:datasync/locationSmb:LocationSmb")]
+    public sealed class LocationSmbArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of DataSync Agent ARNs with which this location will be associated.
+        /// </summary>
+        [Input("agentArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
+
+        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+
+        /// <summary>
+        /// The name of the Windows domain the SMB server belongs to.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
+        /// </summary>
+        [Input("mountOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LocationSmbMountOptionsArgs> _mMountOptions;
+
+        public Inputs.LocationSmbMountOptionsArgs? MountOptions => _mMountOptions.GetValue("mountOptions");
+
+        /// <summary>
+        /// The password of the user who can mount the share and has file permissions in the SMB.
+        /// </summary>
+        [Input("password")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
+
+        /// <summary>
+        /// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
+        /// </summary>
+        [Input("serverHostname")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerHostname;
+
+        public string? ServerHostname => _mServerHostname.GetValue("serverHostname");
+
+        /// <summary>
+        /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
+        /// </summary>
+        [Input("subdirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The user who can mount the share and has file and folder permissions in the SMB share.
+        /// </summary>
+        [Input("user")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
     }
 }

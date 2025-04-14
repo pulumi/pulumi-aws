@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Dms
 {
     [PolicyResourceType("aws:dms/replicationInstance:ReplicationInstance")]
-    public sealed class ReplicationInstance : global::Pulumi.PolicyResource
+    public sealed class ReplicationInstance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         /// </summary>
         [Input("allocatedStorage")]
-        public int? AllocatedStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
+
+        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
 
         /// <summary>
         /// Indicates that major version upgrades are allowed.
         /// </summary>
         [Input("allowMajorVersionUpgrade")]
-        public bool? AllowMajorVersionUpgrade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
+
+        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
 
         /// <summary>
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         /// </summary>
         [Input("applyImmediately")]
-        public bool? ApplyImmediately;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
 
         /// <summary>
         /// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
-        public bool? AutoMinorVersionUpgrade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
 
         /// <summary>
         /// The EC2 Availability Zone that the replication instance will be created in.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The engine version number of the replication instance.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         /// </summary>
         [Input("multiAz")]
-        public bool? MultiAz;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+
+        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
 
         /// <summary>
         /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         /// </summary>
         [Input("networkType")]
-        public string? NetworkType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
+
+        public string? NetworkType => _mNetworkType.GetValue("networkType");
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -76,25 +103,37 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// - Constraints: Minimum 30-minute window.
         /// </summary>
         [Input("preferredMaintenanceWindow")]
-        public string? PreferredMaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
 
         /// <summary>
         /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         /// </summary>
         [Input("publiclyAccessible")]
-        public bool? PubliclyAccessible;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replication instance.
         /// </summary>
         [Input("replicationInstanceArn")]
-        public string? ReplicationInstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationInstanceArn;
+
+        public string? ReplicationInstanceArn => _mReplicationInstanceArn.GetValue("replicationInstanceArn");
 
         /// <summary>
         /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         /// </summary>
         [Input("replicationInstanceClass")]
-        public string? ReplicationInstanceClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationInstanceClass;
+
+        public string? ReplicationInstanceClass => _mReplicationInstanceClass.GetValue("replicationInstanceClass");
 
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
@@ -105,42 +144,221 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationInstanceId")]
-        public string? ReplicationInstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationInstanceId;
+
+        public string? ReplicationInstanceId => _mReplicationInstanceId.GetValue("replicationInstanceId");
 
         /// <summary>
         /// A list of the private IP addresses of the replication instance.
         /// </summary>
         [Input("replicationInstancePrivateIps")]
-        public List<string>? ReplicationInstancePrivateIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReplicationInstancePrivateIps;
+
+        public List<string>? ReplicationInstancePrivateIps => _mReplicationInstancePrivateIps.GetValue("replicationInstancePrivateIps");
 
         /// <summary>
         /// A list of the public IP addresses of the replication instance.
         /// </summary>
         [Input("replicationInstancePublicIps")]
-        public List<string>? ReplicationInstancePublicIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReplicationInstancePublicIps;
+
+        public List<string>? ReplicationInstancePublicIps => _mReplicationInstancePublicIps.GetValue("replicationInstancePublicIps");
 
         /// <summary>
         /// A subnet group to associate with the replication instance.
         /// </summary>
         [Input("replicationSubnetGroupId")]
-        public string? ReplicationSubnetGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSubnetGroupId;
+
+        public string? ReplicationSubnetGroupId => _mReplicationSubnetGroupId.GetValue("replicationSubnetGroupId");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+    }
+
+    [PolicyResourceType("aws:dms/replicationInstance:ReplicationInstance")]
+    public sealed class ReplicationInstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        /// </summary>
+        [Input("allocatedStorage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
+
+        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
+
+        /// <summary>
+        /// Indicates that major version upgrades are allowed.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
+
+        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+
+        /// <summary>
+        /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
+        /// </summary>
+        [Input("applyImmediately")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+
+        /// <summary>
+        /// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+
+        /// <summary>
+        /// The EC2 Availability Zone that the replication instance will be created in.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// The engine version number of the replication instance.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+
+        /// <summary>
+        /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        /// </summary>
+        [Input("multiAz")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+
+        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
+
+        /// <summary>
+        /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
+
+        public string? NetworkType => _mNetworkType.GetValue("networkType");
+
+        /// <summary>
+        /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+        /// 
+        /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+        /// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+        /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+        /// - Constraints: Minimum 30-minute window.
+        /// </summary>
+        [Input("preferredMaintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+
+        /// <summary>
+        /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+
+        /// <summary>
+        /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
+        /// </summary>
+        [Input("replicationInstanceClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationInstanceClass;
+
+        public string? ReplicationInstanceClass => _mReplicationInstanceClass.GetValue("replicationInstanceClass");
+
+        /// <summary>
+        /// The replication instance identifier. This parameter is stored as a lowercase string.
+        /// 
+        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen
+        /// - Cannot contain two consecutive hyphens.
+        /// </summary>
+        [Input("replicationInstanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationInstanceId;
+
+        public string? ReplicationInstanceId => _mReplicationInstanceId.GetValue("replicationInstanceId");
+
+        /// <summary>
+        /// A subnet group to associate with the replication instance.
+        /// </summary>
+        [Input("replicationSubnetGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSubnetGroupId;
+
+        public string? ReplicationSubnetGroupId => _mReplicationSubnetGroupId.GetValue("replicationSubnetGroupId");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
     }
 }

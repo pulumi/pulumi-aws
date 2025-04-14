@@ -11,42 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Account
 {
     [PolicyResourceType("aws:account/alternativeContact:AlternativeContact")]
-    public sealed class AlternativeContact : global::Pulumi.PolicyResource
+    public sealed class AlternativeContact : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
         [Input("alternateContactType")]
-        public string? AlternateContactType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlternateContactType;
+
+        public string? AlternateContactType => _mAlternateContactType.GetValue("alternateContactType");
 
         /// <summary>
         /// An email address for the alternate contact.
         /// </summary>
         [Input("emailAddress")]
-        public string? EmailAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
+
+        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
 
         /// <summary>
         /// Name of the alternate contact.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Phone number for the alternate contact.
         /// </summary>
         [Input("phoneNumber")]
-        public string? PhoneNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
+
+        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
 
         /// <summary>
         /// Title for the alternate contact.
         /// </summary>
         [Input("title")]
-        public string? Title;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
+
+        public string? Title => _mTitle.GetValue("title");
+    }
+
+    [PolicyResourceType("aws:account/alternativeContact:AlternativeContact")]
+    public sealed class AlternativeContactArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
+        /// </summary>
+        [Input("alternateContactType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlternateContactType;
+
+        public string? AlternateContactType => _mAlternateContactType.GetValue("alternateContactType");
+
+        /// <summary>
+        /// An email address for the alternate contact.
+        /// </summary>
+        [Input("emailAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
+
+        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+
+        /// <summary>
+        /// Name of the alternate contact.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Phone number for the alternate contact.
+        /// </summary>
+        [Input("phoneNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
+
+        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+
+        /// <summary>
+        /// Title for the alternate contact.
+        /// </summary>
+        [Input("title")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
+
+        public string? Title => _mTitle.GetValue("title");
     }
 }

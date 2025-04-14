@@ -11,174 +11,370 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Msk
 {
     [PolicyResourceType("aws:msk/cluster:Cluster")]
-    public sealed class Cluster : global::Pulumi.PolicyResource
+    public sealed class Cluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Input("bootstrapBrokers")]
-        public string? BootstrapBrokers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokers;
+
+        public string? BootstrapBrokers => _mBootstrapBrokers.GetValue("bootstrapBrokers");
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersPublicSaslIam")]
-        public string? BootstrapBrokersPublicSaslIam;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersPublicSaslIam;
+
+        public string? BootstrapBrokersPublicSaslIam => _mBootstrapBrokersPublicSaslIam.GetValue("bootstrapBrokersPublicSaslIam");
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersPublicSaslScram")]
-        public string? BootstrapBrokersPublicSaslScram;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersPublicSaslScram;
+
+        public string? BootstrapBrokersPublicSaslScram => _mBootstrapBrokersPublicSaslScram.GetValue("bootstrapBrokersPublicSaslScram");
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersPublicTls")]
-        public string? BootstrapBrokersPublicTls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersPublicTls;
+
+        public string? BootstrapBrokersPublicTls => _mBootstrapBrokersPublicTls.GetValue("bootstrapBrokersPublicTls");
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersSaslIam")]
-        public string? BootstrapBrokersSaslIam;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersSaslIam;
+
+        public string? BootstrapBrokersSaslIam => _mBootstrapBrokersSaslIam.GetValue("bootstrapBrokersSaslIam");
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersSaslScram")]
-        public string? BootstrapBrokersSaslScram;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersSaslScram;
+
+        public string? BootstrapBrokersSaslScram => _mBootstrapBrokersSaslScram.GetValue("bootstrapBrokersSaslScram");
 
         /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersTls")]
-        public string? BootstrapBrokersTls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersTls;
+
+        public string? BootstrapBrokersTls => _mBootstrapBrokersTls.GetValue("bootstrapBrokersTls");
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersVpcConnectivitySaslIam")]
-        public string? BootstrapBrokersVpcConnectivitySaslIam;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersVpcConnectivitySaslIam;
+
+        public string? BootstrapBrokersVpcConnectivitySaslIam => _mBootstrapBrokersVpcConnectivitySaslIam.GetValue("bootstrapBrokersVpcConnectivitySaslIam");
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersVpcConnectivitySaslScram")]
-        public string? BootstrapBrokersVpcConnectivitySaslScram;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersVpcConnectivitySaslScram;
+
+        public string? BootstrapBrokersVpcConnectivitySaslScram => _mBootstrapBrokersVpcConnectivitySaslScram.GetValue("bootstrapBrokersVpcConnectivitySaslScram");
 
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         [Input("bootstrapBrokersVpcConnectivityTls")]
-        public string? BootstrapBrokersVpcConnectivityTls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapBrokersVpcConnectivityTls;
+
+        public string? BootstrapBrokersVpcConnectivityTls => _mBootstrapBrokersVpcConnectivityTls.GetValue("bootstrapBrokersVpcConnectivityTls");
 
         /// <summary>
         /// Configuration block for the broker nodes of the Kafka cluster.
         /// </summary>
         [Input("brokerNodeGroupInfo")]
-        public ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterBrokerNodeGroupInfo> _mBrokerNodeGroupInfo;
+
+        public Outputs.ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo => _mBrokerNodeGroupInfo.GetValue("brokerNodeGroupInfo");
 
         /// <summary>
         /// Configuration block for specifying a client authentication. See below.
         /// </summary>
         [Input("clientAuthentication")]
-        public ClusterClientAuthentication? ClientAuthentication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterClientAuthentication> _mClientAuthentication;
+
+        public Outputs.ClusterClientAuthentication? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
 
         /// <summary>
         /// Name of the MSK cluster.
         /// </summary>
         [Input("clusterName")]
-        public string? ClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
 
         /// <summary>
         /// UUID of the MSK cluster, for use in IAM policies.
         /// </summary>
         [Input("clusterUuid")]
-        public string? ClusterUuid;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterUuid;
+
+        public string? ClusterUuid => _mClusterUuid.GetValue("clusterUuid");
 
         /// <summary>
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         /// </summary>
         [Input("configurationInfo")]
-        public ClusterConfigurationInfo? ConfigurationInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterConfigurationInfo> _mConfigurationInfo;
+
+        public Outputs.ClusterConfigurationInfo? ConfigurationInfo => _mConfigurationInfo.GetValue("configurationInfo");
 
         /// <summary>
         /// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         /// </summary>
         [Input("currentVersion")]
-        public string? CurrentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCurrentVersion;
+
+        public string? CurrentVersion => _mCurrentVersion.GetValue("currentVersion");
 
         /// <summary>
         /// Configuration block for specifying encryption. See below.
         /// </summary>
         [Input("encryptionInfo")]
-        public ClusterEncryptionInfo? EncryptionInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterEncryptionInfo> _mEncryptionInfo;
+
+        public Outputs.ClusterEncryptionInfo? EncryptionInfo => _mEncryptionInfo.GetValue("encryptionInfo");
 
         /// <summary>
         /// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         /// </summary>
         [Input("enhancedMonitoring")]
-        public string? EnhancedMonitoring;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnhancedMonitoring;
+
+        public string? EnhancedMonitoring => _mEnhancedMonitoring.GetValue("enhancedMonitoring");
 
         /// <summary>
         /// Specify the desired Kafka software version.
         /// </summary>
         [Input("kafkaVersion")]
-        public string? KafkaVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaVersion;
+
+        public string? KafkaVersion => _mKafkaVersion.GetValue("kafkaVersion");
 
         /// <summary>
         /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         /// </summary>
         [Input("loggingInfo")]
-        public ClusterLoggingInfo? LoggingInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterLoggingInfo> _mLoggingInfo;
+
+        public Outputs.ClusterLoggingInfo? LoggingInfo => _mLoggingInfo.GetValue("loggingInfo");
 
         /// <summary>
         /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         /// </summary>
         [Input("numberOfBrokerNodes")]
-        public int? NumberOfBrokerNodes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfBrokerNodes;
+
+        public int? NumberOfBrokerNodes => _mNumberOfBrokerNodes.GetValue("numberOfBrokerNodes");
 
         /// <summary>
         /// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         /// </summary>
         [Input("openMonitoring")]
-        public ClusterOpenMonitoring? OpenMonitoring;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterOpenMonitoring> _mOpenMonitoring;
+
+        public Outputs.ClusterOpenMonitoring? OpenMonitoring => _mOpenMonitoring.GetValue("openMonitoring");
 
         /// <summary>
         /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         /// </summary>
         [Input("storageMode")]
-        public string? StorageMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageMode;
+
+        public string? StorageMode => _mStorageMode.GetValue("storageMode");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Input("zookeeperConnectString")]
-        public string? ZookeeperConnectString;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mZookeeperConnectString;
+
+        public string? ZookeeperConnectString => _mZookeeperConnectString.GetValue("zookeeperConnectString");
 
         /// <summary>
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         [Input("zookeeperConnectStringTls")]
-        public string? ZookeeperConnectStringTls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mZookeeperConnectStringTls;
+
+        public string? ZookeeperConnectStringTls => _mZookeeperConnectStringTls.GetValue("zookeeperConnectStringTls");
+    }
+
+    [PolicyResourceType("aws:msk/cluster:Cluster")]
+    public sealed class ClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block for the broker nodes of the Kafka cluster.
+        /// </summary>
+        [Input("brokerNodeGroupInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterBrokerNodeGroupInfoArgs> _mBrokerNodeGroupInfo;
+
+        public Inputs.ClusterBrokerNodeGroupInfoArgs? BrokerNodeGroupInfo => _mBrokerNodeGroupInfo.GetValue("brokerNodeGroupInfo");
+
+        /// <summary>
+        /// Configuration block for specifying a client authentication. See below.
+        /// </summary>
+        [Input("clientAuthentication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterClientAuthenticationArgs> _mClientAuthentication;
+
+        public Inputs.ClusterClientAuthenticationArgs? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
+
+        /// <summary>
+        /// Name of the MSK cluster.
+        /// </summary>
+        [Input("clusterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
+
+        /// <summary>
+        /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+        /// </summary>
+        [Input("configurationInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterConfigurationInfoArgs> _mConfigurationInfo;
+
+        public Inputs.ClusterConfigurationInfoArgs? ConfigurationInfo => _mConfigurationInfo.GetValue("configurationInfo");
+
+        /// <summary>
+        /// Configuration block for specifying encryption. See below.
+        /// </summary>
+        [Input("encryptionInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterEncryptionInfoArgs> _mEncryptionInfo;
+
+        public Inputs.ClusterEncryptionInfoArgs? EncryptionInfo => _mEncryptionInfo.GetValue("encryptionInfo");
+
+        /// <summary>
+        /// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
+        /// </summary>
+        [Input("enhancedMonitoring")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnhancedMonitoring;
+
+        public string? EnhancedMonitoring => _mEnhancedMonitoring.GetValue("enhancedMonitoring");
+
+        /// <summary>
+        /// Specify the desired Kafka software version.
+        /// </summary>
+        [Input("kafkaVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaVersion;
+
+        public string? KafkaVersion => _mKafkaVersion.GetValue("kafkaVersion");
+
+        /// <summary>
+        /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        /// </summary>
+        [Input("loggingInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterLoggingInfoArgs> _mLoggingInfo;
+
+        public Inputs.ClusterLoggingInfoArgs? LoggingInfo => _mLoggingInfo.GetValue("loggingInfo");
+
+        /// <summary>
+        /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
+        /// </summary>
+        [Input("numberOfBrokerNodes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfBrokerNodes;
+
+        public int? NumberOfBrokerNodes => _mNumberOfBrokerNodes.GetValue("numberOfBrokerNodes");
+
+        /// <summary>
+        /// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        /// </summary>
+        [Input("openMonitoring")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterOpenMonitoringArgs> _mOpenMonitoring;
+
+        public Inputs.ClusterOpenMonitoringArgs? OpenMonitoring => _mOpenMonitoring.GetValue("openMonitoring");
+
+        /// <summary>
+        /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
+        /// </summary>
+        [Input("storageMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageMode;
+
+        public string? StorageMode => _mStorageMode.GetValue("storageMode");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

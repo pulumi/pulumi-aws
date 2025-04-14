@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Location
 {
     [PolicyResourceType("aws:location/routeCalculation:RouteCalculation")]
-    public sealed class RouteCalculation : global::Pulumi.PolicyResource
+    public sealed class RouteCalculation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
         /// </summary>
         [Input("calculatorArn")]
-        public string? CalculatorArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCalculatorArn;
+
+        public string? CalculatorArn => _mCalculatorArn.GetValue("calculatorArn");
 
         /// <summary>
         /// The name of the route calculator resource.
         /// </summary>
         [Input("calculatorName")]
-        public string? CalculatorName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCalculatorName;
+
+        public string? CalculatorName => _mCalculatorName.GetValue("calculatorName");
 
         /// <summary>
         /// The timestamp for when the route calculator resource was created in ISO 8601 format.
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
@@ -37,30 +46,87 @@ namespace Pulumi.PolicyPacks.Aws.Location
         /// The following arguments are optional:
         /// </summary>
         [Input("dataSource")]
-        public string? DataSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
+
+        public string? DataSource => _mDataSource.GetValue("dataSource");
 
         /// <summary>
         /// The optional description for the route calculator resource.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The timestamp for when the route calculator resource was last update in ISO 8601.
         /// </summary>
         [Input("updateTime")]
-        public string? UpdateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
+
+        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+    }
+
+    [PolicyResourceType("aws:location/routeCalculation:RouteCalculation")]
+    public sealed class RouteCalculationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the route calculator resource.
+        /// </summary>
+        [Input("calculatorName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCalculatorName;
+
+        public string? CalculatorName => _mCalculatorName.GetValue("calculatorName");
+
+        /// <summary>
+        /// Specifies the data provider of traffic and road network data.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("dataSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
+
+        public string? DataSource => _mDataSource.GetValue("dataSource");
+
+        /// <summary>
+        /// The optional description for the route calculator resource.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

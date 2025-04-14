@@ -11,66 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/standardsControl:StandardsControl")]
-    public sealed class StandardsControl : global::Pulumi.PolicyResource
+    public sealed class StandardsControl : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The identifier of the security standard control.
         /// </summary>
         [Input("controlId")]
-        public string? ControlId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlId;
+
+        public string? ControlId => _mControlId.GetValue("controlId");
 
         /// <summary>
         /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         /// </summary>
         [Input("controlStatus")]
-        public string? ControlStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlStatus;
+
+        public string? ControlStatus => _mControlStatus.GetValue("controlStatus");
 
         /// <summary>
         /// The date and time that the status of the security standard control was most recently updated.
         /// </summary>
         [Input("controlStatusUpdatedAt")]
-        public string? ControlStatusUpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlStatusUpdatedAt;
+
+        public string? ControlStatusUpdatedAt => _mControlStatusUpdatedAt.GetValue("controlStatusUpdatedAt");
 
         /// <summary>
         /// The standard control longer description. Provides information about what the control is checking for.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         /// </summary>
         [Input("disabledReason")]
-        public string? DisabledReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisabledReason;
+
+        public string? DisabledReason => _mDisabledReason.GetValue("disabledReason");
 
         /// <summary>
         /// The list of requirements that are related to this control.
         /// </summary>
         [Input("relatedRequirements")]
-        public List<string>? RelatedRequirements;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRelatedRequirements;
+
+        public List<string>? RelatedRequirements => _mRelatedRequirements.GetValue("relatedRequirements");
 
         /// <summary>
         /// A link to remediation information for the control in the Security Hub user documentation.
         /// </summary>
         [Input("remediationUrl")]
-        public string? RemediationUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemediationUrl;
+
+        public string? RemediationUrl => _mRemediationUrl.GetValue("remediationUrl");
 
         /// <summary>
         /// The severity of findings generated from this security standard control.
         /// </summary>
         [Input("severityRating")]
-        public string? SeverityRating;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSeverityRating;
+
+        public string? SeverityRating => _mSeverityRating.GetValue("severityRating");
 
         /// <summary>
         /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         /// </summary>
         [Input("standardsControlArn")]
-        public string? StandardsControlArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsControlArn;
+
+        public string? StandardsControlArn => _mStandardsControlArn.GetValue("standardsControlArn");
 
         /// <summary>
         /// The standard control title.
         /// </summary>
         [Input("title")]
-        public string? Title;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
+
+        public string? Title => _mTitle.GetValue("title");
+    }
+
+    [PolicyResourceType("aws:securityhub/standardsControl:StandardsControl")]
+    public sealed class StandardsControlArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
+        /// </summary>
+        [Input("controlStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlStatus;
+
+        public string? ControlStatus => _mControlStatus.GetValue("controlStatus");
+
+        /// <summary>
+        /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
+        /// </summary>
+        [Input("disabledReason")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisabledReason;
+
+        public string? DisabledReason => _mDisabledReason.GetValue("disabledReason");
+
+        /// <summary>
+        /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
+        /// </summary>
+        [Input("standardsControlArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsControlArn;
+
+        public string? StandardsControlArn => _mStandardsControlArn.GetValue("standardsControlArn");
     }
 }

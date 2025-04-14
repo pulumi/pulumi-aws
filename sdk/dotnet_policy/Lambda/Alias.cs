@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/alias:Alias")]
-    public sealed class Alias : global::Pulumi.PolicyResource
+    public sealed class Alias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) identifying your Lambda function alias.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the alias.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Lambda Function name or ARN.
         /// </summary>
         [Input("functionName")]
-        public string? FunctionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
 
         /// <summary>
         /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
         /// </summary>
         [Input("functionVersion")]
-        public string? FunctionVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionVersion;
+
+        public string? FunctionVersion => _mFunctionVersion.GetValue("functionVersion");
 
         /// <summary>
         /// The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
         /// </summary>
         [Input("invokeArn")]
-        public string? InvokeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvokeArn;
+
+        public string? InvokeArn => _mInvokeArn.GetValue("invokeArn");
 
         /// <summary>
         /// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
         /// </summary>
         [Input("routingConfig")]
-        public AliasRoutingConfig? RoutingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AliasRoutingConfig> _mRoutingConfig;
+
+        public Outputs.AliasRoutingConfig? RoutingConfig => _mRoutingConfig.GetValue("routingConfig");
+    }
+
+    [PolicyResourceType("aws:lambda/alias:Alias")]
+    public sealed class AliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the alias.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Lambda Function name or ARN.
+        /// </summary>
+        [Input("functionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
+
+        /// <summary>
+        /// Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
+        /// </summary>
+        [Input("functionVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionVersion;
+
+        public string? FunctionVersion => _mFunctionVersion.GetValue("functionVersion");
+
+        /// <summary>
+        /// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Lambda alias' route configuration settings. Fields documented below
+        /// </summary>
+        [Input("routingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AliasRoutingConfigArgs> _mRoutingConfig;
+
+        public Inputs.AliasRoutingConfigArgs? RoutingConfig => _mRoutingConfig.GetValue("routingConfig");
     }
 }

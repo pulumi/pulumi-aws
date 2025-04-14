@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/identityPolicy:IdentityPolicy")]
-    public sealed class IdentityPolicy : global::Pulumi.PolicyResource
+    public sealed class IdentityPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the SES Identity.
         /// </summary>
         [Input("identity")]
-        public string? Identity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
+
+        public string? Identity => _mIdentity.GetValue("identity");
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// JSON string of the policy.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:ses/identityPolicy:IdentityPolicy")]
+    public sealed class IdentityPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name or Amazon Resource Name (ARN) of the SES Identity.
+        /// </summary>
+        [Input("identity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
+
+        public string? Identity => _mIdentity.GetValue("identity");
+
+        /// <summary>
+        /// Name of the policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// JSON string of the policy.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

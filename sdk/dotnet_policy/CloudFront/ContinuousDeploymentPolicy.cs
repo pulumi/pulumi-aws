@@ -11,42 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")]
-    public sealed class ContinuousDeploymentPolicy : global::Pulumi.PolicyResource
+    public sealed class ContinuousDeploymentPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The continuous deployment policy ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether this continuous deployment policy is enabled.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Current version of the continuous distribution policy.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// Date and time the continuous deployment policy was last modified.
         /// </summary>
         [Input("lastModifiedTime")]
-        public string? LastModifiedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTime;
+
+        public string? LastModifiedTime => _mLastModifiedTime.GetValue("lastModifiedTime");
 
         /// <summary>
         /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         /// </summary>
         [Input("stagingDistributionDnsNames")]
-        public ContinuousDeploymentPolicyStagingDistributionDnsNames? StagingDistributionDnsNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames> _mStagingDistributionDnsNames;
+
+        public Outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames? StagingDistributionDnsNames => _mStagingDistributionDnsNames.GetValue("stagingDistributionDnsNames");
 
         /// <summary>
         /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         /// </summary>
         [Input("trafficConfig")]
-        public ContinuousDeploymentPolicyTrafficConfig? TrafficConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ContinuousDeploymentPolicyTrafficConfig> _mTrafficConfig;
+
+        public Outputs.ContinuousDeploymentPolicyTrafficConfig? TrafficConfig => _mTrafficConfig.GetValue("trafficConfig");
+    }
+
+    [PolicyResourceType("aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")]
+    public sealed class ContinuousDeploymentPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether this continuous deployment policy is enabled.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+        /// </summary>
+        [Input("stagingDistributionDnsNames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> _mStagingDistributionDnsNames;
+
+        public Inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs? StagingDistributionDnsNames => _mStagingDistributionDnsNames.GetValue("stagingDistributionDnsNames");
+
+        /// <summary>
+        /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+        /// </summary>
+        [Input("trafficConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ContinuousDeploymentPolicyTrafficConfigArgs> _mTrafficConfig;
+
+        public Inputs.ContinuousDeploymentPolicyTrafficConfigArgs? TrafficConfig => _mTrafficConfig.GetValue("trafficConfig");
     }
 }

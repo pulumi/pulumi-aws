@@ -11,75 +11,184 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/shardGroup:ShardGroup")]
-    public sealed class ShardGroup : global::Pulumi.PolicyResource
+    public sealed class ShardGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the shard group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
         /// </summary>
         [Input("computeRedundancy")]
-        public int? ComputeRedundancy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mComputeRedundancy;
+
+        public int? ComputeRedundancy => _mComputeRedundancy.GetValue("computeRedundancy");
 
         /// <summary>
         /// The name of the primary DB cluster for the DB shard group.
         /// </summary>
         [Input("dbClusterIdentifier")]
-        public string? DbClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
+
+        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
 
         /// <summary>
         /// The name of the DB shard group.
         /// </summary>
         [Input("dbShardGroupIdentifier")]
-        public string? DbShardGroupIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbShardGroupIdentifier;
+
+        public string? DbShardGroupIdentifier => _mDbShardGroupIdentifier.GetValue("dbShardGroupIdentifier");
 
         /// <summary>
         /// The AWS Region-unique, immutable identifier for the DB shard group.
         /// </summary>
         [Input("dbShardGroupResourceId")]
-        public string? DbShardGroupResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbShardGroupResourceId;
+
+        public string? DbShardGroupResourceId => _mDbShardGroupResourceId.GetValue("dbShardGroupResourceId");
 
         /// <summary>
         /// The connection endpoint for the DB shard group.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         /// </summary>
         [Input("maxAcu")]
-        public double? MaxAcu;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mMaxAcu;
+
+        public double? MaxAcu => _mMaxAcu.GetValue("maxAcu");
 
         /// <summary>
         /// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         /// </summary>
         [Input("minAcu")]
-        public double? MinAcu;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mMinAcu;
+
+        public double? MinAcu => _mMinAcu.GetValue("minAcu");
 
         /// <summary>
         /// Indicates whether the DB shard group is publicly accessible.
         /// </summary>
         [Input("publiclyAccessible")]
-        public bool? PubliclyAccessible;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ShardGroupTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ShardGroupTimeouts> _mTimeouts;
+
+        public Outputs.ShardGroupTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:rds/shardGroup:ShardGroup")]
+    public sealed class ShardGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+        /// </summary>
+        [Input("computeRedundancy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mComputeRedundancy;
+
+        public int? ComputeRedundancy => _mComputeRedundancy.GetValue("computeRedundancy");
+
+        /// <summary>
+        /// The name of the primary DB cluster for the DB shard group.
+        /// </summary>
+        [Input("dbClusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
+
+        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+
+        /// <summary>
+        /// The name of the DB shard group.
+        /// </summary>
+        [Input("dbShardGroupIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbShardGroupIdentifier;
+
+        public string? DbShardGroupIdentifier => _mDbShardGroupIdentifier.GetValue("dbShardGroupIdentifier");
+
+        /// <summary>
+        /// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+        /// </summary>
+        [Input("maxAcu")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mMaxAcu;
+
+        public double? MaxAcu => _mMaxAcu.GetValue("maxAcu");
+
+        /// <summary>
+        /// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+        /// </summary>
+        [Input("minAcu")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mMinAcu;
+
+        public double? MinAcu => _mMinAcu.GetValue("minAcu");
+
+        /// <summary>
+        /// Indicates whether the DB shard group is publicly accessible.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ShardGroupTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ShardGroupTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

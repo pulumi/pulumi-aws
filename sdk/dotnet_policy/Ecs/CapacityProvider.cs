@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecs
 {
     [PolicyResourceType("aws:ecs/capacityProvider:CapacityProvider")]
-    public sealed class CapacityProvider : global::Pulumi.PolicyResource
+    public sealed class CapacityProvider : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN that identifies the capacity provider.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
         /// </summary>
         [Input("autoScalingGroupProvider")]
-        public CapacityProviderAutoScalingGroupProvider? AutoScalingGroupProvider;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CapacityProviderAutoScalingGroupProvider> _mAutoScalingGroupProvider;
+
+        public Outputs.CapacityProviderAutoScalingGroupProvider? AutoScalingGroupProvider => _mAutoScalingGroupProvider.GetValue("autoScalingGroupProvider");
 
         /// <summary>
         /// Name of the capacity provider.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ecs/capacityProvider:CapacityProvider")]
+    public sealed class CapacityProviderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        /// </summary>
+        [Input("autoScalingGroupProvider")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CapacityProviderAutoScalingGroupProviderArgs> _mAutoScalingGroupProvider;
+
+        public Inputs.CapacityProviderAutoScalingGroupProviderArgs? AutoScalingGroupProvider => _mAutoScalingGroupProvider.GetValue("autoScalingGroupProvider");
+
+        /// <summary>
+        /// Name of the capacity provider.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

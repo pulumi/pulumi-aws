@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CostExplorer
 {
     [PolicyResourceType("aws:costexplorer/costCategory:CostCategory")]
-    public sealed class CostCategory : global::Pulumi.PolicyResource
+    public sealed class CostCategory : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the cost category.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Default value for the cost category.
         /// </summary>
         [Input("defaultValue")]
-        public string? DefaultValue;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultValue;
+
+        public string? DefaultValue => _mDefaultValue.GetValue("defaultValue");
 
         /// <summary>
         /// Effective end data of your Cost Category.
         /// </summary>
         [Input("effectiveEnd")]
-        public string? EffectiveEnd;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEffectiveEnd;
+
+        public string? EffectiveEnd => _mEffectiveEnd.GetValue("effectiveEnd");
 
         /// <summary>
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
@@ -37,42 +46,132 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// The following arguments are optional:
         /// </summary>
         [Input("effectiveStart")]
-        public string? EffectiveStart;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEffectiveStart;
+
+        public string? EffectiveStart => _mEffectiveStart.GetValue("effectiveStart");
 
         /// <summary>
         /// Unique name for the Cost Category.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Rule schema version in this particular Cost Category.
         /// </summary>
         [Input("ruleVersion")]
-        public string? RuleVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleVersion;
+
+        public string? RuleVersion => _mRuleVersion.GetValue("ruleVersion");
 
         /// <summary>
         /// Configuration block for the Cost Category rules used to categorize costs. See below.
         /// </summary>
         [Input("rules")]
-        public List<CostCategoryRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CostCategoryRule>> _mRules;
+
+        public List<Outputs.CostCategoryRule>? Rules => _mRules.GetValue("rules");
 
         /// <summary>
         /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         /// </summary>
         [Input("splitChargeRules")]
-        public List<CostCategorySplitChargeRule>? SplitChargeRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CostCategorySplitChargeRule>> _mSplitChargeRules;
+
+        public List<Outputs.CostCategorySplitChargeRule>? SplitChargeRules => _mSplitChargeRules.GetValue("splitChargeRules");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:costexplorer/costCategory:CostCategory")]
+    public sealed class CostCategoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Default value for the cost category.
+        /// </summary>
+        [Input("defaultValue")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultValue;
+
+        public string? DefaultValue => _mDefaultValue.GetValue("defaultValue");
+
+        /// <summary>
+        /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("effectiveStart")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEffectiveStart;
+
+        public string? EffectiveStart => _mEffectiveStart.GetValue("effectiveStart");
+
+        /// <summary>
+        /// Unique name for the Cost Category.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Rule schema version in this particular Cost Category.
+        /// </summary>
+        [Input("ruleVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleVersion;
+
+        public string? RuleVersion => _mRuleVersion.GetValue("ruleVersion");
+
+        /// <summary>
+        /// Configuration block for the Cost Category rules used to categorize costs. See below.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CostCategoryRuleArgs>> _mRules;
+
+        public List<Inputs.CostCategoryRuleArgs>? Rules => _mRules.GetValue("rules");
+
+        /// <summary>
+        /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        /// </summary>
+        [Input("splitChargeRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CostCategorySplitChargeRuleArgs>> _mSplitChargeRules;
+
+        public List<Inputs.CostCategorySplitChargeRuleArgs>? SplitChargeRules => _mSplitChargeRules.GetValue("splitChargeRules");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

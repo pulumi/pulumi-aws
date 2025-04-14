@@ -11,61 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/connectPeer:ConnectPeer")]
-    public sealed class ConnectPeer : global::Pulumi.PolicyResource
+    public sealed class ConnectPeer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the attachment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Connect peer BGP options.
         /// </summary>
         [Input("bgpOptions")]
-        public ConnectPeerBgpOptions? BgpOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectPeerBgpOptions> _mBgpOptions;
+
+        public Outputs.ConnectPeerBgpOptions? BgpOptions => _mBgpOptions.GetValue("bgpOptions");
 
         /// <summary>
         /// The configuration of the Connect peer.
         /// </summary>
         [Input("configurations")]
-        public List<ConnectPeerConfiguration>? Configurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConnectPeerConfiguration>> _mConfigurations;
+
+        public List<Outputs.ConnectPeerConfiguration>? Configurations => _mConfigurations.GetValue("configurations");
 
         /// <summary>
         /// The ID of the connection attachment.
         /// </summary>
         [Input("connectAttachmentId")]
-        public string? ConnectAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectAttachmentId;
+
+        public string? ConnectAttachmentId => _mConnectAttachmentId.GetValue("connectAttachmentId");
 
         [Input("connectPeerId")]
-        public string? ConnectPeerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectPeerId;
+
+        public string? ConnectPeerId => _mConnectPeerId.GetValue("connectPeerId");
 
         /// <summary>
         /// A Connect peer core network address.
         /// </summary>
         [Input("coreNetworkAddress")]
-        public string? CoreNetworkAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkAddress;
+
+        public string? CoreNetworkAddress => _mCoreNetworkAddress.GetValue("coreNetworkAddress");
 
         /// <summary>
         /// The ID of a core network.
         /// </summary>
         [Input("coreNetworkId")]
-        public string? CoreNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
 
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The Region where the peer is located.
         /// </summary>
         [Input("edgeLocation")]
-        public string? EdgeLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
+
+        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
 
         /// <summary>
         /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         [Input("insideCidrBlocks")]
-        public List<string>? InsideCidrBlocks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
+
+        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
 
         /// <summary>
         /// The Connect peer address.
@@ -73,30 +103,114 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// The following arguments are optional:
         /// </summary>
         [Input("peerAddress")]
-        public string? PeerAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAddress;
+
+        public string? PeerAddress => _mPeerAddress.GetValue("peerAddress");
 
         /// <summary>
         /// The state of the Connect peer.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         [Input("subnetArn")]
-        public string? SubnetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetArn;
+
+        public string? SubnetArn => _mSubnetArn.GetValue("subnetArn");
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:networkmanager/connectPeer:ConnectPeer")]
+    public sealed class ConnectPeerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Connect peer BGP options.
+        /// </summary>
+        [Input("bgpOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectPeerBgpOptionsArgs> _mBgpOptions;
+
+        public Inputs.ConnectPeerBgpOptionsArgs? BgpOptions => _mBgpOptions.GetValue("bgpOptions");
+
+        /// <summary>
+        /// The ID of the connection attachment.
+        /// </summary>
+        [Input("connectAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectAttachmentId;
+
+        public string? ConnectAttachmentId => _mConnectAttachmentId.GetValue("connectAttachmentId");
+
+        /// <summary>
+        /// A Connect peer core network address.
+        /// </summary>
+        [Input("coreNetworkAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkAddress;
+
+        public string? CoreNetworkAddress => _mCoreNetworkAddress.GetValue("coreNetworkAddress");
+
+        /// <summary>
+        /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+        /// </summary>
+        [Input("insideCidrBlocks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
+
+        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
+
+        /// <summary>
+        /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("peerAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAddress;
+
+        public string? PeerAddress => _mPeerAddress.GetValue("peerAddress");
+
+        /// <summary>
+        /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+        /// </summary>
+        [Input("subnetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetArn;
+
+        public string? SubnetArn => _mSubnetArn.GetValue("subnetArn");
+
+        /// <summary>
+        /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

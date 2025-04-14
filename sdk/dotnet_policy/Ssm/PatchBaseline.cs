@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/patchBaseline:PatchBaseline")]
-    public sealed class PatchBaseline : global::Pulumi.PolicyResource
+    public sealed class PatchBaseline : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
         /// </summary>
         [Input("approvalRules")]
-        public List<PatchBaselineApprovalRule>? ApprovalRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PatchBaselineApprovalRule>> _mApprovalRules;
+
+        public List<Outputs.PatchBaselineApprovalRule>? ApprovalRules => _mApprovalRules.GetValue("approvalRules");
 
         /// <summary>
         /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
         /// </summary>
         [Input("approvedPatches")]
-        public List<string>? ApprovedPatches;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mApprovedPatches;
+
+        public List<string>? ApprovedPatches => _mApprovedPatches.GetValue("approvedPatches");
 
         /// <summary>
         /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         /// </summary>
         [Input("approvedPatchesComplianceLevel")]
-        public string? ApprovedPatchesComplianceLevel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApprovedPatchesComplianceLevel;
+
+        public string? ApprovedPatchesComplianceLevel => _mApprovedPatchesComplianceLevel.GetValue("approvedPatchesComplianceLevel");
 
         /// <summary>
         /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
         /// </summary>
         [Input("approvedPatchesEnableNonSecurity")]
-        public bool? ApprovedPatchesEnableNonSecurity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApprovedPatchesEnableNonSecurity;
+
+        public bool? ApprovedPatchesEnableNonSecurity => _mApprovedPatchesEnableNonSecurity.GetValue("approvedPatchesEnableNonSecurity");
 
         /// <summary>
         /// ARN of the baseline.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the patch baseline.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
         /// </summary>
         [Input("globalFilters")]
-        public List<PatchBaselineGlobalFilter>? GlobalFilters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PatchBaselineGlobalFilter>> _mGlobalFilters;
+
+        public List<Outputs.PatchBaselineGlobalFilter>? GlobalFilters => _mGlobalFilters.GetValue("globalFilters");
 
         /// <summary>
         /// JSON definition of the baseline.
         /// </summary>
         [Input("json")]
-        public string? Json;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJson;
+
+        public string? Json => _mJson.GetValue("json");
 
         /// <summary>
         /// Name of the patch baseline.
@@ -67,42 +91,177 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
         /// </summary>
         [Input("operatingSystem")]
-        public string? OperatingSystem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
+
+        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
 
         /// <summary>
         /// List of rejected patches.
         /// </summary>
         [Input("rejectedPatches")]
-        public List<string>? RejectedPatches;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRejectedPatches;
+
+        public List<string>? RejectedPatches => _mRejectedPatches.GetValue("rejectedPatches");
 
         /// <summary>
         /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         /// </summary>
         [Input("rejectedPatchesAction")]
-        public string? RejectedPatchesAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRejectedPatchesAction;
+
+        public string? RejectedPatchesAction => _mRejectedPatchesAction.GetValue("rejectedPatchesAction");
 
         /// <summary>
         /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
         /// </summary>
         [Input("sources")]
-        public List<PatchBaselineSource>? Sources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PatchBaselineSource>> _mSources;
+
+        public List<Outputs.PatchBaselineSource>? Sources => _mSources.GetValue("sources");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ssm/patchBaseline:PatchBaseline")]
+    public sealed class PatchBaselineArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
+        /// </summary>
+        [Input("approvalRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PatchBaselineApprovalRuleArgs>> _mApprovalRules;
+
+        public List<Inputs.PatchBaselineApprovalRuleArgs>? ApprovalRules => _mApprovalRules.GetValue("approvalRules");
+
+        /// <summary>
+        /// List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
+        /// </summary>
+        [Input("approvedPatches")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mApprovedPatches;
+
+        public List<string>? ApprovedPatches => _mApprovedPatches.GetValue("approvedPatches");
+
+        /// <summary>
+        /// Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
+        /// </summary>
+        [Input("approvedPatchesComplianceLevel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApprovedPatchesComplianceLevel;
+
+        public string? ApprovedPatchesComplianceLevel => _mApprovedPatchesComplianceLevel.GetValue("approvedPatchesComplianceLevel");
+
+        /// <summary>
+        /// Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
+        /// </summary>
+        [Input("approvedPatchesEnableNonSecurity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApprovedPatchesEnableNonSecurity;
+
+        public bool? ApprovedPatchesEnableNonSecurity => _mApprovedPatchesEnableNonSecurity.GetValue("approvedPatchesEnableNonSecurity");
+
+        /// <summary>
+        /// Description of the patch baseline.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
+        /// </summary>
+        [Input("globalFilters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PatchBaselineGlobalFilterArgs>> _mGlobalFilters;
+
+        public List<Inputs.PatchBaselineGlobalFilterArgs>? GlobalFilters => _mGlobalFilters.GetValue("globalFilters");
+
+        /// <summary>
+        /// Name of the patch baseline.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
+        /// </summary>
+        [Input("operatingSystem")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
+
+        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+
+        /// <summary>
+        /// List of rejected patches.
+        /// </summary>
+        [Input("rejectedPatches")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRejectedPatches;
+
+        public List<string>? RejectedPatches => _mRejectedPatches.GetValue("rejectedPatches");
+
+        /// <summary>
+        /// Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
+        /// </summary>
+        [Input("rejectedPatchesAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRejectedPatchesAction;
+
+        public string? RejectedPatchesAction => _mRejectedPatchesAction.GetValue("rejectedPatchesAction");
+
+        /// <summary>
+        /// Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
+        /// </summary>
+        [Input("sources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PatchBaselineSourceArgs>> _mSources;
+
+        public List<Inputs.PatchBaselineSourceArgs>? Sources => _mSources.GetValue("sources");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

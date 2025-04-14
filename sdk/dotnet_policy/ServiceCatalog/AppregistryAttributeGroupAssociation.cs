@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation")]
-    public sealed class AppregistryAttributeGroupAssociation : global::Pulumi.PolicyResource
+    public sealed class AppregistryAttributeGroupAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the application.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// ID of the attribute group to associate with the application.
         /// </summary>
         [Input("attributeGroupId")]
-        public string? AttributeGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttributeGroupId;
+
+        public string? AttributeGroupId => _mAttributeGroupId.GetValue("attributeGroupId");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation")]
+    public sealed class AppregistryAttributeGroupAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the application.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// ID of the attribute group to associate with the application.
+        /// </summary>
+        [Input("attributeGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttributeGroupId;
+
+        public string? AttributeGroupId => _mAttributeGroupId.GetValue("attributeGroupId");
     }
 }

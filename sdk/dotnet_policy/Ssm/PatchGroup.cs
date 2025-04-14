@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/patchGroup:PatchGroup")]
-    public sealed class PatchGroup : global::Pulumi.PolicyResource
+    public sealed class PatchGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the patch baseline to register the patch group with.
         /// </summary>
         [Input("baselineId")]
-        public string? BaselineId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
+
+        public string? BaselineId => _mBaselineId.GetValue("baselineId");
 
         /// <summary>
         /// The name of the patch group that should be registered with the patch baseline.
         /// </summary>
         [Input("patchGroup")]
-        public string? PatchGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPatchGroupName;
+
+        public string? PatchGroupName => _mPatchGroupName.GetValue("patchGroup");
+    }
+
+    [PolicyResourceType("aws:ssm/patchGroup:PatchGroup")]
+    public sealed class PatchGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the patch baseline to register the patch group with.
+        /// </summary>
+        [Input("baselineId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
+
+        public string? BaselineId => _mBaselineId.GetValue("baselineId");
+
+        /// <summary>
+        /// The name of the patch group that should be registered with the patch baseline.
+        /// </summary>
+        [Input("patchGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPatchGroupName;
+
+        public string? PatchGroupName => _mPatchGroupName.GetValue("patchGroup");
     }
 }

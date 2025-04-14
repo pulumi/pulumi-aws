@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MemoryDb
 {
     [PolicyResourceType("aws:memorydb/user:User")]
-    public sealed class User : global::Pulumi.PolicyResource
+    public sealed class User : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Access permissions string used for this user.
         /// </summary>
         [Input("accessString")]
-        public string? AccessString;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessString;
+
+        public string? AccessString => _mAccessString.GetValue("accessString");
 
         /// <summary>
         /// ARN of the user.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Denotes the user's authentication properties. Detailed below.
         /// </summary>
         [Input("authenticationMode")]
-        public UserAuthenticationMode? AuthenticationMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserAuthenticationMode> _mAuthenticationMode;
+
+        public Outputs.UserAuthenticationMode? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
 
         /// <summary>
         /// Minimum engine version supported for the user.
         /// </summary>
         [Input("minimumEngineVersion")]
-        public string? MinimumEngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMinimumEngineVersion;
+
+        public string? MinimumEngineVersion => _mMinimumEngineVersion.GetValue("minimumEngineVersion");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
@@ -55,6 +73,51 @@ namespace Pulumi.PolicyPacks.Aws.MemoryDb
         /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:memorydb/user:User")]
+    public sealed class UserArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Access permissions string used for this user.
+        /// </summary>
+        [Input("accessString")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessString;
+
+        public string? AccessString => _mAccessString.GetValue("accessString");
+
+        /// <summary>
+        /// Denotes the user's authentication properties. Detailed below.
+        /// </summary>
+        [Input("authenticationMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserAuthenticationModeArgs> _mAuthenticationMode;
+
+        public Inputs.UserAuthenticationModeArgs? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

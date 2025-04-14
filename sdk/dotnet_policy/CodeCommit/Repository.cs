@@ -11,66 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeCommit
 {
     [PolicyResourceType("aws:codecommit/repository:Repository")]
-    public sealed class Repository : global::Pulumi.PolicyResource
+    public sealed class Repository : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the repository
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The URL to use for cloning the repository over HTTPS.
         /// </summary>
         [Input("cloneUrlHttp")]
-        public string? CloneUrlHttp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloneUrlHttp;
+
+        public string? CloneUrlHttp => _mCloneUrlHttp.GetValue("cloneUrlHttp");
 
         /// <summary>
         /// The URL to use for cloning the repository over SSH.
         /// </summary>
         [Input("cloneUrlSsh")]
-        public string? CloneUrlSsh;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloneUrlSsh;
+
+        public string? CloneUrlSsh => _mCloneUrlSsh.GetValue("cloneUrlSsh");
 
         /// <summary>
         /// The default branch of the repository. The branch specified here needs to exist.
         /// </summary>
         [Input("defaultBranch")]
-        public string? DefaultBranch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultBranch;
+
+        public string? DefaultBranch => _mDefaultBranch.GetValue("defaultBranch");
 
         /// <summary>
         /// The description of the repository. This needs to be less than 1000 characters
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The ID of the repository
         /// </summary>
         [Input("repositoryId")]
-        public string? RepositoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryId;
+
+        public string? RepositoryId => _mRepositoryId.GetValue("repositoryId");
 
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
         /// </summary>
         [Input("repositoryName")]
-        public string? RepositoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:codecommit/repository:Repository")]
+    public sealed class RepositoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The default branch of the repository. The branch specified here needs to exist.
+        /// </summary>
+        [Input("defaultBranch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultBranch;
+
+        public string? DefaultBranch => _mDefaultBranch.GetValue("defaultBranch");
+
+        /// <summary>
+        /// The description of the repository. This needs to be less than 1000 characters
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// The name for the repository. This needs to be less than 100 characters.
+        /// </summary>
+        [Input("repositoryName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Waf
 {
     [PolicyResourceType("aws:waf/ruleGroup:RuleGroup")]
-    public sealed class RuleGroup : global::Pulumi.PolicyResource
+    public sealed class RuleGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of activated rules, see below
         /// </summary>
         [Input("activatedRules")]
-        public List<RuleGroupActivatedRule>? ActivatedRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupActivatedRule>> _mActivatedRules;
+
+        public List<Outputs.RuleGroupActivatedRule>? ActivatedRules => _mActivatedRules.GetValue("activatedRules");
 
         /// <summary>
         /// The ARN of the WAF rule group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A friendly name for the metrics from the rule group
         /// </summary>
         [Input("metricName")]
-        public string? MetricName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
+
+        public string? MetricName => _mMetricName.GetValue("metricName");
 
         /// <summary>
         /// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:waf/ruleGroup:RuleGroup")]
+    public sealed class RuleGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of activated rules, see below
+        /// </summary>
+        [Input("activatedRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupActivatedRuleArgs>> _mActivatedRules;
+
+        public List<Inputs.RuleGroupActivatedRuleArgs>? ActivatedRules => _mActivatedRules.GetValue("activatedRules");
+
+        /// <summary>
+        /// A friendly name for the metrics from the rule group
+        /// </summary>
+        [Input("metricName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
+
+        public string? MetricName => _mMetricName.GetValue("metricName");
+
+        /// <summary>
+        /// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

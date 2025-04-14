@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/subnetCidrReservation:SubnetCidrReservation")]
-    public sealed class SubnetCidrReservation : global::Pulumi.PolicyResource
+    public sealed class SubnetCidrReservation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The CIDR block for the reservation.
         /// </summary>
         [Input("cidrBlock")]
-        public string? CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
 
         /// <summary>
         /// A brief description of the reservation.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// ID of the AWS account that owns this CIDR reservation.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// The type of reservation to create. Valid values: `explicit`, `prefix`
         /// </summary>
         [Input("reservationType")]
-        public string? ReservationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReservationType;
+
+        public string? ReservationType => _mReservationType.GetValue("reservationType");
 
         /// <summary>
         /// The ID of the subnet to create the reservation for.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+    }
+
+    [PolicyResourceType("aws:ec2/subnetCidrReservation:SubnetCidrReservation")]
+    public sealed class SubnetCidrReservationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The CIDR block for the reservation.
+        /// </summary>
+        [Input("cidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+
+        /// <summary>
+        /// A brief description of the reservation.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The type of reservation to create. Valid values: `explicit`, `prefix`
+        /// </summary>
+        [Input("reservationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReservationType;
+
+        public string? ReservationType => _mReservationType.GetValue("reservationType");
+
+        /// <summary>
+        /// The ID of the subnet to create the reservation for.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
     }
 }

@@ -11,42 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecr
 {
     [PolicyResourceType("aws:ecr/pullThroughCacheRule:PullThroughCacheRule")]
-    public sealed class PullThroughCacheRule : global::Pulumi.PolicyResource
+    public sealed class PullThroughCacheRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Secret which will be used to authenticate against the registry.
         /// </summary>
         [Input("credentialArn")]
-        public string? CredentialArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialArn;
+
+        public string? CredentialArn => _mCredentialArn.GetValue("credentialArn");
 
         /// <summary>
         /// The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
         /// </summary>
         [Input("customRoleArn")]
-        public string? CustomRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRoleArn;
+
+        public string? CustomRoleArn => _mCustomRoleArn.GetValue("customRoleArn");
 
         /// <summary>
         /// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
         /// </summary>
         [Input("ecrRepositoryPrefix")]
-        public string? EcrRepositoryPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEcrRepositoryPrefix;
+
+        public string? EcrRepositoryPrefix => _mEcrRepositoryPrefix.GetValue("ecrRepositoryPrefix");
 
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
         [Input("registryId")]
-        public string? RegistryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
+
+        public string? RegistryId => _mRegistryId.GetValue("registryId");
 
         /// <summary>
         /// The registry URL of the upstream registry to use as the source.
         /// </summary>
         [Input("upstreamRegistryUrl")]
-        public string? UpstreamRegistryUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpstreamRegistryUrl;
+
+        public string? UpstreamRegistryUrl => _mUpstreamRegistryUrl.GetValue("upstreamRegistryUrl");
 
         /// <summary>
         /// The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
         /// </summary>
         [Input("upstreamRepositoryPrefix")]
-        public string? UpstreamRepositoryPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpstreamRepositoryPrefix;
+
+        public string? UpstreamRepositoryPrefix => _mUpstreamRepositoryPrefix.GetValue("upstreamRepositoryPrefix");
+    }
+
+    [PolicyResourceType("aws:ecr/pullThroughCacheRule:PullThroughCacheRule")]
+    public sealed class PullThroughCacheRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the Secret which will be used to authenticate against the registry.
+        /// </summary>
+        [Input("credentialArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialArn;
+
+        public string? CredentialArn => _mCredentialArn.GetValue("credentialArn");
+
+        /// <summary>
+        /// The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
+        /// </summary>
+        [Input("customRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRoleArn;
+
+        public string? CustomRoleArn => _mCustomRoleArn.GetValue("customRoleArn");
+
+        /// <summary>
+        /// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
+        /// </summary>
+        [Input("ecrRepositoryPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEcrRepositoryPrefix;
+
+        public string? EcrRepositoryPrefix => _mEcrRepositoryPrefix.GetValue("ecrRepositoryPrefix");
+
+        /// <summary>
+        /// The registry URL of the upstream registry to use as the source.
+        /// </summary>
+        [Input("upstreamRegistryUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpstreamRegistryUrl;
+
+        public string? UpstreamRegistryUrl => _mUpstreamRegistryUrl.GetValue("upstreamRegistryUrl");
+
+        /// <summary>
+        /// The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
+        /// </summary>
+        [Input("upstreamRepositoryPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpstreamRepositoryPrefix;
+
+        public string? UpstreamRepositoryPrefix => _mUpstreamRepositoryPrefix.GetValue("upstreamRepositoryPrefix");
     }
 }

@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ebs
 {
     [PolicyResourceType("aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess")]
-    public sealed class SnapshotBlockPublicAccess : global::Pulumi.PolicyResource
+    public sealed class SnapshotBlockPublicAccess : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+    }
+
+    [PolicyResourceType("aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess")]
+    public sealed class SnapshotBlockPublicAccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
     }
 }

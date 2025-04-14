@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")]
-    public sealed class SnapshotScheduleAssociation : global::Pulumi.PolicyResource
+    public sealed class SnapshotScheduleAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The cluster identifier.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The snapshot schedule identifier.
         /// </summary>
         [Input("scheduleIdentifier")]
-        public string? ScheduleIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleIdentifier;
+
+        public string? ScheduleIdentifier => _mScheduleIdentifier.GetValue("scheduleIdentifier");
+    }
+
+    [PolicyResourceType("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")]
+    public sealed class SnapshotScheduleAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The cluster identifier.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// The snapshot schedule identifier.
+        /// </summary>
+        [Input("scheduleIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleIdentifier;
+
+        public string? ScheduleIdentifier => _mScheduleIdentifier.GetValue("scheduleIdentifier");
     }
 }

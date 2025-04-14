@@ -11,42 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/type:Type")]
-    public sealed class Type : global::Pulumi.PolicyResource
+    public sealed class Type : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// GraphQL API ID.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// The ARN of the type.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The type definition.
         /// </summary>
         [Input("definition")]
-        public string? Definition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
+
+        public string? Definition => _mDefinition.GetValue("definition");
 
         /// <summary>
         /// The type description.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The type format: `SDL` or `JSON`.
         /// </summary>
         [Input("format")]
-        public string? Format;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+
+        public string? Format => _mFormat.GetValue("format");
 
         /// <summary>
         /// The type name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:appsync/type:Type")]
+    public sealed class TypeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// GraphQL API ID.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// The type definition.
+        /// </summary>
+        [Input("definition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
+
+        public string? Definition => _mDefinition.GetValue("definition");
+
+        /// <summary>
+        /// The type format: `SDL` or `JSON`.
+        /// </summary>
+        [Input("format")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+
+        public string? Format => _mFormat.GetValue("format");
     }
 }

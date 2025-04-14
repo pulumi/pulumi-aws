@@ -11,39 +11,94 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppFabric
 {
     [PolicyResourceType("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection")]
-    public sealed class AppAuthorizationConnection : global::Pulumi.PolicyResource
+    public sealed class AppAuthorizationConnection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the application.
         /// </summary>
         [Input("app")]
-        public string? App;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApp;
+
+        public string? App => _mApp.GetValue("app");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         /// </summary>
         [Input("appAuthorizationArn")]
-        public string? AppAuthorizationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppAuthorizationArn;
+
+        public string? AppAuthorizationArn => _mAppAuthorizationArn.GetValue("appAuthorizationArn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn")]
-        public string? AppBundleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
+
+        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
 
         /// <summary>
         /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
         /// </summary>
         [Input("authRequest")]
-        public AppAuthorizationConnectionAuthRequest? AuthRequest;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAuthorizationConnectionAuthRequest> _mAuthRequest;
+
+        public Outputs.AppAuthorizationConnectionAuthRequest? AuthRequest => _mAuthRequest.GetValue("authRequest");
 
         /// <summary>
         /// Contains information about an application tenant, such as the application display name and identifier.
         /// </summary>
         [Input("tenants")]
-        public List<AppAuthorizationConnectionTenant>? Tenants;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AppAuthorizationConnectionTenant>> _mTenants;
+
+        public List<Outputs.AppAuthorizationConnectionTenant>? Tenants => _mTenants.GetValue("tenants");
 
         [Input("timeouts")]
-        public AppAuthorizationConnectionTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAuthorizationConnectionTimeouts> _mTimeouts;
+
+        public Outputs.AppAuthorizationConnectionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection")]
+    public sealed class AppAuthorizationConnectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        /// </summary>
+        [Input("appAuthorizationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppAuthorizationArn;
+
+        public string? AppAuthorizationArn => _mAppAuthorizationArn.GetValue("appAuthorizationArn");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// </summary>
+        [Input("appBundleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
+
+        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+
+        /// <summary>
+        /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+        /// </summary>
+        [Input("authRequest")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppAuthorizationConnectionAuthRequestArgs> _mAuthRequest;
+
+        public Inputs.AppAuthorizationConnectionAuthRequestArgs? AuthRequest => _mAuthRequest.GetValue("authRequest");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppAuthorizationConnectionTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AppAuthorizationConnectionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

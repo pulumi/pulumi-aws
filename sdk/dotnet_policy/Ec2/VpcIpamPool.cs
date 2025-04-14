@@ -11,121 +11,321 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcIpamPool:VpcIpamPool")]
-    public sealed class VpcIpamPool : global::Pulumi.PolicyResource
+    public sealed class VpcIpamPool : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
         /// </summary>
         [Input("addressFamily")]
-        public string? AddressFamily;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
 
         /// <summary>
         /// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
         /// </summary>
         [Input("allocationDefaultNetmaskLength")]
-        public int? AllocationDefaultNetmaskLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationDefaultNetmaskLength;
+
+        public int? AllocationDefaultNetmaskLength => _mAllocationDefaultNetmaskLength.GetValue("allocationDefaultNetmaskLength");
 
         /// <summary>
         /// The maximum netmask length that will be required for CIDR allocations in this pool.
         /// </summary>
         [Input("allocationMaxNetmaskLength")]
-        public int? AllocationMaxNetmaskLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationMaxNetmaskLength;
+
+        public int? AllocationMaxNetmaskLength => _mAllocationMaxNetmaskLength.GetValue("allocationMaxNetmaskLength");
 
         /// <summary>
         /// The minimum netmask length that will be required for CIDR allocations in this pool.
         /// </summary>
         [Input("allocationMinNetmaskLength")]
-        public int? AllocationMinNetmaskLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationMinNetmaskLength;
+
+        public int? AllocationMinNetmaskLength => _mAllocationMinNetmaskLength.GetValue("allocationMinNetmaskLength");
 
         /// <summary>
         /// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
         /// </summary>
         [Input("allocationResourceTags")]
-        public Dictionary<string, string>? AllocationResourceTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAllocationResourceTags;
+
+        public Dictionary<string, string>? AllocationResourceTags => _mAllocationResourceTags.GetValue("allocationResourceTags");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of IPAM
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
         /// within the CIDR range in the pool.
         /// </summary>
         [Input("autoImport")]
-        public bool? AutoImport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoImport;
+
+        public bool? AutoImport => _mAutoImport.GetValue("autoImport");
 
         /// <summary>
         /// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
         /// </summary>
         [Input("awsService")]
-        public string? AwsService;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsService;
+
+        public string? AwsService => _mAwsService.GetValue("awsService");
 
         /// <summary>
         /// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
         /// </summary>
         [Input("cascade")]
-        public bool? Cascade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCascade;
+
+        public bool? Cascade => _mCascade.GetValue("cascade");
 
         /// <summary>
         /// A description for the IPAM pool.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ID of the scope in which you would like to create the IPAM pool.
         /// </summary>
         [Input("ipamScopeId")]
-        public string? IpamScopeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamScopeId;
+
+        public string? IpamScopeId => _mIpamScopeId.GetValue("ipamScopeId");
 
         [Input("ipamScopeType")]
-        public string? IpamScopeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamScopeType;
+
+        public string? IpamScopeType => _mIpamScopeType.GetValue("ipamScopeType");
 
         /// <summary>
         /// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
         /// </summary>
         [Input("locale")]
-        public string? Locale;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
+
+        public string? Locale => _mLocale.GetValue("locale");
 
         [Input("poolDepth")]
-        public int? PoolDepth;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPoolDepth;
+
+        public int? PoolDepth => _mPoolDepth.GetValue("poolDepth");
 
         /// <summary>
         /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
         /// </summary>
         [Input("publicIpSource")]
-        public string? PublicIpSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpSource;
+
+        public string? PublicIpSource => _mPublicIpSource.GetValue("publicIpSource");
 
         /// <summary>
         /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
         /// </summary>
         [Input("publiclyAdvertisable")]
-        public bool? PubliclyAdvertisable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAdvertisable;
+
+        public bool? PubliclyAdvertisable => _mPubliclyAdvertisable.GetValue("publiclyAdvertisable");
 
         /// <summary>
         /// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         /// </summary>
         [Input("sourceIpamPoolId")]
-        public string? SourceIpamPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIpamPoolId;
+
+        public string? SourceIpamPoolId => _mSourceIpamPoolId.GetValue("sourceIpamPoolId");
 
         /// <summary>
         /// The ID of the IPAM
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcIpamPool:VpcIpamPool")]
+    public sealed class VpcIpamPoolArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+        /// </summary>
+        [Input("addressFamily")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+
+        /// <summary>
+        /// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+        /// </summary>
+        [Input("allocationDefaultNetmaskLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationDefaultNetmaskLength;
+
+        public int? AllocationDefaultNetmaskLength => _mAllocationDefaultNetmaskLength.GetValue("allocationDefaultNetmaskLength");
+
+        /// <summary>
+        /// The maximum netmask length that will be required for CIDR allocations in this pool.
+        /// </summary>
+        [Input("allocationMaxNetmaskLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationMaxNetmaskLength;
+
+        public int? AllocationMaxNetmaskLength => _mAllocationMaxNetmaskLength.GetValue("allocationMaxNetmaskLength");
+
+        /// <summary>
+        /// The minimum netmask length that will be required for CIDR allocations in this pool.
+        /// </summary>
+        [Input("allocationMinNetmaskLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationMinNetmaskLength;
+
+        public int? AllocationMinNetmaskLength => _mAllocationMinNetmaskLength.GetValue("allocationMinNetmaskLength");
+
+        /// <summary>
+        /// Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
+        /// </summary>
+        [Input("allocationResourceTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAllocationResourceTags;
+
+        public Dictionary<string, string>? AllocationResourceTags => _mAllocationResourceTags.GetValue("allocationResourceTags");
+
+        /// <summary>
+        /// If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
+        /// within the CIDR range in the pool.
+        /// </summary>
+        [Input("autoImport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoImport;
+
+        public bool? AutoImport => _mAutoImport.GetValue("autoImport");
+
+        /// <summary>
+        /// Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+        /// </summary>
+        [Input("awsService")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsService;
+
+        public string? AwsService => _mAwsService.GetValue("awsService");
+
+        /// <summary>
+        /// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+        /// </summary>
+        [Input("cascade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCascade;
+
+        public bool? Cascade => _mCascade.GetValue("cascade");
+
+        /// <summary>
+        /// A description for the IPAM pool.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ID of the scope in which you would like to create the IPAM pool.
+        /// </summary>
+        [Input("ipamScopeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamScopeId;
+
+        public string? IpamScopeId => _mIpamScopeId.GetValue("ipamScopeId");
+
+        /// <summary>
+        /// The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
+        /// </summary>
+        [Input("locale")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
+
+        public string? Locale => _mLocale.GetValue("locale");
+
+        /// <summary>
+        /// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+        /// </summary>
+        [Input("publicIpSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpSource;
+
+        public string? PublicIpSource => _mPublicIpSource.GetValue("publicIpSource");
+
+        /// <summary>
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+        /// </summary>
+        [Input("publiclyAdvertisable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAdvertisable;
+
+        public bool? PubliclyAdvertisable => _mPubliclyAdvertisable.GetValue("publiclyAdvertisable");
+
+        /// <summary>
+        /// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+        /// </summary>
+        [Input("sourceIpamPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIpamPoolId;
+
+        public string? SourceIpamPoolId => _mSourceIpamPoolId.GetValue("sourceIpamPoolId");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

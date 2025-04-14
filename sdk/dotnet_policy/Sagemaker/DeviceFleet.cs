@@ -11,57 +11,142 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/deviceFleet:DeviceFleet")]
-    public sealed class DeviceFleet : global::Pulumi.PolicyResource
+    public sealed class DeviceFleet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description of the fleet.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the Device Fleet (must be unique).
         /// </summary>
         [Input("deviceFleetName")]
-        public string? DeviceFleetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceFleetName;
+
+        public string? DeviceFleetName => _mDeviceFleetName.GetValue("deviceFleetName");
 
         /// <summary>
         /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         /// </summary>
         [Input("enableIotRoleAlias")]
-        public bool? EnableIotRoleAlias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableIotRoleAlias;
+
+        public bool? EnableIotRoleAlias => _mEnableIotRoleAlias.GetValue("enableIotRoleAlias");
 
         [Input("iotRoleAlias")]
-        public string? IotRoleAlias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIotRoleAlias;
+
+        public string? IotRoleAlias => _mIotRoleAlias.GetValue("iotRoleAlias");
 
         /// <summary>
         /// Specifies details about the repository. see Output Config details below.
         /// </summary>
         [Input("outputConfig")]
-        public DeviceFleetOutputConfig? OutputConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeviceFleetOutputConfig> _mOutputConfig;
+
+        public Outputs.DeviceFleetOutputConfig? OutputConfig => _mOutputConfig.GetValue("outputConfig");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/deviceFleet:DeviceFleet")]
+    public sealed class DeviceFleetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the fleet.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the Device Fleet (must be unique).
+        /// </summary>
+        [Input("deviceFleetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceFleetName;
+
+        public string? DeviceFleetName => _mDeviceFleetName.GetValue("deviceFleetName");
+
+        /// <summary>
+        /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
+        /// </summary>
+        [Input("enableIotRoleAlias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableIotRoleAlias;
+
+        public bool? EnableIotRoleAlias => _mEnableIotRoleAlias.GetValue("enableIotRoleAlias");
+
+        /// <summary>
+        /// Specifies details about the repository. see Output Config details below.
+        /// </summary>
+        [Input("outputConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeviceFleetOutputConfigArgs> _mOutputConfig;
+
+        public Inputs.DeviceFleetOutputConfigArgs? OutputConfig => _mOutputConfig.GetValue("outputConfig");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

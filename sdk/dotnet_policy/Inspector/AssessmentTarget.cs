@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Inspector
 {
     [PolicyResourceType("aws:inspector/assessmentTarget:AssessmentTarget")]
-    public sealed class AssessmentTarget : global::Pulumi.PolicyResource
+    public sealed class AssessmentTarget : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The target assessment ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the assessment target.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         /// </summary>
         [Input("resourceGroupArn")]
-        public string? ResourceGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGroupArn;
+
+        public string? ResourceGroupArn => _mResourceGroupArn.GetValue("resourceGroupArn");
+    }
+
+    [PolicyResourceType("aws:inspector/assessmentTarget:AssessmentTarget")]
+    public sealed class AssessmentTargetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the assessment target.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        /// </summary>
+        [Input("resourceGroupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGroupArn;
+
+        public string? ResourceGroupArn => _mResourceGroupArn.GetValue("resourceGroupArn");
     }
 }

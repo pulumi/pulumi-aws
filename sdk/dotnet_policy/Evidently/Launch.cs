@@ -11,102 +11,226 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Evidently
 {
     [PolicyResourceType("aws:evidently/launch:Launch")]
-    public sealed class Launch : global::Pulumi.PolicyResource
+    public sealed class Launch : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the launch.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The date and time that the launch is created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Specifies the description of the launch.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A block that contains information about the start and end times of the launch. Detailed below
         /// </summary>
         [Input("executions")]
-        public List<LaunchExecution>? Executions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchExecution>> _mExecutions;
+
+        public List<Outputs.LaunchExecution>? Executions => _mExecutions.GetValue("executions");
 
         /// <summary>
         /// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
         /// </summary>
         [Input("groups")]
-        public List<LaunchGroup>? Groups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchGroup>> _mGroups;
+
+        public List<Outputs.LaunchGroup>? Groups => _mGroups.GetValue("groups");
 
         /// <summary>
         /// The date and time that the launch was most recently updated.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         /// <summary>
         /// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         /// </summary>
         [Input("metricMonitors")]
-        public List<LaunchMetricMonitor>? MetricMonitors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchMetricMonitor>> _mMetricMonitors;
+
+        public List<Outputs.LaunchMetricMonitor>? MetricMonitors => _mMetricMonitors.GetValue("metricMonitors");
 
         /// <summary>
         /// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The name or ARN of the project that is to contain the new launch.
         /// </summary>
         [Input("project")]
-        public string? Project;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProject;
+
+        public string? Project => _mProject.GetValue("project");
 
         /// <summary>
         /// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         /// </summary>
         [Input("randomizationSalt")]
-        public string? RandomizationSalt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRandomizationSalt;
+
+        public string? RandomizationSalt => _mRandomizationSalt.GetValue("randomizationSalt");
 
         /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         /// </summary>
         [Input("scheduledSplitsConfig")]
-        public LaunchScheduledSplitsConfig? ScheduledSplitsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchScheduledSplitsConfig> _mScheduledSplitsConfig;
+
+        public Outputs.LaunchScheduledSplitsConfig? ScheduledSplitsConfig => _mScheduledSplitsConfig.GetValue("scheduledSplitsConfig");
 
         /// <summary>
         /// The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
         /// </summary>
         [Input("statusReason")]
-        public string? StatusReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
+
+        public string? StatusReason => _mStatusReason.GetValue("statusReason");
 
         /// <summary>
         /// Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of launch.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:evidently/launch:Launch")]
+    public sealed class LaunchArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the description of the launch.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
+        /// </summary>
+        [Input("groups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchGroupArgs>> _mGroups;
+
+        public List<Inputs.LaunchGroupArgs>? Groups => _mGroups.GetValue("groups");
+
+        /// <summary>
+        /// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
+        /// </summary>
+        [Input("metricMonitors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchMetricMonitorArgs>> _mMetricMonitors;
+
+        public List<Inputs.LaunchMetricMonitorArgs>? MetricMonitors => _mMetricMonitors.GetValue("metricMonitors");
+
+        /// <summary>
+        /// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name or ARN of the project that is to contain the new launch.
+        /// </summary>
+        [Input("project")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProject;
+
+        public string? Project => _mProject.GetValue("project");
+
+        /// <summary>
+        /// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
+        /// </summary>
+        [Input("randomizationSalt")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRandomizationSalt;
+
+        public string? RandomizationSalt => _mRandomizationSalt.GetValue("randomizationSalt");
+
+        /// <summary>
+        /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
+        /// </summary>
+        [Input("scheduledSplitsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchScheduledSplitsConfigArgs> _mScheduledSplitsConfig;
+
+        public Inputs.LaunchScheduledSplitsConfigArgs? ScheduledSplitsConfig => _mScheduledSplitsConfig.GetValue("scheduledSplitsConfig");
+
+        /// <summary>
+        /// Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

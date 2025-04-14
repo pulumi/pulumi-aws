@@ -11,85 +11,124 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucket:Bucket")]
-    public sealed class Bucket : global::Pulumi.PolicyResource
+    public sealed class Bucket : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
         /// </summary>
         [Input("accelerationStatus")]
-        public string? AccelerationStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccelerationStatus;
+
+        public string? AccelerationStatus => _mAccelerationStatus.GetValue("accelerationStatus");
 
         /// <summary>
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
         /// </summary>
         [Input("acl")]
-        public string? Acl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
+
+        public string? Acl => _mAcl.GetValue("acl");
 
         /// <summary>
         /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
         [Input("bucket")]
-        public string? BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucket");
 
         /// <summary>
         /// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
         /// </summary>
         [Input("bucketDomainName")]
-        public string? BucketDomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketDomainName;
+
+        public string? BucketDomainName => _mBucketDomainName.GetValue("bucketDomainName");
 
         /// <summary>
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         /// </summary>
         [Input("bucketPrefix")]
-        public string? BucketPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
+
+        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
 
         /// <summary>
         /// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
         /// </summary>
         [Input("bucketRegionalDomainName")]
-        public string? BucketRegionalDomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketRegionalDomainName;
+
+        public string? BucketRegionalDomainName => _mBucketRegionalDomainName.GetValue("bucketRegionalDomainName");
 
         /// <summary>
         /// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
         /// </summary>
         [Input("corsRules")]
-        public List<BucketCorsRule>? CorsRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketCorsRule>> _mCorsRules;
+
+        public List<Outputs.BucketCorsRule>? CorsRules => _mCorsRules.GetValue("corsRules");
 
         /// <summary>
         /// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
         /// </summary>
         [Input("forceDestroy")]
-        public bool? ForceDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
 
         /// <summary>
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
         /// </summary>
         [Input("grants")]
-        public List<BucketGrant>? Grants;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketGrant>> _mGrants;
+
+        public List<Outputs.BucketGrant>? Grants => _mGrants.GetValue("grants");
 
         /// <summary>
         /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
 
         /// <summary>
         /// A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
         /// </summary>
         [Input("lifecycleRules")]
-        public List<BucketLifecycleRule>? LifecycleRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketLifecycleRule>> _mLifecycleRules;
+
+        public List<Outputs.BucketLifecycleRule>? LifecycleRules => _mLifecycleRules.GetValue("lifecycleRules");
 
         /// <summary>
         /// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
         /// </summary>
         [Input("loggings")]
-        public List<BucketLogging>? Loggings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketLogging>> _mLoggings;
+
+        public List<Outputs.BucketLogging>? Loggings => _mLoggings.GetValue("loggings");
 
         /// <summary>
         /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
@@ -97,25 +136,37 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
         /// </summary>
         [Input("objectLockConfiguration")]
-        public BucketObjectLockConfiguration? ObjectLockConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketObjectLockConfiguration> _mObjectLockConfiguration;
+
+        public Outputs.BucketObjectLockConfiguration? ObjectLockConfiguration => _mObjectLockConfiguration.GetValue("objectLockConfiguration");
 
         /// <summary>
         /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// The AWS region this bucket resides in.
         /// </summary>
         [Input("region")]
-        public string? Region;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
 
         /// <summary>
         /// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
         /// </summary>
         [Input("replicationConfiguration")]
-        public BucketReplicationConfiguration? ReplicationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfiguration> _mReplicationConfiguration;
+
+        public Outputs.BucketReplicationConfiguration? ReplicationConfiguration => _mReplicationConfiguration.GetValue("replicationConfiguration");
 
         /// <summary>
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -124,48 +175,270 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// developer guide for more information.
         /// </summary>
         [Input("requestPayer")]
-        public string? RequestPayer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestPayer;
+
+        public string? RequestPayer => _mRequestPayer.GetValue("requestPayer");
 
         /// <summary>
         /// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
-        public BucketServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketServerSideEncryptionConfiguration> _mServerSideEncryptionConfiguration;
+
+        public Outputs.BucketServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
 
         /// <summary>
         /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
         /// </summary>
         [Input("versioning")]
-        public BucketVersioning? Versioning;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketVersioning> _mVersioning;
+
+        public Outputs.BucketVersioning? Versioning => _mVersioning.GetValue("versioning");
 
         /// <summary>
         /// A website object (documented below).
         /// </summary>
         [Input("website")]
-        public BucketWebsite? Website;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketWebsite> _mWebsite;
+
+        public Outputs.BucketWebsite? Website => _mWebsite.GetValue("website");
 
         /// <summary>
         /// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         /// </summary>
         [Input("websiteDomain")]
-        public string? WebsiteDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteDomain;
+
+        public string? WebsiteDomain => _mWebsiteDomain.GetValue("websiteDomain");
 
         /// <summary>
         /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         /// </summary>
         [Input("websiteEndpoint")]
-        public string? WebsiteEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteEndpoint;
+
+        public string? WebsiteEndpoint => _mWebsiteEndpoint.GetValue("websiteEndpoint");
+    }
+
+    [PolicyResourceType("aws:s3/bucket:Bucket")]
+    public sealed class BucketArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
+        /// </summary>
+        [Input("accelerationStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccelerationStatus;
+
+        public string? AccelerationStatus => _mAccelerationStatus.GetValue("accelerationStatus");
+
+        /// <summary>
+        /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
+        /// </summary>
+        [Input("acl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
+
+        public string? Acl => _mAcl.GetValue("acl");
+
+        /// <summary>
+        /// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
+        /// </summary>
+        [Input("arn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
+
+        /// <summary>
+        /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucket");
+
+        /// <summary>
+        /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+        /// </summary>
+        [Input("bucketPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
+
+        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+
+        /// <summary>
+        /// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
+        /// </summary>
+        [Input("corsRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketCorsRuleArgs>> _mCorsRules;
+
+        public List<Inputs.BucketCorsRuleArgs>? CorsRules => _mCorsRules.GetValue("corsRules");
+
+        /// <summary>
+        /// A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
+        /// </summary>
+        [Input("forceDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+
+        /// <summary>
+        /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
+        /// </summary>
+        [Input("grants")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketGrantArgs>> _mGrants;
+
+        public List<Inputs.BucketGrantArgs>? Grants => _mGrants.GetValue("grants");
+
+        /// <summary>
+        /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
+        /// </summary>
+        [Input("hostedZoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+
+        /// <summary>
+        /// A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
+        /// </summary>
+        [Input("lifecycleRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLifecycleRuleArgs>> _mLifecycleRules;
+
+        public List<Inputs.BucketLifecycleRuleArgs>? LifecycleRules => _mLifecycleRules.GetValue("lifecycleRules");
+
+        /// <summary>
+        /// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
+        /// </summary>
+        [Input("loggings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLoggingArgs>> _mLoggings;
+
+        public List<Inputs.BucketLoggingArgs>? Loggings => _mLoggings.GetValue("loggings");
+
+        /// <summary>
+        /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        /// 
+        /// &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
+        /// </summary>
+        [Input("objectLockConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketObjectLockConfigurationArgs> _mObjectLockConfiguration;
+
+        public Inputs.BucketObjectLockConfigurationArgs? ObjectLockConfiguration => _mObjectLockConfiguration.GetValue("objectLockConfiguration");
+
+        /// <summary>
+        /// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
+        /// </summary>
+        [Input("replicationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketReplicationConfigurationArgs> _mReplicationConfiguration;
+
+        public Inputs.BucketReplicationConfigurationArgs? ReplicationConfiguration => _mReplicationConfiguration.GetValue("replicationConfiguration");
+
+        /// <summary>
+        /// Specifies who should bear the cost of Amazon S3 data transfer.
+        /// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
+        /// the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
+        /// developer guide for more information.
+        /// </summary>
+        [Input("requestPayer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestPayer;
+
+        public string? RequestPayer => _mRequestPayer.GetValue("requestPayer");
+
+        /// <summary>
+        /// A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
+        /// </summary>
+        [Input("serverSideEncryptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketServerSideEncryptionConfigurationArgs> _mServerSideEncryptionConfiguration;
+
+        public Inputs.BucketServerSideEncryptionConfigurationArgs? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
+
+        /// <summary>
+        /// A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
+        /// </summary>
+        [Input("versioning")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketVersioningArgs> _mVersioning;
+
+        public Inputs.BucketVersioningArgs? Versioning => _mVersioning.GetValue("versioning");
+
+        /// <summary>
+        /// A website object (documented below).
+        /// </summary>
+        [Input("website")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketWebsiteArgs> _mWebsite;
+
+        public Inputs.BucketWebsiteArgs? Website => _mWebsite.GetValue("website");
+
+        /// <summary>
+        /// The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+        /// </summary>
+        [Input("websiteDomain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteDomain;
+
+        public string? WebsiteDomain => _mWebsiteDomain.GetValue("websiteDomain");
+
+        /// <summary>
+        /// The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+        /// </summary>
+        [Input("websiteEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteEndpoint;
+
+        public string? WebsiteEndpoint => _mWebsiteEndpoint.GetValue("websiteEndpoint");
     }
 }

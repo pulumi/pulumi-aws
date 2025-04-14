@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")]
-    public sealed class FunctionEventInvokeConfig : global::Pulumi.PolicyResource
+    public sealed class FunctionEventInvokeConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block with destination configuration. See below for details.
         /// </summary>
         [Input("destinationConfig")]
-        public FunctionEventInvokeConfigDestinationConfig? DestinationConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionEventInvokeConfigDestinationConfig> _mDestinationConfig;
+
+        public Outputs.FunctionEventInvokeConfigDestinationConfig? DestinationConfig => _mDestinationConfig.GetValue("destinationConfig");
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
@@ -25,24 +28,87 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Input("functionName")]
-        public string? FunctionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
 
         /// <summary>
         /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         /// </summary>
         [Input("maximumEventAgeInSeconds")]
-        public int? MaximumEventAgeInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumEventAgeInSeconds;
+
+        public int? MaximumEventAgeInSeconds => _mMaximumEventAgeInSeconds.GetValue("maximumEventAgeInSeconds");
 
         /// <summary>
         /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         /// </summary>
         [Input("maximumRetryAttempts")]
-        public int? MaximumRetryAttempts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
+
+        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
 
         /// <summary>
         /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
         /// </summary>
         [Input("qualifier")]
-        public string? Qualifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
+    }
+
+    [PolicyResourceType("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")]
+    public sealed class FunctionEventInvokeConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block with destination configuration. See below for details.
+        /// </summary>
+        [Input("destinationConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionEventInvokeConfigDestinationConfigArgs> _mDestinationConfig;
+
+        public Inputs.FunctionEventInvokeConfigDestinationConfigArgs? DestinationConfig => _mDestinationConfig.GetValue("destinationConfig");
+
+        /// <summary>
+        /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("functionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
+
+        /// <summary>
+        /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
+        /// </summary>
+        [Input("maximumEventAgeInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumEventAgeInSeconds;
+
+        public int? MaximumEventAgeInSeconds => _mMaximumEventAgeInSeconds.GetValue("maximumEventAgeInSeconds");
+
+        /// <summary>
+        /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
+        /// </summary>
+        [Input("maximumRetryAttempts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
+
+        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
+
+        /// <summary>
+        /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
+        /// </summary>
+        [Input("qualifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+
+        public string? Qualifier => _mQualifier.GetValue("qualifier");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Amp
 {
     [PolicyResourceType("aws:amp/alertManagerDefinition:AlertManagerDefinition")]
-    public sealed class AlertManagerDefinition : global::Pulumi.PolicyResource
+    public sealed class AlertManagerDefinition : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         /// </summary>
         [Input("definition")]
-        public string? Definition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
+
+        public string? Definition => _mDefinition.GetValue("definition");
 
         /// <summary>
         /// ID of the prometheus workspace the alert manager definition should be linked to
         /// </summary>
         [Input("workspaceId")]
-        public string? WorkspaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+    }
+
+    [PolicyResourceType("aws:amp/alertManagerDefinition:AlertManagerDefinition")]
+    public sealed class AlertManagerDefinitionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
+        /// </summary>
+        [Input("definition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
+
+        public string? Definition => _mDefinition.GetValue("definition");
+
+        /// <summary>
+        /// ID of the prometheus workspace the alert manager definition should be linked to
+        /// </summary>
+        [Input("workspaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
     }
 }

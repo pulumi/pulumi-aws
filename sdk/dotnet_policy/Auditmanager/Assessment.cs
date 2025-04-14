@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Auditmanager
 {
     [PolicyResourceType("aws:auditmanager/assessment:Assessment")]
-    public sealed class Assessment : global::Pulumi.PolicyResource
+    public sealed class Assessment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the assessment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
         /// </summary>
         [Input("assessmentReportsDestination")]
-        public AssessmentAssessmentReportsDestination? AssessmentReportsDestination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AssessmentAssessmentReportsDestination> _mAssessmentReportsDestination;
+
+        public Outputs.AssessmentAssessmentReportsDestination? AssessmentReportsDestination => _mAssessmentReportsDestination.GetValue("assessmentReportsDestination");
 
         /// <summary>
         /// Description of the assessment.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Unique identifier of the framework the assessment will be created from.
         /// </summary>
         [Input("frameworkId")]
-        public string? FrameworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFrameworkId;
+
+        public string? FrameworkId => _mFrameworkId.GetValue("frameworkId");
 
         /// <summary>
         /// Name of the assessment.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// List of roles for the assessment. See `roles` below.
         /// </summary>
         [Input("roles")]
-        public List<AssessmentRole>? Roles;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AssessmentRole>> _mRoles;
+
+        public List<Outputs.AssessmentRole>? Roles => _mRoles.GetValue("roles");
 
         /// <summary>
         /// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
         /// </summary>
         [Input("rolesAlls")]
-        public List<AssessmentRolesAll>? RolesAlls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AssessmentRolesAll>> _mRolesAlls;
+
+        public List<Outputs.AssessmentRolesAll>? RolesAlls => _mRolesAlls.GetValue("rolesAlls");
 
         /// <summary>
         /// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -61,21 +82,102 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// The following arguments are optional:
         /// </summary>
         [Input("scope")]
-        public AssessmentScope? Scope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AssessmentScope> _mScope;
+
+        public Outputs.AssessmentScope? Scope => _mScope.GetValue("scope");
 
         /// <summary>
         /// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:auditmanager/assessment:Assessment")]
+    public sealed class AssessmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
+        /// </summary>
+        [Input("assessmentReportsDestination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AssessmentAssessmentReportsDestinationArgs> _mAssessmentReportsDestination;
+
+        public Inputs.AssessmentAssessmentReportsDestinationArgs? AssessmentReportsDestination => _mAssessmentReportsDestination.GetValue("assessmentReportsDestination");
+
+        /// <summary>
+        /// Description of the assessment.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Unique identifier of the framework the assessment will be created from.
+        /// </summary>
+        [Input("frameworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFrameworkId;
+
+        public string? FrameworkId => _mFrameworkId.GetValue("frameworkId");
+
+        /// <summary>
+        /// Name of the assessment.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// List of roles for the assessment. See `roles` below.
+        /// </summary>
+        [Input("roles")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AssessmentRoleArgs>> _mRoles;
+
+        public List<Inputs.AssessmentRoleArgs>? Roles => _mRoles.GetValue("roles");
+
+        /// <summary>
+        /// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("scope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AssessmentScopeArgs> _mScope;
+
+        public Inputs.AssessmentScopeArgs? Scope => _mScope.GetValue("scope");
+
+        /// <summary>
+        /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

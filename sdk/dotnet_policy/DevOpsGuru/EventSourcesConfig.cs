@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
 {
     [PolicyResourceType("aws:devopsguru/eventSourcesConfig:EventSourcesConfig")]
-    public sealed class EventSourcesConfig : global::Pulumi.PolicyResource
+    public sealed class EventSourcesConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
         /// </summary>
         [Input("eventSources")]
-        public List<EventSourcesConfigEventSource>? EventSources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventSourcesConfigEventSource>> _mEventSources;
+
+        public List<Outputs.EventSourcesConfigEventSource>? EventSources => _mEventSources.GetValue("eventSources");
+    }
+
+    [PolicyResourceType("aws:devopsguru/eventSourcesConfig:EventSourcesConfig")]
+    public sealed class EventSourcesConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        /// </summary>
+        [Input("eventSources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventSourcesConfigEventSourceArgs>> _mEventSources;
+
+        public List<Inputs.EventSourcesConfigEventSourceArgs>? EventSources => _mEventSources.GetValue("eventSources");
     }
 }

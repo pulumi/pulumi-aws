@@ -11,108 +11,280 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectoryService
 {
     [PolicyResourceType("aws:directoryservice/directory:Directory")]
-    public sealed class Directory : global::Pulumi.PolicyResource
+    public sealed class Directory : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The access URL for the directory, such as `http://alias.awsapps.com`.
         /// </summary>
         [Input("accessUrl")]
-        public string? AccessUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessUrl;
+
+        public string? AccessUrl => _mAccessUrl.GetValue("accessUrl");
 
         /// <summary>
         /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         /// </summary>
         [Input("alias")]
-        public string? Alias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
 
         /// <summary>
         /// Connector related information about the directory. Fields documented below.
         /// </summary>
         [Input("connectSettings")]
-        public DirectoryConnectSettings? ConnectSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryConnectSettings> _mConnectSettings;
+
+        public Outputs.DirectoryConnectSettings? ConnectSettings => _mConnectSettings.GetValue("connectSettings");
 
         /// <summary>
         /// A textual description for the directory.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         /// </summary>
         [Input("desiredNumberOfDomainControllers")]
-        public int? DesiredNumberOfDomainControllers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredNumberOfDomainControllers;
+
+        public int? DesiredNumberOfDomainControllers => _mDesiredNumberOfDomainControllers.GetValue("desiredNumberOfDomainControllers");
 
         /// <summary>
         /// A list of IP addresses of the DNS servers for the directory or connector.
         /// </summary>
         [Input("dnsIpAddresses")]
-        public List<string>? DnsIpAddresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIpAddresses;
+
+        public List<string>? DnsIpAddresses => _mDnsIpAddresses.GetValue("dnsIpAddresses");
 
         /// <summary>
         /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         /// </summary>
         [Input("edition")]
-        public string? Edition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdition;
+
+        public string? Edition => _mEdition.GetValue("edition");
 
         /// <summary>
         /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         /// </summary>
         [Input("enableSso")]
-        public bool? EnableSso;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSso;
+
+        public bool? EnableSso => _mEnableSso.GetValue("enableSso");
 
         /// <summary>
         /// The fully qualified name for the directory, such as `corp.example.com`
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The password for the directory administrator or connector user.
         /// </summary>
         [Input("password")]
-        public string? Password;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
 
         /// <summary>
         /// The ID of the security group created by the directory.
         /// </summary>
         [Input("securityGroupId")]
-        public string? SecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
 
         /// <summary>
         /// The short name of the directory, such as `CORP`.
         /// </summary>
         [Input("shortName")]
-        public string? ShortName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShortName;
+
+        public string? ShortName => _mShortName.GetValue("shortName");
 
         /// <summary>
         /// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         /// </summary>
         [Input("size")]
-        public string? Size;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSize;
+
+        public string? Size => _mSize.GetValue("size");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// VPC related information about the directory. Fields documented below.
         /// </summary>
         [Input("vpcSettings")]
-        public DirectoryVpcSettings? VpcSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryVpcSettings> _mVpcSettings;
+
+        public Outputs.DirectoryVpcSettings? VpcSettings => _mVpcSettings.GetValue("vpcSettings");
+    }
+
+    [PolicyResourceType("aws:directoryservice/directory:Directory")]
+    public sealed class DirectoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
+        /// </summary>
+        [Input("alias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
+
+        /// <summary>
+        /// Connector related information about the directory. Fields documented below.
+        /// </summary>
+        [Input("connectSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryConnectSettingsArgs> _mConnectSettings;
+
+        public Inputs.DirectoryConnectSettingsArgs? ConnectSettings => _mConnectSettings.GetValue("connectSettings");
+
+        /// <summary>
+        /// A textual description for the directory.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+        /// </summary>
+        [Input("desiredNumberOfDomainControllers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredNumberOfDomainControllers;
+
+        public int? DesiredNumberOfDomainControllers => _mDesiredNumberOfDomainControllers.GetValue("desiredNumberOfDomainControllers");
+
+        /// <summary>
+        /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
+        /// </summary>
+        [Input("edition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdition;
+
+        public string? Edition => _mEdition.GetValue("edition");
+
+        /// <summary>
+        /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        /// </summary>
+        [Input("enableSso")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSso;
+
+        public bool? EnableSso => _mEnableSso.GetValue("enableSso");
+
+        /// <summary>
+        /// The fully qualified name for the directory, such as `corp.example.com`
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The password for the directory administrator or connector user.
+        /// </summary>
+        [Input("password")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
+
+        /// <summary>
+        /// The short name of the directory, such as `CORP`.
+        /// </summary>
+        [Input("shortName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShortName;
+
+        public string? ShortName => _mShortName.GetValue("shortName");
+
+        /// <summary>
+        /// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
+        /// </summary>
+        [Input("size")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSize;
+
+        public string? Size => _mSize.GetValue("size");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// VPC related information about the directory. Fields documented below.
+        /// </summary>
+        [Input("vpcSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryVpcSettingsArgs> _mVpcSettings;
+
+        public Inputs.DirectoryVpcSettingsArgs? VpcSettings => _mVpcSettings.GetValue("vpcSettings");
     }
 }

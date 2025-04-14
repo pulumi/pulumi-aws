@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes")]
-    public sealed class AccountSuppressionAttributes : global::Pulumi.PolicyResource
+    public sealed class AccountSuppressionAttributes : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         /// </summary>
         [Input("suppressedReasons")]
-        public List<string>? SuppressedReasons;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuppressedReasons;
+
+        public List<string>? SuppressedReasons => _mSuppressedReasons.GetValue("suppressedReasons");
+    }
+
+    [PolicyResourceType("aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes")]
+    public sealed class AccountSuppressionAttributesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+        /// </summary>
+        [Input("suppressedReasons")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuppressedReasons;
+
+        public List<string>? SuppressedReasons => _mSuppressedReasons.GetValue("suppressedReasons");
     }
 }

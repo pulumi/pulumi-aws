@@ -11,42 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/deliveryChannel:DeliveryChannel")]
-    public sealed class DeliveryChannel : global::Pulumi.PolicyResource
+    public sealed class DeliveryChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The name of the S3 bucket used to store the configuration history.
         /// </summary>
         [Input("s3BucketName")]
-        public string? S3BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
+
+        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
 
         /// <summary>
         /// The prefix for the specified S3 bucket.
         /// </summary>
         [Input("s3KeyPrefix")]
-        public string? S3KeyPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
+
+        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
 
         /// <summary>
         /// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         /// </summary>
         [Input("s3KmsKeyArn")]
-        public string? S3KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3KmsKeyArn;
+
+        public string? S3KmsKeyArn => _mS3KmsKeyArn.GetValue("s3KmsKeyArn");
 
         /// <summary>
         /// Options for how AWS Config delivers configuration snapshots. See below
         /// </summary>
         [Input("snapshotDeliveryProperties")]
-        public DeliveryChannelSnapshotDeliveryProperties? SnapshotDeliveryProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeliveryChannelSnapshotDeliveryProperties> _mSnapshotDeliveryProperties;
+
+        public Outputs.DeliveryChannelSnapshotDeliveryProperties? SnapshotDeliveryProperties => _mSnapshotDeliveryProperties.GetValue("snapshotDeliveryProperties");
 
         /// <summary>
         /// The ARN of the SNS topic that AWS Config delivers notifications to.
         /// </summary>
         [Input("snsTopicArn")]
-        public string? SnsTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+    }
+
+    [PolicyResourceType("aws:cfg/deliveryChannel:DeliveryChannel")]
+    public sealed class DeliveryChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name of the S3 bucket used to store the configuration history.
+        /// </summary>
+        [Input("s3BucketName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
+
+        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+
+        /// <summary>
+        /// The prefix for the specified S3 bucket.
+        /// </summary>
+        [Input("s3KeyPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
+
+        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
+
+        /// <summary>
+        /// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        /// </summary>
+        [Input("s3KmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3KmsKeyArn;
+
+        public string? S3KmsKeyArn => _mS3KmsKeyArn.GetValue("s3KmsKeyArn");
+
+        /// <summary>
+        /// Options for how AWS Config delivers configuration snapshots. See below
+        /// </summary>
+        [Input("snapshotDeliveryProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeliveryChannelSnapshotDeliveryPropertiesArgs> _mSnapshotDeliveryProperties;
+
+        public Inputs.DeliveryChannelSnapshotDeliveryPropertiesArgs? SnapshotDeliveryProperties => _mSnapshotDeliveryProperties.GetValue("snapshotDeliveryProperties");
+
+        /// <summary>
+        /// The ARN of the SNS topic that AWS Config delivers notifications to.
+        /// </summary>
+        [Input("snsTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
     }
 }

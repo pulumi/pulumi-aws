@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/placementGroup:PlacementGroup")]
-    public sealed class PlacementGroup : global::Pulumi.PolicyResource
+    public sealed class PlacementGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the placement group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the placement group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The number of partitions to create in the
@@ -31,37 +37,107 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// `partition`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Input("partitionCount")]
-        public int? PartitionCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPartitionCount;
+
+        public int? PartitionCount => _mPartitionCount.GetValue("partitionCount");
 
         /// <summary>
         /// The ID of the placement group.
         /// </summary>
         [Input("placementGroupId")]
-        public string? PlacementGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroupId;
+
+        public string? PlacementGroupId => _mPlacementGroupId.GetValue("placementGroupId");
 
         /// <summary>
         /// Determines how placement groups spread instances. Can only be used
         /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         /// </summary>
         [Input("spreadLevel")]
-        public string? SpreadLevel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpreadLevel;
+
+        public string? SpreadLevel => _mSpreadLevel.GetValue("spreadLevel");
 
         /// <summary>
         /// The placement strategy. Can be `cluster`, `partition` or `spread`.
         /// </summary>
         [Input("strategy")]
-        public string? Strategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStrategy;
+
+        public string? Strategy => _mStrategy.GetValue("strategy");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/placementGroup:PlacementGroup")]
+    public sealed class PlacementGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the placement group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The number of partitions to create in the
+        /// placement group.  Can only be specified when the `strategy` is set to
+        /// `partition`.  Valid values are 1 - 7 (default is `2`).
+        /// </summary>
+        [Input("partitionCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPartitionCount;
+
+        public int? PartitionCount => _mPartitionCount.GetValue("partitionCount");
+
+        /// <summary>
+        /// Determines how placement groups spread instances. Can only be used
+        /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+        /// </summary>
+        [Input("spreadLevel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpreadLevel;
+
+        public string? SpreadLevel => _mSpreadLevel.GetValue("spreadLevel");
+
+        /// <summary>
+        /// The placement strategy. Can be `cluster`, `partition` or `spread`.
+        /// </summary>
+        [Input("strategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStrategy;
+
+        public string? Strategy => _mStrategy.GetValue("strategy");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

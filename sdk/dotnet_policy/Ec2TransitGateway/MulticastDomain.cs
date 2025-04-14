@@ -11,54 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/multicastDomain:MulticastDomain")]
-    public sealed class MulticastDomain : global::Pulumi.PolicyResource
+    public sealed class MulticastDomain : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
         [Input("autoAcceptSharedAssociations")]
-        public string? AutoAcceptSharedAssociations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoAcceptSharedAssociations;
+
+        public string? AutoAcceptSharedAssociations => _mAutoAcceptSharedAssociations.GetValue("autoAcceptSharedAssociations");
 
         /// <summary>
         /// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
         [Input("igmpv2Support")]
-        public string? Igmpv2Support;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIgmpv2Support;
+
+        public string? Igmpv2Support => _mIgmpv2Support.GetValue("igmpv2Support");
 
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
         [Input("staticSourcesSupport")]
-        public string? StaticSourcesSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStaticSourcesSupport;
+
+        public string? StaticSourcesSupport => _mStaticSourcesSupport.GetValue("staticSourcesSupport");
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         /// </summary>
         [Input("transitGatewayId")]
-        public string? TransitGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/multicastDomain:MulticastDomain")]
+    public sealed class MulticastDomainArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("autoAcceptSharedAssociations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoAcceptSharedAssociations;
+
+        public string? AutoAcceptSharedAssociations => _mAutoAcceptSharedAssociations.GetValue("autoAcceptSharedAssociations");
+
+        /// <summary>
+        /// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("igmpv2Support")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIgmpv2Support;
+
+        public string? Igmpv2Support => _mIgmpv2Support.GetValue("igmpv2Support");
+
+        /// <summary>
+        /// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("staticSourcesSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStaticSourcesSupport;
+
+        public string? StaticSourcesSupport => _mStaticSourcesSupport.GetValue("staticSourcesSupport");
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
+        /// </summary>
+        [Input("transitGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
     }
 }

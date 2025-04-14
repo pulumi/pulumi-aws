@@ -11,40 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/v2modelsBot:V2modelsBot")]
-    public sealed class V2modelsBot : global::Pulumi.PolicyResource
+    public sealed class V2modelsBot : global::Pulumi.PolicyResourceOutput
     {
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         /// </summary>
         [Input("dataPrivacies")]
-        public List<V2modelsBotDataPrivacy>? DataPrivacies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsBotDataPrivacy>> _mDataPrivacies;
+
+        public List<Outputs.V2modelsBotDataPrivacy>? DataPrivacies => _mDataPrivacies.GetValue("dataPrivacies");
 
         /// <summary>
         /// Description of the bot. It appears in lists to help you identify a particular bot.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         /// </summary>
         [Input("idleSessionTtlInSeconds")]
-        public int? IdleSessionTtlInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
+
+        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
 
         /// <summary>
         /// List of bot members in a network to be created. See `bot_members`.
         /// </summary>
         [Input("members")]
-        public List<V2modelsBotMember>? Members;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsBotMember>> _mMembers;
+
+        public List<Outputs.V2modelsBotMember>? Members => _mMembers.GetValue("members");
 
         /// <summary>
         /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ARN of an IAM role that has permission to access the bot.
@@ -52,30 +70,141 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// The following arguments are optional:
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// List of tags to add to the bot. You can only add tags when you create a bot.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         /// </summary>
         [Input("testBotAliasTags")]
-        public Dictionary<string, string>? TestBotAliasTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTestBotAliasTags;
+
+        public Dictionary<string, string>? TestBotAliasTags => _mTestBotAliasTags.GetValue("testBotAliasTags");
 
         [Input("timeouts")]
-        public V2modelsBotTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsBotTimeouts> _mTimeouts;
+
+        public Outputs.V2modelsBotTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:lex/v2modelsBot:V2modelsBot")]
+    public sealed class V2modelsBotArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
+        /// </summary>
+        [Input("dataPrivacies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsBotDataPrivacyArgs>> _mDataPrivacies;
+
+        public List<Inputs.V2modelsBotDataPrivacyArgs>? DataPrivacies => _mDataPrivacies.GetValue("dataPrivacies");
+
+        /// <summary>
+        /// Description of the bot. It appears in lists to help you identify a particular bot.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
+        /// </summary>
+        [Input("idleSessionTtlInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
+
+        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+
+        /// <summary>
+        /// List of bot members in a network to be created. See `bot_members`.
+        /// </summary>
+        [Input("members")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsBotMemberArgs>> _mMembers;
+
+        public List<Inputs.V2modelsBotMemberArgs>? Members => _mMembers.GetValue("members");
+
+        /// <summary>
+        /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ARN of an IAM role that has permission to access the bot.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// List of tags to add to the bot. You can only add tags when you create a bot.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
+        /// </summary>
+        [Input("testBotAliasTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTestBotAliasTags;
+
+        public Dictionary<string, string>? TestBotAliasTags => _mTestBotAliasTags.GetValue("testBotAliasTags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsBotTimeoutsArgs> _mTimeouts;
+
+        public Inputs.V2modelsBotTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

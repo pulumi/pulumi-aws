@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transfer
 {
     [PolicyResourceType("aws:transfer/workflow:Workflow")]
-    public sealed class Workflow : global::Pulumi.PolicyResource
+    public sealed class Workflow : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Workflow ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A textual description for the workflow.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         /// </summary>
         [Input("onExceptionSteps")]
-        public List<WorkflowOnExceptionStep>? OnExceptionSteps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkflowOnExceptionStep>> _mOnExceptionSteps;
+
+        public List<Outputs.WorkflowOnExceptionStep>? OnExceptionSteps => _mOnExceptionSteps.GetValue("onExceptionSteps");
 
         /// <summary>
         /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         /// </summary>
         [Input("steps")]
-        public List<WorkflowStep>? Steps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkflowStep>> _mSteps;
+
+        public List<Outputs.WorkflowStep>? Steps => _mSteps.GetValue("steps");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:transfer/workflow:Workflow")]
+    public sealed class WorkflowArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A textual description for the workflow.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+        /// </summary>
+        [Input("onExceptionSteps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WorkflowOnExceptionStepArgs>> _mOnExceptionSteps;
+
+        public List<Inputs.WorkflowOnExceptionStepArgs>? OnExceptionSteps => _mOnExceptionSteps.GetValue("onExceptionSteps");
+
+        /// <summary>
+        /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+        /// </summary>
+        [Input("steps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WorkflowStepArgs>> _mSteps;
+
+        public List<Inputs.WorkflowStepArgs>? Steps => _mSteps.GetValue("steps");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

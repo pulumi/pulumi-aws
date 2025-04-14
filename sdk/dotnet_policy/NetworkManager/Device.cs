@@ -11,78 +11,208 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/device:Device")]
-    public sealed class Device : global::Pulumi.PolicyResource
+    public sealed class Device : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the device.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The AWS location of the device. Documented below.
         /// </summary>
         [Input("awsLocation")]
-        public DeviceAwsLocation? AwsLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeviceAwsLocation> _mAwsLocation;
+
+        public Outputs.DeviceAwsLocation? AwsLocation => _mAwsLocation.GetValue("awsLocation");
 
         /// <summary>
         /// A description of the device.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
         [Input("globalNetworkId")]
-        public string? GlobalNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
 
         /// <summary>
         /// The location of the device. Documented below.
         /// </summary>
         [Input("location")]
-        public DeviceLocation? Location;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeviceLocation> _mLocation;
+
+        public Outputs.DeviceLocation? Location => _mLocation.GetValue("location");
 
         /// <summary>
         /// The model of device.
         /// </summary>
         [Input("model")]
-        public string? Model;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModel;
+
+        public string? Model => _mModel.GetValue("model");
 
         /// <summary>
         /// The serial number of the device.
         /// </summary>
         [Input("serialNumber")]
-        public string? SerialNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSerialNumber;
+
+        public string? SerialNumber => _mSerialNumber.GetValue("serialNumber");
 
         /// <summary>
         /// The ID of the site.
         /// </summary>
         [Input("siteId")]
-        public string? SiteId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSiteId;
+
+        public string? SiteId => _mSiteId.GetValue("siteId");
 
         /// <summary>
         /// Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of device.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// The vendor of the device.
         /// </summary>
         [Input("vendor")]
-        public string? Vendor;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVendor;
+
+        public string? Vendor => _mVendor.GetValue("vendor");
+    }
+
+    [PolicyResourceType("aws:networkmanager/device:Device")]
+    public sealed class DeviceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS location of the device. Documented below.
+        /// </summary>
+        [Input("awsLocation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeviceAwsLocationArgs> _mAwsLocation;
+
+        public Inputs.DeviceAwsLocationArgs? AwsLocation => _mAwsLocation.GetValue("awsLocation");
+
+        /// <summary>
+        /// A description of the device.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ID of the global network.
+        /// </summary>
+        [Input("globalNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+
+        /// <summary>
+        /// The location of the device. Documented below.
+        /// </summary>
+        [Input("location")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeviceLocationArgs> _mLocation;
+
+        public Inputs.DeviceLocationArgs? Location => _mLocation.GetValue("location");
+
+        /// <summary>
+        /// The model of device.
+        /// </summary>
+        [Input("model")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModel;
+
+        public string? Model => _mModel.GetValue("model");
+
+        /// <summary>
+        /// The serial number of the device.
+        /// </summary>
+        [Input("serialNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSerialNumber;
+
+        public string? SerialNumber => _mSerialNumber.GetValue("serialNumber");
+
+        /// <summary>
+        /// The ID of the site.
+        /// </summary>
+        [Input("siteId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSiteId;
+
+        public string? SiteId => _mSiteId.GetValue("siteId");
+
+        /// <summary>
+        /// Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of device.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// The vendor of the device.
+        /// </summary>
+        [Input("vendor")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVendor;
+
+        public string? Vendor => _mVendor.GetValue("vendor");
     }
 }

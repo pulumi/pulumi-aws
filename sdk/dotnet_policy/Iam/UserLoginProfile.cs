@@ -11,48 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
-    public sealed class UserLoginProfile : global::Pulumi.PolicyResource
+    public sealed class UserLoginProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
         /// </summary>
         [Input("encryptedPassword")]
-        public string? EncryptedPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptedPassword;
+
+        public string? EncryptedPassword => _mEncryptedPassword.GetValue("encryptedPassword");
 
         /// <summary>
         /// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         /// </summary>
         [Input("keyFingerprint")]
-        public string? KeyFingerprint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyFingerprint;
+
+        public string? KeyFingerprint => _mKeyFingerprint.GetValue("keyFingerprint");
 
         /// <summary>
         /// The plain text password, only available when `pgp_key` is not provided.
         /// </summary>
         [Input("password")]
-        public string? Password;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+
+        public string? Password => _mPassword.GetValue("password");
 
         /// <summary>
         /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
         /// </summary>
         [Input("passwordLength")]
-        public int? PasswordLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordLength;
+
+        public int? PasswordLength => _mPasswordLength.GetValue("passwordLength");
 
         /// <summary>
         /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         /// </summary>
         [Input("passwordResetRequired")]
-        public bool? PasswordResetRequired;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPasswordResetRequired;
+
+        public bool? PasswordResetRequired => _mPasswordResetRequired.GetValue("passwordResetRequired");
 
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         /// </summary>
         [Input("pgpKey")]
-        public string? PgpKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPgpKey;
+
+        public string? PgpKey => _mPgpKey.GetValue("pgpKey");
 
         /// <summary>
         /// The IAM user's name.
         /// </summary>
         [Input("user")]
-        public string? User;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
+    }
+
+    [PolicyResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
+    public sealed class UserLoginProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
+        /// </summary>
+        [Input("passwordLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordLength;
+
+        public int? PasswordLength => _mPasswordLength.GetValue("passwordLength");
+
+        /// <summary>
+        /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
+        /// </summary>
+        [Input("passwordResetRequired")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPasswordResetRequired;
+
+        public bool? PasswordResetRequired => _mPasswordResetRequired.GetValue("passwordResetRequired");
+
+        /// <summary>
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
+        /// </summary>
+        [Input("pgpKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPgpKey;
+
+        public string? PgpKey => _mPgpKey.GetValue("pgpKey");
+
+        /// <summary>
+        /// The IAM user's name.
+        /// </summary>
+        [Input("user")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
     }
 }

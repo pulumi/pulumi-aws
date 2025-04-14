@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/networkAclAssociation:NetworkAclAssociation")]
-    public sealed class NetworkAclAssociation : global::Pulumi.PolicyResource
+    public sealed class NetworkAclAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the network ACL.
         /// </summary>
         [Input("networkAclId")]
-        public string? NetworkAclId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkAclId;
+
+        public string? NetworkAclId => _mNetworkAclId.GetValue("networkAclId");
 
         /// <summary>
         /// The ID of the associated Subnet.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+    }
+
+    [PolicyResourceType("aws:ec2/networkAclAssociation:NetworkAclAssociation")]
+    public sealed class NetworkAclAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the network ACL.
+        /// </summary>
+        [Input("networkAclId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkAclId;
+
+        public string? NetworkAclId => _mNetworkAclId.GetValue("networkAclId");
+
+        /// <summary>
+        /// The ID of the associated Subnet.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
     }
 }

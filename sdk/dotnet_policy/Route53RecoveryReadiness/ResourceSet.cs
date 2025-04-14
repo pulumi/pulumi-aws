@@ -11,26 +11,35 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
 {
     [PolicyResourceType("aws:route53recoveryreadiness/resourceSet:ResourceSet")]
-    public sealed class ResourceSet : global::Pulumi.PolicyResource
+    public sealed class ResourceSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the resource set
         /// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Unique name describing the resource set.
         /// </summary>
         [Input("resourceSetName")]
-        public string? ResourceSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceSetName;
+
+        public string? ResourceSetName => _mResourceSetName.GetValue("resourceSetName");
 
         /// <summary>
         /// Type of the resources in the resource set.
         /// </summary>
         [Input("resourceSetType")]
-        public string? ResourceSetType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceSetType;
+
+        public string? ResourceSetType => _mResourceSetType.GetValue("resourceSetType");
 
         /// <summary>
         /// List of resources to add to this resource set. See below.
@@ -38,18 +47,69 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// The following arguments are optional:
         /// </summary>
         [Input("resources")]
-        public List<ResourceSetResource>? Resources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResourceSetResource>> _mResources;
+
+        public List<Outputs.ResourceSetResource>? Resources => _mResources.GetValue("resources");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:route53recoveryreadiness/resourceSet:ResourceSet")]
+    public sealed class ResourceSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique name describing the resource set.
+        /// </summary>
+        [Input("resourceSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceSetName;
+
+        public string? ResourceSetName => _mResourceSetName.GetValue("resourceSetName");
+
+        /// <summary>
+        /// Type of the resources in the resource set.
+        /// </summary>
+        [Input("resourceSetType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceSetType;
+
+        public string? ResourceSetType => _mResourceSetType.GetValue("resourceSetType");
+
+        /// <summary>
+        /// List of resources to add to this resource set. See below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("resources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResourceSetResourceArgs>> _mResources;
+
+        public List<Inputs.ResourceSetResourceArgs>? Resources => _mResources.GetValue("resources");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

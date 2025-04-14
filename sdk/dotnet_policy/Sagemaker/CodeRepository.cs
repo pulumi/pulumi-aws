@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/codeRepository:CodeRepository")]
-    public sealed class CodeRepository : global::Pulumi.PolicyResource
+    public sealed class CodeRepository : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the Code Repository (must be unique).
         /// </summary>
         [Input("codeRepositoryName")]
-        public string? CodeRepositoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCodeRepositoryName;
+
+        public string? CodeRepositoryName => _mCodeRepositoryName.GetValue("codeRepositoryName");
 
         /// <summary>
         /// Specifies details about the repository. see Git Config details below.
         /// </summary>
         [Input("gitConfig")]
-        public CodeRepositoryGitConfig? GitConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CodeRepositoryGitConfig> _mGitConfig;
+
+        public Outputs.CodeRepositoryGitConfig? GitConfig => _mGitConfig.GetValue("gitConfig");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/codeRepository:CodeRepository")]
+    public sealed class CodeRepositoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Code Repository (must be unique).
+        /// </summary>
+        [Input("codeRepositoryName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCodeRepositoryName;
+
+        public string? CodeRepositoryName => _mCodeRepositoryName.GetValue("codeRepositoryName");
+
+        /// <summary>
+        /// Specifies details about the repository. see Git Config details below.
+        /// </summary>
+        [Input("gitConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CodeRepositoryGitConfigArgs> _mGitConfig;
+
+        public Inputs.CodeRepositoryGitConfigArgs? GitConfig => _mGitConfig.GetValue("gitConfig");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

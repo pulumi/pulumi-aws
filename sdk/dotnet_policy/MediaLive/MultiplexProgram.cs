@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MediaLive
 {
     [PolicyResourceType("aws:medialive/multiplexProgram:MultiplexProgram")]
-    public sealed class MultiplexProgram : global::Pulumi.PolicyResource
+    public sealed class MultiplexProgram : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Multiplex ID.
         /// </summary>
         [Input("multiplexId")]
-        public string? MultiplexId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiplexId;
+
+        public string? MultiplexId => _mMultiplexId.GetValue("multiplexId");
 
         /// <summary>
         /// MultiplexProgram settings. See Multiplex Program Settings for more details.
@@ -25,15 +28,63 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// The following arguments are optional:
         /// </summary>
         [Input("multiplexProgramSettings")]
-        public MultiplexProgramMultiplexProgramSettings? MultiplexProgramSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexProgramMultiplexProgramSettings> _mMultiplexProgramSettings;
+
+        public Outputs.MultiplexProgramMultiplexProgramSettings? MultiplexProgramSettings => _mMultiplexProgramSettings.GetValue("multiplexProgramSettings");
 
         /// <summary>
         /// Unique program name.
         /// </summary>
         [Input("programName")]
-        public string? ProgramName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProgramName;
+
+        public string? ProgramName => _mProgramName.GetValue("programName");
 
         [Input("timeouts")]
-        public MultiplexProgramTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexProgramTimeouts> _mTimeouts;
+
+        public Outputs.MultiplexProgramTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:medialive/multiplexProgram:MultiplexProgram")]
+    public sealed class MultiplexProgramArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Multiplex ID.
+        /// </summary>
+        [Input("multiplexId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMultiplexId;
+
+        public string? MultiplexId => _mMultiplexId.GetValue("multiplexId");
+
+        /// <summary>
+        /// MultiplexProgram settings. See Multiplex Program Settings for more details.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("multiplexProgramSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MultiplexProgramMultiplexProgramSettingsArgs> _mMultiplexProgramSettings;
+
+        public Inputs.MultiplexProgramMultiplexProgramSettingsArgs? MultiplexProgramSettings => _mMultiplexProgramSettings.GetValue("multiplexProgramSettings");
+
+        /// <summary>
+        /// Unique program name.
+        /// </summary>
+        [Input("programName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProgramName;
+
+        public string? ProgramName => _mProgramName.GetValue("programName");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MultiplexProgramTimeoutsArgs> _mTimeouts;
+
+        public Inputs.MultiplexProgramTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/agentDataSource:AgentDataSource")]
-    public sealed class AgentDataSource : global::Pulumi.PolicyResource
+    public sealed class AgentDataSource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
         /// </summary>
         [Input("dataDeletionPolicy")]
-        public string? DataDeletionPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataDeletionPolicy;
+
+        public string? DataDeletionPolicy => _mDataDeletionPolicy.GetValue("dataDeletionPolicy");
 
         /// <summary>
         /// Details about how the data source is stored. See `data_source_configuration` block for details.
         /// </summary>
         [Input("dataSourceConfiguration")]
-        public AgentDataSourceDataSourceConfiguration? DataSourceConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceDataSourceConfiguration> _mDataSourceConfiguration;
+
+        public Outputs.AgentDataSourceDataSourceConfiguration? DataSourceConfiguration => _mDataSourceConfiguration.GetValue("dataSourceConfiguration");
 
         /// <summary>
         /// Unique identifier of the data source.
         /// </summary>
         [Input("dataSourceId")]
-        public string? DataSourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceId;
+
+        public string? DataSourceId => _mDataSourceId.GetValue("dataSourceId");
 
         /// <summary>
         /// Description of the data source.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Unique identifier of the knowledge base to which the data source belongs.
         /// </summary>
         [Input("knowledgeBaseId")]
-        public string? KnowledgeBaseId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseId;
+
+        public string? KnowledgeBaseId => _mKnowledgeBaseId.GetValue("knowledgeBaseId");
 
         /// <summary>
         /// Name of the data source.
@@ -49,21 +64,108 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
-        public AgentDataSourceServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceServerSideEncryptionConfiguration> _mServerSideEncryptionConfiguration;
+
+        public Outputs.AgentDataSourceServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
 
         [Input("timeouts")]
-        public AgentDataSourceTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceTimeouts> _mTimeouts;
+
+        public Outputs.AgentDataSourceTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         /// </summary>
         [Input("vectorIngestionConfiguration")]
-        public AgentDataSourceVectorIngestionConfiguration? VectorIngestionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceVectorIngestionConfiguration> _mVectorIngestionConfiguration;
+
+        public Outputs.AgentDataSourceVectorIngestionConfiguration? VectorIngestionConfiguration => _mVectorIngestionConfiguration.GetValue("vectorIngestionConfiguration");
+    }
+
+    [PolicyResourceType("aws:bedrock/agentDataSource:AgentDataSource")]
+    public sealed class AgentDataSourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
+        /// </summary>
+        [Input("dataDeletionPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataDeletionPolicy;
+
+        public string? DataDeletionPolicy => _mDataDeletionPolicy.GetValue("dataDeletionPolicy");
+
+        /// <summary>
+        /// Details about how the data source is stored. See `data_source_configuration` block for details.
+        /// </summary>
+        [Input("dataSourceConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceDataSourceConfigurationArgs> _mDataSourceConfiguration;
+
+        public Inputs.AgentDataSourceDataSourceConfigurationArgs? DataSourceConfiguration => _mDataSourceConfiguration.GetValue("dataSourceConfiguration");
+
+        /// <summary>
+        /// Description of the data source.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Unique identifier of the knowledge base to which the data source belongs.
+        /// </summary>
+        [Input("knowledgeBaseId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseId;
+
+        public string? KnowledgeBaseId => _mKnowledgeBaseId.GetValue("knowledgeBaseId");
+
+        /// <summary>
+        /// Name of the data source.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+        /// </summary>
+        [Input("serverSideEncryptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceServerSideEncryptionConfigurationArgs> _mServerSideEncryptionConfiguration;
+
+        public Inputs.AgentDataSourceServerSideEncryptionConfigurationArgs? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AgentDataSourceTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        /// </summary>
+        [Input("vectorIngestionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationArgs> _mVectorIngestionConfiguration;
+
+        public Inputs.AgentDataSourceVectorIngestionConfigurationArgs? VectorIngestionConfiguration => _mVectorIngestionConfiguration.GetValue("vectorIngestionConfiguration");
     }
 }

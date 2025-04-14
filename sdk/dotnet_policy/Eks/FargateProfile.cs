@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Eks
 {
     [PolicyResourceType("aws:eks/fargateProfile:FargateProfile")]
-    public sealed class FargateProfile : global::Pulumi.PolicyResource
+    public sealed class FargateProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Fargate Profile.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName")]
-        public string? ClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
 
         /// <summary>
         /// Name of the EKS Fargate Profile.
         /// </summary>
         [Input("fargateProfileName")]
-        public string? FargateProfileName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFargateProfileName;
+
+        public string? FargateProfileName => _mFargateProfileName.GetValue("fargateProfileName");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         /// </summary>
         [Input("podExecutionRoleArn")]
-        public string? PodExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPodExecutionRoleArn;
+
+        public string? PodExecutionRoleArn => _mPodExecutionRoleArn.GetValue("podExecutionRoleArn");
 
         /// <summary>
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
         [Input("selectors")]
-        public List<FargateProfileSelector>? Selectors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FargateProfileSelector>> _mSelectors;
+
+        public List<Outputs.FargateProfileSelector>? Selectors => _mSelectors.GetValue("selectors");
 
         /// <summary>
         /// Status of the EKS Fargate Profile.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
@@ -55,18 +73,87 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// The following arguments are optional:
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:eks/fargateProfile:FargateProfile")]
+    public sealed class FargateProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the EKS Cluster.
+        /// </summary>
+        [Input("clusterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
+
+        /// <summary>
+        /// Name of the EKS Fargate Profile.
+        /// </summary>
+        [Input("fargateProfileName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFargateProfileName;
+
+        public string? FargateProfileName => _mFargateProfileName.GetValue("fargateProfileName");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        /// </summary>
+        [Input("podExecutionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPodExecutionRoleArn;
+
+        public string? PodExecutionRoleArn => _mPodExecutionRoleArn.GetValue("podExecutionRoleArn");
+
+        /// <summary>
+        /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
+        /// </summary>
+        [Input("selectors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FargateProfileSelectorArgs>> _mSelectors;
+
+        public List<Inputs.FargateProfileSelectorArgs>? Selectors => _mSelectors.GetValue("selectors");
+
+        /// <summary>
+        /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

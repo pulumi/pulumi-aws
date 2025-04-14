@@ -11,61 +11,147 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Acmpca
 {
     [PolicyResourceType("aws:acmpca/certificate:Certificate")]
-    public sealed class Certificate : global::Pulumi.PolicyResource
+    public sealed class Certificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         /// </summary>
         [Input("apiPassthrough")]
-        public string? ApiPassthrough;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiPassthrough;
+
+        public string? ApiPassthrough => _mApiPassthrough.GetValue("apiPassthrough");
 
         /// <summary>
         /// ARN of the certificate.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// PEM-encoded certificate value.
         /// </summary>
         [Input("certificate")]
-        public string? CertificateDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateDetails;
+
+        public string? CertificateDetails => _mCertificateDetails.GetValue("certificate");
 
         /// <summary>
         /// ARN of the certificate authority.
         /// </summary>
         [Input("certificateAuthorityArn")]
-        public string? CertificateAuthorityArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
+
+        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
 
         /// <summary>
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         /// </summary>
         [Input("certificateChain")]
-        public string? CertificateChain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+
+        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
 
         /// <summary>
         /// Certificate Signing Request in PEM format.
         /// </summary>
         [Input("certificateSigningRequest")]
-        public string? CertificateSigningRequest;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateSigningRequest;
+
+        public string? CertificateSigningRequest => _mCertificateSigningRequest.GetValue("certificateSigningRequest");
 
         /// <summary>
         /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         /// </summary>
         [Input("signingAlgorithm")]
-        public string? SigningAlgorithm;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAlgorithm;
+
+        public string? SigningAlgorithm => _mSigningAlgorithm.GetValue("signingAlgorithm");
 
         /// <summary>
         /// Template to use when issuing a certificate.
         /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
         [Input("templateArn")]
-        public string? TemplateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateArn;
+
+        public string? TemplateArn => _mTemplateArn.GetValue("templateArn");
 
         /// <summary>
         /// Configures end of the validity period for the certificate. See validity block below.
         /// </summary>
         [Input("validity")]
-        public CertificateValidity? Validity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateValidity> _mValidity;
+
+        public Outputs.CertificateValidity? Validity => _mValidity.GetValue("validity");
+    }
+
+    [PolicyResourceType("aws:acmpca/certificate:Certificate")]
+    public sealed class CertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
+        /// </summary>
+        [Input("apiPassthrough")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiPassthrough;
+
+        public string? ApiPassthrough => _mApiPassthrough.GetValue("apiPassthrough");
+
+        /// <summary>
+        /// ARN of the certificate authority.
+        /// </summary>
+        [Input("certificateAuthorityArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
+
+        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+
+        /// <summary>
+        /// Certificate Signing Request in PEM format.
+        /// </summary>
+        [Input("certificateSigningRequest")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateSigningRequest;
+
+        public string? CertificateSigningRequest => _mCertificateSigningRequest.GetValue("certificateSigningRequest");
+
+        /// <summary>
+        /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
+        /// </summary>
+        [Input("signingAlgorithm")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAlgorithm;
+
+        public string? SigningAlgorithm => _mSigningAlgorithm.GetValue("signingAlgorithm");
+
+        /// <summary>
+        /// Template to use when issuing a certificate.
+        /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
+        /// </summary>
+        [Input("templateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateArn;
+
+        public string? TemplateArn => _mTemplateArn.GetValue("templateArn");
+
+        /// <summary>
+        /// Configures end of the validity period for the certificate. See validity block below.
+        /// </summary>
+        [Input("validity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CertificateValidityArgs> _mValidity;
+
+        public Inputs.CertificateValidityArgs? Validity => _mValidity.GetValue("validity");
     }
 }

@@ -11,42 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")]
-    public sealed class LogSubscriptionFilter : global::Pulumi.PolicyResource
+    public sealed class LogSubscriptionFilter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         /// </summary>
         [Input("destinationArn")]
-        public string? DestinationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
 
         /// <summary>
         /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         /// </summary>
         [Input("distribution")]
-        public string? Distribution;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistribution;
+
+        public string? Distribution => _mDistribution.GetValue("distribution");
 
         /// <summary>
         /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         [Input("filterPattern")]
-        public string? FilterPattern;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPattern;
+
+        public string? FilterPattern => _mFilterPattern.GetValue("filterPattern");
 
         /// <summary>
         /// The name of the log group to associate the subscription filter with
         /// </summary>
         [Input("logGroup")]
-        public string? LogGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroup;
+
+        public string? LogGroup => _mLogGroup.GetValue("logGroup");
 
         /// <summary>
         /// A name for the subscription filter
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")]
+    public sealed class LogSubscriptionFilterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
+        /// </summary>
+        [Input("destinationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
+
+        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+
+        /// <summary>
+        /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
+        /// </summary>
+        [Input("distribution")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistribution;
+
+        public string? Distribution => _mDistribution.GetValue("distribution");
+
+        /// <summary>
+        /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
+        /// </summary>
+        [Input("filterPattern")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPattern;
+
+        public string? FilterPattern => _mFilterPattern.GetValue("filterPattern");
+
+        /// <summary>
+        /// The name of the log group to associate the subscription filter with
+        /// </summary>
+        [Input("logGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroup;
+
+        public string? LogGroup => _mLogGroup.GetValue("logGroup");
+
+        /// <summary>
+        /// A name for the subscription filter
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
     }
 }

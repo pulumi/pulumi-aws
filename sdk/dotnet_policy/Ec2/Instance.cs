@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/instance:Instance")]
-    public sealed class Instance : global::Pulumi.PolicyResource
+    public sealed class Instance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Input("ami")]
-        public string? Ami;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmi;
+
+        public string? Ami => _mAmi.GetValue("ami");
 
         /// <summary>
         /// ARN of the instance.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether to associate a public IP address with an instance in a VPC.
         /// </summary>
         [Input("associatePublicIpAddress")]
-        public bool? AssociatePublicIpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociatePublicIpAddress;
+
+        public bool? AssociatePublicIpAddress => _mAssociatePublicIpAddress.GetValue("associatePublicIpAddress");
 
         /// <summary>
         /// AZ to start the instance in.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -43,253 +55,379 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
-        public InstanceCapacityReservationSpecification? CapacityReservationSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceCapacityReservationSpecification> _mCapacityReservationSpecification;
+
+        public Outputs.InstanceCapacityReservationSpecification? CapacityReservationSpecification => _mCapacityReservationSpecification.GetValue("capacityReservationSpecification");
 
         /// <summary>
         /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         /// </summary>
         [Input("cpuCoreCount")]
-        public int? CpuCoreCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCpuCoreCount;
+
+        public int? CpuCoreCount => _mCpuCoreCount.GetValue("cpuCoreCount");
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
         [Input("cpuOptions")]
-        public InstanceCpuOptions? CpuOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceCpuOptions> _mCpuOptions;
+
+        public Outputs.InstanceCpuOptions? CpuOptions => _mCpuOptions.GetValue("cpuOptions");
 
         /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         /// </summary>
         [Input("cpuThreadsPerCore")]
-        public int? CpuThreadsPerCore;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCpuThreadsPerCore;
+
+        public int? CpuThreadsPerCore => _mCpuThreadsPerCore.GetValue("cpuThreadsPerCore");
 
         /// <summary>
         /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         /// </summary>
         [Input("creditSpecification")]
-        public InstanceCreditSpecification? CreditSpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceCreditSpecification> _mCreditSpecification;
+
+        public Outputs.InstanceCreditSpecification? CreditSpecification => _mCreditSpecification.GetValue("creditSpecification");
 
         /// <summary>
         /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         /// </summary>
         [Input("disableApiStop")]
-        public bool? DisableApiStop;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiStop;
+
+        public bool? DisableApiStop => _mDisableApiStop.GetValue("disableApiStop");
 
         /// <summary>
         /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         /// </summary>
         [Input("disableApiTermination")]
-        public bool? DisableApiTermination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiTermination;
+
+        public bool? DisableApiTermination => _mDisableApiTermination.GetValue("disableApiTermination");
 
         /// <summary>
         /// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         /// </summary>
         [Input("ebsBlockDevices")]
-        public List<InstanceEbsBlockDevice>? EbsBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceEbsBlockDevice>> _mEbsBlockDevices;
+
+        public List<Outputs.InstanceEbsBlockDevice>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
 
         /// <summary>
         /// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         /// </summary>
         [Input("ebsOptimized")]
-        public bool? EbsOptimized;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
 
         /// <summary>
         /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         /// </summary>
         [Input("enablePrimaryIpv6")]
-        public bool? EnablePrimaryIpv6;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrimaryIpv6;
+
+        public bool? EnablePrimaryIpv6 => _mEnablePrimaryIpv6.GetValue("enablePrimaryIpv6");
 
         /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         /// </summary>
         [Input("enclaveOptions")]
-        public InstanceEnclaveOptions? EnclaveOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceEnclaveOptions> _mEnclaveOptions;
+
+        public Outputs.InstanceEnclaveOptions? EnclaveOptions => _mEnclaveOptions.GetValue("enclaveOptions");
 
         /// <summary>
         /// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         /// </summary>
         [Input("ephemeralBlockDevices")]
-        public List<InstanceEphemeralBlockDevice>? EphemeralBlockDevices;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceEphemeralBlockDevice>> _mEphemeralBlockDevices;
+
+        public List<Outputs.InstanceEphemeralBlockDevice>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
 
         /// <summary>
         /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Input("getPasswordData")]
-        public bool? GetPasswordData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mGetPasswordData;
+
+        public bool? GetPasswordData => _mGetPasswordData.GetValue("getPasswordData");
 
         /// <summary>
         /// If true, the launched EC2 instance will support hibernation.
         /// </summary>
         [Input("hibernation")]
-        public bool? Hibernation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHibernation;
+
+        public bool? Hibernation => _mHibernation.GetValue("hibernation");
 
         /// <summary>
         /// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         /// </summary>
         [Input("hostId")]
-        public string? HostId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostId;
+
+        public string? HostId => _mHostId.GetValue("hostId");
 
         /// <summary>
         /// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         /// </summary>
         [Input("hostResourceGroupArn")]
-        public string? HostResourceGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostResourceGroupArn;
+
+        public string? HostResourceGroupArn => _mHostResourceGroupArn.GetValue("hostResourceGroupArn");
 
         /// <summary>
         /// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         /// </summary>
         [Input("iamInstanceProfile")]
-        public string? IamInstanceProfile;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamInstanceProfile;
+
+        public string? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
 
         /// <summary>
         /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
-        public string? InstanceInitiatedShutdownBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInitiatedShutdownBehavior;
+
+        public string? InstanceInitiatedShutdownBehavior => _mInstanceInitiatedShutdownBehavior.GetValue("instanceInitiatedShutdownBehavior");
 
         /// <summary>
         /// Indicates whether this is a Spot Instance or a Scheduled Instance.
         /// </summary>
         [Input("instanceLifecycle")]
-        public string? InstanceLifecycle;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceLifecycle;
+
+        public string? InstanceLifecycle => _mInstanceLifecycle.GetValue("instanceLifecycle");
 
         /// <summary>
         /// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         /// </summary>
         [Input("instanceMarketOptions")]
-        public InstanceInstanceMarketOptions? InstanceMarketOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceInstanceMarketOptions> _mInstanceMarketOptions;
+
+        public Outputs.InstanceInstanceMarketOptions? InstanceMarketOptions => _mInstanceMarketOptions.GetValue("instanceMarketOptions");
 
         /// <summary>
         /// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         /// </summary>
         [Input("instanceState")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("instanceState");
 
         /// <summary>
         /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         /// </summary>
         [Input("ipv6AddressCount")]
-        public int? Ipv6AddressCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6AddressCount;
+
+        public int? Ipv6AddressCount => _mIpv6AddressCount.GetValue("ipv6AddressCount");
 
         /// <summary>
         /// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         /// </summary>
         [Input("ipv6Addresses")]
-        public List<string>? Ipv6Addresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
+
+        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
 
         /// <summary>
         /// Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
         /// </summary>
         [Input("keyName")]
-        public string? KeyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
 
         /// <summary>
         /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
         /// </summary>
         [Input("launchTemplate")]
-        public InstanceLaunchTemplate? LaunchTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceLaunchTemplate> _mLaunchTemplate;
+
+        public Outputs.InstanceLaunchTemplate? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
 
         /// <summary>
         /// Maintenance and recovery options for the instance. See Maintenance Options below for more details.
         /// </summary>
         [Input("maintenanceOptions")]
-        public InstanceMaintenanceOptions? MaintenanceOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceMaintenanceOptions> _mMaintenanceOptions;
+
+        public Outputs.InstanceMaintenanceOptions? MaintenanceOptions => _mMaintenanceOptions.GetValue("maintenanceOptions");
 
         /// <summary>
         /// Customize the metadata options of the instance. See Metadata Options below for more details.
         /// </summary>
         [Input("metadataOptions")]
-        public InstanceMetadataOptions? MetadataOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceMetadataOptions> _mMetadataOptions;
+
+        public Outputs.InstanceMetadataOptions? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
 
         /// <summary>
         /// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         /// </summary>
         [Input("monitoring")]
-        public bool? Monitoring;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMonitoring;
+
+        public bool? Monitoring => _mMonitoring.GetValue("monitoring");
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         /// </summary>
         [Input("networkInterfaces")]
-        public List<InstanceNetworkInterface>? NetworkInterfaces;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceNetworkInterface>> _mNetworkInterfaces;
+
+        public List<Outputs.InstanceNetworkInterface>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
 
         /// <summary>
         /// ARN of the Outpost the instance is assigned to.
         /// </summary>
         [Input("outpostArn")]
-        public string? OutpostArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
+
+        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
 
         /// <summary>
         /// Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         /// </summary>
         [Input("passwordData")]
-        public string? PasswordData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPasswordData;
+
+        public string? PasswordData => _mPasswordData.GetValue("passwordData");
 
         /// <summary>
         /// Placement Group to start the instance in.
         /// </summary>
         [Input("placementGroup")]
-        public string? PlacementGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroup;
+
+        public string? PlacementGroup => _mPlacementGroup.GetValue("placementGroup");
 
         /// <summary>
         /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         /// </summary>
         [Input("placementPartitionNumber")]
-        public int? PlacementPartitionNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPlacementPartitionNumber;
+
+        public int? PlacementPartitionNumber => _mPlacementPartitionNumber.GetValue("placementPartitionNumber");
 
         /// <summary>
         /// ID of the instance's primary network interface.
         /// </summary>
         [Input("primaryNetworkInterfaceId")]
-        public string? PrimaryNetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryNetworkInterfaceId;
+
+        public string? PrimaryNetworkInterfaceId => _mPrimaryNetworkInterfaceId.GetValue("primaryNetworkInterfaceId");
 
         /// <summary>
         /// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
         [Input("privateDns")]
-        public string? PrivateDns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDns;
+
+        public string? PrivateDns => _mPrivateDns.GetValue("privateDns");
 
         /// <summary>
         /// Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         /// </summary>
         [Input("privateDnsNameOptions")]
-        public InstancePrivateDnsNameOptions? PrivateDnsNameOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstancePrivateDnsNameOptions> _mPrivateDnsNameOptions;
+
+        public Outputs.InstancePrivateDnsNameOptions? PrivateDnsNameOptions => _mPrivateDnsNameOptions.GetValue("privateDnsNameOptions");
 
         /// <summary>
         /// Private IP address to associate with the instance in a VPC.
         /// </summary>
         [Input("privateIp")]
-        public string? PrivateIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
+
+        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
 
         /// <summary>
         /// Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
         [Input("publicDns")]
-        public string? PublicDns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDns;
+
+        public string? PublicDns => _mPublicDns.GetValue("publicDns");
 
         /// <summary>
         /// Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
         /// </summary>
         [Input("publicIp")]
-        public string? PublicIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
+
+        public string? PublicIp => _mPublicIp.GetValue("publicIp");
 
         /// <summary>
         /// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         /// </summary>
         [Input("rootBlockDevice")]
-        public InstanceRootBlockDevice? RootBlockDevice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceRootBlockDevice> _mRootBlockDevice;
+
+        public Outputs.InstanceRootBlockDevice? RootBlockDevice => _mRootBlockDevice.GetValue("rootBlockDevice");
 
         /// <summary>
         /// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         /// </summary>
         [Input("secondaryPrivateIps")]
-        public List<string>? SecondaryPrivateIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryPrivateIps;
+
+        public List<string>? SecondaryPrivateIps => _mSecondaryPrivateIps.GetValue("secondaryPrivateIps");
 
         /// <summary>
         /// List of security group names to associate with.
@@ -297,61 +435,91 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         [Input("securityGroups")]
-        public List<string>? SecurityGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
 
         /// <summary>
         /// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         /// </summary>
         [Input("sourceDestCheck")]
-        public bool? SourceDestCheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSourceDestCheck;
+
+        public bool? SourceDestCheck => _mSourceDestCheck.GetValue("sourceDestCheck");
 
         /// <summary>
         /// If the request is a Spot Instance request, the ID of the request.
         /// </summary>
         [Input("spotInstanceRequestId")]
-        public string? SpotInstanceRequestId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpotInstanceRequestId;
+
+        public string? SpotInstanceRequestId => _mSpotInstanceRequestId.GetValue("spotInstanceRequestId");
 
         /// <summary>
         /// VPC Subnet ID to launch in.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
         /// </summary>
         [Input("tenancy")]
-        public string? Tenancy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
+
+        public string? Tenancy => _mTenancy.GetValue("tenancy");
 
         /// <summary>
         /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Input("userData")]
-        public string? UserData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+
+        public string? UserData => _mUserData.GetValue("userData");
 
         /// <summary>
         /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Input("userDataBase64")]
-        public string? UserDataBase64;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserDataBase64;
+
+        public string? UserDataBase64 => _mUserDataBase64.GetValue("userDataBase64");
 
         /// <summary>
         /// When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
         /// </summary>
         [Input("userDataReplaceOnChange")]
-        public bool? UserDataReplaceOnChange;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUserDataReplaceOnChange;
+
+        public bool? UserDataReplaceOnChange => _mUserDataReplaceOnChange.GetValue("userDataReplaceOnChange");
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
@@ -359,12 +527,451 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         [Input("volumeTags")]
-        public Dictionary<string, string>? VolumeTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVolumeTags;
+
+        public Dictionary<string, string>? VolumeTags => _mVolumeTags.GetValue("volumeTags");
 
         /// <summary>
         /// List of security group IDs to associate with.
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+    }
+
+    [PolicyResourceType("aws:ec2/instance:Instance")]
+    public sealed class InstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+        /// </summary>
+        [Input("ami")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmi;
+
+        public string? Ami => _mAmi.GetValue("ami");
+
+        /// <summary>
+        /// Whether to associate a public IP address with an instance in a VPC.
+        /// </summary>
+        [Input("associatePublicIpAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociatePublicIpAddress;
+
+        public bool? AssociatePublicIpAddress => _mAssociatePublicIpAddress.GetValue("associatePublicIpAddress");
+
+        /// <summary>
+        /// AZ to start the instance in.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+        /// </summary>
+        [Input("capacityReservationSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceCapacityReservationSpecificationArgs> _mCapacityReservationSpecification;
+
+        public Inputs.InstanceCapacityReservationSpecificationArgs? CapacityReservationSpecification => _mCapacityReservationSpecification.GetValue("capacityReservationSpecification");
+
+        /// <summary>
+        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        /// </summary>
+        [Input("cpuCoreCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCpuCoreCount;
+
+        public int? CpuCoreCount => _mCpuCoreCount.GetValue("cpuCoreCount");
+
+        /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Input("cpuOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceCpuOptionsArgs> _mCpuOptions;
+
+        public Inputs.InstanceCpuOptionsArgs? CpuOptions => _mCpuOptions.GetValue("cpuOptions");
+
+        /// <summary>
+        /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        /// </summary>
+        [Input("cpuThreadsPerCore")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCpuThreadsPerCore;
+
+        public int? CpuThreadsPerCore => _mCpuThreadsPerCore.GetValue("cpuThreadsPerCore");
+
+        /// <summary>
+        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        /// </summary>
+        [Input("creditSpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceCreditSpecificationArgs> _mCreditSpecification;
+
+        public Inputs.InstanceCreditSpecificationArgs? CreditSpecification => _mCreditSpecification.GetValue("creditSpecification");
+
+        /// <summary>
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// </summary>
+        [Input("disableApiStop")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiStop;
+
+        public bool? DisableApiStop => _mDisableApiStop.GetValue("disableApiStop");
+
+        /// <summary>
+        /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
+        /// </summary>
+        [Input("disableApiTermination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiTermination;
+
+        public bool? DisableApiTermination => _mDisableApiTermination.GetValue("disableApiTermination");
+
+        /// <summary>
+        /// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
+        /// </summary>
+        [Input("ebsBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceEbsBlockDeviceArgs>> _mEbsBlockDevices;
+
+        public List<Inputs.InstanceEbsBlockDeviceArgs>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+
+        /// <summary>
+        /// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        /// </summary>
+        [Input("ebsOptimized")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+
+        /// <summary>
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        /// </summary>
+        [Input("enablePrimaryIpv6")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrimaryIpv6;
+
+        public bool? EnablePrimaryIpv6 => _mEnablePrimaryIpv6.GetValue("enablePrimaryIpv6");
+
+        /// <summary>
+        /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
+        /// </summary>
+        [Input("enclaveOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceEnclaveOptionsArgs> _mEnclaveOptions;
+
+        public Inputs.InstanceEnclaveOptionsArgs? EnclaveOptions => _mEnclaveOptions.GetValue("enclaveOptions");
+
+        /// <summary>
+        /// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
+        /// </summary>
+        [Input("ephemeralBlockDevices")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceEphemeralBlockDeviceArgs>> _mEphemeralBlockDevices;
+
+        public List<Inputs.InstanceEphemeralBlockDeviceArgs>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+
+        /// <summary>
+        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// </summary>
+        [Input("getPasswordData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mGetPasswordData;
+
+        public bool? GetPasswordData => _mGetPasswordData.GetValue("getPasswordData");
+
+        /// <summary>
+        /// If true, the launched EC2 instance will support hibernation.
+        /// </summary>
+        [Input("hibernation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHibernation;
+
+        public bool? Hibernation => _mHibernation.GetValue("hibernation");
+
+        /// <summary>
+        /// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
+        /// </summary>
+        [Input("hostId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostId;
+
+        public string? HostId => _mHostId.GetValue("hostId");
+
+        /// <summary>
+        /// ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
+        /// </summary>
+        [Input("hostResourceGroupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostResourceGroupArn;
+
+        public string? HostResourceGroupArn => _mHostResourceGroupArn.GetValue("hostResourceGroupArn");
+
+        /// <summary>
+        /// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
+        /// </summary>
+        [Input("iamInstanceProfile")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamInstanceProfile;
+
+        public string? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
+
+        /// <summary>
+        /// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        /// </summary>
+        [Input("instanceInitiatedShutdownBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInitiatedShutdownBehavior;
+
+        public string? InstanceInitiatedShutdownBehavior => _mInstanceInitiatedShutdownBehavior.GetValue("instanceInitiatedShutdownBehavior");
+
+        /// <summary>
+        /// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        /// </summary>
+        [Input("instanceMarketOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceInstanceMarketOptionsArgs> _mInstanceMarketOptions;
+
+        public Inputs.InstanceInstanceMarketOptionsArgs? InstanceMarketOptions => _mInstanceMarketOptions.GetValue("instanceMarketOptions");
+
+        /// <summary>
+        /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
+        /// </summary>
+        [Input("ipv6AddressCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6AddressCount;
+
+        public int? Ipv6AddressCount => _mIpv6AddressCount.GetValue("ipv6AddressCount");
+
+        /// <summary>
+        /// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
+        /// </summary>
+        [Input("ipv6Addresses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
+
+        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
+
+        /// <summary>
+        /// Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
+        /// </summary>
+        [Input("keyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
+
+        /// <summary>
+        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
+        /// </summary>
+        [Input("launchTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceLaunchTemplateArgs> _mLaunchTemplate;
+
+        public Inputs.InstanceLaunchTemplateArgs? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+
+        /// <summary>
+        /// Maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Input("maintenanceOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceMaintenanceOptionsArgs> _mMaintenanceOptions;
+
+        public Inputs.InstanceMaintenanceOptionsArgs? MaintenanceOptions => _mMaintenanceOptions.GetValue("maintenanceOptions");
+
+        /// <summary>
+        /// Customize the metadata options of the instance. See Metadata Options below for more details.
+        /// </summary>
+        [Input("metadataOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceMetadataOptionsArgs> _mMetadataOptions;
+
+        public Inputs.InstanceMetadataOptionsArgs? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
+
+        /// <summary>
+        /// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
+        /// </summary>
+        [Input("monitoring")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMonitoring;
+
+        public bool? Monitoring => _mMonitoring.GetValue("monitoring");
+
+        /// <summary>
+        /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
+        /// </summary>
+        [Input("networkInterfaces")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceNetworkInterfaceArgs>> _mNetworkInterfaces;
+
+        public List<Inputs.InstanceNetworkInterfaceArgs>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
+
+        /// <summary>
+        /// Placement Group to start the instance in.
+        /// </summary>
+        [Input("placementGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroup;
+
+        public string? PlacementGroup => _mPlacementGroup.GetValue("placementGroup");
+
+        /// <summary>
+        /// Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        /// </summary>
+        [Input("placementPartitionNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPlacementPartitionNumber;
+
+        public int? PlacementPartitionNumber => _mPlacementPartitionNumber.GetValue("placementPartitionNumber");
+
+        /// <summary>
+        /// Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        /// </summary>
+        [Input("privateDnsNameOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstancePrivateDnsNameOptionsArgs> _mPrivateDnsNameOptions;
+
+        public Inputs.InstancePrivateDnsNameOptionsArgs? PrivateDnsNameOptions => _mPrivateDnsNameOptions.GetValue("privateDnsNameOptions");
+
+        /// <summary>
+        /// Private IP address to associate with the instance in a VPC.
+        /// </summary>
+        [Input("privateIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
+
+        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+
+        /// <summary>
+        /// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        /// </summary>
+        [Input("rootBlockDevice")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceRootBlockDeviceArgs> _mRootBlockDevice;
+
+        public Inputs.InstanceRootBlockDeviceArgs? RootBlockDevice => _mRootBlockDevice.GetValue("rootBlockDevice");
+
+        /// <summary>
+        /// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
+        /// </summary>
+        [Input("secondaryPrivateIps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryPrivateIps;
+
+        public List<string>? SecondaryPrivateIps => _mSecondaryPrivateIps.GetValue("secondaryPrivateIps");
+
+        /// <summary>
+        /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+        /// </summary>
+        [Input("securityGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+
+        /// <summary>
+        /// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        /// </summary>
+        [Input("sourceDestCheck")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSourceDestCheck;
+
+        public bool? SourceDestCheck => _mSourceDestCheck.GetValue("sourceDestCheck");
+
+        /// <summary>
+        /// VPC Subnet ID to launch in.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
+        /// </summary>
+        [Input("tenancy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
+
+        public string? Tenancy => _mTenancy.GetValue("tenancy");
+
+        /// <summary>
+        /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+        /// </summary>
+        [Input("userData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+
+        public string? UserData => _mUserData.GetValue("userData");
+
+        /// <summary>
+        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
+        /// </summary>
+        [Input("userDataBase64")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserDataBase64;
+
+        public string? UserDataBase64 => _mUserDataBase64.GetValue("userDataBase64");
+
+        /// <summary>
+        /// When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
+        /// </summary>
+        [Input("userDataReplaceOnChange")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUserDataReplaceOnChange;
+
+        public bool? UserDataReplaceOnChange => _mUserDataReplaceOnChange.GetValue("userDataReplaceOnChange");
+
+        /// <summary>
+        /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+        /// </summary>
+        [Input("volumeTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVolumeTags;
+
+        public Dictionary<string, string>? VolumeTags => _mVolumeTags.GetValue("volumeTags");
+
+        /// <summary>
+        /// List of security group IDs to associate with.
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
     }
 }

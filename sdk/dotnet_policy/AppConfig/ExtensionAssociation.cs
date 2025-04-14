@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppConfig
 {
     [PolicyResourceType("aws:appconfig/extensionAssociation:ExtensionAssociation")]
-    public sealed class ExtensionAssociation : global::Pulumi.PolicyResource
+    public sealed class ExtensionAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the AppConfig Extension Association.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the extension defined in the association.
         /// </summary>
         [Input("extensionArn")]
-        public string? ExtensionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExtensionArn;
+
+        public string? ExtensionArn => _mExtensionArn.GetValue("extensionArn");
 
         /// <summary>
         /// The version number for the extension defined in the association.
         /// </summary>
         [Input("extensionVersion")]
-        public int? ExtensionVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mExtensionVersion;
+
+        public int? ExtensionVersion => _mExtensionVersion.GetValue("extensionVersion");
 
         /// <summary>
         /// The parameter names and values defined for the association.
         /// </summary>
         [Input("parameters")]
-        public Dictionary<string, string>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// The ARN of the application, configuration profile, or environment to associate with the extension.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+    }
+
+    [PolicyResourceType("aws:appconfig/extensionAssociation:ExtensionAssociation")]
+    public sealed class ExtensionAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the extension defined in the association.
+        /// </summary>
+        [Input("extensionArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExtensionArn;
+
+        public string? ExtensionArn => _mExtensionArn.GetValue("extensionArn");
+
+        /// <summary>
+        /// The parameter names and values defined for the association.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// The ARN of the application, configuration profile, or environment to associate with the extension.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
     }
 }

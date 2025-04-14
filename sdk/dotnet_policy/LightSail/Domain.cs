@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/domain:Domain")]
-    public sealed class Domain : global::Pulumi.PolicyResource
+    public sealed class Domain : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Lightsail domain
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the Lightsail domain to manage
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+    }
+
+    [PolicyResourceType("aws:lightsail/domain:Domain")]
+    public sealed class DomainArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Lightsail domain to manage
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
     }
 }

@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")]
-    public sealed class DefaultPatchBaseline : global::Pulumi.PolicyResource
+    public sealed class DefaultPatchBaseline : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the patch baseline.
@@ -19,7 +19,10 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// When specifying an AWS-provided patch baseline, must be the ARN.
         /// </summary>
         [Input("baselineId")]
-        public string? BaselineId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
+
+        public string? BaselineId => _mBaselineId.GetValue("baselineId");
 
         /// <summary>
         /// The operating system the patch baseline applies to.
@@ -39,6 +42,47 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// `WINDOWS`.
         /// </summary>
         [Input("operatingSystem")]
-        public string? OperatingSystem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
+
+        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+    }
+
+    [PolicyResourceType("aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")]
+    public sealed class DefaultPatchBaselineArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the patch baseline.
+        /// Can be an ID or an ARN.
+        /// When specifying an AWS-provided patch baseline, must be the ARN.
+        /// </summary>
+        [Input("baselineId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
+
+        public string? BaselineId => _mBaselineId.GetValue("baselineId");
+
+        /// <summary>
+        /// The operating system the patch baseline applies to.
+        /// Valid values are
+        /// `AMAZON_LINUX`,
+        /// `AMAZON_LINUX_2`,
+        /// `AMAZON_LINUX_2022`,
+        /// `CENTOS`,
+        /// `DEBIAN`,
+        /// `MACOS`,
+        /// `ORACLE_LINUX`,
+        /// `RASPBIAN`,
+        /// `REDHAT_ENTERPRISE_LINUX`,
+        /// `ROCKY_LINUX`,
+        /// `SUSE`,
+        /// `UBUNTU`, and
+        /// `WINDOWS`.
+        /// </summary>
+        [Input("operatingSystem")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
+
+        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
     }
 }

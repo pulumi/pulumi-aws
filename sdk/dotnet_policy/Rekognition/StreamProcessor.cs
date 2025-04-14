@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rekognition
 {
     [PolicyResourceType("aws:rekognition/streamProcessor:StreamProcessor")]
-    public sealed class StreamProcessor : global::Pulumi.PolicyResource
+    public sealed class StreamProcessor : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Stream Processor.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// See `data_sharing_preference`.
         /// </summary>
         [Input("dataSharingPreference")]
-        public StreamProcessorDataSharingPreference? DataSharingPreference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorDataSharingPreference> _mDataSharingPreference;
+
+        public Outputs.StreamProcessorDataSharingPreference? DataSharingPreference => _mDataSharingPreference.GetValue("dataSharingPreference");
 
         /// <summary>
         /// Input video stream. See `input`.
         /// </summary>
         [Input("input")]
-        public StreamProcessorInput? Input;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorInput> _mInput;
+
+        public Outputs.StreamProcessorInput? Input => _mInput.GetValue("input");
 
         /// <summary>
         /// Optional parameter for label detection stream processors.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The name of the Stream Processor.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         /// </summary>
         [Input("notificationChannel")]
-        public StreamProcessorNotificationChannel? NotificationChannel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorNotificationChannel> _mNotificationChannel;
+
+        public Outputs.StreamProcessorNotificationChannel? NotificationChannel => _mNotificationChannel.GetValue("notificationChannel");
 
         /// <summary>
         /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         /// </summary>
         [Input("output")]
-        public StreamProcessorOutput? Output;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorOutput> _mOutput;
+
+        public Outputs.StreamProcessorOutput? Output => _mOutput.GetValue("output");
 
         /// <summary>
         /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         /// </summary>
         [Input("regionsOfInterests")]
-        public List<StreamProcessorRegionsOfInterest>? RegionsOfInterests;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StreamProcessorRegionsOfInterest>> _mRegionsOfInterests;
+
+        public List<Outputs.StreamProcessorRegionsOfInterest>? RegionsOfInterests => _mRegionsOfInterests.GetValue("regionsOfInterests");
 
         /// <summary>
         /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
@@ -73,28 +100,145 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition
         /// The following arguments are optional:
         /// </summary>
         [Input("settings")]
-        public StreamProcessorSettings? Settings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorSettings> _mSettings;
+
+        public Outputs.StreamProcessorSettings? Settings => _mSettings.GetValue("settings");
 
         /// <summary>
         /// (**Deprecated**) ARN of the Stream Processor.
         /// Use `arn` instead.
         /// </summary>
         [Input("streamProcessorArn")]
-        public string? StreamProcessorArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamProcessorArn;
+
+        public string? StreamProcessorArn => _mStreamProcessorArn.GetValue("streamProcessorArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public StreamProcessorTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorTimeouts> _mTimeouts;
+
+        public Outputs.StreamProcessorTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:rekognition/streamProcessor:StreamProcessor")]
+    public sealed class StreamProcessorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// See `data_sharing_preference`.
+        /// </summary>
+        [Input("dataSharingPreference")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorDataSharingPreferenceArgs> _mDataSharingPreference;
+
+        public Inputs.StreamProcessorDataSharingPreferenceArgs? DataSharingPreference => _mDataSharingPreference.GetValue("dataSharingPreference");
+
+        /// <summary>
+        /// Input video stream. See `input`.
+        /// </summary>
+        [Input("input")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorInputArgs> _mInput;
+
+        public Inputs.StreamProcessorInputArgs? Input => _mInput.GetValue("input");
+
+        /// <summary>
+        /// Optional parameter for label detection stream processors.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// The name of the Stream Processor.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        /// </summary>
+        [Input("notificationChannel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorNotificationChannelArgs> _mNotificationChannel;
+
+        public Inputs.StreamProcessorNotificationChannelArgs? NotificationChannel => _mNotificationChannel.GetValue("notificationChannel");
+
+        /// <summary>
+        /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
+        /// </summary>
+        [Input("output")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorOutputArgs> _mOutput;
+
+        public Inputs.StreamProcessorOutputArgs? Output => _mOutput.GetValue("output");
+
+        /// <summary>
+        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        /// </summary>
+        [Input("regionsOfInterests")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StreamProcessorRegionsOfInterestArgs>> _mRegionsOfInterests;
+
+        public List<Inputs.StreamProcessorRegionsOfInterestArgs>? RegionsOfInterests => _mRegionsOfInterests.GetValue("regionsOfInterests");
+
+        /// <summary>
+        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("settings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorSettingsArgs> _mSettings;
+
+        public Inputs.StreamProcessorSettingsArgs? Settings => _mSettings.GetValue("settings");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorTimeoutsArgs> _mTimeouts;
+
+        public Inputs.StreamProcessorTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

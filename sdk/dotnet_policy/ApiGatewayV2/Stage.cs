@@ -11,57 +11,81 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
 {
     [PolicyResourceType("aws:apigatewayv2/stage:Stage")]
-    public sealed class Stage : global::Pulumi.PolicyResource
+    public sealed class Stage : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Settings for logging access in this stage.
         /// Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         /// </summary>
         [Input("accessLogSettings")]
-        public StageAccessLogSettings? AccessLogSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StageAccessLogSettings> _mAccessLogSettings;
+
+        public Outputs.StageAccessLogSettings? AccessLogSettings => _mAccessLogSettings.GetValue("accessLogSettings");
 
         /// <summary>
         /// API identifier.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// ARN of the stage.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
         /// </summary>
         [Input("autoDeploy")]
-        public bool? AutoDeploy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoDeploy;
+
+        public bool? AutoDeploy => _mAutoDeploy.GetValue("autoDeploy");
 
         /// <summary>
         /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
         /// Supported only for WebSocket APIs.
         /// </summary>
         [Input("clientCertificateId")]
-        public string? ClientCertificateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientCertificateId;
+
+        public string? ClientCertificateId => _mClientCertificateId.GetValue("clientCertificateId");
 
         /// <summary>
         /// Default route settings for the stage.
         /// </summary>
         [Input("defaultRouteSettings")]
-        public StageDefaultRouteSettings? DefaultRouteSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StageDefaultRouteSettings> _mDefaultRouteSettings;
+
+        public Outputs.StageDefaultRouteSettings? DefaultRouteSettings => _mDefaultRouteSettings.GetValue("defaultRouteSettings");
 
         /// <summary>
         /// Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
         /// </summary>
         [Input("deploymentId")]
-        public string? DeploymentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentId;
+
+        public string? DeploymentId => _mDeploymentId.GetValue("deploymentId");
 
         /// <summary>
         /// Description for the stage. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute.
@@ -69,14 +93,20 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
         [Input("executionArn")]
-        public string? ExecutionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionArn;
+
+        public string? ExecutionArn => _mExecutionArn.GetValue("executionArn");
 
         /// <summary>
         /// URL to invoke the API pointing to the stage,
         /// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         /// </summary>
         [Input("invokeUrl")]
-        public string? InvokeUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvokeUrl;
+
+        public string? InvokeUrl => _mInvokeUrl.GetValue("invokeUrl");
 
         /// <summary>
         /// Name of the stage. Must be between 1 and 128 characters in length.
@@ -84,30 +114,152 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Route settings for the stage.
         /// </summary>
         [Input("routeSettings")]
-        public List<StageRouteSetting>? RouteSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StageRouteSetting>> _mRouteSettings;
+
+        public List<Outputs.StageRouteSetting>? RouteSettings => _mRouteSettings.GetValue("routeSettings");
 
         /// <summary>
         /// Map that defines the stage variables for the stage.
         /// </summary>
         [Input("stageVariables")]
-        public Dictionary<string, string>? StageVariables;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mStageVariables;
+
+        public Dictionary<string, string>? StageVariables => _mStageVariables.GetValue("stageVariables");
 
         /// <summary>
         /// Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:apigatewayv2/stage:Stage")]
+    public sealed class StageArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Settings for logging access in this stage.
+        /// Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        /// </summary>
+        [Input("accessLogSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StageAccessLogSettingsArgs> _mAccessLogSettings;
+
+        public Inputs.StageAccessLogSettingsArgs? AccessLogSettings => _mAccessLogSettings.GetValue("accessLogSettings");
+
+        /// <summary>
+        /// API identifier.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
+        /// </summary>
+        [Input("autoDeploy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoDeploy;
+
+        public bool? AutoDeploy => _mAutoDeploy.GetValue("autoDeploy");
+
+        /// <summary>
+        /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
+        /// Supported only for WebSocket APIs.
+        /// </summary>
+        [Input("clientCertificateId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientCertificateId;
+
+        public string? ClientCertificateId => _mClientCertificateId.GetValue("clientCertificateId");
+
+        /// <summary>
+        /// Default route settings for the stage.
+        /// </summary>
+        [Input("defaultRouteSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StageDefaultRouteSettingsArgs> _mDefaultRouteSettings;
+
+        public Inputs.StageDefaultRouteSettingsArgs? DefaultRouteSettings => _mDefaultRouteSettings.GetValue("defaultRouteSettings");
+
+        /// <summary>
+        /// Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
+        /// </summary>
+        [Input("deploymentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentId;
+
+        public string? DeploymentId => _mDeploymentId.GetValue("deploymentId");
+
+        /// <summary>
+        /// Description for the stage. Must be less than or equal to 1024 characters in length.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the stage. Must be between 1 and 128 characters in length.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Route settings for the stage.
+        /// </summary>
+        [Input("routeSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StageRouteSettingArgs>> _mRouteSettings;
+
+        public List<Inputs.StageRouteSettingArgs>? RouteSettings => _mRouteSettings.GetValue("routeSettings");
+
+        /// <summary>
+        /// Map that defines the stage variables for the stage.
+        /// </summary>
+        [Input("stageVariables")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mStageVariables;
+
+        public Dictionary<string, string>? StageVariables => _mStageVariables.GetValue("stageVariables");
+
+        /// <summary>
+        /// Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

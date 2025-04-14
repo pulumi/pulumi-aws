@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
 {
     [PolicyResourceType("aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment")]
-    public sealed class CrossAccountAttachment : global::Pulumi.PolicyResource
+    public sealed class CrossAccountAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Cross Account Attachment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Creation Time when the Cross Account Attachment.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Last modified time of the Cross Account Attachment.
         /// </summary>
         [Input("lastModifiedTime")]
-        public string? LastModifiedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTime;
+
+        public string? LastModifiedTime => _mLastModifiedTime.GetValue("lastModifiedTime");
 
         /// <summary>
         /// Name of the Cross Account Attachment.
@@ -37,30 +46,87 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// List of AWS account IDs that are allowed to associate resources with the accelerator.
         /// </summary>
         [Input("principals")]
-        public List<string>? Principals;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrincipals;
+
+        public List<string>? Principals => _mPrincipals.GetValue("principals");
 
         /// <summary>
         /// List of resources to be associated with the accelerator.
         /// </summary>
         [Input("resources")]
-        public List<CrossAccountAttachmentResource>? Resources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrossAccountAttachmentResource>> _mResources;
+
+        public List<Outputs.CrossAccountAttachmentResource>? Resources => _mResources.GetValue("resources");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment")]
+    public sealed class CrossAccountAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Cross Account Attachment.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// List of AWS account IDs that are allowed to associate resources with the accelerator.
+        /// </summary>
+        [Input("principals")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrincipals;
+
+        public List<string>? Principals => _mPrincipals.GetValue("principals");
+
+        /// <summary>
+        /// List of resources to be associated with the accelerator.
+        /// </summary>
+        [Input("resources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrossAccountAttachmentResourceArgs>> _mResources;
+
+        public List<Inputs.CrossAccountAttachmentResourceArgs>? Resources => _mResources.GetValue("resources");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

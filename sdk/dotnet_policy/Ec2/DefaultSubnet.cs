@@ -11,13 +11,19 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]
-    public sealed class DefaultSubnet : global::Pulumi.PolicyResource
+    public sealed class DefaultSubnet : global::Pulumi.PolicyResourceOutput
     {
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("assignIpv6AddressOnCreation")]
-        public bool? AssignIpv6AddressOnCreation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignIpv6AddressOnCreation;
+
+        public bool? AssignIpv6AddressOnCreation => _mAssignIpv6AddressOnCreation.GetValue("assignIpv6AddressOnCreation");
 
         /// <summary>
         /// is required
@@ -27,78 +33,233 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// This resource supports the following additional arguments:
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The AZ ID of the subnet
         /// </summary>
         [Input("availabilityZoneId")]
-        public string? AvailabilityZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
 
         /// <summary>
         /// The IPv4 CIDR block assigned to the subnet
         /// </summary>
         [Input("cidrBlock")]
-        public string? CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
 
         [Input("customerOwnedIpv4Pool")]
-        public string? CustomerOwnedIpv4Pool;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
+
+        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
 
         [Input("enableDns64")]
-        public bool? EnableDns64;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDns64;
+
+        public bool? EnableDns64 => _mEnableDns64.GetValue("enableDns64");
 
         [Input("enableLniAtDeviceIndex")]
-        public int? EnableLniAtDeviceIndex;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mEnableLniAtDeviceIndex;
+
+        public int? EnableLniAtDeviceIndex => _mEnableLniAtDeviceIndex.GetValue("enableLniAtDeviceIndex");
 
         [Input("enableResourceNameDnsARecordOnLaunch")]
-        public bool? EnableResourceNameDnsARecordOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsARecordOnLaunch;
+
+        public bool? EnableResourceNameDnsARecordOnLaunch => _mEnableResourceNameDnsARecordOnLaunch.GetValue("enableResourceNameDnsARecordOnLaunch");
 
         [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
-        public bool? EnableResourceNameDnsAaaaRecordOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsAaaaRecordOnLaunch;
+
+        public bool? EnableResourceNameDnsAaaaRecordOnLaunch => _mEnableResourceNameDnsAaaaRecordOnLaunch.GetValue("enableResourceNameDnsAaaaRecordOnLaunch");
 
         [Input("existingDefaultSubnet")]
-        public bool? ExistingDefaultSubnet;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mExistingDefaultSubnet;
+
+        public bool? ExistingDefaultSubnet => _mExistingDefaultSubnet.GetValue("existingDefaultSubnet");
 
         /// <summary>
         /// Whether destroying the resource deletes the default subnet. Default: `false`
         /// </summary>
         [Input("forceDestroy")]
-        public bool? ForceDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
 
         [Input("ipv6CidrBlock")]
-        public string? Ipv6CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+
+        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
 
         [Input("ipv6CidrBlockAssociationId")]
-        public string? Ipv6CidrBlockAssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlockAssociationId;
+
+        public string? Ipv6CidrBlockAssociationId => _mIpv6CidrBlockAssociationId.GetValue("ipv6CidrBlockAssociationId");
 
         [Input("ipv6Native")]
-        public bool? Ipv6Native;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6Native;
+
+        public bool? Ipv6Native => _mIpv6Native.GetValue("ipv6Native");
 
         [Input("mapCustomerOwnedIpOnLaunch")]
-        public bool? MapCustomerOwnedIpOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMapCustomerOwnedIpOnLaunch;
+
+        public bool? MapCustomerOwnedIpOnLaunch => _mMapCustomerOwnedIpOnLaunch.GetValue("mapCustomerOwnedIpOnLaunch");
 
         [Input("mapPublicIpOnLaunch")]
-        public bool? MapPublicIpOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMapPublicIpOnLaunch;
+
+        public bool? MapPublicIpOnLaunch => _mMapPublicIpOnLaunch.GetValue("mapPublicIpOnLaunch");
 
         [Input("outpostArn")]
-        public string? OutpostArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
+
+        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
 
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         [Input("privateDnsHostnameTypeOnLaunch")]
-        public string? PrivateDnsHostnameTypeOnLaunch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDnsHostnameTypeOnLaunch;
+
+        public string? PrivateDnsHostnameTypeOnLaunch => _mPrivateDnsHostnameTypeOnLaunch.GetValue("privateDnsHostnameTypeOnLaunch");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of the VPC the subnet is in
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]
+    public sealed class DefaultSubnetArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("assignIpv6AddressOnCreation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignIpv6AddressOnCreation;
+
+        public bool? AssignIpv6AddressOnCreation => _mAssignIpv6AddressOnCreation.GetValue("assignIpv6AddressOnCreation");
+
+        /// <summary>
+        /// is required
+        /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
+        /// * The default value for `map_public_ip_on_launch` is `true`
+        /// 
+        /// This resource supports the following additional arguments:
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        [Input("customerOwnedIpv4Pool")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
+
+        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+
+        [Input("enableDns64")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDns64;
+
+        public bool? EnableDns64 => _mEnableDns64.GetValue("enableDns64");
+
+        [Input("enableResourceNameDnsARecordOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsARecordOnLaunch;
+
+        public bool? EnableResourceNameDnsARecordOnLaunch => _mEnableResourceNameDnsARecordOnLaunch.GetValue("enableResourceNameDnsARecordOnLaunch");
+
+        [Input("enableResourceNameDnsAaaaRecordOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsAaaaRecordOnLaunch;
+
+        public bool? EnableResourceNameDnsAaaaRecordOnLaunch => _mEnableResourceNameDnsAaaaRecordOnLaunch.GetValue("enableResourceNameDnsAaaaRecordOnLaunch");
+
+        /// <summary>
+        /// Whether destroying the resource deletes the default subnet. Default: `false`
+        /// </summary>
+        [Input("forceDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+
+        [Input("ipv6CidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+
+        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+
+        [Input("ipv6Native")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6Native;
+
+        public bool? Ipv6Native => _mIpv6Native.GetValue("ipv6Native");
+
+        [Input("mapCustomerOwnedIpOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMapCustomerOwnedIpOnLaunch;
+
+        public bool? MapCustomerOwnedIpOnLaunch => _mMapCustomerOwnedIpOnLaunch.GetValue("mapCustomerOwnedIpOnLaunch");
+
+        [Input("mapPublicIpOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMapPublicIpOnLaunch;
+
+        public bool? MapPublicIpOnLaunch => _mMapPublicIpOnLaunch.GetValue("mapPublicIpOnLaunch");
+
+        [Input("privateDnsHostnameTypeOnLaunch")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDnsHostnameTypeOnLaunch;
+
+        public string? PrivateDnsHostnameTypeOnLaunch => _mPrivateDnsHostnameTypeOnLaunch.GetValue("privateDnsHostnameTypeOnLaunch");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,21 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecs
 {
     [PolicyResourceType("aws:ecs/accountSettingDefault:AccountSettingDefault")]
-    public sealed class AccountSettingDefault : global::Pulumi.PolicyResource
+    public sealed class AccountSettingDefault : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the account setting to set.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("principalArn")]
-        public string? PrincipalArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
+
+        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
 
         /// <summary>
         /// State of the setting.
         /// </summary>
         [Input("value")]
-        public string? Value;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
+
+        public string? Value => _mValue.GetValue("value");
+    }
+
+    [PolicyResourceType("aws:ecs/accountSettingDefault:AccountSettingDefault")]
+    public sealed class AccountSettingDefaultArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the account setting to set.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// State of the setting.
+        /// </summary>
+        [Input("value")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
+
+        public string? Value => _mValue.GetValue("value");
     }
 }

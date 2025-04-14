@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/recorder:Recorder")]
-    public sealed class Recorder : global::Pulumi.PolicyResource
+    public sealed class Recorder : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Recording group - see below.
         /// </summary>
         [Input("recordingGroup")]
-        public RecorderRecordingGroup? RecordingGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RecorderRecordingGroup> _mRecordingGroup;
+
+        public Outputs.RecorderRecordingGroup? RecordingGroup => _mRecordingGroup.GetValue("recordingGroup");
 
         /// <summary>
         /// Recording mode - see below.
         /// </summary>
         [Input("recordingMode")]
-        public RecorderRecordingMode? RecordingMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RecorderRecordingMode> _mRecordingMode;
+
+        public Outputs.RecorderRecordingMode? RecordingMode => _mRecordingMode.GetValue("recordingMode");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+    }
+
+    [PolicyResourceType("aws:cfg/recorder:Recorder")]
+    public sealed class RecorderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Recording group - see below.
+        /// </summary>
+        [Input("recordingGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RecorderRecordingGroupArgs> _mRecordingGroup;
+
+        public Inputs.RecorderRecordingGroupArgs? RecordingGroup => _mRecordingGroup.GetValue("recordingGroup");
+
+        /// <summary>
+        /// Recording mode - see below.
+        /// </summary>
+        [Input("recordingMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RecorderRecordingModeArgs> _mRecordingMode;
+
+        public Inputs.RecorderRecordingModeArgs? RecordingMode => _mRecordingMode.GetValue("recordingMode");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
     }
 }

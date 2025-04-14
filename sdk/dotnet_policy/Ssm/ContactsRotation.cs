@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/contactsRotation:ContactsRotation")]
-    public sealed class ContactsRotation : global::Pulumi.PolicyResource
+    public sealed class ContactsRotation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the rotation.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         /// </summary>
         [Input("contactIds")]
-        public List<string>? ContactIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContactIds;
+
+        public List<string>? ContactIds => _mContactIds.GetValue("contactIds");
 
         /// <summary>
         /// The name for the rotation.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
@@ -37,30 +46,105 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// The following arguments are optional:
         /// </summary>
         [Input("recurrence")]
-        public ContactsRotationRecurrence? Recurrence;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ContactsRotationRecurrence> _mRecurrence;
+
+        public Outputs.ContactsRotationRecurrence? Recurrence => _mRecurrence.GetValue("recurrence");
 
         /// <summary>
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
         /// </summary>
         [Input("startTime")]
-        public string? StartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
+
+        public string? StartTime => _mStartTime.GetValue("startTime");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
         /// </summary>
         [Input("timeZoneId")]
-        public string? TimeZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZoneId;
+
+        public string? TimeZoneId => _mTimeZoneId.GetValue("timeZoneId");
+    }
+
+    [PolicyResourceType("aws:ssm/contactsRotation:ContactsRotation")]
+    public sealed class ContactsRotationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+        /// </summary>
+        [Input("contactIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContactIds;
+
+        public List<string>? ContactIds => _mContactIds.GetValue("contactIds");
+
+        /// <summary>
+        /// The name for the rotation.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("recurrence")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ContactsRotationRecurrenceArgs> _mRecurrence;
+
+        public Inputs.ContactsRotationRecurrenceArgs? Recurrence => _mRecurrence.GetValue("recurrence");
+
+        /// <summary>
+        /// The date and time, in RFC 3339 format, that the rotation goes into effect.
+        /// </summary>
+        [Input("startTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
+
+        public string? StartTime => _mStartTime.GetValue("startTime");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
+        /// </summary>
+        [Input("timeZoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZoneId;
+
+        public string? TimeZoneId => _mTimeZoneId.GetValue("timeZoneId");
     }
 }

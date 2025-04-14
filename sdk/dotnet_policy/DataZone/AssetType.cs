@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/assetType:AssetType")]
-    public sealed class AssetType : global::Pulumi.PolicyResource
+    public sealed class AssetType : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The timestamp when the custom asset type was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The user who created the custom asset type.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// The description of the custom asset type.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
         /// </summary>
         [Input("domainIdentifier")]
-        public string? DomainIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
 
         /// <summary>
         /// The metadata forms that are to be attached to the custom asset type.
         /// </summary>
         [Input("formsInputs")]
-        public List<AssetTypeFormsInput>? FormsInputs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AssetTypeFormsInput>> _mFormsInputs;
+
+        public List<Outputs.AssetTypeFormsInput>? FormsInputs => _mFormsInputs.GetValue("formsInputs");
 
         /// <summary>
         /// The name of the custom asset type.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The unique identifier of the Amazon DataZone project that owns the custom asset type.
@@ -55,15 +73,81 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// The following arguments are optional:
         /// </summary>
         [Input("owningProjectIdentifier")]
-        public string? OwningProjectIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwningProjectIdentifier;
+
+        public string? OwningProjectIdentifier => _mOwningProjectIdentifier.GetValue("owningProjectIdentifier");
 
         /// <summary>
         /// The revision of the asset type.
         /// </summary>
         [Input("revision")]
-        public string? Revision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevision;
+
+        public string? Revision => _mRevision.GetValue("revision");
 
         [Input("timeouts")]
-        public AssetTypeTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AssetTypeTimeouts> _mTimeouts;
+
+        public Outputs.AssetTypeTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:datazone/assetType:AssetType")]
+    public sealed class AssetTypeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the custom asset type.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
+        /// </summary>
+        [Input("domainIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+
+        /// <summary>
+        /// The metadata forms that are to be attached to the custom asset type.
+        /// </summary>
+        [Input("formsInputs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AssetTypeFormsInputArgs>> _mFormsInputs;
+
+        public List<Inputs.AssetTypeFormsInputArgs>? FormsInputs => _mFormsInputs.GetValue("formsInputs");
+
+        /// <summary>
+        /// The name of the custom asset type.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The unique identifier of the Amazon DataZone project that owns the custom asset type.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("owningProjectIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwningProjectIdentifier;
+
+        public string? OwningProjectIdentifier => _mOwningProjectIdentifier.GetValue("owningProjectIdentifier");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AssetTypeTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AssetTypeTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

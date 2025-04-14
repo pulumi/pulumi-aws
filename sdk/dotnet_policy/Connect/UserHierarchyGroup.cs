@@ -11,61 +11,129 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Connect
 {
     [PolicyResourceType("aws:connect/userHierarchyGroup:UserHierarchyGroup")]
-    public sealed class UserHierarchyGroup : global::Pulumi.PolicyResource
+    public sealed class UserHierarchyGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the hierarchy group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The identifier for the hierarchy group.
         /// </summary>
         [Input("hierarchyGroupId")]
-        public string? HierarchyGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHierarchyGroupId;
+
+        public string? HierarchyGroupId => _mHierarchyGroupId.GetValue("hierarchyGroupId");
 
         /// <summary>
         /// A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         /// </summary>
         [Input("hierarchyPaths")]
-        public List<UserHierarchyGroupHierarchyPath>? HierarchyPaths;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserHierarchyGroupHierarchyPath>> _mHierarchyPaths;
+
+        public List<Outputs.UserHierarchyGroupHierarchyPath>? HierarchyPaths => _mHierarchyPaths.GetValue("hierarchyPaths");
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
 
         /// <summary>
         /// The identifier of the level in the hierarchy group.
         /// </summary>
         [Input("levelId")]
-        public string? LevelId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLevelId;
+
+        public string? LevelId => _mLevelId.GetValue("levelId");
 
         /// <summary>
         /// The name of the user hierarchy group. Must not be more than 100 characters.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
         /// </summary>
         [Input("parentGroupId")]
-        public string? ParentGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentGroupId;
+
+        public string? ParentGroupId => _mParentGroupId.GetValue("parentGroupId");
 
         /// <summary>
         /// Tags to apply to the hierarchy group. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:connect/userHierarchyGroup:UserHierarchyGroup")]
+    public sealed class UserHierarchyGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the identifier of the hosting Amazon Connect Instance.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+
+        /// <summary>
+        /// The name of the user hierarchy group. Must not be more than 100 characters.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+        /// </summary>
+        [Input("parentGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentGroupId;
+
+        public string? ParentGroupId => _mParentGroupId.GetValue("parentGroupId");
+
+        /// <summary>
+        /// Tags to apply to the hierarchy group. If configured with a provider
+        /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

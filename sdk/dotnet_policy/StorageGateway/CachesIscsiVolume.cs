@@ -11,108 +11,244 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.StorageGateway
 {
     [PolicyResourceType("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume")]
-    public sealed class CachesIscsiVolume : global::Pulumi.PolicyResource
+    public sealed class CachesIscsiVolume : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether mutual CHAP is enabled for the iSCSI target.
         /// </summary>
         [Input("chapEnabled")]
-        public bool? ChapEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mChapEnabled;
+
+        public bool? ChapEnabled => _mChapEnabled.GetValue("chapEnabled");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
         [Input("gatewayArn")]
-        public string? GatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
 
         /// <summary>
         /// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
         /// </summary>
         [Input("kmsEncrypted")]
-        public bool? KmsEncrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mKmsEncrypted;
+
+        public bool? KmsEncrypted => _mKmsEncrypted.GetValue("kmsEncrypted");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         /// </summary>
         [Input("kmsKey")]
-        public string? KmsKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
+
+        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
 
         /// <summary>
         /// Logical disk number.
         /// </summary>
         [Input("lunNumber")]
-        public int? LunNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLunNumber;
+
+        public int? LunNumber => _mLunNumber.GetValue("lunNumber");
 
         /// <summary>
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// The port used to communicate with iSCSI targets.
         /// </summary>
         [Input("networkInterfacePort")]
-        public int? NetworkInterfacePort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNetworkInterfacePort;
+
+        public int? NetworkInterfacePort => _mNetworkInterfacePort.GetValue("networkInterfacePort");
 
         /// <summary>
         /// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         /// </summary>
         [Input("snapshotId")]
-        public string? SnapshotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
+
+        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
 
         /// <summary>
         /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         /// </summary>
         [Input("sourceVolumeArn")]
-        public string? SourceVolumeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVolumeArn;
+
+        public string? SourceVolumeArn => _mSourceVolumeArn.GetValue("sourceVolumeArn");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         /// </summary>
         [Input("targetArn")]
-        public string? TargetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+
+        public string? TargetArn => _mTargetArn.GetValue("targetArn");
 
         /// <summary>
         /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         /// </summary>
         [Input("targetName")]
-        public string? TargetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetName;
+
+        public string? TargetName => _mTargetName.GetValue("targetName");
 
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Input("volumeArn")]
-        public string? VolumeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeArn;
+
+        public string? VolumeArn => _mVolumeArn.GetValue("volumeArn");
 
         /// <summary>
         /// Volume ID, e.g., `vol-12345678`.
         /// </summary>
         [Input("volumeId")]
-        public string? VolumeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeId;
+
+        public string? VolumeId => _mVolumeId.GetValue("volumeId");
 
         /// <summary>
         /// The size of the volume in bytes.
         /// </summary>
         [Input("volumeSizeInBytes")]
-        public int? VolumeSizeInBytes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSizeInBytes;
+
+        public int? VolumeSizeInBytes => _mVolumeSizeInBytes.GetValue("volumeSizeInBytes");
+    }
+
+    [PolicyResourceType("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume")]
+    public sealed class CachesIscsiVolumeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the gateway.
+        /// </summary>
+        [Input("gatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
+
+        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+
+        /// <summary>
+        /// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
+        /// </summary>
+        [Input("kmsEncrypted")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mKmsEncrypted;
+
+        public bool? KmsEncrypted => _mKmsEncrypted.GetValue("kmsEncrypted");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
+        /// </summary>
+        [Input("kmsKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
+
+        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+
+        /// <summary>
+        /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+
+        /// <summary>
+        /// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
+        /// </summary>
+        [Input("snapshotId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
+
+        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+
+        /// <summary>
+        /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
+        /// </summary>
+        [Input("sourceVolumeArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVolumeArn;
+
+        public string? SourceVolumeArn => _mSourceVolumeArn.GetValue("sourceVolumeArn");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
+        /// </summary>
+        [Input("targetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetName;
+
+        public string? TargetName => _mTargetName.GetValue("targetName");
+
+        /// <summary>
+        /// The size of the volume in bytes.
+        /// </summary>
+        [Input("volumeSizeInBytes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSizeInBytes;
+
+        public int? VolumeSizeInBytes => _mVolumeSizeInBytes.GetValue("volumeSizeInBytes");
     }
 }

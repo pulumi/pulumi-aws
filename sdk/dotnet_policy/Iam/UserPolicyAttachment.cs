@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/userPolicyAttachment:UserPolicyAttachment")]
-    public sealed class UserPolicyAttachment : global::Pulumi.PolicyResource
+    public sealed class UserPolicyAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the policy you want to apply
         /// </summary>
         [Input("policyArn")]
-        public string? PolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
 
         /// <summary>
         /// The user the policy should be applied to
         /// </summary>
         [Input("user")]
-        public string? User;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
+    }
+
+    [PolicyResourceType("aws:iam/userPolicyAttachment:UserPolicyAttachment")]
+    public sealed class UserPolicyAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the policy you want to apply
+        /// </summary>
+        [Input("policyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+
+        /// <summary>
+        /// The user the policy should be applied to
+        /// </summary>
+        [Input("user")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
+
+        public string? User => _mUser.GetValue("user");
     }
 }

@@ -11,151 +11,223 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Mq
 {
     [PolicyResourceType("aws:mq/broker:Broker")]
-    public sealed class Broker : global::Pulumi.PolicyResource
+    public sealed class Broker : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
         [Input("applyImmediately")]
-        public bool? ApplyImmediately;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
 
         /// <summary>
         /// ARN of the broker.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         /// </summary>
         [Input("authenticationStrategy")]
-        public string? AuthenticationStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationStrategy;
+
+        public string? AuthenticationStrategy => _mAuthenticationStrategy.GetValue("authenticationStrategy");
 
         /// <summary>
         /// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
-        public bool? AutoMinorVersionUpgrade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
 
         /// <summary>
         /// Name of the broker.
         /// </summary>
         [Input("brokerName")]
-        public string? BrokerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBrokerName;
+
+        public string? BrokerName => _mBrokerName.GetValue("brokerName");
 
         /// <summary>
         /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
         [Input("configuration")]
-        public BrokerConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerConfiguration> _mConfiguration;
+
+        public Outputs.BrokerConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
         /// </summary>
         [Input("dataReplicationMode")]
-        public string? DataReplicationMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataReplicationMode;
+
+        public string? DataReplicationMode => _mDataReplicationMode.GetValue("dataReplicationMode");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
         /// </summary>
         [Input("dataReplicationPrimaryBrokerArn")]
-        public string? DataReplicationPrimaryBrokerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataReplicationPrimaryBrokerArn;
+
+        public string? DataReplicationPrimaryBrokerArn => _mDataReplicationPrimaryBrokerArn.GetValue("dataReplicationPrimaryBrokerArn");
 
         /// <summary>
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         /// </summary>
         [Input("deploymentMode")]
-        public string? DeploymentMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentMode;
+
+        public string? DeploymentMode => _mDeploymentMode.GetValue("deploymentMode");
 
         /// <summary>
         /// Configuration block containing encryption options. Detailed below.
         /// </summary>
         [Input("encryptionOptions")]
-        public BrokerEncryptionOptions? EncryptionOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerEncryptionOptions> _mEncryptionOptions;
+
+        public Outputs.BrokerEncryptionOptions? EncryptionOptions => _mEncryptionOptions.GetValue("encryptionOptions");
 
         /// <summary>
         /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         /// </summary>
         [Input("engineType")]
-        public string? EngineType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
+
+        public string? EngineType => _mEngineType.GetValue("engineType");
 
         /// <summary>
         /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         /// </summary>
         [Input("hostInstanceType")]
-        public string? HostInstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostInstanceType;
+
+        public string? HostInstanceType => _mHostInstanceType.GetValue("hostInstanceType");
 
         /// <summary>
         /// List of information about allocated brokers (both active &amp; standby).
         /// </summary>
         [Input("instances")]
-        public List<BrokerInstance>? Instances;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BrokerInstance>> _mInstances;
+
+        public List<Outputs.BrokerInstance>? Instances => _mInstances.GetValue("instances");
 
         /// <summary>
         /// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
         /// </summary>
         [Input("ldapServerMetadata")]
-        public BrokerLdapServerMetadata? LdapServerMetadata;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerLdapServerMetadata> _mLdapServerMetadata;
+
+        public Outputs.BrokerLdapServerMetadata? LdapServerMetadata => _mLdapServerMetadata.GetValue("ldapServerMetadata");
 
         /// <summary>
         /// Configuration block for the logging configuration of the broker. Detailed below.
         /// </summary>
         [Input("logs")]
-        public BrokerLogs? Logs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerLogs> _mLogs;
+
+        public Outputs.BrokerLogs? Logs => _mLogs.GetValue("logs");
 
         /// <summary>
         /// Configuration block for the maintenance window start time. Detailed below.
         /// </summary>
         [Input("maintenanceWindowStartTime")]
-        public BrokerMaintenanceWindowStartTime? MaintenanceWindowStartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerMaintenanceWindowStartTime> _mMaintenanceWindowStartTime;
+
+        public Outputs.BrokerMaintenanceWindowStartTime? MaintenanceWindowStartTime => _mMaintenanceWindowStartTime.GetValue("maintenanceWindowStartTime");
 
         /// <summary>
         /// (Optional) The data replication mode that will be applied after reboot.
         /// </summary>
         [Input("pendingDataReplicationMode")]
-        public string? PendingDataReplicationMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPendingDataReplicationMode;
+
+        public string? PendingDataReplicationMode => _mPendingDataReplicationMode.GetValue("pendingDataReplicationMode");
 
         /// <summary>
         /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         /// </summary>
         [Input("publiclyAccessible")]
-        public bool? PubliclyAccessible;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
 
         /// <summary>
         /// List of security group IDs assigned to the broker.
         /// </summary>
         [Input("securityGroups")]
-        public List<string>? SecurityGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
 
         /// <summary>
         /// Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         /// </summary>
         [Input("storageType")]
-        public string? StorageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
 
         /// <summary>
         /// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
@@ -163,6 +235,204 @@ namespace Pulumi.PolicyPacks.Aws.Mq
         /// The following arguments are optional:
         /// </summary>
         [Input("users")]
-        public List<BrokerUser>? Users;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BrokerUser>> _mUsers;
+
+        public List<Outputs.BrokerUser>? Users => _mUsers.GetValue("users");
+    }
+
+    [PolicyResourceType("aws:mq/broker:Broker")]
+    public sealed class BrokerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// </summary>
+        [Input("applyImmediately")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+
+        /// <summary>
+        /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
+        /// </summary>
+        [Input("authenticationStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationStrategy;
+
+        public string? AuthenticationStrategy => _mAuthenticationStrategy.GetValue("authenticationStrategy");
+
+        /// <summary>
+        /// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
+
+        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+
+        /// <summary>
+        /// Name of the broker.
+        /// </summary>
+        [Input("brokerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBrokerName;
+
+        public string? BrokerName => _mBrokerName.GetValue("brokerName");
+
+        /// <summary>
+        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerConfigurationArgs> _mConfiguration;
+
+        public Inputs.BrokerConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+        /// </summary>
+        [Input("dataReplicationMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataReplicationMode;
+
+        public string? DataReplicationMode => _mDataReplicationMode.GetValue("dataReplicationMode");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+        /// </summary>
+        [Input("dataReplicationPrimaryBrokerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataReplicationPrimaryBrokerArn;
+
+        public string? DataReplicationPrimaryBrokerArn => _mDataReplicationPrimaryBrokerArn.GetValue("dataReplicationPrimaryBrokerArn");
+
+        /// <summary>
+        /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
+        /// </summary>
+        [Input("deploymentMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentMode;
+
+        public string? DeploymentMode => _mDeploymentMode.GetValue("deploymentMode");
+
+        /// <summary>
+        /// Configuration block containing encryption options. Detailed below.
+        /// </summary>
+        [Input("encryptionOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerEncryptionOptionsArgs> _mEncryptionOptions;
+
+        public Inputs.BrokerEncryptionOptionsArgs? EncryptionOptions => _mEncryptionOptions.GetValue("encryptionOptions");
+
+        /// <summary>
+        /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
+        /// </summary>
+        [Input("engineType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
+
+        public string? EngineType => _mEngineType.GetValue("engineType");
+
+        /// <summary>
+        /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
+        /// </summary>
+        [Input("hostInstanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostInstanceType;
+
+        public string? HostInstanceType => _mHostInstanceType.GetValue("hostInstanceType");
+
+        /// <summary>
+        /// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+        /// </summary>
+        [Input("ldapServerMetadata")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerLdapServerMetadataArgs> _mLdapServerMetadata;
+
+        public Inputs.BrokerLdapServerMetadataArgs? LdapServerMetadata => _mLdapServerMetadata.GetValue("ldapServerMetadata");
+
+        /// <summary>
+        /// Configuration block for the logging configuration of the broker. Detailed below.
+        /// </summary>
+        [Input("logs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerLogsArgs> _mLogs;
+
+        public Inputs.BrokerLogsArgs? Logs => _mLogs.GetValue("logs");
+
+        /// <summary>
+        /// Configuration block for the maintenance window start time. Detailed below.
+        /// </summary>
+        [Input("maintenanceWindowStartTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerMaintenanceWindowStartTimeArgs> _mMaintenanceWindowStartTime;
+
+        public Inputs.BrokerMaintenanceWindowStartTimeArgs? MaintenanceWindowStartTime => _mMaintenanceWindowStartTime.GetValue("maintenanceWindowStartTime");
+
+        /// <summary>
+        /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+
+        /// <summary>
+        /// List of security group IDs assigned to the broker.
+        /// </summary>
+        [Input("securityGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+
+        /// <summary>
+        /// Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+        /// </summary>
+        [Input("storageType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
+
+        /// <summary>
+        /// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("users")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BrokerUserArgs>> _mUsers;
+
+        public List<Inputs.BrokerUserArgs>? Users => _mUsers.GetValue("users");
     }
 }

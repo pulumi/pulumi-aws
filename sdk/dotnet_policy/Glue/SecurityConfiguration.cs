@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/securityConfiguration:SecurityConfiguration")]
-    public sealed class SecurityConfiguration : global::Pulumi.PolicyResource
+    public sealed class SecurityConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block containing encryption configuration. Detailed below.
         /// </summary>
         [Input("encryptionConfiguration")]
-        public SecurityConfigurationEncryptionConfiguration? EncryptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SecurityConfigurationEncryptionConfiguration> _mEncryptionConfiguration;
+
+        public Outputs.SecurityConfigurationEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
 
         /// <summary>
         /// Name of the security configuration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:glue/securityConfiguration:SecurityConfiguration")]
+    public sealed class SecurityConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block containing encryption configuration. Detailed below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SecurityConfigurationEncryptionConfigurationArgs> _mEncryptionConfiguration;
+
+        public Inputs.SecurityConfigurationEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+
+        /// <summary>
+        /// Name of the security configuration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

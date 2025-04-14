@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Efs
 {
     [PolicyResourceType("aws:efs/replicationConfiguration:ReplicationConfiguration")]
-    public sealed class ReplicationConfiguration : global::Pulumi.PolicyResource
+    public sealed class ReplicationConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// When the replication configuration was created.
@@ -19,36 +19,76 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// * `destination[0].status` - The status of the replication.
         /// </summary>
         [Input("creationTime")]
-        public string? CreationTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
+
+        public string? CreationTime => _mCreationTime.GetValue("creationTime");
 
         /// <summary>
         /// A destination configuration block (documented below).
         /// </summary>
         [Input("destination")]
-        public ReplicationConfigurationDestination? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicationConfigurationDestination> _mDestination;
+
+        public Outputs.ReplicationConfigurationDestination? Destination => _mDestination.GetValue("destination");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
         /// </summary>
         [Input("originalSourceFileSystemArn")]
-        public string? OriginalSourceFileSystemArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOriginalSourceFileSystemArn;
+
+        public string? OriginalSourceFileSystemArn => _mOriginalSourceFileSystemArn.GetValue("originalSourceFileSystemArn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         /// </summary>
         [Input("sourceFileSystemArn")]
-        public string? SourceFileSystemArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileSystemArn;
+
+        public string? SourceFileSystemArn => _mSourceFileSystemArn.GetValue("sourceFileSystemArn");
 
         /// <summary>
         /// The ID of the file system that is to be replicated.
         /// </summary>
         [Input("sourceFileSystemId")]
-        public string? SourceFileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileSystemId;
+
+        public string? SourceFileSystemId => _mSourceFileSystemId.GetValue("sourceFileSystemId");
 
         /// <summary>
         /// The AWS Region in which the source Amazon EFS file system is located.
         /// </summary>
         [Input("sourceFileSystemRegion")]
-        public string? SourceFileSystemRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileSystemRegion;
+
+        public string? SourceFileSystemRegion => _mSourceFileSystemRegion.GetValue("sourceFileSystemRegion");
+    }
+
+    [PolicyResourceType("aws:efs/replicationConfiguration:ReplicationConfiguration")]
+    public sealed class ReplicationConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A destination configuration block (documented below).
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ReplicationConfigurationDestinationArgs> _mDestination;
+
+        public Inputs.ReplicationConfigurationDestinationArgs? Destination => _mDestination.GetValue("destination");
+
+        /// <summary>
+        /// The ID of the file system that is to be replicated.
+        /// </summary>
+        [Input("sourceFileSystemId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileSystemId;
+
+        public string? SourceFileSystemId => _mSourceFileSystemId.GetValue("sourceFileSystemId");
     }
 }

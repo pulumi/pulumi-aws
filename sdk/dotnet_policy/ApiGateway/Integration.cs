@@ -11,50 +11,71 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/integration:Integration")]
-    public sealed class Integration : global::Pulumi.PolicyResource
+    public sealed class Integration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of cache key parameters for the integration.
         /// </summary>
         [Input("cacheKeyParameters")]
-        public List<string>? CacheKeyParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCacheKeyParameters;
+
+        public List<string>? CacheKeyParameters => _mCacheKeyParameters.GetValue("cacheKeyParameters");
 
         /// <summary>
         /// Integration's cache namespace.
         /// </summary>
         [Input("cacheNamespace")]
-        public string? CacheNamespace;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNamespace;
+
+        public string? CacheNamespace => _mCacheNamespace.GetValue("cacheNamespace");
 
         /// <summary>
         /// ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
 
         /// <summary>
         /// Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
         /// </summary>
         [Input("connectionType")]
-        public string? ConnectionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
+
+        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
 
         /// <summary>
         /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
         /// </summary>
         [Input("contentHandling")]
-        public string? ContentHandling;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandling;
+
+        public string? ContentHandling => _mContentHandling.GetValue("contentHandling");
 
         /// <summary>
         /// Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
         /// </summary>
         [Input("credentials")]
-        public string? Credentials;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCredentials;
+
+        public string? Credentials => _mCredentials.GetValue("credentials");
 
         /// <summary>
         /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
         /// when calling the associated resource.
         /// </summary>
         [Input("httpMethod")]
-        public string? HttpMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
+
+        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
 
         /// <summary>
         /// Integration HTTP method
@@ -64,56 +85,83 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
         /// </summary>
         [Input("integrationHttpMethod")]
-        public string? IntegrationHttpMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationHttpMethod;
+
+        public string? IntegrationHttpMethod => _mIntegrationHttpMethod.GetValue("integrationHttpMethod");
 
         /// <summary>
         /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         /// </summary>
         [Input("passthroughBehavior")]
-        public string? PassthroughBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassthroughBehavior;
+
+        public string? PassthroughBehavior => _mPassthroughBehavior.GetValue("passthroughBehavior");
 
         /// <summary>
         /// Map of request query string parameters and headers that should be passed to the backend responder.
         /// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         /// </summary>
         [Input("requestParameters")]
-        public Dictionary<string, string>? RequestParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestParameters;
+
+        public Dictionary<string, string>? RequestParameters => _mRequestParameters.GetValue("requestParameters");
 
         /// <summary>
         /// Map of the integration's request templates.
         /// </summary>
         [Input("requestTemplates")]
-        public Dictionary<string, string>? RequestTemplates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestTemplates;
+
+        public Dictionary<string, string>? RequestTemplates => _mRequestTemplates.GetValue("requestTemplates");
 
         /// <summary>
         /// API resource ID.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// ID of the associated REST API.
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         /// </summary>
         [Input("timeoutMilliseconds")]
-        public int? TimeoutMilliseconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMilliseconds;
+
+        public int? TimeoutMilliseconds => _mTimeoutMilliseconds.GetValue("timeoutMilliseconds");
 
         /// <summary>
         /// TLS configuration. See below.
         /// </summary>
         [Input("tlsConfig")]
-        public IntegrationTlsConfig? TlsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntegrationTlsConfig> _mTlsConfig;
+
+        public Outputs.IntegrationTlsConfig? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
 
         /// <summary>
         /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
@@ -121,6 +169,174 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         /// </summary>
         [Input("uri")]
-        public string? Uri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
+
+        public string? Uri => _mUri.GetValue("uri");
+    }
+
+    [PolicyResourceType("aws:apigateway/integration:Integration")]
+    public sealed class IntegrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of cache key parameters for the integration.
+        /// </summary>
+        [Input("cacheKeyParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCacheKeyParameters;
+
+        public List<string>? CacheKeyParameters => _mCacheKeyParameters.GetValue("cacheKeyParameters");
+
+        /// <summary>
+        /// Integration's cache namespace.
+        /// </summary>
+        [Input("cacheNamespace")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNamespace;
+
+        public string? CacheNamespace => _mCacheNamespace.GetValue("cacheNamespace");
+
+        /// <summary>
+        /// ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+
+        /// <summary>
+        /// Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
+        /// </summary>
+        [Input("connectionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
+
+        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+
+        /// <summary>
+        /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
+        /// </summary>
+        [Input("contentHandling")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandling;
+
+        public string? ContentHandling => _mContentHandling.GetValue("contentHandling");
+
+        /// <summary>
+        /// Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
+        /// </summary>
+        [Input("credentials")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCredentials;
+
+        public string? Credentials => _mCredentials.GetValue("credentials");
+
+        /// <summary>
+        /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
+        /// when calling the associated resource.
+        /// </summary>
+        [Input("httpMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
+
+        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+
+        /// <summary>
+        /// Integration HTTP method
+        /// (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONs`, `ANY`, `PATCH`) specifying how API Gateway will interact with the back end.
+        /// **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+        /// Not all methods are compatible with all `AWS` integrations.
+        /// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
+        /// </summary>
+        [Input("integrationHttpMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationHttpMethod;
+
+        public string? IntegrationHttpMethod => _mIntegrationHttpMethod.GetValue("integrationHttpMethod");
+
+        /// <summary>
+        /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
+        /// </summary>
+        [Input("passthroughBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPassthroughBehavior;
+
+        public string? PassthroughBehavior => _mPassthroughBehavior.GetValue("passthroughBehavior");
+
+        /// <summary>
+        /// Map of request query string parameters and headers that should be passed to the backend responder.
+        /// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
+        /// </summary>
+        [Input("requestParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestParameters;
+
+        public Dictionary<string, string>? RequestParameters => _mRequestParameters.GetValue("requestParameters");
+
+        /// <summary>
+        /// Map of the integration's request templates.
+        /// </summary>
+        [Input("requestTemplates")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestTemplates;
+
+        public Dictionary<string, string>? RequestTemplates => _mRequestTemplates.GetValue("requestTemplates");
+
+        /// <summary>
+        /// API resource ID.
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
+
+        /// <summary>
+        /// ID of the associated REST API.
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
+        /// </summary>
+        [Input("timeoutMilliseconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMilliseconds;
+
+        public int? TimeoutMilliseconds => _mTimeoutMilliseconds.GetValue("timeoutMilliseconds");
+
+        /// <summary>
+        /// TLS configuration. See below.
+        /// </summary>
+        [Input("tlsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntegrationTlsConfigArgs> _mTlsConfig;
+
+        public Inputs.IntegrationTlsConfigArgs? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
+
+        /// <summary>
+        /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
+        /// For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
+        /// e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
+        /// </summary>
+        [Input("uri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
+
+        public string? Uri => _mUri.GetValue("uri");
     }
 }

@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")]
-    public sealed class VpcAssociationAuthorization : global::Pulumi.PolicyResource
+    public sealed class VpcAssociationAuthorization : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The VPC to authorize for association with the private hosted zone.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
 
         /// <summary>
         /// The VPC's region. Defaults to the region of the AWS provider.
         /// </summary>
         [Input("vpcRegion")]
-        public string? VpcRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcRegion;
+
+        public string? VpcRegion => _mVpcRegion.GetValue("vpcRegion");
 
         /// <summary>
         /// The ID of the private hosted zone that you want to authorize associating a VPC with.
         /// </summary>
         [Input("zoneId")]
-        public string? ZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
+
+        public string? ZoneId => _mZoneId.GetValue("zoneId");
+    }
+
+    [PolicyResourceType("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")]
+    public sealed class VpcAssociationAuthorizationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The VPC to authorize for association with the private hosted zone.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+
+        /// <summary>
+        /// The VPC's region. Defaults to the region of the AWS provider.
+        /// </summary>
+        [Input("vpcRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcRegion;
+
+        public string? VpcRegion => _mVpcRegion.GetValue("vpcRegion");
+
+        /// <summary>
+        /// The ID of the private hosted zone that you want to authorize associating a VPC with.
+        /// </summary>
+        [Input("zoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
+
+        public string? ZoneId => _mZoneId.GetValue("zoneId");
     }
 }

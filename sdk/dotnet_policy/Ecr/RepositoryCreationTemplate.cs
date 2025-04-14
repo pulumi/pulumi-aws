@@ -11,63 +11,175 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecr
 {
     [PolicyResourceType("aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate")]
-    public sealed class RepositoryCreationTemplate : global::Pulumi.PolicyResource
+    public sealed class RepositoryCreationTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
         /// </summary>
         [Input("appliedFors")]
-        public List<string>? AppliedFors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAppliedFors;
+
+        public List<string>? AppliedFors => _mAppliedFors.GetValue("appliedFors");
 
         /// <summary>
         /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         /// </summary>
         [Input("customRoleArn")]
-        public string? CustomRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRoleArn;
+
+        public string? CustomRoleArn => _mCustomRoleArn.GetValue("customRoleArn");
 
         /// <summary>
         /// The description for this template.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Encryption configuration for any created repositories. See below for schema.
         /// </summary>
         [Input("encryptionConfigurations")]
-        public List<RepositoryCreationTemplateEncryptionConfiguration>? EncryptionConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RepositoryCreationTemplateEncryptionConfiguration>> _mEncryptionConfigurations;
+
+        public List<Outputs.RepositoryCreationTemplateEncryptionConfiguration>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
 
         /// <summary>
         /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         /// </summary>
         [Input("imageTagMutability")]
-        public string? ImageTagMutability;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageTagMutability;
+
+        public string? ImageTagMutability => _mImageTagMutability.GetValue("imageTagMutability");
 
         /// <summary>
         /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         /// </summary>
         [Input("lifecyclePolicy")]
-        public string? LifecyclePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLifecyclePolicy;
+
+        public string? LifecyclePolicy => _mLifecyclePolicy.GetValue("lifecyclePolicy");
 
         /// <summary>
         /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         /// </summary>
         [Input("prefix")]
-        public string? Prefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+
+        public string? Prefix => _mPrefix.GetValue("prefix");
 
         /// <summary>
         /// The registry ID the repository creation template applies to.
         /// </summary>
         [Input("registryId")]
-        public string? RegistryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
+
+        public string? RegistryId => _mRegistryId.GetValue("registryId");
 
         [Input("repositoryPolicy")]
-        public string? RepositoryPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryPolicy;
+
+        public string? RepositoryPolicy => _mRepositoryPolicy.GetValue("repositoryPolicy");
 
         /// <summary>
         /// A map of tags to assign to any created repositories.
         /// </summary>
         [Input("resourceTags")]
-        public Dictionary<string, string>? ResourceTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
+
+        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+    }
+
+    [PolicyResourceType("aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate")]
+    public sealed class RepositoryCreationTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
+        /// </summary>
+        [Input("appliedFors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAppliedFors;
+
+        public List<string>? AppliedFors => _mAppliedFors.GetValue("appliedFors");
+
+        /// <summary>
+        /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
+        /// </summary>
+        [Input("customRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRoleArn;
+
+        public string? CustomRoleArn => _mCustomRoleArn.GetValue("customRoleArn");
+
+        /// <summary>
+        /// The description for this template.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Encryption configuration for any created repositories. See below for schema.
+        /// </summary>
+        [Input("encryptionConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>> _mEncryptionConfigurations;
+
+        public List<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
+
+        /// <summary>
+        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+        /// </summary>
+        [Input("imageTagMutability")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageTagMutability;
+
+        public string? ImageTagMutability => _mImageTagMutability.GetValue("imageTagMutability");
+
+        /// <summary>
+        /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
+        /// </summary>
+        [Input("lifecyclePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLifecyclePolicy;
+
+        public string? LifecyclePolicy => _mLifecyclePolicy.GetValue("lifecyclePolicy");
+
+        /// <summary>
+        /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
+        /// </summary>
+        [Input("prefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+
+        public string? Prefix => _mPrefix.GetValue("prefix");
+
+        [Input("repositoryPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryPolicy;
+
+        public string? RepositoryPolicy => _mRepositoryPolicy.GetValue("repositoryPolicy");
+
+        /// <summary>
+        /// A map of tags to assign to any created repositories.
+        /// </summary>
+        [Input("resourceTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
+
+        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
     }
 }

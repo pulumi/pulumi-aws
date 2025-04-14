@@ -11,54 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery")]
-    public sealed class VpcIpamResourceDiscovery : global::Pulumi.PolicyResource
+    public sealed class VpcIpamResourceDiscovery : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of IPAM Resource Discovery
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description for the IPAM Resource Discovery.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The home region of the Resource Discovery
         /// </summary>
         [Input("ipamResourceDiscoveryRegion")]
-        public string? IpamResourceDiscoveryRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamResourceDiscoveryRegion;
+
+        public string? IpamResourceDiscoveryRegion => _mIpamResourceDiscoveryRegion.GetValue("ipamResourceDiscoveryRegion");
 
         /// <summary>
         /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
         /// </summary>
         [Input("isDefault")]
-        public bool? IsDefault;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
+
+        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
 
         /// <summary>
         /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
         /// </summary>
         [Input("operatingRegions")]
-        public List<VpcIpamResourceDiscoveryOperatingRegion>? OperatingRegions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpcIpamResourceDiscoveryOperatingRegion>> _mOperatingRegions;
+
+        public List<Outputs.VpcIpamResourceDiscoveryOperatingRegion>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
 
         /// <summary>
         /// The account ID for the account that manages the Resource Discovery
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery")]
+    public sealed class VpcIpamResourceDiscoveryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description for the IPAM Resource Discovery.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
+        /// </summary>
+        [Input("operatingRegions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>> _mOperatingRegions;
+
+        public List<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

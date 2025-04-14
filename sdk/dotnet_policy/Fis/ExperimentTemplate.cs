@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fis
 {
     [PolicyResourceType("aws:fis/experimentTemplate:ExperimentTemplate")]
-    public sealed class ExperimentTemplate : global::Pulumi.PolicyResource
+    public sealed class ExperimentTemplate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Action to be performed during an experiment. See below.
         /// </summary>
         [Input("actions")]
-        public List<ExperimentTemplateAction>? Actions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExperimentTemplateAction>> _mActions;
+
+        public List<Outputs.ExperimentTemplateAction>? Actions => _mActions.GetValue("actions");
 
         /// <summary>
         /// Description for the experiment template.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The experiment options for the experiment template. See experiment_options below for more details!
         /// </summary>
         [Input("experimentOptions")]
-        public ExperimentTemplateExperimentOptions? ExperimentOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ExperimentTemplateExperimentOptions> _mExperimentOptions;
+
+        public Outputs.ExperimentTemplateExperimentOptions? ExperimentOptions => _mExperimentOptions.GetValue("experimentOptions");
 
         /// <summary>
         /// The configuration for experiment logging. See below.
         /// </summary>
         [Input("logConfiguration")]
-        public ExperimentTemplateLogConfiguration? LogConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ExperimentTemplateLogConfiguration> _mLogConfiguration;
+
+        public Outputs.ExperimentTemplateLogConfiguration? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
 
         /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
@@ -49,21 +64,111 @@ namespace Pulumi.PolicyPacks.Aws.Fis
         /// The following arguments are optional:
         /// </summary>
         [Input("stopConditions")]
-        public List<ExperimentTemplateStopCondition>? StopConditions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExperimentTemplateStopCondition>> _mStopConditions;
+
+        public List<Outputs.ExperimentTemplateStopCondition>? StopConditions => _mStopConditions.GetValue("stopConditions");
 
         /// <summary>
         /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Target of an action. See below.
         /// </summary>
         [Input("targets")]
-        public List<ExperimentTemplateTarget>? Targets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExperimentTemplateTarget>> _mTargets;
+
+        public List<Outputs.ExperimentTemplateTarget>? Targets => _mTargets.GetValue("targets");
+    }
+
+    [PolicyResourceType("aws:fis/experimentTemplate:ExperimentTemplate")]
+    public sealed class ExperimentTemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Action to be performed during an experiment. See below.
+        /// </summary>
+        [Input("actions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateActionArgs>> _mActions;
+
+        public List<Inputs.ExperimentTemplateActionArgs>? Actions => _mActions.GetValue("actions");
+
+        /// <summary>
+        /// Description for the experiment template.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The experiment options for the experiment template. See experiment_options below for more details!
+        /// </summary>
+        [Input("experimentOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ExperimentTemplateExperimentOptionsArgs> _mExperimentOptions;
+
+        public Inputs.ExperimentTemplateExperimentOptionsArgs? ExperimentOptions => _mExperimentOptions.GetValue("experimentOptions");
+
+        /// <summary>
+        /// The configuration for experiment logging. See below.
+        /// </summary>
+        [Input("logConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ExperimentTemplateLogConfigurationArgs> _mLogConfiguration;
+
+        public Inputs.ExperimentTemplateLogConfigurationArgs? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+
+        /// <summary>
+        /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// When an ongoing experiment should be stopped. See below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("stopConditions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateStopConditionArgs>> _mStopConditions;
+
+        public List<Inputs.ExperimentTemplateStopConditionArgs>? StopConditions => _mStopConditions.GetValue("stopConditions");
+
+        /// <summary>
+        /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Target of an action. See below.
+        /// </summary>
+        [Input("targets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateTargetArgs>> _mTargets;
+
+        public List<Inputs.ExperimentTemplateTargetArgs>? Targets => _mTargets.GetValue("targets");
     }
 }

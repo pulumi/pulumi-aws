@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration")]
-    public sealed class TransitGatewayRegistration : global::Pulumi.PolicyResource
+    public sealed class TransitGatewayRegistration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the Global Network to register to.
         /// </summary>
         [Input("globalNetworkId")]
-        public string? GlobalNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
 
         /// <summary>
         /// The ARN of the Transit Gateway to register.
         /// </summary>
         [Input("transitGatewayArn")]
-        public string? TransitGatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayArn;
+
+        public string? TransitGatewayArn => _mTransitGatewayArn.GetValue("transitGatewayArn");
+    }
+
+    [PolicyResourceType("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration")]
+    public sealed class TransitGatewayRegistrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Global Network to register to.
+        /// </summary>
+        [Input("globalNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+
+        /// <summary>
+        /// The ARN of the Transit Gateway to register.
+        /// </summary>
+        [Input("transitGatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayArn;
+
+        public string? TransitGatewayArn => _mTransitGatewayArn.GetValue("transitGatewayArn");
     }
 }

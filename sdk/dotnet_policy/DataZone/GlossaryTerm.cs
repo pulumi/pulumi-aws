@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/glossaryTerm:GlossaryTerm")]
-    public sealed class GlossaryTerm : global::Pulumi.PolicyResource
+    public sealed class GlossaryTerm : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Time of glossary term creation.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Creator of glossary term.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// Identifier of domain.
         /// </summary>
         [Input("domainIdentifier")]
-        public string? DomainIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
 
         /// <summary>
         /// Identifier of glossary.
         /// </summary>
         [Input("glossaryIdentifier")]
-        public string? GlossaryIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlossaryIdentifier;
+
+        public string? GlossaryIdentifier => _mGlossaryIdentifier.GetValue("glossaryIdentifier");
 
         /// <summary>
         /// Long description of entry.
         /// </summary>
         [Input("longDescription")]
-        public string? LongDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLongDescription;
+
+        public string? LongDescription => _mLongDescription.GetValue("longDescription");
 
         /// <summary>
         /// Name of glossary term.
@@ -49,27 +64,117 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Short description of entry.
         /// </summary>
         [Input("shortDescription")]
-        public string? ShortDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShortDescription;
+
+        public string? ShortDescription => _mShortDescription.GetValue("shortDescription");
 
         /// <summary>
         /// If glossary term is ENABLED or DISABLED.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Object classifying the term relations through the following attributes:
         /// </summary>
         [Input("termRelations")]
-        public GlossaryTermTermRelations? TermRelations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GlossaryTermTermRelations> _mTermRelations;
+
+        public Outputs.GlossaryTermTermRelations? TermRelations => _mTermRelations.GetValue("termRelations");
 
         [Input("timeouts")]
-        public GlossaryTermTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GlossaryTermTimeouts> _mTimeouts;
+
+        public Outputs.GlossaryTermTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:datazone/glossaryTerm:GlossaryTerm")]
+    public sealed class GlossaryTermArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of domain.
+        /// </summary>
+        [Input("domainIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+
+        /// <summary>
+        /// Identifier of glossary.
+        /// </summary>
+        [Input("glossaryIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlossaryIdentifier;
+
+        public string? GlossaryIdentifier => _mGlossaryIdentifier.GetValue("glossaryIdentifier");
+
+        /// <summary>
+        /// Long description of entry.
+        /// </summary>
+        [Input("longDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLongDescription;
+
+        public string? LongDescription => _mLongDescription.GetValue("longDescription");
+
+        /// <summary>
+        /// Name of glossary term.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Short description of entry.
+        /// </summary>
+        [Input("shortDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShortDescription;
+
+        public string? ShortDescription => _mShortDescription.GetValue("shortDescription");
+
+        /// <summary>
+        /// If glossary term is ENABLED or DISABLED.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// Object classifying the term relations through the following attributes:
+        /// </summary>
+        [Input("termRelations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GlossaryTermTermRelationsArgs> _mTermRelations;
+
+        public Inputs.GlossaryTermTermRelationsArgs? TermRelations => _mTermRelations.GetValue("termRelations");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GlossaryTermTimeoutsArgs> _mTimeouts;
+
+        public Inputs.GlossaryTermTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

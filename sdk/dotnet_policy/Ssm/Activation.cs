@@ -11,66 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/activation:Activation")]
-    public sealed class Activation : global::Pulumi.PolicyResource
+    public sealed class Activation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The code the system generates when it processes the activation.
         /// </summary>
         [Input("activationCode")]
-        public string? ActivationCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActivationCode;
+
+        public string? ActivationCode => _mActivationCode.GetValue("activationCode");
 
         /// <summary>
         /// The description of the resource that you want to register.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("expirationDate")]
-        public string? ExpirationDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpirationDate;
+
+        public string? ExpirationDate => _mExpirationDate.GetValue("expirationDate");
 
         /// <summary>
         /// If the current activation has expired.
         /// </summary>
         [Input("expired")]
-        public bool? Expired;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mExpired;
+
+        public bool? Expired => _mExpired.GetValue("expired");
 
         /// <summary>
         /// The IAM Role to attach to the managed instance.
         /// </summary>
         [Input("iamRole")]
-        public string? IamRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
+
+        public string? IamRole => _mIamRole.GetValue("iamRole");
 
         /// <summary>
         /// The default name of the registered managed instance.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The number of managed instances that are currently registered using this activation.
         /// </summary>
         [Input("registrationCount")]
-        public int? RegistrationCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRegistrationCount;
+
+        public int? RegistrationCount => _mRegistrationCount.GetValue("registrationCount");
 
         /// <summary>
         /// The maximum number of managed instances you want to register. The default value is 1 instance.
         /// </summary>
         [Input("registrationLimit")]
-        public int? RegistrationLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRegistrationLimit;
+
+        public int? RegistrationLimit => _mRegistrationLimit.GetValue("registrationLimit");
 
         /// <summary>
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ssm/activation:Activation")]
+    public sealed class ActivationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the resource that you want to register.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
+        [Input("expirationDate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpirationDate;
+
+        public string? ExpirationDate => _mExpirationDate.GetValue("expirationDate");
+
+        /// <summary>
+        /// The IAM Role to attach to the managed instance.
+        /// </summary>
+        [Input("iamRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
+
+        public string? IamRole => _mIamRole.GetValue("iamRole");
+
+        /// <summary>
+        /// The default name of the registered managed instance.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The maximum number of managed instances you want to register. The default value is 1 instance.
+        /// </summary>
+        [Input("registrationLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRegistrationLimit;
+
+        public int? RegistrationLimit => _mRegistrationLimit.GetValue("registrationLimit");
+
+        /// <summary>
+        /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

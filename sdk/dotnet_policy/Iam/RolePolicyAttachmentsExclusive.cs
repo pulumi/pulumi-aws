@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive")]
-    public sealed class RolePolicyAttachmentsExclusive : global::Pulumi.PolicyResource
+    public sealed class RolePolicyAttachmentsExclusive : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         /// </summary>
         [Input("policyArns")]
-        public List<string>? PolicyArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
+
+        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
 
         /// <summary>
         /// IAM role name.
         /// </summary>
         [Input("roleName")]
-        public string? RoleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
+
+        public string? RoleName => _mRoleName.GetValue("roleName");
+    }
+
+    [PolicyResourceType("aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive")]
+    public sealed class RolePolicyAttachmentsExclusiveArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        /// </summary>
+        [Input("policyArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
+
+        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
+
+        /// <summary>
+        /// IAM role name.
+        /// </summary>
+        [Input("roleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
+
+        public string? RoleName => _mRoleName.GetValue("roleName");
     }
 }

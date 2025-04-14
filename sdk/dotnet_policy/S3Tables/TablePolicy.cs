@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Tables
 {
     [PolicyResourceType("aws:s3tables/tablePolicy:TablePolicy")]
-    public sealed class TablePolicy : global::Pulumi.PolicyResource
+    public sealed class TablePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the table.
@@ -19,7 +19,10 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Name of the namespace for this table.
@@ -27,18 +30,71 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("namespace")]
-        public string? Namespace;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
+
+        public string? Namespace => _mNamespace.GetValue("namespace");
 
         /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
         [Input("resourcePolicy")]
-        public string? ResourcePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
+
+        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// </summary>
         [Input("tableBucketArn")]
-        public string? TableBucketArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
+
+        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+    }
+
+    [PolicyResourceType("aws:s3tables/tablePolicy:TablePolicy")]
+    public sealed class TablePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the table.
+        /// Must be between 1 and 255 characters in length.
+        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Name of the namespace for this table.
+        /// Must be between 1 and 255 characters in length.
+        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// </summary>
+        [Input("namespace")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
+
+        public string? Namespace => _mNamespace.GetValue("namespace");
+
+        /// <summary>
+        /// Amazon Web Services resource-based policy document in JSON format.
+        /// </summary>
+        [Input("resourcePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
+
+        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+
+        /// <summary>
+        /// ARN referencing the Table Bucket that contains this Namespace.
+        /// </summary>
+        [Input("tableBucketArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
+
+        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
     }
 }

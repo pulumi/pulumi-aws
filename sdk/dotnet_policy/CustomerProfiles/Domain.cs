@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CustomerProfiles
 {
     [PolicyResourceType("aws:customerprofiles/domain:Domain")]
-    public sealed class Domain : global::Pulumi.PolicyResource
+    public sealed class Domain : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
         /// </summary>
         [Input("deadLetterQueueUrl")]
-        public string? DeadLetterQueueUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeadLetterQueueUrl;
+
+        public string? DeadLetterQueueUrl => _mDeadLetterQueueUrl.GetValue("deadLetterQueueUrl");
 
         /// <summary>
         /// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
         /// </summary>
         [Input("defaultEncryptionKey")]
-        public string? DefaultEncryptionKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultEncryptionKey;
+
+        public string? DefaultEncryptionKey => _mDefaultEncryptionKey.GetValue("defaultEncryptionKey");
 
         /// <summary>
         /// The default number of days until the data within the domain expires.
@@ -37,36 +46,123 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles
         /// The following arguments are optional:
         /// </summary>
         [Input("defaultExpirationDays")]
-        public int? DefaultExpirationDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultExpirationDays;
+
+        public int? DefaultExpirationDays => _mDefaultExpirationDays.GetValue("defaultExpirationDays");
 
         /// <summary>
         /// The name for your Customer Profile domain. It must be unique for your AWS account.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// A block that specifies the process of matching duplicate profiles. Documented below.
         /// </summary>
         [Input("matching")]
-        public DomainMatching? Matching;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainMatching> _mMatching;
+
+        public Outputs.DomainMatching? Matching => _mMatching.GetValue("matching");
 
         /// <summary>
         /// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         /// </summary>
         [Input("ruleBasedMatching")]
-        public DomainRuleBasedMatching? RuleBasedMatching;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainRuleBasedMatching> _mRuleBasedMatching;
+
+        public Outputs.DomainRuleBasedMatching? RuleBasedMatching => _mRuleBasedMatching.GetValue("ruleBasedMatching");
 
         /// <summary>
         /// Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:customerprofiles/domain:Domain")]
+    public sealed class DomainArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
+        /// </summary>
+        [Input("deadLetterQueueUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeadLetterQueueUrl;
+
+        public string? DeadLetterQueueUrl => _mDeadLetterQueueUrl.GetValue("deadLetterQueueUrl");
+
+        /// <summary>
+        /// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
+        /// </summary>
+        [Input("defaultEncryptionKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultEncryptionKey;
+
+        public string? DefaultEncryptionKey => _mDefaultEncryptionKey.GetValue("defaultEncryptionKey");
+
+        /// <summary>
+        /// The default number of days until the data within the domain expires.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("defaultExpirationDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultExpirationDays;
+
+        public int? DefaultExpirationDays => _mDefaultExpirationDays.GetValue("defaultExpirationDays");
+
+        /// <summary>
+        /// The name for your Customer Profile domain. It must be unique for your AWS account.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// A block that specifies the process of matching duplicate profiles. Documented below.
+        /// </summary>
+        [Input("matching")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainMatchingArgs> _mMatching;
+
+        public Inputs.DomainMatchingArgs? Matching => _mMatching.GetValue("matching");
+
+        /// <summary>
+        /// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
+        /// </summary>
+        [Input("ruleBasedMatching")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainRuleBasedMatchingArgs> _mRuleBasedMatching;
+
+        public Inputs.DomainRuleBasedMatchingArgs? RuleBasedMatching => _mRuleBasedMatching.GetValue("ruleBasedMatching");
+
+        /// <summary>
+        /// Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

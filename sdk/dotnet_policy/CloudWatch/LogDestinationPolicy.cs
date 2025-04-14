@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")]
-    public sealed class LogDestinationPolicy : global::Pulumi.PolicyResource
+    public sealed class LogDestinationPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("accessPolicy")]
-        public string? AccessPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicy;
+
+        public string? AccessPolicy => _mAccessPolicy.GetValue("accessPolicy");
 
         /// <summary>
         /// A name for the subscription filter
         /// </summary>
         [Input("destinationName")]
-        public string? DestinationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationName;
+
+        public string? DestinationName => _mDestinationName.GetValue("destinationName");
 
         /// <summary>
         /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
         /// </summary>
         [Input("forceUpdate")]
-        public bool? ForceUpdate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdate;
+
+        public bool? ForceUpdate => _mForceUpdate.GetValue("forceUpdate");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")]
+    public sealed class LogDestinationPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The policy document. This is a JSON formatted string.
+        /// </summary>
+        [Input("accessPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicy;
+
+        public string? AccessPolicy => _mAccessPolicy.GetValue("accessPolicy");
+
+        /// <summary>
+        /// A name for the subscription filter
+        /// </summary>
+        [Input("destinationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationName;
+
+        public string? DestinationName => _mDestinationName.GetValue("destinationName");
+
+        /// <summary>
+        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
+        /// </summary>
+        [Input("forceUpdate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdate;
+
+        public bool? ForceUpdate => _mForceUpdate.GetValue("forceUpdate");
     }
 }

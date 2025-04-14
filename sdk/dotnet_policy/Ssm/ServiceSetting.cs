@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/serviceSetting:ServiceSetting")]
-    public sealed class ServiceSetting : global::Pulumi.PolicyResource
+    public sealed class ServiceSetting : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the service setting.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID of the service setting.
         /// </summary>
         [Input("settingId")]
-        public string? SettingId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSettingId;
+
+        public string? SettingId => _mSettingId.GetValue("settingId");
 
         /// <summary>
         /// Value of the service setting.
         /// </summary>
         [Input("settingValue")]
-        public string? SettingValue;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSettingValue;
+
+        public string? SettingValue => _mSettingValue.GetValue("settingValue");
 
         /// <summary>
         /// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:ssm/serviceSetting:ServiceSetting")]
+    public sealed class ServiceSettingArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the service setting.
+        /// </summary>
+        [Input("settingId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSettingId;
+
+        public string? SettingId => _mSettingId.GetValue("settingId");
+
+        /// <summary>
+        /// Value of the service setting.
+        /// </summary>
+        [Input("settingValue")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSettingValue;
+
+        public string? SettingValue => _mSettingValue.GetValue("settingValue");
     }
 }

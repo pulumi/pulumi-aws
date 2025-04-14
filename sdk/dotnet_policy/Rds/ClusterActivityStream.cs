@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/clusterActivityStream:ClusterActivityStream")]
-    public sealed class ClusterActivityStream : global::Pulumi.PolicyResource
+    public sealed class ClusterActivityStream : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
         /// </summary>
         [Input("engineNativeAuditFieldsIncluded")]
-        public bool? EngineNativeAuditFieldsIncluded;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEngineNativeAuditFieldsIncluded;
+
+        public bool? EngineNativeAuditFieldsIncluded => _mEngineNativeAuditFieldsIncluded.GetValue("engineNativeAuditFieldsIncluded");
 
         /// <summary>
         /// The name of the Amazon Kinesis data stream to be used for the database activity stream.
         /// </summary>
         [Input("kinesisStreamName")]
-        public string? KinesisStreamName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKinesisStreamName;
+
+        public string? KinesisStreamName => _mKinesisStreamName.GetValue("kinesisStreamName");
 
         /// <summary>
         /// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         /// </summary>
         [Input("mode")]
-        public string? Mode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+
+        public string? Mode => _mMode.GetValue("mode");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the DB cluster.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+    }
+
+    [PolicyResourceType("aws:rds/clusterActivityStream:ClusterActivityStream")]
+    public sealed class ClusterActivityStreamArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
+        /// </summary>
+        [Input("engineNativeAuditFieldsIncluded")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEngineNativeAuditFieldsIncluded;
+
+        public bool? EngineNativeAuditFieldsIncluded => _mEngineNativeAuditFieldsIncluded.GetValue("engineNativeAuditFieldsIncluded");
+
+        /// <summary>
+        /// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+        /// </summary>
+        [Input("mode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+
+        public string? Mode => _mMode.GetValue("mode");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the DB cluster.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
     }
 }

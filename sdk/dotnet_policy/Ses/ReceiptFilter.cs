@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/receiptFilter:ReceiptFilter")]
-    public sealed class ReceiptFilter : global::Pulumi.PolicyResource
+    public sealed class ReceiptFilter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The SES receipt filter ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The IP address or address range to filter, in CIDR notation
         /// </summary>
         [Input("cidr")]
-        public string? Cidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+
+        public string? Cidr => _mCidr.GetValue("cidr");
 
         /// <summary>
         /// The name of the filter
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Block or Allow
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:ses/receiptFilter:ReceiptFilter")]
+    public sealed class ReceiptFilterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The IP address or address range to filter, in CIDR notation
+        /// </summary>
+        [Input("cidr")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+
+        public string? Cidr => _mCidr.GetValue("cidr");
+
+        /// <summary>
+        /// The name of the filter
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Block or Allow
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

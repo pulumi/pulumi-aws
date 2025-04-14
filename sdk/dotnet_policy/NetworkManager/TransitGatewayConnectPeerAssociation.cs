@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")]
-    public sealed class TransitGatewayConnectPeerAssociation : global::Pulumi.PolicyResource
+    public sealed class TransitGatewayConnectPeerAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the device.
         /// </summary>
         [Input("deviceId")]
-        public string? DeviceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
+
+        public string? DeviceId => _mDeviceId.GetValue("deviceId");
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
         [Input("globalNetworkId")]
-        public string? GlobalNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
         [Input("linkId")]
-        public string? LinkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
+
+        public string? LinkId => _mLinkId.GetValue("linkId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Connect peer.
         /// </summary>
         [Input("transitGatewayConnectPeerArn")]
-        public string? TransitGatewayConnectPeerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayConnectPeerArn;
+
+        public string? TransitGatewayConnectPeerArn => _mTransitGatewayConnectPeerArn.GetValue("transitGatewayConnectPeerArn");
+    }
+
+    [PolicyResourceType("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")]
+    public sealed class TransitGatewayConnectPeerAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the device.
+        /// </summary>
+        [Input("deviceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
+
+        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+
+        /// <summary>
+        /// The ID of the global network.
+        /// </summary>
+        [Input("globalNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
+
+        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+
+        /// <summary>
+        /// The ID of the link.
+        /// </summary>
+        [Input("linkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
+
+        public string? LinkId => _mLinkId.GetValue("linkId");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Connect peer.
+        /// </summary>
+        [Input("transitGatewayConnectPeerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayConnectPeerArn;
+
+        public string? TransitGatewayConnectPeerArn => _mTransitGatewayConnectPeerArn.GetValue("transitGatewayConnectPeerArn");
     }
 }

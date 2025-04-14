@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeStarConnections
 {
     [PolicyResourceType("aws:codestarconnections/host:Host")]
-    public sealed class Host : global::Pulumi.PolicyResource
+    public sealed class Host : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The CodeStar Host ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the host to be created. The name must be unique in the calling AWS account.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The endpoint of the infrastructure to be represented by the host after it is created.
         /// </summary>
         [Input("providerEndpoint")]
-        public string? ProviderEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEndpoint;
+
+        public string? ProviderEndpoint => _mProviderEndpoint.GetValue("providerEndpoint");
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
         [Input("providerType")]
-        public string? ProviderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
 
         /// <summary>
         /// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         /// </summary>
         [Input("vpcConfiguration")]
-        public HostVpcConfiguration? VpcConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.HostVpcConfiguration> _mVpcConfiguration;
+
+        public Outputs.HostVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+    }
+
+    [PolicyResourceType("aws:codestarconnections/host:Host")]
+    public sealed class HostArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the host to be created. The name must be unique in the calling AWS account.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The endpoint of the infrastructure to be represented by the host after it is created.
+        /// </summary>
+        [Input("providerEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEndpoint;
+
+        public string? ProviderEndpoint => _mProviderEndpoint.GetValue("providerEndpoint");
+
+        /// <summary>
+        /// The name of the external provider where your third-party code repository is configured.
+        /// </summary>
+        [Input("providerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
+
+        /// <summary>
+        /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        /// </summary>
+        [Input("vpcConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.HostVpcConfigurationArgs> _mVpcConfiguration;
+
+        public Inputs.HostVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
     }
 }

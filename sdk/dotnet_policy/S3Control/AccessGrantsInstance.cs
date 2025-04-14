@@ -11,45 +11,94 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/accessGrantsInstance:AccessGrantsInstance")]
-    public sealed class AccessGrantsInstance : global::Pulumi.PolicyResource
+    public sealed class AccessGrantsInstance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Access Grants instance.
         /// </summary>
         [Input("accessGrantsInstanceArn")]
-        public string? AccessGrantsInstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsInstanceArn;
+
+        public string? AccessGrantsInstanceArn => _mAccessGrantsInstanceArn.GetValue("accessGrantsInstanceArn");
 
         /// <summary>
         /// Unique ID of the S3 Access Grants instance.
         /// </summary>
         [Input("accessGrantsInstanceId")]
-        public string? AccessGrantsInstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsInstanceId;
+
+        public string? AccessGrantsInstanceId => _mAccessGrantsInstanceId.GetValue("accessGrantsInstanceId");
 
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
         /// </summary>
         [Input("identityCenterApplicationArn")]
-        public string? IdentityCenterApplicationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterApplicationArn;
+
+        public string? IdentityCenterApplicationArn => _mIdentityCenterApplicationArn.GetValue("identityCenterApplicationArn");
 
         /// <summary>
         /// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         /// </summary>
         [Input("identityCenterArn")]
-        public string? IdentityCenterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterArn;
+
+        public string? IdentityCenterArn => _mIdentityCenterArn.GetValue("identityCenterArn");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:s3control/accessGrantsInstance:AccessGrantsInstance")]
+    public sealed class AccessGrantsInstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+        /// </summary>
+        [Input("identityCenterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterArn;
+
+        public string? IdentityCenterArn => _mIdentityCenterArn.GetValue("identityCenterArn");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

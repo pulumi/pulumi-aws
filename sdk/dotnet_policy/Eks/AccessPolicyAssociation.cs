@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Eks
 {
     [PolicyResourceType("aws:eks/accessPolicyAssociation:AccessPolicyAssociation")]
-    public sealed class AccessPolicyAssociation : global::Pulumi.PolicyResource
+    public sealed class AccessPolicyAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The configuration block to determine the scope of the access. See `access_scope` Block below.
         /// </summary>
         [Input("accessScope")]
-        public AccessPolicyAssociationAccessScope? AccessScope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPolicyAssociationAccessScope> _mAccessScope;
+
+        public Outputs.AccessPolicyAssociationAccessScope? AccessScope => _mAccessScope.GetValue("accessScope");
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
         /// </summary>
         [Input("associatedAt")]
-        public string? AssociatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociatedAt;
+
+        public string? AssociatedAt => _mAssociatedAt.GetValue("associatedAt");
 
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
         [Input("clusterName")]
-        public string? ClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
         /// </summary>
         [Input("modifiedAt")]
-        public string? ModifiedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModifiedAt;
+
+        public string? ModifiedAt => _mModifiedAt.GetValue("modifiedAt");
 
         /// <summary>
         /// The ARN of the access policy that you're associating.
         /// </summary>
         [Input("policyArn")]
-        public string? PolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
 
         /// <summary>
         /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
         /// </summary>
         [Input("principalArn")]
-        public string? PrincipalArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
+
+        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+    }
+
+    [PolicyResourceType("aws:eks/accessPolicyAssociation:AccessPolicyAssociation")]
+    public sealed class AccessPolicyAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The configuration block to determine the scope of the access. See `access_scope` Block below.
+        /// </summary>
+        [Input("accessScope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessPolicyAssociationAccessScopeArgs> _mAccessScope;
+
+        public Inputs.AccessPolicyAssociationAccessScopeArgs? AccessScope => _mAccessScope.GetValue("accessScope");
+
+        /// <summary>
+        /// Name of the EKS Cluster.
+        /// </summary>
+        [Input("clusterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
+
+        /// <summary>
+        /// The ARN of the access policy that you're associating.
+        /// </summary>
+        [Input("policyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+
+        /// <summary>
+        /// The IAM Principal ARN which requires Authentication access to the EKS cluster.
+        /// </summary>
+        [Input("principalArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
+
+        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
     }
 }

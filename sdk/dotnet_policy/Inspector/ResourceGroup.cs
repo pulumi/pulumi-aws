@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Inspector
 {
     [PolicyResourceType("aws:inspector/resourceGroup:ResourceGroup")]
-    public sealed class ResourceGroup : global::Pulumi.PolicyResource
+    public sealed class ResourceGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The resource group ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+    }
+
+    [PolicyResourceType("aws:inspector/resourceGroup:ResourceGroup")]
+    public sealed class ResourceGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

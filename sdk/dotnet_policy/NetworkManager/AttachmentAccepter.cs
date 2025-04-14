@@ -11,72 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/attachmentAccepter:AttachmentAccepter")]
-    public sealed class AttachmentAccepter : global::Pulumi.PolicyResource
+    public sealed class AttachmentAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the attachment.
         /// </summary>
         [Input("attachmentId")]
-        public string? AttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentId;
+
+        public string? AttachmentId => _mAttachmentId.GetValue("attachmentId");
 
         /// <summary>
         /// The policy rule number associated with the attachment.
         /// </summary>
         [Input("attachmentPolicyRuleNumber")]
-        public int? AttachmentPolicyRuleNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAttachmentPolicyRuleNumber;
+
+        public int? AttachmentPolicyRuleNumber => _mAttachmentPolicyRuleNumber.GetValue("attachmentPolicyRuleNumber");
 
         /// <summary>
         /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
         /// </summary>
         [Input("attachmentType")]
-        public string? AttachmentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
+
+        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
 
         /// <summary>
         /// The ARN of a core network.
         /// </summary>
         [Input("coreNetworkArn")]
-        public string? CoreNetworkArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
+
+        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
 
         /// <summary>
         /// The id of a core network.
         /// </summary>
         [Input("coreNetworkId")]
-        public string? CoreNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
 
         /// <summary>
         /// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
         /// </summary>
         [Input("edgeLocation")]
-        public string? EdgeLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
+
+        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
 
         /// <summary>
         /// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
         /// </summary>
         [Input("edgeLocations")]
-        public List<string>? EdgeLocations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEdgeLocations;
+
+        public List<string>? EdgeLocations => _mEdgeLocations.GetValue("edgeLocations");
 
         /// <summary>
         /// The ID of the attachment account owner.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// The attachment resource ARN.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The name of the segment attachment.
         /// </summary>
         [Input("segmentName")]
-        public string? SegmentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentName;
+
+        public string? SegmentName => _mSegmentName.GetValue("segmentName");
 
         /// <summary>
         /// The state of the attachment.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+    }
+
+    [PolicyResourceType("aws:networkmanager/attachmentAccepter:AttachmentAccepter")]
+    public sealed class AttachmentAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the attachment.
+        /// </summary>
+        [Input("attachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentId;
+
+        public string? AttachmentId => _mAttachmentId.GetValue("attachmentId");
+
+        /// <summary>
+        /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+        /// </summary>
+        [Input("attachmentType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
+
+        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
     }
 }

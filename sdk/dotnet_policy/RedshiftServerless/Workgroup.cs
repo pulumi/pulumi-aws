@@ -11,91 +11,133 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
 {
     [PolicyResourceType("aws:redshiftserverless/workgroup:Workgroup")]
-    public sealed class Workgroup : global::Pulumi.PolicyResource
+    public sealed class Workgroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
         /// </summary>
         [Input("baseCapacity")]
-        public int? BaseCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBaseCapacity;
+
+        public int? BaseCapacity => _mBaseCapacity.GetValue("baseCapacity");
 
         /// <summary>
         /// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         /// </summary>
         [Input("configParameters")]
-        public List<WorkgroupConfigParameter>? ConfigParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkgroupConfigParameter>> _mConfigParameters;
+
+        public List<Outputs.WorkgroupConfigParameter>? ConfigParameters => _mConfigParameters.GetValue("configParameters");
 
         /// <summary>
         /// The endpoint that is created from the workgroup. See `Endpoint` below.
         /// </summary>
         [Input("endpoints")]
-        public List<WorkgroupEndpoint>? Endpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkgroupEndpoint>> _mEndpoints;
+
+        public List<Outputs.WorkgroupEndpoint>? Endpoints => _mEndpoints.GetValue("endpoints");
 
         /// <summary>
         /// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         /// </summary>
         [Input("enhancedVpcRouting")]
-        public bool? EnhancedVpcRouting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnhancedVpcRouting;
+
+        public bool? EnhancedVpcRouting => _mEnhancedVpcRouting.GetValue("enhancedVpcRouting");
 
         /// <summary>
         /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         /// </summary>
         [Input("maxCapacity")]
-        public int? MaxCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
+
+        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
 
         /// <summary>
         /// The name of the namespace.
         /// </summary>
         [Input("namespaceName")]
-        public string? NamespaceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
+
+        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// A value that specifies whether the workgroup can be accessed from a public network.
         /// </summary>
         [Input("publiclyAccessible")]
-        public bool? PubliclyAccessible;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
 
         /// <summary>
         /// An array of security group IDs to associate with the workgroup.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Redshift Workgroup ID.
         /// </summary>
         [Input("workgroupId")]
-        public string? WorkgroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupId;
+
+        public string? WorkgroupId => _mWorkgroupId.GetValue("workgroupId");
 
         /// <summary>
         /// The name of the workgroup.
@@ -103,6 +145,114 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// The following arguments are optional:
         /// </summary>
         [Input("workgroupName")]
-        public string? WorkgroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
+
+        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+    }
+
+    [PolicyResourceType("aws:redshiftserverless/workgroup:Workgroup")]
+    public sealed class WorkgroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
+        /// </summary>
+        [Input("baseCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBaseCapacity;
+
+        public int? BaseCapacity => _mBaseCapacity.GetValue("baseCapacity");
+
+        /// <summary>
+        /// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        /// </summary>
+        [Input("configParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WorkgroupConfigParameterArgs>> _mConfigParameters;
+
+        public List<Inputs.WorkgroupConfigParameterArgs>? ConfigParameters => _mConfigParameters.GetValue("configParameters");
+
+        /// <summary>
+        /// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+        /// </summary>
+        [Input("enhancedVpcRouting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnhancedVpcRouting;
+
+        public bool? EnhancedVpcRouting => _mEnhancedVpcRouting.GetValue("enhancedVpcRouting");
+
+        /// <summary>
+        /// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
+        /// </summary>
+        [Input("maxCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
+
+        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+
+        /// <summary>
+        /// The name of the namespace.
+        /// </summary>
+        [Input("namespaceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
+
+        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+
+        /// <summary>
+        /// The port number on which the cluster accepts incoming connections.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// A value that specifies whether the workgroup can be accessed from a public network.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+
+        /// <summary>
+        /// An array of security group IDs to associate with the workgroup.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The name of the workgroup.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("workgroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
+
+        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
     }
 }

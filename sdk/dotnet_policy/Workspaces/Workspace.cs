@@ -11,78 +11,190 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Workspaces
 {
     [PolicyResourceType("aws:workspaces/workspace:Workspace")]
-    public sealed class Workspace : global::Pulumi.PolicyResource
+    public sealed class Workspace : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the bundle for the WorkSpace.
         /// </summary>
         [Input("bundleId")]
-        public string? BundleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
 
         /// <summary>
         /// The name of the WorkSpace, as seen by the operating system.
         /// </summary>
         [Input("computerName")]
-        public string? ComputerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputerName;
+
+        public string? ComputerName => _mComputerName.GetValue("computerName");
 
         /// <summary>
         /// The ID of the directory for the WorkSpace.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// The IP address of the WorkSpace.
         /// </summary>
         [Input("ipAddress")]
-        public string? IpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
 
         /// <summary>
         /// Indicates whether the data stored on the root volume is encrypted.
         /// </summary>
         [Input("rootVolumeEncryptionEnabled")]
-        public bool? RootVolumeEncryptionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRootVolumeEncryptionEnabled;
+
+        public bool? RootVolumeEncryptionEnabled => _mRootVolumeEncryptionEnabled.GetValue("rootVolumeEncryptionEnabled");
 
         /// <summary>
         /// The operational state of the WorkSpace.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
 
         /// <summary>
         /// Indicates whether the data stored on the user volume is encrypted.
         /// </summary>
         [Input("userVolumeEncryptionEnabled")]
-        public bool? UserVolumeEncryptionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUserVolumeEncryptionEnabled;
+
+        public bool? UserVolumeEncryptionEnabled => _mUserVolumeEncryptionEnabled.GetValue("userVolumeEncryptionEnabled");
 
         /// <summary>
         /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         /// </summary>
         [Input("volumeEncryptionKey")]
-        public string? VolumeEncryptionKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeEncryptionKey;
+
+        public string? VolumeEncryptionKey => _mVolumeEncryptionKey.GetValue("volumeEncryptionKey");
 
         /// <summary>
         /// The WorkSpace properties.
         /// </summary>
         [Input("workspaceProperties")]
-        public WorkspaceWorkspaceProperties? WorkspaceProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkspaceWorkspaceProperties> _mWorkspaceProperties;
+
+        public Outputs.WorkspaceWorkspaceProperties? WorkspaceProperties => _mWorkspaceProperties.GetValue("workspaceProperties");
+    }
+
+    [PolicyResourceType("aws:workspaces/workspace:Workspace")]
+    public sealed class WorkspaceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the bundle for the WorkSpace.
+        /// </summary>
+        [Input("bundleId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
+
+        /// <summary>
+        /// The ID of the directory for the WorkSpace.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// Indicates whether the data stored on the root volume is encrypted.
+        /// </summary>
+        [Input("rootVolumeEncryptionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRootVolumeEncryptionEnabled;
+
+        public bool? RootVolumeEncryptionEnabled => _mRootVolumeEncryptionEnabled.GetValue("rootVolumeEncryptionEnabled");
+
+        /// <summary>
+        /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+
+        /// <summary>
+        /// Indicates whether the data stored on the user volume is encrypted.
+        /// </summary>
+        [Input("userVolumeEncryptionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUserVolumeEncryptionEnabled;
+
+        public bool? UserVolumeEncryptionEnabled => _mUserVolumeEncryptionEnabled.GetValue("userVolumeEncryptionEnabled");
+
+        /// <summary>
+        /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+        /// </summary>
+        [Input("volumeEncryptionKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeEncryptionKey;
+
+        public string? VolumeEncryptionKey => _mVolumeEncryptionKey.GetValue("volumeEncryptionKey");
+
+        /// <summary>
+        /// The WorkSpace properties.
+        /// </summary>
+        [Input("workspaceProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkspaceWorkspacePropertiesArgs> _mWorkspaceProperties;
+
+        public Inputs.WorkspaceWorkspacePropertiesArgs? WorkspaceProperties => _mWorkspaceProperties.GetValue("workspaceProperties");
     }
 }

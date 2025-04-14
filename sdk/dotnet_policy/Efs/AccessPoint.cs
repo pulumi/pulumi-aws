@@ -11,51 +11,115 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Efs
 {
     [PolicyResourceType("aws:efs/accessPoint:AccessPoint")]
-    public sealed class AccessPoint : global::Pulumi.PolicyResource
+    public sealed class AccessPoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the access point.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ARN of the file system.
         /// </summary>
         [Input("fileSystemArn")]
-        public string? FileSystemArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemArn;
+
+        public string? FileSystemArn => _mFileSystemArn.GetValue("fileSystemArn");
 
         /// <summary>
         /// ID of the file system for which the access point is intended.
         /// </summary>
         [Input("fileSystemId")]
-        public string? FileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
 
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
         /// </summary>
         [Input("posixUser")]
-        public AccessPointPosixUser? PosixUser;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPointPosixUser> _mPosixUser;
+
+        public Outputs.AccessPointPosixUser? PosixUser => _mPosixUser.GetValue("posixUser");
 
         /// <summary>
         /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         /// </summary>
         [Input("rootDirectory")]
-        public AccessPointRootDirectory? RootDirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPointRootDirectory> _mRootDirectory;
+
+        public Outputs.AccessPointRootDirectory? RootDirectory => _mRootDirectory.GetValue("rootDirectory");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:efs/accessPoint:AccessPoint")]
+    public sealed class AccessPointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the file system for which the access point is intended.
+        /// </summary>
+        [Input("fileSystemId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+
+        /// <summary>
+        /// Operating system user and group applied to all file system requests made using the access point. Detailed below.
+        /// </summary>
+        [Input("posixUser")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessPointPosixUserArgs> _mPosixUser;
+
+        public Inputs.AccessPointPosixUserArgs? PosixUser => _mPosixUser.GetValue("posixUser");
+
+        /// <summary>
+        /// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+        /// </summary>
+        [Input("rootDirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessPointRootDirectoryArgs> _mRootDirectory;
+
+        public Inputs.AccessPointRootDirectoryArgs? RootDirectory => _mRootDirectory.GetValue("rootDirectory");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

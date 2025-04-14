@@ -11,37 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Amp
 {
     [PolicyResourceType("aws:amp/scraper:Scraper")]
-    public sealed class Scraper : global::Pulumi.PolicyResource
+    public sealed class Scraper : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         /// </summary>
         [Input("alias")]
-        public string? Alias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the new scraper.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block for the managed scraper to send metrics to. See `destination`.
         /// </summary>
         [Input("destination")]
-        public ScraperDestination? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ScraperDestination> _mDestination;
+
+        public Outputs.ScraperDestination? Destination => _mDestination.GetValue("destination");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// </summary>
+        [Input("roleConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ScraperRoleConfiguration> _mRoleConfiguration;
+
+        public Outputs.ScraperRoleConfiguration? RoleConfiguration => _mRoleConfiguration.GetValue("roleConfiguration");
 
         /// <summary>
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         /// </summary>
         [Input("scrapeConfiguration")]
-        public string? ScrapeConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScrapeConfiguration;
+
+        public string? ScrapeConfiguration => _mScrapeConfiguration.GetValue("scrapeConfiguration");
 
         /// <summary>
         /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
@@ -49,15 +73,90 @@ namespace Pulumi.PolicyPacks.Aws.Amp
         /// The following arguments are optional:
         /// </summary>
         [Input("source")]
-        public ScraperSource? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ScraperSource> _mSource;
+
+        public Outputs.ScraperSource? Source => _mSource.GetValue("source");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ScraperTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ScraperTimeouts> _mTimeouts;
+
+        public Outputs.ScraperTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:amp/scraper:Scraper")]
+    public sealed class ScraperArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+        /// </summary>
+        [Input("alias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
+
+        /// <summary>
+        /// Configuration block for the managed scraper to send metrics to. See `destination`.
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperDestinationArgs> _mDestination;
+
+        public Inputs.ScraperDestinationArgs? Destination => _mDestination.GetValue("destination");
+
+        /// <summary>
+        /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
+        /// </summary>
+        [Input("roleConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperRoleConfigurationArgs> _mRoleConfiguration;
+
+        public Inputs.ScraperRoleConfigurationArgs? RoleConfiguration => _mRoleConfiguration.GetValue("roleConfiguration");
+
+        /// <summary>
+        /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+        /// </summary>
+        [Input("scrapeConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScrapeConfiguration;
+
+        public string? ScrapeConfiguration => _mScrapeConfiguration.GetValue("scrapeConfiguration");
+
+        /// <summary>
+        /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperSourceArgs> _mSource;
+
+        public Inputs.ScraperSourceArgs? Source => _mSource.GetValue("source");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ScraperTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

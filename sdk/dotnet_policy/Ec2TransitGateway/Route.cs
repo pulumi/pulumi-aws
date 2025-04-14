@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/route:Route")]
-    public sealed class Route : global::Pulumi.PolicyResource
+    public sealed class Route : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Indicates whether to drop traffic that matches this route (default to `false`).
         /// </summary>
         [Input("blackhole")]
-        public bool? Blackhole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBlackhole;
+
+        public bool? Blackhole => _mBlackhole.GetValue("blackhole");
 
         /// <summary>
         /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
         [Input("destinationCidrBlock")]
-        public string? DestinationCidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         /// </summary>
         [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// </summary>
         [Input("transitGatewayRouteTableId")]
-        public string? TransitGatewayRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
+
+        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/route:Route")]
+    public sealed class RouteArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates whether to drop traffic that matches this route (default to `false`).
+        /// </summary>
+        [Input("blackhole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBlackhole;
+
+        public bool? Blackhole => _mBlackhole.GetValue("blackhole");
+
+        /// <summary>
+        /// IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
+        /// </summary>
+        [Input("destinationCidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway Route Table.
+        /// </summary>
+        [Input("transitGatewayRouteTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
+
+        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
     }
 }

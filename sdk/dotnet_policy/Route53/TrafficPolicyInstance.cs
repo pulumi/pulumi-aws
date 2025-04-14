@@ -11,42 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/trafficPolicyInstance:TrafficPolicyInstance")]
-    public sealed class TrafficPolicyInstance : global::Pulumi.PolicyResource
+    public sealed class TrafficPolicyInstance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the traffic policy instance.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
 
         /// <summary>
         /// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
         /// </summary>
         [Input("trafficPolicyId")]
-        public string? TrafficPolicyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficPolicyId;
+
+        public string? TrafficPolicyId => _mTrafficPolicyId.GetValue("trafficPolicyId");
 
         /// <summary>
         /// Version of the traffic policy
         /// </summary>
         [Input("trafficPolicyVersion")]
-        public int? TrafficPolicyVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTrafficPolicyVersion;
+
+        public int? TrafficPolicyVersion => _mTrafficPolicyVersion.GetValue("trafficPolicyVersion");
 
         /// <summary>
         /// TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         /// </summary>
         [Input("ttl")]
-        public int? Ttl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
+
+        public int? Ttl => _mTtl.GetValue("ttl");
+    }
+
+    [PolicyResourceType("aws:route53/trafficPolicyInstance:TrafficPolicyInstance")]
+    public sealed class TrafficPolicyInstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
+        /// </summary>
+        [Input("hostedZoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+
+        /// <summary>
+        /// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
+        /// </summary>
+        [Input("trafficPolicyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficPolicyId;
+
+        public string? TrafficPolicyId => _mTrafficPolicyId.GetValue("trafficPolicyId");
+
+        /// <summary>
+        /// Version of the traffic policy
+        /// </summary>
+        [Input("trafficPolicyVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTrafficPolicyVersion;
+
+        public int? TrafficPolicyVersion => _mTrafficPolicyVersion.GetValue("trafficPolicyVersion");
+
+        /// <summary>
+        /// TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
+        /// </summary>
+        [Input("ttl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
+
+        public int? Ttl => _mTtl.GetValue("ttl");
     }
 }

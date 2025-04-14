@@ -11,73 +11,106 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/environment:Environment")]
-    public sealed class Environment : global::Pulumi.PolicyResource
+    public sealed class Environment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the Amazon Web Services account where the environment exists
         /// </summary>
         [Input("accountIdentifier")]
-        public string? AccountIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountIdentifier;
+
+        public string? AccountIdentifier => _mAccountIdentifier.GetValue("accountIdentifier");
 
         /// <summary>
         /// The Amazon Web Services region where the environment exists.
         /// </summary>
         [Input("accountRegion")]
-        public string? AccountRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountRegion;
+
+        public string? AccountRegion => _mAccountRegion.GetValue("accountRegion");
 
         /// <summary>
         /// The blueprint with which the environment is created.
         /// </summary>
         [Input("blueprintIdentifier")]
-        public string? BlueprintIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintIdentifier;
+
+        public string? BlueprintIdentifier => _mBlueprintIdentifier.GetValue("blueprintIdentifier");
 
         /// <summary>
         /// The time the environment was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The user who created the environment.
         /// </summary>
         [Input("createdBy")]
-        public string? CreatedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
+
+        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
 
         /// <summary>
         /// The description of the environment.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The ID of the domain where the environment exists.
         /// </summary>
         [Input("domainIdentifier")]
-        public string? DomainIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
 
         /// <summary>
         /// The business glossary terms that can be used in this environment.
         /// </summary>
         [Input("glossaryTerms")]
-        public List<string>? GlossaryTerms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlossaryTerms;
+
+        public List<string>? GlossaryTerms => _mGlossaryTerms.GetValue("glossaryTerms");
 
         /// <summary>
         /// The details of the last deployment of the environment.
         /// </summary>
         [Input("lastDeployments")]
-        public List<EnvironmentLastDeployment>? LastDeployments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentLastDeployment>> _mLastDeployments;
+
+        public List<Outputs.EnvironmentLastDeployment>? LastDeployments => _mLastDeployments.GetValue("lastDeployments");
 
         /// <summary>
         /// The name of the environment.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ID of the profile with which the environment is created.
         /// </summary>
         [Input("profileIdentifier")]
-        public string? ProfileIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileIdentifier;
+
+        public string? ProfileIdentifier => _mProfileIdentifier.GetValue("profileIdentifier");
 
         /// <summary>
         /// The ID of the project where the environment exists.
@@ -85,24 +118,141 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// The following arguments are optional:
         /// </summary>
         [Input("projectIdentifier")]
-        public string? ProjectIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectIdentifier;
+
+        public string? ProjectIdentifier => _mProjectIdentifier.GetValue("projectIdentifier");
 
         /// <summary>
         /// The provider of the environment.
         /// </summary>
         [Input("providerEnvironment")]
-        public string? ProviderEnvironment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEnvironment;
+
+        public string? ProviderEnvironment => _mProviderEnvironment.GetValue("providerEnvironment");
 
         [Input("provisionedResources")]
-        public List<EnvironmentProvisionedResource>? ProvisionedResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentProvisionedResource>> _mProvisionedResources;
+
+        public List<Outputs.EnvironmentProvisionedResource>? ProvisionedResources => _mProvisionedResources.GetValue("provisionedResources");
 
         [Input("timeouts")]
-        public EnvironmentTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentTimeouts> _mTimeouts;
+
+        public Outputs.EnvironmentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// The user parameters that are used in the environment. See User Parameters for more information.
         /// </summary>
         [Input("userParameters")]
-        public List<EnvironmentUserParameter>? UserParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentUserParameter>> _mUserParameters;
+
+        public List<Outputs.EnvironmentUserParameter>? UserParameters => _mUserParameters.GetValue("userParameters");
+    }
+
+    [PolicyResourceType("aws:datazone/environment:Environment")]
+    public sealed class EnvironmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Amazon Web Services account where the environment exists
+        /// </summary>
+        [Input("accountIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountIdentifier;
+
+        public string? AccountIdentifier => _mAccountIdentifier.GetValue("accountIdentifier");
+
+        /// <summary>
+        /// The Amazon Web Services region where the environment exists.
+        /// </summary>
+        [Input("accountRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountRegion;
+
+        public string? AccountRegion => _mAccountRegion.GetValue("accountRegion");
+
+        /// <summary>
+        /// The blueprint with which the environment is created.
+        /// </summary>
+        [Input("blueprintIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintIdentifier;
+
+        public string? BlueprintIdentifier => _mBlueprintIdentifier.GetValue("blueprintIdentifier");
+
+        /// <summary>
+        /// The description of the environment.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The ID of the domain where the environment exists.
+        /// </summary>
+        [Input("domainIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+
+        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+
+        /// <summary>
+        /// The business glossary terms that can be used in this environment.
+        /// </summary>
+        [Input("glossaryTerms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlossaryTerms;
+
+        public List<string>? GlossaryTerms => _mGlossaryTerms.GetValue("glossaryTerms");
+
+        /// <summary>
+        /// The name of the environment.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ID of the profile with which the environment is created.
+        /// </summary>
+        [Input("profileIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileIdentifier;
+
+        public string? ProfileIdentifier => _mProfileIdentifier.GetValue("profileIdentifier");
+
+        /// <summary>
+        /// The ID of the project where the environment exists.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("projectIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectIdentifier;
+
+        public string? ProjectIdentifier => _mProjectIdentifier.GetValue("projectIdentifier");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentTimeoutsArgs> _mTimeouts;
+
+        public Inputs.EnvironmentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// The user parameters that are used in the environment. See User Parameters for more information.
+        /// </summary>
+        [Input("userParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EnvironmentUserParameterArgs>> _mUserParameters;
+
+        public List<Inputs.EnvironmentUserParameterArgs>? UserParameters => _mUserParameters.GetValue("userParameters");
     }
 }

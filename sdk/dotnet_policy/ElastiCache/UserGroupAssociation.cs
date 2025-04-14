@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElastiCache
 {
     [PolicyResourceType("aws:elasticache/userGroupAssociation:UserGroupAssociation")]
-    public sealed class UserGroupAssociation : global::Pulumi.PolicyResource
+    public sealed class UserGroupAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the user group.
         /// </summary>
         [Input("userGroupId")]
-        public string? UserGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
+
+        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
 
         /// <summary>
         /// ID of the user to associated with the user group.
         /// </summary>
         [Input("userId")]
-        public string? UserId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
+
+        public string? UserId => _mUserId.GetValue("userId");
+    }
+
+    [PolicyResourceType("aws:elasticache/userGroupAssociation:UserGroupAssociation")]
+    public sealed class UserGroupAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the user group.
+        /// </summary>
+        [Input("userGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
+
+        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+
+        /// <summary>
+        /// ID of the user to associated with the user group.
+        /// </summary>
+        [Input("userId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
+
+        public string? UserId => _mUserId.GetValue("userId");
     }
 }

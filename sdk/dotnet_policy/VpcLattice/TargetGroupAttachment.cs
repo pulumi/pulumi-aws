@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VpcLattice
 {
     [PolicyResourceType("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")]
-    public sealed class TargetGroupAttachment : global::Pulumi.PolicyResource
+    public sealed class TargetGroupAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The target.
         /// </summary>
         [Input("target")]
-        public TargetGroupAttachmentTarget? Target;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TargetGroupAttachmentTarget> _mTarget;
+
+        public Outputs.TargetGroupAttachmentTarget? Target => _mTarget.GetValue("target");
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Input("targetGroupIdentifier")]
-        public string? TargetGroupIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupIdentifier;
+
+        public string? TargetGroupIdentifier => _mTargetGroupIdentifier.GetValue("targetGroupIdentifier");
+    }
+
+    [PolicyResourceType("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")]
+    public sealed class TargetGroupAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The target.
+        /// </summary>
+        [Input("target")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TargetGroupAttachmentTargetArgs> _mTarget;
+
+        public Inputs.TargetGroupAttachmentTargetArgs? Target => _mTarget.GetValue("target");
+
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the target group.
+        /// </summary>
+        [Input("targetGroupIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupIdentifier;
+
+        public string? TargetGroupIdentifier => _mTargetGroupIdentifier.GetValue("targetGroupIdentifier");
     }
 }

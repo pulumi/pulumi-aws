@@ -11,26 +11,35 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NeptuneGraph
 {
     [PolicyResourceType("aws:neptunegraph/graph:Graph")]
-    public sealed class Graph : global::Pulumi.PolicyResource
+    public sealed class Graph : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// (String) Graph resource ARN
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion
         /// protection is enabled.
         /// </summary>
         [Input("deletionProtection")]
-        public bool? DeletionProtection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
+
+        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
 
         /// <summary>
         /// (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
@@ -39,25 +48,37 @@ namespace Pulumi.PolicyPacks.Aws.NeptuneGraph
         /// UUID.
         /// </summary>
         [Input("graphName")]
-        public string? GraphName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphName;
+
+        public string? GraphName => _mGraphName.GetValue("graphName");
 
         /// <summary>
         /// Allows user to specify name prefix and have remainder of name automatically generated.
         /// </summary>
         [Input("graphNamePrefix")]
-        public string? GraphNamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphNamePrefix;
+
+        public string? GraphNamePrefix => _mGraphNamePrefix.GetValue("graphNamePrefix");
 
         /// <summary>
         /// Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
         /// </summary>
         [Input("kmsKeyIdentifier")]
-        public string? KmsKeyIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
+
+        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
 
         /// <summary>
         /// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
         /// </summary>
         [Input("provisionedMemory")]
-        public int? ProvisionedMemory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedMemory;
+
+        public int? ProvisionedMemory => _mProvisionedMemory.GetValue("provisionedMemory");
 
         /// <summary>
         /// Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
@@ -66,27 +87,140 @@ namespace Pulumi.PolicyPacks.Aws.NeptuneGraph
         /// the DNS name resolves to a private IP address that is reachable from the VPC.
         /// </summary>
         [Input("publicConnectivity")]
-        public bool? PublicConnectivity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPublicConnectivity;
+
+        public bool? PublicConnectivity => _mPublicConnectivity.GetValue("publicConnectivity");
 
         /// <summary>
         /// The number of replicas in other AZs. Value must be between 0 and 2.
         /// </summary>
         [Input("replicaCount")]
-        public int? ReplicaCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReplicaCount;
+
+        public int? ReplicaCount => _mReplicaCount.GetValue("replicaCount");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public GraphTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphTimeouts> _mTimeouts;
+
+        public Outputs.GraphTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Vector search configuration for the Neptune Graph
         /// </summary>
         [Input("vectorSearchConfiguration")]
-        public GraphVectorSearchConfiguration? VectorSearchConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphVectorSearchConfiguration> _mVectorSearchConfiguration;
+
+        public Outputs.GraphVectorSearchConfiguration? VectorSearchConfiguration => _mVectorSearchConfiguration.GetValue("vectorSearchConfiguration");
+    }
+
+    [PolicyResourceType("aws:neptunegraph/graph:Graph")]
+    public sealed class GraphArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion
+        /// protection is enabled.
+        /// </summary>
+        [Input("deletionProtection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
+
+        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+
+        /// <summary>
+        /// The graph name. For example: my-graph-1. The name must contain from 1 to 63 letters, numbers, or hyphens, and its first
+        /// character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. If you don't specify a graph
+        /// name, a unique graph name is generated for you using the prefix graph-for, followed by a combination of Stack Name and a
+        /// UUID.
+        /// </summary>
+        [Input("graphName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphName;
+
+        public string? GraphName => _mGraphName.GetValue("graphName");
+
+        /// <summary>
+        /// Allows user to specify name prefix and have remainder of name automatically generated.
+        /// </summary>
+        [Input("graphNamePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphNamePrefix;
+
+        public string? GraphNamePrefix => _mGraphNamePrefix.GetValue("graphNamePrefix");
+
+        /// <summary>
+        /// Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
+        /// </summary>
+        [Input("kmsKeyIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
+
+        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+
+        /// <summary>
+        /// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+        /// </summary>
+        [Input("provisionedMemory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedMemory;
+
+        public int? ProvisionedMemory => _mProvisionedMemory.GetValue("provisionedMemory");
+
+        /// <summary>
+        /// Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. When
+        /// the graph is publicly available, its domain name system (DNS) endpoint resolves to the public IP address from the
+        /// internet. When the graph isn't publicly available, you need to create a PrivateGraphEndpoint in a given VPC to ensure
+        /// the DNS name resolves to a private IP address that is reachable from the VPC.
+        /// </summary>
+        [Input("publicConnectivity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPublicConnectivity;
+
+        public bool? PublicConnectivity => _mPublicConnectivity.GetValue("publicConnectivity");
+
+        /// <summary>
+        /// The number of replicas in other AZs. Value must be between 0 and 2.
+        /// </summary>
+        [Input("replicaCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReplicaCount;
+
+        public int? ReplicaCount => _mReplicaCount.GetValue("replicaCount");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphTimeoutsArgs> _mTimeouts;
+
+        public Inputs.GraphTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Vector search configuration for the Neptune Graph
+        /// </summary>
+        [Input("vectorSearchConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphVectorSearchConfigurationArgs> _mVectorSearchConfiguration;
+
+        public Inputs.GraphVectorSearchConfigurationArgs? VectorSearchConfiguration => _mVectorSearchConfiguration.GetValue("vectorSearchConfiguration");
     }
 }

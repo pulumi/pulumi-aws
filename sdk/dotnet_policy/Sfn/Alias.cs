@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sfn
 {
     [PolicyResourceType("aws:sfn/alias:Alias")]
-    public sealed class Alias : global::Pulumi.PolicyResource
+    public sealed class Alias : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) identifying your state machine alias.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The date the state machine alias was created.
         /// </summary>
         [Input("creationDate")]
-        public string? CreationDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
+
+        public string? CreationDate => _mCreationDate.GetValue("creationDate");
 
         /// <summary>
         /// Description of the alias.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name for the alias you are creating.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The StateMachine alias' route configuration settings. Fields documented below
         /// </summary>
         [Input("routingConfigurations")]
-        public List<AliasRoutingConfiguration>? RoutingConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AliasRoutingConfiguration>> _mRoutingConfigurations;
+
+        public List<Outputs.AliasRoutingConfiguration>? RoutingConfigurations => _mRoutingConfigurations.GetValue("routingConfigurations");
+    }
+
+    [PolicyResourceType("aws:sfn/alias:Alias")]
+    public sealed class AliasArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the alias.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name for the alias you are creating.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The StateMachine alias' route configuration settings. Fields documented below
+        /// </summary>
+        [Input("routingConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AliasRoutingConfigurationArgs>> _mRoutingConfigurations;
+
+        public List<Inputs.AliasRoutingConfigurationArgs>? RoutingConfigurations => _mRoutingConfigurations.GetValue("routingConfigurations");
     }
 }

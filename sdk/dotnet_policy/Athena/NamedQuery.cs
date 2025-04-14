@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Athena
 {
     [PolicyResourceType("aws:athena/namedQuery:NamedQuery")]
-    public sealed class NamedQuery : global::Pulumi.PolicyResource
+    public sealed class NamedQuery : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Database to which the query belongs.
         /// </summary>
         [Input("database")]
-        public string? Database;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
+
+        public string? Database => _mDatabase.GetValue("database");
 
         /// <summary>
         /// Brief explanation of the query. Maximum length of 1024.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Plain language name for the query. Maximum length of 128.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
         /// </summary>
         [Input("query")]
-        public string? Query;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQuery;
+
+        public string? Query => _mQuery.GetValue("query");
 
         /// <summary>
         /// Workgroup to which the query belongs. Defaults to `primary`
         /// </summary>
         [Input("workgroup")]
-        public string? Workgroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroup;
+
+        public string? Workgroup => _mWorkgroup.GetValue("workgroup");
+    }
+
+    [PolicyResourceType("aws:athena/namedQuery:NamedQuery")]
+    public sealed class NamedQueryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Database to which the query belongs.
+        /// </summary>
+        [Input("database")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
+
+        public string? Database => _mDatabase.GetValue("database");
+
+        /// <summary>
+        /// Brief explanation of the query. Maximum length of 1024.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Plain language name for the query. Maximum length of 128.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
+        /// </summary>
+        [Input("query")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQuery;
+
+        public string? Query => _mQuery.GetValue("query");
+
+        /// <summary>
+        /// Workgroup to which the query belongs. Defaults to `primary`
+        /// </summary>
+        [Input("workgroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroup;
+
+        public string? Workgroup => _mWorkgroup.GetValue("workgroup");
     }
 }

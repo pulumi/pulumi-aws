@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logStream:LogStream")]
-    public sealed class LogStream : global::Pulumi.PolicyResource
+    public sealed class LogStream : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the log stream.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the log group under which the log stream is to be created.
         /// </summary>
         [Input("logGroupName")]
-        public string? LogGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
 
         /// <summary>
         /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logStream:LogStream")]
+    public sealed class LogStreamArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the log group under which the log stream is to be created.
+        /// </summary>
+        [Input("logGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+
+        /// <summary>
+        /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

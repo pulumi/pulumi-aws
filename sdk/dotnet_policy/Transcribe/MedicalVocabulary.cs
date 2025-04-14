@@ -11,40 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transcribe
 {
     [PolicyResourceType("aws:transcribe/medicalVocabulary:MedicalVocabulary")]
-    public sealed class MedicalVocabulary : global::Pulumi.PolicyResource
+    public sealed class MedicalVocabulary : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the MedicalVocabulary.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Generated download URI.
         /// </summary>
         [Input("downloadUri")]
-        public string? DownloadUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDownloadUri;
+
+        public string? DownloadUri => _mDownloadUri.GetValue("downloadUri");
 
         /// <summary>
         /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         /// </summary>
         [Input("languageCode")]
-        public string? LanguageCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
 
         /// <summary>
         /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         /// </summary>
         [Input("vocabularyFileUri")]
-        public string? VocabularyFileUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFileUri;
+
+        public string? VocabularyFileUri => _mVocabularyFileUri.GetValue("vocabularyFileUri");
 
         /// <summary>
         /// The name of the Medical Vocabulary.
@@ -52,6 +70,51 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe
         /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyName")]
-        public string? VocabularyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyName;
+
+        public string? VocabularyName => _mVocabularyName.GetValue("vocabularyName");
+    }
+
+    [PolicyResourceType("aws:transcribe/medicalVocabulary:MedicalVocabulary")]
+    public sealed class MedicalVocabularyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        /// </summary>
+        [Input("languageCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+
+        /// <summary>
+        /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        /// </summary>
+        [Input("vocabularyFileUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFileUri;
+
+        public string? VocabularyFileUri => _mVocabularyFileUri.GetValue("vocabularyFileUri");
+
+        /// <summary>
+        /// The name of the Medical Vocabulary.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vocabularyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyName;
+
+        public string? VocabularyName => _mVocabularyName.GetValue("vocabularyName");
     }
 }

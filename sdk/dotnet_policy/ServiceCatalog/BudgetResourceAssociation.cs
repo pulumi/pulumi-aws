@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")]
-    public sealed class BudgetResourceAssociation : global::Pulumi.PolicyResource
+    public sealed class BudgetResourceAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Budget name.
         /// </summary>
         [Input("budgetName")]
-        public string? BudgetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetName;
+
+        public string? BudgetName => _mBudgetName.GetValue("budgetName");
 
         /// <summary>
         /// Resource identifier.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")]
+    public sealed class BudgetResourceAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Budget name.
+        /// </summary>
+        [Input("budgetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetName;
+
+        public string? BudgetName => _mBudgetName.GetValue("budgetName");
+
+        /// <summary>
+        /// Resource identifier.
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
     }
 }

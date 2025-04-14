@@ -11,88 +11,130 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/v2modelsIntent:V2modelsIntent")]
-    public sealed class V2modelsIntent : global::Pulumi.PolicyResource
+    public sealed class V2modelsIntent : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the bot associated with this intent.
         /// </summary>
         [Input("botId")]
-        public string? BotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
+
+        public string? BotId => _mBotId.GetValue("botId");
 
         /// <summary>
         /// Version of the bot associated with this intent.
         /// </summary>
         [Input("botVersion")]
-        public string? BotVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
 
         /// <summary>
         /// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
         /// </summary>
         [Input("closingSetting")]
-        public V2modelsIntentClosingSetting? ClosingSetting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSetting> _mClosingSetting;
+
+        public Outputs.V2modelsIntentClosingSetting? ClosingSetting => _mClosingSetting.GetValue("closingSetting");
 
         [Input("confirmationSetting")]
-        public V2modelsIntentConfirmationSetting? ConfirmationSetting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSetting> _mConfirmationSetting;
+
+        public Outputs.V2modelsIntentConfirmationSetting? ConfirmationSetting => _mConfirmationSetting.GetValue("confirmationSetting");
 
         /// <summary>
         /// Timestamp of the date and time that the intent was created.
         /// </summary>
         [Input("creationDateTime")]
-        public string? CreationDateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDateTime;
+
+        public string? CreationDateTime => _mCreationDateTime.GetValue("creationDateTime");
 
         /// <summary>
         /// Description of the intent. Use the description to help identify the intent in lists.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
         /// </summary>
         [Input("dialogCodeHook")]
-        public V2modelsIntentDialogCodeHook? DialogCodeHook;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentDialogCodeHook> _mDialogCodeHook;
+
+        public Outputs.V2modelsIntentDialogCodeHook? DialogCodeHook => _mDialogCodeHook.GetValue("dialogCodeHook");
 
         /// <summary>
         /// Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
         /// </summary>
         [Input("fulfillmentCodeHook")]
-        public V2modelsIntentFulfillmentCodeHook? FulfillmentCodeHook;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentFulfillmentCodeHook> _mFulfillmentCodeHook;
+
+        public Outputs.V2modelsIntentFulfillmentCodeHook? FulfillmentCodeHook => _mFulfillmentCodeHook.GetValue("fulfillmentCodeHook");
 
         /// <summary>
         /// Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         /// </summary>
         [Input("initialResponseSetting")]
-        public V2modelsIntentInitialResponseSetting? InitialResponseSetting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSetting> _mInitialResponseSetting;
+
+        public Outputs.V2modelsIntentInitialResponseSetting? InitialResponseSetting => _mInitialResponseSetting.GetValue("initialResponseSetting");
 
         /// <summary>
         /// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
         /// </summary>
         [Input("inputContexts")]
-        public List<V2modelsIntentInputContext>? InputContexts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentInputContext>> _mInputContexts;
+
+        public List<Outputs.V2modelsIntentInputContext>? InputContexts => _mInputContexts.GetValue("inputContexts");
 
         /// <summary>
         /// Unique identifier for the intent.
         /// </summary>
         [Input("intentId")]
-        public string? IntentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntentId;
+
+        public string? IntentId => _mIntentId.GetValue("intentId");
 
         /// <summary>
         /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
         /// </summary>
         [Input("kendraConfiguration")]
-        public V2modelsIntentKendraConfiguration? KendraConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentKendraConfiguration> _mKendraConfiguration;
+
+        public Outputs.V2modelsIntentKendraConfiguration? KendraConfiguration => _mKendraConfiguration.GetValue("kendraConfiguration");
 
         /// <summary>
         /// Timestamp of the last time that the intent was modified.
         /// </summary>
         [Input("lastUpdatedDateTime")]
-        public string? LastUpdatedDateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDateTime;
+
+        public string? LastUpdatedDateTime => _mLastUpdatedDateTime.GetValue("lastUpdatedDateTime");
 
         /// <summary>
         /// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
         [Input("localeId")]
-        public string? LocaleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
+
+        public string? LocaleId => _mLocaleId.GetValue("localeId");
 
         /// <summary>
         /// Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
@@ -100,33 +142,204 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         /// </summary>
         [Input("outputContexts")]
-        public List<V2modelsIntentOutputContext>? OutputContexts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentOutputContext>> _mOutputContexts;
+
+        public List<Outputs.V2modelsIntentOutputContext>? OutputContexts => _mOutputContexts.GetValue("outputContexts");
 
         /// <summary>
         /// Identifier for the built-in intent to base this intent on.
         /// </summary>
         [Input("parentIntentSignature")]
-        public string? ParentIntentSignature;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentIntentSignature;
+
+        public string? ParentIntentSignature => _mParentIntentSignature.GetValue("parentIntentSignature");
 
         /// <summary>
         /// Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         /// </summary>
         [Input("sampleUtterances")]
-        public List<V2modelsIntentSampleUtterance>? SampleUtterances;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentSampleUtterance>> _mSampleUtterances;
+
+        public List<Outputs.V2modelsIntentSampleUtterance>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
 
         /// <summary>
         /// Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         /// </summary>
         [Input("slotPriorities")]
-        public List<V2modelsIntentSlotPriority>? SlotPriorities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentSlotPriority>> _mSlotPriorities;
+
+        public List<Outputs.V2modelsIntentSlotPriority>? SlotPriorities => _mSlotPriorities.GetValue("slotPriorities");
 
         [Input("timeouts")]
-        public V2modelsIntentTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentTimeouts> _mTimeouts;
+
+        public Outputs.V2modelsIntentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:lex/v2modelsIntent:V2modelsIntent")]
+    public sealed class V2modelsIntentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the bot associated with this intent.
+        /// </summary>
+        [Input("botId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
+
+        public string? BotId => _mBotId.GetValue("botId");
+
+        /// <summary>
+        /// Version of the bot associated with this intent.
+        /// </summary>
+        [Input("botVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+
+        /// <summary>
+        /// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
+        /// </summary>
+        [Input("closingSetting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentClosingSettingArgs> _mClosingSetting;
+
+        public Inputs.V2modelsIntentClosingSettingArgs? ClosingSetting => _mClosingSetting.GetValue("closingSetting");
+
+        [Input("confirmationSetting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingArgs> _mConfirmationSetting;
+
+        public Inputs.V2modelsIntentConfirmationSettingArgs? ConfirmationSetting => _mConfirmationSetting.GetValue("confirmationSetting");
+
+        /// <summary>
+        /// Description of the intent. Use the description to help identify the intent in lists.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
+        /// </summary>
+        [Input("dialogCodeHook")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentDialogCodeHookArgs> _mDialogCodeHook;
+
+        public Inputs.V2modelsIntentDialogCodeHookArgs? DialogCodeHook => _mDialogCodeHook.GetValue("dialogCodeHook");
+
+        /// <summary>
+        /// Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
+        /// </summary>
+        [Input("fulfillmentCodeHook")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentFulfillmentCodeHookArgs> _mFulfillmentCodeHook;
+
+        public Inputs.V2modelsIntentFulfillmentCodeHookArgs? FulfillmentCodeHook => _mFulfillmentCodeHook.GetValue("fulfillmentCodeHook");
+
+        /// <summary>
+        /// Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
+        /// </summary>
+        [Input("initialResponseSetting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingArgs> _mInitialResponseSetting;
+
+        public Inputs.V2modelsIntentInitialResponseSettingArgs? InitialResponseSetting => _mInitialResponseSetting.GetValue("initialResponseSetting");
+
+        /// <summary>
+        /// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
+        /// </summary>
+        [Input("inputContexts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentInputContextArgs>> _mInputContexts;
+
+        public List<Inputs.V2modelsIntentInputContextArgs>? InputContexts => _mInputContexts.GetValue("inputContexts");
+
+        /// <summary>
+        /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
+        /// </summary>
+        [Input("kendraConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentKendraConfigurationArgs> _mKendraConfiguration;
+
+        public Inputs.V2modelsIntentKendraConfigurationArgs? KendraConfiguration => _mKendraConfiguration.GetValue("kendraConfiguration");
+
+        /// <summary>
+        /// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
+        /// </summary>
+        [Input("localeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
+
+        public string? LocaleId => _mLocaleId.GetValue("localeId");
+
+        /// <summary>
+        /// Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
+        /// </summary>
+        [Input("outputContexts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentOutputContextArgs>> _mOutputContexts;
+
+        public List<Inputs.V2modelsIntentOutputContextArgs>? OutputContexts => _mOutputContexts.GetValue("outputContexts");
+
+        /// <summary>
+        /// Identifier for the built-in intent to base this intent on.
+        /// </summary>
+        [Input("parentIntentSignature")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentIntentSignature;
+
+        public string? ParentIntentSignature => _mParentIntentSignature.GetValue("parentIntentSignature");
+
+        /// <summary>
+        /// Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
+        /// </summary>
+        [Input("sampleUtterances")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentSampleUtteranceArgs>> _mSampleUtterances;
+
+        public List<Inputs.V2modelsIntentSampleUtteranceArgs>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
+
+        /// <summary>
+        /// Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
+        /// </summary>
+        [Input("slotPriorities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentSlotPriorityArgs>> _mSlotPriorities;
+
+        public List<Inputs.V2modelsIntentSlotPriorityArgs>? SlotPriorities => _mSlotPriorities.GetValue("slotPriorities");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentTimeoutsArgs> _mTimeouts;
+
+        public Inputs.V2modelsIntentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

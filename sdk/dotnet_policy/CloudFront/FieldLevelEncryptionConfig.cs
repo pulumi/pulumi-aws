@@ -11,42 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")]
-    public sealed class FieldLevelEncryptionConfig : global::Pulumi.PolicyResource
+    public sealed class FieldLevelEncryptionConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Field Level Encryption Config ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         /// </summary>
         [Input("callerReference")]
-        public string? CallerReference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallerReference;
+
+        public string? CallerReference => _mCallerReference.GetValue("callerReference");
 
         /// <summary>
         /// An optional comment about the Field Level Encryption Config.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         /// </summary>
         [Input("contentTypeProfileConfig")]
-        public FieldLevelEncryptionConfigContentTypeProfileConfig? ContentTypeProfileConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FieldLevelEncryptionConfigContentTypeProfileConfig> _mContentTypeProfileConfig;
+
+        public Outputs.FieldLevelEncryptionConfigContentTypeProfileConfig? ContentTypeProfileConfig => _mContentTypeProfileConfig.GetValue("contentTypeProfileConfig");
 
         /// <summary>
         /// The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         /// </summary>
         [Input("queryArgProfileConfig")]
-        public FieldLevelEncryptionConfigQueryArgProfileConfig? QueryArgProfileConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FieldLevelEncryptionConfigQueryArgProfileConfig> _mQueryArgProfileConfig;
+
+        public Outputs.FieldLevelEncryptionConfigQueryArgProfileConfig? QueryArgProfileConfig => _mQueryArgProfileConfig.GetValue("queryArgProfileConfig");
+    }
+
+    [PolicyResourceType("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")]
+    public sealed class FieldLevelEncryptionConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An optional comment about the Field Level Encryption Config.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+        /// </summary>
+        [Input("contentTypeProfileConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs> _mContentTypeProfileConfig;
+
+        public Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs? ContentTypeProfileConfig => _mContentTypeProfileConfig.GetValue("contentTypeProfileConfig");
+
+        /// <summary>
+        /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+        /// </summary>
+        [Input("queryArgProfileConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs> _mQueryArgProfileConfig;
+
+        public Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs? QueryArgProfileConfig => _mQueryArgProfileConfig.GetValue("queryArgProfileConfig");
     }
 }

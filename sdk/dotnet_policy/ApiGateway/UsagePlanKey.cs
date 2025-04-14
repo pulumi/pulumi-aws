@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/usagePlanKey:UsagePlanKey")]
-    public sealed class UsagePlanKey : global::Pulumi.PolicyResource
+    public sealed class UsagePlanKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the API key resource.
         /// </summary>
         [Input("keyId")]
-        public string? KeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
 
         /// <summary>
         /// Type of the API key resource. Currently, the valid key type is API_KEY.
         /// </summary>
         [Input("keyType")]
-        public string? KeyType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyType;
+
+        public string? KeyType => _mKeyType.GetValue("keyType");
 
         /// <summary>
         /// Name of a usage plan key.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Id of the usage plan resource representing to associate the key to.
         /// </summary>
         [Input("usagePlanId")]
-        public string? UsagePlanId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsagePlanId;
+
+        public string? UsagePlanId => _mUsagePlanId.GetValue("usagePlanId");
 
         /// <summary>
         /// Value of a usage plan key.
         /// </summary>
         [Input("value")]
-        public string? Value;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
+
+        public string? Value => _mValue.GetValue("value");
+    }
+
+    [PolicyResourceType("aws:apigateway/usagePlanKey:UsagePlanKey")]
+    public sealed class UsagePlanKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the API key resource.
+        /// </summary>
+        [Input("keyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
+
+        /// <summary>
+        /// Type of the API key resource. Currently, the valid key type is API_KEY.
+        /// </summary>
+        [Input("keyType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyType;
+
+        public string? KeyType => _mKeyType.GetValue("keyType");
+
+        /// <summary>
+        /// Id of the usage plan resource representing to associate the key to.
+        /// </summary>
+        [Input("usagePlanId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsagePlanId;
+
+        public string? UsagePlanId => _mUsagePlanId.GetValue("usagePlanId");
     }
 }

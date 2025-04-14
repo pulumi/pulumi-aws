@@ -11,97 +11,142 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/domainName:DomainName")]
-    public sealed class DomainName : global::Pulumi.PolicyResource
+    public sealed class DomainName : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of domain name.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
         [Input("certificateArn")]
-        public string? CertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
 
         /// <summary>
         /// Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
         [Input("certificateBody")]
-        public string? CertificateBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
+
+        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
 
         /// <summary>
         /// Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
         [Input("certificateChain")]
-        public string? CertificateChain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+
+        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
 
         /// <summary>
         /// Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
         /// </summary>
         [Input("certificateName")]
-        public string? CertificateName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
+
+        public string? CertificateName => _mCertificateName.GetValue("certificateName");
 
         /// <summary>
         /// Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         /// </summary>
         [Input("certificatePrivateKey")]
-        public string? CertificatePrivateKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePrivateKey;
+
+        public string? CertificatePrivateKey => _mCertificatePrivateKey.GetValue("certificatePrivateKey");
 
         /// <summary>
         /// Upload date associated with the domain certificate.
         /// </summary>
         [Input("certificateUploadDate")]
-        public string? CertificateUploadDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateUploadDate;
+
+        public string? CertificateUploadDate => _mCertificateUploadDate.GetValue("certificateUploadDate");
 
         /// <summary>
         /// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         /// </summary>
         [Input("cloudfrontDomainName")]
-        public string? CloudfrontDomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontDomainName;
+
+        public string? CloudfrontDomainName => _mCloudfrontDomainName.GetValue("cloudfrontDomainName");
 
         /// <summary>
         /// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         /// </summary>
         [Input("cloudfrontZoneId")]
-        public string? CloudfrontZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontZoneId;
+
+        public string? CloudfrontZoneId => _mCloudfrontZoneId.GetValue("cloudfrontZoneId");
 
         /// <summary>
         /// Fully-qualified domain name to register.
         /// </summary>
         [Input("domainName")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domainName");
 
         /// <summary>
         /// The identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Input("domainNameId")]
-        public string? DomainNameId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameId;
+
+        public string? DomainNameId => _mDomainNameId.GetValue("domainNameId");
 
         /// <summary>
         /// Configuration block defining API endpoint information including type. See below.
         /// </summary>
         [Input("endpointConfiguration")]
-        public DomainNameEndpointConfiguration? EndpointConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNameEndpointConfiguration> _mEndpointConfiguration;
+
+        public Outputs.DomainNameEndpointConfiguration? EndpointConfiguration => _mEndpointConfiguration.GetValue("endpointConfiguration");
 
         /// <summary>
         /// Mutual TLS authentication configuration for the domain name. See below.
         /// </summary>
         [Input("mutualTlsAuthentication")]
-        public DomainNameMutualTlsAuthentication? MutualTlsAuthentication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainNameMutualTlsAuthentication> _mMutualTlsAuthentication;
+
+        public Outputs.DomainNameMutualTlsAuthentication? MutualTlsAuthentication => _mMutualTlsAuthentication.GetValue("mutualTlsAuthentication");
 
         /// <summary>
         /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         /// </summary>
         [Input("ownershipVerificationCertificateArn")]
-        public string? OwnershipVerificationCertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnershipVerificationCertificateArn;
+
+        public string? OwnershipVerificationCertificateArn => _mOwnershipVerificationCertificateArn.GetValue("ownershipVerificationCertificateArn");
 
         /// <summary>
         /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
@@ -109,31 +154,46 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// When uploading a certificate, the following arguments are supported:
         /// </summary>
         [Input("regionalCertificateArn")]
-        public string? RegionalCertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalCertificateArn;
+
+        public string? RegionalCertificateArn => _mRegionalCertificateArn.GetValue("regionalCertificateArn");
 
         /// <summary>
         /// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         /// </summary>
         [Input("regionalCertificateName")]
-        public string? RegionalCertificateName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalCertificateName;
+
+        public string? RegionalCertificateName => _mRegionalCertificateName.GetValue("regionalCertificateName");
 
         /// <summary>
         /// Hostname for the custom domain's regional endpoint.
         /// </summary>
         [Input("regionalDomainName")]
-        public string? RegionalDomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalDomainName;
+
+        public string? RegionalDomainName => _mRegionalDomainName.GetValue("regionalDomainName");
 
         /// <summary>
         /// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         /// </summary>
         [Input("regionalZoneId")]
-        public string? RegionalZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalZoneId;
+
+        public string? RegionalZoneId => _mRegionalZoneId.GetValue("regionalZoneId");
 
         /// <summary>
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         /// </summary>
         [Input("securityPolicy")]
-        public string? SecurityPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicy;
+
+        public string? SecurityPolicy => _mSecurityPolicy.GetValue("securityPolicy");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -141,12 +201,152 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:apigateway/domainName:DomainName")]
+    public sealed class DomainNameArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
+        /// </summary>
+        [Input("certificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+
+        /// <summary>
+        /// Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+        /// </summary>
+        [Input("certificateBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
+
+        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+
+        /// <summary>
+        /// Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+        /// </summary>
+        [Input("certificateChain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
+
+        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+
+        /// <summary>
+        /// Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
+        /// </summary>
+        [Input("certificateName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
+
+        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+
+        /// <summary>
+        /// Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
+        /// </summary>
+        [Input("certificatePrivateKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePrivateKey;
+
+        public string? CertificatePrivateKey => _mCertificatePrivateKey.GetValue("certificatePrivateKey");
+
+        /// <summary>
+        /// Fully-qualified domain name to register.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domainName");
+
+        /// <summary>
+        /// Configuration block defining API endpoint information including type. See below.
+        /// </summary>
+        [Input("endpointConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNameEndpointConfigurationArgs> _mEndpointConfiguration;
+
+        public Inputs.DomainNameEndpointConfigurationArgs? EndpointConfiguration => _mEndpointConfiguration.GetValue("endpointConfiguration");
+
+        /// <summary>
+        /// Mutual TLS authentication configuration for the domain name. See below.
+        /// </summary>
+        [Input("mutualTlsAuthentication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainNameMutualTlsAuthenticationArgs> _mMutualTlsAuthentication;
+
+        public Inputs.DomainNameMutualTlsAuthenticationArgs? MutualTlsAuthentication => _mMutualTlsAuthentication.GetValue("mutualTlsAuthentication");
+
+        /// <summary>
+        /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        /// </summary>
+        [Input("ownershipVerificationCertificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnershipVerificationCertificateArn;
+
+        public string? OwnershipVerificationCertificateArn => _mOwnershipVerificationCertificateArn.GetValue("ownershipVerificationCertificateArn");
+
+        /// <summary>
+        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        /// 
+        /// When uploading a certificate, the following arguments are supported:
+        /// </summary>
+        [Input("regionalCertificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalCertificateArn;
+
+        public string? RegionalCertificateArn => _mRegionalCertificateArn.GetValue("regionalCertificateArn");
+
+        /// <summary>
+        /// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        /// </summary>
+        [Input("regionalCertificateName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegionalCertificateName;
+
+        public string? RegionalCertificateName => _mRegionalCertificateName.GetValue("regionalCertificateName");
+
+        /// <summary>
+        /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
+        /// </summary>
+        [Input("securityPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicy;
+
+        public string? SecurityPolicy => _mSecurityPolicy.GetValue("securityPolicy");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// When referencing an AWS-managed certificate, the following arguments are supported:
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

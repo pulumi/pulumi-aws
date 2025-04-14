@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpsWorks
 {
     [PolicyResourceType("aws:opsworks/permission:Permission")]
-    public sealed class Permission : global::Pulumi.PolicyResource
+    public sealed class Permission : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether the user is allowed to use SSH to communicate with the instance
         /// </summary>
         [Input("allowSsh")]
-        public bool? AllowSsh;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSsh;
+
+        public bool? AllowSsh => _mAllowSsh.GetValue("allowSsh");
 
         /// <summary>
         /// Whether the user is allowed to use sudo to elevate privileges
         /// </summary>
         [Input("allowSudo")]
-        public bool? AllowSudo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSudo;
+
+        public bool? AllowSudo => _mAllowSudo.GetValue("allowSudo");
 
         /// <summary>
         /// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         /// </summary>
         [Input("level")]
-        public string? Level;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
+
+        public string? Level => _mLevel.GetValue("level");
 
         /// <summary>
         /// The stack to set the permissions for
         /// </summary>
         [Input("stackId")]
-        public string? StackId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
 
         /// <summary>
         /// The user's IAM ARN to set permissions for
         /// </summary>
         [Input("userArn")]
-        public string? UserArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
+
+        public string? UserArn => _mUserArn.GetValue("userArn");
+    }
+
+    [PolicyResourceType("aws:opsworks/permission:Permission")]
+    public sealed class PermissionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether the user is allowed to use SSH to communicate with the instance
+        /// </summary>
+        [Input("allowSsh")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSsh;
+
+        public bool? AllowSsh => _mAllowSsh.GetValue("allowSsh");
+
+        /// <summary>
+        /// Whether the user is allowed to use sudo to elevate privileges
+        /// </summary>
+        [Input("allowSudo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSudo;
+
+        public bool? AllowSudo => _mAllowSudo.GetValue("allowSudo");
+
+        /// <summary>
+        /// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
+        /// </summary>
+        [Input("level")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
+
+        public string? Level => _mLevel.GetValue("level");
+
+        /// <summary>
+        /// The stack to set the permissions for
+        /// </summary>
+        [Input("stackId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
+
+        /// <summary>
+        /// The user's IAM ARN to set permissions for
+        /// </summary>
+        [Input("userArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
+
+        public string? UserArn => _mUserArn.GetValue("userArn");
     }
 }

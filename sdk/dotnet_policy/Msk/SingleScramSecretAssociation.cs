@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Msk
 {
     [PolicyResourceType("aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation")]
-    public sealed class SingleScramSecretAssociation : global::Pulumi.PolicyResource
+    public sealed class SingleScramSecretAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK cluster.
         /// </summary>
         [Input("clusterArn")]
-        public string? ClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
 
         /// <summary>
         /// AWS Secrets Manager secret ARN.
         /// </summary>
         [Input("secretArn")]
-        public string? SecretArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
+
+        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+    }
+
+    [PolicyResourceType("aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation")]
+    public sealed class SingleScramSecretAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// </summary>
+        [Input("clusterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+
+        /// <summary>
+        /// AWS Secrets Manager secret ARN.
+        /// </summary>
+        [Input("secretArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
+
+        public string? SecretArn => _mSecretArn.GetValue("secretArn");
     }
 }

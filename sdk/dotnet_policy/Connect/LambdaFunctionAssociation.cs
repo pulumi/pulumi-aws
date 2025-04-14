@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Connect
 {
     [PolicyResourceType("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation")]
-    public sealed class LambdaFunctionAssociation : global::Pulumi.PolicyResource
+    public sealed class LambdaFunctionAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         /// </summary>
         [Input("functionArn")]
-        public string? FunctionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
+
+        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
 
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+    }
+
+    [PolicyResourceType("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation")]
+    public sealed class LambdaFunctionAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// </summary>
+        [Input("functionArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
+
+        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
+
+        /// <summary>
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
     }
 }

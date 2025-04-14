@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
 {
     [PolicyResourceType("aws:devopsguru/serviceIntegration:ServiceIntegration")]
-    public sealed class ServiceIntegration : global::Pulumi.PolicyResource
+    public sealed class ServiceIntegration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
         /// </summary>
         [Input("kmsServerSideEncryption")]
-        public ServiceIntegrationKmsServerSideEncryption? KmsServerSideEncryption;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceIntegrationKmsServerSideEncryption> _mKmsServerSideEncryption;
+
+        public Outputs.ServiceIntegrationKmsServerSideEncryption? KmsServerSideEncryption => _mKmsServerSideEncryption.GetValue("kmsServerSideEncryption");
 
         /// <summary>
         /// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
         /// </summary>
         [Input("logsAnomalyDetection")]
-        public ServiceIntegrationLogsAnomalyDetection? LogsAnomalyDetection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceIntegrationLogsAnomalyDetection> _mLogsAnomalyDetection;
+
+        public Outputs.ServiceIntegrationLogsAnomalyDetection? LogsAnomalyDetection => _mLogsAnomalyDetection.GetValue("logsAnomalyDetection");
 
         /// <summary>
         /// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
         /// </summary>
         [Input("opsCenter")]
-        public ServiceIntegrationOpsCenter? OpsCenter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceIntegrationOpsCenter> _mOpsCenter;
+
+        public Outputs.ServiceIntegrationOpsCenter? OpsCenter => _mOpsCenter.GetValue("opsCenter");
+    }
+
+    [PolicyResourceType("aws:devopsguru/serviceIntegration:ServiceIntegration")]
+    public sealed class ServiceIntegrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
+        /// </summary>
+        [Input("kmsServerSideEncryption")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceIntegrationKmsServerSideEncryptionArgs> _mKmsServerSideEncryption;
+
+        public Inputs.ServiceIntegrationKmsServerSideEncryptionArgs? KmsServerSideEncryption => _mKmsServerSideEncryption.GetValue("kmsServerSideEncryption");
+
+        /// <summary>
+        /// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
+        /// </summary>
+        [Input("logsAnomalyDetection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceIntegrationLogsAnomalyDetectionArgs> _mLogsAnomalyDetection;
+
+        public Inputs.ServiceIntegrationLogsAnomalyDetectionArgs? LogsAnomalyDetection => _mLogsAnomalyDetection.GetValue("logsAnomalyDetection");
+
+        /// <summary>
+        /// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
+        /// </summary>
+        [Input("opsCenter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceIntegrationOpsCenterArgs> _mOpsCenter;
+
+        public Inputs.ServiceIntegrationOpsCenterArgs? OpsCenter => _mOpsCenter.GetValue("opsCenter");
     }
 }

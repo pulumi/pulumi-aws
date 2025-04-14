@@ -11,37 +11,102 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")]
-    public sealed class BucketObjectLockConfigurationV2 : global::Pulumi.PolicyResource
+    public sealed class BucketObjectLockConfigurationV2 : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
-        public string? ExpectedBucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
 
         /// <summary>
         /// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
         /// </summary>
         [Input("objectLockEnabled")]
-        public string? ObjectLockEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockEnabled;
+
+        public string? ObjectLockEnabled => _mObjectLockEnabled.GetValue("objectLockEnabled");
 
         /// <summary>
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.
         /// </summary>
         [Input("rule")]
-        public BucketObjectLockConfigurationV2Rule? Rule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketObjectLockConfigurationV2Rule> _mRule;
+
+        public Outputs.BucketObjectLockConfigurationV2Rule? Rule => _mRule.GetValue("rule");
 
         /// <summary>
         /// This argument is deprecated and no longer needed to enable Object Lock.
         /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
         /// </summary>
         [Input("token")]
-        public string? Token;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
+
+        public string? Token => _mToken.GetValue("token");
+    }
+
+    [PolicyResourceType("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")]
+    public sealed class BucketObjectLockConfigurationV2Args : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+
+        /// <summary>
+        /// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+        /// </summary>
+        [Input("objectLockEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockEnabled;
+
+        public string? ObjectLockEnabled => _mObjectLockEnabled.GetValue("objectLockEnabled");
+
+        /// <summary>
+        /// Configuration block for specifying the Object Lock rule for the specified object. See below.
+        /// </summary>
+        [Input("rule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketObjectLockConfigurationV2RuleArgs> _mRule;
+
+        public Inputs.BucketObjectLockConfigurationV2RuleArgs? Rule => _mRule.GetValue("rule");
+
+        /// <summary>
+        /// This argument is deprecated and no longer needed to enable Object Lock.
+        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+        /// </summary>
+        [Input("token")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
+
+        public string? Token => _mToken.GetValue("token");
     }
 }

@@ -11,108 +11,289 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFormation
 {
     [PolicyResourceType("aws:cloudformation/stackSet:StackSet")]
-    public sealed class StackSet : global::Pulumi.PolicyResource
+    public sealed class StackSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         /// </summary>
         [Input("administrationRoleArn")]
-        public string? AdministrationRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdministrationRoleArn;
+
+        public string? AdministrationRoleArn => _mAdministrationRoleArn.GetValue("administrationRoleArn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the StackSet.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
         [Input("autoDeployment")]
-        public StackSetAutoDeployment? AutoDeployment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackSetAutoDeployment> _mAutoDeployment;
+
+        public Outputs.StackSetAutoDeployment? AutoDeployment => _mAutoDeployment.GetValue("autoDeployment");
 
         /// <summary>
         /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         /// </summary>
         [Input("callAs")]
-        public string? CallAs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallAs;
+
+        public string? CallAs => _mCallAs.GetValue("callAs");
 
         /// <summary>
         /// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         /// </summary>
         [Input("capabilities")]
-        public List<string>? Capabilities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapabilities;
+
+        public List<string>? Capabilities => _mCapabilities.GetValue("capabilities");
 
         /// <summary>
         /// Description of the StackSet.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
         [Input("executionRoleName")]
-        public string? ExecutionRoleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleName;
+
+        public string? ExecutionRoleName => _mExecutionRoleName.GetValue("executionRoleName");
 
         /// <summary>
         /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         /// </summary>
         [Input("managedExecution")]
-        public StackSetManagedExecution? ManagedExecution;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackSetManagedExecution> _mManagedExecution;
+
+        public Outputs.StackSetManagedExecution? ManagedExecution => _mManagedExecution.GetValue("managedExecution");
 
         /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Preferences for how AWS CloudFormation performs a stack set update.
         /// </summary>
         [Input("operationPreferences")]
-        public StackSetOperationPreferences? OperationPreferences;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackSetOperationPreferences> _mOperationPreferences;
+
+        public Outputs.StackSetOperationPreferences? OperationPreferences => _mOperationPreferences.GetValue("operationPreferences");
 
         /// <summary>
         /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         /// </summary>
         [Input("parameters")]
-        public Dictionary<string, string>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         /// </summary>
         [Input("permissionModel")]
-        public string? PermissionModel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionModel;
+
+        public string? PermissionModel => _mPermissionModel.GetValue("permissionModel");
 
         /// <summary>
         /// Unique identifier of the StackSet.
         /// </summary>
         [Input("stackSetId")]
-        public string? StackSetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetId;
+
+        public string? StackSetId => _mStackSetId.GetValue("stackSetId");
 
         /// <summary>
         /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         /// </summary>
         [Input("templateBody")]
-        public string? TemplateBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
+
+        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
 
         /// <summary>
         /// String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         /// </summary>
         [Input("templateUrl")]
-        public string? TemplateUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
+
+        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
+    }
+
+    [PolicyResourceType("aws:cloudformation/stackSet:StackSet")]
+    public sealed class StackSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
+        /// </summary>
+        [Input("administrationRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdministrationRoleArn;
+
+        public string? AdministrationRoleArn => _mAdministrationRoleArn.GetValue("administrationRoleArn");
+
+        /// <summary>
+        /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
+        /// </summary>
+        [Input("autoDeployment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackSetAutoDeploymentArgs> _mAutoDeployment;
+
+        public Inputs.StackSetAutoDeploymentArgs? AutoDeployment => _mAutoDeployment.GetValue("autoDeployment");
+
+        /// <summary>
+        /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Input("callAs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallAs;
+
+        public string? CallAs => _mCallAs.GetValue("callAs");
+
+        /// <summary>
+        /// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
+        /// </summary>
+        [Input("capabilities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapabilities;
+
+        public List<string>? Capabilities => _mCapabilities.GetValue("capabilities");
+
+        /// <summary>
+        /// Description of the StackSet.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
+        /// </summary>
+        [Input("executionRoleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleName;
+
+        public string? ExecutionRoleName => _mExecutionRoleName.GetValue("executionRoleName");
+
+        /// <summary>
+        /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Input("managedExecution")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackSetManagedExecutionArgs> _mManagedExecution;
+
+        public Inputs.StackSetManagedExecutionArgs? ManagedExecution => _mManagedExecution.GetValue("managedExecution");
+
+        /// <summary>
+        /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set update.
+        /// </summary>
+        [Input("operationPreferences")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackSetOperationPreferencesArgs> _mOperationPreferences;
+
+        public Inputs.StackSetOperationPreferencesArgs? OperationPreferences => _mOperationPreferences.GetValue("operationPreferences");
+
+        /// <summary>
+        /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
+        /// </summary>
+        [Input("permissionModel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionModel;
+
+        public string? PermissionModel => _mPermissionModel.GetValue("permissionModel");
+
+        /// <summary>
+        /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
+        /// </summary>
+        [Input("templateBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
+
+        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+
+        /// <summary>
+        /// String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
+        /// </summary>
+        [Input("templateUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
+
+        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
     }
 }

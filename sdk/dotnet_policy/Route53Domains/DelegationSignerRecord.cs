@@ -11,27 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53Domains
 {
     [PolicyResourceType("aws:route53domains/delegationSignerRecord:DelegationSignerRecord")]
-    public sealed class DelegationSignerRecord : global::Pulumi.PolicyResource
+    public sealed class DelegationSignerRecord : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An ID assigned to the created DS record.
         /// </summary>
         [Input("dnssecKeyId")]
-        public string? DnssecKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnssecKeyId;
+
+        public string? DnssecKeyId => _mDnssecKeyId.GetValue("dnssecKeyId");
 
         /// <summary>
         /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The information about a key, including the algorithm, public key-value, and flags.
         /// </summary>
         [Input("signingAttributes")]
-        public DelegationSignerRecordSigningAttributes? SigningAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DelegationSignerRecordSigningAttributes> _mSigningAttributes;
+
+        public Outputs.DelegationSignerRecordSigningAttributes? SigningAttributes => _mSigningAttributes.GetValue("signingAttributes");
 
         [Input("timeouts")]
-        public DelegationSignerRecordTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DelegationSignerRecordTimeouts> _mTimeouts;
+
+        public Outputs.DelegationSignerRecordTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:route53domains/delegationSignerRecord:DelegationSignerRecord")]
+    public sealed class DelegationSignerRecordArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// The information about a key, including the algorithm, public key-value, and flags.
+        /// </summary>
+        [Input("signingAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DelegationSignerRecordSigningAttributesArgs> _mSigningAttributes;
+
+        public Inputs.DelegationSignerRecordSigningAttributesArgs? SigningAttributes => _mSigningAttributes.GetValue("signingAttributes");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DelegationSignerRecordTimeoutsArgs> _mTimeouts;
+
+        public Inputs.DelegationSignerRecordTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

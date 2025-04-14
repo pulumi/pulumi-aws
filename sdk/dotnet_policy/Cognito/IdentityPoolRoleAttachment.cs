@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")]
-    public sealed class IdentityPoolRoleAttachment : global::Pulumi.PolicyResource
+    public sealed class IdentityPoolRoleAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An identity pool ID in the format `REGION_GUID`.
         /// </summary>
         [Input("identityPoolId")]
-        public string? IdentityPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolId;
+
+        public string? IdentityPoolId => _mIdentityPoolId.GetValue("identityPoolId");
 
         /// <summary>
         /// A List of Role Mapping.
         /// </summary>
         [Input("roleMappings")]
-        public List<IdentityPoolRoleAttachmentRoleMapping>? RoleMappings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IdentityPoolRoleAttachmentRoleMapping>> _mRoleMappings;
+
+        public List<Outputs.IdentityPoolRoleAttachmentRoleMapping>? RoleMappings => _mRoleMappings.GetValue("roleMappings");
 
         /// <summary>
         /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         /// </summary>
         [Input("roles")]
-        public Dictionary<string, string>? Roles;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRoles;
+
+        public Dictionary<string, string>? Roles => _mRoles.GetValue("roles");
+    }
+
+    [PolicyResourceType("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")]
+    public sealed class IdentityPoolRoleAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An identity pool ID in the format `REGION_GUID`.
+        /// </summary>
+        [Input("identityPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolId;
+
+        public string? IdentityPoolId => _mIdentityPoolId.GetValue("identityPoolId");
+
+        /// <summary>
+        /// A List of Role Mapping.
+        /// </summary>
+        [Input("roleMappings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>> _mRoleMappings;
+
+        public List<Inputs.IdentityPoolRoleAttachmentRoleMappingArgs>? RoleMappings => _mRoleMappings.GetValue("roleMappings");
+
+        /// <summary>
+        /// The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
+        /// </summary>
+        [Input("roles")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRoles;
+
+        public Dictionary<string, string>? Roles => _mRoles.GetValue("roles");
     }
 }

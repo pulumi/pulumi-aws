@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/app:App")]
-    public sealed class App : global::Pulumi.PolicyResource
+    public sealed class App : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the app.
         /// </summary>
         [Input("appName")]
-        public string? AppName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppName;
+
+        public string? AppName => _mAppName.GetValue("appName");
 
         /// <summary>
         /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         /// </summary>
         [Input("appType")]
-        public string? AppType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppType;
+
+        public string? AppType => _mAppType.GetValue("appType");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the app.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The domain ID.
         /// </summary>
         [Input("domainId")]
-        public string? DomainId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
 
         /// <summary>
         /// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
         /// </summary>
         [Input("resourceSpec")]
-        public AppResourceSpec? ResourceSpec;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppResourceSpec> _mResourceSpec;
+
+        public Outputs.AppResourceSpec? ResourceSpec => _mResourceSpec.GetValue("resourceSpec");
 
         /// <summary>
         /// The name of the space. At least one of `user_profile_name` or `space_name` required.
         /// </summary>
         [Input("spaceName")]
-        public string? SpaceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
+
+        public string? SpaceName => _mSpaceName.GetValue("spaceName");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The user profile name. At least one of `user_profile_name` or `space_name` required.
         /// </summary>
         [Input("userProfileName")]
-        public string? UserProfileName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserProfileName;
+
+        public string? UserProfileName => _mUserProfileName.GetValue("userProfileName");
+    }
+
+    [PolicyResourceType("aws:sagemaker/app:App")]
+    public sealed class AppArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the app.
+        /// </summary>
+        [Input("appName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppName;
+
+        public string? AppName => _mAppName.GetValue("appName");
+
+        /// <summary>
+        /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
+        /// </summary>
+        [Input("appType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppType;
+
+        public string? AppType => _mAppType.GetValue("appType");
+
+        /// <summary>
+        /// The domain ID.
+        /// </summary>
+        [Input("domainId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
+
+        /// <summary>
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        /// </summary>
+        [Input("resourceSpec")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppResourceSpecArgs> _mResourceSpec;
+
+        public Inputs.AppResourceSpecArgs? ResourceSpec => _mResourceSpec.GetValue("resourceSpec");
+
+        /// <summary>
+        /// The name of the space. At least one of `user_profile_name` or `space_name` required.
+        /// </summary>
+        [Input("spaceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
+
+        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The user profile name. At least one of `user_profile_name` or `space_name` required.
+        /// </summary>
+        [Input("userProfileName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserProfileName;
+
+        public string? UserProfileName => _mUserProfileName.GetValue("userProfileName");
     }
 }

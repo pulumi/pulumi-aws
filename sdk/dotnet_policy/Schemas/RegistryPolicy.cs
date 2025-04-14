@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Schemas
 {
     [PolicyResourceType("aws:schemas/registryPolicy:RegistryPolicy")]
-    public sealed class RegistryPolicy : global::Pulumi.PolicyResource
+    public sealed class RegistryPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Resource Policy for EventBridge Schema Registry
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// Name of EventBridge Schema Registry
         /// </summary>
         [Input("registryName")]
-        public string? RegistryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryName;
+
+        public string? RegistryName => _mRegistryName.GetValue("registryName");
+    }
+
+    [PolicyResourceType("aws:schemas/registryPolicy:RegistryPolicy")]
+    public sealed class RegistryPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Resource Policy for EventBridge Schema Registry
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// Name of EventBridge Schema Registry
+        /// </summary>
+        [Input("registryName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryName;
+
+        public string? RegistryName => _mRegistryName.GetValue("registryName");
     }
 }

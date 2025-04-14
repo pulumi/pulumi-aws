@@ -11,90 +11,217 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Batch
 {
     [PolicyResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]
-    public sealed class ComputeEnvironment : global::Pulumi.PolicyResource
+    public sealed class ComputeEnvironment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the compute environment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("computeEnvironmentName")]
-        public string? ComputeEnvironmentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironmentName;
+
+        public string? ComputeEnvironmentName => _mComputeEnvironmentName.GetValue("computeEnvironmentName");
 
         /// <summary>
         /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         /// </summary>
         [Input("computeEnvironmentNamePrefix")]
-        public string? ComputeEnvironmentNamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironmentNamePrefix;
+
+        public string? ComputeEnvironmentNamePrefix => _mComputeEnvironmentNamePrefix.GetValue("computeEnvironmentNamePrefix");
 
         /// <summary>
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         /// </summary>
         [Input("computeResources")]
-        public ComputeEnvironmentComputeResources? ComputeResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ComputeEnvironmentComputeResources> _mComputeResources;
+
+        public Outputs.ComputeEnvironmentComputeResources? ComputeResources => _mComputeResources.GetValue("computeResources");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         [Input("ecsClusterArn")]
-        public string? EcsClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEcsClusterArn;
+
+        public string? EcsClusterArn => _mEcsClusterArn.GetValue("ecsClusterArn");
 
         /// <summary>
         /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
         /// </summary>
         [Input("eksConfiguration")]
-        public ComputeEnvironmentEksConfiguration? EksConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ComputeEnvironmentEksConfiguration> _mEksConfiguration;
+
+        public Outputs.ComputeEnvironmentEksConfiguration? EksConfiguration => _mEksConfiguration.GetValue("eksConfiguration");
 
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Input("serviceRole")]
-        public string? ServiceRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
 
         /// <summary>
         /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// The current status of the compute environment (for example, CREATING or VALID).
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A short, human-readable string to provide additional details about the current status of the compute environment.
         /// </summary>
         [Input("statusReason")]
-        public string? StatusReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
+
+        public string? StatusReason => _mStatusReason.GetValue("statusReason");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Specifies the infrastructure update policy for the compute environment. See details below.
         /// </summary>
         [Input("updatePolicy")]
-        public ComputeEnvironmentUpdatePolicy? UpdatePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ComputeEnvironmentUpdatePolicy> _mUpdatePolicy;
+
+        public Outputs.ComputeEnvironmentUpdatePolicy? UpdatePolicy => _mUpdatePolicy.GetValue("updatePolicy");
+    }
+
+    [PolicyResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]
+    public sealed class ComputeEnvironmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
+        /// </summary>
+        [Input("computeEnvironmentName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironmentName;
+
+        public string? ComputeEnvironmentName => _mComputeEnvironmentName.GetValue("computeEnvironmentName");
+
+        /// <summary>
+        /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
+        /// </summary>
+        [Input("computeEnvironmentNamePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironmentNamePrefix;
+
+        public string? ComputeEnvironmentNamePrefix => _mComputeEnvironmentNamePrefix.GetValue("computeEnvironmentNamePrefix");
+
+        /// <summary>
+        /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+        /// </summary>
+        [Input("computeResources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ComputeEnvironmentComputeResourcesArgs> _mComputeResources;
+
+        public Inputs.ComputeEnvironmentComputeResourcesArgs? ComputeResources => _mComputeResources.GetValue("computeResources");
+
+        /// <summary>
+        /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
+        /// </summary>
+        [Input("eksConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ComputeEnvironmentEksConfigurationArgs> _mEksConfiguration;
+
+        public Inputs.ComputeEnvironmentEksConfigurationArgs? EksConfiguration => _mEksConfiguration.GetValue("eksConfiguration");
+
+        /// <summary>
+        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        /// </summary>
+        [Input("serviceRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
+
+        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+
+        /// <summary>
+        /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// </summary>
+        [Input("updatePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ComputeEnvironmentUpdatePolicyArgs> _mUpdatePolicy;
+
+        public Inputs.ComputeEnvironmentUpdatePolicyArgs? UpdatePolicy => _mUpdatePolicy.GetValue("updatePolicy");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Xray
 {
     [PolicyResourceType("aws:xray/encryptionConfig:EncryptionConfig")]
-    public sealed class EncryptionConfig : global::Pulumi.PolicyResource
+    public sealed class EncryptionConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An AWS KMS customer master key (CMK) ARN.
         /// </summary>
         [Input("keyId")]
-        public string? KeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
 
         /// <summary>
         /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:xray/encryptionConfig:EncryptionConfig")]
+    public sealed class EncryptionConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An AWS KMS customer master key (CMK) ARN.
+        /// </summary>
+        [Input("keyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
+
+        /// <summary>
+        /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

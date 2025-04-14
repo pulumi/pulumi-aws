@@ -11,66 +11,163 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodePipeline
 {
     [PolicyResourceType("aws:codepipeline/webhook:Webhook")]
-    public sealed class Webhook : global::Pulumi.PolicyResource
+    public sealed class Webhook : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The CodePipeline webhook's ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         /// </summary>
         [Input("authentication")]
-        public string? Authentication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthentication;
+
+        public string? Authentication => _mAuthentication.GetValue("authentication");
 
         /// <summary>
         /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         /// </summary>
         [Input("authenticationConfiguration")]
-        public WebhookAuthenticationConfiguration? AuthenticationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebhookAuthenticationConfiguration> _mAuthenticationConfiguration;
+
+        public Outputs.WebhookAuthenticationConfiguration? AuthenticationConfiguration => _mAuthenticationConfiguration.GetValue("authenticationConfiguration");
 
         /// <summary>
         /// One or more `filter` blocks. Filter blocks are documented below.
         /// </summary>
         [Input("filters")]
-        public List<WebhookFilter>? Filters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebhookFilter>> _mFilters;
+
+        public List<Outputs.WebhookFilter>? Filters => _mFilters.GetValue("filters");
 
         /// <summary>
         /// The name of the webhook.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         /// </summary>
         [Input("targetAction")]
-        public string? TargetAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetAction;
+
+        public string? TargetAction => _mTargetAction.GetValue("targetAction");
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
         [Input("targetPipeline")]
-        public string? TargetPipeline;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetPipeline;
+
+        public string? TargetPipeline => _mTargetPipeline.GetValue("targetPipeline");
 
         /// <summary>
         /// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
+    }
+
+    [PolicyResourceType("aws:codepipeline/webhook:Webhook")]
+    public sealed class WebhookArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
+        /// </summary>
+        [Input("authentication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthentication;
+
+        public string? Authentication => _mAuthentication.GetValue("authentication");
+
+        /// <summary>
+        /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
+        /// </summary>
+        [Input("authenticationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebhookAuthenticationConfigurationArgs> _mAuthenticationConfiguration;
+
+        public Inputs.WebhookAuthenticationConfigurationArgs? AuthenticationConfiguration => _mAuthenticationConfiguration.GetValue("authenticationConfiguration");
+
+        /// <summary>
+        /// One or more `filter` blocks. Filter blocks are documented below.
+        /// </summary>
+        [Input("filters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebhookFilterArgs>> _mFilters;
+
+        public List<Inputs.WebhookFilterArgs>? Filters => _mFilters.GetValue("filters");
+
+        /// <summary>
+        /// The name of the webhook.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
+        /// </summary>
+        [Input("targetAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetAction;
+
+        public string? TargetAction => _mTargetAction.GetValue("targetAction");
+
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
+        [Input("targetPipeline")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetPipeline;
+
+        public string? TargetPipeline => _mTargetPipeline.GetValue("targetPipeline");
     }
 }

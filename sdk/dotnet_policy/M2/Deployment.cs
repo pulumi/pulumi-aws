@@ -11,39 +11,112 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.M2
 {
     [PolicyResourceType("aws:m2/deployment:Deployment")]
-    public sealed class Deployment : global::Pulumi.PolicyResource
+    public sealed class Deployment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Application to deploy.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// Version to application to deploy
         /// </summary>
         [Input("applicationVersion")]
-        public int? ApplicationVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationVersion;
+
+        public int? ApplicationVersion => _mApplicationVersion.GetValue("applicationVersion");
 
         [Input("deploymentId")]
-        public string? DeploymentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentId;
+
+        public string? DeploymentId => _mDeploymentId.GetValue("deploymentId");
 
         /// <summary>
         /// Environment to deploy application to.
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         [Input("forceStop")]
-        public bool? ForceStop;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceStop;
+
+        public bool? ForceStop => _mForceStop.GetValue("forceStop");
 
         /// <summary>
         /// Start the application once deployed.
         /// </summary>
         [Input("start")]
-        public bool? Start;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStart;
+
+        public bool? Start => _mStart.GetValue("start");
 
         [Input("timeouts")]
-        public DeploymentTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentTimeouts> _mTimeouts;
+
+        public Outputs.DeploymentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:m2/deployment:Deployment")]
+    public sealed class DeploymentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Application to deploy.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// Version to application to deploy
+        /// </summary>
+        [Input("applicationVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationVersion;
+
+        public int? ApplicationVersion => _mApplicationVersion.GetValue("applicationVersion");
+
+        /// <summary>
+        /// Environment to deploy application to.
+        /// </summary>
+        [Input("environmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+
+        [Input("forceStop")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceStop;
+
+        public bool? ForceStop => _mForceStop.GetValue("forceStop");
+
+        /// <summary>
+        /// Start the application once deployed.
+        /// </summary>
+        [Input("start")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStart;
+
+        public bool? Start => _mStart.GetValue("start");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentTimeoutsArgs> _mTimeouts;
+
+        public Inputs.DeploymentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

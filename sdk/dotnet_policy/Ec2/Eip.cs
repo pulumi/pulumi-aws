@@ -11,131 +11,194 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/eip:Eip")]
-    public sealed class Eip : global::Pulumi.PolicyResource
+    public sealed class Eip : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         /// </summary>
         [Input("address")]
-        public string? Address;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
+
+        public string? Address => _mAddress.GetValue("address");
 
         /// <summary>
         /// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
         /// </summary>
         [Input("allocationId")]
-        public string? AllocationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+
+        public string? AllocationId => _mAllocationId.GetValue("allocationId");
 
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
         [Input("associateWithPrivateIp")]
-        public string? AssociateWithPrivateIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociateWithPrivateIp;
+
+        public string? AssociateWithPrivateIp => _mAssociateWithPrivateIp.GetValue("associateWithPrivateIp");
 
         /// <summary>
         /// ID representing the association of the address with an instance in a VPC.
         /// </summary>
         [Input("associationId")]
-        public string? AssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
+
+        public string? AssociationId => _mAssociationId.GetValue("associationId");
 
         /// <summary>
         /// Carrier IP address.
         /// </summary>
         [Input("carrierIp")]
-        public string? CarrierIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCarrierIp;
+
+        public string? CarrierIp => _mCarrierIp.GetValue("carrierIp");
 
         /// <summary>
         /// Customer owned IP.
         /// </summary>
         [Input("customerOwnedIp")]
-        public string? CustomerOwnedIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIp;
+
+        public string? CustomerOwnedIp => _mCustomerOwnedIp.GetValue("customerOwnedIp");
 
         /// <summary>
         /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         /// </summary>
         [Input("customerOwnedIpv4Pool")]
-        public string? CustomerOwnedIpv4Pool;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
+
+        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
 
         /// <summary>
         /// Indicates if this EIP is for use in VPC (`vpc`).
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// EC2 instance ID.
         /// </summary>
         [Input("instance")]
-        public string? Instance;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
+
+        public string? Instance => _mInstance.GetValue("instance");
 
         /// <summary>
         /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         /// </summary>
         [Input("ipamPoolId")]
-        public string? IpamPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
+
+        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
 
         /// <summary>
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         /// </summary>
         [Input("networkBorderGroup")]
-        public string? NetworkBorderGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkBorderGroup;
+
+        public string? NetworkBorderGroup => _mNetworkBorderGroup.GetValue("networkBorderGroup");
 
         /// <summary>
         /// Network interface ID to associate with.
         /// </summary>
         [Input("networkInterface")]
-        public string? NetworkInterface;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterface;
+
+        public string? NetworkInterface => _mNetworkInterface.GetValue("networkInterface");
 
         /// <summary>
         /// The Private DNS associated with the Elastic IP address (if in VPC).
         /// </summary>
         [Input("privateDns")]
-        public string? PrivateDns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDns;
+
+        public string? PrivateDns => _mPrivateDns.GetValue("privateDns");
 
         /// <summary>
         /// Contains the private IP address (if in VPC).
         /// </summary>
         [Input("privateIp")]
-        public string? PrivateIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
+
+        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
 
         /// <summary>
         /// The DNS pointer (PTR) record for the IP address.
         /// </summary>
         [Input("ptrRecord")]
-        public string? PtrRecord;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPtrRecord;
+
+        public string? PtrRecord => _mPtrRecord.GetValue("ptrRecord");
 
         /// <summary>
         /// Public DNS associated with the Elastic IP address.
         /// </summary>
         [Input("publicDns")]
-        public string? PublicDns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDns;
+
+        public string? PublicDns => _mPublicDns.GetValue("publicDns");
 
         /// <summary>
         /// Contains the public IP address.
         /// </summary>
         [Input("publicIp")]
-        public string? PublicIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
+
+        public string? PublicIp => _mPublicIp.GetValue("publicIp");
 
         /// <summary>
         /// EC2 IPv4 address pool identifier or `amazon`.
         /// This option is only available for VPC EIPs.
         /// </summary>
         [Input("publicIpv4Pool")]
-        public string? PublicIpv4Pool;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpv4Pool;
+
+        public string? PublicIpv4Pool => _mPublicIpv4Pool.GetValue("publicIpv4Pool");
 
         /// <summary>
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -147,6 +210,119 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// case both options are defined as the api only requires one or the other.
         /// </summary>
         [Input("vpc")]
-        public bool? Vpc;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mVpc;
+
+        public bool? Vpc => _mVpc.GetValue("vpc");
+    }
+
+    [PolicyResourceType("aws:ec2/eip:Eip")]
+    public sealed class EipArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
+        /// </summary>
+        [Input("address")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
+
+        public string? Address => _mAddress.GetValue("address");
+
+        /// <summary>
+        /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
+        /// </summary>
+        [Input("associateWithPrivateIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociateWithPrivateIp;
+
+        public string? AssociateWithPrivateIp => _mAssociateWithPrivateIp.GetValue("associateWithPrivateIp");
+
+        /// <summary>
+        /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
+
+        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+
+        /// <summary>
+        /// Indicates if this EIP is for use in VPC (`vpc`).
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// EC2 instance ID.
+        /// </summary>
+        [Input("instance")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
+
+        public string? Instance => _mInstance.GetValue("instance");
+
+        /// <summary>
+        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        /// </summary>
+        [Input("ipamPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
+
+        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+
+        /// <summary>
+        /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
+        /// </summary>
+        [Input("networkBorderGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkBorderGroup;
+
+        public string? NetworkBorderGroup => _mNetworkBorderGroup.GetValue("networkBorderGroup");
+
+        /// <summary>
+        /// Network interface ID to associate with.
+        /// </summary>
+        [Input("networkInterface")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterface;
+
+        public string? NetworkInterface => _mNetworkInterface.GetValue("networkInterface");
+
+        /// <summary>
+        /// EC2 IPv4 address pool identifier or `amazon`.
+        /// This option is only available for VPC EIPs.
+        /// </summary>
+        [Input("publicIpv4Pool")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpv4Pool;
+
+        public string? PublicIpv4Pool => _mPublicIpv4Pool.GetValue("publicIpv4Pool");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
+        /// Defaults to `true` unless the region supports EC2-Classic.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
+        /// case both options are defined as the api only requires one or the other.
+        /// </summary>
+        [Input("vpc")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mVpc;
+
+        public bool? Vpc => _mVpc.GetValue("vpc");
     }
 }

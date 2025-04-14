@@ -11,48 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/outboundConnection:OutboundConnection")]
-    public sealed class OutboundConnection : global::Pulumi.PolicyResource
+    public sealed class OutboundConnection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Accepts the connection.
         /// </summary>
         [Input("acceptConnection")]
-        public bool? AcceptConnection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptConnection;
+
+        public bool? AcceptConnection => _mAcceptConnection.GetValue("acceptConnection");
 
         /// <summary>
         /// Specifies the connection alias that will be used by the customer for this connection.
         /// </summary>
         [Input("connectionAlias")]
-        public string? ConnectionAlias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionAlias;
+
+        public string? ConnectionAlias => _mConnectionAlias.GetValue("connectionAlias");
 
         /// <summary>
         /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         /// </summary>
         [Input("connectionMode")]
-        public string? ConnectionMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionMode;
+
+        public string? ConnectionMode => _mConnectionMode.GetValue("connectionMode");
 
         /// <summary>
         /// Configuration block for the outbound connection.
         /// </summary>
         [Input("connectionProperties")]
-        public OutboundConnectionConnectionProperties? ConnectionProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OutboundConnectionConnectionProperties> _mConnectionProperties;
+
+        public Outputs.OutboundConnectionConnectionProperties? ConnectionProperties => _mConnectionProperties.GetValue("connectionProperties");
 
         /// <summary>
         /// Status of the connection request.
         /// </summary>
         [Input("connectionStatus")]
-        public string? ConnectionStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionStatus;
+
+        public string? ConnectionStatus => _mConnectionStatus.GetValue("connectionStatus");
 
         /// <summary>
         /// Configuration block for the local Opensearch domain.
         /// </summary>
         [Input("localDomainInfo")]
-        public OutboundConnectionLocalDomainInfo? LocalDomainInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OutboundConnectionLocalDomainInfo> _mLocalDomainInfo;
+
+        public Outputs.OutboundConnectionLocalDomainInfo? LocalDomainInfo => _mLocalDomainInfo.GetValue("localDomainInfo");
 
         /// <summary>
         /// Configuration block for the remote Opensearch domain.
         /// </summary>
         [Input("remoteDomainInfo")]
-        public OutboundConnectionRemoteDomainInfo? RemoteDomainInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OutboundConnectionRemoteDomainInfo> _mRemoteDomainInfo;
+
+        public Outputs.OutboundConnectionRemoteDomainInfo? RemoteDomainInfo => _mRemoteDomainInfo.GetValue("remoteDomainInfo");
+    }
+
+    [PolicyResourceType("aws:opensearch/outboundConnection:OutboundConnection")]
+    public sealed class OutboundConnectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Accepts the connection.
+        /// </summary>
+        [Input("acceptConnection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptConnection;
+
+        public bool? AcceptConnection => _mAcceptConnection.GetValue("acceptConnection");
+
+        /// <summary>
+        /// Specifies the connection alias that will be used by the customer for this connection.
+        /// </summary>
+        [Input("connectionAlias")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionAlias;
+
+        public string? ConnectionAlias => _mConnectionAlias.GetValue("connectionAlias");
+
+        /// <summary>
+        /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+        /// </summary>
+        [Input("connectionMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionMode;
+
+        public string? ConnectionMode => _mConnectionMode.GetValue("connectionMode");
+
+        /// <summary>
+        /// Configuration block for the outbound connection.
+        /// </summary>
+        [Input("connectionProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OutboundConnectionConnectionPropertiesArgs> _mConnectionProperties;
+
+        public Inputs.OutboundConnectionConnectionPropertiesArgs? ConnectionProperties => _mConnectionProperties.GetValue("connectionProperties");
+
+        /// <summary>
+        /// Configuration block for the local Opensearch domain.
+        /// </summary>
+        [Input("localDomainInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OutboundConnectionLocalDomainInfoArgs> _mLocalDomainInfo;
+
+        public Inputs.OutboundConnectionLocalDomainInfoArgs? LocalDomainInfo => _mLocalDomainInfo.GetValue("localDomainInfo");
+
+        /// <summary>
+        /// Configuration block for the remote Opensearch domain.
+        /// </summary>
+        [Input("remoteDomainInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OutboundConnectionRemoteDomainInfoArgs> _mRemoteDomainInfo;
+
+        public Inputs.OutboundConnectionRemoteDomainInfoArgs? RemoteDomainInfo => _mRemoteDomainInfo.GetValue("remoteDomainInfo");
     }
 }

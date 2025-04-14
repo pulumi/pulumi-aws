@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MediaStore
 {
     [PolicyResourceType("aws:mediastore/containerPolicy:ContainerPolicy")]
-    public sealed class ContainerPolicy : global::Pulumi.PolicyResource
+    public sealed class ContainerPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the container.
         /// </summary>
         [Input("containerName")]
-        public string? ContainerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainerName;
+
+        public string? ContainerName => _mContainerName.GetValue("containerName");
 
         /// <summary>
         /// The contents of the policy.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+    }
+
+    [PolicyResourceType("aws:mediastore/containerPolicy:ContainerPolicy")]
+    public sealed class ContainerPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the container.
+        /// </summary>
+        [Input("containerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainerName;
+
+        public string? ContainerName => _mContainerName.GetValue("containerName");
+
+        /// <summary>
+        /// The contents of the policy.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
     }
 }

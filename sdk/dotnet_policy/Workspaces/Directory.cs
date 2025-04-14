@@ -11,108 +11,235 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Workspaces
 {
     [PolicyResourceType("aws:workspaces/directory:Directory")]
-    public sealed class Directory : global::Pulumi.PolicyResource
+    public sealed class Directory : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The directory alias.
         /// </summary>
         [Input("alias")]
-        public string? Alias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+
+        public string? Alias => _mAlias.GetValue("alias");
 
         /// <summary>
         /// The user name for the service account.
         /// </summary>
         [Input("customerUserName")]
-        public string? CustomerUserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerUserName;
+
+        public string? CustomerUserName => _mCustomerUserName.GetValue("customerUserName");
 
         /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// The name of the directory.
         /// </summary>
         [Input("directoryName")]
-        public string? DirectoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryName;
+
+        public string? DirectoryName => _mDirectoryName.GetValue("directoryName");
 
         /// <summary>
         /// The directory type.
         /// </summary>
         [Input("directoryType")]
-        public string? DirectoryType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryType;
+
+        public string? DirectoryType => _mDirectoryType.GetValue("directoryType");
 
         /// <summary>
         /// The IP addresses of the DNS servers for the directory.
         /// </summary>
         [Input("dnsIpAddresses")]
-        public List<string>? DnsIpAddresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIpAddresses;
+
+        public List<string>? DnsIpAddresses => _mDnsIpAddresses.GetValue("dnsIpAddresses");
 
         /// <summary>
         /// The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         /// </summary>
         [Input("iamRoleId")]
-        public string? IamRoleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleId;
+
+        public string? IamRoleId => _mIamRoleId.GetValue("iamRoleId");
 
         /// <summary>
         /// The identifiers of the IP access control groups associated with the directory.
         /// </summary>
         [Input("ipGroupIds")]
-        public List<string>? IpGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpGroupIds;
+
+        public List<string>? IpGroupIds => _mIpGroupIds.GetValue("ipGroupIds");
 
         /// <summary>
         /// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         /// </summary>
         [Input("registrationCode")]
-        public string? RegistrationCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistrationCode;
+
+        public string? RegistrationCode => _mRegistrationCode.GetValue("registrationCode");
 
         /// <summary>
         /// Configuration of SAML authentication integration. Defined below.
         /// </summary>
         [Input("samlProperties")]
-        public DirectorySamlProperties? SamlProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectorySamlProperties> _mSamlProperties;
+
+        public Outputs.DirectorySamlProperties? SamlProperties => _mSamlProperties.GetValue("samlProperties");
 
         /// <summary>
         /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
         [Input("selfServicePermissions")]
-        public DirectorySelfServicePermissions? SelfServicePermissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectorySelfServicePermissions> _mSelfServicePermissions;
+
+        public Outputs.DirectorySelfServicePermissions? SelfServicePermissions => _mSelfServicePermissions.GetValue("selfServicePermissions");
 
         /// <summary>
         /// The identifiers of the subnets where the directory resides.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         /// </summary>
         [Input("workspaceAccessProperties")]
-        public DirectoryWorkspaceAccessProperties? WorkspaceAccessProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryWorkspaceAccessProperties> _mWorkspaceAccessProperties;
+
+        public Outputs.DirectoryWorkspaceAccessProperties? WorkspaceAccessProperties => _mWorkspaceAccessProperties.GetValue("workspaceAccessProperties");
 
         /// <summary>
         /// Default properties that are used for creating WorkSpaces. Defined below.
         /// </summary>
         [Input("workspaceCreationProperties")]
-        public DirectoryWorkspaceCreationProperties? WorkspaceCreationProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryWorkspaceCreationProperties> _mWorkspaceCreationProperties;
+
+        public Outputs.DirectoryWorkspaceCreationProperties? WorkspaceCreationProperties => _mWorkspaceCreationProperties.GetValue("workspaceCreationProperties");
 
         /// <summary>
         /// The identifier of the security group that is assigned to new WorkSpaces.
         /// </summary>
         [Input("workspaceSecurityGroupId")]
-        public string? WorkspaceSecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceSecurityGroupId;
+
+        public string? WorkspaceSecurityGroupId => _mWorkspaceSecurityGroupId.GetValue("workspaceSecurityGroupId");
+    }
+
+    [PolicyResourceType("aws:workspaces/directory:Directory")]
+    public sealed class DirectoryArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The directory identifier for registration in WorkSpaces service.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// The identifiers of the IP access control groups associated with the directory.
+        /// </summary>
+        [Input("ipGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpGroupIds;
+
+        public List<string>? IpGroupIds => _mIpGroupIds.GetValue("ipGroupIds");
+
+        /// <summary>
+        /// Configuration of SAML authentication integration. Defined below.
+        /// </summary>
+        [Input("samlProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectorySamlPropertiesArgs> _mSamlProperties;
+
+        public Inputs.DirectorySamlPropertiesArgs? SamlProperties => _mSamlProperties.GetValue("samlProperties");
+
+        /// <summary>
+        /// Permissions to enable or disable self-service capabilities. Defined below.
+        /// </summary>
+        [Input("selfServicePermissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectorySelfServicePermissionsArgs> _mSelfServicePermissions;
+
+        public Inputs.DirectorySelfServicePermissionsArgs? SelfServicePermissions => _mSelfServicePermissions.GetValue("selfServicePermissions");
+
+        /// <summary>
+        /// The identifiers of the subnets where the directory resides.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        /// </summary>
+        [Input("workspaceAccessProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryWorkspaceAccessPropertiesArgs> _mWorkspaceAccessProperties;
+
+        public Inputs.DirectoryWorkspaceAccessPropertiesArgs? WorkspaceAccessProperties => _mWorkspaceAccessProperties.GetValue("workspaceAccessProperties");
+
+        /// <summary>
+        /// Default properties that are used for creating WorkSpaces. Defined below.
+        /// </summary>
+        [Input("workspaceCreationProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryWorkspaceCreationPropertiesArgs> _mWorkspaceCreationProperties;
+
+        public Inputs.DirectoryWorkspaceCreationPropertiesArgs? WorkspaceCreationProperties => _mWorkspaceCreationProperties.GetValue("workspaceCreationProperties");
     }
 }

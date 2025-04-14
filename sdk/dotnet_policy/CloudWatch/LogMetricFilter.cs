@@ -11,31 +11,84 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logMetricFilter:LogMetricFilter")]
-    public sealed class LogMetricFilter : global::Pulumi.PolicyResource
+    public sealed class LogMetricFilter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the log group to associate the metric filter with.
         /// </summary>
         [Input("logGroupName")]
-        public string? LogGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
 
         /// <summary>
         /// A block defining collection of information needed to define how metric data gets emitted. See below.
         /// </summary>
         [Input("metricTransformation")]
-        public LogMetricFilterMetricTransformation? MetricTransformation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LogMetricFilterMetricTransformation> _mMetricTransformation;
+
+        public Outputs.LogMetricFilterMetricTransformation? MetricTransformation => _mMetricTransformation.GetValue("metricTransformation");
 
         /// <summary>
         /// A name for the metric filter.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
         /// for extracting metric data out of ingested log events.
         /// </summary>
         [Input("pattern")]
-        public string? Pattern;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
+
+        public string? Pattern => _mPattern.GetValue("pattern");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logMetricFilter:LogMetricFilter")]
+    public sealed class LogMetricFilterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the log group to associate the metric filter with.
+        /// </summary>
+        [Input("logGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+
+        /// <summary>
+        /// A block defining collection of information needed to define how metric data gets emitted. See below.
+        /// </summary>
+        [Input("metricTransformation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LogMetricFilterMetricTransformationArgs> _mMetricTransformation;
+
+        public Inputs.LogMetricFilterMetricTransformationArgs? MetricTransformation => _mMetricTransformation.GetValue("metricTransformation");
+
+        /// <summary>
+        /// A name for the metric filter.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
+        /// for extracting metric data out of ingested log events.
+        /// </summary>
+        [Input("pattern")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
+
+        public string? Pattern => _mPattern.GetValue("pattern");
     }
 }

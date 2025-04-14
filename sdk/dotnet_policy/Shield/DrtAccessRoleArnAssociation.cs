@@ -11,15 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Shield
 {
     [PolicyResourceType("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation")]
-    public sealed class DrtAccessRoleArnAssociation : global::Pulumi.PolicyResource
+    public sealed class DrtAccessRoleArnAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         [Input("timeouts")]
-        public DrtAccessRoleArnAssociationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DrtAccessRoleArnAssociationTimeouts> _mTimeouts;
+
+        public Outputs.DrtAccessRoleArnAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation")]
+    public sealed class DrtAccessRoleArnAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DrtAccessRoleArnAssociationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.DrtAccessRoleArnAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

@@ -11,33 +11,76 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GameLift
 {
     [PolicyResourceType("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")]
-    public sealed class MatchmakingRuleSet : global::Pulumi.PolicyResource
+    public sealed class MatchmakingRuleSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Rule Set ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the matchmaking rule set.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// JSON encoded string containing rule set data.
         /// </summary>
         [Input("ruleSetBody")]
-        public string? RuleSetBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetBody;
+
+        public string? RuleSetBody => _mRuleSetBody.GetValue("ruleSetBody");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")]
+    public sealed class MatchmakingRuleSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the matchmaking rule set.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// JSON encoded string containing rule set data.
+        /// </summary>
+        [Input("ruleSetBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetBody;
+
+        public string? RuleSetBody => _mRuleSetBody.GetValue("ruleSetBody");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

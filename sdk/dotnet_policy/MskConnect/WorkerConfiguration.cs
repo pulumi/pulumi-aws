@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MskConnect
 {
     [PolicyResourceType("aws:mskconnect/workerConfiguration:WorkerConfiguration")]
-    public sealed class WorkerConfiguration : global::Pulumi.PolicyResource
+    public sealed class WorkerConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// the Amazon Resource Name (ARN) of the worker configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A summary description of the worker configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// an ID of the latest successfully created revision of the worker configuration.
         /// </summary>
         [Input("latestRevision")]
-        public int? LatestRevision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLatestRevision;
+
+        public int? LatestRevision => _mLatestRevision.GetValue("latestRevision");
 
         /// <summary>
         /// The name of the worker configuration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
@@ -43,18 +55,69 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect
         /// The following arguments are optional:
         /// </summary>
         [Input("propertiesFileContent")]
-        public string? PropertiesFileContent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPropertiesFileContent;
+
+        public string? PropertiesFileContent => _mPropertiesFileContent.GetValue("propertiesFileContent");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:mskconnect/workerConfiguration:WorkerConfiguration")]
+    public sealed class WorkerConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A summary description of the worker configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the worker configuration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("propertiesFileContent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPropertiesFileContent;
+
+        public string? PropertiesFileContent => _mPropertiesFileContent.GetValue("propertiesFileContent");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

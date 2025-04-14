@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/function:Function")]
-    public sealed class Function : global::Pulumi.PolicyResource
+    public sealed class Function : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) identifying your CloudFront Function.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Source code of the function
         /// </summary>
         [Input("code")]
-        public string? Code;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+
+        public string? Code => _mCode.GetValue("code");
 
         /// <summary>
         /// Comment.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
         /// </summary>
         [Input("keyValueStoreAssociations")]
-        public List<string>? KeyValueStoreAssociations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeyValueStoreAssociations;
+
+        public List<string>? KeyValueStoreAssociations => _mKeyValueStoreAssociations.GetValue("keyValueStoreAssociations");
 
         /// <summary>
         /// ETag hash of any `LIVE` stage of the function.
         /// </summary>
         [Input("liveStageEtag")]
-        public string? LiveStageEtag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLiveStageEtag;
+
+        public string? LiveStageEtag => _mLiveStageEtag.GetValue("liveStageEtag");
 
         /// <summary>
         /// Unique name for your CloudFront Function.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         /// </summary>
         [Input("publish")]
-        public bool? Publish;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPublish;
+
+        public bool? Publish => _mPublish.GetValue("publish");
 
         /// <summary>
         /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
@@ -67,12 +91,78 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// The following arguments are optional:
         /// </summary>
         [Input("runtime")]
-        public string? Runtime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
+
+        public string? Runtime => _mRuntime.GetValue("runtime");
 
         /// <summary>
         /// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:cloudfront/function:Function")]
+    public sealed class FunctionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Source code of the function
+        /// </summary>
+        [Input("code")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+
+        public string? Code => _mCode.GetValue("code");
+
+        /// <summary>
+        /// Comment.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        /// </summary>
+        [Input("keyValueStoreAssociations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeyValueStoreAssociations;
+
+        public List<string>? KeyValueStoreAssociations => _mKeyValueStoreAssociations.GetValue("keyValueStoreAssociations");
+
+        /// <summary>
+        /// Unique name for your CloudFront Function.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+        /// </summary>
+        [Input("publish")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPublish;
+
+        public bool? Publish => _mPublish.GetValue("publish");
+
+        /// <summary>
+        /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("runtime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
+
+        public string? Runtime => _mRuntime.GetValue("runtime");
     }
 }

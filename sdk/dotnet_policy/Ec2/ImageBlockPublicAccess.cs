@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess")]
-    public sealed class ImageBlockPublicAccess : global::Pulumi.PolicyResource
+    public sealed class ImageBlockPublicAccess : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+    }
+
+    [PolicyResourceType("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess")]
+    public sealed class ImageBlockPublicAccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
     }
 }

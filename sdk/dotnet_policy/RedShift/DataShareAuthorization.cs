@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/dataShareAuthorization:DataShareAuthorization")]
-    public sealed class DataShareAuthorization : global::Pulumi.PolicyResource
+    public sealed class DataShareAuthorization : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether to allow write operations for a datashare.
         /// </summary>
         [Input("allowWrites")]
-        public bool? AllowWrites;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowWrites;
+
+        public bool? AllowWrites => _mAllowWrites.GetValue("allowWrites");
 
         /// <summary>
         /// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
         /// </summary>
         [Input("consumerIdentifier")]
-        public string? ConsumerIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerIdentifier;
+
+        public string? ConsumerIdentifier => _mConsumerIdentifier.GetValue("consumerIdentifier");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
@@ -31,18 +37,60 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// The following arguments are optional:
         /// </summary>
         [Input("dataShareArn")]
-        public string? DataShareArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataShareArn;
+
+        public string? DataShareArn => _mDataShareArn.GetValue("dataShareArn");
 
         /// <summary>
         /// Identifier of a datashare to show its managing entity.
         /// </summary>
         [Input("managedBy")]
-        public string? ManagedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManagedBy;
+
+        public string? ManagedBy => _mManagedBy.GetValue("managedBy");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the producer.
         /// </summary>
         [Input("producerArn")]
-        public string? ProducerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProducerArn;
+
+        public string? ProducerArn => _mProducerArn.GetValue("producerArn");
+    }
+
+    [PolicyResourceType("aws:redshift/dataShareAuthorization:DataShareAuthorization")]
+    public sealed class DataShareAuthorizationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to allow write operations for a datashare.
+        /// </summary>
+        [Input("allowWrites")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowWrites;
+
+        public bool? AllowWrites => _mAllowWrites.GetValue("allowWrites");
+
+        /// <summary>
+        /// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
+        /// </summary>
+        [Input("consumerIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerIdentifier;
+
+        public string? ConsumerIdentifier => _mConsumerIdentifier.GetValue("consumerIdentifier");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("dataShareArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataShareArn;
+
+        public string? DataShareArn => _mDataShareArn.GetValue("dataShareArn");
     }
 }

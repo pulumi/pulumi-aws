@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
 {
     [PolicyResourceType("aws:verifiedpermissions/schema:Schema")]
-    public sealed class Schema : global::Pulumi.PolicyResource
+    public sealed class Schema : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The definition of the schema.
         /// </summary>
         [Input("definition")]
-        public SchemaDefinition? Definition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SchemaDefinition> _mDefinition;
+
+        public Outputs.SchemaDefinition? Definition => _mDefinition.GetValue("definition");
 
         /// <summary>
         /// (Optional) Identifies the namespaces of the entities referenced by this schema.
         /// </summary>
         [Input("namespaces")]
-        public List<string>? Namespaces;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNamespaces;
+
+        public List<string>? Namespaces => _mNamespaces.GetValue("namespaces");
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
         [Input("policyStoreId")]
-        public string? PolicyStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+    }
+
+    [PolicyResourceType("aws:verifiedpermissions/schema:Schema")]
+    public sealed class SchemaArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The definition of the schema.
+        /// </summary>
+        [Input("definition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SchemaDefinitionArgs> _mDefinition;
+
+        public Inputs.SchemaDefinitionArgs? Definition => _mDefinition.GetValue("definition");
+
+        /// <summary>
+        /// The ID of the Policy Store.
+        /// </summary>
+        [Input("policyStoreId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
     }
 }

@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Msk
 {
     [PolicyResourceType("aws:msk/configuration:Configuration")]
-    public sealed class Configuration : global::Pulumi.PolicyResource
+    public sealed class Configuration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// List of Apache Kafka versions which can use this configuration.
         /// </summary>
         [Input("kafkaVersions")]
-        public List<string>? KafkaVersions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKafkaVersions;
+
+        public List<string>? KafkaVersions => _mKafkaVersions.GetValue("kafkaVersions");
 
         /// <summary>
         /// Latest revision of the configuration.
         /// </summary>
         [Input("latestRevision")]
-        public int? LatestRevision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLatestRevision;
+
+        public int? LatestRevision => _mLatestRevision.GetValue("latestRevision");
 
         /// <summary>
         /// Name of the configuration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         /// </summary>
         [Input("serverProperties")]
-        public string? ServerProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerProperties;
+
+        public string? ServerProperties => _mServerProperties.GetValue("serverProperties");
+    }
+
+    [PolicyResourceType("aws:msk/configuration:Configuration")]
+    public sealed class ConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// List of Apache Kafka versions which can use this configuration.
+        /// </summary>
+        [Input("kafkaVersions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKafkaVersions;
+
+        public List<string>? KafkaVersions => _mKafkaVersions.GetValue("kafkaVersions");
+
+        /// <summary>
+        /// Name of the configuration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
+        /// </summary>
+        [Input("serverProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerProperties;
+
+        public string? ServerProperties => _mServerProperties.GetValue("serverProperties");
     }
 }

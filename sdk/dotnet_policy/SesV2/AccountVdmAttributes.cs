@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/accountVdmAttributes:AccountVdmAttributes")]
-    public sealed class AccountVdmAttributes : global::Pulumi.PolicyResource
+    public sealed class AccountVdmAttributes : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         [Input("dashboardAttributes")]
-        public AccountVdmAttributesDashboardAttributes? DashboardAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AccountVdmAttributesDashboardAttributes> _mDashboardAttributes;
+
+        public Outputs.AccountVdmAttributesDashboardAttributes? DashboardAttributes => _mDashboardAttributes.GetValue("dashboardAttributes");
 
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         [Input("guardianAttributes")]
-        public AccountVdmAttributesGuardianAttributes? GuardianAttributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AccountVdmAttributesGuardianAttributes> _mGuardianAttributes;
+
+        public Outputs.AccountVdmAttributesGuardianAttributes? GuardianAttributes => _mGuardianAttributes.GetValue("guardianAttributes");
 
         /// <summary>
         /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
@@ -31,6 +37,42 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// The following arguments are optional:
         /// </summary>
         [Input("vdmEnabled")]
-        public string? VdmEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVdmEnabled;
+
+        public string? VdmEnabled => _mVdmEnabled.GetValue("vdmEnabled");
+    }
+
+    [PolicyResourceType("aws:sesv2/accountVdmAttributes:AccountVdmAttributes")]
+    public sealed class AccountVdmAttributesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        /// </summary>
+        [Input("dashboardAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AccountVdmAttributesDashboardAttributesArgs> _mDashboardAttributes;
+
+        public Inputs.AccountVdmAttributesDashboardAttributesArgs? DashboardAttributes => _mDashboardAttributes.GetValue("dashboardAttributes");
+
+        /// <summary>
+        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        /// </summary>
+        [Input("guardianAttributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AccountVdmAttributesGuardianAttributesArgs> _mGuardianAttributes;
+
+        public Inputs.AccountVdmAttributesGuardianAttributesArgs? GuardianAttributes => _mGuardianAttributes.GetValue("guardianAttributes");
+
+        /// <summary>
+        /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vdmEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVdmEnabled;
+
+        public string? VdmEnabled => _mVdmEnabled.GetValue("vdmEnabled");
     }
 }

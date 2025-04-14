@@ -11,61 +11,156 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")]
-    public sealed class BucketWebsiteConfigurationV2 : global::Pulumi.PolicyResource
+    public sealed class BucketWebsiteConfigurationV2 : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Name of the error document for the website. See below.
         /// </summary>
         [Input("errorDocument")]
-        public BucketWebsiteConfigurationV2ErrorDocument? ErrorDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketWebsiteConfigurationV2ErrorDocument> _mErrorDocument;
+
+        public Outputs.BucketWebsiteConfigurationV2ErrorDocument? ErrorDocument => _mErrorDocument.GetValue("errorDocument");
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
-        public string? ExpectedBucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
 
         /// <summary>
         /// Name of the index document for the website. See below.
         /// </summary>
         [Input("indexDocument")]
-        public BucketWebsiteConfigurationV2IndexDocument? IndexDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketWebsiteConfigurationV2IndexDocument> _mIndexDocument;
+
+        public Outputs.BucketWebsiteConfigurationV2IndexDocument? IndexDocument => _mIndexDocument.GetValue("indexDocument");
 
         /// <summary>
         /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
         /// </summary>
         [Input("redirectAllRequestsTo")]
-        public BucketWebsiteConfigurationV2RedirectAllRequestsTo? RedirectAllRequestsTo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketWebsiteConfigurationV2RedirectAllRequestsTo> _mRedirectAllRequestsTo;
+
+        public Outputs.BucketWebsiteConfigurationV2RedirectAllRequestsTo? RedirectAllRequestsTo => _mRedirectAllRequestsTo.GetValue("redirectAllRequestsTo");
 
         /// <summary>
         /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         /// </summary>
         [Input("routingRuleDetails")]
-        public string? RoutingRuleDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingRuleDetails;
+
+        public string? RoutingRuleDetails => _mRoutingRuleDetails.GetValue("routingRuleDetails");
 
         /// <summary>
         /// List of rules that define when a redirect is applied and the redirect behavior. See below.
         /// </summary>
         [Input("routingRules")]
-        public List<BucketWebsiteConfigurationV2RoutingRule>? RoutingRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketWebsiteConfigurationV2RoutingRule>> _mRoutingRules;
+
+        public List<Outputs.BucketWebsiteConfigurationV2RoutingRule>? RoutingRules => _mRoutingRules.GetValue("routingRules");
 
         /// <summary>
         /// Domain of the website endpoint. This is used to create Route 53 alias records.
         /// </summary>
         [Input("websiteDomain")]
-        public string? WebsiteDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteDomain;
+
+        public string? WebsiteDomain => _mWebsiteDomain.GetValue("websiteDomain");
 
         /// <summary>
         /// Website endpoint.
         /// </summary>
         [Input("websiteEndpoint")]
-        public string? WebsiteEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteEndpoint;
+
+        public string? WebsiteEndpoint => _mWebsiteEndpoint.GetValue("websiteEndpoint");
+    }
+
+    [PolicyResourceType("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")]
+    public sealed class BucketWebsiteConfigurationV2Args : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Name of the error document for the website. See below.
+        /// </summary>
+        [Input("errorDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs> _mErrorDocument;
+
+        public Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs? ErrorDocument => _mErrorDocument.GetValue("errorDocument");
+
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+
+        /// <summary>
+        /// Name of the index document for the website. See below.
+        /// </summary>
+        [Input("indexDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs> _mIndexDocument;
+
+        public Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs? IndexDocument => _mIndexDocument.GetValue("indexDocument");
+
+        /// <summary>
+        /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
+        /// </summary>
+        [Input("redirectAllRequestsTo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketWebsiteConfigurationV2RedirectAllRequestsToArgs> _mRedirectAllRequestsTo;
+
+        public Inputs.BucketWebsiteConfigurationV2RedirectAllRequestsToArgs? RedirectAllRequestsTo => _mRedirectAllRequestsTo.GetValue("redirectAllRequestsTo");
+
+        /// <summary>
+        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+        /// </summary>
+        [Input("routingRuleDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingRuleDetails;
+
+        public string? RoutingRuleDetails => _mRoutingRuleDetails.GetValue("routingRuleDetails");
+
+        /// <summary>
+        /// List of rules that define when a redirect is applied and the redirect behavior. See below.
+        /// </summary>
+        [Input("routingRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketWebsiteConfigurationV2RoutingRuleArgs>> _mRoutingRules;
+
+        public List<Inputs.BucketWebsiteConfigurationV2RoutingRuleArgs>? RoutingRules => _mRoutingRules.GetValue("routingRules");
     }
 }

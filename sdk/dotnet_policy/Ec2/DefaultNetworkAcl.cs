@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl")]
-    public sealed class DefaultNetworkAcl : global::Pulumi.PolicyResource
+    public sealed class DefaultNetworkAcl : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Default Network ACL
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
@@ -25,48 +28,123 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The following arguments are optional:
         /// </summary>
         [Input("defaultNetworkAclId")]
-        public string? DefaultNetworkAclId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultNetworkAclId;
+
+        public string? DefaultNetworkAclId => _mDefaultNetworkAclId.GetValue("defaultNetworkAclId");
 
         /// <summary>
         /// Configuration block for an egress rule. Detailed below.
         /// </summary>
         [Input("egress")]
-        public List<DefaultNetworkAclEgress>? Egress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultNetworkAclEgress>> _mEgress;
+
+        public List<Outputs.DefaultNetworkAclEgress>? Egress => _mEgress.GetValue("egress");
 
         /// <summary>
         /// Configuration block for an ingress rule. Detailed below.
         /// </summary>
         [Input("ingress")]
-        public List<DefaultNetworkAclIngress>? Ingress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultNetworkAclIngress>> _mIngress;
+
+        public List<Outputs.DefaultNetworkAclIngress>? Ingress => _mIngress.GetValue("ingress");
 
         /// <summary>
         /// ID of the AWS account that owns the Default Network ACL
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// ID of the associated VPC
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl")]
+    public sealed class DefaultNetworkAclArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("defaultNetworkAclId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultNetworkAclId;
+
+        public string? DefaultNetworkAclId => _mDefaultNetworkAclId.GetValue("defaultNetworkAclId");
+
+        /// <summary>
+        /// Configuration block for an egress rule. Detailed below.
+        /// </summary>
+        [Input("egress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultNetworkAclEgressArgs>> _mEgress;
+
+        public List<Inputs.DefaultNetworkAclEgressArgs>? Egress => _mEgress.GetValue("egress");
+
+        /// <summary>
+        /// Configuration block for an ingress rule. Detailed below.
+        /// </summary>
+        [Input("ingress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultNetworkAclIngressArgs>> _mIngress;
+
+        public List<Inputs.DefaultNetworkAclIngressArgs>? Ingress => _mIngress.GetValue("ingress");
+
+        /// <summary>
+        /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,20 +11,26 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/intent:Intent")]
-    public sealed class Intent : global::Pulumi.PolicyResource
+    public sealed class Intent : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Lex intent.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Checksum identifying the version of the intent that was created. The checksum is not
         /// included as an argument because the resource will add it automatically when updating the intent.
         /// </summary>
         [Input("checksum")]
-        public string? Checksum;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChecksum;
+
+        public string? Checksum => _mChecksum.GetValue("checksum");
 
         /// <summary>
         /// The statement that you want Amazon Lex to convey to the user
@@ -34,7 +40,10 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// mutually exclusive. You can specify only one. Attributes are documented under statement.
         /// </summary>
         [Input("conclusionStatement")]
-        public IntentConclusionStatement? ConclusionStatement;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentConclusionStatement> _mConclusionStatement;
+
+        public Outputs.IntentConclusionStatement? ConclusionStatement => _mConclusionStatement.GetValue("conclusionStatement");
 
         /// <summary>
         /// Prompts the user to confirm the intent. This question should
@@ -42,33 +51,48 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// or neither. Attributes are documented under prompt.
         /// </summary>
         [Input("confirmationPrompt")]
-        public IntentConfirmationPrompt? ConfirmationPrompt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentConfirmationPrompt> _mConfirmationPrompt;
+
+        public Outputs.IntentConfirmationPrompt? ConfirmationPrompt => _mConfirmationPrompt.GetValue("confirmationPrompt");
 
         /// <summary>
         /// Determines if a new slot type version is created when the initial
         /// resource is created and on each update. Defaults to `false`.
         /// </summary>
         [Input("createVersion")]
-        public bool? CreateVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
+
+        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
 
         /// <summary>
         /// The date when the intent version was created.
         /// </summary>
         [Input("createdDate")]
-        public string? CreatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
+
+        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
 
         /// <summary>
         /// A description of the intent. Must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies a Lambda function to invoke for each user input. You can
         /// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
         /// </summary>
         [Input("dialogCodeHook")]
-        public IntentDialogCodeHook? DialogCodeHook;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentDialogCodeHook> _mDialogCodeHook;
+
+        public Outputs.IntentDialogCodeHook? DialogCodeHook => _mDialogCodeHook.GetValue("dialogCodeHook");
 
         /// <summary>
         /// Amazon Lex uses this prompt to solicit additional activity after
@@ -77,7 +101,10 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
         /// </summary>
         [Input("followUpPrompt")]
-        public IntentFollowUpPrompt? FollowUpPrompt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentFollowUpPrompt> _mFollowUpPrompt;
+
+        public Outputs.IntentFollowUpPrompt? FollowUpPrompt => _mFollowUpPrompt.GetValue("followUpPrompt");
 
         /// <summary>
         /// Describes how the intent is fulfilled. For example, after a
@@ -85,19 +112,28 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
         /// </summary>
         [Input("fulfillmentActivity")]
-        public IntentFulfillmentActivity? FulfillmentActivity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentFulfillmentActivity> _mFulfillmentActivity;
+
+        public Outputs.IntentFulfillmentActivity? FulfillmentActivity => _mFulfillmentActivity.GetValue("fulfillmentActivity");
 
         /// <summary>
         /// The date when the $LATEST version of this intent was updated.
         /// </summary>
         [Input("lastUpdatedDate")]
-        public string? LastUpdatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
+
+        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
 
         /// <summary>
         /// The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A unique identifier for the built-in intent to base this
@@ -106,7 +142,10 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// in the Alexa Skills Kit.
         /// </summary>
         [Input("parentIntentSignature")]
-        public string? ParentIntentSignature;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentIntentSignature;
+
+        public string? ParentIntentSignature => _mParentIntentSignature.GetValue("parentIntentSignature");
 
         /// <summary>
         /// When the user answers "no" to the question defined in
@@ -115,7 +154,10 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// Attributes are documented under statement.
         /// </summary>
         [Input("rejectionStatement")]
-        public IntentRejectionStatement? RejectionStatement;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentRejectionStatement> _mRejectionStatement;
+
+        public Outputs.IntentRejectionStatement? RejectionStatement => _mRejectionStatement.GetValue("rejectionStatement");
 
         /// <summary>
         /// An array of utterances (strings) that a user might say to signal
@@ -123,19 +165,162 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         /// </summary>
         [Input("sampleUtterances")]
-        public List<string>? SampleUtterances;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSampleUtterances;
+
+        public List<string>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
 
         /// <summary>
         /// An list of intent slots. At runtime, Amazon Lex elicits required slot values
         /// from the user using prompts defined in the slots. Attributes are documented under slot.
         /// </summary>
         [Input("slots")]
-        public List<IntentSlot>? Slots;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IntentSlot>> _mSlots;
+
+        public List<Outputs.IntentSlot>? Slots => _mSlots.GetValue("slots");
 
         /// <summary>
         /// The version of the bot.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:lex/intent:Intent")]
+    public sealed class IntentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The statement that you want Amazon Lex to convey to the user
+        /// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
+        /// you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
+        /// application, you can't specify this element. The `follow_up_prompt` and `conclusion_statement` are
+        /// mutually exclusive. You can specify only one. Attributes are documented under statement.
+        /// </summary>
+        [Input("conclusionStatement")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentConclusionStatementArgs> _mConclusionStatement;
+
+        public Inputs.IntentConclusionStatementArgs? ConclusionStatement => _mConclusionStatement.GetValue("conclusionStatement");
+
+        /// <summary>
+        /// Prompts the user to confirm the intent. This question should
+        /// have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
+        /// or neither. Attributes are documented under prompt.
+        /// </summary>
+        [Input("confirmationPrompt")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentConfirmationPromptArgs> _mConfirmationPrompt;
+
+        public Inputs.IntentConfirmationPromptArgs? ConfirmationPrompt => _mConfirmationPrompt.GetValue("confirmationPrompt");
+
+        /// <summary>
+        /// Determines if a new slot type version is created when the initial
+        /// resource is created and on each update. Defaults to `false`.
+        /// </summary>
+        [Input("createVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCreateVersion;
+
+        public bool? CreateVersion => _mCreateVersion.GetValue("createVersion");
+
+        /// <summary>
+        /// A description of the intent. Must be less than or equal to 200 characters in length.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies a Lambda function to invoke for each user input. You can
+        /// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
+        /// </summary>
+        [Input("dialogCodeHook")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentDialogCodeHookArgs> _mDialogCodeHook;
+
+        public Inputs.IntentDialogCodeHookArgs? DialogCodeHook => _mDialogCodeHook.GetValue("dialogCodeHook");
+
+        /// <summary>
+        /// Amazon Lex uses this prompt to solicit additional activity after
+        /// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
+        /// user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
+        /// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
+        /// </summary>
+        [Input("followUpPrompt")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentFollowUpPromptArgs> _mFollowUpPrompt;
+
+        public Inputs.IntentFollowUpPromptArgs? FollowUpPrompt => _mFollowUpPrompt.GetValue("followUpPrompt");
+
+        /// <summary>
+        /// Describes how the intent is fulfilled. For example, after a
+        /// user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
+        /// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
+        /// </summary>
+        [Input("fulfillmentActivity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentFulfillmentActivityArgs> _mFulfillmentActivity;
+
+        public Inputs.IntentFulfillmentActivityArgs? FulfillmentActivity => _mFulfillmentActivity.GetValue("fulfillmentActivity");
+
+        /// <summary>
+        /// The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A unique identifier for the built-in intent to base this
+        /// intent on. To find the signature for an intent, see
+        /// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
+        /// in the Alexa Skills Kit.
+        /// </summary>
+        [Input("parentIntentSignature")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentIntentSignature;
+
+        public string? ParentIntentSignature => _mParentIntentSignature.GetValue("parentIntentSignature");
+
+        /// <summary>
+        /// When the user answers "no" to the question defined in
+        /// `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+        /// canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
+        /// Attributes are documented under statement.
+        /// </summary>
+        [Input("rejectionStatement")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentRejectionStatementArgs> _mRejectionStatement;
+
+        public Inputs.IntentRejectionStatementArgs? RejectionStatement => _mRejectionStatement.GetValue("rejectionStatement");
+
+        /// <summary>
+        /// An array of utterances (strings) that a user might say to signal
+        /// the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+        /// In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+        /// </summary>
+        [Input("sampleUtterances")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSampleUtterances;
+
+        public List<string>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
+
+        /// <summary>
+        /// An list of intent slots. At runtime, Amazon Lex elicits required slot values
+        /// from the user using prompts defined in the slots. Attributes are documented under slot.
+        /// </summary>
+        [Input("slots")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IntentSlotArgs>> _mSlots;
+
+        public List<Inputs.IntentSlotArgs>? Slots => _mSlots.GetValue("slots");
     }
 }

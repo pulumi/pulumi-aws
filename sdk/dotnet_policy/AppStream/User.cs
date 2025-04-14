@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppStream
 {
     [PolicyResourceType("aws:appstream/user:User")]
-    public sealed class User : global::Pulumi.PolicyResource
+    public sealed class User : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the appstream user.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         /// </summary>
         [Input("authenticationType")]
-        public string? AuthenticationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
+
+        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the user was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Whether the user in the user pool is enabled.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// First name, or given name, of the user.
         /// </summary>
         [Input("firstName")]
-        public string? FirstName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
+
+        public string? FirstName => _mFirstName.GetValue("firstName");
 
         /// <summary>
         /// Last name, or surname, of the user.
         /// </summary>
         [Input("lastName")]
-        public string? LastName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
+
+        public string? LastName => _mLastName.GetValue("lastName");
 
         /// <summary>
         /// Send an email notification.
         /// </summary>
         [Input("sendEmailNotification")]
-        public bool? SendEmailNotification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSendEmailNotification;
+
+        public bool? SendEmailNotification => _mSendEmailNotification.GetValue("sendEmailNotification");
 
         /// <summary>
         /// Email address of the user.
@@ -61,6 +82,69 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:appstream/user:User")]
+    public sealed class UserArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
+        /// </summary>
+        [Input("authenticationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
+
+        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+
+        /// <summary>
+        /// Whether the user in the user pool is enabled.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// First name, or given name, of the user.
+        /// </summary>
+        [Input("firstName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
+
+        public string? FirstName => _mFirstName.GetValue("firstName");
+
+        /// <summary>
+        /// Last name, or surname, of the user.
+        /// </summary>
+        [Input("lastName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
+
+        public string? LastName => _mLastName.GetValue("lastName");
+
+        /// <summary>
+        /// Send an email notification.
+        /// </summary>
+        [Input("sendEmailNotification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSendEmailNotification;
+
+        public bool? SendEmailNotification => _mSendEmailNotification.GetValue("sendEmailNotification");
+
+        /// <summary>
+        /// Email address of the user.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

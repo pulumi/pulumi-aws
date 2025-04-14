@@ -11,34 +11,49 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedshiftData
 {
     [PolicyResourceType("aws:redshiftdata/statement:Statement")]
-    public sealed class Statement : global::Pulumi.PolicyResource
+    public sealed class Statement : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The name of the database.
         /// </summary>
         [Input("database")]
-        public string? Database;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
+
+        public string? Database => _mDatabase.GetValue("database");
 
         /// <summary>
         /// The database user name.
         /// </summary>
         [Input("dbUser")]
-        public string? DbUser;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
+
+        public string? DbUser => _mDbUser.GetValue("dbUser");
 
         [Input("parameters")]
-        public List<StatementParameter>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StatementParameter>> _mParameters;
+
+        public List<Outputs.StatementParameter>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// The name or ARN of the secret that enables access to the database.
         /// </summary>
         [Input("secretArn")]
-        public string? SecretArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
+
+        public string? SecretArn => _mSecretArn.GetValue("secretArn");
 
         /// <summary>
         /// The SQL statement text to run.
@@ -46,24 +61,120 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftData
         /// The following arguments are optional:
         /// </summary>
         [Input("sql")]
-        public string? Sql;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSql;
+
+        public string? Sql => _mSql.GetValue("sql");
 
         /// <summary>
         /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         /// </summary>
         [Input("statementName")]
-        public string? StatementName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatementName;
+
+        public string? StatementName => _mStatementName.GetValue("statementName");
 
         /// <summary>
         /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         /// </summary>
         [Input("withEvent")]
-        public bool? WithEvent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWithEvent;
+
+        public bool? WithEvent => _mWithEvent.GetValue("withEvent");
 
         /// <summary>
         /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
         [Input("workgroupName")]
-        public string? WorkgroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
+
+        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+    }
+
+    [PolicyResourceType("aws:redshiftdata/statement:Statement")]
+    public sealed class StatementArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// The name of the database.
+        /// </summary>
+        [Input("database")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
+
+        public string? Database => _mDatabase.GetValue("database");
+
+        /// <summary>
+        /// The database user name.
+        /// </summary>
+        [Input("dbUser")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
+
+        public string? DbUser => _mDbUser.GetValue("dbUser");
+
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StatementParameterArgs>> _mParameters;
+
+        public List<Inputs.StatementParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// The name or ARN of the secret that enables access to the database.
+        /// </summary>
+        [Input("secretArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
+
+        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+
+        /// <summary>
+        /// The SQL statement text to run.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("sql")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSql;
+
+        public string? Sql => _mSql.GetValue("sql");
+
+        /// <summary>
+        /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+        /// </summary>
+        [Input("statementName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatementName;
+
+        public string? StatementName => _mStatementName.GetValue("statementName");
+
+        /// <summary>
+        /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
+        /// </summary>
+        [Input("withEvent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWithEvent;
+
+        public bool? WithEvent => _mWithEvent.GetValue("withEvent");
+
+        /// <summary>
+        /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+        /// </summary>
+        [Input("workgroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
+
+        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
     }
 }

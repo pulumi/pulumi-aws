@@ -11,30 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
 {
     [PolicyResourceType("aws:verifiedpermissions/policy:Policy")]
-    public sealed class Policy : global::Pulumi.PolicyResource
+    public sealed class Policy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The date the policy was created.
         /// </summary>
         [Input("createdDate")]
-        public string? CreatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
+
+        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
 
         /// <summary>
         /// The definition of the policy. See Definition below.
         /// </summary>
         [Input("definition")]
-        public PolicyDefinition? Definition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyDefinition> _mDefinition;
+
+        public Outputs.PolicyDefinition? Definition => _mDefinition.GetValue("definition");
 
         /// <summary>
         /// The Policy ID of the policy.
         /// </summary>
         [Input("policyId")]
-        public string? PolicyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
+
+        public string? PolicyId => _mPolicyId.GetValue("policyId");
 
         /// <summary>
         /// The Policy Store ID of the policy store.
         /// </summary>
         [Input("policyStoreId")]
-        public string? PolicyStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+    }
+
+    [PolicyResourceType("aws:verifiedpermissions/policy:Policy")]
+    public sealed class PolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The definition of the policy. See Definition below.
+        /// </summary>
+        [Input("definition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyDefinitionArgs> _mDefinition;
+
+        public Inputs.PolicyDefinitionArgs? Definition => _mDefinition.GetValue("definition");
+
+        /// <summary>
+        /// The Policy Store ID of the policy store.
+        /// </summary>
+        [Input("policyStoreId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
+
+        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
     }
 }

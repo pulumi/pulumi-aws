@@ -11,54 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/codeSigningConfig:CodeSigningConfig")]
-    public sealed class CodeSigningConfig : global::Pulumi.PolicyResource
+    public sealed class CodeSigningConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
         /// </summary>
         [Input("allowedPublishers")]
-        public CodeSigningConfigAllowedPublishers? AllowedPublishers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CodeSigningConfigAllowedPublishers> _mAllowedPublishers;
+
+        public Outputs.CodeSigningConfigAllowedPublishers? AllowedPublishers => _mAllowedPublishers.GetValue("allowedPublishers");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the code signing configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Unique identifier for the code signing configuration.
         /// </summary>
         [Input("configId")]
-        public string? ConfigId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigId;
+
+        public string? ConfigId => _mConfigId.GetValue("configId");
 
         /// <summary>
         /// Descriptive name for this code signing configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The date and time that the code signing configuration was last modified.
         /// </summary>
         [Input("lastModified")]
-        public string? LastModified;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
+
+        public string? LastModified => _mLastModified.GetValue("lastModified");
 
         /// <summary>
         /// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         /// </summary>
         [Input("policies")]
-        public CodeSigningConfigPolicies? Policies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CodeSigningConfigPolicies> _mPolicies;
+
+        public Outputs.CodeSigningConfigPolicies? Policies => _mPolicies.GetValue("policies");
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:lambda/codeSigningConfig:CodeSigningConfig")]
+    public sealed class CodeSigningConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        /// </summary>
+        [Input("allowedPublishers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CodeSigningConfigAllowedPublishersArgs> _mAllowedPublishers;
+
+        public Inputs.CodeSigningConfigAllowedPublishersArgs? AllowedPublishers => _mAllowedPublishers.GetValue("allowedPublishers");
+
+        /// <summary>
+        /// Descriptive name for this code signing configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        /// </summary>
+        [Input("policies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CodeSigningConfigPoliciesArgs> _mPolicies;
+
+        public Inputs.CodeSigningConfigPoliciesArgs? Policies => _mPolicies.GetValue("policies");
+
+        /// <summary>
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

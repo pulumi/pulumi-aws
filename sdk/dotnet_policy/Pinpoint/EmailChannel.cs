@@ -11,54 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/emailChannel:EmailChannel")]
-    public sealed class EmailChannel : global::Pulumi.PolicyResource
+    public sealed class EmailChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The application ID.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         /// <summary>
         /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         /// </summary>
         [Input("configurationSet")]
-        public string? ConfigurationSet;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSet;
+
+        public string? ConfigurationSet => _mConfigurationSet.GetValue("configurationSet");
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
         [Input("fromAddress")]
-        public string? FromAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFromAddress;
+
+        public string? FromAddress => _mFromAddress.GetValue("fromAddress");
 
         /// <summary>
         /// The ARN of an identity verified with SES.
         /// </summary>
         [Input("identity")]
-        public string? Identity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
+
+        public string? Identity => _mIdentity.GetValue("identity");
 
         /// <summary>
         /// Messages per second that can be sent.
         /// </summary>
         [Input("messagesPerSecond")]
-        public int? MessagesPerSecond;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMessagesPerSecond;
+
+        public int? MessagesPerSecond => _mMessagesPerSecond.GetValue("messagesPerSecond");
 
         /// <summary>
         /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         /// </summary>
         [Input("orchestrationSendingRoleArn")]
-        public string? OrchestrationSendingRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrchestrationSendingRoleArn;
+
+        public string? OrchestrationSendingRoleArn => _mOrchestrationSendingRoleArn.GetValue("orchestrationSendingRoleArn");
 
         /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+    }
+
+    [PolicyResourceType("aws:pinpoint/emailChannel:EmailChannel")]
+    public sealed class EmailChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        /// <summary>
+        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        /// </summary>
+        [Input("configurationSet")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSet;
+
+        public string? ConfigurationSet => _mConfigurationSet.GetValue("configurationSet");
+
+        /// <summary>
+        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+        /// </summary>
+        [Input("fromAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFromAddress;
+
+        public string? FromAddress => _mFromAddress.GetValue("fromAddress");
+
+        /// <summary>
+        /// The ARN of an identity verified with SES.
+        /// </summary>
+        [Input("identity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
+
+        public string? Identity => _mIdentity.GetValue("identity");
+
+        /// <summary>
+        /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        /// </summary>
+        [Input("orchestrationSendingRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrchestrationSendingRoleArn;
+
+        public string? OrchestrationSendingRoleArn => _mOrchestrationSendingRoleArn.GetValue("orchestrationSendingRoleArn");
+
+        /// <summary>
+        /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
     }
 }

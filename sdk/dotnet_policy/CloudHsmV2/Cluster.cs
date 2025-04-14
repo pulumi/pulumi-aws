@@ -11,72 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudHsmV2
 {
     [PolicyResourceType("aws:cloudhsmv2/cluster:Cluster")]
-    public sealed class Cluster : global::Pulumi.PolicyResource
+    public sealed class Cluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The list of cluster certificates.
         /// </summary>
         [Input("clusterCertificates")]
-        public List<ClusterClusterCertificate>? ClusterCertificates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterClusterCertificate>> _mClusterCertificates;
+
+        public List<Outputs.ClusterClusterCertificate>? ClusterCertificates => _mClusterCertificates.GetValue("clusterCertificates");
 
         /// <summary>
         /// The id of the CloudHSM cluster.
         /// </summary>
         [Input("clusterId")]
-        public string? ClusterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
 
         /// <summary>
         /// The state of the CloudHSM cluster.
         /// </summary>
         [Input("clusterState")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("clusterState");
 
         /// <summary>
         /// The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         /// </summary>
         [Input("hsmType")]
-        public string? HsmType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmType;
+
+        public string? HsmType => _mHsmType.GetValue("hsmType");
 
         /// <summary>
         /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
         /// </summary>
         [Input("mode")]
-        public string? Mode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+
+        public string? Mode => _mMode.GetValue("mode");
 
         /// <summary>
         /// The ID of the security group associated with the CloudHSM cluster.
         /// </summary>
         [Input("securityGroupId")]
-        public string? SecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
 
         /// <summary>
         /// ID of Cloud HSM v2 cluster backup to be restored.
         /// </summary>
         [Input("sourceBackupIdentifier")]
-        public string? SourceBackupIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBackupIdentifier;
+
+        public string? SourceBackupIdentifier => _mSourceBackupIdentifier.GetValue("sourceBackupIdentifier");
 
         /// <summary>
         /// The IDs of subnets in which cluster will operate.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The id of the VPC that the CloudHSM cluster resides in.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:cloudhsmv2/cluster:Cluster")]
+    public sealed class ClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
+        /// </summary>
+        [Input("hsmType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHsmType;
+
+        public string? HsmType => _mHsmType.GetValue("hsmType");
+
+        /// <summary>
+        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        /// </summary>
+        [Input("mode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+
+        public string? Mode => _mMode.GetValue("mode");
+
+        /// <summary>
+        /// ID of Cloud HSM v2 cluster backup to be restored.
+        /// </summary>
+        [Input("sourceBackupIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBackupIdentifier;
+
+        public string? SourceBackupIdentifier => _mSourceBackupIdentifier.GetValue("sourceBackupIdentifier");
+
+        /// <summary>
+        /// The IDs of subnets in which cluster will operate.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

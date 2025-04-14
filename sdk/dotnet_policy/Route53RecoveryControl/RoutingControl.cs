@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
 {
     [PolicyResourceType("aws:route53recoverycontrol/routingControl:RoutingControl")]
-    public sealed class RoutingControl : global::Pulumi.PolicyResource
+    public sealed class RoutingControl : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the routing control.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ARN of the cluster in which this routing control will reside.
         /// </summary>
         [Input("clusterArn")]
-        public string? ClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
 
         /// <summary>
         /// ARN of the control panel in which this routing control will reside.
         /// </summary>
         [Input("controlPanelArn")]
-        public string? ControlPanelArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlPanelArn;
+
+        public string? ControlPanelArn => _mControlPanelArn.GetValue("controlPanelArn");
 
         /// <summary>
         /// The name describing the routing control.
@@ -37,12 +46,51 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:route53recoverycontrol/routingControl:RoutingControl")]
+    public sealed class RoutingControlArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the cluster in which this routing control will reside.
+        /// </summary>
+        [Input("clusterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+
+        /// <summary>
+        /// ARN of the control panel in which this routing control will reside.
+        /// </summary>
+        [Input("controlPanelArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlPanelArn;
+
+        public string? ControlPanelArn => _mControlPanelArn.GetValue("controlPanelArn");
+
+        /// <summary>
+        /// The name describing the routing control.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

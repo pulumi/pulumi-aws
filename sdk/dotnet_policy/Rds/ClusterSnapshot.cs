@@ -11,108 +11,202 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/clusterSnapshot:ClusterSnapshot")]
-    public sealed class ClusterSnapshot : global::Pulumi.PolicyResource
+    public sealed class ClusterSnapshot : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Allocated storage size in gigabytes (GB).
         /// </summary>
         [Input("allocatedStorage")]
-        public int? AllocatedStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
+
+        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
 
         /// <summary>
         /// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
         /// </summary>
         [Input("availabilityZones")]
-        public List<string>? AvailabilityZones;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
 
         /// <summary>
         /// The DB Cluster Identifier from which to take the snapshot.
         /// </summary>
         [Input("dbClusterIdentifier")]
-        public string? DbClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
+
+        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
         /// </summary>
         [Input("dbClusterSnapshotArn")]
-        public string? DbClusterSnapshotArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterSnapshotArn;
+
+        public string? DbClusterSnapshotArn => _mDbClusterSnapshotArn.GetValue("dbClusterSnapshotArn");
 
         /// <summary>
         /// The Identifier for the snapshot.
         /// </summary>
         [Input("dbClusterSnapshotIdentifier")]
-        public string? DbClusterSnapshotIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterSnapshotIdentifier;
+
+        public string? DbClusterSnapshotIdentifier => _mDbClusterSnapshotIdentifier.GetValue("dbClusterSnapshotIdentifier");
 
         /// <summary>
         /// Name of the database engine.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// Version of the database engine for this DB cluster snapshot.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// License model information for the restored DB cluster.
         /// </summary>
         [Input("licenseModel")]
-        public string? LicenseModel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseModel;
+
+        public string? LicenseModel => _mLicenseModel.GetValue("licenseModel");
 
         /// <summary>
         /// Port that the DB cluster was listening on at the time of the snapshot.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         /// </summary>
         [Input("sharedAccounts")]
-        public List<string>? SharedAccounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSharedAccounts;
+
+        public List<string>? SharedAccounts => _mSharedAccounts.GetValue("sharedAccounts");
 
         [Input("snapshotType")]
-        public string? SnapshotType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotType;
+
+        public string? SnapshotType => _mSnapshotType.GetValue("snapshotType");
 
         [Input("sourceDbClusterSnapshotArn")]
-        public string? SourceDbClusterSnapshotArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbClusterSnapshotArn;
+
+        public string? SourceDbClusterSnapshotArn => _mSourceDbClusterSnapshotArn.GetValue("sourceDbClusterSnapshotArn");
 
         /// <summary>
         /// The status of this DB Cluster Snapshot.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Whether the DB cluster snapshot is encrypted.
         /// </summary>
         [Input("storageEncrypted")]
-        public bool? StorageEncrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
+
+        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The VPC ID associated with the DB cluster snapshot.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:rds/clusterSnapshot:ClusterSnapshot")]
+    public sealed class ClusterSnapshotArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The DB Cluster Identifier from which to take the snapshot.
+        /// </summary>
+        [Input("dbClusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
+
+        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+
+        /// <summary>
+        /// The Identifier for the snapshot.
+        /// </summary>
+        [Input("dbClusterSnapshotIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterSnapshotIdentifier;
+
+        public string? DbClusterSnapshotIdentifier => _mDbClusterSnapshotIdentifier.GetValue("dbClusterSnapshotIdentifier");
+
+        /// <summary>
+        /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        /// </summary>
+        [Input("sharedAccounts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSharedAccounts;
+
+        public List<string>? SharedAccounts => _mSharedAccounts.GetValue("sharedAccounts");
+
+        /// <summary>
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

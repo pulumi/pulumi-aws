@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
 {
     [PolicyResourceType("aws:route53recoverycontrol/safetyRule:SafetyRule")]
-    public sealed class SafetyRule : global::Pulumi.PolicyResource
+    public sealed class SafetyRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the safety rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
         /// </summary>
         [Input("assertedControls")]
-        public List<string>? AssertedControls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAssertedControls;
+
+        public List<string>? AssertedControls => _mAssertedControls.GetValue("assertedControls");
 
         /// <summary>
         /// ARN of the control panel in which this safety rule will reside.
         /// </summary>
         [Input("controlPanelArn")]
-        public string? ControlPanelArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlPanelArn;
+
+        public string? ControlPanelArn => _mControlPanelArn.GetValue("controlPanelArn");
 
         /// <summary>
         /// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         /// </summary>
         [Input("gatingControls")]
-        public List<string>? GatingControls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGatingControls;
+
+        public List<string>? GatingControls => _mGatingControls.GetValue("gatingControls");
 
         /// <summary>
         /// Name describing the safety rule.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration block for safety rule criteria. See below.
         /// </summary>
         [Input("ruleConfig")]
-        public SafetyRuleRuleConfig? RuleConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SafetyRuleRuleConfig> _mRuleConfig;
+
+        public Outputs.SafetyRuleRuleConfig? RuleConfig => _mRuleConfig.GetValue("ruleConfig");
 
         /// <summary>
         /// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         /// </summary>
         [Input("targetControls")]
-        public List<string>? TargetControls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetControls;
+
+        public List<string>? TargetControls => _mTargetControls.GetValue("targetControls");
 
         /// <summary>
         /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
@@ -67,6 +91,78 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
         /// The following arguments are optional:
         /// </summary>
         [Input("waitPeriodMs")]
-        public int? WaitPeriodMs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWaitPeriodMs;
+
+        public int? WaitPeriodMs => _mWaitPeriodMs.GetValue("waitPeriodMs");
+    }
+
+    [PolicyResourceType("aws:route53recoverycontrol/safetyRule:SafetyRule")]
+    public sealed class SafetyRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+        /// </summary>
+        [Input("assertedControls")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAssertedControls;
+
+        public List<string>? AssertedControls => _mAssertedControls.GetValue("assertedControls");
+
+        /// <summary>
+        /// ARN of the control panel in which this safety rule will reside.
+        /// </summary>
+        [Input("controlPanelArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mControlPanelArn;
+
+        public string? ControlPanelArn => _mControlPanelArn.GetValue("controlPanelArn");
+
+        /// <summary>
+        /// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+        /// </summary>
+        [Input("gatingControls")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGatingControls;
+
+        public List<string>? GatingControls => _mGatingControls.GetValue("gatingControls");
+
+        /// <summary>
+        /// Name describing the safety rule.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration block for safety rule criteria. See below.
+        /// </summary>
+        [Input("ruleConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SafetyRuleRuleConfigArgs> _mRuleConfig;
+
+        public Inputs.SafetyRuleRuleConfigArgs? RuleConfig => _mRuleConfig.GetValue("ruleConfig");
+
+        /// <summary>
+        /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
+        /// </summary>
+        [Input("targetControls")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetControls;
+
+        public List<string>? TargetControls => _mTargetControls.GetValue("targetControls");
+
+        /// <summary>
+        /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("waitPeriodMs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mWaitPeriodMs;
+
+        public int? WaitPeriodMs => _mWaitPeriodMs.GetValue("waitPeriodMs");
     }
 }

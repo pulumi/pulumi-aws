@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/userPoliciesExclusive:UserPoliciesExclusive")]
-    public sealed class UserPoliciesExclusive : global::Pulumi.PolicyResource
+    public sealed class UserPoliciesExclusive : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
         /// </summary>
         [Input("policyNames")]
-        public List<string>? PolicyNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
+
+        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
 
         /// <summary>
         /// IAM user name.
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:iam/userPoliciesExclusive:UserPoliciesExclusive")]
+    public sealed class UserPoliciesExclusiveArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
+        /// </summary>
+        [Input("policyNames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
+
+        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+
+        /// <summary>
+        /// IAM user name.
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

@@ -11,60 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/keyPair:KeyPair")]
-    public sealed class KeyPair : global::Pulumi.PolicyResource
+    public sealed class KeyPair : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The key pair ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         /// </summary>
         [Input("fingerprint")]
-        public string? Fingerprint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFingerprint;
+
+        public string? Fingerprint => _mFingerprint.GetValue("fingerprint");
 
         /// <summary>
         /// The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         /// </summary>
         [Input("keyName")]
-        public string? KeyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         /// </summary>
         [Input("keyNamePrefix")]
-        public string? KeyNamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyNamePrefix;
+
+        public string? KeyNamePrefix => _mKeyNamePrefix.GetValue("keyNamePrefix");
 
         /// <summary>
         /// The key pair ID.
         /// </summary>
         [Input("keyPairId")]
-        public string? KeyPairId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPairId;
+
+        public string? KeyPairId => _mKeyPairId.GetValue("keyPairId");
 
         /// <summary>
         /// The type of key pair.
         /// </summary>
         [Input("keyType")]
-        public string? KeyType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyType;
+
+        public string? KeyType => _mKeyType.GetValue("keyType");
 
         /// <summary>
         /// The public key material.
         /// </summary>
         [Input("publicKey")]
-        public string? PublicKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/keyPair:KeyPair")]
+    public sealed class KeyPairArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        /// </summary>
+        [Input("keyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+
+        public string? KeyName => _mKeyName.GetValue("keyName");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
+        /// </summary>
+        [Input("keyNamePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyNamePrefix;
+
+        public string? KeyNamePrefix => _mKeyNamePrefix.GetValue("keyNamePrefix");
+
+        /// <summary>
+        /// The public key material.
+        /// </summary>
+        [Input("publicKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

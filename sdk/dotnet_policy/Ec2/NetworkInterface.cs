@@ -11,145 +11,217 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/networkInterface:NetworkInterface")]
-    public sealed class NetworkInterface : global::Pulumi.PolicyResource
+    public sealed class NetworkInterface : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the network interface.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
         /// </summary>
         [Input("attachments")]
-        public List<NetworkInterfaceAttachment>? Attachments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInterfaceAttachment>> _mAttachments;
+
+        public List<Outputs.NetworkInterfaceAttachment>? Attachments => _mAttachments.GetValue("attachments");
 
         /// <summary>
         /// Description for the network interface.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         /// </summary>
         [Input("enablePrimaryIpv6")]
-        public bool? EnablePrimaryIpv6;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrimaryIpv6;
+
+        public bool? EnablePrimaryIpv6 => _mEnablePrimaryIpv6.GetValue("enablePrimaryIpv6");
 
         /// <summary>
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("interfaceType")]
-        public string? InterfaceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInterfaceType;
+
+        public string? InterfaceType => _mInterfaceType.GetValue("interfaceType");
 
         /// <summary>
         /// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         /// </summary>
         [Input("ipv4PrefixCount")]
-        public int? Ipv4PrefixCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4PrefixCount;
+
+        public int? Ipv4PrefixCount => _mIpv4PrefixCount.GetValue("ipv4PrefixCount");
 
         /// <summary>
         /// One or more IPv4 prefixes assigned to the network interface.
         /// </summary>
         [Input("ipv4Prefixes")]
-        public List<string>? Ipv4Prefixes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv4Prefixes;
+
+        public List<string>? Ipv4Prefixes => _mIpv4Prefixes.GetValue("ipv4Prefixes");
 
         /// <summary>
         /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
         [Input("ipv6AddressCount")]
-        public int? Ipv6AddressCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6AddressCount;
+
+        public int? Ipv6AddressCount => _mIpv6AddressCount.GetValue("ipv6AddressCount");
 
         /// <summary>
         /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         /// </summary>
         [Input("ipv6AddressListEnabled")]
-        public bool? Ipv6AddressListEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6AddressListEnabled;
+
+        public bool? Ipv6AddressListEnabled => _mIpv6AddressListEnabled.GetValue("ipv6AddressListEnabled");
 
         /// <summary>
         /// List of private IPs to assign to the ENI in sequential order.
         /// </summary>
         [Input("ipv6AddressLists")]
-        public List<string>? Ipv6AddressLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6AddressLists;
+
+        public List<string>? Ipv6AddressLists => _mIpv6AddressLists.GetValue("ipv6AddressLists");
 
         /// <summary>
         /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         /// </summary>
         [Input("ipv6Addresses")]
-        public List<string>? Ipv6Addresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
+
+        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
 
         /// <summary>
         /// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         /// </summary>
         [Input("ipv6PrefixCount")]
-        public int? Ipv6PrefixCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6PrefixCount;
+
+        public int? Ipv6PrefixCount => _mIpv6PrefixCount.GetValue("ipv6PrefixCount");
 
         /// <summary>
         /// One or more IPv6 prefixes assigned to the network interface.
         /// </summary>
         [Input("ipv6Prefixes")]
-        public List<string>? Ipv6Prefixes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Prefixes;
+
+        public List<string>? Ipv6Prefixes => _mIpv6Prefixes.GetValue("ipv6Prefixes");
 
         /// <summary>
         /// MAC address of the network interface.
         /// </summary>
         [Input("macAddress")]
-        public string? MacAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMacAddress;
+
+        public string? MacAddress => _mMacAddress.GetValue("macAddress");
 
         [Input("outpostArn")]
-        public string? OutpostArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
+
+        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
 
         /// <summary>
         /// AWS account ID of the owner of the network interface.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// Private DNS name of the network interface (IPv4).
         /// </summary>
         [Input("privateDnsName")]
-        public string? PrivateDnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDnsName;
+
+        public string? PrivateDnsName => _mPrivateDnsName.GetValue("privateDnsName");
 
         [Input("privateIp")]
-        public string? PrivateIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
+
+        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
 
         /// <summary>
         /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         /// </summary>
         [Input("privateIpListEnabled")]
-        public bool? PrivateIpListEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateIpListEnabled;
+
+        public bool? PrivateIpListEnabled => _mPrivateIpListEnabled.GetValue("privateIpListEnabled");
 
         /// <summary>
         /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         /// </summary>
         [Input("privateIpLists")]
-        public List<string>? PrivateIpLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrivateIpLists;
+
+        public List<string>? PrivateIpLists => _mPrivateIpLists.GetValue("privateIpLists");
 
         /// <summary>
         /// List of private IPs to assign to the ENI without regard to order.
         /// </summary>
         [Input("privateIps")]
-        public List<string>? PrivateIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrivateIps;
+
+        public List<string>? PrivateIps => _mPrivateIps.GetValue("privateIps");
 
         /// <summary>
         /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
         [Input("privateIpsCount")]
-        public int? PrivateIpsCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPrivateIpsCount;
+
+        public int? PrivateIpsCount => _mPrivateIpsCount.GetValue("privateIpsCount");
 
         /// <summary>
         /// List of security group IDs to assign to the ENI.
         /// </summary>
         [Input("securityGroups")]
-        public List<string>? SecurityGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
 
         /// <summary>
         /// Whether to enable source destination checking for the ENI. Default true.
         /// </summary>
         [Input("sourceDestCheck")]
-        public bool? SourceDestCheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSourceDestCheck;
+
+        public bool? SourceDestCheck => _mSourceDestCheck.GetValue("sourceDestCheck");
 
         /// <summary>
         /// Subnet ID to create the ENI in.
@@ -157,18 +229,219 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The following arguments are optional:
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/networkInterface:NetworkInterface")]
+    public sealed class NetworkInterfaceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
+        /// </summary>
+        [Input("attachments")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.NetworkInterfaceAttachmentArgs>> _mAttachments;
+
+        public List<Inputs.NetworkInterfaceAttachmentArgs>? Attachments => _mAttachments.GetValue("attachments");
+
+        /// <summary>
+        /// Description for the network interface.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+        /// </summary>
+        [Input("enablePrimaryIpv6")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrimaryIpv6;
+
+        public bool? EnablePrimaryIpv6 => _mEnablePrimaryIpv6.GetValue("enablePrimaryIpv6");
+
+        /// <summary>
+        /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
+        /// </summary>
+        [Input("interfaceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInterfaceType;
+
+        public string? InterfaceType => _mInterfaceType.GetValue("interfaceType");
+
+        /// <summary>
+        /// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
+        /// </summary>
+        [Input("ipv4PrefixCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4PrefixCount;
+
+        public int? Ipv4PrefixCount => _mIpv4PrefixCount.GetValue("ipv4PrefixCount");
+
+        /// <summary>
+        /// One or more IPv4 prefixes assigned to the network interface.
+        /// </summary>
+        [Input("ipv4Prefixes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv4Prefixes;
+
+        public List<string>? Ipv4Prefixes => _mIpv4Prefixes.GetValue("ipv4Prefixes");
+
+        /// <summary>
+        /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
+        /// </summary>
+        [Input("ipv6AddressCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6AddressCount;
+
+        public int? Ipv6AddressCount => _mIpv6AddressCount.GetValue("ipv6AddressCount");
+
+        /// <summary>
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
+        /// </summary>
+        [Input("ipv6AddressListEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6AddressListEnabled;
+
+        public bool? Ipv6AddressListEnabled => _mIpv6AddressListEnabled.GetValue("ipv6AddressListEnabled");
+
+        /// <summary>
+        /// List of private IPs to assign to the ENI in sequential order.
+        /// </summary>
+        [Input("ipv6AddressLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6AddressLists;
+
+        public List<string>? Ipv6AddressLists => _mIpv6AddressLists.GetValue("ipv6AddressLists");
+
+        /// <summary>
+        /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
+        /// </summary>
+        [Input("ipv6Addresses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
+
+        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
+
+        /// <summary>
+        /// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
+        /// </summary>
+        [Input("ipv6PrefixCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6PrefixCount;
+
+        public int? Ipv6PrefixCount => _mIpv6PrefixCount.GetValue("ipv6PrefixCount");
+
+        /// <summary>
+        /// One or more IPv6 prefixes assigned to the network interface.
+        /// </summary>
+        [Input("ipv6Prefixes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Prefixes;
+
+        public List<string>? Ipv6Prefixes => _mIpv6Prefixes.GetValue("ipv6Prefixes");
+
+        [Input("privateIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
+
+        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+
+        /// <summary>
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
+        /// </summary>
+        [Input("privateIpListEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateIpListEnabled;
+
+        public bool? PrivateIpListEnabled => _mPrivateIpListEnabled.GetValue("privateIpListEnabled");
+
+        /// <summary>
+        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
+        /// </summary>
+        [Input("privateIpLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrivateIpLists;
+
+        public List<string>? PrivateIpLists => _mPrivateIpLists.GetValue("privateIpLists");
+
+        /// <summary>
+        /// List of private IPs to assign to the ENI without regard to order.
+        /// </summary>
+        [Input("privateIps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrivateIps;
+
+        public List<string>? PrivateIps => _mPrivateIps.GetValue("privateIps");
+
+        /// <summary>
+        /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
+        /// </summary>
+        [Input("privateIpsCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPrivateIpsCount;
+
+        public int? PrivateIpsCount => _mPrivateIpsCount.GetValue("privateIpsCount");
+
+        /// <summary>
+        /// List of security group IDs to assign to the ENI.
+        /// </summary>
+        [Input("securityGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+
+        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+
+        /// <summary>
+        /// Whether to enable source destination checking for the ENI. Default true.
+        /// </summary>
+        [Input("sourceDestCheck")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSourceDestCheck;
+
+        public bool? SourceDestCheck => _mSourceDestCheck.GetValue("sourceDestCheck");
+
+        /// <summary>
+        /// Subnet ID to create the ENI in.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

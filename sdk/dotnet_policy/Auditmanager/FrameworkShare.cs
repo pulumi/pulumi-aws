@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Auditmanager
 {
     [PolicyResourceType("aws:auditmanager/frameworkShare:FrameworkShare")]
-    public sealed class FrameworkShare : global::Pulumi.PolicyResource
+    public sealed class FrameworkShare : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Comment from the sender about the share request.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// Amazon Web Services account of the recipient.
         /// </summary>
         [Input("destinationAccount")]
-        public string? DestinationAccount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationAccount;
+
+        public string? DestinationAccount => _mDestinationAccount.GetValue("destinationAccount");
 
         /// <summary>
         /// Amazon Web Services region of the recipient.
         /// </summary>
         [Input("destinationRegion")]
-        public string? DestinationRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
+
+        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
 
         /// <summary>
         /// Unique identifier for the shared custom framework.
@@ -37,12 +46,60 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// The following arguments are optional:
         /// </summary>
         [Input("frameworkId")]
-        public string? FrameworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFrameworkId;
+
+        public string? FrameworkId => _mFrameworkId.GetValue("frameworkId");
 
         /// <summary>
         /// Status of the share request.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:auditmanager/frameworkShare:FrameworkShare")]
+    public sealed class FrameworkShareArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Comment from the sender about the share request.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
+
+        /// <summary>
+        /// Amazon Web Services account of the recipient.
+        /// </summary>
+        [Input("destinationAccount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationAccount;
+
+        public string? DestinationAccount => _mDestinationAccount.GetValue("destinationAccount");
+
+        /// <summary>
+        /// Amazon Web Services region of the recipient.
+        /// </summary>
+        [Input("destinationRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
+
+        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
+
+        /// <summary>
+        /// Unique identifier for the shared custom framework.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("frameworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFrameworkId;
+
+        public string? FrameworkId => _mFrameworkId.GetValue("frameworkId");
     }
 }

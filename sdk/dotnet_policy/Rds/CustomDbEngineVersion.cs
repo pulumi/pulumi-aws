@@ -11,120 +11,289 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/customDbEngineVersion:CustomDbEngineVersion")]
-    public sealed class CustomDbEngineVersion : global::Pulumi.PolicyResource
+    public sealed class CustomDbEngineVersion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the custom engine version.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The date and time that the CEV was created.
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// The name of the Amazon S3 bucket that contains the database installation files.
         /// </summary>
         [Input("databaseInstallationFilesS3BucketName")]
-        public string? DatabaseInstallationFilesS3BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInstallationFilesS3BucketName;
+
+        public string? DatabaseInstallationFilesS3BucketName => _mDatabaseInstallationFilesS3BucketName.GetValue("databaseInstallationFilesS3BucketName");
 
         /// <summary>
         /// The prefix for the Amazon S3 bucket that contains the database installation files.
         /// </summary>
         [Input("databaseInstallationFilesS3Prefix")]
-        public string? DatabaseInstallationFilesS3Prefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInstallationFilesS3Prefix;
+
+        public string? DatabaseInstallationFilesS3Prefix => _mDatabaseInstallationFilesS3Prefix.GetValue("databaseInstallationFilesS3Prefix");
 
         /// <summary>
         /// The name of the DB parameter group family for the CEV.
         /// </summary>
         [Input("dbParameterGroupFamily")]
-        public string? DbParameterGroupFamily;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbParameterGroupFamily;
+
+        public string? DbParameterGroupFamily => _mDbParameterGroupFamily.GetValue("dbParameterGroupFamily");
 
         /// <summary>
         /// The description of the CEV.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// The version of the database engine.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
         /// </summary>
         [Input("filename")]
-        public string? Filename;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFilename;
+
+        public string? Filename => _mFilename.GetValue("filename");
 
         /// <summary>
         /// The ID of the AMI that was created with the CEV.
         /// </summary>
         [Input("imageId")]
-        public string? ImageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
 
         /// <summary>
         /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The major version of the database engine.
         /// </summary>
         [Input("majorEngineVersion")]
-        public string? MajorEngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
+
+        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
 
         /// <summary>
         /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
         /// </summary>
         [Input("manifest")]
-        public string? Manifest;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManifest;
+
+        public string? Manifest => _mManifest.GetValue("manifest");
 
         /// <summary>
         /// The returned manifest file, in JSON format, service generated and often different from input `manifest`.
         /// </summary>
         [Input("manifestComputed")]
-        public string? ManifestComputed;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManifestComputed;
+
+        public string? ManifestComputed => _mManifestComputed.GetValue("manifestComputed");
 
         /// <summary>
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         /// </summary>
         [Input("manifestHash")]
-        public string? ManifestHash;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManifestHash;
+
+        public string? ManifestHash => _mManifestHash.GetValue("manifestHash");
 
         /// <summary>
         /// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         /// </summary>
         [Input("sourceImageId")]
-        public string? SourceImageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceImageId;
+
+        public string? SourceImageId => _mSourceImageId.GetValue("sourceImageId");
 
         /// <summary>
         /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:rds/customDbEngineVersion:CustomDbEngineVersion")]
+    public sealed class CustomDbEngineVersionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Amazon S3 bucket that contains the database installation files.
+        /// </summary>
+        [Input("databaseInstallationFilesS3BucketName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInstallationFilesS3BucketName;
+
+        public string? DatabaseInstallationFilesS3BucketName => _mDatabaseInstallationFilesS3BucketName.GetValue("databaseInstallationFilesS3BucketName");
+
+        /// <summary>
+        /// The prefix for the Amazon S3 bucket that contains the database installation files.
+        /// </summary>
+        [Input("databaseInstallationFilesS3Prefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInstallationFilesS3Prefix;
+
+        public string? DatabaseInstallationFilesS3Prefix => _mDatabaseInstallationFilesS3Prefix.GetValue("databaseInstallationFilesS3Prefix");
+
+        /// <summary>
+        /// The description of the CEV.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// The version of the database engine.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+        /// </summary>
+        [Input("filename")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFilename;
+
+        public string? Filename => _mFilename.GetValue("filename");
+
+        /// <summary>
+        /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+        /// </summary>
+        [Input("manifest")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManifest;
+
+        public string? Manifest => _mManifest.GetValue("manifest");
+
+        /// <summary>
+        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
+        /// </summary>
+        [Input("manifestHash")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManifestHash;
+
+        public string? ManifestHash => _mManifestHash.GetValue("manifestHash");
+
+        /// <summary>
+        /// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+        /// </summary>
+        [Input("sourceImageId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceImageId;
+
+        public string? SourceImageId => _mSourceImageId.GetValue("sourceImageId");
+
+        /// <summary>
+        /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

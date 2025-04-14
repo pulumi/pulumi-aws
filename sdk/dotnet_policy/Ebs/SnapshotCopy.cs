@@ -11,108 +11,256 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ebs
 {
     [PolicyResourceType("aws:ebs/snapshotCopy:SnapshotCopy")]
-    public sealed class SnapshotCopy : global::Pulumi.PolicyResource
+    public sealed class SnapshotCopy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         /// </summary>
         [Input("completionDurationMinutes")]
-        public int? CompletionDurationMinutes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCompletionDurationMinutes;
+
+        public int? CompletionDurationMinutes => _mCompletionDurationMinutes.GetValue("completionDurationMinutes");
 
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
         [Input("dataEncryptionKeyId")]
-        public string? DataEncryptionKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataEncryptionKeyId;
+
+        public string? DataEncryptionKeyId => _mDataEncryptionKeyId.GetValue("dataEncryptionKeyId");
 
         /// <summary>
         /// A description of what the snapshot is.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Whether the snapshot is encrypted.
         /// </summary>
         [Input("encrypted")]
-        public bool? Encrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
+
+        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
 
         /// <summary>
         /// The ARN for the KMS encryption key.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         [Input("outpostArn")]
-        public string? OutpostArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
+
+        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
 
         /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
         [Input("ownerAlias")]
-        public string? OwnerAlias;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAlias;
+
+        public string? OwnerAlias => _mOwnerAlias.GetValue("ownerAlias");
 
         /// <summary>
         /// The AWS account ID of the snapshot owner.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// Indicates whether to permanently restore an archived snapshot.
         /// </summary>
         [Input("permanentRestore")]
-        public bool? PermanentRestore;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPermanentRestore;
+
+        public bool? PermanentRestore => _mPermanentRestore.GetValue("permanentRestore");
 
         /// <summary>
         /// The region of the source snapshot.
         /// </summary>
         [Input("sourceRegion")]
-        public string? SourceRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceRegion;
+
+        public string? SourceRegion => _mSourceRegion.GetValue("sourceRegion");
 
         /// <summary>
         /// The ARN for the snapshot to be copied.
         /// </summary>
         [Input("sourceSnapshotId")]
-        public string? SourceSnapshotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceSnapshotId;
+
+        public string? SourceSnapshotId => _mSourceSnapshotId.GetValue("sourceSnapshotId");
 
         /// <summary>
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         /// </summary>
         [Input("storageTier")]
-        public string? StorageTier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageTier;
+
+        public string? StorageTier => _mStorageTier.GetValue("storageTier");
 
         /// <summary>
         /// A map of tags for the snapshot.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         /// </summary>
         [Input("temporaryRestoreDays")]
-        public int? TemporaryRestoreDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTemporaryRestoreDays;
+
+        public int? TemporaryRestoreDays => _mTemporaryRestoreDays.GetValue("temporaryRestoreDays");
 
         [Input("volumeId")]
-        public string? VolumeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeId;
+
+        public string? VolumeId => _mVolumeId.GetValue("volumeId");
 
         /// <summary>
         /// The size of the drive in GiBs.
         /// </summary>
         [Input("volumeSize")]
-        public int? VolumeSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
+
+        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
+    }
+
+    [PolicyResourceType("aws:ebs/snapshotCopy:SnapshotCopy")]
+    public sealed class SnapshotCopyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        /// </summary>
+        [Input("completionDurationMinutes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCompletionDurationMinutes;
+
+        public int? CompletionDurationMinutes => _mCompletionDurationMinutes.GetValue("completionDurationMinutes");
+
+        /// <summary>
+        /// A description of what the snapshot is.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Whether the snapshot is encrypted.
+        /// </summary>
+        [Input("encrypted")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
+
+        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+
+        /// <summary>
+        /// The ARN for the KMS encryption key.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Indicates whether to permanently restore an archived snapshot.
+        /// </summary>
+        [Input("permanentRestore")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPermanentRestore;
+
+        public bool? PermanentRestore => _mPermanentRestore.GetValue("permanentRestore");
+
+        /// <summary>
+        /// The region of the source snapshot.
+        /// </summary>
+        [Input("sourceRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceRegion;
+
+        public string? SourceRegion => _mSourceRegion.GetValue("sourceRegion");
+
+        /// <summary>
+        /// The ARN for the snapshot to be copied.
+        /// </summary>
+        [Input("sourceSnapshotId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceSnapshotId;
+
+        public string? SourceSnapshotId => _mSourceSnapshotId.GetValue("sourceSnapshotId");
+
+        /// <summary>
+        /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
+        /// </summary>
+        [Input("storageTier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageTier;
+
+        public string? StorageTier => _mStorageTier.GetValue("storageTier");
+
+        /// <summary>
+        /// A map of tags for the snapshot.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
+        /// </summary>
+        [Input("temporaryRestoreDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTemporaryRestoreDays;
+
+        public int? TemporaryRestoreDays => _mTemporaryRestoreDays.GetValue("temporaryRestoreDays");
     }
 }

@@ -11,150 +11,406 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Amplify
 {
     [PolicyResourceType("aws:amplify/app:App")]
-    public sealed class App : global::Pulumi.PolicyResource
+    public sealed class App : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         /// </summary>
         [Input("accessToken")]
-        public string? AccessToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessToken;
+
+        public string? AccessToken => _mAccessToken.GetValue("accessToken");
 
         /// <summary>
         /// ARN of the Amplify app.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         /// </summary>
         [Input("autoBranchCreationConfig")]
-        public AppAutoBranchCreationConfig? AutoBranchCreationConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAutoBranchCreationConfig> _mAutoBranchCreationConfig;
+
+        public Outputs.AppAutoBranchCreationConfig? AutoBranchCreationConfig => _mAutoBranchCreationConfig.GetValue("autoBranchCreationConfig");
 
         /// <summary>
         /// Automated branch creation glob patterns for an Amplify app.
         /// </summary>
         [Input("autoBranchCreationPatterns")]
-        public List<string>? AutoBranchCreationPatterns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoBranchCreationPatterns;
+
+        public List<string>? AutoBranchCreationPatterns => _mAutoBranchCreationPatterns.GetValue("autoBranchCreationPatterns");
 
         /// <summary>
         /// Credentials for basic authorization for an Amplify app.
         /// </summary>
         [Input("basicAuthCredentials")]
-        public string? BasicAuthCredentials;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
+
+        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
 
         /// <summary>
         /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         /// </summary>
         [Input("buildSpec")]
-        public string? BuildSpec;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBuildSpec;
+
+        public string? BuildSpec => _mBuildSpec.GetValue("buildSpec");
 
         /// <summary>
         /// Cache configuration for the Amplify app. See `cache_config` Block for details.
         /// </summary>
         [Input("cacheConfig")]
-        public AppCacheConfig? CacheConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AppCacheConfig> _mCacheConfig;
+
+        public Outputs.AppCacheConfig? CacheConfig => _mCacheConfig.GetValue("cacheConfig");
 
         /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
         [Input("customHeaders")]
-        public string? CustomHeaders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomHeaders;
+
+        public string? CustomHeaders => _mCustomHeaders.GetValue("customHeaders");
 
         /// <summary>
         /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         /// </summary>
         [Input("customRules")]
-        public List<AppCustomRule>? CustomRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AppCustomRule>> _mCustomRules;
+
+        public List<Outputs.AppCustomRule>? CustomRules => _mCustomRules.GetValue("customRules");
 
         /// <summary>
         /// Default domain for the Amplify app.
         /// </summary>
         [Input("defaultDomain")]
-        public string? DefaultDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultDomain;
+
+        public string? DefaultDomain => _mDefaultDomain.GetValue("defaultDomain");
 
         /// <summary>
         /// Description for an Amplify app.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Enables automated branch creation for an Amplify app.
         /// </summary>
         [Input("enableAutoBranchCreation")]
-        public bool? EnableAutoBranchCreation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBranchCreation;
+
+        public bool? EnableAutoBranchCreation => _mEnableAutoBranchCreation.GetValue("enableAutoBranchCreation");
 
         /// <summary>
         /// Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
         /// </summary>
         [Input("enableBasicAuth")]
-        public bool? EnableBasicAuth;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
+
+        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
 
         /// <summary>
         /// Enables auto-building of branches for the Amplify App.
         /// </summary>
         [Input("enableBranchAutoBuild")]
-        public bool? EnableBranchAutoBuild;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBranchAutoBuild;
+
+        public bool? EnableBranchAutoBuild => _mEnableBranchAutoBuild.GetValue("enableBranchAutoBuild");
 
         /// <summary>
         /// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         /// </summary>
         [Input("enableBranchAutoDeletion")]
-        public bool? EnableBranchAutoDeletion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBranchAutoDeletion;
+
+        public bool? EnableBranchAutoDeletion => _mEnableBranchAutoDeletion.GetValue("enableBranchAutoDeletion");
 
         /// <summary>
         /// Environment variables map for an Amplify app.
         /// </summary>
         [Input("environmentVariables")]
-        public Dictionary<string, string>? EnvironmentVariables;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
+
+        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
 
         /// <summary>
         /// AWS Identity and Access Management (IAM) service role for an Amplify app.
         /// </summary>
         [Input("iamServiceRoleArn")]
-        public string? IamServiceRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamServiceRoleArn;
+
+        public string? IamServiceRoleArn => _mIamServiceRoleArn.GetValue("iamServiceRoleArn");
 
         /// <summary>
         /// Name for an Amplify app.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         /// </summary>
         [Input("oauthToken")]
-        public string? OauthToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOauthToken;
+
+        public string? OauthToken => _mOauthToken.GetValue("oauthToken");
 
         /// <summary>
         /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         /// </summary>
         [Input("platform")]
-        public string? Platform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
 
         /// <summary>
         /// Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
         /// </summary>
         [Input("productionBranches")]
-        public List<AppProductionBranch>? ProductionBranches;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AppProductionBranch>> _mProductionBranches;
+
+        public List<Outputs.AppProductionBranch>? ProductionBranches => _mProductionBranches.GetValue("productionBranches");
 
         /// <summary>
         /// Repository for an Amplify app.
         /// </summary>
         [Input("repository")]
-        public string? Repository;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
+
+        public string? Repository => _mRepository.GetValue("repository");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:amplify/app:App")]
+    public sealed class AppArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
+        /// </summary>
+        [Input("accessToken")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessToken;
+
+        public string? AccessToken => _mAccessToken.GetValue("accessToken");
+
+        /// <summary>
+        /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
+        /// </summary>
+        [Input("autoBranchCreationConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppAutoBranchCreationConfigArgs> _mAutoBranchCreationConfig;
+
+        public Inputs.AppAutoBranchCreationConfigArgs? AutoBranchCreationConfig => _mAutoBranchCreationConfig.GetValue("autoBranchCreationConfig");
+
+        /// <summary>
+        /// Automated branch creation glob patterns for an Amplify app.
+        /// </summary>
+        [Input("autoBranchCreationPatterns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoBranchCreationPatterns;
+
+        public List<string>? AutoBranchCreationPatterns => _mAutoBranchCreationPatterns.GetValue("autoBranchCreationPatterns");
+
+        /// <summary>
+        /// Credentials for basic authorization for an Amplify app.
+        /// </summary>
+        [Input("basicAuthCredentials")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
+
+        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
+
+        /// <summary>
+        /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        /// </summary>
+        [Input("buildSpec")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBuildSpec;
+
+        public string? BuildSpec => _mBuildSpec.GetValue("buildSpec");
+
+        /// <summary>
+        /// Cache configuration for the Amplify app. See `cache_config` Block for details.
+        /// </summary>
+        [Input("cacheConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AppCacheConfigArgs> _mCacheConfig;
+
+        public Inputs.AppCacheConfigArgs? CacheConfig => _mCacheConfig.GetValue("cacheConfig");
+
+        /// <summary>
+        /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+        /// </summary>
+        [Input("customHeaders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomHeaders;
+
+        public string? CustomHeaders => _mCustomHeaders.GetValue("customHeaders");
+
+        /// <summary>
+        /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
+        /// </summary>
+        [Input("customRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AppCustomRuleArgs>> _mCustomRules;
+
+        public List<Inputs.AppCustomRuleArgs>? CustomRules => _mCustomRules.GetValue("customRules");
+
+        /// <summary>
+        /// Description for an Amplify app.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Enables automated branch creation for an Amplify app.
+        /// </summary>
+        [Input("enableAutoBranchCreation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBranchCreation;
+
+        public bool? EnableAutoBranchCreation => _mEnableAutoBranchCreation.GetValue("enableAutoBranchCreation");
+
+        /// <summary>
+        /// Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
+        /// </summary>
+        [Input("enableBasicAuth")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
+
+        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
+
+        /// <summary>
+        /// Enables auto-building of branches for the Amplify App.
+        /// </summary>
+        [Input("enableBranchAutoBuild")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBranchAutoBuild;
+
+        public bool? EnableBranchAutoBuild => _mEnableBranchAutoBuild.GetValue("enableBranchAutoBuild");
+
+        /// <summary>
+        /// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
+        /// </summary>
+        [Input("enableBranchAutoDeletion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBranchAutoDeletion;
+
+        public bool? EnableBranchAutoDeletion => _mEnableBranchAutoDeletion.GetValue("enableBranchAutoDeletion");
+
+        /// <summary>
+        /// Environment variables map for an Amplify app.
+        /// </summary>
+        [Input("environmentVariables")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
+
+        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+
+        /// <summary>
+        /// AWS Identity and Access Management (IAM) service role for an Amplify app.
+        /// </summary>
+        [Input("iamServiceRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamServiceRoleArn;
+
+        public string? IamServiceRoleArn => _mIamServiceRoleArn.GetValue("iamServiceRoleArn");
+
+        /// <summary>
+        /// Name for an Amplify app.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+        /// </summary>
+        [Input("oauthToken")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOauthToken;
+
+        public string? OauthToken => _mOauthToken.GetValue("oauthToken");
+
+        /// <summary>
+        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        /// </summary>
+        [Input("platform")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
+
+        /// <summary>
+        /// Repository for an Amplify app.
+        /// </summary>
+        [Input("repository")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
+
+        public string? Repository => _mRepository.GetValue("repository");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

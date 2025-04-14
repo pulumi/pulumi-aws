@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/policyAttachment:PolicyAttachment")]
-    public sealed class PolicyAttachment : global::Pulumi.PolicyResource
+    public sealed class PolicyAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the policy to attach.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// The identity to which the policy is attached.
         /// </summary>
         [Input("target")]
-        public string? Target;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
+
+        public string? Target => _mTarget.GetValue("target");
+    }
+
+    [PolicyResourceType("aws:iot/policyAttachment:PolicyAttachment")]
+    public sealed class PolicyAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the policy to attach.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// The identity to which the policy is attached.
+        /// </summary>
+        [Input("target")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
+
+        public string? Target => _mTarget.GetValue("target");
     }
 }

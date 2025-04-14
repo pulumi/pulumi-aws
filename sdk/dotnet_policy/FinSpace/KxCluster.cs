@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.FinSpace
 {
     [PolicyResourceType("aws:finspace/kxCluster:KxCluster")]
-    public sealed class KxCluster : global::Pulumi.PolicyResource
+    public sealed class KxCluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         /// </summary>
         [Input("autoScalingConfiguration")]
-        public KxClusterAutoScalingConfiguration? AutoScalingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterAutoScalingConfiguration> _mAutoScalingConfiguration;
+
+        public Outputs.KxClusterAutoScalingConfiguration? AutoScalingConfiguration => _mAutoScalingConfiguration.GetValue("autoScalingConfiguration");
 
         /// <summary>
         /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         /// </summary>
         [Input("availabilityZoneId")]
-        public string? AvailabilityZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
@@ -37,121 +46,184 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * MULTI - Assigns all the availability zones per cluster.
         /// </summary>
         [Input("azMode")]
-        public string? AzMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
+
+        public string? AzMode => _mAzMode.GetValue("azMode");
 
         /// <summary>
         /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         /// </summary>
         [Input("cacheStorageConfigurations")]
-        public List<KxClusterCacheStorageConfiguration>? CacheStorageConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxClusterCacheStorageConfiguration>> _mCacheStorageConfigurations;
+
+        public List<Outputs.KxClusterCacheStorageConfiguration>? CacheStorageConfigurations => _mCacheStorageConfigurations.GetValue("cacheStorageConfigurations");
 
         /// <summary>
         /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         /// </summary>
         [Input("capacityConfiguration")]
-        public KxClusterCapacityConfiguration? CapacityConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterCapacityConfiguration> _mCapacityConfiguration;
+
+        public Outputs.KxClusterCapacityConfiguration? CapacityConfiguration => _mCapacityConfiguration.GetValue("capacityConfiguration");
 
         /// <summary>
         /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         /// </summary>
         [Input("code")]
-        public KxClusterCode? Code;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterCode> _mCode;
+
+        public Outputs.KxClusterCode? Code => _mCode.GetValue("code");
 
         /// <summary>
         /// List of key-value pairs to make available inside the cluster.
         /// </summary>
         [Input("commandLineArguments")]
-        public Dictionary<string, string>? CommandLineArguments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mCommandLineArguments;
+
+        public Dictionary<string, string>? CommandLineArguments => _mCommandLineArguments.GetValue("commandLineArguments");
 
         /// <summary>
         /// Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Input("createdTimestamp")]
-        public string? CreatedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
+
+        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
 
         /// <summary>
         /// KX database that will be available for querying. Defined below.
         /// </summary>
         [Input("databases")]
-        public List<KxClusterDatabase>? Databases;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxClusterDatabase>> _mDatabases;
+
+        public List<Outputs.KxClusterDatabase>? Databases => _mDatabases.GetValue("databases");
 
         /// <summary>
         /// Description of the cluster.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Unique identifier for the KX environment.
         /// </summary>
         [Input("environmentId")]
-        public string? EnvironmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
 
         /// <summary>
         /// An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         /// </summary>
         [Input("executionRole")]
-        public string? ExecutionRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
+
+        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
 
         /// <summary>
         /// Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         /// </summary>
         [Input("initializationScript")]
-        public string? InitializationScript;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInitializationScript;
+
+        public string? InitializationScript => _mInitializationScript.GetValue("initializationScript");
 
         /// <summary>
         /// Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Input("lastModifiedTimestamp")]
-        public string? LastModifiedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTimestamp;
+
+        public string? LastModifiedTimestamp => _mLastModifiedTimestamp.GetValue("lastModifiedTimestamp");
 
         /// <summary>
         /// Unique name for the cluster that you want to create.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Version of FinSpace Managed kdb to run.
         /// </summary>
         [Input("releaseLabel")]
-        public string? ReleaseLabel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
+
+        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
 
         /// <summary>
         /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
         [Input("savedownStorageConfiguration")]
-        public KxClusterSavedownStorageConfiguration? SavedownStorageConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterSavedownStorageConfiguration> _mSavedownStorageConfiguration;
+
+        public Outputs.KxClusterSavedownStorageConfiguration? SavedownStorageConfiguration => _mSavedownStorageConfiguration.GetValue("savedownStorageConfiguration");
 
         /// <summary>
         /// The structure that stores the configuration details of a scaling group.
         /// </summary>
         [Input("scalingGroupConfiguration")]
-        public KxClusterScalingGroupConfiguration? ScalingGroupConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterScalingGroupConfiguration> _mScalingGroupConfiguration;
+
+        public Outputs.KxClusterScalingGroupConfiguration? ScalingGroupConfiguration => _mScalingGroupConfiguration.GetValue("scalingGroupConfiguration");
 
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("statusReason")]
-        public string? StatusReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
+
+        public string? StatusReason => _mStatusReason.GetValue("statusReason");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         /// </summary>
         [Input("tickerplantLogConfigurations")]
-        public List<KxClusterTickerplantLogConfiguration>? TickerplantLogConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxClusterTickerplantLogConfiguration>> _mTickerplantLogConfigurations;
+
+        public List<Outputs.KxClusterTickerplantLogConfiguration>? TickerplantLogConfigurations => _mTickerplantLogConfigurations.GetValue("tickerplantLogConfigurations");
 
         /// <summary>
         /// Type of KDB database. The following types are available:
@@ -162,7 +234,10 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
@@ -170,6 +245,202 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// The following arguments are optional:
         /// </summary>
         [Input("vpcConfiguration")]
-        public KxClusterVpcConfiguration? VpcConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterVpcConfiguration> _mVpcConfiguration;
+
+        public Outputs.KxClusterVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+    }
+
+    [PolicyResourceType("aws:finspace/kxCluster:KxCluster")]
+    public sealed class KxClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+        /// </summary>
+        [Input("autoScalingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterAutoScalingConfigurationArgs> _mAutoScalingConfiguration;
+
+        public Inputs.KxClusterAutoScalingConfigurationArgs? AutoScalingConfiguration => _mAutoScalingConfiguration.GetValue("autoScalingConfiguration");
+
+        /// <summary>
+        /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+
+        /// <summary>
+        /// The number of availability zones you want to assign per cluster. This can be one of the following:
+        /// * SINGLE - Assigns one availability zone per cluster.
+        /// * MULTI - Assigns all the availability zones per cluster.
+        /// </summary>
+        [Input("azMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
+
+        public string? AzMode => _mAzMode.GetValue("azMode");
+
+        /// <summary>
+        /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        /// </summary>
+        [Input("cacheStorageConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxClusterCacheStorageConfigurationArgs>> _mCacheStorageConfigurations;
+
+        public List<Inputs.KxClusterCacheStorageConfigurationArgs>? CacheStorageConfigurations => _mCacheStorageConfigurations.GetValue("cacheStorageConfigurations");
+
+        /// <summary>
+        /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        /// </summary>
+        [Input("capacityConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterCapacityConfigurationArgs> _mCapacityConfiguration;
+
+        public Inputs.KxClusterCapacityConfigurationArgs? CapacityConfiguration => _mCapacityConfiguration.GetValue("capacityConfiguration");
+
+        /// <summary>
+        /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+        /// </summary>
+        [Input("code")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterCodeArgs> _mCode;
+
+        public Inputs.KxClusterCodeArgs? Code => _mCode.GetValue("code");
+
+        /// <summary>
+        /// List of key-value pairs to make available inside the cluster.
+        /// </summary>
+        [Input("commandLineArguments")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mCommandLineArguments;
+
+        public Dictionary<string, string>? CommandLineArguments => _mCommandLineArguments.GetValue("commandLineArguments");
+
+        /// <summary>
+        /// KX database that will be available for querying. Defined below.
+        /// </summary>
+        [Input("databases")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxClusterDatabaseArgs>> _mDatabases;
+
+        public List<Inputs.KxClusterDatabaseArgs>? Databases => _mDatabases.GetValue("databases");
+
+        /// <summary>
+        /// Description of the cluster.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Unique identifier for the KX environment.
+        /// </summary>
+        [Input("environmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+
+        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+
+        /// <summary>
+        /// An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
+        /// </summary>
+        [Input("executionRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
+
+        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+
+        /// <summary>
+        /// Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
+        /// </summary>
+        [Input("initializationScript")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInitializationScript;
+
+        public string? InitializationScript => _mInitializationScript.GetValue("initializationScript");
+
+        /// <summary>
+        /// Unique name for the cluster that you want to create.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Version of FinSpace Managed kdb to run.
+        /// </summary>
+        [Input("releaseLabel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
+
+        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
+
+        /// <summary>
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// </summary>
+        [Input("savedownStorageConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterSavedownStorageConfigurationArgs> _mSavedownStorageConfiguration;
+
+        public Inputs.KxClusterSavedownStorageConfigurationArgs? SavedownStorageConfiguration => _mSavedownStorageConfiguration.GetValue("savedownStorageConfiguration");
+
+        /// <summary>
+        /// The structure that stores the configuration details of a scaling group.
+        /// </summary>
+        [Input("scalingGroupConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterScalingGroupConfigurationArgs> _mScalingGroupConfiguration;
+
+        public Inputs.KxClusterScalingGroupConfigurationArgs? ScalingGroupConfiguration => _mScalingGroupConfiguration.GetValue("scalingGroupConfiguration");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// </summary>
+        [Input("tickerplantLogConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxClusterTickerplantLogConfigurationArgs>> _mTickerplantLogConfigurations;
+
+        public List<Inputs.KxClusterTickerplantLogConfigurationArgs>? TickerplantLogConfigurations => _mTickerplantLogConfigurations.GetValue("tickerplantLogConfigurations");
+
+        /// <summary>
+        /// Type of KDB database. The following types are available:
+        /// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
+        /// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
+        /// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+        /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
+        /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vpcConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterVpcConfigurationArgs> _mVpcConfiguration;
+
+        public Inputs.KxClusterVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
     }
 }

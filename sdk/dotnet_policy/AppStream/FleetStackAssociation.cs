@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppStream
 {
     [PolicyResourceType("aws:appstream/fleetStackAssociation:FleetStackAssociation")]
-    public sealed class FleetStackAssociation : global::Pulumi.PolicyResource
+    public sealed class FleetStackAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the fleet.
         /// </summary>
         [Input("fleetName")]
-        public string? FleetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetName;
+
+        public string? FleetName => _mFleetName.GetValue("fleetName");
 
         /// <summary>
         /// Name of the stack.
         /// </summary>
         [Input("stackName")]
-        public string? StackName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
+
+        public string? StackName => _mStackName.GetValue("stackName");
+    }
+
+    [PolicyResourceType("aws:appstream/fleetStackAssociation:FleetStackAssociation")]
+    public sealed class FleetStackAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the fleet.
+        /// </summary>
+        [Input("fleetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetName;
+
+        public string? FleetName => _mFleetName.GetValue("fleetName");
+
+        /// <summary>
+        /// Name of the stack.
+        /// </summary>
+        [Input("stackName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
+
+        public string? StackName => _mStackName.GetValue("stackName");
     }
 }

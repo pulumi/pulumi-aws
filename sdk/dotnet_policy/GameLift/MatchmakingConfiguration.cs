@@ -11,117 +11,313 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GameLift
 {
     [PolicyResourceType("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration")]
-    public sealed class MatchmakingConfiguration : global::Pulumi.PolicyResource
+    public sealed class MatchmakingConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies if the match that was created with this configuration must be accepted by matched players.
         /// </summary>
         [Input("acceptanceRequired")]
-        public bool? AcceptanceRequired;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptanceRequired;
+
+        public bool? AcceptanceRequired => _mAcceptanceRequired.GetValue("acceptanceRequired");
 
         /// <summary>
         /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
         /// </summary>
         [Input("acceptanceTimeoutSeconds")]
-        public int? AcceptanceTimeoutSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAcceptanceTimeoutSeconds;
+
+        public int? AcceptanceTimeoutSeconds => _mAcceptanceTimeoutSeconds.GetValue("acceptanceTimeoutSeconds");
 
         /// <summary>
         /// The number of player slots in a match to keep open for future players.
         /// </summary>
         [Input("additionalPlayerCount")]
-        public int? AdditionalPlayerCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAdditionalPlayerCount;
+
+        public int? AdditionalPlayerCount => _mAdditionalPlayerCount.GetValue("additionalPlayerCount");
 
         /// <summary>
         /// Matchmaking Configuration ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The method used to backfill game sessions that are created with this matchmaking configuration.
         /// </summary>
         [Input("backfillMode")]
-        public string? BackfillMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackfillMode;
+
+        public string? BackfillMode => _mBackfillMode.GetValue("backfillMode");
 
         /// <summary>
         /// The time when the Matchmaking Configuration was created.
         /// </summary>
         [Input("creationTime")]
-        public string? CreationTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
+
+        public string? CreationTime => _mCreationTime.GetValue("creationTime");
 
         /// <summary>
         /// Information to be added to all events related to this matchmaking configuration.
         /// </summary>
         [Input("customEventData")]
-        public string? CustomEventData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomEventData;
+
+        public string? CustomEventData => _mCustomEventData.GetValue("customEventData");
 
         /// <summary>
         /// A human-readable description of the matchmaking configuration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
         /// </summary>
         [Input("flexMatchMode")]
-        public string? FlexMatchMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFlexMatchMode;
+
+        public string? FlexMatchMode => _mFlexMatchMode.GetValue("flexMatchMode");
 
         /// <summary>
         /// One or more custom game properties. See below.
         /// </summary>
         [Input("gameProperties")]
-        public List<MatchmakingConfigurationGameProperty>? GameProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MatchmakingConfigurationGameProperty>> _mGameProperties;
+
+        public List<Outputs.MatchmakingConfigurationGameProperty>? GameProperties => _mGameProperties.GetValue("gameProperties");
 
         /// <summary>
         /// A set of custom game session properties.
         /// </summary>
         [Input("gameSessionData")]
-        public string? GameSessionData;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGameSessionData;
+
+        public string? GameSessionData => _mGameSessionData.GetValue("gameSessionData");
 
         /// <summary>
         /// The ARNs of the GameLift game session queue resources.
         /// </summary>
         [Input("gameSessionQueueArns")]
-        public List<string>? GameSessionQueueArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGameSessionQueueArns;
+
+        public List<string>? GameSessionQueueArns => _mGameSessionQueueArns.GetValue("gameSessionQueueArns");
 
         /// <summary>
         /// Name of the matchmaking configuration
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// An SNS topic ARN that is set up to receive matchmaking notifications.
         /// </summary>
         [Input("notificationTarget")]
-        public string? NotificationTarget;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTarget;
+
+        public string? NotificationTarget => _mNotificationTarget.GetValue("notificationTarget");
 
         /// <summary>
         /// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
         /// </summary>
         [Input("requestTimeoutSeconds")]
-        public int? RequestTimeoutSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRequestTimeoutSeconds;
+
+        public int? RequestTimeoutSeconds => _mRequestTimeoutSeconds.GetValue("requestTimeoutSeconds");
 
         [Input("ruleSetArn")]
-        public string? RuleSetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetArn;
+
+        public string? RuleSetArn => _mRuleSetArn.GetValue("ruleSetArn");
 
         /// <summary>
         /// A rule set names for the matchmaking rule set to use with this configuration.
         /// </summary>
         [Input("ruleSetName")]
-        public string? RuleSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
+
+        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration")]
+    public sealed class MatchmakingConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies if the match that was created with this configuration must be accepted by matched players.
+        /// </summary>
+        [Input("acceptanceRequired")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptanceRequired;
+
+        public bool? AcceptanceRequired => _mAcceptanceRequired.GetValue("acceptanceRequired");
+
+        /// <summary>
+        /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+        /// </summary>
+        [Input("acceptanceTimeoutSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAcceptanceTimeoutSeconds;
+
+        public int? AcceptanceTimeoutSeconds => _mAcceptanceTimeoutSeconds.GetValue("acceptanceTimeoutSeconds");
+
+        /// <summary>
+        /// The number of player slots in a match to keep open for future players.
+        /// </summary>
+        [Input("additionalPlayerCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAdditionalPlayerCount;
+
+        public int? AdditionalPlayerCount => _mAdditionalPlayerCount.GetValue("additionalPlayerCount");
+
+        /// <summary>
+        /// The method used to backfill game sessions that are created with this matchmaking configuration.
+        /// </summary>
+        [Input("backfillMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackfillMode;
+
+        public string? BackfillMode => _mBackfillMode.GetValue("backfillMode");
+
+        /// <summary>
+        /// Information to be added to all events related to this matchmaking configuration.
+        /// </summary>
+        [Input("customEventData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomEventData;
+
+        public string? CustomEventData => _mCustomEventData.GetValue("customEventData");
+
+        /// <summary>
+        /// A human-readable description of the matchmaking configuration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
+        /// </summary>
+        [Input("flexMatchMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFlexMatchMode;
+
+        public string? FlexMatchMode => _mFlexMatchMode.GetValue("flexMatchMode");
+
+        /// <summary>
+        /// One or more custom game properties. See below.
+        /// </summary>
+        [Input("gameProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MatchmakingConfigurationGamePropertyArgs>> _mGameProperties;
+
+        public List<Inputs.MatchmakingConfigurationGamePropertyArgs>? GameProperties => _mGameProperties.GetValue("gameProperties");
+
+        /// <summary>
+        /// A set of custom game session properties.
+        /// </summary>
+        [Input("gameSessionData")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGameSessionData;
+
+        public string? GameSessionData => _mGameSessionData.GetValue("gameSessionData");
+
+        /// <summary>
+        /// The ARNs of the GameLift game session queue resources.
+        /// </summary>
+        [Input("gameSessionQueueArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGameSessionQueueArns;
+
+        public List<string>? GameSessionQueueArns => _mGameSessionQueueArns.GetValue("gameSessionQueueArns");
+
+        /// <summary>
+        /// Name of the matchmaking configuration
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive matchmaking notifications.
+        /// </summary>
+        [Input("notificationTarget")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTarget;
+
+        public string? NotificationTarget => _mNotificationTarget.GetValue("notificationTarget");
+
+        /// <summary>
+        /// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+        /// </summary>
+        [Input("requestTimeoutSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRequestTimeoutSeconds;
+
+        public int? RequestTimeoutSeconds => _mRequestTimeoutSeconds.GetValue("requestTimeoutSeconds");
+
+        /// <summary>
+        /// A rule set names for the matchmaking rule set to use with this configuration.
+        /// </summary>
+        [Input("ruleSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
+
+        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

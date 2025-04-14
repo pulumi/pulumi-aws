@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.BedrockModel
 {
     [PolicyResourceType("aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration")]
-    public sealed class InvocationLoggingConfiguration : global::Pulumi.PolicyResource
+    public sealed class InvocationLoggingConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The logging configuration values to set. See `logging_config` Block for details.
         /// </summary>
         [Input("loggingConfig")]
-        public InvocationLoggingConfigurationLoggingConfig? LoggingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.InvocationLoggingConfigurationLoggingConfig> _mLoggingConfig;
+
+        public Outputs.InvocationLoggingConfigurationLoggingConfig? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
+    }
+
+    [PolicyResourceType("aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration")]
+    public sealed class InvocationLoggingConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The logging configuration values to set. See `logging_config` Block for details.
+        /// </summary>
+        [Input("loggingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.InvocationLoggingConfigurationLoggingConfigArgs> _mLoggingConfig;
+
+        public Inputs.InvocationLoggingConfigurationLoggingConfigArgs? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
     }
 }

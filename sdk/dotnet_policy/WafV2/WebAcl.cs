@@ -11,117 +11,304 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafV2
 {
     [PolicyResourceType("aws:wafv2/webAcl:WebAcl")]
-    public sealed class WebAcl : global::Pulumi.PolicyResource
+    public sealed class WebAcl : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The URL to use in SDK integrations with managed rule groups.
         /// </summary>
         [Input("applicationIntegrationUrl")]
-        public string? ApplicationIntegrationUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationIntegrationUrl;
+
+        public string? ApplicationIntegrationUrl => _mApplicationIntegrationUrl.GetValue("applicationIntegrationUrl");
 
         /// <summary>
         /// The ARN of the WAF WebACL.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         /// </summary>
         [Input("associationConfig")]
-        public WebAclAssociationConfig? AssociationConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclAssociationConfig> _mAssociationConfig;
+
+        public Outputs.WebAclAssociationConfig? AssociationConfig => _mAssociationConfig.GetValue("associationConfig");
 
         /// <summary>
         /// Web ACL capacity units (WCUs) currently being used by this web ACL.
         /// </summary>
         [Input("capacity")]
-        public int? Capacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCapacity;
+
+        public int? Capacity => _mCapacity.GetValue("capacity");
 
         /// <summary>
         /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         /// </summary>
         [Input("captchaConfig")]
-        public WebAclCaptchaConfig? CaptchaConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclCaptchaConfig> _mCaptchaConfig;
+
+        public Outputs.WebAclCaptchaConfig? CaptchaConfig => _mCaptchaConfig.GetValue("captchaConfig");
 
         /// <summary>
         /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         /// </summary>
         [Input("challengeConfig")]
-        public WebAclChallengeConfig? ChallengeConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclChallengeConfig> _mChallengeConfig;
+
+        public Outputs.WebAclChallengeConfig? ChallengeConfig => _mChallengeConfig.GetValue("challengeConfig");
 
         /// <summary>
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         /// </summary>
         [Input("customResponseBodies")]
-        public List<WebAclCustomResponseBody>? CustomResponseBodies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclCustomResponseBody>> _mCustomResponseBodies;
+
+        public List<Outputs.WebAclCustomResponseBody>? CustomResponseBodies => _mCustomResponseBodies.GetValue("customResponseBodies");
 
         /// <summary>
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Input("defaultAction")]
-        public WebAclDefaultAction? DefaultAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclDefaultAction> _mDefaultAction;
+
+        public Outputs.WebAclDefaultAction? DefaultAction => _mDefaultAction.GetValue("defaultAction");
 
         /// <summary>
         /// Friendly description of the WebACL.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         [Input("lockToken")]
-        public string? LockToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLockToken;
+
+        public string? LockToken => _mLockToken.GetValue("lockToken");
 
         /// <summary>
         /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         /// </summary>
         [Input("ruleJson")]
-        public string? RuleJson;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleJson;
+
+        public string? RuleJson => _mRuleJson.GetValue("ruleJson");
 
         /// <summary>
         /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         /// </summary>
         [Input("rules")]
-        public List<WebAclRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRule>> _mRules;
+
+        public List<Outputs.WebAclRule>? Rules => _mRules.GetValue("rules");
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
         [Input("scope")]
-        public string? Scope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
 
         /// <summary>
         /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         /// </summary>
         [Input("tokenDomains")]
-        public List<string>? TokenDomains;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTokenDomains;
+
+        public List<string>? TokenDomains => _mTokenDomains.GetValue("tokenDomains");
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
         [Input("visibilityConfig")]
-        public WebAclVisibilityConfig? VisibilityConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclVisibilityConfig> _mVisibilityConfig;
+
+        public Outputs.WebAclVisibilityConfig? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
+    }
+
+    [PolicyResourceType("aws:wafv2/webAcl:WebAcl")]
+    public sealed class WebAclArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        /// </summary>
+        [Input("associationConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclAssociationConfigArgs> _mAssociationConfig;
+
+        public Inputs.WebAclAssociationConfigArgs? AssociationConfig => _mAssociationConfig.GetValue("associationConfig");
+
+        /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
+        /// </summary>
+        [Input("captchaConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclCaptchaConfigArgs> _mCaptchaConfig;
+
+        public Inputs.WebAclCaptchaConfigArgs? CaptchaConfig => _mCaptchaConfig.GetValue("captchaConfig");
+
+        /// <summary>
+        /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
+        /// </summary>
+        [Input("challengeConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclChallengeConfigArgs> _mChallengeConfig;
+
+        public Inputs.WebAclChallengeConfigArgs? ChallengeConfig => _mChallengeConfig.GetValue("challengeConfig");
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        /// </summary>
+        [Input("customResponseBodies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclCustomResponseBodyArgs>> _mCustomResponseBodies;
+
+        public List<Inputs.WebAclCustomResponseBodyArgs>? CustomResponseBodies => _mCustomResponseBodies.GetValue("customResponseBodies");
+
+        /// <summary>
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        /// </summary>
+        [Input("defaultAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclDefaultActionArgs> _mDefaultAction;
+
+        public Inputs.WebAclDefaultActionArgs? DefaultAction => _mDefaultAction.GetValue("defaultAction");
+
+        /// <summary>
+        /// Friendly description of the WebACL.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        /// </summary>
+        [Input("ruleJson")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleJson;
+
+        public string? RuleJson => _mRuleJson.GetValue("ruleJson");
+
+        /// <summary>
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleArgs>> _mRules;
+
+        public List<Inputs.WebAclRuleArgs>? Rules => _mRules.GetValue("rules");
+
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
+        [Input("scope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
+
+        /// <summary>
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        /// </summary>
+        [Input("tokenDomains")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTokenDomains;
+
+        public List<string>? TokenDomains => _mTokenDomains.GetValue("tokenDomains");
+
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// </summary>
+        [Input("visibilityConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclVisibilityConfigArgs> _mVisibilityConfig;
+
+        public Inputs.WebAclVisibilityConfigArgs? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
     }
 }

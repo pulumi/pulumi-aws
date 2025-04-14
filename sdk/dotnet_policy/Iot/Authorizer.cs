@@ -11,66 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/authorizer:Authorizer")]
-    public sealed class Authorizer : global::Pulumi.PolicyResource
+    public sealed class Authorizer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the authorizer.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the authorizer's Lambda function.
         /// </summary>
         [Input("authorizerFunctionArn")]
-        public string? AuthorizerFunctionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerFunctionArn;
+
+        public string? AuthorizerFunctionArn => _mAuthorizerFunctionArn.GetValue("authorizerFunctionArn");
 
         /// <summary>
         /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
         /// </summary>
         [Input("enableCachingForHttp")]
-        public bool? EnableCachingForHttp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableCachingForHttp;
+
+        public bool? EnableCachingForHttp => _mEnableCachingForHttp.GetValue("enableCachingForHttp");
 
         /// <summary>
         /// The name of the authorizer.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         /// </summary>
         [Input("signingDisabled")]
-        public bool? SigningDisabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSigningDisabled;
+
+        public bool? SigningDisabled => _mSigningDisabled.GetValue("signingDisabled");
 
         /// <summary>
         /// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         /// </summary>
         [Input("tokenKeyName")]
-        public string? TokenKeyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKeyName;
+
+        public string? TokenKeyName => _mTokenKeyName.GetValue("tokenKeyName");
 
         /// <summary>
         /// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         /// </summary>
         [Input("tokenSigningPublicKeys")]
-        public Dictionary<string, string>? TokenSigningPublicKeys;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTokenSigningPublicKeys;
+
+        public Dictionary<string, string>? TokenSigningPublicKeys => _mTokenSigningPublicKeys.GetValue("tokenSigningPublicKeys");
+    }
+
+    [PolicyResourceType("aws:iot/authorizer:Authorizer")]
+    public sealed class AuthorizerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the authorizer's Lambda function.
+        /// </summary>
+        [Input("authorizerFunctionArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerFunctionArn;
+
+        public string? AuthorizerFunctionArn => _mAuthorizerFunctionArn.GetValue("authorizerFunctionArn");
+
+        /// <summary>
+        /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+        /// </summary>
+        [Input("enableCachingForHttp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableCachingForHttp;
+
+        public bool? EnableCachingForHttp => _mEnableCachingForHttp.GetValue("enableCachingForHttp");
+
+        /// <summary>
+        /// The name of the authorizer.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
+        /// </summary>
+        [Input("signingDisabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSigningDisabled;
+
+        public bool? SigningDisabled => _mSigningDisabled.GetValue("signingDisabled");
+
+        /// <summary>
+        /// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
+        /// </summary>
+        [Input("tokenKeyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKeyName;
+
+        public string? TokenKeyName => _mTokenKeyName.GetValue("tokenKeyName");
+
+        /// <summary>
+        /// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
+        /// </summary>
+        [Input("tokenSigningPublicKeys")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTokenSigningPublicKeys;
+
+        public Dictionary<string, string>? TokenSigningPublicKeys => _mTokenSigningPublicKeys.GetValue("tokenSigningPublicKeys");
     }
 }

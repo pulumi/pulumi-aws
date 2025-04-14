@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")]
-    public sealed class VpcDhcpOptionsAssociation : global::Pulumi.PolicyResource
+    public sealed class VpcDhcpOptionsAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the DHCP Options Set to associate to the VPC.
         /// </summary>
         [Input("dhcpOptionsId")]
-        public string? DhcpOptionsId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDhcpOptionsId;
+
+        public string? DhcpOptionsId => _mDhcpOptionsId.GetValue("dhcpOptionsId");
 
         /// <summary>
         /// The ID of the VPC to which we would like to associate a DHCP Options Set.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")]
+    public sealed class VpcDhcpOptionsAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the DHCP Options Set to associate to the VPC.
+        /// </summary>
+        [Input("dhcpOptionsId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDhcpOptionsId;
+
+        public string? DhcpOptionsId => _mDhcpOptionsId.GetValue("dhcpOptionsId");
+
+        /// <summary>
+        /// The ID of the VPC to which we would like to associate a DHCP Options Set.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecr
 {
     [PolicyResourceType("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration")]
-    public sealed class RegistryScanningConfiguration : global::Pulumi.PolicyResource
+    public sealed class RegistryScanningConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The registry ID the scanning configuration applies to.
         /// </summary>
         [Input("registryId")]
-        public string? RegistryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
+
+        public string? RegistryId => _mRegistryId.GetValue("registryId");
 
         /// <summary>
         /// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
         /// </summary>
         [Input("rules")]
-        public List<RegistryScanningConfigurationRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RegistryScanningConfigurationRule>> _mRules;
+
+        public List<Outputs.RegistryScanningConfigurationRule>? Rules => _mRules.GetValue("rules");
 
         /// <summary>
         /// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
         /// </summary>
         [Input("scanType")]
-        public string? ScanType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScanType;
+
+        public string? ScanType => _mScanType.GetValue("scanType");
+    }
+
+    [PolicyResourceType("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration")]
+    public sealed class RegistryScanningConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RegistryScanningConfigurationRuleArgs>> _mRules;
+
+        public List<Inputs.RegistryScanningConfigurationRuleArgs>? Rules => _mRules.GetValue("rules");
+
+        /// <summary>
+        /// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
+        /// </summary>
+        [Input("scanType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScanType;
+
+        public string? ScanType => _mScanType.GetValue("scanType");
     }
 }

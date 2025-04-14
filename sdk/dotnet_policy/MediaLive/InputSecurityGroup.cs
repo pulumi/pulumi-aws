@@ -11,28 +11,40 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MediaLive
 {
     [PolicyResourceType("aws:medialive/inputSecurityGroup:InputSecurityGroup")]
-    public sealed class InputSecurityGroup : global::Pulumi.PolicyResource
+    public sealed class InputSecurityGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the InputSecurityGroup.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The list of inputs currently using this InputSecurityGroup.
         /// </summary>
         [Input("inputs")]
-        public List<string>? Inputs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputs;
+
+        public List<string>? Inputs => _mInputs.GetValue("inputs");
 
         /// <summary>
         /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
@@ -40,6 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// The following arguments are optional:
         /// </summary>
         [Input("whitelistRules")]
-        public List<InputSecurityGroupWhitelistRule>? WhitelistRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputSecurityGroupWhitelistRule>> _mWhitelistRules;
+
+        public List<Outputs.InputSecurityGroupWhitelistRule>? WhitelistRules => _mWhitelistRules.GetValue("whitelistRules");
+    }
+
+    [PolicyResourceType("aws:medialive/inputSecurityGroup:InputSecurityGroup")]
+    public sealed class InputSecurityGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Whitelist rules. See Whitelist Rules for more details.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("whitelistRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputSecurityGroupWhitelistRuleArgs>> _mWhitelistRules;
+
+        public List<Inputs.InputSecurityGroupWhitelistRuleArgs>? WhitelistRules => _mWhitelistRules.GetValue("whitelistRules");
     }
 }

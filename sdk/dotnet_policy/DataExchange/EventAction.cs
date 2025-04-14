@@ -11,38 +11,77 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataExchange
 {
     [PolicyResourceType("aws:dataexchange/eventAction:EventAction")]
-    public sealed class EventAction : global::Pulumi.PolicyResource
+    public sealed class EventAction : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Describes the action to take.
         /// Described in `action` Configuration Block below.
         /// </summary>
         [Input("action")]
-        public EventActionAction? Action;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventActionAction> _mAction;
+
+        public Outputs.EventActionAction? Action => _mAction.GetValue("action");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the event action.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Date and time when the resource was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Describes the event that triggers the `action`.
         /// Described in `event` Configuration Block below.
         /// </summary>
         [Input("event")]
-        public EventActionEvent? Event;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventActionEvent> _mEvent;
+
+        public Outputs.EventActionEvent? Event => _mEvent.GetValue("event");
 
         /// <summary>
         /// Data and time when the resource was last updated.
         /// </summary>
         [Input("updatedAt")]
-        public string? UpdatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
+
+        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+    }
+
+    [PolicyResourceType("aws:dataexchange/eventAction:EventAction")]
+    public sealed class EventActionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Describes the action to take.
+        /// Described in `action` Configuration Block below.
+        /// </summary>
+        [Input("action")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventActionActionArgs> _mAction;
+
+        public Inputs.EventActionActionArgs? Action => _mAction.GetValue("action");
+
+        /// <summary>
+        /// Describes the event that triggers the `action`.
+        /// Described in `event` Configuration Block below.
+        /// </summary>
+        [Input("event")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventActionEventArgs> _mEvent;
+
+        public Inputs.EventActionEventArgs? Event => _mEvent.GetValue("event");
     }
 }

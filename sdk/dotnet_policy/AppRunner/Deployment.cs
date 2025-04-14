@@ -11,27 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppRunner
 {
     [PolicyResourceType("aws:apprunner/deployment:Deployment")]
-    public sealed class Deployment : global::Pulumi.PolicyResource
+    public sealed class Deployment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The unique ID of the operation associated with deployment.
         /// </summary>
         [Input("operationId")]
-        public string? OperationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOperationId;
+
+        public string? OperationId => _mOperationId.GetValue("operationId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         /// </summary>
         [Input("serviceArn")]
-        public string? ServiceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
+
+        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
 
         /// <summary>
         /// The current status of the App Runner service deployment.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("timeouts")]
-        public DeploymentTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentTimeouts> _mTimeouts;
+
+        public Outputs.DeploymentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:apprunner/deployment:Deployment")]
+    public sealed class DeploymentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+        /// </summary>
+        [Input("serviceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
+
+        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentTimeoutsArgs> _mTimeouts;
+
+        public Inputs.DeploymentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

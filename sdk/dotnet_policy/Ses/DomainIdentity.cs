@@ -11,24 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/domainIdentity:DomainIdentity")]
-    public sealed class DomainIdentity : global::Pulumi.PolicyResource
+    public sealed class DomainIdentity : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the domain identity.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The domain name to assign to SES
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         /// </summary>
         [Input("verificationToken")]
-        public string? VerificationToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerificationToken;
+
+        public string? VerificationToken => _mVerificationToken.GetValue("verificationToken");
+    }
+
+    [PolicyResourceType("aws:ses/domainIdentity:DomainIdentity")]
+    public sealed class DomainIdentityArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The domain name to assign to SES
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
     }
 }

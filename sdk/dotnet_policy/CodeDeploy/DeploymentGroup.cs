@@ -11,138 +11,370 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeDeploy
 {
     [PolicyResourceType("aws:codedeploy/deploymentGroup:DeploymentGroup")]
-    public sealed class DeploymentGroup : global::Pulumi.PolicyResource
+    public sealed class DeploymentGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block of alarms associated with the deployment group (documented below).
         /// </summary>
         [Input("alarmConfiguration")]
-        public DeploymentGroupAlarmConfiguration? AlarmConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupAlarmConfiguration> _mAlarmConfiguration;
+
+        public Outputs.DeploymentGroupAlarmConfiguration? AlarmConfiguration => _mAlarmConfiguration.GetValue("alarmConfiguration");
 
         /// <summary>
         /// The name of the application.
         /// </summary>
         [Input("appName")]
-        public string? AppName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppName;
+
+        public string? AppName => _mAppName.GetValue("appName");
 
         /// <summary>
         /// The ARN of the CodeDeploy deployment group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
         /// </summary>
         [Input("autoRollbackConfiguration")]
-        public DeploymentGroupAutoRollbackConfiguration? AutoRollbackConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupAutoRollbackConfiguration> _mAutoRollbackConfiguration;
+
+        public Outputs.DeploymentGroupAutoRollbackConfiguration? AutoRollbackConfiguration => _mAutoRollbackConfiguration.GetValue("autoRollbackConfiguration");
 
         /// <summary>
         /// Autoscaling groups associated with the deployment group.
         /// </summary>
         [Input("autoscalingGroups")]
-        public List<string>? AutoscalingGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoscalingGroups;
+
+        public List<string>? AutoscalingGroups => _mAutoscalingGroups.GetValue("autoscalingGroups");
 
         /// <summary>
         /// Configuration block of the blue/green deployment options for a deployment group (documented below).
         /// </summary>
         [Input("blueGreenDeploymentConfig")]
-        public DeploymentGroupBlueGreenDeploymentConfig? BlueGreenDeploymentConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupBlueGreenDeploymentConfig> _mBlueGreenDeploymentConfig;
+
+        public Outputs.DeploymentGroupBlueGreenDeploymentConfig? BlueGreenDeploymentConfig => _mBlueGreenDeploymentConfig.GetValue("blueGreenDeploymentConfig");
 
         /// <summary>
         /// The destination platform type for the deployment.
         /// </summary>
         [Input("computePlatform")]
-        public string? ComputePlatform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
+
+        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
 
         /// <summary>
         /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
         /// </summary>
         [Input("deploymentConfigName")]
-        public string? DeploymentConfigName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigName;
+
+        public string? DeploymentConfigName => _mDeploymentConfigName.GetValue("deploymentConfigName");
 
         /// <summary>
         /// The ID of the CodeDeploy deployment group.
         /// </summary>
         [Input("deploymentGroupId")]
-        public string? DeploymentGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentGroupId;
+
+        public string? DeploymentGroupId => _mDeploymentGroupId.GetValue("deploymentGroupId");
 
         /// <summary>
         /// The name of the deployment group.
         /// </summary>
         [Input("deploymentGroupName")]
-        public string? DeploymentGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentGroupName;
+
+        public string? DeploymentGroupName => _mDeploymentGroupName.GetValue("deploymentGroupName");
 
         /// <summary>
         /// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
         /// </summary>
         [Input("deploymentStyle")]
-        public DeploymentGroupDeploymentStyle? DeploymentStyle;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupDeploymentStyle> _mDeploymentStyle;
+
+        public Outputs.DeploymentGroupDeploymentStyle? DeploymentStyle => _mDeploymentStyle.GetValue("deploymentStyle");
 
         /// <summary>
         /// Tag filters associated with the deployment group. See the AWS docs for details.
         /// </summary>
         [Input("ec2TagFilters")]
-        public List<DeploymentGroupEc2TagFilter>? Ec2TagFilters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DeploymentGroupEc2TagFilter>> _mEc2TagFilters;
+
+        public List<Outputs.DeploymentGroupEc2TagFilter>? Ec2TagFilters => _mEc2TagFilters.GetValue("ec2TagFilters");
 
         /// <summary>
         /// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
         /// </summary>
         [Input("ec2TagSets")]
-        public List<DeploymentGroupEc2TagSet>? Ec2TagSets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DeploymentGroupEc2TagSet>> _mEc2TagSets;
+
+        public List<Outputs.DeploymentGroupEc2TagSet>? Ec2TagSets => _mEc2TagSets.GetValue("ec2TagSets");
 
         /// <summary>
         /// Configuration block(s) of the ECS services for a deployment group (documented below).
         /// </summary>
         [Input("ecsService")]
-        public DeploymentGroupEcsService? EcsService;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupEcsService> _mEcsService;
+
+        public Outputs.DeploymentGroupEcsService? EcsService => _mEcsService.GetValue("ecsService");
 
         /// <summary>
         /// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         /// </summary>
         [Input("loadBalancerInfo")]
-        public DeploymentGroupLoadBalancerInfo? LoadBalancerInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentGroupLoadBalancerInfo> _mLoadBalancerInfo;
+
+        public Outputs.DeploymentGroupLoadBalancerInfo? LoadBalancerInfo => _mLoadBalancerInfo.GetValue("loadBalancerInfo");
 
         /// <summary>
         /// On premise tag filters associated with the group. See the AWS docs for details.
         /// </summary>
         [Input("onPremisesInstanceTagFilters")]
-        public List<DeploymentGroupOnPremisesInstanceTagFilter>? OnPremisesInstanceTagFilters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DeploymentGroupOnPremisesInstanceTagFilter>> _mOnPremisesInstanceTagFilters;
+
+        public List<Outputs.DeploymentGroupOnPremisesInstanceTagFilter>? OnPremisesInstanceTagFilters => _mOnPremisesInstanceTagFilters.GetValue("onPremisesInstanceTagFilters");
 
         /// <summary>
         /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         /// </summary>
         [Input("outdatedInstancesStrategy")]
-        public string? OutdatedInstancesStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutdatedInstancesStrategy;
+
+        public string? OutdatedInstancesStrategy => _mOutdatedInstancesStrategy.GetValue("outdatedInstancesStrategy");
 
         /// <summary>
         /// The service role ARN that allows deployments.
         /// </summary>
         [Input("serviceRoleArn")]
-        public string? ServiceRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+
+        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         /// </summary>
         [Input("terminationHookEnabled")]
-        public bool? TerminationHookEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationHookEnabled;
+
+        public bool? TerminationHookEnabled => _mTerminationHookEnabled.GetValue("terminationHookEnabled");
 
         /// <summary>
         /// Configuration block(s) of the triggers for the deployment group (documented below).
         /// </summary>
         [Input("triggerConfigurations")]
-        public List<DeploymentGroupTriggerConfiguration>? TriggerConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DeploymentGroupTriggerConfiguration>> _mTriggerConfigurations;
+
+        public List<Outputs.DeploymentGroupTriggerConfiguration>? TriggerConfigurations => _mTriggerConfigurations.GetValue("triggerConfigurations");
+    }
+
+    [PolicyResourceType("aws:codedeploy/deploymentGroup:DeploymentGroup")]
+    public sealed class DeploymentGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block of alarms associated with the deployment group (documented below).
+        /// </summary>
+        [Input("alarmConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupAlarmConfigurationArgs> _mAlarmConfiguration;
+
+        public Inputs.DeploymentGroupAlarmConfigurationArgs? AlarmConfiguration => _mAlarmConfiguration.GetValue("alarmConfiguration");
+
+        /// <summary>
+        /// The name of the application.
+        /// </summary>
+        [Input("appName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppName;
+
+        public string? AppName => _mAppName.GetValue("appName");
+
+        /// <summary>
+        /// Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
+        /// </summary>
+        [Input("autoRollbackConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupAutoRollbackConfigurationArgs> _mAutoRollbackConfiguration;
+
+        public Inputs.DeploymentGroupAutoRollbackConfigurationArgs? AutoRollbackConfiguration => _mAutoRollbackConfiguration.GetValue("autoRollbackConfiguration");
+
+        /// <summary>
+        /// Autoscaling groups associated with the deployment group.
+        /// </summary>
+        [Input("autoscalingGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoscalingGroups;
+
+        public List<string>? AutoscalingGroups => _mAutoscalingGroups.GetValue("autoscalingGroups");
+
+        /// <summary>
+        /// Configuration block of the blue/green deployment options for a deployment group (documented below).
+        /// </summary>
+        [Input("blueGreenDeploymentConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs> _mBlueGreenDeploymentConfig;
+
+        public Inputs.DeploymentGroupBlueGreenDeploymentConfigArgs? BlueGreenDeploymentConfig => _mBlueGreenDeploymentConfig.GetValue("blueGreenDeploymentConfig");
+
+        /// <summary>
+        /// The name of the group's deployment config. The default is "CodeDeployDefault.OneAtATime".
+        /// </summary>
+        [Input("deploymentConfigName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigName;
+
+        public string? DeploymentConfigName => _mDeploymentConfigName.GetValue("deploymentConfigName");
+
+        /// <summary>
+        /// The name of the deployment group.
+        /// </summary>
+        [Input("deploymentGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentGroupName;
+
+        public string? DeploymentGroupName => _mDeploymentGroupName.GetValue("deploymentGroupName");
+
+        /// <summary>
+        /// Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
+        /// </summary>
+        [Input("deploymentStyle")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupDeploymentStyleArgs> _mDeploymentStyle;
+
+        public Inputs.DeploymentGroupDeploymentStyleArgs? DeploymentStyle => _mDeploymentStyle.GetValue("deploymentStyle");
+
+        /// <summary>
+        /// Tag filters associated with the deployment group. See the AWS docs for details.
+        /// </summary>
+        [Input("ec2TagFilters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupEc2TagFilterArgs>> _mEc2TagFilters;
+
+        public List<Inputs.DeploymentGroupEc2TagFilterArgs>? Ec2TagFilters => _mEc2TagFilters.GetValue("ec2TagFilters");
+
+        /// <summary>
+        /// Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
+        /// </summary>
+        [Input("ec2TagSets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupEc2TagSetArgs>> _mEc2TagSets;
+
+        public List<Inputs.DeploymentGroupEc2TagSetArgs>? Ec2TagSets => _mEc2TagSets.GetValue("ec2TagSets");
+
+        /// <summary>
+        /// Configuration block(s) of the ECS services for a deployment group (documented below).
+        /// </summary>
+        [Input("ecsService")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupEcsServiceArgs> _mEcsService;
+
+        public Inputs.DeploymentGroupEcsServiceArgs? EcsService => _mEcsService.GetValue("ecsService");
+
+        /// <summary>
+        /// Single configuration block of the load balancer to use in a blue/green deployment (documented below).
+        /// </summary>
+        [Input("loadBalancerInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupLoadBalancerInfoArgs> _mLoadBalancerInfo;
+
+        public Inputs.DeploymentGroupLoadBalancerInfoArgs? LoadBalancerInfo => _mLoadBalancerInfo.GetValue("loadBalancerInfo");
+
+        /// <summary>
+        /// On premise tag filters associated with the group. See the AWS docs for details.
+        /// </summary>
+        [Input("onPremisesInstanceTagFilters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupOnPremisesInstanceTagFilterArgs>> _mOnPremisesInstanceTagFilters;
+
+        public List<Inputs.DeploymentGroupOnPremisesInstanceTagFilterArgs>? OnPremisesInstanceTagFilters => _mOnPremisesInstanceTagFilters.GetValue("onPremisesInstanceTagFilters");
+
+        /// <summary>
+        /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+        /// </summary>
+        [Input("outdatedInstancesStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutdatedInstancesStrategy;
+
+        public string? OutdatedInstancesStrategy => _mOutdatedInstancesStrategy.GetValue("outdatedInstancesStrategy");
+
+        /// <summary>
+        /// The service role ARN that allows deployments.
+        /// </summary>
+        [Input("serviceRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+
+        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+        /// </summary>
+        [Input("terminationHookEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationHookEnabled;
+
+        public bool? TerminationHookEnabled => _mTerminationHookEnabled.GetValue("terminationHookEnabled");
+
+        /// <summary>
+        /// Configuration block(s) of the triggers for the deployment group (documented below).
+        /// </summary>
+        [Input("triggerConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupTriggerConfigurationArgs>> _mTriggerConfigurations;
+
+        public List<Inputs.DeploymentGroupTriggerConfigurationArgs>? TriggerConfigurations => _mTriggerConfigurations.GetValue("triggerConfigurations");
     }
 }

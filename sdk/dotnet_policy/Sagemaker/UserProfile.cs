@@ -11,60 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/userProfile:UserProfile")]
-    public sealed class UserProfile : global::Pulumi.PolicyResource
+    public sealed class UserProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The user profile Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID of the associated Domain.
         /// </summary>
         [Input("domainId")]
-        public string? DomainId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
 
         /// <summary>
         /// The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
         /// </summary>
         [Input("homeEfsFileSystemUid")]
-        public string? HomeEfsFileSystemUid;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeEfsFileSystemUid;
+
+        public string? HomeEfsFileSystemUid => _mHomeEfsFileSystemUid.GetValue("homeEfsFileSystemUid");
 
         /// <summary>
         /// A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
         [Input("singleSignOnUserIdentifier")]
-        public string? SingleSignOnUserIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnUserIdentifier;
+
+        public string? SingleSignOnUserIdentifier => _mSingleSignOnUserIdentifier.GetValue("singleSignOnUserIdentifier");
 
         /// <summary>
         /// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         /// </summary>
         [Input("singleSignOnUserValue")]
-        public string? SingleSignOnUserValue;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnUserValue;
+
+        public string? SingleSignOnUserValue => _mSingleSignOnUserValue.GetValue("singleSignOnUserValue");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The name for the User Profile.
         /// </summary>
         [Input("userProfileName")]
-        public string? UserProfileName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserProfileName;
+
+        public string? UserProfileName => _mUserProfileName.GetValue("userProfileName");
 
         /// <summary>
         /// The user settings. See User Settings below.
         /// </summary>
         [Input("userSettings")]
-        public UserProfileUserSettings? UserSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserProfileUserSettings> _mUserSettings;
+
+        public Outputs.UserProfileUserSettings? UserSettings => _mUserSettings.GetValue("userSettings");
+    }
+
+    [PolicyResourceType("aws:sagemaker/userProfile:UserProfile")]
+    public sealed class UserProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the associated Domain.
+        /// </summary>
+        [Input("domainId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
+
+        /// <summary>
+        /// A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        /// </summary>
+        [Input("singleSignOnUserIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnUserIdentifier;
+
+        public string? SingleSignOnUserIdentifier => _mSingleSignOnUserIdentifier.GetValue("singleSignOnUserIdentifier");
+
+        /// <summary>
+        /// The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        /// </summary>
+        [Input("singleSignOnUserValue")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSingleSignOnUserValue;
+
+        public string? SingleSignOnUserValue => _mSingleSignOnUserValue.GetValue("singleSignOnUserValue");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The name for the User Profile.
+        /// </summary>
+        [Input("userProfileName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserProfileName;
+
+        public string? UserProfileName => _mUserProfileName.GetValue("userProfileName");
+
+        /// <summary>
+        /// The user settings. See User Settings below.
+        /// </summary>
+        [Input("userSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsArgs> _mUserSettings;
+
+        public Inputs.UserProfileUserSettingsArgs? UserSettings => _mUserSettings.GetValue("userSettings");
     }
 }

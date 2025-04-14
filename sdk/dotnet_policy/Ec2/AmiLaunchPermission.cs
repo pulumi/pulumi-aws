@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/amiLaunchPermission:AmiLaunchPermission")]
-    public sealed class AmiLaunchPermission : global::Pulumi.PolicyResource
+    public sealed class AmiLaunchPermission : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS account ID for the launch permission.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// Name of the group for the launch permission. Valid values: `"all"`.
         /// </summary>
         [Input("group")]
-        public string? Group;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
+
+        public string? Group => _mGroup.GetValue("group");
 
         /// <summary>
         /// ID of the AMI.
         /// </summary>
         [Input("imageId")]
-        public string? ImageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
 
         /// <summary>
         /// ARN of an organization for the launch permission.
         /// </summary>
         [Input("organizationArn")]
-        public string? OrganizationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationArn;
+
+        public string? OrganizationArn => _mOrganizationArn.GetValue("organizationArn");
 
         /// <summary>
         /// ARN of an organizational unit for the launch permission.
         /// </summary>
         [Input("organizationalUnitArn")]
-        public string? OrganizationalUnitArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitArn;
+
+        public string? OrganizationalUnitArn => _mOrganizationalUnitArn.GetValue("organizationalUnitArn");
+    }
+
+    [PolicyResourceType("aws:ec2/amiLaunchPermission:AmiLaunchPermission")]
+    public sealed class AmiLaunchPermissionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID for the launch permission.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// Name of the group for the launch permission. Valid values: `"all"`.
+        /// </summary>
+        [Input("group")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
+
+        public string? Group => _mGroup.GetValue("group");
+
+        /// <summary>
+        /// ID of the AMI.
+        /// </summary>
+        [Input("imageId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
+
+        public string? ImageId => _mImageId.GetValue("imageId");
+
+        /// <summary>
+        /// ARN of an organization for the launch permission.
+        /// </summary>
+        [Input("organizationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationArn;
+
+        public string? OrganizationArn => _mOrganizationArn.GetValue("organizationArn");
+
+        /// <summary>
+        /// ARN of an organizational unit for the launch permission.
+        /// </summary>
+        [Input("organizationalUnitArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitArn;
+
+        public string? OrganizationalUnitArn => _mOrganizationalUnitArn.GetValue("organizationalUnitArn");
     }
 }

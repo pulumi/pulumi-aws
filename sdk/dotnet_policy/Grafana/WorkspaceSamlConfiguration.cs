@@ -11,85 +11,124 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Grafana
 {
     [PolicyResourceType("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")]
-    public sealed class WorkspaceSamlConfiguration : global::Pulumi.PolicyResource
+    public sealed class WorkspaceSamlConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The admin role values.
         /// </summary>
         [Input("adminRoleValues")]
-        public List<string>? AdminRoleValues;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdminRoleValues;
+
+        public List<string>? AdminRoleValues => _mAdminRoleValues.GetValue("adminRoleValues");
 
         /// <summary>
         /// The allowed organizations.
         /// </summary>
         [Input("allowedOrganizations")]
-        public List<string>? AllowedOrganizations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOrganizations;
+
+        public List<string>? AllowedOrganizations => _mAllowedOrganizations.GetValue("allowedOrganizations");
 
         /// <summary>
         /// The editor role values.
         /// </summary>
         [Input("editorRoleValues")]
-        public List<string>? EditorRoleValues;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEditorRoleValues;
+
+        public List<string>? EditorRoleValues => _mEditorRoleValues.GetValue("editorRoleValues");
 
         /// <summary>
         /// The email assertion.
         /// </summary>
         [Input("emailAssertion")]
-        public string? EmailAssertion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAssertion;
+
+        public string? EmailAssertion => _mEmailAssertion.GetValue("emailAssertion");
 
         /// <summary>
         /// The groups assertion.
         /// </summary>
         [Input("groupsAssertion")]
-        public string? GroupsAssertion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupsAssertion;
+
+        public string? GroupsAssertion => _mGroupsAssertion.GetValue("groupsAssertion");
 
         /// <summary>
         /// The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         /// </summary>
         [Input("idpMetadataUrl")]
-        public string? IdpMetadataUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdpMetadataUrl;
+
+        public string? IdpMetadataUrl => _mIdpMetadataUrl.GetValue("idpMetadataUrl");
 
         /// <summary>
         /// The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         /// </summary>
         [Input("idpMetadataXml")]
-        public string? IdpMetadataXml;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdpMetadataXml;
+
+        public string? IdpMetadataXml => _mIdpMetadataXml.GetValue("idpMetadataXml");
 
         /// <summary>
         /// The login assertion.
         /// </summary>
         [Input("loginAssertion")]
-        public string? LoginAssertion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoginAssertion;
+
+        public string? LoginAssertion => _mLoginAssertion.GetValue("loginAssertion");
 
         /// <summary>
         /// The login validity duration.
         /// </summary>
         [Input("loginValidityDuration")]
-        public int? LoginValidityDuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLoginValidityDuration;
+
+        public int? LoginValidityDuration => _mLoginValidityDuration.GetValue("loginValidityDuration");
 
         /// <summary>
         /// The name assertion.
         /// </summary>
         [Input("nameAssertion")]
-        public string? NameAssertion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNameAssertion;
+
+        public string? NameAssertion => _mNameAssertion.GetValue("nameAssertion");
 
         /// <summary>
         /// The org assertion.
         /// </summary>
         [Input("orgAssertion")]
-        public string? OrgAssertion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrgAssertion;
+
+        public string? OrgAssertion => _mOrgAssertion.GetValue("orgAssertion");
 
         /// <summary>
         /// The role assertion.
         /// </summary>
         [Input("roleAssertion")]
-        public string? RoleAssertion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleAssertion;
+
+        public string? RoleAssertion => _mRoleAssertion.GetValue("roleAssertion");
 
         /// <summary>
         /// The status of the SAML configuration.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The workspace id.
@@ -97,6 +136,132 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// The following arguments are optional:
         /// </summary>
         [Input("workspaceId")]
-        public string? WorkspaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+    }
+
+    [PolicyResourceType("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")]
+    public sealed class WorkspaceSamlConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The admin role values.
+        /// </summary>
+        [Input("adminRoleValues")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdminRoleValues;
+
+        public List<string>? AdminRoleValues => _mAdminRoleValues.GetValue("adminRoleValues");
+
+        /// <summary>
+        /// The allowed organizations.
+        /// </summary>
+        [Input("allowedOrganizations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOrganizations;
+
+        public List<string>? AllowedOrganizations => _mAllowedOrganizations.GetValue("allowedOrganizations");
+
+        /// <summary>
+        /// The editor role values.
+        /// </summary>
+        [Input("editorRoleValues")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEditorRoleValues;
+
+        public List<string>? EditorRoleValues => _mEditorRoleValues.GetValue("editorRoleValues");
+
+        /// <summary>
+        /// The email assertion.
+        /// </summary>
+        [Input("emailAssertion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAssertion;
+
+        public string? EmailAssertion => _mEmailAssertion.GetValue("emailAssertion");
+
+        /// <summary>
+        /// The groups assertion.
+        /// </summary>
+        [Input("groupsAssertion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupsAssertion;
+
+        public string? GroupsAssertion => _mGroupsAssertion.GetValue("groupsAssertion");
+
+        /// <summary>
+        /// The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+        /// </summary>
+        [Input("idpMetadataUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdpMetadataUrl;
+
+        public string? IdpMetadataUrl => _mIdpMetadataUrl.GetValue("idpMetadataUrl");
+
+        /// <summary>
+        /// The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
+        /// </summary>
+        [Input("idpMetadataXml")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdpMetadataXml;
+
+        public string? IdpMetadataXml => _mIdpMetadataXml.GetValue("idpMetadataXml");
+
+        /// <summary>
+        /// The login assertion.
+        /// </summary>
+        [Input("loginAssertion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoginAssertion;
+
+        public string? LoginAssertion => _mLoginAssertion.GetValue("loginAssertion");
+
+        /// <summary>
+        /// The login validity duration.
+        /// </summary>
+        [Input("loginValidityDuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mLoginValidityDuration;
+
+        public int? LoginValidityDuration => _mLoginValidityDuration.GetValue("loginValidityDuration");
+
+        /// <summary>
+        /// The name assertion.
+        /// </summary>
+        [Input("nameAssertion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNameAssertion;
+
+        public string? NameAssertion => _mNameAssertion.GetValue("nameAssertion");
+
+        /// <summary>
+        /// The org assertion.
+        /// </summary>
+        [Input("orgAssertion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrgAssertion;
+
+        public string? OrgAssertion => _mOrgAssertion.GetValue("orgAssertion");
+
+        /// <summary>
+        /// The role assertion.
+        /// </summary>
+        [Input("roleAssertion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleAssertion;
+
+        public string? RoleAssertion => _mRoleAssertion.GetValue("roleAssertion");
+
+        /// <summary>
+        /// The workspace id.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("workspaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
     }
 }

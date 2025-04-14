@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/mailFrom:MailFrom")]
-    public sealed class MailFrom : global::Pulumi.PolicyResource
+    public sealed class MailFrom : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         /// </summary>
         [Input("behaviorOnMxFailure")]
-        public string? BehaviorOnMxFailure;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBehaviorOnMxFailure;
+
+        public string? BehaviorOnMxFailure => _mBehaviorOnMxFailure.GetValue("behaviorOnMxFailure");
 
         /// <summary>
         /// Verified domain name or email identity to generate DKIM tokens for.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
@@ -31,6 +37,42 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// The following arguments are optional:
         /// </summary>
         [Input("mailFromDomain")]
-        public string? MailFromDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMailFromDomain;
+
+        public string? MailFromDomain => _mMailFromDomain.GetValue("mailFromDomain");
+    }
+
+    [PolicyResourceType("aws:ses/mailFrom:MailFrom")]
+    public sealed class MailFromArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+        /// </summary>
+        [Input("behaviorOnMxFailure")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBehaviorOnMxFailure;
+
+        public string? BehaviorOnMxFailure => _mBehaviorOnMxFailure.GetValue("behaviorOnMxFailure");
+
+        /// <summary>
+        /// Verified domain name or email identity to generate DKIM tokens for.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("mailFromDomain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMailFromDomain;
+
+        public string? MailFromDomain => _mMailFromDomain.GetValue("mailFromDomain");
     }
 }

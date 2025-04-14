@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElastiCache
 {
     [PolicyResourceType("aws:elasticache/userGroup:UserGroup")]
-    public sealed class UserGroup : global::Pulumi.PolicyResource
+    public sealed class UserGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN that identifies the user group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The current supported value are `redis`, `valkey` (case insensitive).
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of the user group.
@@ -43,12 +55,60 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// The following arguments are optional:
         /// </summary>
         [Input("userGroupId")]
-        public string? UserGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
+
+        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
 
         /// <summary>
         /// The list of user IDs that belong to the user group.
         /// </summary>
         [Input("userIds")]
-        public List<string>? UserIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUserIds;
+
+        public List<string>? UserIds => _mUserIds.GetValue("userIds");
+    }
+
+    [PolicyResourceType("aws:elasticache/userGroup:UserGroup")]
+    public sealed class UserGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The current supported value are `redis`, `valkey` (case insensitive).
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ID of the user group.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("userGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
+
+        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+
+        /// <summary>
+        /// The list of user IDs that belong to the user group.
+        /// </summary>
+        [Input("userIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUserIds;
+
+        public List<string>? UserIds => _mUserIds.GetValue("userIds");
     }
 }

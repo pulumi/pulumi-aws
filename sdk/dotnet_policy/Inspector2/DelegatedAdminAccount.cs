@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Inspector2
 {
     [PolicyResourceType("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")]
-    public sealed class DelegatedAdminAccount : global::Pulumi.PolicyResource
+    public sealed class DelegatedAdminAccount : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Account to enable as delegated admin account.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// Status of this delegated admin account.
         /// </summary>
         [Input("relationshipStatus")]
-        public string? RelationshipStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRelationshipStatus;
+
+        public string? RelationshipStatus => _mRelationshipStatus.GetValue("relationshipStatus");
+    }
+
+    [PolicyResourceType("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")]
+    public sealed class DelegatedAdminAccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Account to enable as delegated admin account.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
     }
 }

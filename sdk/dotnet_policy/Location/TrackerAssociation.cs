@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Location
 {
     [PolicyResourceType("aws:location/trackerAssociation:TrackerAssociation")]
-    public sealed class TrackerAssociation : global::Pulumi.PolicyResource
+    public sealed class TrackerAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         /// </summary>
         [Input("consumerArn")]
-        public string? ConsumerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerArn;
+
+        public string? ConsumerArn => _mConsumerArn.GetValue("consumerArn");
 
         /// <summary>
         /// The name of the tracker resource to be associated with a geofence collection.
         /// </summary>
         [Input("trackerName")]
-        public string? TrackerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerName;
+
+        public string? TrackerName => _mTrackerName.GetValue("trackerName");
+    }
+
+    [PolicyResourceType("aws:location/trackerAssociation:TrackerAssociation")]
+    public sealed class TrackerAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
+        /// </summary>
+        [Input("consumerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerArn;
+
+        public string? ConsumerArn => _mConsumerArn.GetValue("consumerArn");
+
+        /// <summary>
+        /// The name of the tracker resource to be associated with a geofence collection.
+        /// </summary>
+        [Input("trackerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackerName;
+
+        public string? TrackerName => _mTrackerName.GetValue("trackerName");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/connectionAssociation:ConnectionAssociation")]
-    public sealed class ConnectionAssociation : global::Pulumi.PolicyResource
+    public sealed class ConnectionAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the connection.
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
 
         /// <summary>
         /// The ID of the LAG with which to associate the connection.
         /// </summary>
         [Input("lagId")]
-        public string? LagId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLagId;
+
+        public string? LagId => _mLagId.GetValue("lagId");
+    }
+
+    [PolicyResourceType("aws:directconnect/connectionAssociation:ConnectionAssociation")]
+    public sealed class ConnectionAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the connection.
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+
+        /// <summary>
+        /// The ID of the LAG with which to associate the connection.
+        /// </summary>
+        [Input("lagId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLagId;
+
+        public string? LagId => _mLagId.GetValue("lagId");
     }
 }

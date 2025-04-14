@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/thingGroupMembership:ThingGroupMembership")]
-    public sealed class ThingGroupMembership : global::Pulumi.PolicyResource
+    public sealed class ThingGroupMembership : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
         /// </summary>
         [Input("overrideDynamicGroup")]
-        public bool? OverrideDynamicGroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOverrideDynamicGroup;
+
+        public bool? OverrideDynamicGroup => _mOverrideDynamicGroup.GetValue("overrideDynamicGroup");
 
         /// <summary>
         /// The name of the group to which you are adding a thing.
         /// </summary>
         [Input("thingGroupName")]
-        public string? ThingGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThingGroupName;
+
+        public string? ThingGroupName => _mThingGroupName.GetValue("thingGroupName");
 
         /// <summary>
         /// The name of the thing to add to a group.
         /// </summary>
         [Input("thingName")]
-        public string? ThingName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThingName;
+
+        public string? ThingName => _mThingName.GetValue("thingName");
+    }
+
+    [PolicyResourceType("aws:iot/thingGroupMembership:ThingGroupMembership")]
+    public sealed class ThingGroupMembershipArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+        /// </summary>
+        [Input("overrideDynamicGroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOverrideDynamicGroup;
+
+        public bool? OverrideDynamicGroup => _mOverrideDynamicGroup.GetValue("overrideDynamicGroup");
+
+        /// <summary>
+        /// The name of the group to which you are adding a thing.
+        /// </summary>
+        [Input("thingGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThingGroupName;
+
+        public string? ThingGroupName => _mThingGroupName.GetValue("thingGroupName");
+
+        /// <summary>
+        /// The name of the thing to add to a group.
+        /// </summary>
+        [Input("thingName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThingName;
+
+        public string? ThingName => _mThingName.GetValue("thingName");
     }
 }

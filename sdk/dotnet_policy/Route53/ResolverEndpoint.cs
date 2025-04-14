@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/resolverEndpoint:ResolverEndpoint")]
-    public sealed class ResolverEndpoint : global::Pulumi.PolicyResource
+    public sealed class ResolverEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Route 53 Resolver endpoint.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -25,57 +28,156 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
         /// </summary>
         [Input("direction")]
-        public string? Direction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirection;
+
+        public string? Direction => _mDirection.GetValue("direction");
 
         /// <summary>
         /// ID of the VPC that you want to create the resolver endpoint in.
         /// </summary>
         [Input("hostVpcId")]
-        public string? HostVpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostVpcId;
+
+        public string? HostVpcId => _mHostVpcId.GetValue("hostVpcId");
 
         /// <summary>
         /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
         [Input("ipAddresses")]
-        public List<ResolverEndpointIpAddress>? IpAddresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResolverEndpointIpAddress>> _mIpAddresses;
+
+        public List<Outputs.ResolverEndpointIpAddress>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
 
         /// <summary>
         /// Friendly name of the Route 53 Resolver endpoint.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Protocols you want to use for the Route 53 Resolver endpoint.
         /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         /// </summary>
         [Input("protocols")]
-        public List<string>? Protocols;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtocols;
+
+        public List<string>? Protocols => _mProtocols.GetValue("protocols");
 
         /// <summary>
         /// Endpoint IP type. This endpoint type is applied to all IP addresses.
         /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         /// </summary>
         [Input("resolverEndpointType")]
-        public string? ResolverEndpointType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolverEndpointType;
+
+        public string? ResolverEndpointType => _mResolverEndpointType.GetValue("resolverEndpointType");
 
         /// <summary>
         /// ID of one or more security groups that you want to use to control access to this VPC.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:route53/resolverEndpoint:ResolverEndpoint")]
+    public sealed class ResolverEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
+        /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
+        /// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
+        /// </summary>
+        [Input("direction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirection;
+
+        public string? Direction => _mDirection.GetValue("direction");
+
+        /// <summary>
+        /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
+        /// </summary>
+        [Input("ipAddresses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResolverEndpointIpAddressArgs>> _mIpAddresses;
+
+        public List<Inputs.ResolverEndpointIpAddressArgs>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
+
+        /// <summary>
+        /// Friendly name of the Route 53 Resolver endpoint.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Protocols you want to use for the Route 53 Resolver endpoint.
+        /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
+        /// </summary>
+        [Input("protocols")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtocols;
+
+        public List<string>? Protocols => _mProtocols.GetValue("protocols");
+
+        /// <summary>
+        /// Endpoint IP type. This endpoint type is applied to all IP addresses.
+        /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
+        /// </summary>
+        [Input("resolverEndpointType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolverEndpointType;
+
+        public string? ResolverEndpointType => _mResolverEndpointType.GetValue("resolverEndpointType");
+
+        /// <summary>
+        /// ID of one or more security groups that you want to use to control access to this VPC.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

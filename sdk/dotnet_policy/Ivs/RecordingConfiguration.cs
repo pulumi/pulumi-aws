@@ -11,54 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ivs
 {
     [PolicyResourceType("aws:ivs/recordingConfiguration:RecordingConfiguration")]
-    public sealed class RecordingConfiguration : global::Pulumi.PolicyResource
+    public sealed class RecordingConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Recording Configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Object containing destination configuration for where recorded video will be stored.
         /// </summary>
         [Input("destinationConfiguration")]
-        public RecordingConfigurationDestinationConfiguration? DestinationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RecordingConfigurationDestinationConfiguration> _mDestinationConfiguration;
+
+        public Outputs.RecordingConfigurationDestinationConfiguration? DestinationConfiguration => _mDestinationConfiguration.GetValue("destinationConfiguration");
 
         /// <summary>
         /// Recording Configuration name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         /// </summary>
         [Input("recordingReconnectWindowSeconds")]
-        public int? RecordingReconnectWindowSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRecordingReconnectWindowSeconds;
+
+        public int? RecordingReconnectWindowSeconds => _mRecordingReconnectWindowSeconds.GetValue("recordingReconnectWindowSeconds");
 
         /// <summary>
         /// The current state of the Recording Configuration.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         /// </summary>
         [Input("thumbnailConfiguration")]
-        public RecordingConfigurationThumbnailConfiguration? ThumbnailConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RecordingConfigurationThumbnailConfiguration> _mThumbnailConfiguration;
+
+        public Outputs.RecordingConfigurationThumbnailConfiguration? ThumbnailConfiguration => _mThumbnailConfiguration.GetValue("thumbnailConfiguration");
+    }
+
+    [PolicyResourceType("aws:ivs/recordingConfiguration:RecordingConfiguration")]
+    public sealed class RecordingConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Object containing destination configuration for where recorded video will be stored.
+        /// </summary>
+        [Input("destinationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordingConfigurationDestinationConfigurationArgs> _mDestinationConfiguration;
+
+        public Inputs.RecordingConfigurationDestinationConfigurationArgs? DestinationConfiguration => _mDestinationConfiguration.GetValue("destinationConfiguration");
+
+        /// <summary>
+        /// Recording Configuration name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
+        /// </summary>
+        [Input("recordingReconnectWindowSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRecordingReconnectWindowSeconds;
+
+        public int? RecordingReconnectWindowSeconds => _mRecordingReconnectWindowSeconds.GetValue("recordingReconnectWindowSeconds");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
+        /// </summary>
+        [Input("thumbnailConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordingConfigurationThumbnailConfigurationArgs> _mThumbnailConfiguration;
+
+        public Inputs.RecordingConfigurationThumbnailConfigurationArgs? ThumbnailConfiguration => _mThumbnailConfiguration.GetValue("thumbnailConfiguration");
     }
 }

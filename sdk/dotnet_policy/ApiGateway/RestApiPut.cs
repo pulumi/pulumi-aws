@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/restApiPut:RestApiPut")]
-    public sealed class RestApiPut : global::Pulumi.PolicyResource
+    public sealed class RestApiPut : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
         /// </summary>
         [Input("body")]
-        public string? Body;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
+
+        public string? Body => _mBody.GetValue("body");
 
         /// <summary>
         /// Whether to rollback the API update when a warning is encountered. The default value is `false`.
         /// </summary>
         [Input("failOnWarnings")]
-        public bool? FailOnWarnings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnWarnings;
+
+        public bool? FailOnWarnings => _mFailOnWarnings.GetValue("failOnWarnings");
 
         /// <summary>
         /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
         [Input("parameters")]
-        public Dictionary<string, string>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// Identifier of the associated REST API.
@@ -37,15 +46,81 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// The following arguments are optional:
         /// </summary>
         [Input("restApiId")]
-        public string? RestApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+
+        public string? RestApiId => _mRestApiId.GetValue("restApiId");
 
         [Input("timeouts")]
-        public RestApiPutTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RestApiPutTimeouts> _mTimeouts;
+
+        public Outputs.RestApiPutTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
         /// </summary>
         [Input("triggers")]
-        public Dictionary<string, string>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+    }
+
+    [PolicyResourceType("aws:apigateway/restApiPut:RestApiPut")]
+    public sealed class RestApiPutArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
+        /// </summary>
+        [Input("body")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
+
+        public string? Body => _mBody.GetValue("body");
+
+        /// <summary>
+        /// Whether to rollback the API update when a warning is encountered. The default value is `false`.
+        /// </summary>
+        [Input("failOnWarnings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnWarnings;
+
+        public bool? FailOnWarnings => _mFailOnWarnings.GetValue("failOnWarnings");
+
+        /// <summary>
+        /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
+
+        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// Identifier of the associated REST API.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("restApiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+
+        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RestApiPutTimeoutsArgs> _mTimeouts;
+
+        public Inputs.RestApiPutTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
+        /// </summary>
+        [Input("triggers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
     }
 }

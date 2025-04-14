@@ -11,42 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transcribe
 {
     [PolicyResourceType("aws:transcribe/languageModel:LanguageModel")]
-    public sealed class LanguageModel : global::Pulumi.PolicyResource
+    public sealed class LanguageModel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the LanguageModel.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of reference base model.
         /// </summary>
         [Input("baseModelName")]
-        public string? BaseModelName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseModelName;
+
+        public string? BaseModelName => _mBaseModelName.GetValue("baseModelName");
 
         /// <summary>
         /// The input data config for the LanguageModel. See Input Data Config for more details.
         /// </summary>
         [Input("inputDataConfig")]
-        public LanguageModelInputDataConfig? InputDataConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LanguageModelInputDataConfig> _mInputDataConfig;
+
+        public Outputs.LanguageModelInputDataConfig? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
 
         /// <summary>
         /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         /// </summary>
         [Input("languageCode")]
-        public string? LanguageCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
 
         /// <summary>
         /// The model name.
         /// </summary>
         [Input("modelName")]
-        public string? ModelName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelName;
+
+        public string? ModelName => _mModelName.GetValue("modelName");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:transcribe/languageModel:LanguageModel")]
+    public sealed class LanguageModelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of reference base model.
+        /// </summary>
+        [Input("baseModelName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBaseModelName;
+
+        public string? BaseModelName => _mBaseModelName.GetValue("baseModelName");
+
+        /// <summary>
+        /// The input data config for the LanguageModel. See Input Data Config for more details.
+        /// </summary>
+        [Input("inputDataConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LanguageModelInputDataConfigArgs> _mInputDataConfig;
+
+        public Inputs.LanguageModelInputDataConfigArgs? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
+
+        /// <summary>
+        /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        /// </summary>
+        [Input("languageCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+
+        /// <summary>
+        /// The model name.
+        /// </summary>
+        [Input("modelName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelName;
+
+        public string? ModelName => _mModelName.GetValue("modelName");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

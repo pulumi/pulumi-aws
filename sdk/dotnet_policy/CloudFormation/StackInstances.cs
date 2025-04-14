@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFormation
 {
     [PolicyResourceType("aws:cloudformation/stackInstances:StackInstances")]
-    public sealed class StackInstances : global::Pulumi.PolicyResource
+    public sealed class StackInstances : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
         /// </summary>
         [Input("accounts")]
-        public List<string>? Accounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccounts;
+
+        public List<string>? Accounts => _mAccounts.GetValue("accounts");
 
         /// <summary>
         /// Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         /// </summary>
         [Input("callAs")]
-        public string? CallAs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallAs;
+
+        public string? CallAs => _mCallAs.GetValue("callAs");
 
         /// <summary>
         /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
         /// </summary>
         [Input("deploymentTargets")]
-        public StackInstancesDeploymentTargets? DeploymentTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackInstancesDeploymentTargets> _mDeploymentTargets;
+
+        public Outputs.StackInstancesDeploymentTargets? DeploymentTargets => _mDeploymentTargets.GetValue("deploymentTargets");
 
         /// <summary>
         /// Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
         /// </summary>
         [Input("operationPreferences")]
-        public StackInstancesOperationPreferences? OperationPreferences;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackInstancesOperationPreferences> _mOperationPreferences;
+
+        public Outputs.StackInstancesOperationPreferences? OperationPreferences => _mOperationPreferences.GetValue("operationPreferences");
 
         /// <summary>
         /// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
         /// </summary>
         [Input("parameterOverrides")]
-        public Dictionary<string, string>? ParameterOverrides;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameterOverrides;
+
+        public Dictionary<string, string>? ParameterOverrides => _mParameterOverrides.GetValue("parameterOverrides");
 
         /// <summary>
         /// Regions where you want to create stack instances in the specified `accounts`.
         /// </summary>
         [Input("regions")]
-        public List<string>? Regions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
+
+        public List<string>? Regions => _mRegions.GetValue("regions");
 
         /// <summary>
         /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         /// </summary>
         [Input("retainStacks")]
-        public bool? RetainStacks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainStacks;
+
+        public bool? RetainStacks => _mRetainStacks.GetValue("retainStacks");
 
         /// <summary>
         /// List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
         /// </summary>
         [Input("stackInstanceSummaries")]
-        public List<StackInstancesStackInstanceSummary>? StackInstanceSummaries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StackInstancesStackInstanceSummary>> _mStackInstanceSummaries;
+
+        public List<Outputs.StackInstancesStackInstanceSummary>? StackInstanceSummaries => _mStackInstanceSummaries.GetValue("stackInstanceSummaries");
 
         /// <summary>
         /// Name or unique ID of the stack set that the stack instance is associated with.
         /// </summary>
         [Input("stackSetId")]
-        public string? StackSetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetId;
+
+        public string? StackSetId => _mStackSetId.GetValue("stackSetId");
 
         /// <summary>
         /// Name of the stack set.
@@ -73,6 +100,87 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation
         /// The following arguments are optional:
         /// </summary>
         [Input("stackSetName")]
-        public string? StackSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetName;
+
+        public string? StackSetName => _mStackSetName.GetValue("stackSetName");
+    }
+
+    [PolicyResourceType("aws:cloudformation/stackInstances:StackInstances")]
+    public sealed class StackInstancesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
+        /// </summary>
+        [Input("accounts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccounts;
+
+        public List<string>? Accounts => _mAccounts.GetValue("accounts");
+
+        /// <summary>
+        /// Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
+        /// </summary>
+        [Input("callAs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallAs;
+
+        public string? CallAs => _mCallAs.GetValue("callAs");
+
+        /// <summary>
+        /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
+        /// </summary>
+        [Input("deploymentTargets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackInstancesDeploymentTargetsArgs> _mDeploymentTargets;
+
+        public Inputs.StackInstancesDeploymentTargetsArgs? DeploymentTargets => _mDeploymentTargets.GetValue("deploymentTargets");
+
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
+        /// </summary>
+        [Input("operationPreferences")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackInstancesOperationPreferencesArgs> _mOperationPreferences;
+
+        public Inputs.StackInstancesOperationPreferencesArgs? OperationPreferences => _mOperationPreferences.GetValue("operationPreferences");
+
+        /// <summary>
+        /// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
+        /// </summary>
+        [Input("parameterOverrides")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameterOverrides;
+
+        public Dictionary<string, string>? ParameterOverrides => _mParameterOverrides.GetValue("parameterOverrides");
+
+        /// <summary>
+        /// Regions where you want to create stack instances in the specified `accounts`.
+        /// </summary>
+        [Input("regions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
+
+        public List<string>? Regions => _mRegions.GetValue("regions");
+
+        /// <summary>
+        /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
+        /// </summary>
+        [Input("retainStacks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainStacks;
+
+        public bool? RetainStacks => _mRetainStacks.GetValue("retainStacks");
+
+        /// <summary>
+        /// Name of the stack set.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("stackSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetName;
+
+        public string? StackSetName => _mStackSetName.GetValue("stackSetName");
     }
 }

@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ImageBuilder
 {
     [PolicyResourceType("aws:imagebuilder/image:Image")]
-    public sealed class Image : global::Pulumi.PolicyResource
+    public sealed class Image : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the image.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
         [Input("containerRecipeArn")]
-        public string? ContainerRecipeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainerRecipeArn;
+
+        public string? ContainerRecipeArn => _mContainerRecipeArn.GetValue("containerRecipeArn");
 
         /// <summary>
         /// Date the image was created.
         /// </summary>
         [Input("dateCreated")]
-        public string? DateCreated;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
+
+        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         /// </summary>
         [Input("distributionConfigurationArn")]
-        public string? DistributionConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistributionConfigurationArn;
+
+        public string? DistributionConfigurationArn => _mDistributionConfigurationArn.GetValue("distributionConfigurationArn");
 
         /// <summary>
         /// Whether additional information about the image being created is collected. Defaults to `true`.
         /// </summary>
         [Input("enhancedImageMetadataEnabled")]
-        public bool? EnhancedImageMetadataEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnhancedImageMetadataEnabled;
+
+        public bool? EnhancedImageMetadataEnabled => _mEnhancedImageMetadataEnabled.GetValue("enhancedImageMetadataEnabled");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         /// </summary>
         [Input("executionRole")]
-        public string? ExecutionRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
+
+        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Input("imageRecipeArn")]
-        public string? ImageRecipeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageRecipeArn;
+
+        public string? ImageRecipeArn => _mImageRecipeArn.GetValue("imageRecipeArn");
 
         /// <summary>
         /// Configuration block with image scanning configuration. Detailed below.
         /// </summary>
         [Input("imageScanningConfiguration")]
-        public ImageImageScanningConfiguration? ImageScanningConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageImageScanningConfiguration> _mImageScanningConfiguration;
+
+        public Outputs.ImageImageScanningConfiguration? ImageScanningConfiguration => _mImageScanningConfiguration.GetValue("imageScanningConfiguration");
 
         /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
         [Input("imageTestsConfiguration")]
-        public ImageImageTestsConfiguration? ImageTestsConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageImageTestsConfiguration> _mImageTestsConfiguration;
+
+        public Outputs.ImageImageTestsConfiguration? ImageTestsConfiguration => _mImageTestsConfiguration.GetValue("imageTestsConfiguration");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -73,54 +100,177 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// The following arguments are optional:
         /// </summary>
         [Input("infrastructureConfigurationArn")]
-        public string? InfrastructureConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureConfigurationArn;
+
+        public string? InfrastructureConfigurationArn => _mInfrastructureConfigurationArn.GetValue("infrastructureConfigurationArn");
 
         /// <summary>
         /// Name of the AMI.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Operating System version of the image.
         /// </summary>
         [Input("osVersion")]
-        public string? OsVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOsVersion;
+
+        public string? OsVersion => _mOsVersion.GetValue("osVersion");
 
         /// <summary>
         /// List of objects with resources created by the image.
         /// </summary>
         [Input("outputResources")]
-        public List<ImageOutputResource>? OutputResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageOutputResource>> _mOutputResources;
+
+        public List<Outputs.ImageOutputResource>? OutputResources => _mOutputResources.GetValue("outputResources");
 
         /// <summary>
         /// Platform of the image.
         /// </summary>
         [Input("platform")]
-        public string? Platform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
 
         /// <summary>
         /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Version of the image.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
 
         /// <summary>
         /// Configuration block with the workflow configuration. Detailed below.
         /// </summary>
         [Input("workflows")]
-        public List<ImageWorkflow>? Workflows;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageWorkflow>> _mWorkflows;
+
+        public List<Outputs.ImageWorkflow>? Workflows => _mWorkflows.GetValue("workflows");
+    }
+
+    [PolicyResourceType("aws:imagebuilder/image:Image")]
+    public sealed class ImageArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
+        [Input("containerRecipeArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContainerRecipeArn;
+
+        public string? ContainerRecipeArn => _mContainerRecipeArn.GetValue("containerRecipeArn");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        /// </summary>
+        [Input("distributionConfigurationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistributionConfigurationArn;
+
+        public string? DistributionConfigurationArn => _mDistributionConfigurationArn.GetValue("distributionConfigurationArn");
+
+        /// <summary>
+        /// Whether additional information about the image being created is collected. Defaults to `true`.
+        /// </summary>
+        [Input("enhancedImageMetadataEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnhancedImageMetadataEnabled;
+
+        public bool? EnhancedImageMetadataEnabled => _mEnhancedImageMetadataEnabled.GetValue("enhancedImageMetadataEnabled");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// </summary>
+        [Input("executionRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
+
+        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the image recipe.
+        /// </summary>
+        [Input("imageRecipeArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageRecipeArn;
+
+        public string? ImageRecipeArn => _mImageRecipeArn.GetValue("imageRecipeArn");
+
+        /// <summary>
+        /// Configuration block with image scanning configuration. Detailed below.
+        /// </summary>
+        [Input("imageScanningConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageImageScanningConfigurationArgs> _mImageScanningConfiguration;
+
+        public Inputs.ImageImageScanningConfigurationArgs? ImageScanningConfiguration => _mImageScanningConfiguration.GetValue("imageScanningConfiguration");
+
+        /// <summary>
+        /// Configuration block with image tests configuration. Detailed below.
+        /// </summary>
+        [Input("imageTestsConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageImageTestsConfigurationArgs> _mImageTestsConfiguration;
+
+        public Inputs.ImageImageTestsConfigurationArgs? ImageTestsConfiguration => _mImageTestsConfiguration.GetValue("imageTestsConfiguration");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("infrastructureConfigurationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureConfigurationArn;
+
+        public string? InfrastructureConfigurationArn => _mInfrastructureConfigurationArn.GetValue("infrastructureConfigurationArn");
+
+        /// <summary>
+        /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block with the workflow configuration. Detailed below.
+        /// </summary>
+        [Input("workflows")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ImageWorkflowArgs>> _mWorkflows;
+
+        public List<Inputs.ImageWorkflowArgs>? Workflows => _mWorkflows.GetValue("workflows");
     }
 }

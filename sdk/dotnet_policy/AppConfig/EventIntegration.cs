@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppConfig
 {
     [PolicyResourceType("aws:appconfig/eventIntegration:EventIntegration")]
-    public sealed class EventIntegration : global::Pulumi.PolicyResource
+    public sealed class EventIntegration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Event Integration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the Event Integration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         /// </summary>
         [Input("eventFilter")]
-        public EventIntegrationEventFilter? EventFilter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventIntegrationEventFilter> _mEventFilter;
+
+        public Outputs.EventIntegrationEventFilter? EventFilter => _mEventFilter.GetValue("eventFilter");
 
         /// <summary>
         /// EventBridge bus.
         /// </summary>
         [Input("eventbridgeBus")]
-        public string? EventbridgeBus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventbridgeBus;
+
+        public string? EventbridgeBus => _mEventbridgeBus.GetValue("eventbridgeBus");
 
         /// <summary>
         /// Name of the Event Integration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:appconfig/eventIntegration:EventIntegration")]
+    public sealed class EventIntegrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the Event Integration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        /// </summary>
+        [Input("eventFilter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventIntegrationEventFilterArgs> _mEventFilter;
+
+        public Inputs.EventIntegrationEventFilterArgs? EventFilter => _mEventFilter.GetValue("eventFilter");
+
+        /// <summary>
+        /// EventBridge bus.
+        /// </summary>
+        [Input("eventbridgeBus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventbridgeBus;
+
+        public string? EventbridgeBus => _mEventbridgeBus.GetValue("eventbridgeBus");
+
+        /// <summary>
+        /// Name of the Event Integration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

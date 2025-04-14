@@ -11,154 +11,435 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpsWorks
 {
     [PolicyResourceType("aws:opsworks/stack:Stack")]
-    public sealed class Stack : global::Pulumi.PolicyResource
+    public sealed class Stack : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
         /// </summary>
         [Input("agentVersion")]
-        public string? AgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
 
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
         /// </summary>
         [Input("berkshelfVersion")]
-        public string? BerkshelfVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBerkshelfVersion;
+
+        public string? BerkshelfVersion => _mBerkshelfVersion.GetValue("berkshelfVersion");
 
         /// <summary>
         /// Color to paint next to the stack's resources in the OpsWorks console.
         /// </summary>
         [Input("color")]
-        public string? Color;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mColor;
+
+        public string? Color => _mColor.GetValue("color");
 
         /// <summary>
         /// Name of the configuration manager to use. Defaults to "Chef".
         /// </summary>
         [Input("configurationManagerName")]
-        public string? ConfigurationManagerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationManagerName;
+
+        public string? ConfigurationManagerName => _mConfigurationManagerName.GetValue("configurationManagerName");
 
         /// <summary>
         /// Version of the configuration manager to use. Defaults to "11.4".
         /// </summary>
         [Input("configurationManagerVersion")]
-        public string? ConfigurationManagerVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationManagerVersion;
+
+        public string? ConfigurationManagerVersion => _mConfigurationManagerVersion.GetValue("configurationManagerVersion");
 
         /// <summary>
         /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
         [Input("customCookbooksSources")]
-        public List<StackCustomCookbooksSource>? CustomCookbooksSources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StackCustomCookbooksSource>> _mCustomCookbooksSources;
+
+        public List<Outputs.StackCustomCookbooksSource>? CustomCookbooksSources => _mCustomCookbooksSources.GetValue("customCookbooksSources");
 
         /// <summary>
         /// Custom JSON attributes to apply to the entire stack.
         /// </summary>
         [Input("customJson")]
-        public string? CustomJson;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomJson;
+
+        public string? CustomJson => _mCustomJson.GetValue("customJson");
 
         /// <summary>
         /// Name of the availability zone where instances will be created by default.
         /// Cannot be set when `vpc_id` is set.
         /// </summary>
         [Input("defaultAvailabilityZone")]
-        public string? DefaultAvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAvailabilityZone;
+
+        public string? DefaultAvailabilityZone => _mDefaultAvailabilityZone.GetValue("defaultAvailabilityZone");
 
         /// <summary>
         /// The ARN of an IAM Instance Profile that created instances will have by default.
         /// </summary>
         [Input("defaultInstanceProfileArn")]
-        public string? DefaultInstanceProfileArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultInstanceProfileArn;
+
+        public string? DefaultInstanceProfileArn => _mDefaultInstanceProfileArn.GetValue("defaultInstanceProfileArn");
 
         /// <summary>
         /// Name of OS that will be installed on instances by default.
         /// </summary>
         [Input("defaultOs")]
-        public string? DefaultOs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultOs;
+
+        public string? DefaultOs => _mDefaultOs.GetValue("defaultOs");
 
         /// <summary>
         /// Name of the type of root device instances will have by default.
         /// </summary>
         [Input("defaultRootDeviceType")]
-        public string? DefaultRootDeviceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRootDeviceType;
+
+        public string? DefaultRootDeviceType => _mDefaultRootDeviceType.GetValue("defaultRootDeviceType");
 
         /// <summary>
         /// Name of the SSH keypair that instances will have by default.
         /// </summary>
         [Input("defaultSshKeyName")]
-        public string? DefaultSshKeyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSshKeyName;
+
+        public string? DefaultSshKeyName => _mDefaultSshKeyName.GetValue("defaultSshKeyName");
 
         /// <summary>
         /// ID of the subnet in which instances will be created by default.
         /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         /// </summary>
         [Input("defaultSubnetId")]
-        public string? DefaultSubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSubnetId;
+
+        public string? DefaultSubnetId => _mDefaultSubnetId.GetValue("defaultSubnetId");
 
         /// <summary>
         /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         /// </summary>
         [Input("hostnameTheme")]
-        public string? HostnameTheme;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostnameTheme;
+
+        public string? HostnameTheme => _mHostnameTheme.GetValue("hostnameTheme");
 
         /// <summary>
         /// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         /// </summary>
         [Input("manageBerkshelf")]
-        public bool? ManageBerkshelf;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mManageBerkshelf;
+
+        public bool? ManageBerkshelf => _mManageBerkshelf.GetValue("manageBerkshelf");
 
         /// <summary>
         /// The name of the stack.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The name of the region where the stack will exist.
         /// </summary>
         [Input("region")]
-        public string? Region;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
 
         /// <summary>
         /// The ARN of an IAM role that the OpsWorks service will act as.
         /// </summary>
         [Input("serviceRoleArn")]
-        public string? ServiceRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+
+        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
 
         [Input("stackEndpoint")]
-        public string? StackEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackEndpoint;
+
+        public string? StackEndpoint => _mStackEndpoint.GetValue("stackEndpoint");
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Boolean value controlling whether the custom cookbook settings are enabled.
         /// </summary>
         [Input("useCustomCookbooks")]
-        public bool? UseCustomCookbooks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseCustomCookbooks;
+
+        public bool? UseCustomCookbooks => _mUseCustomCookbooks.GetValue("useCustomCookbooks");
 
         /// <summary>
         /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         /// </summary>
         [Input("useOpsworksSecurityGroups")]
-        public bool? UseOpsworksSecurityGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseOpsworksSecurityGroups;
+
+        public bool? UseOpsworksSecurityGroups => _mUseOpsworksSecurityGroups.GetValue("useOpsworksSecurityGroups");
 
         /// <summary>
         /// ID of the VPC that this stack belongs to.
         /// Defaults to the region's default VPC.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:opsworks/stack:Stack")]
+    public sealed class StackArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
+        /// </summary>
+        [Input("agentVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+
+        /// <summary>
+        /// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
+        /// </summary>
+        [Input("berkshelfVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBerkshelfVersion;
+
+        public string? BerkshelfVersion => _mBerkshelfVersion.GetValue("berkshelfVersion");
+
+        /// <summary>
+        /// Color to paint next to the stack's resources in the OpsWorks console.
+        /// </summary>
+        [Input("color")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mColor;
+
+        public string? Color => _mColor.GetValue("color");
+
+        /// <summary>
+        /// Name of the configuration manager to use. Defaults to "Chef".
+        /// </summary>
+        [Input("configurationManagerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationManagerName;
+
+        public string? ConfigurationManagerName => _mConfigurationManagerName.GetValue("configurationManagerName");
+
+        /// <summary>
+        /// Version of the configuration manager to use. Defaults to "11.4".
+        /// </summary>
+        [Input("configurationManagerVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationManagerVersion;
+
+        public string? ConfigurationManagerVersion => _mConfigurationManagerVersion.GetValue("configurationManagerVersion");
+
+        /// <summary>
+        /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        /// </summary>
+        [Input("customCookbooksSources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StackCustomCookbooksSourceArgs>> _mCustomCookbooksSources;
+
+        public List<Inputs.StackCustomCookbooksSourceArgs>? CustomCookbooksSources => _mCustomCookbooksSources.GetValue("customCookbooksSources");
+
+        /// <summary>
+        /// Custom JSON attributes to apply to the entire stack.
+        /// </summary>
+        [Input("customJson")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomJson;
+
+        public string? CustomJson => _mCustomJson.GetValue("customJson");
+
+        /// <summary>
+        /// Name of the availability zone where instances will be created by default.
+        /// Cannot be set when `vpc_id` is set.
+        /// </summary>
+        [Input("defaultAvailabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAvailabilityZone;
+
+        public string? DefaultAvailabilityZone => _mDefaultAvailabilityZone.GetValue("defaultAvailabilityZone");
+
+        /// <summary>
+        /// The ARN of an IAM Instance Profile that created instances will have by default.
+        /// </summary>
+        [Input("defaultInstanceProfileArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultInstanceProfileArn;
+
+        public string? DefaultInstanceProfileArn => _mDefaultInstanceProfileArn.GetValue("defaultInstanceProfileArn");
+
+        /// <summary>
+        /// Name of OS that will be installed on instances by default.
+        /// </summary>
+        [Input("defaultOs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultOs;
+
+        public string? DefaultOs => _mDefaultOs.GetValue("defaultOs");
+
+        /// <summary>
+        /// Name of the type of root device instances will have by default.
+        /// </summary>
+        [Input("defaultRootDeviceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRootDeviceType;
+
+        public string? DefaultRootDeviceType => _mDefaultRootDeviceType.GetValue("defaultRootDeviceType");
+
+        /// <summary>
+        /// Name of the SSH keypair that instances will have by default.
+        /// </summary>
+        [Input("defaultSshKeyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSshKeyName;
+
+        public string? DefaultSshKeyName => _mDefaultSshKeyName.GetValue("defaultSshKeyName");
+
+        /// <summary>
+        /// ID of the subnet in which instances will be created by default.
+        /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
+        /// </summary>
+        [Input("defaultSubnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSubnetId;
+
+        public string? DefaultSubnetId => _mDefaultSubnetId.GetValue("defaultSubnetId");
+
+        /// <summary>
+        /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
+        /// </summary>
+        [Input("hostnameTheme")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostnameTheme;
+
+        public string? HostnameTheme => _mHostnameTheme.GetValue("hostnameTheme");
+
+        /// <summary>
+        /// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
+        /// </summary>
+        [Input("manageBerkshelf")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mManageBerkshelf;
+
+        public bool? ManageBerkshelf => _mManageBerkshelf.GetValue("manageBerkshelf");
+
+        /// <summary>
+        /// The name of the stack.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name of the region where the stack will exist.
+        /// </summary>
+        [Input("region")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
+
+        public string? Region => _mRegion.GetValue("region");
+
+        /// <summary>
+        /// The ARN of an IAM role that the OpsWorks service will act as.
+        /// </summary>
+        [Input("serviceRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+
+        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Boolean value controlling whether the custom cookbook settings are enabled.
+        /// </summary>
+        [Input("useCustomCookbooks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseCustomCookbooks;
+
+        public bool? UseCustomCookbooks => _mUseCustomCookbooks.GetValue("useCustomCookbooks");
+
+        /// <summary>
+        /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
+        /// </summary>
+        [Input("useOpsworksSecurityGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseOpsworksSecurityGroups;
+
+        public bool? UseOpsworksSecurityGroups => _mUseOpsworksSecurityGroups.GetValue("useOpsworksSecurityGroups");
+
+        /// <summary>
+        /// ID of the VPC that this stack belongs to.
+        /// Defaults to the region's default VPC.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

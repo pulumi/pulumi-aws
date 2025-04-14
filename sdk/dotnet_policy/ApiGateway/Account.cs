@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/account:Account")]
-    public sealed class Account : global::Pulumi.PolicyResource
+    public sealed class Account : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The version of the API keys used for the account.
         /// </summary>
         [Input("apiKeyVersion")]
-        public string? ApiKeyVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiKeyVersion;
+
+        public string? ApiKeyVersion => _mApiKeyVersion.GetValue("apiKeyVersion");
 
         /// <summary>
         /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         /// </summary>
         [Input("cloudwatchRoleArn")]
-        public string? CloudwatchRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchRoleArn;
+
+        public string? CloudwatchRoleArn => _mCloudwatchRoleArn.GetValue("cloudwatchRoleArn");
 
         /// <summary>
         /// A list of features supported for the account.
         /// </summary>
         [Input("features")]
-        public List<string>? Features;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFeatures;
+
+        public List<string>? Features => _mFeatures.GetValue("features");
 
         /// <summary>
         /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
@@ -37,12 +46,42 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// Will be removed in a future major version of the provider.
         /// </summary>
         [Input("resetOnDelete")]
-        public bool? ResetOnDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mResetOnDelete;
+
+        public bool? ResetOnDelete => _mResetOnDelete.GetValue("resetOnDelete");
 
         /// <summary>
         /// Account-Level throttle settings. See exported fields below.
         /// </summary>
         [Input("throttleSettings")]
-        public List<AccountThrottleSetting>? ThrottleSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AccountThrottleSetting>> _mThrottleSettings;
+
+        public List<Outputs.AccountThrottleSetting>? ThrottleSettings => _mThrottleSettings.GetValue("throttleSettings");
+    }
+
+    [PolicyResourceType("aws:apigateway/account:Account")]
+    public sealed class AccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
+        /// </summary>
+        [Input("cloudwatchRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchRoleArn;
+
+        public string? CloudwatchRoleArn => _mCloudwatchRoleArn.GetValue("cloudwatchRoleArn");
+
+        /// <summary>
+        /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+        /// Defaults to `false`.
+        /// Will be removed in a future major version of the provider.
+        /// </summary>
+        [Input("resetOnDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mResetOnDelete;
+
+        public bool? ResetOnDelete => _mResetOnDelete.GetValue("resetOnDelete");
     }
 }

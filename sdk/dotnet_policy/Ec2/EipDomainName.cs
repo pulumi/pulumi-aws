@@ -11,27 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/eipDomainName:EipDomainName")]
-    public sealed class EipDomainName : global::Pulumi.PolicyResource
+    public sealed class EipDomainName : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The allocation ID.
         /// </summary>
         [Input("allocationId")]
-        public string? AllocationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+
+        public string? AllocationId => _mAllocationId.GetValue("allocationId");
 
         /// <summary>
         /// The domain name to modify for the IP address.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The DNS pointer (PTR) record for the IP address.
         /// </summary>
         [Input("ptrRecord")]
-        public string? PtrRecord;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPtrRecord;
+
+        public string? PtrRecord => _mPtrRecord.GetValue("ptrRecord");
 
         [Input("timeouts")]
-        public EipDomainNameTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EipDomainNameTimeouts> _mTimeouts;
+
+        public Outputs.EipDomainNameTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:ec2/eipDomainName:EipDomainName")]
+    public sealed class EipDomainNameArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The allocation ID.
+        /// </summary>
+        [Input("allocationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+
+        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+
+        /// <summary>
+        /// The domain name to modify for the IP address.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EipDomainNameTimeoutsArgs> _mTimeouts;
+
+        public Inputs.EipDomainNameTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

@@ -11,30 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Pinpoint
 {
     [PolicyResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
-    public sealed class GcmChannel : global::Pulumi.PolicyResource
+    public sealed class GcmChannel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Platform credential API key from Google.
         /// </summary>
         [Input("apiKey")]
-        public string? ApiKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
+
+        public string? ApiKey => _mApiKey.GetValue("apiKey");
 
         /// <summary>
         /// The application ID.
         /// </summary>
         [Input("applicationId")]
-        public string? ApplicationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
 
         [Input("defaultAuthenticationMethod")]
-        public string? DefaultAuthenticationMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthenticationMethod;
+
+        public string? DefaultAuthenticationMethod => _mDefaultAuthenticationMethod.GetValue("defaultAuthenticationMethod");
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         [Input("serviceJson")]
-        public string? ServiceJson;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceJson;
+
+        public string? ServiceJson => _mServiceJson.GetValue("serviceJson");
+    }
+
+    [PolicyResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
+    public sealed class GcmChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Platform credential API key from Google.
+        /// </summary>
+        [Input("apiKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
+
+        public string? ApiKey => _mApiKey.GetValue("apiKey");
+
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
+
+        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+
+        [Input("defaultAuthenticationMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthenticationMethod;
+
+        public string? DefaultAuthenticationMethod => _mDefaultAuthenticationMethod.GetValue("defaultAuthenticationMethod");
+
+        /// <summary>
+        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        [Input("serviceJson")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceJson;
+
+        public string? ServiceJson => _mServiceJson.GetValue("serviceJson");
     }
 }

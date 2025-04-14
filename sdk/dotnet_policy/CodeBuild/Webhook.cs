@@ -11,54 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeBuild
 {
     [PolicyResourceType("aws:codebuild/webhook:Webhook")]
-    public sealed class Webhook : global::Pulumi.PolicyResource
+    public sealed class Webhook : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         /// </summary>
         [Input("branchFilter")]
-        public string? BranchFilter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBranchFilter;
+
+        public string? BranchFilter => _mBranchFilter.GetValue("branchFilter");
 
         /// <summary>
         /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         /// </summary>
         [Input("buildType")]
-        public string? BuildType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBuildType;
+
+        public string? BuildType => _mBuildType.GetValue("buildType");
 
         /// <summary>
         /// Information about the webhook's trigger. Filter group blocks are documented below.
         /// </summary>
         [Input("filterGroups")]
-        public List<WebhookFilterGroup>? FilterGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebhookFilterGroup>> _mFilterGroups;
+
+        public List<Outputs.WebhookFilterGroup>? FilterGroups => _mFilterGroups.GetValue("filterGroups");
 
         /// <summary>
         /// The CodeBuild endpoint where webhook events are sent.
         /// </summary>
         [Input("payloadUrl")]
-        public string? PayloadUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPayloadUrl;
+
+        public string? PayloadUrl => _mPayloadUrl.GetValue("payloadUrl");
 
         /// <summary>
         /// The name of the build project.
         /// </summary>
         [Input("projectName")]
-        public string? ProjectName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
+
+        public string? ProjectName => _mProjectName.GetValue("projectName");
 
         /// <summary>
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         /// </summary>
         [Input("scopeConfiguration")]
-        public WebhookScopeConfiguration? ScopeConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.WebhookScopeConfiguration> _mScopeConfiguration;
+
+        public Outputs.WebhookScopeConfiguration? ScopeConfiguration => _mScopeConfiguration.GetValue("scopeConfiguration");
 
         /// <summary>
         /// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         /// </summary>
         [Input("secret")]
-        public string? Secret;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecret;
+
+        public string? Secret => _mSecret.GetValue("secret");
 
         /// <summary>
         /// The URL to the webhook.
         /// </summary>
         [Input("url")]
-        public string? Url;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+
+        public string? Url => _mUrl.GetValue("url");
+    }
+
+    [PolicyResourceType("aws:codebuild/webhook:Webhook")]
+    public sealed class WebhookArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
+        /// </summary>
+        [Input("branchFilter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBranchFilter;
+
+        public string? BranchFilter => _mBranchFilter.GetValue("branchFilter");
+
+        /// <summary>
+        /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        /// </summary>
+        [Input("buildType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBuildType;
+
+        public string? BuildType => _mBuildType.GetValue("buildType");
+
+        /// <summary>
+        /// Information about the webhook's trigger. Filter group blocks are documented below.
+        /// </summary>
+        [Input("filterGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebhookFilterGroupArgs>> _mFilterGroups;
+
+        public List<Inputs.WebhookFilterGroupArgs>? FilterGroups => _mFilterGroups.GetValue("filterGroups");
+
+        /// <summary>
+        /// The name of the build project.
+        /// </summary>
+        [Input("projectName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectName;
+
+        public string? ProjectName => _mProjectName.GetValue("projectName");
+
+        /// <summary>
+        /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
+        /// </summary>
+        [Input("scopeConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.WebhookScopeConfigurationArgs> _mScopeConfiguration;
+
+        public Inputs.WebhookScopeConfigurationArgs? ScopeConfiguration => _mScopeConfiguration.GetValue("scopeConfiguration");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sqs
 {
     [PolicyResourceType("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy")]
-    public sealed class RedriveAllowPolicy : global::Pulumi.PolicyResource
+    public sealed class RedriveAllowPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The URL of the SQS Queue to which to attach the policy
         /// </summary>
         [Input("queueUrl")]
-        public string? QueueUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
+
+        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
 
         /// <summary>
         /// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         /// </summary>
         [Input("redriveAllowPolicy")]
-        public string? RedriveAllowPolicyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedriveAllowPolicyName;
+
+        public string? RedriveAllowPolicyName => _mRedriveAllowPolicyName.GetValue("redriveAllowPolicy");
+    }
+
+    [PolicyResourceType("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy")]
+    public sealed class RedriveAllowPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The URL of the SQS Queue to which to attach the policy
+        /// </summary>
+        [Input("queueUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
+
+        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+
+        /// <summary>
+        /// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+        /// </summary>
+        [Input("redriveAllowPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedriveAllowPolicyName;
+
+        public string? RedriveAllowPolicyName => _mRedriveAllowPolicyName.GetValue("redriveAllowPolicy");
     }
 }

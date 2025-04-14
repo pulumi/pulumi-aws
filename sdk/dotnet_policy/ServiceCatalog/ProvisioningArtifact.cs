@@ -11,67 +11,97 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/provisioningArtifact:ProvisioningArtifact")]
-    public sealed class ProvisioningArtifact : global::Pulumi.PolicyResource
+    public sealed class ProvisioningArtifact : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
         /// </summary>
         [Input("acceptLanguage")]
-        public string? AcceptLanguage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
 
         /// <summary>
         /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
         /// </summary>
         [Input("active")]
-        public bool? Active;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
+
+        public bool? Active => _mActive.GetValue("active");
 
         /// <summary>
         /// Time when the provisioning artifact was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
         /// </summary>
         [Input("disableTemplateValidation")]
-        public bool? DisableTemplateValidation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableTemplateValidation;
+
+        public bool? DisableTemplateValidation => _mDisableTemplateValidation.GetValue("disableTemplateValidation");
 
         /// <summary>
         /// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
         /// </summary>
         [Input("guidance")]
-        public string? Guidance;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGuidance;
+
+        public string? Guidance => _mGuidance.GetValue("guidance");
 
         /// <summary>
         /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Identifier of the product.
         /// </summary>
         [Input("productId")]
-        public string? ProductId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
+
+        public string? ProductId => _mProductId.GetValue("productId");
 
         /// <summary>
         /// Provisioning artifact identifier.
         /// </summary>
         [Input("provisioningArtifactId")]
-        public string? ProvisioningArtifactId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactId;
+
+        public string? ProvisioningArtifactId => _mProvisioningArtifactId.GetValue("provisioningArtifactId");
 
         /// <summary>
         /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         /// </summary>
         [Input("templatePhysicalId")]
-        public string? TemplatePhysicalId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplatePhysicalId;
+
+        public string? TemplatePhysicalId => _mTemplatePhysicalId.GetValue("templatePhysicalId");
 
         /// <summary>
         /// Template source as URL of the CloudFormation template in Amazon S3.
@@ -79,12 +109,114 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// The following arguments are optional:
         /// </summary>
         [Input("templateUrl")]
-        public string? TemplateUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
+
+        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
 
         /// <summary>
         /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/provisioningArtifact:ProvisioningArtifact")]
+    public sealed class ProvisioningArtifactArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+
+        /// <summary>
+        /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
+        /// </summary>
+        [Input("active")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
+
+        public bool? Active => _mActive.GetValue("active");
+
+        /// <summary>
+        /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
+        /// </summary>
+        [Input("disableTemplateValidation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableTemplateValidation;
+
+        public bool? DisableTemplateValidation => _mDisableTemplateValidation.GetValue("disableTemplateValidation");
+
+        /// <summary>
+        /// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
+        /// </summary>
+        [Input("guidance")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGuidance;
+
+        public string? Guidance => _mGuidance.GetValue("guidance");
+
+        /// <summary>
+        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Identifier of the product.
+        /// </summary>
+        [Input("productId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
+
+        public string? ProductId => _mProductId.GetValue("productId");
+
+        /// <summary>
+        /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
+        /// </summary>
+        [Input("templatePhysicalId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplatePhysicalId;
+
+        public string? TemplatePhysicalId => _mTemplatePhysicalId.GetValue("templatePhysicalId");
+
+        /// <summary>
+        /// Template source as URL of the CloudFormation template in Amazon S3.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("templateUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
+
+        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
+
+        /// <summary>
+        /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

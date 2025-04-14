@@ -11,66 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation")]
-    public sealed class VpcIpamResourceDiscoveryAssociation : global::Pulumi.PolicyResource
+    public sealed class VpcIpamResourceDiscoveryAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IPAM.
         /// </summary>
         [Input("ipamArn")]
-        public string? IpamArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamArn;
+
+        public string? IpamArn => _mIpamArn.GetValue("ipamArn");
 
         /// <summary>
         /// The ID of the IPAM to associate.
         /// </summary>
         [Input("ipamId")]
-        public string? IpamId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamId;
+
+        public string? IpamId => _mIpamId.GetValue("ipamId");
 
         /// <summary>
         /// The home region of the IPAM.
         /// </summary>
         [Input("ipamRegion")]
-        public string? IpamRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamRegion;
+
+        public string? IpamRegion => _mIpamRegion.GetValue("ipamRegion");
 
         /// <summary>
         /// The ID of the Resource Discovery to associate.
         /// </summary>
         [Input("ipamResourceDiscoveryId")]
-        public string? IpamResourceDiscoveryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamResourceDiscoveryId;
+
+        public string? IpamResourceDiscoveryId => _mIpamResourceDiscoveryId.GetValue("ipamResourceDiscoveryId");
 
         /// <summary>
         /// A boolean to identify if the Resource Discovery is the accounts default resource discovery.
         /// </summary>
         [Input("isDefault")]
-        public bool? IsDefault;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
+
+        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
 
         /// <summary>
         /// The account ID for the account that manages the Resource Discovery
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// The lifecycle state of the association when you associate or disassociate a resource discovery.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// A map of tags to add to the IPAM resource discovery association resource.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation")]
+    public sealed class VpcIpamResourceDiscoveryAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the IPAM to associate.
+        /// </summary>
+        [Input("ipamId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamId;
+
+        public string? IpamId => _mIpamId.GetValue("ipamId");
+
+        /// <summary>
+        /// The ID of the Resource Discovery to associate.
+        /// </summary>
+        [Input("ipamResourceDiscoveryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamResourceDiscoveryId;
+
+        public string? IpamResourceDiscoveryId => _mIpamResourceDiscoveryId.GetValue("ipamResourceDiscoveryId");
+
+        /// <summary>
+        /// A map of tags to add to the IPAM resource discovery association resource.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

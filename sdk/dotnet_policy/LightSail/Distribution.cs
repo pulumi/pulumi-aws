@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/distribution:Distribution")]
-    public sealed class Distribution : global::Pulumi.PolicyResource
+    public sealed class Distribution : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The alternate domain names of the distribution.
         /// </summary>
         [Input("alternativeDomainNames")]
-        public List<string>? AlternativeDomainNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlternativeDomainNames;
+
+        public List<string>? AlternativeDomainNames => _mAlternativeDomainNames.GetValue("alternativeDomainNames");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the distribution.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Bundle ID to use for the distribution.
         /// </summary>
         [Input("bundleId")]
-        public string? BundleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
@@ -37,102 +46,249 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// The following arguments are optional:
         /// </summary>
         [Input("cacheBehaviorSettings")]
-        public DistributionCacheBehaviorSettings? CacheBehaviorSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionCacheBehaviorSettings> _mCacheBehaviorSettings;
+
+        public Outputs.DistributionCacheBehaviorSettings? CacheBehaviorSettings => _mCacheBehaviorSettings.GetValue("cacheBehaviorSettings");
 
         /// <summary>
         /// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         /// </summary>
         [Input("cacheBehaviors")]
-        public List<DistributionCacheBehavior>? CacheBehaviors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionCacheBehavior>> _mCacheBehaviors;
+
+        public List<Outputs.DistributionCacheBehavior>? CacheBehaviors => _mCacheBehaviors.GetValue("cacheBehaviors");
 
         /// <summary>
         /// The name of the SSL/TLS certificate attached to the distribution, if any.
         /// </summary>
         [Input("certificateName")]
-        public string? CertificateName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
+
+        public string? CertificateName => _mCertificateName.GetValue("certificateName");
 
         /// <summary>
         /// The timestamp when the distribution was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Object that describes the default cache behavior of the distribution. Detailed below
         /// </summary>
         [Input("defaultCacheBehavior")]
-        public DistributionDefaultCacheBehavior? DefaultCacheBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionDefaultCacheBehavior> _mDefaultCacheBehavior;
+
+        public Outputs.DistributionDefaultCacheBehavior? DefaultCacheBehavior => _mDefaultCacheBehavior.GetValue("defaultCacheBehavior");
 
         /// <summary>
         /// The domain name of the distribution.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The IP address type of the distribution. Default: `dualstack`.
         /// </summary>
         [Input("ipAddressType")]
-        public string? IpAddressType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
 
         /// <summary>
         /// Indicates whether the distribution is enabled. Default: `true`.
         /// </summary>
         [Input("isEnabled")]
-        public bool? IsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
+
+        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
 
         /// <summary>
         /// An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
         /// </summary>
         [Input("locations")]
-        public List<DistributionLocation>? Locations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DistributionLocation>> _mLocations;
+
+        public List<Outputs.DistributionLocation>? Locations => _mLocations.GetValue("locations");
 
         /// <summary>
         /// Name of the distribution.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         /// </summary>
         [Input("origin")]
-        public DistributionOrigin? Origin;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionOrigin> _mOrigin;
+
+        public Outputs.DistributionOrigin? Origin => _mOrigin.GetValue("origin");
 
         /// <summary>
         /// The public DNS of the origin.
         /// </summary>
         [Input("originPublicDns")]
-        public string? OriginPublicDns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOriginPublicDns;
+
+        public string? OriginPublicDns => _mOriginPublicDns.GetValue("originPublicDns");
 
         /// <summary>
         /// The Lightsail resource type (e.g., Distribution).
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// The status of the distribution.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Input("supportCode")]
-        public string? SupportCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
+
+        public string? SupportCode => _mSupportCode.GetValue("supportCode");
 
         /// <summary>
         /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:lightsail/distribution:Distribution")]
+    public sealed class DistributionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Bundle ID to use for the distribution.
+        /// </summary>
+        [Input("bundleId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
+
+        /// <summary>
+        /// An object that describes the cache behavior settings of the distribution. Detailed below
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("cacheBehaviorSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionCacheBehaviorSettingsArgs> _mCacheBehaviorSettings;
+
+        public Inputs.DistributionCacheBehaviorSettingsArgs? CacheBehaviorSettings => _mCacheBehaviorSettings.GetValue("cacheBehaviorSettings");
+
+        /// <summary>
+        /// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+        /// </summary>
+        [Input("cacheBehaviors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionCacheBehaviorArgs>> _mCacheBehaviors;
+
+        public List<Inputs.DistributionCacheBehaviorArgs>? CacheBehaviors => _mCacheBehaviors.GetValue("cacheBehaviors");
+
+        /// <summary>
+        /// The name of the SSL/TLS certificate attached to the distribution, if any.
+        /// </summary>
+        [Input("certificateName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
+
+        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+
+        /// <summary>
+        /// Object that describes the default cache behavior of the distribution. Detailed below
+        /// </summary>
+        [Input("defaultCacheBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionDefaultCacheBehaviorArgs> _mDefaultCacheBehavior;
+
+        public Inputs.DistributionDefaultCacheBehaviorArgs? DefaultCacheBehavior => _mDefaultCacheBehavior.GetValue("defaultCacheBehavior");
+
+        /// <summary>
+        /// The IP address type of the distribution. Default: `dualstack`.
+        /// </summary>
+        [Input("ipAddressType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
+
+        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+
+        /// <summary>
+        /// Indicates whether the distribution is enabled. Default: `true`.
+        /// </summary>
+        [Input("isEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
+
+        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
+
+        /// <summary>
+        /// Name of the distribution.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+        /// </summary>
+        [Input("origin")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionOriginArgs> _mOrigin;
+
+        public Inputs.DistributionOriginArgs? Origin => _mOrigin.GetValue("origin");
+
+        /// <summary>
+        /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

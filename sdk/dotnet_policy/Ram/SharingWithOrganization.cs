@@ -11,7 +11,12 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ram
 {
     [PolicyResourceType("aws:ram/sharingWithOrganization:SharingWithOrganization")]
-    public sealed class SharingWithOrganization : global::Pulumi.PolicyResource
+    public sealed class SharingWithOrganization : global::Pulumi.PolicyResourceOutput
+    {
+    }
+
+    [PolicyResourceType("aws:ram/sharingWithOrganization:SharingWithOrganization")]
+    public sealed class SharingWithOrganizationArgs : global::Pulumi.PolicyResourceInput
     {
     }
 }

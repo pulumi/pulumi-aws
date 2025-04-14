@@ -11,42 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
 {
     [PolicyResourceType("aws:route53recoverycontrol/controlPanel:ControlPanel")]
-    public sealed class ControlPanel : global::Pulumi.PolicyResource
+    public sealed class ControlPanel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the control panel.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ARN of the cluster in which this control panel will reside.
         /// </summary>
         [Input("clusterArn")]
-        public string? ClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
 
         /// <summary>
         /// Whether a control panel is default.
         /// </summary>
         [Input("defaultControlPanel")]
-        public bool? DefaultControlPanel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDefaultControlPanel;
+
+        public bool? DefaultControlPanel => _mDefaultControlPanel.GetValue("defaultControlPanel");
 
         /// <summary>
         /// Name describing the control panel.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Number routing controls in a control panel.
         /// </summary>
         [Input("routingControlCount")]
-        public int? RoutingControlCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRoutingControlCount;
+
+        public int? RoutingControlCount => _mRoutingControlCount.GetValue("routingControlCount");
 
         /// <summary>
         /// Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:route53recoverycontrol/controlPanel:ControlPanel")]
+    public sealed class ControlPanelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the cluster in which this control panel will reside.
+        /// </summary>
+        [Input("clusterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+
+        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+
+        /// <summary>
+        /// Name describing the control panel.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

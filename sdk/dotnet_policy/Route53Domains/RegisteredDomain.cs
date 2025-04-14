@@ -11,150 +11,343 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53Domains
 {
     [PolicyResourceType("aws:route53domains/registeredDomain:RegisteredDomain")]
-    public sealed class RegisteredDomain : global::Pulumi.PolicyResource
+    public sealed class RegisteredDomain : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
         /// </summary>
         [Input("abuseContactEmail")]
-        public string? AbuseContactEmail;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAbuseContactEmail;
+
+        public string? AbuseContactEmail => _mAbuseContactEmail.GetValue("abuseContactEmail");
 
         /// <summary>
         /// Phone number for reporting abuse.
         /// </summary>
         [Input("abuseContactPhone")]
-        public string? AbuseContactPhone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAbuseContactPhone;
+
+        public string? AbuseContactPhone => _mAbuseContactPhone.GetValue("abuseContactPhone");
 
         /// <summary>
         /// Details about the domain administrative contact. See Contact Blocks for more details.
         /// </summary>
         [Input("adminContact")]
-        public RegisteredDomainAdminContact? AdminContact;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RegisteredDomainAdminContact> _mAdminContact;
+
+        public Outputs.RegisteredDomainAdminContact? AdminContact => _mAdminContact.GetValue("adminContact");
 
         /// <summary>
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
         [Input("adminPrivacy")]
-        public bool? AdminPrivacy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAdminPrivacy;
+
+        public bool? AdminPrivacy => _mAdminPrivacy.GetValue("adminPrivacy");
 
         /// <summary>
         /// Whether the domain registration is set to renew automatically. Default: `true`.
         /// </summary>
         [Input("autoRenew")]
-        public bool? AutoRenew;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoRenew;
+
+        public bool? AutoRenew => _mAutoRenew.GetValue("autoRenew");
 
         /// <summary>
         /// Details about the domain billing contact. See Contact Blocks for more details.
         /// </summary>
         [Input("billingContact")]
-        public RegisteredDomainBillingContact? BillingContact;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RegisteredDomainBillingContact> _mBillingContact;
+
+        public Outputs.RegisteredDomainBillingContact? BillingContact => _mBillingContact.GetValue("billingContact");
 
         /// <summary>
         /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
         [Input("billingPrivacy")]
-        public bool? BillingPrivacy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBillingPrivacy;
+
+        public bool? BillingPrivacy => _mBillingPrivacy.GetValue("billingPrivacy");
 
         /// <summary>
         /// The date when the domain was created as found in the response to a WHOIS query.
         /// </summary>
         [Input("creationDate")]
-        public string? CreationDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
+
+        public string? CreationDate => _mCreationDate.GetValue("creationDate");
 
         /// <summary>
         /// The name of the registered domain.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The date when the registration for the domain is set to expire.
         /// </summary>
         [Input("expirationDate")]
-        public string? ExpirationDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpirationDate;
+
+        public string? ExpirationDate => _mExpirationDate.GetValue("expirationDate");
 
         /// <summary>
         /// The list of nameservers for the domain. See `name_server` Blocks for more details.
         /// </summary>
         [Input("nameServers")]
-        public List<RegisteredDomainNameServer>? NameServers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RegisteredDomainNameServer>> _mNameServers;
+
+        public List<Outputs.RegisteredDomainNameServer>? NameServers => _mNameServers.GetValue("nameServers");
 
         /// <summary>
         /// Details about the domain registrant. See Contact Blocks for more details.
         /// </summary>
         [Input("registrantContact")]
-        public RegisteredDomainRegistrantContact? RegistrantContact;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RegisteredDomainRegistrantContact> _mRegistrantContact;
+
+        public Outputs.RegisteredDomainRegistrantContact? RegistrantContact => _mRegistrantContact.GetValue("registrantContact");
 
         /// <summary>
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
         [Input("registrantPrivacy")]
-        public bool? RegistrantPrivacy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRegistrantPrivacy;
+
+        public bool? RegistrantPrivacy => _mRegistrantPrivacy.GetValue("registrantPrivacy");
 
         /// <summary>
         /// Name of the registrar of the domain as identified in the registry.
         /// </summary>
         [Input("registrarName")]
-        public string? RegistrarName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistrarName;
+
+        public string? RegistrarName => _mRegistrarName.GetValue("registrarName");
 
         /// <summary>
         /// Web address of the registrar.
         /// </summary>
         [Input("registrarUrl")]
-        public string? RegistrarUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistrarUrl;
+
+        public string? RegistrarUrl => _mRegistrarUrl.GetValue("registrarUrl");
 
         /// <summary>
         /// Reseller of the domain.
         /// </summary>
         [Input("reseller")]
-        public string? Reseller;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReseller;
+
+        public string? Reseller => _mReseller.GetValue("reseller");
 
         /// <summary>
         /// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
         /// </summary>
         [Input("statusLists")]
-        public List<string>? StatusLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStatusLists;
+
+        public List<string>? StatusLists => _mStatusLists.GetValue("statusLists");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Details about the domain technical contact. See Contact Blocks for more details.
         /// </summary>
         [Input("techContact")]
-        public RegisteredDomainTechContact? TechContact;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.RegisteredDomainTechContact> _mTechContact;
+
+        public Outputs.RegisteredDomainTechContact? TechContact => _mTechContact.GetValue("techContact");
 
         /// <summary>
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         /// </summary>
         [Input("techPrivacy")]
-        public bool? TechPrivacy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTechPrivacy;
+
+        public bool? TechPrivacy => _mTechPrivacy.GetValue("techPrivacy");
 
         /// <summary>
         /// Whether the domain is locked for transfer. Default: `true`.
         /// </summary>
         [Input("transferLock")]
-        public bool? TransferLock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransferLock;
+
+        public bool? TransferLock => _mTransferLock.GetValue("transferLock");
 
         /// <summary>
         /// The last updated date of the domain as found in the response to a WHOIS query.
         /// </summary>
         [Input("updatedDate")]
-        public string? UpdatedDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedDate;
+
+        public string? UpdatedDate => _mUpdatedDate.GetValue("updatedDate");
 
         /// <summary>
         /// The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
         /// </summary>
         [Input("whoisServer")]
-        public string? WhoisServer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWhoisServer;
+
+        public string? WhoisServer => _mWhoisServer.GetValue("whoisServer");
+    }
+
+    [PolicyResourceType("aws:route53domains/registeredDomain:RegisteredDomain")]
+    public sealed class RegisteredDomainArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Details about the domain administrative contact. See Contact Blocks for more details.
+        /// </summary>
+        [Input("adminContact")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RegisteredDomainAdminContactArgs> _mAdminContact;
+
+        public Inputs.RegisteredDomainAdminContactArgs? AdminContact => _mAdminContact.GetValue("adminContact");
+
+        /// <summary>
+        /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Input("adminPrivacy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAdminPrivacy;
+
+        public bool? AdminPrivacy => _mAdminPrivacy.GetValue("adminPrivacy");
+
+        /// <summary>
+        /// Whether the domain registration is set to renew automatically. Default: `true`.
+        /// </summary>
+        [Input("autoRenew")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoRenew;
+
+        public bool? AutoRenew => _mAutoRenew.GetValue("autoRenew");
+
+        /// <summary>
+        /// Details about the domain billing contact. See Contact Blocks for more details.
+        /// </summary>
+        [Input("billingContact")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RegisteredDomainBillingContactArgs> _mBillingContact;
+
+        public Inputs.RegisteredDomainBillingContactArgs? BillingContact => _mBillingContact.GetValue("billingContact");
+
+        /// <summary>
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Input("billingPrivacy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBillingPrivacy;
+
+        public bool? BillingPrivacy => _mBillingPrivacy.GetValue("billingPrivacy");
+
+        /// <summary>
+        /// The name of the registered domain.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// The list of nameservers for the domain. See `name_server` Blocks for more details.
+        /// </summary>
+        [Input("nameServers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RegisteredDomainNameServerArgs>> _mNameServers;
+
+        public List<Inputs.RegisteredDomainNameServerArgs>? NameServers => _mNameServers.GetValue("nameServers");
+
+        /// <summary>
+        /// Details about the domain registrant. See Contact Blocks for more details.
+        /// </summary>
+        [Input("registrantContact")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RegisteredDomainRegistrantContactArgs> _mRegistrantContact;
+
+        public Inputs.RegisteredDomainRegistrantContactArgs? RegistrantContact => _mRegistrantContact.GetValue("registrantContact");
+
+        /// <summary>
+        /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Input("registrantPrivacy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRegistrantPrivacy;
+
+        public bool? RegistrantPrivacy => _mRegistrantPrivacy.GetValue("registrantPrivacy");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Details about the domain technical contact. See Contact Blocks for more details.
+        /// </summary>
+        [Input("techContact")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.RegisteredDomainTechContactArgs> _mTechContact;
+
+        public Inputs.RegisteredDomainTechContactArgs? TechContact => _mTechContact.GetValue("techContact");
+
+        /// <summary>
+        /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Input("techPrivacy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTechPrivacy;
+
+        public bool? TechPrivacy => _mTechPrivacy.GetValue("techPrivacy");
+
+        /// <summary>
+        /// Whether the domain is locked for transfer. Default: `true`.
+        /// </summary>
+        [Input("transferLock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransferLock;
+
+        public bool? TransferLock => _mTransferLock.GetValue("transferLock");
     }
 }

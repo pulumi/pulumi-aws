@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Shield
 {
     [PolicyResourceType("aws:shield/subscription:Subscription")]
-    public sealed class Subscription : global::Pulumi.PolicyResource
+    public sealed class Subscription : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
         /// </summary>
         [Input("autoRenew")]
-        public string? AutoRenew;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoRenew;
+
+        public string? AutoRenew => _mAutoRenew.GetValue("autoRenew");
 
         /// <summary>
         /// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
         /// </summary>
         [Input("skipDestroy")]
-        public bool? SkipDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+    }
+
+    [PolicyResourceType("aws:shield/subscription:Subscription")]
+    public sealed class SubscriptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
+        /// </summary>
+        [Input("autoRenew")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoRenew;
+
+        public string? AutoRenew => _mAutoRenew.GetValue("autoRenew");
+
+        /// <summary>
+        /// Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
+        /// </summary>
+        [Input("skipDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
     }
 }

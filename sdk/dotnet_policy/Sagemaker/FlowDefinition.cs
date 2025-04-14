@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/flowDefinition:FlowDefinition")]
-    public sealed class FlowDefinition : global::Pulumi.PolicyResource
+    public sealed class FlowDefinition : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of your flow definition.
         /// </summary>
         [Input("flowDefinitionName")]
-        public string? FlowDefinitionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFlowDefinitionName;
+
+        public string? FlowDefinitionName => _mFlowDefinitionName.GetValue("flowDefinitionName");
 
         /// <summary>
         /// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         /// </summary>
         [Input("humanLoopActivationConfig")]
-        public FlowDefinitionHumanLoopActivationConfig? HumanLoopActivationConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionHumanLoopActivationConfig> _mHumanLoopActivationConfig;
+
+        public Outputs.FlowDefinitionHumanLoopActivationConfig? HumanLoopActivationConfig => _mHumanLoopActivationConfig.GetValue("humanLoopActivationConfig");
 
         /// <summary>
         /// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
         /// </summary>
         [Input("humanLoopConfig")]
-        public FlowDefinitionHumanLoopConfig? HumanLoopConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionHumanLoopConfig> _mHumanLoopConfig;
+
+        public Outputs.FlowDefinitionHumanLoopConfig? HumanLoopConfig => _mHumanLoopConfig.GetValue("humanLoopConfig");
 
         /// <summary>
         /// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         /// </summary>
         [Input("humanLoopRequestSource")]
-        public FlowDefinitionHumanLoopRequestSource? HumanLoopRequestSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionHumanLoopRequestSource> _mHumanLoopRequestSource;
+
+        public Outputs.FlowDefinitionHumanLoopRequestSource? HumanLoopRequestSource => _mHumanLoopRequestSource.GetValue("humanLoopRequestSource");
 
         /// <summary>
         /// An object containing information about where the human review results will be uploaded. See Output Config details below.
         /// </summary>
         [Input("outputConfig")]
-        public FlowDefinitionOutputConfig? OutputConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDefinitionOutputConfig> _mOutputConfig;
+
+        public Outputs.FlowDefinitionOutputConfig? OutputConfig => _mOutputConfig.GetValue("outputConfig");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/flowDefinition:FlowDefinition")]
+    public sealed class FlowDefinitionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of your flow definition.
+        /// </summary>
+        [Input("flowDefinitionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFlowDefinitionName;
+
+        public string? FlowDefinitionName => _mFlowDefinitionName.GetValue("flowDefinitionName");
+
+        /// <summary>
+        /// An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+        /// </summary>
+        [Input("humanLoopActivationConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionHumanLoopActivationConfigArgs> _mHumanLoopActivationConfig;
+
+        public Inputs.FlowDefinitionHumanLoopActivationConfigArgs? HumanLoopActivationConfig => _mHumanLoopActivationConfig.GetValue("humanLoopActivationConfig");
+
+        /// <summary>
+        /// An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
+        /// </summary>
+        [Input("humanLoopConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionHumanLoopConfigArgs> _mHumanLoopConfig;
+
+        public Inputs.FlowDefinitionHumanLoopConfigArgs? HumanLoopConfig => _mHumanLoopConfig.GetValue("humanLoopConfig");
+
+        /// <summary>
+        /// Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
+        /// </summary>
+        [Input("humanLoopRequestSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionHumanLoopRequestSourceArgs> _mHumanLoopRequestSource;
+
+        public Inputs.FlowDefinitionHumanLoopRequestSourceArgs? HumanLoopRequestSource => _mHumanLoopRequestSource.GetValue("humanLoopRequestSource");
+
+        /// <summary>
+        /// An object containing information about where the human review results will be uploaded. See Output Config details below.
+        /// </summary>
+        [Input("outputConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDefinitionOutputConfigArgs> _mOutputConfig;
+
+        public Inputs.FlowDefinitionOutputConfigArgs? OutputConfig => _mOutputConfig.GetValue("outputConfig");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

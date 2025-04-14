@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.FinSpace
 {
     [PolicyResourceType("aws:finspace/kxEnvironment:KxEnvironment")]
-    public sealed class KxEnvironment : global::Pulumi.PolicyResource
+    public sealed class KxEnvironment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX environment.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
         /// </summary>
         [Input("availabilityZones")]
-        public List<string>? AvailabilityZones;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
 
         /// <summary>
         /// Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Input("createdTimestamp")]
-        public string? CreatedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
+
+        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
 
         /// <summary>
         /// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
         /// </summary>
         [Input("customDnsConfigurations")]
-        public List<KxEnvironmentCustomDnsConfiguration>? CustomDnsConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxEnvironmentCustomDnsConfiguration>> _mCustomDnsConfigurations;
+
+        public List<Outputs.KxEnvironmentCustomDnsConfiguration>? CustomDnsConfigurations => _mCustomDnsConfigurations.GetValue("customDnsConfigurations");
 
         /// <summary>
         /// Description for the KX environment.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Unique identifier for the AWS environment infrastructure account.
         /// </summary>
         [Input("infrastructureAccountId")]
-        public string? InfrastructureAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureAccountId;
+
+        public string? InfrastructureAccountId => _mInfrastructureAccountId.GetValue("infrastructureAccountId");
 
         /// <summary>
         /// KMS key ID to encrypt your data in the FinSpace environment.
@@ -55,42 +73,123 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// The following arguments are optional:
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Input("lastModifiedTimestamp")]
-        public string? LastModifiedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTimestamp;
+
+        public string? LastModifiedTimestamp => _mLastModifiedTimestamp.GetValue("lastModifiedTimestamp");
 
         /// <summary>
         /// Name of the KX environment that you want to create.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Status of environment creation
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
         /// </summary>
         [Input("transitGatewayConfiguration")]
-        public KxEnvironmentTransitGatewayConfiguration? TransitGatewayConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.KxEnvironmentTransitGatewayConfiguration> _mTransitGatewayConfiguration;
+
+        public Outputs.KxEnvironmentTransitGatewayConfiguration? TransitGatewayConfiguration => _mTransitGatewayConfiguration.GetValue("transitGatewayConfiguration");
+    }
+
+    [PolicyResourceType("aws:finspace/kxEnvironment:KxEnvironment")]
+    public sealed class KxEnvironmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
+        /// </summary>
+        [Input("customDnsConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxEnvironmentCustomDnsConfigurationArgs>> _mCustomDnsConfigurations;
+
+        public List<Inputs.KxEnvironmentCustomDnsConfigurationArgs>? CustomDnsConfigurations => _mCustomDnsConfigurations.GetValue("customDnsConfigurations");
+
+        /// <summary>
+        /// Description for the KX environment.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// KMS key ID to encrypt your data in the FinSpace environment.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Name of the KX environment that you want to create.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
+        /// </summary>
+        [Input("transitGatewayConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.KxEnvironmentTransitGatewayConfigurationArgs> _mTransitGatewayConfiguration;
+
+        public Inputs.KxEnvironmentTransitGatewayConfigurationArgs? TransitGatewayConfiguration => _mTransitGatewayConfiguration.GetValue("transitGatewayConfiguration");
     }
 }

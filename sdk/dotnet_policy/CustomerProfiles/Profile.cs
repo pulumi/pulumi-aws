@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CustomerProfiles
 {
     [PolicyResourceType("aws:customerprofiles/profile:Profile")]
-    public sealed class Profile : global::Pulumi.PolicyResource
+    public sealed class Profile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A unique account number that you have given to the customer.
         /// </summary>
         [Input("accountNumber")]
-        public string? AccountNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountNumber;
+
+        public string? AccountNumber => _mAccountNumber.GetValue("accountNumber");
 
         /// <summary>
         /// Any additional information relevant to the customer’s profile.
         /// </summary>
         [Input("additionalInformation")]
-        public string? AdditionalInformation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalInformation;
+
+        public string? AdditionalInformation => _mAdditionalInformation.GetValue("additionalInformation");
 
         /// <summary>
         /// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         /// </summary>
         [Input("address")]
-        public ProfileAddress? Address;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfileAddress> _mAddress;
+
+        public Outputs.ProfileAddress? Address => _mAddress.GetValue("address");
 
         /// <summary>
         /// A key value pair of attributes of a customer profile.
         /// </summary>
         [Input("attributes")]
-        public Dictionary<string, string>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// A block that specifies the customer’s billing address. Documented below.
         /// </summary>
         [Input("billingAddress")]
-        public ProfileBillingAddress? BillingAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfileBillingAddress> _mBillingAddress;
+
+        public Outputs.ProfileBillingAddress? BillingAddress => _mBillingAddress.GetValue("billingAddress");
 
         /// <summary>
         /// The customer’s birth date.
         /// </summary>
         [Input("birthDate")]
-        public string? BirthDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBirthDate;
+
+        public string? BirthDate => _mBirthDate.GetValue("birthDate");
 
         /// <summary>
         /// The customer’s business email address.
         /// </summary>
         [Input("businessEmailAddress")]
-        public string? BusinessEmailAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessEmailAddress;
+
+        public string? BusinessEmailAddress => _mBusinessEmailAddress.GetValue("businessEmailAddress");
 
         /// <summary>
         /// The name of the customer’s business.
         /// </summary>
         [Input("businessName")]
-        public string? BusinessName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessName;
+
+        public string? BusinessName => _mBusinessName.GetValue("businessName");
 
         /// <summary>
         /// The customer’s business phone number.
         /// </summary>
         [Input("businessPhoneNumber")]
-        public string? BusinessPhoneNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessPhoneNumber;
+
+        public string? BusinessPhoneNumber => _mBusinessPhoneNumber.GetValue("businessPhoneNumber");
 
         /// <summary>
         /// The name of your Customer Profile domain. It must be unique for your AWS account.
@@ -73,78 +100,321 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles
         /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The customer’s email address, which has not been specified as a personal or business address.
         /// </summary>
         [Input("emailAddress")]
-        public string? EmailAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
+
+        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
 
         /// <summary>
         /// The customer’s first name.
         /// </summary>
         [Input("firstName")]
-        public string? FirstName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
+
+        public string? FirstName => _mFirstName.GetValue("firstName");
 
         /// <summary>
         /// The gender with which the customer identifies.
         /// </summary>
         [Input("genderString")]
-        public string? GenderString;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGenderString;
+
+        public string? GenderString => _mGenderString.GetValue("genderString");
 
         /// <summary>
         /// The customer’s home phone number.
         /// </summary>
         [Input("homePhoneNumber")]
-        public string? HomePhoneNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomePhoneNumber;
+
+        public string? HomePhoneNumber => _mHomePhoneNumber.GetValue("homePhoneNumber");
 
         /// <summary>
         /// The customer’s last name.
         /// </summary>
         [Input("lastName")]
-        public string? LastName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
+
+        public string? LastName => _mLastName.GetValue("lastName");
 
         /// <summary>
         /// A block that specifies the customer’s mailing address. Documented below.
         /// </summary>
         [Input("mailingAddress")]
-        public ProfileMailingAddress? MailingAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfileMailingAddress> _mMailingAddress;
+
+        public Outputs.ProfileMailingAddress? MailingAddress => _mMailingAddress.GetValue("mailingAddress");
 
         /// <summary>
         /// The customer’s middle name.
         /// </summary>
         [Input("middleName")]
-        public string? MiddleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMiddleName;
+
+        public string? MiddleName => _mMiddleName.GetValue("middleName");
 
         /// <summary>
         /// The customer’s mobile phone number.
         /// </summary>
         [Input("mobilePhoneNumber")]
-        public string? MobilePhoneNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMobilePhoneNumber;
+
+        public string? MobilePhoneNumber => _mMobilePhoneNumber.GetValue("mobilePhoneNumber");
 
         /// <summary>
         /// The type of profile used to describe the customer.
         /// </summary>
         [Input("partyTypeString")]
-        public string? PartyTypeString;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPartyTypeString;
+
+        public string? PartyTypeString => _mPartyTypeString.GetValue("partyTypeString");
 
         /// <summary>
         /// The customer’s personal email address.
         /// </summary>
         [Input("personalEmailAddress")]
-        public string? PersonalEmailAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPersonalEmailAddress;
+
+        public string? PersonalEmailAddress => _mPersonalEmailAddress.GetValue("personalEmailAddress");
 
         /// <summary>
         /// The customer’s phone number, which has not been specified as a mobile, home, or business number.
         /// </summary>
         [Input("phoneNumber")]
-        public string? PhoneNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
+
+        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
 
         /// <summary>
         /// A block that specifies the customer’s shipping address. Documented below.
         /// </summary>
         [Input("shippingAddress")]
-        public ProfileShippingAddress? ShippingAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfileShippingAddress> _mShippingAddress;
+
+        public Outputs.ProfileShippingAddress? ShippingAddress => _mShippingAddress.GetValue("shippingAddress");
+    }
+
+    [PolicyResourceType("aws:customerprofiles/profile:Profile")]
+    public sealed class ProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A unique account number that you have given to the customer.
+        /// </summary>
+        [Input("accountNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountNumber;
+
+        public string? AccountNumber => _mAccountNumber.GetValue("accountNumber");
+
+        /// <summary>
+        /// Any additional information relevant to the customer’s profile.
+        /// </summary>
+        [Input("additionalInformation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalInformation;
+
+        public string? AdditionalInformation => _mAdditionalInformation.GetValue("additionalInformation");
+
+        /// <summary>
+        /// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
+        /// </summary>
+        [Input("address")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfileAddressArgs> _mAddress;
+
+        public Inputs.ProfileAddressArgs? Address => _mAddress.GetValue("address");
+
+        /// <summary>
+        /// A key value pair of attributes of a customer profile.
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// A block that specifies the customer’s billing address. Documented below.
+        /// </summary>
+        [Input("billingAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfileBillingAddressArgs> _mBillingAddress;
+
+        public Inputs.ProfileBillingAddressArgs? BillingAddress => _mBillingAddress.GetValue("billingAddress");
+
+        /// <summary>
+        /// The customer’s birth date.
+        /// </summary>
+        [Input("birthDate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBirthDate;
+
+        public string? BirthDate => _mBirthDate.GetValue("birthDate");
+
+        /// <summary>
+        /// The customer’s business email address.
+        /// </summary>
+        [Input("businessEmailAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessEmailAddress;
+
+        public string? BusinessEmailAddress => _mBusinessEmailAddress.GetValue("businessEmailAddress");
+
+        /// <summary>
+        /// The name of the customer’s business.
+        /// </summary>
+        [Input("businessName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessName;
+
+        public string? BusinessName => _mBusinessName.GetValue("businessName");
+
+        /// <summary>
+        /// The customer’s business phone number.
+        /// </summary>
+        [Input("businessPhoneNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessPhoneNumber;
+
+        public string? BusinessPhoneNumber => _mBusinessPhoneNumber.GetValue("businessPhoneNumber");
+
+        /// <summary>
+        /// The name of your Customer Profile domain. It must be unique for your AWS account.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// The customer’s email address, which has not been specified as a personal or business address.
+        /// </summary>
+        [Input("emailAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
+
+        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+
+        /// <summary>
+        /// The customer’s first name.
+        /// </summary>
+        [Input("firstName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
+
+        public string? FirstName => _mFirstName.GetValue("firstName");
+
+        /// <summary>
+        /// The gender with which the customer identifies.
+        /// </summary>
+        [Input("genderString")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGenderString;
+
+        public string? GenderString => _mGenderString.GetValue("genderString");
+
+        /// <summary>
+        /// The customer’s home phone number.
+        /// </summary>
+        [Input("homePhoneNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomePhoneNumber;
+
+        public string? HomePhoneNumber => _mHomePhoneNumber.GetValue("homePhoneNumber");
+
+        /// <summary>
+        /// The customer’s last name.
+        /// </summary>
+        [Input("lastName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
+
+        public string? LastName => _mLastName.GetValue("lastName");
+
+        /// <summary>
+        /// A block that specifies the customer’s mailing address. Documented below.
+        /// </summary>
+        [Input("mailingAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfileMailingAddressArgs> _mMailingAddress;
+
+        public Inputs.ProfileMailingAddressArgs? MailingAddress => _mMailingAddress.GetValue("mailingAddress");
+
+        /// <summary>
+        /// The customer’s middle name.
+        /// </summary>
+        [Input("middleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMiddleName;
+
+        public string? MiddleName => _mMiddleName.GetValue("middleName");
+
+        /// <summary>
+        /// The customer’s mobile phone number.
+        /// </summary>
+        [Input("mobilePhoneNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMobilePhoneNumber;
+
+        public string? MobilePhoneNumber => _mMobilePhoneNumber.GetValue("mobilePhoneNumber");
+
+        /// <summary>
+        /// The type of profile used to describe the customer.
+        /// </summary>
+        [Input("partyTypeString")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPartyTypeString;
+
+        public string? PartyTypeString => _mPartyTypeString.GetValue("partyTypeString");
+
+        /// <summary>
+        /// The customer’s personal email address.
+        /// </summary>
+        [Input("personalEmailAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPersonalEmailAddress;
+
+        public string? PersonalEmailAddress => _mPersonalEmailAddress.GetValue("personalEmailAddress");
+
+        /// <summary>
+        /// The customer’s phone number, which has not been specified as a mobile, home, or business number.
+        /// </summary>
+        [Input("phoneNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
+
+        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+
+        /// <summary>
+        /// A block that specifies the customer’s shipping address. Documented below.
+        /// </summary>
+        [Input("shippingAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfileShippingAddressArgs> _mShippingAddress;
+
+        public Inputs.ProfileShippingAddressArgs? ShippingAddress => _mShippingAddress.GetValue("shippingAddress");
     }
 }

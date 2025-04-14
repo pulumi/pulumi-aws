@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Auditmanager
 {
     [PolicyResourceType("aws:auditmanager/accountRegistration:AccountRegistration")]
-    public sealed class AccountRegistration : global::Pulumi.PolicyResource
+    public sealed class AccountRegistration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier for the delegated administrator account.
         /// </summary>
         [Input("delegatedAdminAccount")]
-        public string? DelegatedAdminAccount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccount;
+
+        public string? DelegatedAdminAccount => _mDelegatedAdminAccount.GetValue("delegatedAdminAccount");
 
         /// <summary>
         /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         /// </summary>
         [Input("deregisterOnDestroy")]
-        public bool? DeregisterOnDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeregisterOnDestroy;
+
+        public bool? DeregisterOnDestroy => _mDeregisterOnDestroy.GetValue("deregisterOnDestroy");
 
         /// <summary>
         /// KMS key identifier.
         /// </summary>
         [Input("kmsKey")]
-        public string? KmsKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
+
+        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
 
         /// <summary>
         /// Status of the account registration request.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:auditmanager/accountRegistration:AccountRegistration")]
+    public sealed class AccountRegistrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier for the delegated administrator account.
+        /// </summary>
+        [Input("delegatedAdminAccount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccount;
+
+        public string? DelegatedAdminAccount => _mDelegatedAdminAccount.GetValue("delegatedAdminAccount");
+
+        /// <summary>
+        /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
+        /// </summary>
+        [Input("deregisterOnDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeregisterOnDestroy;
+
+        public bool? DeregisterOnDestroy => _mDeregisterOnDestroy.GetValue("deregisterOnDestroy");
+
+        /// <summary>
+        /// KMS key identifier.
+        /// </summary>
+        [Input("kmsKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
+
+        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
     }
 }

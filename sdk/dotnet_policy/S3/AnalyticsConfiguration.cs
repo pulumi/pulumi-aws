@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/analyticsConfiguration:AnalyticsConfiguration")]
-    public sealed class AnalyticsConfiguration : global::Pulumi.PolicyResource
+    public sealed class AnalyticsConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the bucket this analytics configuration is associated with.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         /// </summary>
         [Input("filter")]
-        public AnalyticsConfigurationFilter? Filter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsConfigurationFilter> _mFilter;
+
+        public Outputs.AnalyticsConfigurationFilter? Filter => _mFilter.GetValue("filter");
 
         /// <summary>
         /// Unique identifier of the analytics configuration for the bucket.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration for the analytics data export (documented below).
         /// </summary>
         [Input("storageClassAnalysis")]
-        public AnalyticsConfigurationStorageClassAnalysis? StorageClassAnalysis;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsConfigurationStorageClassAnalysis> _mStorageClassAnalysis;
+
+        public Outputs.AnalyticsConfigurationStorageClassAnalysis? StorageClassAnalysis => _mStorageClassAnalysis.GetValue("storageClassAnalysis");
+    }
+
+    [PolicyResourceType("aws:s3/analyticsConfiguration:AnalyticsConfiguration")]
+    public sealed class AnalyticsConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket this analytics configuration is associated with.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// </summary>
+        [Input("filter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsConfigurationFilterArgs> _mFilter;
+
+        public Inputs.AnalyticsConfigurationFilterArgs? Filter => _mFilter.GetValue("filter");
+
+        /// <summary>
+        /// Unique identifier of the analytics configuration for the bucket.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration for the analytics data export (documented below).
+        /// </summary>
+        [Input("storageClassAnalysis")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsConfigurationStorageClassAnalysisArgs> _mStorageClassAnalysis;
+
+        public Inputs.AnalyticsConfigurationStorageClassAnalysisArgs? StorageClassAnalysis => _mStorageClassAnalysis.GetValue("storageClassAnalysis");
     }
 }

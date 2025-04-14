@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafRegional
 {
     [PolicyResourceType("aws:wafregional/xssMatchSet:XssMatchSet")]
-    public sealed class XssMatchSet : global::Pulumi.PolicyResource
+    public sealed class XssMatchSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the set
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The parts of web requests that you want to inspect for cross-site scripting attacks.
         /// </summary>
         [Input("xssMatchTuples")]
-        public List<XssMatchSetXssMatchTuple>? XssMatchTuples;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.XssMatchSetXssMatchTuple>> _mXssMatchTuples;
+
+        public List<Outputs.XssMatchSetXssMatchTuple>? XssMatchTuples => _mXssMatchTuples.GetValue("xssMatchTuples");
+    }
+
+    [PolicyResourceType("aws:wafregional/xssMatchSet:XssMatchSet")]
+    public sealed class XssMatchSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the set
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The parts of web requests that you want to inspect for cross-site scripting attacks.
+        /// </summary>
+        [Input("xssMatchTuples")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.XssMatchSetXssMatchTupleArgs>> _mXssMatchTuples;
+
+        public List<Inputs.XssMatchSetXssMatchTupleArgs>? XssMatchTuples => _mXssMatchTuples.GetValue("xssMatchTuples");
     }
 }

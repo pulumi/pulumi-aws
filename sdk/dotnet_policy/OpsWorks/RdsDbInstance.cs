@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpsWorks
 {
     [PolicyResourceType("aws:opsworks/rdsDbInstance:RdsDbInstance")]
-    public sealed class RdsDbInstance : global::Pulumi.PolicyResource
+    public sealed class RdsDbInstance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A db password
         /// </summary>
         [Input("dbPassword")]
-        public string? DbPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbPassword;
+
+        public string? DbPassword => _mDbPassword.GetValue("dbPassword");
 
         /// <summary>
         /// A db username
         /// </summary>
         [Input("dbUser")]
-        public string? DbUser;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
+
+        public string? DbUser => _mDbUser.GetValue("dbUser");
 
         /// <summary>
         /// The db instance to register for this stack. Changing this will force a new resource.
         /// </summary>
         [Input("rdsDbInstanceArn")]
-        public string? RdsDbInstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRdsDbInstanceArn;
+
+        public string? RdsDbInstanceArn => _mRdsDbInstanceArn.GetValue("rdsDbInstanceArn");
 
         /// <summary>
         /// The stack to register a db instance for. Changing this will force a new resource.
         /// </summary>
         [Input("stackId")]
-        public string? StackId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
+    }
+
+    [PolicyResourceType("aws:opsworks/rdsDbInstance:RdsDbInstance")]
+    public sealed class RdsDbInstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A db password
+        /// </summary>
+        [Input("dbPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbPassword;
+
+        public string? DbPassword => _mDbPassword.GetValue("dbPassword");
+
+        /// <summary>
+        /// A db username
+        /// </summary>
+        [Input("dbUser")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
+
+        public string? DbUser => _mDbUser.GetValue("dbUser");
+
+        /// <summary>
+        /// The db instance to register for this stack. Changing this will force a new resource.
+        /// </summary>
+        [Input("rdsDbInstanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRdsDbInstanceArn;
+
+        public string? RdsDbInstanceArn => _mRdsDbInstanceArn.GetValue("rdsDbInstanceArn");
+
+        /// <summary>
+        /// The stack to register a db instance for. Changing this will force a new resource.
+        /// </summary>
+        [Input("stackId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
     }
 }

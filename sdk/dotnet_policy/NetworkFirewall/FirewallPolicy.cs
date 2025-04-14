@@ -11,54 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
 {
     [PolicyResourceType("aws:networkfirewall/firewallPolicy:FirewallPolicy")]
-    public sealed class FirewallPolicy : global::Pulumi.PolicyResource
+    public sealed class FirewallPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the firewall policy.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A friendly description of the firewall policy.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         /// </summary>
         [Input("encryptionConfiguration")]
-        public FirewallPolicyEncryptionConfiguration? EncryptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirewallPolicyEncryptionConfiguration> _mEncryptionConfiguration;
+
+        public Outputs.FirewallPolicyEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
 
         /// <summary>
         /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         /// </summary>
         [Input("firewallPolicy")]
-        public FirewallPolicyFirewallPolicy? FirewallPolicyConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FirewallPolicyFirewallPolicy> _mFirewallPolicyConfiguration;
+
+        public Outputs.FirewallPolicyFirewallPolicy? FirewallPolicyConfiguration => _mFirewallPolicyConfiguration.GetValue("firewallPolicy");
 
         /// <summary>
         /// A friendly name of the firewall policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// A string token used when updating a firewall policy.
         /// </summary>
         [Input("updateToken")]
-        public string? UpdateToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateToken;
+
+        public string? UpdateToken => _mUpdateToken.GetValue("updateToken");
+    }
+
+    [PolicyResourceType("aws:networkfirewall/firewallPolicy:FirewallPolicy")]
+    public sealed class FirewallPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A friendly description of the firewall policy.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// KMS encryption configuration settings. See Encryption Configuration below for details.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirewallPolicyEncryptionConfigurationArgs> _mEncryptionConfiguration;
+
+        public Inputs.FirewallPolicyEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+
+        /// <summary>
+        /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        /// </summary>
+        [Input("firewallPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FirewallPolicyFirewallPolicyArgs> _mFirewallPolicyConfiguration;
+
+        public Inputs.FirewallPolicyFirewallPolicyArgs? FirewallPolicyConfiguration => _mFirewallPolicyConfiguration.GetValue("firewallPolicy");
+
+        /// <summary>
+        /// A friendly name of the firewall policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

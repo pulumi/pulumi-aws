@@ -11,43 +11,120 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget")]
-    public sealed class MaintenanceWindowTarget : global::Pulumi.PolicyResource
+    public sealed class MaintenanceWindowTarget : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The description of the maintenance window target.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the maintenance window target.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         /// </summary>
         [Input("ownerInformation")]
-        public string? OwnerInformation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerInformation;
+
+        public string? OwnerInformation => _mOwnerInformation.GetValue("ownerInformation");
 
         /// <summary>
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         /// </summary>
         [Input("resourceType")]
-        public string? ResourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
 
         /// <summary>
         /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
         /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         /// </summary>
         [Input("targets")]
-        public List<MaintenanceWindowTargetTarget>? Targets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MaintenanceWindowTargetTarget>> _mTargets;
+
+        public List<Outputs.MaintenanceWindowTargetTarget>? Targets => _mTargets.GetValue("targets");
 
         /// <summary>
         /// The Id of the maintenance window to register the target with.
         /// </summary>
         [Input("windowId")]
-        public string? WindowId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWindowId;
+
+        public string? WindowId => _mWindowId.GetValue("windowId");
+    }
+
+    [PolicyResourceType("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget")]
+    public sealed class MaintenanceWindowTargetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the maintenance window target.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the maintenance window target.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+        /// </summary>
+        [Input("ownerInformation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerInformation;
+
+        public string? OwnerInformation => _mOwnerInformation.GetValue("ownerInformation");
+
+        /// <summary>
+        /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
+        /// </summary>
+        [Input("resourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+
+        public string? ResourceType => _mResourceType.GetValue("resourceType");
+
+        /// <summary>
+        /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
+        /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
+        /// </summary>
+        [Input("targets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MaintenanceWindowTargetTargetArgs>> _mTargets;
+
+        public List<Inputs.MaintenanceWindowTargetTargetArgs>? Targets => _mTargets.GetValue("targets");
+
+        /// <summary>
+        /// The Id of the maintenance window to register the target with.
+        /// </summary>
+        [Input("windowId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWindowId;
+
+        public string? WindowId => _mWindowId.GetValue("windowId");
     }
 }

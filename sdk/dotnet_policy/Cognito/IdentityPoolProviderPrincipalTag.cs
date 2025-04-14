@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")]
-    public sealed class IdentityPoolProviderPrincipalTag : global::Pulumi.PolicyResource
+    public sealed class IdentityPoolProviderPrincipalTag : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An identity pool ID.
         /// </summary>
         [Input("identityPoolId")]
-        public string? IdentityPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolId;
+
+        public string? IdentityPoolId => _mIdentityPoolId.GetValue("identityPoolId");
 
         /// <summary>
         /// The name of the identity provider.
         /// </summary>
         [Input("identityProviderName")]
-        public string? IdentityProviderName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityProviderName;
+
+        public string? IdentityProviderName => _mIdentityProviderName.GetValue("identityProviderName");
 
         /// <summary>
         /// String to string map of variables.
         /// </summary>
         [Input("principalTags")]
-        public Dictionary<string, string>? PrincipalTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPrincipalTags;
+
+        public Dictionary<string, string>? PrincipalTags => _mPrincipalTags.GetValue("principalTags");
 
         /// <summary>
         /// use default (username and clientID) attribute mappings.
         /// </summary>
         [Input("useDefaults")]
-        public bool? UseDefaults;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseDefaults;
+
+        public bool? UseDefaults => _mUseDefaults.GetValue("useDefaults");
+    }
+
+    [PolicyResourceType("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")]
+    public sealed class IdentityPoolProviderPrincipalTagArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An identity pool ID.
+        /// </summary>
+        [Input("identityPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolId;
+
+        public string? IdentityPoolId => _mIdentityPoolId.GetValue("identityPoolId");
+
+        /// <summary>
+        /// The name of the identity provider.
+        /// </summary>
+        [Input("identityProviderName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityProviderName;
+
+        public string? IdentityProviderName => _mIdentityProviderName.GetValue("identityProviderName");
+
+        /// <summary>
+        /// String to string map of variables.
+        /// </summary>
+        [Input("principalTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPrincipalTags;
+
+        public Dictionary<string, string>? PrincipalTags => _mPrincipalTags.GetValue("principalTags");
+
+        /// <summary>
+        /// use default (username and clientID) attribute mappings.
+        /// </summary>
+        [Input("useDefaults")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseDefaults;
+
+        public bool? UseDefaults => _mUseDefaults.GetValue("useDefaults");
     }
 }

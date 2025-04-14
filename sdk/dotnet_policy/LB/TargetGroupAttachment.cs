@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LB
 {
     [PolicyResourceType("aws:lb/targetGroupAttachment:TargetGroupAttachment")]
-    public sealed class TargetGroupAttachment : global::Pulumi.PolicyResource
+    public sealed class TargetGroupAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// The port on which targets receive traffic.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// The ARN of the target group with which to register targets.
         /// </summary>
         [Input("targetGroupArn")]
-        public string? TargetGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupArn;
+
+        public string? TargetGroupArn => _mTargetGroupArn.GetValue("targetGroupArn");
 
         /// <summary>
         /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
@@ -37,6 +46,51 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// The following arguments are optional:
         /// </summary>
         [Input("targetId")]
-        public string? TargetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
+    }
+
+    [PolicyResourceType("aws:lb/targetGroupAttachment:TargetGroupAttachment")]
+    public sealed class TargetGroupAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// The port on which targets receive traffic.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// The ARN of the target group with which to register targets.
+        /// </summary>
+        [Input("targetGroupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupArn;
+
+        public string? TargetGroupArn => _mTargetGroupArn.GetValue("targetGroupArn");
+
+        /// <summary>
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("targetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
     }
 }

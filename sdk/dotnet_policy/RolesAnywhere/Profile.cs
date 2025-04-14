@@ -11,66 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RolesAnywhere
 {
     [PolicyResourceType("aws:rolesanywhere/profile:Profile")]
-    public sealed class Profile : global::Pulumi.PolicyResource
+    public sealed class Profile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Profile
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
         /// </summary>
         [Input("durationSeconds")]
-        public int? DurationSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDurationSeconds;
+
+        public int? DurationSeconds => _mDurationSeconds.GetValue("durationSeconds");
 
         /// <summary>
         /// Whether or not the Profile is enabled.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// A list of managed policy ARNs that apply to the vended session credentials.
         /// </summary>
         [Input("managedPolicyArns")]
-        public List<string>? ManagedPolicyArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mManagedPolicyArns;
+
+        public List<string>? ManagedPolicyArns => _mManagedPolicyArns.GetValue("managedPolicyArns");
 
         /// <summary>
         /// The name of the Profile.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         /// </summary>
         [Input("requireInstanceProperties")]
-        public bool? RequireInstanceProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireInstanceProperties;
+
+        public bool? RequireInstanceProperties => _mRequireInstanceProperties.GetValue("requireInstanceProperties");
 
         /// <summary>
         /// A list of IAM roles that this profile can assume
         /// </summary>
         [Input("roleArns")]
-        public List<string>? RoleArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRoleArns;
+
+        public List<string>? RoleArns => _mRoleArns.GetValue("roleArns");
 
         /// <summary>
         /// A session policy that applies to the trust boundary of the vended session credentials.
         /// </summary>
         [Input("sessionPolicy")]
-        public string? SessionPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSessionPolicy;
+
+        public string? SessionPolicy => _mSessionPolicy.GetValue("sessionPolicy");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:rolesanywhere/profile:Profile")]
+    public sealed class ProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
+        /// </summary>
+        [Input("durationSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDurationSeconds;
+
+        public int? DurationSeconds => _mDurationSeconds.GetValue("durationSeconds");
+
+        /// <summary>
+        /// Whether or not the Profile is enabled.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// A list of managed policy ARNs that apply to the vended session credentials.
+        /// </summary>
+        [Input("managedPolicyArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mManagedPolicyArns;
+
+        public List<string>? ManagedPolicyArns => _mManagedPolicyArns.GetValue("managedPolicyArns");
+
+        /// <summary>
+        /// The name of the Profile.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
+        /// </summary>
+        [Input("requireInstanceProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireInstanceProperties;
+
+        public bool? RequireInstanceProperties => _mRequireInstanceProperties.GetValue("requireInstanceProperties");
+
+        /// <summary>
+        /// A list of IAM roles that this profile can assume
+        /// </summary>
+        [Input("roleArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRoleArns;
+
+        public List<string>? RoleArns => _mRoleArns.GetValue("roleArns");
+
+        /// <summary>
+        /// A session policy that applies to the trust boundary of the vended session credentials.
+        /// </summary>
+        [Input("sessionPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSessionPolicy;
+
+        public string? SessionPolicy => _mSessionPolicy.GetValue("sessionPolicy");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

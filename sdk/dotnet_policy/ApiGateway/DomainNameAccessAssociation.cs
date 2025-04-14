@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation")]
-    public sealed class DomainNameAccessAssociation : global::Pulumi.PolicyResource
+    public sealed class DomainNameAccessAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         /// </summary>
         [Input("accessAssociationSource")]
-        public string? AccessAssociationSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessAssociationSource;
+
+        public string? AccessAssociationSource => _mAccessAssociationSource.GetValue("accessAssociationSource");
 
         /// <summary>
         /// The type of the domain name access association source. Valid values are `VPCE`.
         /// </summary>
         [Input("accessAssociationSourceType")]
-        public string? AccessAssociationSourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessAssociationSourceType;
+
+        public string? AccessAssociationSourceType => _mAccessAssociationSourceType.GetValue("accessAssociationSourceType");
 
         /// <summary>
         /// ARN of the domain name access association.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the domain name.
         /// </summary>
         [Input("domainNameArn")]
-        public string? DomainNameArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameArn;
+
+        public string? DomainNameArn => _mDomainNameArn.GetValue("domainNameArn");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation")]
+    public sealed class DomainNameAccessAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        /// </summary>
+        [Input("accessAssociationSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessAssociationSource;
+
+        public string? AccessAssociationSource => _mAccessAssociationSource.GetValue("accessAssociationSource");
+
+        /// <summary>
+        /// The type of the domain name access association source. Valid values are `VPCE`.
+        /// </summary>
+        [Input("accessAssociationSourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessAssociationSourceType;
+
+        public string? AccessAssociationSourceType => _mAccessAssociationSourceType.GetValue("accessAssociationSourceType");
+
+        /// <summary>
+        /// The ARN of the domain name.
+        /// </summary>
+        [Input("domainNameArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameArn;
+
+        public string? DomainNameArn => _mDomainNameArn.GetValue("domainNameArn");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

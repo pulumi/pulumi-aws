@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/organizationsAccess:OrganizationsAccess")]
-    public sealed class OrganizationsAccess : global::Pulumi.PolicyResource
+    public sealed class OrganizationsAccess : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether to enable AWS Organizations access.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/organizationsAccess:OrganizationsAccess")]
+    public sealed class OrganizationsAccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to enable AWS Organizations access.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
     }
 }

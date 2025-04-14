@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment")]
-    public sealed class CoreNetworkPolicyAttachment : global::Pulumi.PolicyResource
+    public sealed class CoreNetworkPolicyAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the core network that a policy will be attached to and made `LIVE`.
         /// </summary>
         [Input("coreNetworkId")]
-        public string? CoreNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
 
         /// <summary>
         /// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
 
         /// <summary>
         /// Current state of a core network.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+    }
+
+    [PolicyResourceType("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment")]
+    public sealed class CoreNetworkPolicyAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the core network that a policy will be attached to and made `LIVE`.
+        /// </summary>
+        [Input("coreNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+
+        /// <summary>
+        /// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
     }
 }

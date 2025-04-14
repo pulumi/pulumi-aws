@@ -11,57 +11,139 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kendra
 {
     [PolicyResourceType("aws:kendra/thesaurus:Thesaurus")]
-    public sealed class Thesaurus : global::Pulumi.PolicyResource
+    public sealed class Thesaurus : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the thesaurus.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The identifier of the index for a thesaurus.
         /// </summary>
         [Input("indexId")]
-        public string? IndexId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
+
+        public string? IndexId => _mIndexId.GetValue("indexId");
 
         /// <summary>
         /// The name for the thesaurus.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
         /// </summary>
         [Input("sourceS3Path")]
-        public ThesaurusSourceS3Path? SourceS3Path;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ThesaurusSourceS3Path> _mSourceS3Path;
+
+        public Outputs.ThesaurusSourceS3Path? SourceS3Path => _mSourceS3Path.GetValue("sourceS3Path");
 
         /// <summary>
         /// The current status of the thesaurus.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("thesaurusId")]
-        public string? ThesaurusId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThesaurusId;
+
+        public string? ThesaurusId => _mThesaurusId.GetValue("thesaurusId");
+    }
+
+    [PolicyResourceType("aws:kendra/thesaurus:Thesaurus")]
+    public sealed class ThesaurusArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The identifier of the index for a thesaurus.
+        /// </summary>
+        [Input("indexId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
+
+        public string? IndexId => _mIndexId.GetValue("indexId");
+
+        /// <summary>
+        /// The name for the thesaurus.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// The S3 path where your thesaurus file sits in S3. Detailed below.
+        /// </summary>
+        [Input("sourceS3Path")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ThesaurusSourceS3PathArgs> _mSourceS3Path;
+
+        public Inputs.ThesaurusSourceS3PathArgs? SourceS3Path => _mSourceS3Path.GetValue("sourceS3Path");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

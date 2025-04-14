@@ -11,108 +11,208 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFormation
 {
     [PolicyResourceType("aws:cloudformation/cloudFormationType:CloudFormationType")]
-    public sealed class CloudFormationType : global::Pulumi.PolicyResource
+    public sealed class CloudFormationType : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Identifier of the CloudFormation Type default version.
         /// </summary>
         [Input("defaultVersionId")]
-        public string? DefaultVersionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultVersionId;
+
+        public string? DefaultVersionId => _mDefaultVersionId.GetValue("defaultVersionId");
 
         /// <summary>
         /// Deprecation status of the version.
         /// </summary>
         [Input("deprecatedStatus")]
-        public string? DeprecatedStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeprecatedStatus;
+
+        public string? DeprecatedStatus => _mDeprecatedStatus.GetValue("deprecatedStatus");
 
         /// <summary>
         /// Description of the version.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// URL of the documentation for the CloudFormation Type.
         /// </summary>
         [Input("documentationUrl")]
-        public string? DocumentationUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentationUrl;
+
+        public string? DocumentationUrl => _mDocumentationUrl.GetValue("documentationUrl");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         /// </summary>
         [Input("executionRoleArn")]
-        public string? ExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
 
         /// <summary>
         /// Whether the CloudFormation Type version is the default version.
         /// </summary>
         [Input("isDefaultVersion")]
-        public bool? IsDefaultVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefaultVersion;
+
+        public bool? IsDefaultVersion => _mIsDefaultVersion.GetValue("isDefaultVersion");
 
         /// <summary>
         /// Configuration block containing logging configuration.
         /// </summary>
         [Input("loggingConfig")]
-        public CloudFormationTypeLoggingConfig? LoggingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CloudFormationTypeLoggingConfig> _mLoggingConfig;
+
+        public Outputs.CloudFormationTypeLoggingConfig? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
 
         /// <summary>
         /// Provisioning behavior of the CloudFormation Type.
         /// </summary>
         [Input("provisioningType")]
-        public string? ProvisioningType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningType;
+
+        public string? ProvisioningType => _mProvisioningType.GetValue("provisioningType");
 
         /// <summary>
         /// JSON document of the CloudFormation Type schema.
         /// </summary>
         [Input("schema")]
-        public string? Schema;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
+
+        public string? Schema => _mSchema.GetValue("schema");
 
         /// <summary>
         /// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         /// </summary>
         [Input("schemaHandlerPackage")]
-        public string? SchemaHandlerPackage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaHandlerPackage;
+
+        public string? SchemaHandlerPackage => _mSchemaHandlerPackage.GetValue("schemaHandlerPackage");
 
         /// <summary>
         /// URL of the source code for the CloudFormation Type.
         /// </summary>
         [Input("sourceUrl")]
-        public string? SourceUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceUrl;
+
+        public string? SourceUrl => _mSourceUrl.GetValue("sourceUrl");
 
         /// <summary>
         /// CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
         /// </summary>
         [Input("typeArn")]
-        public string? TypeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTypeArn;
+
+        public string? TypeArn => _mTypeArn.GetValue("typeArn");
 
         /// <summary>
         /// CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
         /// </summary>
         [Input("typeName")]
-        public string? TypeName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTypeName;
+
+        public string? TypeName => _mTypeName.GetValue("typeName");
 
         /// <summary>
         /// (Optional) Identifier of the CloudFormation Type version.
         /// </summary>
         [Input("versionId")]
-        public string? VersionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
+
+        public string? VersionId => _mVersionId.GetValue("versionId");
 
         /// <summary>
         /// Scope of the CloudFormation Type.
         /// </summary>
         [Input("visibility")]
-        public string? Visibility;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVisibility;
+
+        public string? Visibility => _mVisibility.GetValue("visibility");
+    }
+
+    [PolicyResourceType("aws:cloudformation/cloudFormationType:CloudFormationType")]
+    public sealed class CloudFormationTypeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+        /// </summary>
+        [Input("executionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+
+        /// <summary>
+        /// Configuration block containing logging configuration.
+        /// </summary>
+        [Input("loggingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CloudFormationTypeLoggingConfigArgs> _mLoggingConfig;
+
+        public Inputs.CloudFormationTypeLoggingConfigArgs? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
+
+        /// <summary>
+        /// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
+        /// </summary>
+        [Input("schemaHandlerPackage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaHandlerPackage;
+
+        public string? SchemaHandlerPackage => _mSchemaHandlerPackage.GetValue("schemaHandlerPackage");
+
+        /// <summary>
+        /// CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
+        /// </summary>
+        [Input("typeName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTypeName;
+
+        public string? TypeName => _mTypeName.GetValue("typeName");
     }
 }

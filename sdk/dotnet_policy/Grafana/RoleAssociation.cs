@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Grafana
 {
     [PolicyResourceType("aws:grafana/roleAssociation:RoleAssociation")]
-    public sealed class RoleAssociation : global::Pulumi.PolicyResource
+    public sealed class RoleAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS SSO group ids to be assigned the role given in `role`.
         /// </summary>
         [Input("groupIds")]
-        public List<string>? GroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroupIds;
+
+        public List<string>? GroupIds => _mGroupIds.GetValue("groupIds");
 
         /// <summary>
         /// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         /// </summary>
         [Input("role")]
-        public string? Role;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
 
         /// <summary>
         /// The AWS SSO user ids to be assigned the role given in `role`.
         /// </summary>
         [Input("userIds")]
-        public List<string>? UserIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUserIds;
+
+        public List<string>? UserIds => _mUserIds.GetValue("userIds");
 
         /// <summary>
         /// The workspace id.
@@ -37,6 +46,51 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// The following arguments are optional:
         /// </summary>
         [Input("workspaceId")]
-        public string? WorkspaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+    }
+
+    [PolicyResourceType("aws:grafana/roleAssociation:RoleAssociation")]
+    public sealed class RoleAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS SSO group ids to be assigned the role given in `role`.
+        /// </summary>
+        [Input("groupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroupIds;
+
+        public List<string>? GroupIds => _mGroupIds.GetValue("groupIds");
+
+        /// <summary>
+        /// The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
+        /// </summary>
+        [Input("role")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
+
+        /// <summary>
+        /// The AWS SSO user ids to be assigned the role given in `role`.
+        /// </summary>
+        [Input("userIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUserIds;
+
+        public List<string>? UserIds => _mUserIds.GetValue("userIds");
+
+        /// <summary>
+        /// The workspace id.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("workspaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
     }
 }

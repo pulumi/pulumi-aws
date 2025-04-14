@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/keySigningKey:KeySigningKey")]
-    public sealed class KeySigningKey : global::Pulumi.PolicyResource
+    public sealed class KeySigningKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         /// </summary>
         [Input("digestAlgorithmMnemonic")]
-        public string? DigestAlgorithmMnemonic;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDigestAlgorithmMnemonic;
+
+        public string? DigestAlgorithmMnemonic => _mDigestAlgorithmMnemonic.GetValue("digestAlgorithmMnemonic");
 
         /// <summary>
         /// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         /// </summary>
         [Input("digestAlgorithmType")]
-        public int? DigestAlgorithmType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDigestAlgorithmType;
+
+        public int? DigestAlgorithmType => _mDigestAlgorithmType.GetValue("digestAlgorithmType");
 
         /// <summary>
         /// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
         /// </summary>
         [Input("digestValue")]
-        public string? DigestValue;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDigestValue;
+
+        public string? DigestValue => _mDigestValue.GetValue("digestValue");
 
         /// <summary>
         /// A string that represents a DNSKEY record.
         /// </summary>
         [Input("dnskeyRecord")]
-        public string? DnskeyRecord;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnskeyRecord;
+
+        public string? DnskeyRecord => _mDnskeyRecord.GetValue("dnskeyRecord");
 
         /// <summary>
         /// A string that represents a delegation signer (DS) record.
         /// </summary>
         [Input("dsRecord")]
-        public string? DsRecord;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDsRecord;
+
+        public string? DsRecord => _mDsRecord.GetValue("dsRecord");
 
         /// <summary>
         /// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
         /// </summary>
         [Input("flag")]
-        public int? Flag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFlag;
+
+        public int? Flag => _mFlag.GetValue("flag");
 
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         /// </summary>
         [Input("keyManagementServiceArn")]
-        public string? KeyManagementServiceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyManagementServiceArn;
+
+        public string? KeyManagementServiceArn => _mKeyManagementServiceArn.GetValue("keyManagementServiceArn");
 
         /// <summary>
         /// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
         /// </summary>
         [Input("keyTag")]
-        public int? KeyTag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mKeyTag;
+
+        public int? KeyTag => _mKeyTag.GetValue("keyTag");
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
@@ -73,30 +100,87 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
         /// </summary>
         [Input("publicKey")]
-        public string? PublicKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
+
+        public string? PublicKey => _mPublicKey.GetValue("publicKey");
 
         /// <summary>
         /// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         /// </summary>
         [Input("signingAlgorithmMnemonic")]
-        public string? SigningAlgorithmMnemonic;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAlgorithmMnemonic;
+
+        public string? SigningAlgorithmMnemonic => _mSigningAlgorithmMnemonic.GetValue("signingAlgorithmMnemonic");
 
         /// <summary>
         /// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         /// </summary>
         [Input("signingAlgorithmType")]
-        public int? SigningAlgorithmType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSigningAlgorithmType;
+
+        public int? SigningAlgorithmType => _mSigningAlgorithmType.GetValue("signingAlgorithmType");
 
         /// <summary>
         /// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:route53/keySigningKey:KeySigningKey")]
+    public sealed class KeySigningKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the Route 53 Hosted Zone.
+        /// </summary>
+        [Input("hostedZoneId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
+        /// </summary>
+        [Input("keyManagementServiceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyManagementServiceArn;
+
+        public string? KeyManagementServiceArn => _mKeyManagementServiceArn.GetValue("keyManagementServiceArn");
+
+        /// <summary>
+        /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
     }
 }

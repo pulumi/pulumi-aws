@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/reservedInstance:ReservedInstance")]
-    public sealed class ReservedInstance : global::Pulumi.PolicyResource
+    public sealed class ReservedInstance : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN for the reserved DB instance.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Currency code for the reserved DB instance.
         /// </summary>
         [Input("currencyCode")]
-        public string? CurrencyCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCurrencyCode;
+
+        public string? CurrencyCode => _mCurrencyCode.GetValue("currencyCode");
 
         /// <summary>
         /// DB instance class for the reserved DB instance.
         /// </summary>
         [Input("dbInstanceClass")]
-        public string? DbInstanceClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceClass;
+
+        public string? DbInstanceClass => _mDbInstanceClass.GetValue("dbInstanceClass");
 
         /// <summary>
         /// Duration of the reservation in seconds.
         /// </summary>
         [Input("duration")]
-        public int? Duration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
+
+        public int? Duration => _mDuration.GetValue("duration");
 
         /// <summary>
         /// Fixed price charged for this reserved DB instance.
         /// </summary>
         [Input("fixedPrice")]
-        public double? FixedPrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mFixedPrice;
+
+        public double? FixedPrice => _mFixedPrice.GetValue("fixedPrice");
 
         /// <summary>
         /// Number of instances to reserve. Default value is `1`.
         /// </summary>
         [Input("instanceCount")]
-        public int? InstanceCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
+
+        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
 
         /// <summary>
         /// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
         /// </summary>
         [Input("leaseId")]
-        public string? LeaseId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLeaseId;
+
+        public string? LeaseId => _mLeaseId.GetValue("leaseId");
 
         /// <summary>
         /// Whether the reservation applies to Multi-AZ deployments.
         /// </summary>
         [Input("multiAz")]
-        public bool? MultiAz;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+
+        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
@@ -67,60 +91,132 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// The following arguments are optional:
         /// </summary>
         [Input("offeringId")]
-        public string? OfferingId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOfferingId;
+
+        public string? OfferingId => _mOfferingId.GetValue("offeringId");
 
         /// <summary>
         /// Offering type of this reserved DB instance.
         /// </summary>
         [Input("offeringType")]
-        public string? OfferingType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOfferingType;
+
+        public string? OfferingType => _mOfferingType.GetValue("offeringType");
 
         /// <summary>
         /// Description of the reserved DB instance.
         /// </summary>
         [Input("productDescription")]
-        public string? ProductDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductDescription;
+
+        public string? ProductDescription => _mProductDescription.GetValue("productDescription");
 
         /// <summary>
         /// Recurring price charged to run this reserved DB instance.
         /// </summary>
         [Input("recurringCharges")]
-        public List<ReservedInstanceRecurringCharge>? RecurringCharges;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReservedInstanceRecurringCharge>> _mRecurringCharges;
+
+        public List<Outputs.ReservedInstanceRecurringCharge>? RecurringCharges => _mRecurringCharges.GetValue("recurringCharges");
 
         /// <summary>
         /// Customer-specified identifier to track this reservation.
         /// </summary>
         [Input("reservationId")]
-        public string? ReservationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReservationId;
+
+        public string? ReservationId => _mReservationId.GetValue("reservationId");
 
         /// <summary>
         /// Time the reservation started.
         /// </summary>
         [Input("startTime")]
-        public string? StartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
+
+        public string? StartTime => _mStartTime.GetValue("startTime");
 
         /// <summary>
         /// State of the reserved DB instance.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Hourly price charged for this reserved DB instance.
         /// </summary>
         [Input("usagePrice")]
-        public double? UsagePrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mUsagePrice;
+
+        public double? UsagePrice => _mUsagePrice.GetValue("usagePrice");
+    }
+
+    [PolicyResourceType("aws:rds/reservedInstance:ReservedInstance")]
+    public sealed class ReservedInstanceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Number of instances to reserve. Default value is `1`.
+        /// </summary>
+        [Input("instanceCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
+
+        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+
+        /// <summary>
+        /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("offeringId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOfferingId;
+
+        public string? OfferingId => _mOfferingId.GetValue("offeringId");
+
+        /// <summary>
+        /// Customer-specified identifier to track this reservation.
+        /// </summary>
+        [Input("reservationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReservationId;
+
+        public string? ReservationId => _mReservationId.GetValue("reservationId");
+
+        /// <summary>
+        /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

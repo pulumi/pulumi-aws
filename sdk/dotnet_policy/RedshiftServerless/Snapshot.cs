@@ -11,66 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
 {
     [PolicyResourceType("aws:redshiftserverless/snapshot:Snapshot")]
-    public sealed class Snapshot : global::Pulumi.PolicyResource
+    public sealed class Snapshot : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
         /// </summary>
         [Input("accountsWithProvisionedRestoreAccesses")]
-        public List<string>? AccountsWithProvisionedRestoreAccesses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountsWithProvisionedRestoreAccesses;
+
+        public List<string>? AccountsWithProvisionedRestoreAccesses => _mAccountsWithProvisionedRestoreAccesses.GetValue("accountsWithProvisionedRestoreAccesses");
 
         /// <summary>
         /// All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
         /// </summary>
         [Input("accountsWithRestoreAccesses")]
-        public List<string>? AccountsWithRestoreAccesses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountsWithRestoreAccesses;
+
+        public List<string>? AccountsWithRestoreAccesses => _mAccountsWithRestoreAccesses.GetValue("accountsWithRestoreAccesses");
 
         /// <summary>
         /// The username of the database within a snapshot.
         /// </summary>
         [Input("adminUsername")]
-        public string? AdminUsername;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUsername;
+
+        public string? AdminUsername => _mAdminUsername.GetValue("adminUsername");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the snapshot.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The unique identifier of the KMS key used to encrypt the snapshot.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         /// </summary>
         [Input("namespaceArn")]
-        public string? NamespaceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceArn;
+
+        public string? NamespaceArn => _mNamespaceArn.GetValue("namespaceArn");
 
         /// <summary>
         /// The namespace to create a snapshot for.
         /// </summary>
         [Input("namespaceName")]
-        public string? NamespaceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
+
+        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
 
         /// <summary>
         /// The owner Amazon Web Services; account of the snapshot.
         /// </summary>
         [Input("ownerAccount")]
-        public string? OwnerAccount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccount;
+
+        public string? OwnerAccount => _mOwnerAccount.GetValue("ownerAccount");
 
         /// <summary>
         /// How long to retain the created snapshot. Default value is `-1`.
         /// </summary>
         [Input("retentionPeriod")]
-        public int? RetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
 
         /// <summary>
         /// The name of the snapshot.
         /// </summary>
         [Input("snapshotName")]
-        public string? SnapshotName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
+
+        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
+    }
+
+    [PolicyResourceType("aws:redshiftserverless/snapshot:Snapshot")]
+    public sealed class SnapshotArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The namespace to create a snapshot for.
+        /// </summary>
+        [Input("namespaceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
+
+        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
+
+        /// <summary>
+        /// How long to retain the created snapshot. Default value is `-1`.
+        /// </summary>
+        [Input("retentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
+
+        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+
+        /// <summary>
+        /// The name of the snapshot.
+        /// </summary>
+        [Input("snapshotName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
+
+        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
     }
 }

@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/graphQLApi:GraphQLApi")]
-    public sealed class GraphQLApi : global::Pulumi.PolicyResource
+    public sealed class GraphQLApi : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
         [Input("additionalAuthenticationProviders")]
-        public List<GraphQLApiAdditionalAuthenticationProvider>? AdditionalAuthenticationProviders;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GraphQLApiAdditionalAuthenticationProvider>> _mAdditionalAuthenticationProviders;
+
+        public List<Outputs.GraphQLApiAdditionalAuthenticationProvider>? AdditionalAuthenticationProviders => _mAdditionalAuthenticationProviders.GetValue("additionalAuthenticationProviders");
 
         /// <summary>
         /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
         /// </summary>
         [Input("apiType")]
-        public string? ApiType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiType;
+
+        public string? ApiType => _mApiType.GetValue("apiType");
 
         /// <summary>
         /// ARN
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         [Input("authenticationType")]
-        public string? AuthenticationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
+
+        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
 
         /// <summary>
         /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         /// </summary>
         [Input("enhancedMetricsConfig")]
-        public GraphQLApiEnhancedMetricsConfig? EnhancedMetricsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiEnhancedMetricsConfig> _mEnhancedMetricsConfig;
+
+        public Outputs.GraphQLApiEnhancedMetricsConfig? EnhancedMetricsConfig => _mEnhancedMetricsConfig.GetValue("enhancedMetricsConfig");
 
         /// <summary>
         /// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         /// </summary>
         [Input("introspectionConfig")]
-        public string? IntrospectionConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntrospectionConfig;
+
+        public string? IntrospectionConfig => _mIntrospectionConfig.GetValue("introspectionConfig");
 
         /// <summary>
         /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
         [Input("lambdaAuthorizerConfig")]
-        public GraphQLApiLambdaAuthorizerConfig? LambdaAuthorizerConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiLambdaAuthorizerConfig> _mLambdaAuthorizerConfig;
+
+        public Outputs.GraphQLApiLambdaAuthorizerConfig? LambdaAuthorizerConfig => _mLambdaAuthorizerConfig.GetValue("lambdaAuthorizerConfig");
 
         /// <summary>
         /// Nested argument containing logging configuration. See `log_config` Block for details.
         /// </summary>
         [Input("logConfig")]
-        public GraphQLApiLogConfig? LogConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiLogConfig> _mLogConfig;
+
+        public Outputs.GraphQLApiLogConfig? LogConfig => _mLogConfig.GetValue("logConfig");
 
         /// <summary>
         /// ARN of the execution role when `api_type` is set to `MERGED`.
         /// </summary>
         [Input("mergedApiExecutionRoleArn")]
-        public string? MergedApiExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiExecutionRoleArn;
+
+        public string? MergedApiExecutionRoleArn => _mMergedApiExecutionRoleArn.GetValue("mergedApiExecutionRoleArn");
 
         /// <summary>
         /// User-supplied name for the GraphQL API.
@@ -73,13 +100,19 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
         [Input("openidConnectConfig")]
-        public GraphQLApiOpenidConnectConfig? OpenidConnectConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiOpenidConnectConfig> _mOpenidConnectConfig;
+
+        public Outputs.GraphQLApiOpenidConnectConfig? OpenidConnectConfig => _mOpenidConnectConfig.GetValue("openidConnectConfig");
 
         /// <summary>
         /// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
@@ -87,54 +120,242 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
         /// </summary>
         [Input("queryDepthLimit")]
-        public int? QueryDepthLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mQueryDepthLimit;
+
+        public int? QueryDepthLimit => _mQueryDepthLimit.GetValue("queryDepthLimit");
 
         /// <summary>
         /// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         /// </summary>
         [Input("resolverCountLimit")]
-        public int? ResolverCountLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mResolverCountLimit;
+
+        public int? ResolverCountLimit => _mResolverCountLimit.GetValue("resolverCountLimit");
 
         /// <summary>
         /// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         /// </summary>
         [Input("schema")]
-        public string? Schema;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
+
+        public string? Schema => _mSchema.GetValue("schema");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         /// </summary>
         [Input("uris")]
-        public Dictionary<string, string>? Uris;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mUris;
+
+        public Dictionary<string, string>? Uris => _mUris.GetValue("uris");
 
         /// <summary>
         /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
         [Input("userPoolConfig")]
-        public GraphQLApiUserPoolConfig? UserPoolConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiUserPoolConfig> _mUserPoolConfig;
+
+        public Outputs.GraphQLApiUserPoolConfig? UserPoolConfig => _mUserPoolConfig.GetValue("userPoolConfig");
 
         /// <summary>
         /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         /// </summary>
         [Input("visibility")]
-        public string? Visibility;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVisibility;
+
+        public string? Visibility => _mVisibility.GetValue("visibility");
 
         /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.
         /// </summary>
         [Input("xrayEnabled")]
-        public bool? XrayEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mXrayEnabled;
+
+        public bool? XrayEnabled => _mXrayEnabled.GetValue("xrayEnabled");
+    }
+
+    [PolicyResourceType("aws:appsync/graphQLApi:GraphQLApi")]
+    public sealed class GraphQLApiArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+        /// </summary>
+        [Input("additionalAuthenticationProviders")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>> _mAdditionalAuthenticationProviders;
+
+        public List<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? AdditionalAuthenticationProviders => _mAdditionalAuthenticationProviders.GetValue("additionalAuthenticationProviders");
+
+        /// <summary>
+        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        /// </summary>
+        [Input("apiType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiType;
+
+        public string? ApiType => _mApiType.GetValue("apiType");
+
+        /// <summary>
+        /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        /// </summary>
+        [Input("authenticationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
+
+        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+
+        /// <summary>
+        /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        /// </summary>
+        [Input("enhancedMetricsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiEnhancedMetricsConfigArgs> _mEnhancedMetricsConfig;
+
+        public Inputs.GraphQLApiEnhancedMetricsConfigArgs? EnhancedMetricsConfig => _mEnhancedMetricsConfig.GetValue("enhancedMetricsConfig");
+
+        /// <summary>
+        /// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
+        /// </summary>
+        [Input("introspectionConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntrospectionConfig;
+
+        public string? IntrospectionConfig => _mIntrospectionConfig.GetValue("introspectionConfig");
+
+        /// <summary>
+        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+        /// </summary>
+        [Input("lambdaAuthorizerConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiLambdaAuthorizerConfigArgs> _mLambdaAuthorizerConfig;
+
+        public Inputs.GraphQLApiLambdaAuthorizerConfigArgs? LambdaAuthorizerConfig => _mLambdaAuthorizerConfig.GetValue("lambdaAuthorizerConfig");
+
+        /// <summary>
+        /// Nested argument containing logging configuration. See `log_config` Block for details.
+        /// </summary>
+        [Input("logConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiLogConfigArgs> _mLogConfig;
+
+        public Inputs.GraphQLApiLogConfigArgs? LogConfig => _mLogConfig.GetValue("logConfig");
+
+        /// <summary>
+        /// ARN of the execution role when `api_type` is set to `MERGED`.
+        /// </summary>
+        [Input("mergedApiExecutionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiExecutionRoleArn;
+
+        public string? MergedApiExecutionRoleArn => _mMergedApiExecutionRoleArn.GetValue("mergedApiExecutionRoleArn");
+
+        /// <summary>
+        /// User-supplied name for the GraphQL API.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+        /// </summary>
+        [Input("openidConnectConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiOpenidConnectConfigArgs> _mOpenidConnectConfig;
+
+        public Inputs.GraphQLApiOpenidConnectConfigArgs? OpenidConnectConfig => _mOpenidConnectConfig.GetValue("openidConnectConfig");
+
+        /// <summary>
+        /// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+        /// 
+        /// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        /// </summary>
+        [Input("queryDepthLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mQueryDepthLimit;
+
+        public int? QueryDepthLimit => _mQueryDepthLimit.GetValue("queryDepthLimit");
+
+        /// <summary>
+        /// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+        /// </summary>
+        [Input("resolverCountLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mResolverCountLimit;
+
+        public int? ResolverCountLimit => _mResolverCountLimit.GetValue("resolverCountLimit");
+
+        /// <summary>
+        /// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
+        /// </summary>
+        [Input("schema")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
+
+        public string? Schema => _mSchema.GetValue("schema");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+        /// </summary>
+        [Input("userPoolConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiUserPoolConfigArgs> _mUserPoolConfig;
+
+        public Inputs.GraphQLApiUserPoolConfigArgs? UserPoolConfig => _mUserPoolConfig.GetValue("userPoolConfig");
+
+        /// <summary>
+        /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        /// </summary>
+        [Input("visibility")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVisibility;
+
+        public string? Visibility => _mVisibility.GetValue("visibility");
+
+        /// <summary>
+        /// Whether tracing with X-ray is enabled. Defaults to false.
+        /// </summary>
+        [Input("xrayEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mXrayEnabled;
+
+        public bool? XrayEnabled => _mXrayEnabled.GetValue("xrayEnabled");
     }
 }

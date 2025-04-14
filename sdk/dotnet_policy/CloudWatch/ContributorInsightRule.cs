@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/contributorInsightRule:ContributorInsightRule")]
-    public sealed class ContributorInsightRule : global::Pulumi.PolicyResource
+    public sealed class ContributorInsightRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Contributor Insight Rule.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         /// </summary>
         [Input("ruleDefinition")]
-        public string? RuleDefinition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleDefinition;
+
+        public string? RuleDefinition => _mRuleDefinition.GetValue("ruleDefinition");
 
         /// <summary>
         /// Unique name of the rule.
@@ -31,18 +37,69 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// The following arguments are optional:
         /// </summary>
         [Input("ruleName")]
-        public string? RuleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
 
         /// <summary>
         /// State of the rule. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("ruleState")]
-        public string? RuleState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleState;
+
+        public string? RuleState => _mRuleState.GetValue("ruleState");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/contributorInsightRule:ContributorInsightRule")]
+    public sealed class ContributorInsightRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
+        /// </summary>
+        [Input("ruleDefinition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleDefinition;
+
+        public string? RuleDefinition => _mRuleDefinition.GetValue("ruleDefinition");
+
+        /// <summary>
+        /// Unique name of the rule.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("ruleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
+
+        /// <summary>
+        /// State of the rule. Valid values are `ENABLED` and `DISABLED`.
+        /// </summary>
+        [Input("ruleState")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleState;
+
+        public string? RuleState => _mRuleState.GetValue("ruleState");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

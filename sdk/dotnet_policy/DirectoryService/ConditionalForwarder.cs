@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectoryService
 {
     [PolicyResourceType("aws:directoryservice/conditionalForwarder:ConditionalForwarder")]
-    public sealed class ConditionalForwarder : global::Pulumi.PolicyResource
+    public sealed class ConditionalForwarder : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of directory.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// A list of forwarder IP addresses.
         /// </summary>
         [Input("dnsIps")]
-        public List<string>? DnsIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIps;
+
+        public List<string>? DnsIps => _mDnsIps.GetValue("dnsIps");
 
         /// <summary>
         /// The fully qualified domain name of the remote domain for which forwarders will be used.
         /// </summary>
         [Input("remoteDomainName")]
-        public string? RemoteDomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteDomainName;
+
+        public string? RemoteDomainName => _mRemoteDomainName.GetValue("remoteDomainName");
+    }
+
+    [PolicyResourceType("aws:directoryservice/conditionalForwarder:ConditionalForwarder")]
+    public sealed class ConditionalForwarderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of directory.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// A list of forwarder IP addresses.
+        /// </summary>
+        [Input("dnsIps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIps;
+
+        public List<string>? DnsIps => _mDnsIps.GetValue("dnsIps");
+
+        /// <summary>
+        /// The fully qualified domain name of the remote domain for which forwarders will be used.
+        /// </summary>
+        [Input("remoteDomainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteDomainName;
+
+        public string? RemoteDomainName => _mRemoteDomainName.GetValue("remoteDomainName");
     }
 }

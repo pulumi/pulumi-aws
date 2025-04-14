@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/monitoringSubscription:MonitoringSubscription")]
-    public sealed class MonitoringSubscription : global::Pulumi.PolicyResource
+    public sealed class MonitoringSubscription : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the distribution that you are enabling metrics for.
         /// </summary>
         [Input("distributionId")]
-        public string? DistributionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistributionId;
+
+        public string? DistributionId => _mDistributionId.GetValue("distributionId");
 
         /// <summary>
         /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         /// </summary>
         [Input("monitoringSubscription")]
-        public MonitoringSubscriptionMonitoringSubscription? MonitoringSubscriptionDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MonitoringSubscriptionMonitoringSubscription> _mMonitoringSubscriptionDetails;
+
+        public Outputs.MonitoringSubscriptionMonitoringSubscription? MonitoringSubscriptionDetails => _mMonitoringSubscriptionDetails.GetValue("monitoringSubscription");
+    }
+
+    [PolicyResourceType("aws:cloudfront/monitoringSubscription:MonitoringSubscription")]
+    public sealed class MonitoringSubscriptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the distribution that you are enabling metrics for.
+        /// </summary>
+        [Input("distributionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistributionId;
+
+        public string? DistributionId => _mDistributionId.GetValue("distributionId");
+
+        /// <summary>
+        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// </summary>
+        [Input("monitoringSubscription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs> _mMonitoringSubscriptionDetails;
+
+        public Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs? MonitoringSubscriptionDetails => _mMonitoringSubscriptionDetails.GetValue("monitoringSubscription");
     }
 }

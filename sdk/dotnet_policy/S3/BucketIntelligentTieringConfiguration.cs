@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")]
-    public sealed class BucketIntelligentTieringConfiguration : global::Pulumi.PolicyResource
+    public sealed class BucketIntelligentTieringConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the bucket this intelligent tiering configuration is associated with.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
         /// </summary>
         [Input("filter")]
-        public BucketIntelligentTieringConfigurationFilter? Filter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketIntelligentTieringConfigurationFilter> _mFilter;
+
+        public Outputs.BucketIntelligentTieringConfigurationFilter? Filter => _mFilter.GetValue("filter");
 
         /// <summary>
         /// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         /// </summary>
         [Input("tierings")]
-        public List<BucketIntelligentTieringConfigurationTiering>? Tierings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketIntelligentTieringConfigurationTiering>> _mTierings;
+
+        public List<Outputs.BucketIntelligentTieringConfigurationTiering>? Tierings => _mTierings.GetValue("tierings");
+    }
+
+    [PolicyResourceType("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")]
+    public sealed class BucketIntelligentTieringConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket this intelligent tiering configuration is associated with.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        /// </summary>
+        [Input("filter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketIntelligentTieringConfigurationFilterArgs> _mFilter;
+
+        public Inputs.BucketIntelligentTieringConfigurationFilterArgs? Filter => _mFilter.GetValue("filter");
+
+        /// <summary>
+        /// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        /// </summary>
+        [Input("status")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+
+        /// <summary>
+        /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        /// </summary>
+        [Input("tierings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketIntelligentTieringConfigurationTieringArgs>> _mTierings;
+
+        public List<Inputs.BucketIntelligentTieringConfigurationTieringArgs>? Tierings => _mTierings.GetValue("tierings");
     }
 }

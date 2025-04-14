@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Amplify
 {
     [PolicyResourceType("aws:amplify/backendEnvironment:BackendEnvironment")]
-    public sealed class BackendEnvironment : global::Pulumi.PolicyResource
+    public sealed class BackendEnvironment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId")]
-        public string? AppId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
+
+        public string? AppId => _mAppId.GetValue("appId");
 
         /// <summary>
         /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of deployment artifacts.
         /// </summary>
         [Input("deploymentArtifacts")]
-        public string? DeploymentArtifacts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentArtifacts;
+
+        public string? DeploymentArtifacts => _mDeploymentArtifacts.GetValue("deploymentArtifacts");
 
         /// <summary>
         /// Name for the backend environment.
         /// </summary>
         [Input("environmentName")]
-        public string? EnvironmentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentName;
+
+        public string? EnvironmentName => _mEnvironmentName.GetValue("environmentName");
 
         /// <summary>
         /// AWS CloudFormation stack name of a backend environment.
         /// </summary>
         [Input("stackName")]
-        public string? StackName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
+
+        public string? StackName => _mStackName.GetValue("stackName");
+    }
+
+    [PolicyResourceType("aws:amplify/backendEnvironment:BackendEnvironment")]
+    public sealed class BackendEnvironmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
+        [Input("appId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
+
+        public string? AppId => _mAppId.GetValue("appId");
+
+        /// <summary>
+        /// Name of deployment artifacts.
+        /// </summary>
+        [Input("deploymentArtifacts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentArtifacts;
+
+        public string? DeploymentArtifacts => _mDeploymentArtifacts.GetValue("deploymentArtifacts");
+
+        /// <summary>
+        /// Name for the backend environment.
+        /// </summary>
+        [Input("environmentName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentName;
+
+        public string? EnvironmentName => _mEnvironmentName.GetValue("environmentName");
+
+        /// <summary>
+        /// AWS CloudFormation stack name of a backend environment.
+        /// </summary>
+        [Input("stackName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
+
+        public string? StackName => _mStackName.GetValue("stackName");
     }
 }

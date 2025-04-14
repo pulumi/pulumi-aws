@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Waf
 {
     [PolicyResourceType("aws:waf/ipSet:IpSet")]
-    public sealed class IpSet : global::Pulumi.PolicyResource
+    public sealed class IpSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the WAF IPSet.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         /// </summary>
         [Input("ipSetDescriptors")]
-        public List<IpSetIpSetDescriptor>? IpSetDescriptors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IpSetIpSetDescriptor>> _mIpSetDescriptors;
+
+        public List<Outputs.IpSetIpSetDescriptor>? IpSetDescriptors => _mIpSetDescriptors.GetValue("ipSetDescriptors");
 
         /// <summary>
         /// The name or description of the IPSet.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:waf/ipSet:IpSet")]
+    public sealed class IpSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
+        /// </summary>
+        [Input("ipSetDescriptors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IpSetIpSetDescriptorArgs>> _mIpSetDescriptors;
+
+        public List<Inputs.IpSetIpSetDescriptorArgs>? IpSetDescriptors => _mIpSetDescriptors.GetValue("ipSetDescriptors");
+
+        /// <summary>
+        /// The name or description of the IPSet.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

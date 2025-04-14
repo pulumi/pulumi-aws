@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Xray
 {
     [PolicyResourceType("aws:xray/resourcePolicy:ResourcePolicy")]
-    public sealed class ResourcePolicy : global::Pulumi.PolicyResource
+    public sealed class ResourcePolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
         /// </summary>
         [Input("bypassPolicyLockoutCheck")]
-        public bool? BypassPolicyLockoutCheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutCheck;
+
+        public bool? BypassPolicyLockoutCheck => _mBypassPolicyLockoutCheck.GetValue("bypassPolicyLockoutCheck");
 
         /// <summary>
         /// When the policy was last updated, in Unix time seconds.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         /// <summary>
         /// JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
@@ -31,18 +37,69 @@ namespace Pulumi.PolicyPacks.Aws.Xray
         /// The following arguments are optional:
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
 
         /// <summary>
         /// name of the resource policy. Must be unique within a specific Amazon Web Services account.
         /// </summary>
         [Input("policyName")]
-        public string? PolicyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
+
+        public string? PolicyName => _mPolicyName.GetValue("policyName");
 
         /// <summary>
         /// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
         /// </summary>
         [Input("policyRevisionId")]
-        public string? PolicyRevisionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRevisionId;
+
+        public string? PolicyRevisionId => _mPolicyRevisionId.GetValue("policyRevisionId");
+    }
+
+    [PolicyResourceType("aws:xray/resourcePolicy:ResourcePolicy")]
+    public sealed class ResourcePolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+        /// </summary>
+        [Input("bypassPolicyLockoutCheck")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutCheck;
+
+        public bool? BypassPolicyLockoutCheck => _mBypassPolicyLockoutCheck.GetValue("bypassPolicyLockoutCheck");
+
+        /// <summary>
+        /// JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+
+        /// <summary>
+        /// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+        /// </summary>
+        [Input("policyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
+
+        public string? PolicyName => _mPolicyName.GetValue("policyName");
+
+        /// <summary>
+        /// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+        /// </summary>
+        [Input("policyRevisionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRevisionId;
+
+        public string? PolicyRevisionId => _mPolicyRevisionId.GetValue("policyRevisionId");
     }
 }

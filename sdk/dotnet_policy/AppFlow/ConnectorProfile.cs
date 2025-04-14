@@ -11,51 +11,130 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppFlow
 {
     [PolicyResourceType("aws:appflow/connectorProfile:ConnectorProfile")]
-    public sealed class ConnectorProfile : global::Pulumi.PolicyResource
+    public sealed class ConnectorProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the connector profile.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         /// </summary>
         [Input("connectionMode")]
-        public string? ConnectionMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionMode;
+
+        public string? ConnectionMode => _mConnectionMode.GetValue("connectionMode");
 
         /// <summary>
         /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         /// </summary>
         [Input("connectorLabel")]
-        public string? ConnectorLabel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorLabel;
+
+        public string? ConnectorLabel => _mConnectorLabel.GetValue("connectorLabel");
 
         /// <summary>
         /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         /// </summary>
         [Input("connectorProfileConfig")]
-        public ConnectorProfileConnectorProfileConfig? ConnectorProfileConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfig> _mConnectorProfileConfig;
+
+        public Outputs.ConnectorProfileConnectorProfileConfig? ConnectorProfileConfig => _mConnectorProfileConfig.GetValue("connectorProfileConfig");
 
         /// <summary>
         /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         /// </summary>
         [Input("connectorType")]
-        public string? ConnectorType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorType;
+
+        public string? ConnectorType => _mConnectorType.GetValue("connectorType");
 
         /// <summary>
         /// ARN of the connector profile credentials.
         /// </summary>
         [Input("credentialsArn")]
-        public string? CredentialsArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsArn;
+
+        public string? CredentialsArn => _mCredentialsArn.GetValue("credentialsArn");
 
         /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
-        public string? KmsArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsArn;
+
+        public string? KmsArn => _mKmsArn.GetValue("kmsArn");
 
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:appflow/connectorProfile:ConnectorProfile")]
+    public sealed class ConnectorProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        /// </summary>
+        [Input("connectionMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionMode;
+
+        public string? ConnectionMode => _mConnectionMode.GetValue("connectionMode");
+
+        /// <summary>
+        /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        /// </summary>
+        [Input("connectorLabel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorLabel;
+
+        public string? ConnectorLabel => _mConnectorLabel.GetValue("connectorLabel");
+
+        /// <summary>
+        /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        /// </summary>
+        [Input("connectorProfileConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigArgs> _mConnectorProfileConfig;
+
+        public Inputs.ConnectorProfileConnectorProfileConfigArgs? ConnectorProfileConfig => _mConnectorProfileConfig.GetValue("connectorProfileConfig");
+
+        /// <summary>
+        /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        /// </summary>
+        [Input("connectorType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorType;
+
+        public string? ConnectorType => _mConnectorType.GetValue("connectorType");
+
+        /// <summary>
+        /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// </summary>
+        [Input("kmsArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsArn;
+
+        public string? KmsArn => _mKmsArn.GetValue("kmsArn");
+
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

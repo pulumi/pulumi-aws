@@ -11,66 +11,172 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/endpointConfiguration:EndpointConfiguration")]
-    public sealed class EndpointConfiguration : global::Pulumi.PolicyResource
+    public sealed class EndpointConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies configuration for how an endpoint performs asynchronous inference.
         /// </summary>
         [Input("asyncInferenceConfig")]
-        public EndpointConfigurationAsyncInferenceConfig? AsyncInferenceConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConfigurationAsyncInferenceConfig> _mAsyncInferenceConfig;
+
+        public Outputs.EndpointConfigurationAsyncInferenceConfig? AsyncInferenceConfig => _mAsyncInferenceConfig.GetValue("asyncInferenceConfig");
 
         /// <summary>
         /// Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         /// </summary>
         [Input("dataCaptureConfig")]
-        public EndpointConfigurationDataCaptureConfig? DataCaptureConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConfigurationDataCaptureConfig> _mDataCaptureConfig;
+
+        public Outputs.EndpointConfigurationDataCaptureConfig? DataCaptureConfig => _mDataCaptureConfig.GetValue("dataCaptureConfig");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
         /// </summary>
         [Input("productionVariants")]
-        public List<EndpointConfigurationProductionVariant>? ProductionVariants;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointConfigurationProductionVariant>> _mProductionVariants;
+
+        public List<Outputs.EndpointConfigurationProductionVariant>? ProductionVariants => _mProductionVariants.GetValue("productionVariants");
 
         /// <summary>
         /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         /// </summary>
         [Input("shadowProductionVariants")]
-        public List<EndpointConfigurationShadowProductionVariant>? ShadowProductionVariants;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointConfigurationShadowProductionVariant>> _mShadowProductionVariants;
+
+        public List<Outputs.EndpointConfigurationShadowProductionVariant>? ShadowProductionVariants => _mShadowProductionVariants.GetValue("shadowProductionVariants");
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:sagemaker/endpointConfiguration:EndpointConfiguration")]
+    public sealed class EndpointConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies configuration for how an endpoint performs asynchronous inference.
+        /// </summary>
+        [Input("asyncInferenceConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointConfigurationAsyncInferenceConfigArgs> _mAsyncInferenceConfig;
+
+        public Inputs.EndpointConfigurationAsyncInferenceConfigArgs? AsyncInferenceConfig => _mAsyncInferenceConfig.GetValue("asyncInferenceConfig");
+
+        /// <summary>
+        /// Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        /// </summary>
+        [Input("dataCaptureConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointConfigurationDataCaptureConfigArgs> _mDataCaptureConfig;
+
+        public Inputs.EndpointConfigurationDataCaptureConfigArgs? DataCaptureConfig => _mDataCaptureConfig.GetValue("dataCaptureConfig");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+
+        /// <summary>
+        /// The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
+        /// </summary>
+        [Input("productionVariants")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointConfigurationProductionVariantArgs>> _mProductionVariants;
+
+        public List<Inputs.EndpointConfigurationProductionVariantArgs>? ProductionVariants => _mProductionVariants.GetValue("productionVariants");
+
+        /// <summary>
+        /// Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
+        /// </summary>
+        [Input("shadowProductionVariants")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointConfigurationShadowProductionVariantArgs>> _mShadowProductionVariants;
+
+        public List<Inputs.EndpointConfigurationShadowProductionVariantArgs>? ShadowProductionVariants => _mShadowProductionVariants.GetValue("shadowProductionVariants");
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

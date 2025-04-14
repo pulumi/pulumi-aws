@@ -11,63 +11,160 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataSync
 {
     [PolicyResourceType("aws:datasync/efsLocation:EfsLocation")]
-    public sealed class EfsLocation : global::Pulumi.PolicyResource
+    public sealed class EfsLocation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
         /// </summary>
         [Input("accessPointArn")]
-        public string? AccessPointArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointArn;
+
+        public string? AccessPointArn => _mAccessPointArn.GetValue("accessPointArn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Configuration block containing EC2 configurations for connecting to the EFS File System.
         /// </summary>
         [Input("ec2Config")]
-        public EfsLocationEc2Config? Ec2Config;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EfsLocationEc2Config> _mEc2Config;
+
+        public Outputs.EfsLocationEc2Config? Ec2Config => _mEc2Config.GetValue("ec2Config");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of EFS File System.
         /// </summary>
         [Input("efsFileSystemArn")]
-        public string? EfsFileSystemArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEfsFileSystemArn;
+
+        public string? EfsFileSystemArn => _mEfsFileSystemArn.GetValue("efsFileSystemArn");
 
         /// <summary>
         /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         /// </summary>
         [Input("fileSystemAccessRoleArn")]
-        public string? FileSystemAccessRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemAccessRoleArn;
+
+        public string? FileSystemAccessRoleArn => _mFileSystemAccessRoleArn.GetValue("fileSystemAccessRoleArn");
 
         /// <summary>
         /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
         /// </summary>
         [Input("inTransitEncryption")]
-        public string? InTransitEncryption;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInTransitEncryption;
+
+        public string? InTransitEncryption => _mInTransitEncryption.GetValue("inTransitEncryption");
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.
         /// </summary>
         [Input("subdirectory")]
-        public string? Subdirectory;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("uri")]
-        public string? Uri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
+
+        public string? Uri => _mUri.GetValue("uri");
+    }
+
+    [PolicyResourceType("aws:datasync/efsLocation:EfsLocation")]
+    public sealed class EfsLocationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+        /// </summary>
+        [Input("accessPointArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPointArn;
+
+        public string? AccessPointArn => _mAccessPointArn.GetValue("accessPointArn");
+
+        /// <summary>
+        /// Configuration block containing EC2 configurations for connecting to the EFS File System.
+        /// </summary>
+        [Input("ec2Config")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EfsLocationEc2ConfigArgs> _mEc2Config;
+
+        public Inputs.EfsLocationEc2ConfigArgs? Ec2Config => _mEc2Config.GetValue("ec2Config");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of EFS File System.
+        /// </summary>
+        [Input("efsFileSystemArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEfsFileSystemArn;
+
+        public string? EfsFileSystemArn => _mEfsFileSystemArn.GetValue("efsFileSystemArn");
+
+        /// <summary>
+        /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+        /// </summary>
+        [Input("fileSystemAccessRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemAccessRoleArn;
+
+        public string? FileSystemAccessRoleArn => _mFileSystemAccessRoleArn.GetValue("fileSystemAccessRoleArn");
+
+        /// <summary>
+        /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+        /// </summary>
+        [Input("inTransitEncryption")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInTransitEncryption;
+
+        public string? InTransitEncryption => _mInTransitEncryption.GetValue("inTransitEncryption");
+
+        /// <summary>
+        /// Subdirectory to perform actions as source or destination. Default `/`.
+        /// </summary>
+        [Input("subdirectory")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
+
+        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

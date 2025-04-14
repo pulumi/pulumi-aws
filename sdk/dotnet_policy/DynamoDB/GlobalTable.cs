@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DynamoDB
 {
     [PolicyResourceType("aws:dynamodb/globalTable:GlobalTable")]
-    public sealed class GlobalTable : global::Pulumi.PolicyResource
+    public sealed class GlobalTable : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the DynamoDB Global Table
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         /// </summary>
         [Input("replicas")]
-        public List<GlobalTableReplica>? Replicas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GlobalTableReplica>> _mReplicas;
+
+        public List<Outputs.GlobalTableReplica>? Replicas => _mReplicas.GetValue("replicas");
+    }
+
+    [PolicyResourceType("aws:dynamodb/globalTable:GlobalTable")]
+    public sealed class GlobalTableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        /// </summary>
+        [Input("replicas")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GlobalTableReplicaArgs>> _mReplicas;
+
+        public List<Inputs.GlobalTableReplicaArgs>? Replicas => _mReplicas.GetValue("replicas");
     }
 }

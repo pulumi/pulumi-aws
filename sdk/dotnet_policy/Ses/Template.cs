@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/template:Template")]
-    public sealed class Template : global::Pulumi.PolicyResource
+    public sealed class Template : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the SES template
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Input("html")]
-        public string? Html;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHtml;
+
+        public string? Html => _mHtml.GetValue("html");
 
         /// <summary>
         /// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The subject line of the email.
         /// </summary>
         [Input("subject")]
-        public string? Subject;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubject;
+
+        public string? Subject => _mSubject.GetValue("subject");
 
         /// <summary>
         /// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Input("text")]
-        public string? Text;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mText;
+
+        public string? Text => _mText.GetValue("text");
+    }
+
+    [PolicyResourceType("aws:ses/template:Template")]
+    public sealed class TemplateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        /// </summary>
+        [Input("html")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHtml;
+
+        public string? Html => _mHtml.GetValue("html");
+
+        /// <summary>
+        /// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The subject line of the email.
+        /// </summary>
+        [Input("subject")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubject;
+
+        public string? Subject => _mSubject.GetValue("subject");
+
+        /// <summary>
+        /// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        /// </summary>
+        [Input("text")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mText;
+
+        public string? Text => _mText.GetValue("text");
     }
 }

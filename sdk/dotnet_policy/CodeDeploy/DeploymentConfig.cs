@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeDeploy
 {
     [PolicyResourceType("aws:codedeploy/deploymentConfig:DeploymentConfig")]
-    public sealed class DeploymentConfig : global::Pulumi.PolicyResource
+    public sealed class DeploymentConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the deployment config.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         /// </summary>
         [Input("computePlatform")]
-        public string? ComputePlatform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
+
+        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
 
         /// <summary>
         /// The AWS Assigned deployment config id
         /// </summary>
         [Input("deploymentConfigId")]
-        public string? DeploymentConfigId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigId;
+
+        public string? DeploymentConfigId => _mDeploymentConfigId.GetValue("deploymentConfigId");
 
         /// <summary>
         /// The name of the deployment config.
         /// </summary>
         [Input("deploymentConfigName")]
-        public string? DeploymentConfigName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigName;
+
+        public string? DeploymentConfigName => _mDeploymentConfigName.GetValue("deploymentConfigName");
 
         /// <summary>
         /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         /// </summary>
         [Input("minimumHealthyHosts")]
-        public DeploymentConfigMinimumHealthyHosts? MinimumHealthyHosts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentConfigMinimumHealthyHosts> _mMinimumHealthyHosts;
+
+        public Outputs.DeploymentConfigMinimumHealthyHosts? MinimumHealthyHosts => _mMinimumHealthyHosts.GetValue("minimumHealthyHosts");
 
         /// <summary>
         /// A traffic_routing_config block. Traffic Routing Config is documented below.
         /// </summary>
         [Input("trafficRoutingConfig")]
-        public DeploymentConfigTrafficRoutingConfig? TrafficRoutingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentConfigTrafficRoutingConfig> _mTrafficRoutingConfig;
+
+        public Outputs.DeploymentConfigTrafficRoutingConfig? TrafficRoutingConfig => _mTrafficRoutingConfig.GetValue("trafficRoutingConfig");
 
         /// <summary>
         /// A zonal_config block. Zonal Config is documented below.
         /// </summary>
         [Input("zonalConfig")]
-        public DeploymentConfigZonalConfig? ZonalConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentConfigZonalConfig> _mZonalConfig;
+
+        public Outputs.DeploymentConfigZonalConfig? ZonalConfig => _mZonalConfig.GetValue("zonalConfig");
+    }
+
+    [PolicyResourceType("aws:codedeploy/deploymentConfig:DeploymentConfig")]
+    public sealed class DeploymentConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
+        /// </summary>
+        [Input("computePlatform")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
+
+        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
+
+        /// <summary>
+        /// The name of the deployment config.
+        /// </summary>
+        [Input("deploymentConfigName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigName;
+
+        public string? DeploymentConfigName => _mDeploymentConfigName.GetValue("deploymentConfigName");
+
+        /// <summary>
+        /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        /// </summary>
+        [Input("minimumHealthyHosts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentConfigMinimumHealthyHostsArgs> _mMinimumHealthyHosts;
+
+        public Inputs.DeploymentConfigMinimumHealthyHostsArgs? MinimumHealthyHosts => _mMinimumHealthyHosts.GetValue("minimumHealthyHosts");
+
+        /// <summary>
+        /// A traffic_routing_config block. Traffic Routing Config is documented below.
+        /// </summary>
+        [Input("trafficRoutingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentConfigTrafficRoutingConfigArgs> _mTrafficRoutingConfig;
+
+        public Inputs.DeploymentConfigTrafficRoutingConfigArgs? TrafficRoutingConfig => _mTrafficRoutingConfig.GetValue("trafficRoutingConfig");
+
+        /// <summary>
+        /// A zonal_config block. Zonal Config is documented below.
+        /// </summary>
+        [Input("zonalConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentConfigZonalConfigArgs> _mZonalConfig;
+
+        public Inputs.DeploymentConfigZonalConfigArgs? ZonalConfig => _mZonalConfig.GetValue("zonalConfig");
     }
 }

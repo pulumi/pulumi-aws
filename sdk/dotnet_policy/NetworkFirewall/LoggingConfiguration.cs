@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkFirewall
 {
     [PolicyResourceType("aws:networkfirewall/loggingConfiguration:LoggingConfiguration")]
-    public sealed class LoggingConfiguration : global::Pulumi.PolicyResource
+    public sealed class LoggingConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
         /// </summary>
         [Input("firewallArn")]
-        public string? FirewallArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallArn;
+
+        public string? FirewallArn => _mFirewallArn.GetValue("firewallArn");
 
         /// <summary>
         /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
         /// </summary>
         [Input("loggingConfiguration")]
-        public LoggingConfigurationLoggingConfiguration? LoggingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LoggingConfigurationLoggingConfiguration> _mLoggingConfig;
+
+        public Outputs.LoggingConfigurationLoggingConfiguration? LoggingConfig => _mLoggingConfig.GetValue("loggingConfiguration");
+    }
+
+    [PolicyResourceType("aws:networkfirewall/loggingConfiguration:LoggingConfiguration")]
+    public sealed class LoggingConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        /// </summary>
+        [Input("firewallArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallArn;
+
+        public string? FirewallArn => _mFirewallArn.GetValue("firewallArn");
+
+        /// <summary>
+        /// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+        /// </summary>
+        [Input("loggingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LoggingConfigurationLoggingConfigurationArgs> _mLoggingConfig;
+
+        public Inputs.LoggingConfigurationLoggingConfigurationArgs? LoggingConfig => _mLoggingConfig.GetValue("loggingConfiguration");
     }
 }

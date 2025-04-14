@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsmContacts
 {
     [PolicyResourceType("aws:ssmcontacts/plan:Plan")]
-    public sealed class Plan : global::Pulumi.PolicyResource
+    public sealed class Plan : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact or escalation plan.
         /// </summary>
         [Input("contactId")]
-        public string? ContactId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
+
+        public string? ContactId => _mContactId.GetValue("contactId");
 
         /// <summary>
         /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         /// </summary>
         [Input("stages")]
-        public List<PlanStage>? Stages;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PlanStage>> _mStages;
+
+        public List<Outputs.PlanStage>? Stages => _mStages.GetValue("stages");
+    }
+
+    [PolicyResourceType("aws:ssmcontacts/plan:Plan")]
+    public sealed class PlanArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// </summary>
+        [Input("contactId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
+
+        public string? ContactId => _mContactId.GetValue("contactId");
+
+        /// <summary>
+        /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
+        /// </summary>
+        [Input("stages")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PlanStageArgs>> _mStages;
+
+        public List<Inputs.PlanStageArgs>? Stages => _mStages.GetValue("stages");
     }
 }

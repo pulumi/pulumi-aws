@@ -11,42 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
 {
     [PolicyResourceType("aws:ec2clientvpn/route:Route")]
-    public sealed class Route : global::Pulumi.PolicyResource
+    public sealed class Route : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the Client VPN endpoint.
         /// </summary>
         [Input("clientVpnEndpointId")]
-        public string? ClientVpnEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
+
+        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
 
         /// <summary>
         /// A brief description of the route.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The IPv4 address range, in CIDR notation, of the route destination.
         /// </summary>
         [Input("destinationCidrBlock")]
-        public string? DestinationCidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
 
         /// <summary>
         /// Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
         /// </summary>
         [Input("origin")]
-        public string? Origin;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrigin;
+
+        public string? Origin => _mOrigin.GetValue("origin");
 
         /// <summary>
         /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         /// </summary>
         [Input("targetVpcSubnetId")]
-        public string? TargetVpcSubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVpcSubnetId;
+
+        public string? TargetVpcSubnetId => _mTargetVpcSubnetId.GetValue("targetVpcSubnetId");
 
         /// <summary>
         /// The type of the route.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:ec2clientvpn/route:Route")]
+    public sealed class RouteArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Client VPN endpoint.
+        /// </summary>
+        [Input("clientVpnEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
+
+        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
+
+        /// <summary>
+        /// A brief description of the route.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The IPv4 address range, in CIDR notation, of the route destination.
+        /// </summary>
+        [Input("destinationCidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+
+        /// <summary>
+        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+        /// </summary>
+        [Input("targetVpcSubnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetVpcSubnetId;
+
+        public string? TargetVpcSubnetId => _mTargetVpcSubnetId.GetValue("targetVpcSubnetId");
     }
 }

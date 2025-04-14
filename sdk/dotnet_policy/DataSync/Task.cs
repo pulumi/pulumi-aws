@@ -11,73 +11,106 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataSync
 {
     [PolicyResourceType("aws:datasync/task:Task")]
-    public sealed class Task : global::Pulumi.PolicyResource
+    public sealed class Task : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Task.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
-        public string? CloudwatchLogGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
+
+        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         /// </summary>
         [Input("destinationLocationArn")]
-        public string? DestinationLocationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationLocationArn;
+
+        public string? DestinationLocationArn => _mDestinationLocationArn.GetValue("destinationLocationArn");
 
         /// <summary>
         /// Filter rules that determines which files to exclude from a task.
         /// </summary>
         [Input("excludes")]
-        public TaskExcludes? Excludes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskExcludes> _mExcludes;
+
+        public Outputs.TaskExcludes? Excludes => _mExcludes.GetValue("excludes");
 
         /// <summary>
         /// Filter rules that determines which files to include in a task.
         /// </summary>
         [Input("includes")]
-        public TaskIncludes? Includes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskIncludes> _mIncludes;
+
+        public Outputs.TaskIncludes? Includes => _mIncludes.GetValue("includes");
 
         /// <summary>
         /// Name of the DataSync Task.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         /// </summary>
         [Input("options")]
-        public TaskOptions? Options;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskOptions> _mOptions;
+
+        public Outputs.TaskOptions? Options => _mOptions.GetValue("options");
 
         /// <summary>
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.
         /// </summary>
         [Input("schedule")]
-        public TaskSchedule? Schedule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskSchedule> _mSchedule;
+
+        public Outputs.TaskSchedule? Schedule => _mSchedule.GetValue("schedule");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of source DataSync Location.
         /// </summary>
         [Input("sourceLocationArn")]
-        public string? SourceLocationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceLocationArn;
+
+        public string? SourceLocationArn => _mSourceLocationArn.GetValue("sourceLocationArn");
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// One of the following task modes for your data transfer:
@@ -85,12 +118,123 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
         /// </summary>
         [Input("taskMode")]
-        public string? TaskMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskMode;
+
+        public string? TaskMode => _mTaskMode.GetValue("taskMode");
 
         /// <summary>
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         /// </summary>
         [Input("taskReportConfig")]
-        public TaskTaskReportConfig? TaskReportConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskTaskReportConfig> _mTaskReportConfig;
+
+        public Outputs.TaskTaskReportConfig? TaskReportConfig => _mTaskReportConfig.GetValue("taskReportConfig");
+    }
+
+    [PolicyResourceType("aws:datasync/task:Task")]
+    public sealed class TaskArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+        /// </summary>
+        [Input("cloudwatchLogGroupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
+
+        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of destination DataSync Location.
+        /// </summary>
+        [Input("destinationLocationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationLocationArn;
+
+        public string? DestinationLocationArn => _mDestinationLocationArn.GetValue("destinationLocationArn");
+
+        /// <summary>
+        /// Filter rules that determines which files to exclude from a task.
+        /// </summary>
+        [Input("excludes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskExcludesArgs> _mExcludes;
+
+        public Inputs.TaskExcludesArgs? Excludes => _mExcludes.GetValue("excludes");
+
+        /// <summary>
+        /// Filter rules that determines which files to include in a task.
+        /// </summary>
+        [Input("includes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskIncludesArgs> _mIncludes;
+
+        public Inputs.TaskIncludesArgs? Includes => _mIncludes.GetValue("includes");
+
+        /// <summary>
+        /// Name of the DataSync Task.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
+        /// </summary>
+        [Input("options")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskOptionsArgs> _mOptions;
+
+        public Inputs.TaskOptionsArgs? Options => _mOptions.GetValue("options");
+
+        /// <summary>
+        /// Specifies a schedule used to periodically transfer files from a source to a destination location.
+        /// </summary>
+        [Input("schedule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskScheduleArgs> _mSchedule;
+
+        public Inputs.TaskScheduleArgs? Schedule => _mSchedule.GetValue("schedule");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of source DataSync Location.
+        /// </summary>
+        [Input("sourceLocationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceLocationArn;
+
+        public string? SourceLocationArn => _mSourceLocationArn.GetValue("sourceLocationArn");
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// One of the following task modes for your data transfer:
+        /// * `BASIC` (default) - Transfer files or objects between Amazon Web Services storage and on-premises, edge, or other cloud storage.
+        /// * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
+        /// </summary>
+        [Input("taskMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskMode;
+
+        public string? TaskMode => _mTaskMode.GetValue("taskMode");
+
+        /// <summary>
+        /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        /// </summary>
+        [Input("taskReportConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TaskTaskReportConfigArgs> _mTaskReportConfig;
+
+        public Inputs.TaskTaskReportConfigArgs? TaskReportConfig => _mTaskReportConfig.GetValue("taskReportConfig");
     }
 }

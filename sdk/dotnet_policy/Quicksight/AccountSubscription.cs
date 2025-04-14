@@ -11,91 +11,133 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/accountSubscription:AccountSubscription")]
-    public sealed class AccountSubscription : global::Pulumi.PolicyResource
+    public sealed class AccountSubscription : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
         /// </summary>
         [Input("accountName")]
-        public string? AccountName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountName;
+
+        public string? AccountName => _mAccountName.GetValue("accountName");
 
         /// <summary>
         /// Status of the Amazon QuickSight account's subscription.
         /// </summary>
         [Input("accountSubscriptionStatus")]
-        public string? AccountSubscriptionStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountSubscriptionStatus;
+
+        public string? AccountSubscriptionStatus => _mAccountSubscriptionStatus.GetValue("accountSubscriptionStatus");
 
         /// <summary>
         /// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         [Input("activeDirectoryName")]
-        public string? ActiveDirectoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActiveDirectoryName;
+
+        public string? ActiveDirectoryName => _mActiveDirectoryName.GetValue("activeDirectoryName");
 
         /// <summary>
         /// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         /// </summary>
         [Input("adminGroups")]
-        public List<string>? AdminGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdminGroups;
+
+        public List<string>? AdminGroups => _mAdminGroups.GetValue("adminGroups");
 
         /// <summary>
         /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
         /// </summary>
         [Input("authenticationMethod")]
-        public string? AuthenticationMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationMethod;
+
+        public string? AuthenticationMethod => _mAuthenticationMethod.GetValue("authenticationMethod");
 
         /// <summary>
         /// Author group associated with your Active Directory.
         /// </summary>
         [Input("authorGroups")]
-        public List<string>? AuthorGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorGroups;
+
+        public List<string>? AuthorGroups => _mAuthorGroups.GetValue("authorGroups");
 
         /// <summary>
         /// AWS account ID hosting the QuickSight account. Default to provider account.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         /// </summary>
         [Input("contactNumber")]
-        public string? ContactNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContactNumber;
+
+        public string? ContactNumber => _mContactNumber.GetValue("contactNumber");
 
         /// <summary>
         /// Active Directory ID that is associated with your Amazon QuickSight account.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         /// </summary>
         [Input("edition")]
-        public string? Edition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdition;
+
+        public string? Edition => _mEdition.GetValue("edition");
 
         /// <summary>
         /// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         /// </summary>
         [Input("emailAddress")]
-        public string? EmailAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
+
+        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
 
         /// <summary>
         /// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         /// </summary>
         [Input("firstName")]
-        public string? FirstName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
+
+        public string? FirstName => _mFirstName.GetValue("firstName");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
         /// </summary>
         [Input("iamIdentityCenterInstanceArn")]
-        public string? IamIdentityCenterInstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamIdentityCenterInstanceArn;
+
+        public string? IamIdentityCenterInstanceArn => _mIamIdentityCenterInstanceArn.GetValue("iamIdentityCenterInstanceArn");
 
         /// <summary>
         /// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         /// </summary>
         [Input("lastName")]
-        public string? LastName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
+
+        public string? LastName => _mLastName.GetValue("lastName");
 
         /// <summary>
         /// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
@@ -103,18 +145,177 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("notificationEmail")]
-        public string? NotificationEmail;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationEmail;
+
+        public string? NotificationEmail => _mNotificationEmail.GetValue("notificationEmail");
 
         /// <summary>
         /// Reader group associated with your Active Directory.
         /// </summary>
         [Input("readerGroups")]
-        public List<string>? ReaderGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReaderGroups;
+
+        public List<string>? ReaderGroups => _mReaderGroups.GetValue("readerGroups");
 
         /// <summary>
         /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
         /// </summary>
         [Input("realm")]
-        public string? Realm;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRealm;
+
+        public string? Realm => _mRealm.GetValue("realm");
+    }
+
+    [PolicyResourceType("aws:quicksight/accountSubscription:AccountSubscription")]
+    public sealed class AccountSubscriptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
+        /// </summary>
+        [Input("accountName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountName;
+
+        public string? AccountName => _mAccountName.GetValue("accountName");
+
+        /// <summary>
+        /// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+        /// </summary>
+        [Input("activeDirectoryName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActiveDirectoryName;
+
+        public string? ActiveDirectoryName => _mActiveDirectoryName.GetValue("activeDirectoryName");
+
+        /// <summary>
+        /// Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+        /// </summary>
+        [Input("adminGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdminGroups;
+
+        public List<string>? AdminGroups => _mAdminGroups.GetValue("adminGroups");
+
+        /// <summary>
+        /// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
+        /// </summary>
+        [Input("authenticationMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationMethod;
+
+        public string? AuthenticationMethod => _mAuthenticationMethod.GetValue("authenticationMethod");
+
+        /// <summary>
+        /// Author group associated with your Active Directory.
+        /// </summary>
+        [Input("authorGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorGroups;
+
+        public List<string>? AuthorGroups => _mAuthorGroups.GetValue("authorGroups");
+
+        /// <summary>
+        /// AWS account ID hosting the QuickSight account. Default to provider account.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        /// </summary>
+        [Input("contactNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContactNumber;
+
+        public string? ContactNumber => _mContactNumber.GetValue("contactNumber");
+
+        /// <summary>
+        /// Active Directory ID that is associated with your Amazon QuickSight account.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
+        /// </summary>
+        [Input("edition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdition;
+
+        public string? Edition => _mEdition.GetValue("edition");
+
+        /// <summary>
+        /// Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        /// </summary>
+        [Input("emailAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
+
+        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+
+        /// <summary>
+        /// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        /// </summary>
+        [Input("firstName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
+
+        public string? FirstName => _mFirstName.GetValue("firstName");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        /// </summary>
+        [Input("iamIdentityCenterInstanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamIdentityCenterInstanceArn;
+
+        public string? IamIdentityCenterInstanceArn => _mIamIdentityCenterInstanceArn.GetValue("iamIdentityCenterInstanceArn");
+
+        /// <summary>
+        /// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        /// </summary>
+        [Input("lastName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
+
+        public string? LastName => _mLastName.GetValue("lastName");
+
+        /// <summary>
+        /// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("notificationEmail")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationEmail;
+
+        public string? NotificationEmail => _mNotificationEmail.GetValue("notificationEmail");
+
+        /// <summary>
+        /// Reader group associated with your Active Directory.
+        /// </summary>
+        [Input("readerGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReaderGroups;
+
+        public List<string>? ReaderGroups => _mReaderGroups.GetValue("readerGroups");
+
+        /// <summary>
+        /// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+        /// </summary>
+        [Input("realm")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRealm;
+
+        public string? Realm => _mRealm.GetValue("realm");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Detective
 {
     [PolicyResourceType("aws:detective/organizationConfiguration:OrganizationConfiguration")]
-    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResource
+    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
         /// </summary>
         [Input("autoEnable")]
-        public bool? AutoEnable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
+
+        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
 
         /// <summary>
         /// ARN of the behavior graph.
         /// </summary>
         [Input("graphArn")]
-        public string? GraphArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
+
+        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+    }
+
+    [PolicyResourceType("aws:detective/organizationConfiguration:OrganizationConfiguration")]
+    public sealed class OrganizationConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
+        /// </summary>
+        [Input("autoEnable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
+
+        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+
+        /// <summary>
+        /// ARN of the behavior graph.
+        /// </summary>
+        [Input("graphArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
+
+        public string? GraphArn => _mGraphArn.GetValue("graphArn");
     }
 }

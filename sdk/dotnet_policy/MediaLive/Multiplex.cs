@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.MediaLive
 {
     [PolicyResourceType("aws:medialive/multiplex:Multiplex")]
-    public sealed class Multiplex : global::Pulumi.PolicyResource
+    public sealed class Multiplex : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Multiplex.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A list of availability zones. You must specify exactly two.
         /// </summary>
         [Input("availabilityZones")]
-        public List<string>? AvailabilityZones;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
 
         /// <summary>
         /// Multiplex settings. See Multiplex Settings for more details.
         /// </summary>
         [Input("multiplexSettings")]
-        public MultiplexMultiplexSettings? MultiplexSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexMultiplexSettings> _mMultiplexSettings;
+
+        public Outputs.MultiplexMultiplexSettings? MultiplexSettings => _mMultiplexSettings.GetValue("multiplexSettings");
 
         /// <summary>
         /// name of Multiplex.
@@ -37,21 +46,84 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Whether to start the Multiplex. Defaults to `false`.
         /// </summary>
         [Input("startMultiplex")]
-        public bool? StartMultiplex;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartMultiplex;
+
+        public bool? StartMultiplex => _mStartMultiplex.GetValue("startMultiplex");
 
         /// <summary>
         /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:medialive/multiplex:Multiplex")]
+    public sealed class MultiplexArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of availability zones. You must specify exactly two.
+        /// </summary>
+        [Input("availabilityZones")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+
+        /// <summary>
+        /// Multiplex settings. See Multiplex Settings for more details.
+        /// </summary>
+        [Input("multiplexSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.MultiplexMultiplexSettingsArgs> _mMultiplexSettings;
+
+        public Inputs.MultiplexMultiplexSettingsArgs? MultiplexSettings => _mMultiplexSettings.GetValue("multiplexSettings");
+
+        /// <summary>
+        /// name of Multiplex.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Whether to start the Multiplex. Defaults to `false`.
+        /// </summary>
+        [Input("startMultiplex")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartMultiplex;
+
+        public bool? StartMultiplex => _mStartMultiplex.GetValue("startMultiplex");
+
+        /// <summary>
+        /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

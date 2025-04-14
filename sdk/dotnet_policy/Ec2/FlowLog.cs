@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/flowLog:FlowLog")]
-    public sealed class FlowLog : global::Pulumi.PolicyResource
+    public sealed class FlowLog : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Flow Log.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         /// </summary>
         [Input("deliverCrossAccountRole")]
-        public string? DeliverCrossAccountRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliverCrossAccountRole;
+
+        public string? DeliverCrossAccountRole => _mDeliverCrossAccountRole.GetValue("deliverCrossAccountRole");
 
         /// <summary>
         /// Describes the destination options for a flow log. More details below.
         /// </summary>
         [Input("destinationOptions")]
-        public FlowLogDestinationOptions? DestinationOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowLogDestinationOptions> _mDestinationOptions;
+
+        public Outputs.FlowLogDestinationOptions? DestinationOptions => _mDestinationOptions.GetValue("destinationOptions");
 
         /// <summary>
         /// Elastic Network Interface ID to attach to
         /// </summary>
         [Input("eniId")]
-        public string? EniId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEniId;
+
+        public string? EniId => _mEniId.GetValue("eniId");
 
         /// <summary>
         /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
         /// </summary>
         [Input("logDestination")]
-        public string? LogDestination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestination;
+
+        public string? LogDestination => _mLogDestination.GetValue("logDestination");
 
         /// <summary>
         /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
         /// </summary>
         [Input("logDestinationType")]
-        public string? LogDestinationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestinationType;
+
+        public string? LogDestinationType => _mLogDestinationType.GetValue("logDestinationType");
 
         /// <summary>
         /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Input("logFormat")]
-        public string? LogFormat;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogFormat;
+
+        public string? LogFormat => _mLogFormat.GetValue("logFormat");
 
         /// <summary>
         /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
         [Input("logGroupName")]
-        public string? LogGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
 
         /// <summary>
         /// The maximum interval of time
@@ -74,48 +101,214 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
-        public int? MaxAggregationInterval;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAggregationInterval;
+
+        public int? MaxAggregationInterval => _mMaxAggregationInterval.GetValue("maxAggregationInterval");
 
         /// <summary>
         /// Subnet ID to attach to
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         /// </summary>
         [Input("trafficType")]
-        public string? TrafficType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficType;
+
+        public string? TrafficType => _mTrafficType.GetValue("trafficType");
 
         /// <summary>
         /// Transit Gateway Attachment ID to attach to
         /// </summary>
         [Input("transitGatewayAttachmentId")]
-        public string? TransitGatewayAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
 
         /// <summary>
         /// Transit Gateway ID to attach to
         /// </summary>
         [Input("transitGatewayId")]
-        public string? TransitGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
 
         /// <summary>
         /// VPC ID to attach to
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/flowLog:FlowLog")]
+    public sealed class FlowLogArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
+        /// </summary>
+        [Input("deliverCrossAccountRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliverCrossAccountRole;
+
+        public string? DeliverCrossAccountRole => _mDeliverCrossAccountRole.GetValue("deliverCrossAccountRole");
+
+        /// <summary>
+        /// Describes the destination options for a flow log. More details below.
+        /// </summary>
+        [Input("destinationOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowLogDestinationOptionsArgs> _mDestinationOptions;
+
+        public Inputs.FlowLogDestinationOptionsArgs? DestinationOptions => _mDestinationOptions.GetValue("destinationOptions");
+
+        /// <summary>
+        /// Elastic Network Interface ID to attach to
+        /// </summary>
+        [Input("eniId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEniId;
+
+        public string? EniId => _mEniId.GetValue("eniId");
+
+        /// <summary>
+        /// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
+        /// </summary>
+        [Input("logDestination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestination;
+
+        public string? LogDestination => _mLogDestination.GetValue("logDestination");
+
+        /// <summary>
+        /// The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
+        /// </summary>
+        [Input("logDestinationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestinationType;
+
+        public string? LogDestinationType => _mLogDestinationType.GetValue("logDestinationType");
+
+        /// <summary>
+        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        /// </summary>
+        [Input("logFormat")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogFormat;
+
+        public string? LogFormat => _mLogFormat.GetValue("logFormat");
+
+        /// <summary>
+        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        /// </summary>
+        [Input("logGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+
+        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+
+        /// <summary>
+        /// The maximum interval of time
+        /// during which a flow of packets is captured and aggregated into a flow
+        /// log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
+        /// minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        /// </summary>
+        [Input("maxAggregationInterval")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAggregationInterval;
+
+        public int? MaxAggregationInterval => _mMaxAggregationInterval.GetValue("maxAggregationInterval");
+
+        /// <summary>
+        /// Subnet ID to attach to
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        /// </summary>
+        [Input("trafficType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficType;
+
+        public string? TrafficType => _mTrafficType.GetValue("trafficType");
+
+        /// <summary>
+        /// Transit Gateway Attachment ID to attach to
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
+
+        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+
+        /// <summary>
+        /// Transit Gateway ID to attach to
+        /// </summary>
+        [Input("transitGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+
+        /// <summary>
+        /// VPC ID to attach to
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

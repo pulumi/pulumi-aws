@@ -11,46 +11,67 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Transcribe
 {
     [PolicyResourceType("aws:transcribe/vocabulary:Vocabulary")]
-    public sealed class Vocabulary : global::Pulumi.PolicyResource
+    public sealed class Vocabulary : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Vocabulary.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Generated download URI.
         /// </summary>
         [Input("downloadUri")]
-        public string? DownloadUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDownloadUri;
+
+        public string? DownloadUri => _mDownloadUri.GetValue("downloadUri");
 
         /// <summary>
         /// The language code you selected for your vocabulary.
         /// </summary>
         [Input("languageCode")]
-        public string? LanguageCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
 
         /// <summary>
         /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         /// </summary>
         [Input("phrases")]
-        public List<string>? Phrases;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPhrases;
+
+        public List<string>? Phrases => _mPhrases.GetValue("phrases");
 
         /// <summary>
         /// A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         /// </summary>
         [Input("vocabularyFileUri")]
-        public string? VocabularyFileUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFileUri;
+
+        public string? VocabularyFileUri => _mVocabularyFileUri.GetValue("vocabularyFileUri");
 
         /// <summary>
         /// The name of the Vocabulary.
@@ -58,6 +79,60 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe
         /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyName")]
-        public string? VocabularyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyName;
+
+        public string? VocabularyName => _mVocabularyName.GetValue("vocabularyName");
+    }
+
+    [PolicyResourceType("aws:transcribe/vocabulary:Vocabulary")]
+    public sealed class VocabularyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The language code you selected for your vocabulary.
+        /// </summary>
+        [Input("languageCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+
+        /// <summary>
+        /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        /// </summary>
+        [Input("phrases")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPhrases;
+
+        public List<string>? Phrases => _mPhrases.GetValue("phrases");
+
+        /// <summary>
+        /// A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+        /// </summary>
+        [Input("vocabularyFileUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFileUri;
+
+        public string? VocabularyFileUri => _mVocabularyFileUri.GetValue("vocabularyFileUri");
+
+        /// <summary>
+        /// The name of the Vocabulary.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("vocabularyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyName;
+
+        public string? VocabularyName => _mVocabularyName.GetValue("vocabularyName");
     }
 }

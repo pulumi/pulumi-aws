@@ -11,48 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/plan:Plan")]
-    public sealed class Plan : global::Pulumi.PolicyResource
+    public sealed class Plan : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An object that specifies backup options for each resource type.
         /// </summary>
         [Input("advancedBackupSettings")]
-        public List<PlanAdvancedBackupSetting>? AdvancedBackupSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PlanAdvancedBackupSetting>> _mAdvancedBackupSettings;
+
+        public List<Outputs.PlanAdvancedBackupSetting>? AdvancedBackupSettings => _mAdvancedBackupSettings.GetValue("advancedBackupSettings");
 
         /// <summary>
         /// The ARN of the backup plan.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The display name of a backup plan.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
         /// </summary>
         [Input("rules")]
-        public List<PlanRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PlanRule>> _mRules;
+
+        public List<Outputs.PlanRule>? Rules => _mRules.GetValue("rules");
 
         /// <summary>
         /// Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:backup/plan:Plan")]
+    public sealed class PlanArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An object that specifies backup options for each resource type.
+        /// </summary>
+        [Input("advancedBackupSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PlanAdvancedBackupSettingArgs>> _mAdvancedBackupSettings;
+
+        public List<Inputs.PlanAdvancedBackupSettingArgs>? AdvancedBackupSettings => _mAdvancedBackupSettings.GetValue("advancedBackupSettings");
+
+        /// <summary>
+        /// The display name of a backup plan.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PlanRuleArgs>> _mRules;
+
+        public List<Inputs.PlanRuleArgs>? Rules => _mRules.GetValue("rules");
+
+        /// <summary>
+        /// Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

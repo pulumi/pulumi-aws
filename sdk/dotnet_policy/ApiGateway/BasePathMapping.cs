@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/basePathMapping:BasePathMapping")]
-    public sealed class BasePathMapping : global::Pulumi.PolicyResource
+    public sealed class BasePathMapping : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         /// </summary>
         [Input("basePath")]
-        public string? BasePath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasePath;
+
+        public string? BasePath => _mBasePath.GetValue("basePath");
 
         /// <summary>
         /// Already-registered domain name to connect the API to.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Input("domainNameId")]
-        public string? DomainNameId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameId;
+
+        public string? DomainNameId => _mDomainNameId.GetValue("domainNameId");
 
         /// <summary>
         /// ID of the API to connect.
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         /// </summary>
         [Input("stageName")]
-        public string? StageName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
+
+        public string? StageName => _mStageName.GetValue("stageName");
+    }
+
+    [PolicyResourceType("aws:apigateway/basePathMapping:BasePathMapping")]
+    public sealed class BasePathMappingArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
+        /// </summary>
+        [Input("basePath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasePath;
+
+        public string? BasePath => _mBasePath.GetValue("basePath");
+
+        /// <summary>
+        /// Already-registered domain name to connect the API to.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// </summary>
+        [Input("domainNameId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameId;
+
+        public string? DomainNameId => _mDomainNameId.GetValue("domainNameId");
+
+        /// <summary>
+        /// ID of the API to connect.
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
+        /// </summary>
+        [Input("stageName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
+
+        public string? StageName => _mStageName.GetValue("stageName");
     }
 }

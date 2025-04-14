@@ -11,42 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/accountAssignment:AccountAssignment")]
-    public sealed class AccountAssignment : global::Pulumi.PolicyResource
+    public sealed class AccountAssignment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
         /// </summary>
         [Input("instanceArn")]
-        public string? InstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
         /// </summary>
         [Input("permissionSetArn")]
-        public string? PermissionSetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
+
+        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
 
         /// <summary>
         /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
         /// </summary>
         [Input("principalId")]
-        public string? PrincipalId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
+
+        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
 
         /// <summary>
         /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
         /// </summary>
         [Input("principalType")]
-        public string? PrincipalType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
+
+        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
 
         /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.
         /// </summary>
         [Input("targetId")]
-        public string? TargetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
 
         /// <summary>
         /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         /// </summary>
         [Input("targetType")]
-        public string? TargetType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
+
+        public string? TargetType => _mTargetType.GetValue("targetType");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/accountAssignment:AccountAssignment")]
+    public sealed class AccountAssignmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// </summary>
+        [Input("instanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+        /// </summary>
+        [Input("permissionSetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
+
+        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+
+        /// <summary>
+        /// An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
+        /// </summary>
+        [Input("principalId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalId;
+
+        public string? PrincipalId => _mPrincipalId.GetValue("principalId");
+
+        /// <summary>
+        /// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
+        /// </summary>
+        [Input("principalType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalType;
+
+        public string? PrincipalType => _mPrincipalType.GetValue("principalType");
+
+        /// <summary>
+        /// An AWS account identifier, typically a 10-12 digit string.
+        /// </summary>
+        [Input("targetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
+
+        public string? TargetId => _mTargetId.GetValue("targetId");
+
+        /// <summary>
+        /// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
+        /// </summary>
+        [Input("targetType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
+
+        public string? TargetType => _mTargetType.GetValue("targetType");
     }
 }

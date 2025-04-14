@@ -11,31 +11,49 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule")]
-    public sealed class ContributorManagedInsightRule : global::Pulumi.PolicyResource
+    public sealed class ContributorManagedInsightRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Contributor Managed Insight Rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         [Input("ruleName")]
-        public string? RuleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
 
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
@@ -43,6 +61,45 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// The following arguments are optional:
         /// </summary>
         [Input("templateName")]
-        public string? TemplateName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
+
+        public string? TemplateName => _mTemplateName.GetValue("templateName");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule")]
+    public sealed class ContributorManagedInsightRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("templateName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
+
+        public string? TemplateName => _mTemplateName.GetValue("templateName");
     }
 }

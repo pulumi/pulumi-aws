@@ -11,67 +11,97 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
 {
     [PolicyResourceType("aws:elastictranscoder/pipeline:Pipeline")]
-    public sealed class Pipeline : global::Pulumi.PolicyResource
+    public sealed class Pipeline : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Elastictranscoder pipeline.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
         /// </summary>
         [Input("awsKmsKeyArn")]
-        public string? AwsKmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsKmsKeyArn;
+
+        public string? AwsKmsKeyArn => _mAwsKmsKeyArn.GetValue("awsKmsKeyArn");
 
         /// <summary>
         /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
         /// </summary>
         [Input("contentConfig")]
-        public PipelineContentConfig? ContentConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineContentConfig> _mContentConfig;
+
+        public Outputs.PipelineContentConfig? ContentConfig => _mContentConfig.GetValue("contentConfig");
 
         /// <summary>
         /// The permissions for the `content_config` object. (documented below)
         /// </summary>
         [Input("contentConfigPermissions")]
-        public List<PipelineContentConfigPermission>? ContentConfigPermissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineContentConfigPermission>> _mContentConfigPermissions;
+
+        public List<Outputs.PipelineContentConfigPermission>? ContentConfigPermissions => _mContentConfigPermissions.GetValue("contentConfigPermissions");
 
         /// <summary>
         /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         /// </summary>
         [Input("inputBucket")]
-        public string? InputBucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputBucket;
+
+        public string? InputBucket => _mInputBucket.GetValue("inputBucket");
 
         /// <summary>
         /// The name of the pipeline. Maximum 40 characters
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         /// </summary>
         [Input("notifications")]
-        public PipelineNotifications? Notifications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineNotifications> _mNotifications;
+
+        public Outputs.PipelineNotifications? Notifications => _mNotifications.GetValue("notifications");
 
         /// <summary>
         /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         /// </summary>
         [Input("outputBucket")]
-        public string? OutputBucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutputBucket;
+
+        public string? OutputBucket => _mOutputBucket.GetValue("outputBucket");
 
         /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
         [Input("role")]
-        public string? Role;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
 
         /// <summary>
         /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         /// </summary>
         [Input("thumbnailConfig")]
-        public PipelineThumbnailConfig? ThumbnailConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineThumbnailConfig> _mThumbnailConfig;
+
+        public Outputs.PipelineThumbnailConfig? ThumbnailConfig => _mThumbnailConfig.GetValue("thumbnailConfig");
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)
@@ -84,6 +114,110 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
         /// `thumbnail_config`, omit the `output_bucket` object.
         /// </summary>
         [Input("thumbnailConfigPermissions")]
-        public List<PipelineThumbnailConfigPermission>? ThumbnailConfigPermissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineThumbnailConfigPermission>> _mThumbnailConfigPermissions;
+
+        public List<Outputs.PipelineThumbnailConfigPermission>? ThumbnailConfigPermissions => _mThumbnailConfigPermissions.GetValue("thumbnailConfigPermissions");
+    }
+
+    [PolicyResourceType("aws:elastictranscoder/pipeline:Pipeline")]
+    public sealed class PipelineArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+        /// </summary>
+        [Input("awsKmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsKmsKeyArn;
+
+        public string? AwsKmsKeyArn => _mAwsKmsKeyArn.GetValue("awsKmsKeyArn");
+
+        /// <summary>
+        /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+        /// </summary>
+        [Input("contentConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineContentConfigArgs> _mContentConfig;
+
+        public Inputs.PipelineContentConfigArgs? ContentConfig => _mContentConfig.GetValue("contentConfig");
+
+        /// <summary>
+        /// The permissions for the `content_config` object. (documented below)
+        /// </summary>
+        [Input("contentConfigPermissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineContentConfigPermissionArgs>> _mContentConfigPermissions;
+
+        public List<Inputs.PipelineContentConfigPermissionArgs>? ContentConfigPermissions => _mContentConfigPermissions.GetValue("contentConfigPermissions");
+
+        /// <summary>
+        /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
+        /// </summary>
+        [Input("inputBucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInputBucket;
+
+        public string? InputBucket => _mInputBucket.GetValue("inputBucket");
+
+        /// <summary>
+        /// The name of the pipeline. Maximum 40 characters
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+        /// </summary>
+        [Input("notifications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineNotificationsArgs> _mNotifications;
+
+        public Inputs.PipelineNotificationsArgs? Notifications => _mNotifications.GetValue("notifications");
+
+        /// <summary>
+        /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+        /// </summary>
+        [Input("outputBucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutputBucket;
+
+        public string? OutputBucket => _mOutputBucket.GetValue("outputBucket");
+
+        /// <summary>
+        /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+        /// </summary>
+        [Input("role")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
+
+        public string? Role => _mRole.GetValue("role");
+
+        /// <summary>
+        /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+        /// </summary>
+        [Input("thumbnailConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineThumbnailConfigArgs> _mThumbnailConfig;
+
+        public Inputs.PipelineThumbnailConfigArgs? ThumbnailConfig => _mThumbnailConfig.GetValue("thumbnailConfig");
+
+        /// <summary>
+        /// The permissions for the `thumbnail_config` object. (documented below)
+        /// 
+        /// The `content_config` object specifies information about the Amazon S3 bucket in
+        /// which you want Elastic Transcoder to save transcoded files and playlists: which
+        /// bucket to use, and the storage class that you want to assign to the files. If
+        /// you specify values for `content_config`, you must also specify values for
+        /// `thumbnail_config`. If you specify values for `content_config` and
+        /// `thumbnail_config`, omit the `output_bucket` object.
+        /// </summary>
+        [Input("thumbnailConfigPermissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineThumbnailConfigPermissionArgs>> _mThumbnailConfigPermissions;
+
+        public List<Inputs.PipelineThumbnailConfigPermissionArgs>? ThumbnailConfigPermissions => _mThumbnailConfigPermissions.GetValue("thumbnailConfigPermissions");
     }
 }

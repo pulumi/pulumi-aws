@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Emr
 {
     [PolicyResourceType("aws:emr/instanceGroup:InstanceGroup")]
-    public sealed class InstanceGroup : global::Pulumi.PolicyResource
+    public sealed class InstanceGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         /// </summary>
         [Input("autoscalingPolicy")]
-        public string? AutoscalingPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingPolicy;
+
+        public string? AutoscalingPolicy => _mAutoscalingPolicy.GetValue("autoscalingPolicy");
 
         /// <summary>
         /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         /// </summary>
         [Input("bidPrice")]
-        public string? BidPrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBidPrice;
+
+        public string? BidPrice => _mBidPrice.GetValue("bidPrice");
 
         /// <summary>
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clusterId")]
-        public string? ClusterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
 
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
@@ -65,48 +74,187 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// ```
         /// </summary>
         [Input("configurationsJson")]
-        public string? ConfigurationsJson;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationsJson;
+
+        public string? ConfigurationsJson => _mConfigurationsJson.GetValue("configurationsJson");
 
         /// <summary>
         /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ebsConfigs")]
-        public List<InstanceGroupEbsConfig>? EbsConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceGroupEbsConfig>> _mEbsConfigs;
+
+        public List<Outputs.InstanceGroupEbsConfig>? EbsConfigs => _mEbsConfigs.GetValue("ebsConfigs");
 
         /// <summary>
         /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ebsOptimized")]
-        public bool? EbsOptimized;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
 
         /// <summary>
         /// target number of instances for the instance group. defaults to 0.
         /// </summary>
         [Input("instanceCount")]
-        public int? InstanceCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
+
+        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
 
         /// <summary>
         /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The number of instances currently running in this instance group.
         /// </summary>
         [Input("runningInstanceCount")]
-        public int? RunningInstanceCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRunningInstanceCount;
+
+        public int? RunningInstanceCount => _mRunningInstanceCount.GetValue("runningInstanceCount");
 
         /// <summary>
         /// The current status of the instance group.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:emr/instanceGroup:InstanceGroup")]
+    public sealed class InstanceGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
+        /// </summary>
+        [Input("autoscalingPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingPolicy;
+
+        public string? AutoscalingPolicy => _mAutoscalingPolicy.GetValue("autoscalingPolicy");
+
+        /// <summary>
+        /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        /// </summary>
+        [Input("bidPrice")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBidPrice;
+
+        public string? BidPrice => _mBidPrice.GetValue("bidPrice");
+
+        /// <summary>
+        /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("clusterId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
+
+        public string? ClusterId => _mClusterId.GetValue("clusterId");
+
+        /// <summary>
+        /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var task = new Aws.Emr.InstanceGroup("task", new()
+        ///     {
+        ///         ConfigurationsJson = @"[
+        /// {
+        /// ""Classification"": ""hadoop-env"",
+        /// ""Configurations"": [
+        /// {
+        /// ""Classification"": ""export"",
+        /// ""Properties"": {
+        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        /// }
+        /// }
+        /// ],
+        /// ""Properties"": {}
+        /// }
+        /// ]
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        [Input("configurationsJson")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationsJson;
+
+        public string? ConfigurationsJson => _mConfigurationsJson.GetValue("configurationsJson");
+
+        /// <summary>
+        /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ebsConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceGroupEbsConfigArgs>> _mEbsConfigs;
+
+        public List<Inputs.InstanceGroupEbsConfigArgs>? EbsConfigs => _mEbsConfigs.GetValue("ebsConfigs");
+
+        /// <summary>
+        /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ebsOptimized")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+
+        /// <summary>
+        /// target number of instances for the instance group. defaults to 0.
+        /// </summary>
+        [Input("instanceCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
+
+        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+
+        /// <summary>
+        /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

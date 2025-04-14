@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource")]
-    public sealed class MulticastGroupSource : global::Pulumi.PolicyResource
+    public sealed class MulticastGroupSource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
         [Input("groupIpAddress")]
-        public string? GroupIpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupIpAddress;
+
+        public string? GroupIpAddress => _mGroupIpAddress.GetValue("groupIpAddress");
 
         /// <summary>
         /// The group members' network interface ID to register with the transit gateway multicast group.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
         [Input("transitGatewayMulticastDomainId")]
-        public string? TransitGatewayMulticastDomainId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayMulticastDomainId;
+
+        public string? TransitGatewayMulticastDomainId => _mTransitGatewayMulticastDomainId.GetValue("transitGatewayMulticastDomainId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource")]
+    public sealed class MulticastGroupSourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The IP address assigned to the transit gateway multicast group.
+        /// </summary>
+        [Input("groupIpAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupIpAddress;
+
+        public string? GroupIpAddress => _mGroupIpAddress.GetValue("groupIpAddress");
+
+        /// <summary>
+        /// The group members' network interface ID to register with the transit gateway multicast group.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+
+        /// <summary>
+        /// The ID of the transit gateway multicast domain.
+        /// </summary>
+        [Input("transitGatewayMulticastDomainId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayMulticastDomainId;
+
+        public string? TransitGatewayMulticastDomainId => _mTransitGatewayMulticastDomainId.GetValue("transitGatewayMulticastDomainId");
     }
 }

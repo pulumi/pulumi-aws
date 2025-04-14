@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
 {
     [PolicyResourceType("aws:apigatewayv2/deployment:Deployment")]
-    public sealed class Deployment : global::Pulumi.PolicyResource
+    public sealed class Deployment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// API identifier.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// Whether the deployment was automatically released.
         /// </summary>
         [Input("autoDeployed")]
-        public bool? AutoDeployed;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoDeployed;
+
+        public bool? AutoDeployed => _mAutoDeployed.GetValue("autoDeployed");
 
         /// <summary>
         /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         [Input("triggers")]
-        public Dictionary<string, string>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+    }
+
+    [PolicyResourceType("aws:apigatewayv2/deployment:Deployment")]
+    public sealed class DeploymentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// API identifier.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// </summary>
+        [Input("triggers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
     }
 }

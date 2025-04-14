@@ -11,69 +11,159 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/resolverRule:ResolverRule")]
-    public sealed class ResolverRule : global::Pulumi.PolicyResource
+    public sealed class ResolverRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN (Amazon Resource Name) for the resolver rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Input("resolverEndpointId")]
-        public string? ResolverEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolverEndpointId;
+
+        public string? ResolverEndpointId => _mResolverEndpointId.GetValue("resolverEndpointId");
 
         /// <summary>
         /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         /// </summary>
         [Input("ruleType")]
-        public string? RuleType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleType;
+
+        public string? RuleType => _mRuleType.GetValue("ruleType");
 
         /// <summary>
         /// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         /// </summary>
         [Input("shareStatus")]
-        public string? ShareStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShareStatus;
+
+        public string? ShareStatus => _mShareStatus.GetValue("shareStatus");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Input("targetIps")]
-        public List<ResolverRuleTargetIp>? TargetIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResolverRuleTargetIp>> _mTargetIps;
+
+        public List<Outputs.ResolverRuleTargetIp>? TargetIps => _mTargetIps.GetValue("targetIps");
+    }
+
+    [PolicyResourceType("aws:route53/resolverRule:ResolverRule")]
+    public sealed class ResolverRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+        /// This argument should only be specified for `FORWARD` type rules.
+        /// </summary>
+        [Input("resolverEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolverEndpointId;
+
+        public string? ResolverEndpointId => _mResolverEndpointId.GetValue("resolverEndpointId");
+
+        /// <summary>
+        /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+        /// </summary>
+        [Input("ruleType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleType;
+
+        public string? RuleType => _mRuleType.GetValue("ruleType");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
+        /// This argument should only be specified for `FORWARD` type rules.
+        /// </summary>
+        [Input("targetIps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResolverRuleTargetIpArgs>> _mTargetIps;
+
+        public List<Inputs.ResolverRuleTargetIpArgs>? TargetIps => _mTargetIps.GetValue("targetIps");
     }
 }

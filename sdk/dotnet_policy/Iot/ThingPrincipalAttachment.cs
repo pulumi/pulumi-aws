@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")]
-    public sealed class ThingPrincipalAttachment : global::Pulumi.PolicyResource
+    public sealed class ThingPrincipalAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         /// </summary>
         [Input("principal")]
-        public string? Principal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
 
         /// <summary>
         /// The name of the thing.
         /// </summary>
         [Input("thing")]
-        public string? Thing;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThing;
+
+        public string? Thing => _mThing.GetValue("thing");
+    }
+
+    [PolicyResourceType("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")]
+    public sealed class ThingPrincipalAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        /// </summary>
+        [Input("principal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
+
+        /// <summary>
+        /// The name of the thing.
+        /// </summary>
+        [Input("thing")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThing;
+
+        public string? Thing => _mThing.GetValue("thing");
     }
 }

@@ -11,73 +11,106 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/securityGroupRule:SecurityGroupRule")]
-    public sealed class SecurityGroupRule : global::Pulumi.PolicyResource
+    public sealed class SecurityGroupRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         /// </summary>
         [Input("cidrBlocks")]
-        public List<string>? CidrBlocks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrBlocks;
+
+        public List<string>? CidrBlocks => _mCidrBlocks.GetValue("cidrBlocks");
 
         /// <summary>
         /// Description of the rule.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         /// </summary>
         [Input("fromPort")]
-        public int? FromPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
+
+        public int? FromPort => _mFromPort.GetValue("fromPort");
 
         /// <summary>
         /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         /// </summary>
         [Input("ipv6CidrBlocks")]
-        public List<string>? Ipv6CidrBlocks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6CidrBlocks;
+
+        public List<string>? Ipv6CidrBlocks => _mIpv6CidrBlocks.GetValue("ipv6CidrBlocks");
 
         /// <summary>
         /// List of Prefix List IDs.
         /// </summary>
         [Input("prefixListIds")]
-        public List<string>? PrefixListIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrefixListIds;
+
+        public List<string>? PrefixListIds => _mPrefixListIds.GetValue("prefixListIds");
 
         /// <summary>
         /// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         /// </summary>
         [Input("protocol")]
-        public string? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// Security group to apply this rule to.
         /// </summary>
         [Input("securityGroupId")]
-        public string? SecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
 
         /// <summary>
         /// If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
         /// </summary>
         [Input("securityGroupRuleId")]
-        public string? SecurityGroupRuleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupRuleId;
+
+        public string? SecurityGroupRuleId => _mSecurityGroupRuleId.GetValue("securityGroupRuleId");
 
         /// <summary>
         /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         /// </summary>
         [Input("self")]
-        public bool? Self;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSelf;
+
+        public bool? Self => _mSelf.GetValue("self");
 
         /// <summary>
         /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         /// </summary>
         [Input("sourceSecurityGroupId")]
-        public string? SourceSecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceSecurityGroupId;
+
+        public string? SourceSecurityGroupId => _mSourceSecurityGroupId.GetValue("sourceSecurityGroupId");
 
         /// <summary>
         /// End port (or ICMP code if protocol is "icmp").
         /// </summary>
         [Input("toPort")]
-        public int? ToPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
+
+        public int? ToPort => _mToPort.GetValue("toPort");
 
         /// <summary>
         /// Type of rule being created. Valid options are `ingress` (inbound)
@@ -88,6 +121,117 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:ec2/securityGroupRule:SecurityGroupRule")]
+    public sealed class SecurityGroupRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+        /// </summary>
+        [Input("cidrBlocks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrBlocks;
+
+        public List<string>? CidrBlocks => _mCidrBlocks.GetValue("cidrBlocks");
+
+        /// <summary>
+        /// Description of the rule.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
+        /// </summary>
+        [Input("fromPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
+
+        public int? FromPort => _mFromPort.GetValue("fromPort");
+
+        /// <summary>
+        /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
+        /// </summary>
+        [Input("ipv6CidrBlocks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6CidrBlocks;
+
+        public List<string>? Ipv6CidrBlocks => _mIpv6CidrBlocks.GetValue("ipv6CidrBlocks");
+
+        /// <summary>
+        /// List of Prefix List IDs.
+        /// </summary>
+        [Input("prefixListIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrefixListIds;
+
+        public List<string>? PrefixListIds => _mPrefixListIds.GetValue("prefixListIds");
+
+        /// <summary>
+        /// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
+
+        /// <summary>
+        /// Security group to apply this rule to.
+        /// </summary>
+        [Input("securityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+
+        /// <summary>
+        /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
+        /// </summary>
+        [Input("self")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSelf;
+
+        public bool? Self => _mSelf.GetValue("self");
+
+        /// <summary>
+        /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
+        /// </summary>
+        [Input("sourceSecurityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceSecurityGroupId;
+
+        public string? SourceSecurityGroupId => _mSourceSecurityGroupId.GetValue("sourceSecurityGroupId");
+
+        /// <summary>
+        /// End port (or ICMP code if protocol is "icmp").
+        /// </summary>
+        [Input("toPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
+
+        public int? ToPort => _mToPort.GetValue("toPort");
+
+        /// <summary>
+        /// Type of rule being created. Valid options are `ingress` (inbound)
+        /// or `egress` (outbound).
+        /// 
+        /// The following arguments are optional:
+        /// 
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

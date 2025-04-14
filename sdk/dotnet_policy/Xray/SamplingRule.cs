@@ -11,96 +11,262 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Xray
 {
     [PolicyResourceType("aws:xray/samplingRule:SamplingRule")]
-    public sealed class SamplingRule : global::Pulumi.PolicyResource
+    public sealed class SamplingRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the sampling rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Matches attributes derived from the request.
         /// </summary>
         [Input("attributes")]
-        public Dictionary<string, string>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// The percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
         [Input("fixedRate")]
-        public double? FixedRate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mFixedRate;
+
+        public double? FixedRate => _mFixedRate.GetValue("fixedRate");
 
         /// <summary>
         /// Matches the hostname from a request URL.
         /// </summary>
         [Input("host")]
-        public string? Host;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
+
+        public string? Host => _mHost.GetValue("host");
 
         /// <summary>
         /// Matches the HTTP method of a request.
         /// </summary>
         [Input("httpMethod")]
-        public string? HttpMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
+
+        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
 
         /// <summary>
         /// The priority of the sampling rule.
         /// </summary>
         [Input("priority")]
-        public int? Priority;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
 
         /// <summary>
         /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
         [Input("reservoirSize")]
-        public int? ReservoirSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReservoirSize;
+
+        public int? ReservoirSize => _mReservoirSize.GetValue("reservoirSize");
 
         /// <summary>
         /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The name of the sampling rule.
         /// </summary>
         [Input("ruleName")]
-        public string? RuleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
 
         /// <summary>
         /// Matches the `name` that the service uses to identify itself in segments.
         /// </summary>
         [Input("serviceName")]
-        public string? ServiceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
 
         /// <summary>
         /// Matches the `origin` that the service uses to identify its type in segments.
         /// </summary>
         [Input("serviceType")]
-        public string? ServiceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
+
+        public string? ServiceType => _mServiceType.GetValue("serviceType");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
         [Input("urlPath")]
-        public string? UrlPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrlPath;
+
+        public string? UrlPath => _mUrlPath.GetValue("urlPath");
 
         /// <summary>
         /// The version of the sampling rule format (`1` )
         /// </summary>
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:xray/samplingRule:SamplingRule")]
+    public sealed class SamplingRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Matches attributes derived from the request.
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+
+        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// The percentage of matching requests to instrument, after the reservoir is exhausted.
+        /// </summary>
+        [Input("fixedRate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mFixedRate;
+
+        public double? FixedRate => _mFixedRate.GetValue("fixedRate");
+
+        /// <summary>
+        /// Matches the hostname from a request URL.
+        /// </summary>
+        [Input("host")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
+
+        public string? Host => _mHost.GetValue("host");
+
+        /// <summary>
+        /// Matches the HTTP method of a request.
+        /// </summary>
+        [Input("httpMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
+
+        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+
+        /// <summary>
+        /// The priority of the sampling rule.
+        /// </summary>
+        [Input("priority")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
+
+        /// <summary>
+        /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        /// </summary>
+        [Input("reservoirSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mReservoirSize;
+
+        public int? ReservoirSize => _mReservoirSize.GetValue("reservoirSize");
+
+        /// <summary>
+        /// Matches the ARN of the AWS resource on which the service runs.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+
+        /// <summary>
+        /// The name of the sampling rule.
+        /// </summary>
+        [Input("ruleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
+
+        /// <summary>
+        /// Matches the `name` that the service uses to identify itself in segments.
+        /// </summary>
+        [Input("serviceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
+
+        /// <summary>
+        /// Matches the `origin` that the service uses to identify its type in segments.
+        /// </summary>
+        [Input("serviceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
+
+        public string? ServiceType => _mServiceType.GetValue("serviceType");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Matches the path from a request URL.
+        /// </summary>
+        [Input("urlPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUrlPath;
+
+        public string? UrlPath => _mUrlPath.GetValue("urlPath");
+
+        /// <summary>
+        /// The version of the sampling rule format (`1` )
+        /// </summary>
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
     }
 }

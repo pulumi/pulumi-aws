@@ -11,37 +11,102 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/eventPermission:EventPermission")]
-    public sealed class EventPermission : global::Pulumi.PolicyResource
+    public sealed class EventPermission : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         /// </summary>
         [Input("action")]
-        public string? Action;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
 
         /// <summary>
         /// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         /// </summary>
         [Input("condition")]
-        public EventPermissionCondition? Condition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventPermissionCondition> _mCondition;
+
+        public Outputs.EventPermissionCondition? Condition => _mCondition.GetValue("condition");
 
         /// <summary>
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
         /// </summary>
         [Input("eventBusName")]
-        public string? EventBusName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
+
+        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
 
         /// <summary>
         /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         /// </summary>
         [Input("principal")]
-        public string? Principal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
 
         /// <summary>
         /// An identifier string for the external account that you are granting permissions to.
         /// </summary>
         [Input("statementId")]
-        public string? StatementId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatementId;
+
+        public string? StatementId => _mStatementId.GetValue("statementId");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/eventPermission:EventPermission")]
+    public sealed class EventPermissionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
+        /// </summary>
+        [Input("action")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
+
+        /// <summary>
+        /// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        /// </summary>
+        [Input("condition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventPermissionConditionArgs> _mCondition;
+
+        public Inputs.EventPermissionConditionArgs? Condition => _mCondition.GetValue("condition");
+
+        /// <summary>
+        /// The name of the event bus to set the permissions on.
+        /// If you omit this, the permissions are set on the `default` event bus.
+        /// </summary>
+        [Input("eventBusName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventBusName;
+
+        public string? EventBusName => _mEventBusName.GetValue("eventBusName");
+
+        /// <summary>
+        /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
+        /// </summary>
+        [Input("principal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
+
+        /// <summary>
+        /// An identifier string for the external account that you are granting permissions to.
+        /// </summary>
+        [Input("statementId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatementId;
+
+        public string? StatementId => _mStatementId.GetValue("statementId");
     }
 }

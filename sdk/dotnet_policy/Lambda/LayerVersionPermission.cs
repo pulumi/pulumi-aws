@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/layerVersionPermission:LayerVersionPermission")]
-    public sealed class LayerVersionPermission : global::Pulumi.PolicyResource
+    public sealed class LayerVersionPermission : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
         /// </summary>
         [Input("action")]
-        public string? Action;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
 
         /// <summary>
         /// The name or ARN of the Lambda Layer, which you want to grant access to.
         /// </summary>
         [Input("layerName")]
-        public string? LayerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLayerName;
+
+        public string? LayerName => _mLayerName.GetValue("layerName");
 
         /// <summary>
         /// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
         /// </summary>
         [Input("organizationId")]
-        public string? OrganizationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationId;
+
+        public string? OrganizationId => _mOrganizationId.GetValue("organizationId");
 
         /// <summary>
         /// Full Lambda Layer Permission policy.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
         /// </summary>
         [Input("principal")]
-        public string? Principal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
 
         /// <summary>
         /// A unique identifier for the current revision of the policy.
         /// </summary>
         [Input("revisionId")]
-        public string? RevisionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevisionId;
+
+        public string? RevisionId => _mRevisionId.GetValue("revisionId");
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         /// </summary>
         [Input("skipDestroy")]
-        public bool? SkipDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
 
         /// <summary>
         /// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         /// </summary>
         [Input("statementId")]
-        public string? StatementId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatementId;
+
+        public string? StatementId => _mStatementId.GetValue("statementId");
 
         /// <summary>
         /// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         /// </summary>
         [Input("versionNumber")]
-        public int? VersionNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersionNumber;
+
+        public int? VersionNumber => _mVersionNumber.GetValue("versionNumber");
+    }
+
+    [PolicyResourceType("aws:lambda/layerVersionPermission:LayerVersionPermission")]
+    public sealed class LayerVersionPermissionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
+        /// </summary>
+        [Input("action")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
+
+        public string? Action => _mAction.GetValue("action");
+
+        /// <summary>
+        /// The name or ARN of the Lambda Layer, which you want to grant access to.
+        /// </summary>
+        [Input("layerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLayerName;
+
+        public string? LayerName => _mLayerName.GetValue("layerName");
+
+        /// <summary>
+        /// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+        /// </summary>
+        [Input("organizationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationId;
+
+        public string? OrganizationId => _mOrganizationId.GetValue("organizationId");
+
+        /// <summary>
+        /// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        /// </summary>
+        [Input("principal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
+
+        /// <summary>
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        /// </summary>
+        [Input("skipDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
+
+        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+
+        /// <summary>
+        /// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
+        /// </summary>
+        [Input("statementId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatementId;
+
+        public string? StatementId => _mStatementId.GetValue("statementId");
+
+        /// <summary>
+        /// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
+        /// </summary>
+        [Input("versionNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersionNumber;
+
+        public int? VersionNumber => _mVersionNumber.GetValue("versionNumber");
     }
 }

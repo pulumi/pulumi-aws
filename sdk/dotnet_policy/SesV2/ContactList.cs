@@ -11,10 +11,13 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SesV2
 {
     [PolicyResourceType("aws:sesv2/contactList:ContactList")]
-    public sealed class ContactList : global::Pulumi.PolicyResource
+    public sealed class ContactList : global::Pulumi.PolicyResourceOutput
     {
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the contact list.
@@ -22,39 +25,102 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// The following arguments are optional:
         /// </summary>
         [Input("contactListName")]
-        public string? ContactListName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContactListName;
+
+        public string? ContactListName => _mContactListName.GetValue("contactListName");
 
         /// <summary>
         /// Timestamp noting when the contact list was created in ISO 8601 format.
         /// </summary>
         [Input("createdTimestamp")]
-        public string? CreatedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
+
+        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
 
         /// <summary>
         /// Description of what the contact list is about.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Timestamp noting the last time the contact list was updated in ISO 8601 format.
         /// </summary>
         [Input("lastUpdatedTimestamp")]
-        public string? LastUpdatedTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTimestamp;
+
+        public string? LastUpdatedTimestamp => _mLastUpdatedTimestamp.GetValue("lastUpdatedTimestamp");
 
         /// <summary>
         /// Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block(s) with topic for the contact list. Detailed below.
         /// </summary>
         [Input("topics")]
-        public List<ContactListTopic>? Topics;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ContactListTopic>> _mTopics;
+
+        public List<Outputs.ContactListTopic>? Topics => _mTopics.GetValue("topics");
+    }
+
+    [PolicyResourceType("aws:sesv2/contactList:ContactList")]
+    public sealed class ContactListArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the contact list.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("contactListName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContactListName;
+
+        public string? ContactListName => _mContactListName.GetValue("contactListName");
+
+        /// <summary>
+        /// Description of what the contact list is about.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block(s) with topic for the contact list. Detailed below.
+        /// </summary>
+        [Input("topics")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContactListTopicArgs>> _mTopics;
+
+        public List<Inputs.ContactListTopicArgs>? Topics => _mTopics.GetValue("topics");
     }
 }

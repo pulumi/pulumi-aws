@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GuardDuty
 {
     [PolicyResourceType("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")]
-    public sealed class OrganizationAdminAccount : global::Pulumi.PolicyResource
+    public sealed class OrganizationAdminAccount : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS account identifier to designate as a delegated administrator for GuardDuty.
         /// </summary>
         [Input("adminAccountId")]
-        public string? AdminAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminAccountId;
+
+        public string? AdminAccountId => _mAdminAccountId.GetValue("adminAccountId");
+    }
+
+    [PolicyResourceType("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")]
+    public sealed class OrganizationAdminAccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account identifier to designate as a delegated administrator for GuardDuty.
+        /// </summary>
+        [Input("adminAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAdminAccountId;
+
+        public string? AdminAccountId => _mAdminAccountId.GetValue("adminAccountId");
     }
 }

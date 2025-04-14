@@ -11,21 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.BcmData
 {
     [PolicyResourceType("aws:bcmdata/export:Export")]
-    public sealed class Export : global::Pulumi.PolicyResource
+    public sealed class Export : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         /// </summary>
         [Input("export")]
-        public ExportExport? ExportDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ExportExport> _mExportDetails;
+
+        public Outputs.ExportExport? ExportDetails => _mExportDetails.GetValue("export");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ExportTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ExportTimeouts> _mTimeouts;
+
+        public Outputs.ExportTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:bcmdata/export:Export")]
+    public sealed class ExportArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
+        /// </summary>
+        [Input("export")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ExportExportArgs> _mExportDetails;
+
+        public Inputs.ExportExportArgs? ExportDetails => _mExportDetails.GetValue("export");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ExportTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ExportTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

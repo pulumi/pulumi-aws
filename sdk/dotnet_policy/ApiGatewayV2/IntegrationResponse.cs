@@ -11,42 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
 {
     [PolicyResourceType("aws:apigatewayv2/integrationResponse:IntegrationResponse")]
-    public sealed class IntegrationResponse : global::Pulumi.PolicyResource
+    public sealed class IntegrationResponse : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// API identifier.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         /// </summary>
         [Input("contentHandlingStrategy")]
-        public string? ContentHandlingStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandlingStrategy;
+
+        public string? ContentHandlingStrategy => _mContentHandlingStrategy.GetValue("contentHandlingStrategy");
 
         /// <summary>
         /// Identifier of the `aws.apigatewayv2.Integration`.
         /// </summary>
         [Input("integrationId")]
-        public string? IntegrationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationId;
+
+        public string? IntegrationId => _mIntegrationId.GetValue("integrationId");
 
         /// <summary>
         /// Integration response key.
         /// </summary>
         [Input("integrationResponseKey")]
-        public string? IntegrationResponseKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationResponseKey;
+
+        public string? IntegrationResponseKey => _mIntegrationResponseKey.GetValue("integrationResponseKey");
 
         /// <summary>
         /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         /// </summary>
         [Input("responseTemplates")]
-        public Dictionary<string, string>? ResponseTemplates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
+
+        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
 
         /// <summary>
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         /// </summary>
         [Input("templateSelectionExpression")]
-        public string? TemplateSelectionExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateSelectionExpression;
+
+        public string? TemplateSelectionExpression => _mTemplateSelectionExpression.GetValue("templateSelectionExpression");
+    }
+
+    [PolicyResourceType("aws:apigatewayv2/integrationResponse:IntegrationResponse")]
+    public sealed class IntegrationResponseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// API identifier.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
+        /// </summary>
+        [Input("contentHandlingStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandlingStrategy;
+
+        public string? ContentHandlingStrategy => _mContentHandlingStrategy.GetValue("contentHandlingStrategy");
+
+        /// <summary>
+        /// Identifier of the `aws.apigatewayv2.Integration`.
+        /// </summary>
+        [Input("integrationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationId;
+
+        public string? IntegrationId => _mIntegrationId.GetValue("integrationId");
+
+        /// <summary>
+        /// Integration response key.
+        /// </summary>
+        [Input("integrationResponseKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationResponseKey;
+
+        public string? IntegrationResponseKey => _mIntegrationResponseKey.GetValue("integrationResponseKey");
+
+        /// <summary>
+        /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
+        /// </summary>
+        [Input("responseTemplates")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
+
+        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+
+        /// <summary>
+        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        /// </summary>
+        [Input("templateSelectionExpression")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateSelectionExpression;
+
+        public string? TemplateSelectionExpression => _mTemplateSelectionExpression.GetValue("templateSelectionExpression");
     }
 }

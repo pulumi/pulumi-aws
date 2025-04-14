@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedShift
 {
     [PolicyResourceType("aws:redshift/clusterIamRoles:ClusterIamRoles")]
-    public sealed class ClusterIamRoles : global::Pulumi.PolicyResource
+    public sealed class ClusterIamRoles : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the Redshift Cluster IAM Roles.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Input("defaultIamRoleArn")]
-        public string? DefaultIamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultIamRoleArn;
+
+        public string? DefaultIamRoleArn => _mDefaultIamRoleArn.GetValue("defaultIamRoleArn");
 
         /// <summary>
         /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         /// </summary>
         [Input("iamRoleArns")]
-        public List<string>? IamRoleArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoleArns;
+
+        public List<string>? IamRoleArns => _mIamRoleArns.GetValue("iamRoleArns");
+    }
+
+    [PolicyResourceType("aws:redshift/clusterIamRoles:ClusterIamRoles")]
+    public sealed class ClusterIamRolesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Redshift Cluster IAM Roles.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
+        [Input("defaultIamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultIamRoleArn;
+
+        public string? DefaultIamRoleArn => _mDefaultIamRoleArn.GetValue("defaultIamRoleArn");
+
+        /// <summary>
+        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        /// </summary>
+        [Input("iamRoleArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoleArns;
+
+        public List<string>? IamRoleArns => _mIamRoleArns.GetValue("iamRoleArns");
     }
 }

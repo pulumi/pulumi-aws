@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Efs
 {
     [PolicyResourceType("aws:efs/fileSystem:FileSystem")]
-    public sealed class FileSystem : global::Pulumi.PolicyResource
+    public sealed class FileSystem : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
         /// </summary>
         [Input("availabilityZoneId")]
-        public string? AvailabilityZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
+
+        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
 
         /// <summary>
         /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         /// </summary>
         [Input("availabilityZoneName")]
-        public string? AvailabilityZoneName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneName;
+
+        public string? AvailabilityZoneName => _mAvailabilityZoneName.GetValue("availabilityZoneName");
 
         /// <summary>
         /// A unique name (a maximum of 64 characters are allowed)
@@ -38,90 +47,232 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// user guide for more information.
         /// </summary>
         [Input("creationToken")]
-        public string? CreationToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationToken;
+
+        public string? CreationToken => _mCreationToken.GetValue("creationToken");
 
         /// <summary>
         /// The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
         /// </summary>
         [Input("dnsName")]
-        public string? DnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
+
+        public string? DnsName => _mDnsName.GetValue("dnsName");
 
         /// <summary>
         /// If true, the disk will be encrypted.
         /// </summary>
         [Input("encrypted")]
-        public bool? Encrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
+
+        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         /// </summary>
         [Input("lifecyclePolicies")]
-        public List<FileSystemLifecyclePolicy>? LifecyclePolicies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FileSystemLifecyclePolicy>> _mLifecyclePolicies;
+
+        public List<Outputs.FileSystemLifecyclePolicy>? LifecyclePolicies => _mLifecyclePolicies.GetValue("lifecyclePolicies");
 
         /// <summary>
         /// The value of the file system's `Name` tag.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The current number of mount targets that the file system has.
         /// </summary>
         [Input("numberOfMountTargets")]
-        public int? NumberOfMountTargets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfMountTargets;
+
+        public int? NumberOfMountTargets => _mNumberOfMountTargets.GetValue("numberOfMountTargets");
 
         /// <summary>
         /// The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         /// </summary>
         [Input("performanceMode")]
-        public string? PerformanceMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceMode;
+
+        public string? PerformanceMode => _mPerformanceMode.GetValue("performanceMode");
 
         /// <summary>
         /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         /// </summary>
         [Input("protection")]
-        public FileSystemProtection? Protection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FileSystemProtection> _mProtection;
+
+        public Outputs.FileSystemProtection? Protection => _mProtection.GetValue("protection");
 
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         /// </summary>
         [Input("provisionedThroughputInMibps")]
-        public double? ProvisionedThroughputInMibps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mProvisionedThroughputInMibps;
+
+        public double? ProvisionedThroughputInMibps => _mProvisionedThroughputInMibps.GetValue("provisionedThroughputInMibps");
 
         /// <summary>
         /// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         /// </summary>
         [Input("sizeInBytes")]
-        public List<FileSystemSizeInByte>? SizeInBytes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FileSystemSizeInByte>> _mSizeInBytes;
+
+        public List<Outputs.FileSystemSizeInByte>? SizeInBytes => _mSizeInBytes.GetValue("sizeInBytes");
 
         /// <summary>
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         /// </summary>
         [Input("throughputMode")]
-        public string? ThroughputMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThroughputMode;
+
+        public string? ThroughputMode => _mThroughputMode.GetValue("throughputMode");
+    }
+
+    [PolicyResourceType("aws:efs/fileSystem:FileSystem")]
+    public sealed class FileSystemArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
+        /// </summary>
+        [Input("availabilityZoneName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneName;
+
+        public string? AvailabilityZoneName => _mAvailabilityZoneName.GetValue("availabilityZoneName");
+
+        /// <summary>
+        /// A unique name (a maximum of 64 characters are allowed)
+        /// used as reference when creating the Elastic File System to ensure idempotent file
+        /// system creation. By default generated by this provider. See [Elastic File System]
+        /// user guide for more information.
+        /// </summary>
+        [Input("creationToken")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationToken;
+
+        public string? CreationToken => _mCreationToken.GetValue("creationToken");
+
+        /// <summary>
+        /// If true, the disk will be encrypted.
+        /// </summary>
+        [Input("encrypted")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
+
+        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+
+        /// <summary>
+        /// The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
+        /// </summary>
+        [Input("lifecyclePolicies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FileSystemLifecyclePolicyArgs>> _mLifecyclePolicies;
+
+        public List<Inputs.FileSystemLifecyclePolicyArgs>? LifecyclePolicies => _mLifecyclePolicies.GetValue("lifecyclePolicies");
+
+        /// <summary>
+        /// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
+        /// </summary>
+        [Input("performanceMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceMode;
+
+        public string? PerformanceMode => _mPerformanceMode.GetValue("performanceMode");
+
+        /// <summary>
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+        /// </summary>
+        [Input("protection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FileSystemProtectionArgs> _mProtection;
+
+        public Inputs.FileSystemProtectionArgs? Protection => _mProtection.GetValue("protection");
+
+        /// <summary>
+        /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        /// </summary>
+        [Input("provisionedThroughputInMibps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mProvisionedThroughputInMibps;
+
+        public double? ProvisionedThroughputInMibps => _mProvisionedThroughputInMibps.GetValue("provisionedThroughputInMibps");
+
+        /// <summary>
+        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
+        /// </summary>
+        [Input("throughputMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThroughputMode;
+
+        public string? ThroughputMode => _mThroughputMode.GetValue("throughputMode");
     }
 }

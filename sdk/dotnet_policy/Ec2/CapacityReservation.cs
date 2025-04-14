@@ -11,102 +11,271 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/capacityReservation:CapacityReservation")]
-    public sealed class CapacityReservation : global::Pulumi.PolicyResource
+    public sealed class CapacityReservation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Capacity Reservation.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Availability Zone in which to create the Capacity Reservation.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// Indicates whether the Capacity Reservation supports EBS-optimized instances.
         /// </summary>
         [Input("ebsOptimized")]
-        public bool? EbsOptimized;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
 
         /// <summary>
         /// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
         [Input("endDate")]
-        public string? EndDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
+
+        public string? EndDate => _mEndDate.GetValue("endDate");
 
         /// <summary>
         /// Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
         /// </summary>
         [Input("endDateType")]
-        public string? EndDateType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndDateType;
+
+        public string? EndDateType => _mEndDateType.GetValue("endDateType");
 
         /// <summary>
         /// Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
         /// </summary>
         [Input("ephemeralStorage")]
-        public bool? EphemeralStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEphemeralStorage;
+
+        public bool? EphemeralStorage => _mEphemeralStorage.GetValue("ephemeralStorage");
 
         /// <summary>
         /// The number of instances for which to reserve capacity.
         /// </summary>
         [Input("instanceCount")]
-        public int? InstanceCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
+
+        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
 
         /// <summary>
         /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         /// </summary>
         [Input("instanceMatchCriteria")]
-        public string? InstanceMatchCriteria;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceMatchCriteria;
+
+        public string? InstanceMatchCriteria => _mInstanceMatchCriteria.GetValue("instanceMatchCriteria");
 
         /// <summary>
         /// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         /// </summary>
         [Input("instancePlatform")]
-        public string? InstancePlatform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstancePlatform;
+
+        public string? InstancePlatform => _mInstancePlatform.GetValue("instancePlatform");
 
         /// <summary>
         /// The instance type for which to reserve capacity.
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         /// </summary>
         [Input("outpostArn")]
-        public string? OutpostArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
+
+        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
 
         /// <summary>
         /// The ID of the AWS account that owns the Capacity Reservation.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
         /// </summary>
         [Input("placementGroupArn")]
-        public string? PlacementGroupArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroupArn;
+
+        public string? PlacementGroupArn => _mPlacementGroupArn.GetValue("placementGroupArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         /// </summary>
         [Input("tenancy")]
-        public string? Tenancy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
+
+        public string? Tenancy => _mTenancy.GetValue("tenancy");
+    }
+
+    [PolicyResourceType("aws:ec2/capacityReservation:CapacityReservation")]
+    public sealed class CapacityReservationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Availability Zone in which to create the Capacity Reservation.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// Indicates whether the Capacity Reservation supports EBS-optimized instances.
+        /// </summary>
+        [Input("ebsOptimized")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+
+        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+
+        /// <summary>
+        /// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        /// </summary>
+        [Input("endDate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
+
+        public string? EndDate => _mEndDate.GetValue("endDate");
+
+        /// <summary>
+        /// Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
+        /// </summary>
+        [Input("endDateType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndDateType;
+
+        public string? EndDateType => _mEndDateType.GetValue("endDateType");
+
+        /// <summary>
+        /// Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
+        /// </summary>
+        [Input("ephemeralStorage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEphemeralStorage;
+
+        public bool? EphemeralStorage => _mEphemeralStorage.GetValue("ephemeralStorage");
+
+        /// <summary>
+        /// The number of instances for which to reserve capacity.
+        /// </summary>
+        [Input("instanceCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
+
+        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+
+        /// <summary>
+        /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
+        /// </summary>
+        [Input("instanceMatchCriteria")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceMatchCriteria;
+
+        public string? InstanceMatchCriteria => _mInstanceMatchCriteria.GetValue("instanceMatchCriteria");
+
+        /// <summary>
+        /// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
+        /// </summary>
+        [Input("instancePlatform")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstancePlatform;
+
+        public string? InstancePlatform => _mInstancePlatform.GetValue("instancePlatform");
+
+        /// <summary>
+        /// The instance type for which to reserve capacity.
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// </summary>
+        [Input("outpostArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
+
+        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        /// </summary>
+        [Input("placementGroupArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroupArn;
+
+        public string? PlacementGroupArn => _mPlacementGroupArn.GetValue("placementGroupArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
+        /// </summary>
+        [Input("tenancy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
+
+        public string? Tenancy => _mTenancy.GetValue("tenancy");
     }
 }

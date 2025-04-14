@@ -11,48 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/selection:Selection")]
-    public sealed class Selection : global::Pulumi.PolicyResource
+    public sealed class Selection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
         /// </summary>
         [Input("conditions")]
-        public List<SelectionCondition>? Conditions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SelectionCondition>> _mConditions;
+
+        public List<Outputs.SelectionCondition>? Conditions => _mConditions.GetValue("conditions");
 
         /// <summary>
         /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// The display name of a resource selection document.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         /// </summary>
         [Input("notResources")]
-        public List<string>? NotResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotResources;
+
+        public List<string>? NotResources => _mNotResources.GetValue("notResources");
 
         /// <summary>
         /// The backup plan ID to be associated with the selection of resources.
         /// </summary>
         [Input("planId")]
-        public string? PlanId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlanId;
+
+        public string? PlanId => _mPlanId.GetValue("planId");
 
         /// <summary>
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         /// </summary>
         [Input("resources")]
-        public List<string>? Resources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
+
+        public List<string>? Resources => _mResources.GetValue("resources");
 
         /// <summary>
         /// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         /// </summary>
         [Input("selectionTags")]
-        public List<SelectionSelectionTag>? SelectionTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SelectionSelectionTag>> _mSelectionTags;
+
+        public List<Outputs.SelectionSelectionTag>? SelectionTags => _mSelectionTags.GetValue("selectionTags");
+    }
+
+    [PolicyResourceType("aws:backup/selection:Selection")]
+    public sealed class SelectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Condition-based filters used to specify sets of resources for a backup plan. See below for details.
+        /// </summary>
+        [Input("conditions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SelectionConditionArgs>> _mConditions;
+
+        public List<Inputs.SelectionConditionArgs>? Conditions => _mConditions.GetValue("conditions");
+
+        /// <summary>
+        /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// The display name of a resource selection document.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// </summary>
+        [Input("notResources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotResources;
+
+        public List<string>? NotResources => _mNotResources.GetValue("notResources");
+
+        /// <summary>
+        /// The backup plan ID to be associated with the selection of resources.
+        /// </summary>
+        [Input("planId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlanId;
+
+        public string? PlanId => _mPlanId.GetValue("planId");
+
+        /// <summary>
+        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+        /// </summary>
+        [Input("resources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
+
+        public List<string>? Resources => _mResources.GetValue("resources");
+
+        /// <summary>
+        /// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
+        /// </summary>
+        [Input("selectionTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SelectionSelectionTagArgs>> _mSelectionTags;
+
+        public List<Inputs.SelectionSelectionTagArgs>? SelectionTags => _mSelectionTags.GetValue("selectionTags");
     }
 }

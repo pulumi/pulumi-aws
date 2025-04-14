@@ -11,84 +11,244 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Account
 {
     [PolicyResourceType("aws:account/primaryContact:PrimaryContact")]
-    public sealed class PrimaryContact : global::Pulumi.PolicyResource
+    public sealed class PrimaryContact : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The first line of the primary contact address.
         /// </summary>
         [Input("addressLine1")]
-        public string? AddressLine1;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressLine1;
+
+        public string? AddressLine1 => _mAddressLine1.GetValue("addressLine1");
 
         /// <summary>
         /// The second line of the primary contact address, if any.
         /// </summary>
         [Input("addressLine2")]
-        public string? AddressLine2;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressLine2;
+
+        public string? AddressLine2 => _mAddressLine2.GetValue("addressLine2");
 
         /// <summary>
         /// The third line of the primary contact address, if any.
         /// </summary>
         [Input("addressLine3")]
-        public string? AddressLine3;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressLine3;
+
+        public string? AddressLine3 => _mAddressLine3.GetValue("addressLine3");
 
         /// <summary>
         /// The city of the primary contact address.
         /// </summary>
         [Input("city")]
-        public string? City;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCity;
+
+        public string? City => _mCity.GetValue("city");
 
         /// <summary>
         /// The name of the company associated with the primary contact information, if any.
         /// </summary>
         [Input("companyName")]
-        public string? CompanyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCompanyName;
+
+        public string? CompanyName => _mCompanyName.GetValue("companyName");
 
         /// <summary>
         /// The ISO-3166 two-letter country code for the primary contact address.
         /// </summary>
         [Input("countryCode")]
-        public string? CountryCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCountryCode;
+
+        public string? CountryCode => _mCountryCode.GetValue("countryCode");
 
         /// <summary>
         /// The district or county of the primary contact address, if any.
         /// </summary>
         [Input("districtOrCounty")]
-        public string? DistrictOrCounty;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistrictOrCounty;
+
+        public string? DistrictOrCounty => _mDistrictOrCounty.GetValue("districtOrCounty");
 
         /// <summary>
         /// The full name of the primary contact address.
         /// </summary>
         [Input("fullName")]
-        public string? FullName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFullName;
+
+        public string? FullName => _mFullName.GetValue("fullName");
 
         /// <summary>
         /// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
         /// </summary>
         [Input("phoneNumber")]
-        public string? PhoneNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
+
+        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
 
         /// <summary>
         /// The postal code of the primary contact address.
         /// </summary>
         [Input("postalCode")]
-        public string? PostalCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPostalCode;
+
+        public string? PostalCode => _mPostalCode.GetValue("postalCode");
 
         /// <summary>
         /// The state or region of the primary contact address. This field is required in selected countries.
         /// </summary>
         [Input("stateOrRegion")]
-        public string? StateOrRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStateOrRegion;
+
+        public string? StateOrRegion => _mStateOrRegion.GetValue("stateOrRegion");
 
         /// <summary>
         /// The URL of the website associated with the primary contact information, if any.
         /// </summary>
         [Input("websiteUrl")]
-        public string? WebsiteUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteUrl;
+
+        public string? WebsiteUrl => _mWebsiteUrl.GetValue("websiteUrl");
+    }
+
+    [PolicyResourceType("aws:account/primaryContact:PrimaryContact")]
+    public sealed class PrimaryContactArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The first line of the primary contact address.
+        /// </summary>
+        [Input("addressLine1")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressLine1;
+
+        public string? AddressLine1 => _mAddressLine1.GetValue("addressLine1");
+
+        /// <summary>
+        /// The second line of the primary contact address, if any.
+        /// </summary>
+        [Input("addressLine2")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressLine2;
+
+        public string? AddressLine2 => _mAddressLine2.GetValue("addressLine2");
+
+        /// <summary>
+        /// The third line of the primary contact address, if any.
+        /// </summary>
+        [Input("addressLine3")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressLine3;
+
+        public string? AddressLine3 => _mAddressLine3.GetValue("addressLine3");
+
+        /// <summary>
+        /// The city of the primary contact address.
+        /// </summary>
+        [Input("city")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCity;
+
+        public string? City => _mCity.GetValue("city");
+
+        /// <summary>
+        /// The name of the company associated with the primary contact information, if any.
+        /// </summary>
+        [Input("companyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCompanyName;
+
+        public string? CompanyName => _mCompanyName.GetValue("companyName");
+
+        /// <summary>
+        /// The ISO-3166 two-letter country code for the primary contact address.
+        /// </summary>
+        [Input("countryCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCountryCode;
+
+        public string? CountryCode => _mCountryCode.GetValue("countryCode");
+
+        /// <summary>
+        /// The district or county of the primary contact address, if any.
+        /// </summary>
+        [Input("districtOrCounty")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDistrictOrCounty;
+
+        public string? DistrictOrCounty => _mDistrictOrCounty.GetValue("districtOrCounty");
+
+        /// <summary>
+        /// The full name of the primary contact address.
+        /// </summary>
+        [Input("fullName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFullName;
+
+        public string? FullName => _mFullName.GetValue("fullName");
+
+        /// <summary>
+        /// The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
+        /// </summary>
+        [Input("phoneNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
+
+        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+
+        /// <summary>
+        /// The postal code of the primary contact address.
+        /// </summary>
+        [Input("postalCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPostalCode;
+
+        public string? PostalCode => _mPostalCode.GetValue("postalCode");
+
+        /// <summary>
+        /// The state or region of the primary contact address. This field is required in selected countries.
+        /// </summary>
+        [Input("stateOrRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStateOrRegion;
+
+        public string? StateOrRegion => _mStateOrRegion.GetValue("stateOrRegion");
+
+        /// <summary>
+        /// The URL of the website associated with the primary contact information, if any.
+        /// </summary>
+        [Input("websiteUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteUrl;
+
+        public string? WebsiteUrl => _mWebsiteUrl.GetValue("websiteUrl");
     }
 }

@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/integrationResponse:IntegrationResponse")]
-    public sealed class IntegrationResponse : global::Pulumi.PolicyResource
+    public sealed class IntegrationResponse : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         /// </summary>
         [Input("contentHandling")]
-        public string? ContentHandling;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandling;
+
+        public string? ContentHandling => _mContentHandling.GetValue("contentHandling");
 
         /// <summary>
         /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
         [Input("httpMethod")]
-        public string? HttpMethod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
+
+        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
 
         /// <summary>
         /// API resource ID.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
         [Input("responseParameters")]
-        public Dictionary<string, string>? ResponseParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseParameters;
+
+        public Dictionary<string, string>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
 
         /// <summary>
         /// Map of templates used to transform the integration response body.
         /// </summary>
         [Input("responseTemplates")]
-        public Dictionary<string, string>? ResponseTemplates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
+
+        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
 
         /// <summary>
         /// ID of the associated REST API.
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         /// </summary>
         [Input("selectionPattern")]
-        public string? SelectionPattern;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionPattern;
+
+        public string? SelectionPattern => _mSelectionPattern.GetValue("selectionPattern");
 
         /// <summary>
         /// HTTP status code.
@@ -61,6 +82,87 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// The following arguments are optional:
         /// </summary>
         [Input("statusCode")]
-        public string? StatusCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
+
+        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+    }
+
+    [PolicyResourceType("aws:apigateway/integrationResponse:IntegrationResponse")]
+    public sealed class IntegrationResponseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        /// </summary>
+        [Input("contentHandling")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandling;
+
+        public string? ContentHandling => _mContentHandling.GetValue("contentHandling");
+
+        /// <summary>
+        /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        /// </summary>
+        [Input("httpMethod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
+
+        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+
+        /// <summary>
+        /// API resource ID.
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
+
+        /// <summary>
+        /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
+        /// </summary>
+        [Input("responseParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseParameters;
+
+        public Dictionary<string, string>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+
+        /// <summary>
+        /// Map of templates used to transform the integration response body.
+        /// </summary>
+        [Input("responseTemplates")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
+
+        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+
+        /// <summary>
+        /// ID of the associated REST API.
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
+        /// </summary>
+        [Input("selectionPattern")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionPattern;
+
+        public string? SelectionPattern => _mSelectionPattern.GetValue("selectionPattern");
+
+        /// <summary>
+        /// HTTP status code.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("statusCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
+
+        public string? StatusCode => _mStatusCode.GetValue("statusCode");
     }
 }

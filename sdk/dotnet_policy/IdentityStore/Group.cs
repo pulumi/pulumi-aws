@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.IdentityStore
 {
     [PolicyResourceType("aws:identitystore/group:Group")]
-    public sealed class Group : global::Pulumi.PolicyResource
+    public sealed class Group : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A string containing the description of the group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A string containing the name of the group. This value is commonly displayed when the group is referenced.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
         /// </summary>
         [Input("externalIds")]
-        public List<GroupExternalId>? ExternalIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupExternalId>> _mExternalIds;
+
+        public List<Outputs.GroupExternalId>? ExternalIds => _mExternalIds.GetValue("externalIds");
 
         /// <summary>
         /// The identifier of the newly created group in the identity store.
         /// </summary>
         [Input("groupId")]
-        public string? GroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
+
+        public string? GroupId => _mGroupId.GetValue("groupId");
 
         /// <summary>
         /// The globally unique identifier for the identity store.
@@ -43,6 +55,42 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore
         /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId")]
-        public string? IdentityStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
+
+        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+    }
+
+    [PolicyResourceType("aws:identitystore/group:Group")]
+    public sealed class GroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A string containing the description of the group.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A string containing the name of the group. This value is commonly displayed when the group is referenced.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// The globally unique identifier for the identity store.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("identityStoreId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
+
+        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
     }
 }

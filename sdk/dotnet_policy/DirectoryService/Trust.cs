@@ -11,44 +11,62 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectoryService
 {
     [PolicyResourceType("aws:directoryservice/trust:Trust")]
-    public sealed class Trust : global::Pulumi.PolicyResource
+    public sealed class Trust : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Set of IPv4 addresses for the DNS server associated with the remote Directory.
         /// Can contain between 1 and 4 values.
         /// </summary>
         [Input("conditionalForwarderIpAddrs")]
-        public List<string>? ConditionalForwarderIpAddrs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConditionalForwarderIpAddrs;
+
+        public List<string>? ConditionalForwarderIpAddrs => _mConditionalForwarderIpAddrs.GetValue("conditionalForwarderIpAddrs");
 
         /// <summary>
         /// Date and time when the Trust was created.
         /// </summary>
         [Input("createdDateTime")]
-        public string? CreatedDateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDateTime;
+
+        public string? CreatedDateTime => _mCreatedDateTime.GetValue("createdDateTime");
 
         /// <summary>
         /// Whether to delete the conditional forwarder when deleting the Trust relationship.
         /// </summary>
         [Input("deleteAssociatedConditionalForwarder")]
-        public bool? DeleteAssociatedConditionalForwarder;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAssociatedConditionalForwarder;
+
+        public bool? DeleteAssociatedConditionalForwarder => _mDeleteAssociatedConditionalForwarder.GetValue("deleteAssociatedConditionalForwarder");
 
         /// <summary>
         /// ID of the Directory.
         /// </summary>
         [Input("directoryId")]
-        public string? DirectoryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
 
         /// <summary>
         /// Date and time when the Trust was last updated.
         /// </summary>
         [Input("lastUpdatedDateTime")]
-        public string? LastUpdatedDateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDateTime;
+
+        public string? LastUpdatedDateTime => _mLastUpdatedDateTime.GetValue("lastUpdatedDateTime");
 
         /// <summary>
         /// Fully qualified domain name of the remote Directory.
         /// </summary>
         [Input("remoteDomainName")]
-        public string? RemoteDomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteDomainName;
+
+        public string? RemoteDomainName => _mRemoteDomainName.GetValue("remoteDomainName");
 
         /// <summary>
         /// Whether to enable selective authentication.
@@ -56,20 +74,29 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// Default value is `Disabled`.
         /// </summary>
         [Input("selectiveAuth")]
-        public string? SelectiveAuth;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelectiveAuth;
+
+        public string? SelectiveAuth => _mSelectiveAuth.GetValue("selectiveAuth");
 
         /// <summary>
         /// Date and time when the Trust state in `trust_state` was last updated.
         /// </summary>
         [Input("stateLastUpdatedDateTime")]
-        public string? StateLastUpdatedDateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStateLastUpdatedDateTime;
+
+        public string? StateLastUpdatedDateTime => _mStateLastUpdatedDateTime.GetValue("stateLastUpdatedDateTime");
 
         /// <summary>
         /// The direction of the Trust relationship.
         /// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
         /// </summary>
         [Input("trustDirection")]
-        public string? TrustDirection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustDirection;
+
+        public string? TrustDirection => _mTrustDirection.GetValue("trustDirection");
 
         /// <summary>
         /// Password for the Trust.
@@ -78,20 +105,29 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// May be up to 128 characters long.
         /// </summary>
         [Input("trustPassword")]
-        public string? TrustPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustPassword;
+
+        public string? TrustPassword => _mTrustPassword.GetValue("trustPassword");
 
         /// <summary>
         /// State of the Trust relationship.
         /// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
         /// </summary>
         [Input("trustState")]
-        public string? Truststate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTruststate;
+
+        public string? Truststate => _mTruststate.GetValue("trustState");
 
         /// <summary>
         /// Reason for the Trust state set in `trust_state`.
         /// </summary>
         [Input("trustStateReason")]
-        public string? TrustStateReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustStateReason;
+
+        public string? TrustStateReason => _mTrustStateReason.GetValue("trustStateReason");
 
         /// <summary>
         /// Type of the Trust relationship.
@@ -99,6 +135,94 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// Default value is `Forest`.
         /// </summary>
         [Input("trustType")]
-        public string? TrustType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustType;
+
+        public string? TrustType => _mTrustType.GetValue("trustType");
+    }
+
+    [PolicyResourceType("aws:directoryservice/trust:Trust")]
+    public sealed class TrustArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set of IPv4 addresses for the DNS server associated with the remote Directory.
+        /// Can contain between 1 and 4 values.
+        /// </summary>
+        [Input("conditionalForwarderIpAddrs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConditionalForwarderIpAddrs;
+
+        public List<string>? ConditionalForwarderIpAddrs => _mConditionalForwarderIpAddrs.GetValue("conditionalForwarderIpAddrs");
+
+        /// <summary>
+        /// Whether to delete the conditional forwarder when deleting the Trust relationship.
+        /// </summary>
+        [Input("deleteAssociatedConditionalForwarder")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAssociatedConditionalForwarder;
+
+        public bool? DeleteAssociatedConditionalForwarder => _mDeleteAssociatedConditionalForwarder.GetValue("deleteAssociatedConditionalForwarder");
+
+        /// <summary>
+        /// ID of the Directory.
+        /// </summary>
+        [Input("directoryId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
+
+        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+
+        /// <summary>
+        /// Fully qualified domain name of the remote Directory.
+        /// </summary>
+        [Input("remoteDomainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteDomainName;
+
+        public string? RemoteDomainName => _mRemoteDomainName.GetValue("remoteDomainName");
+
+        /// <summary>
+        /// Whether to enable selective authentication.
+        /// Valid values are `Enabled` and `Disabled`.
+        /// Default value is `Disabled`.
+        /// </summary>
+        [Input("selectiveAuth")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelectiveAuth;
+
+        public string? SelectiveAuth => _mSelectiveAuth.GetValue("selectiveAuth");
+
+        /// <summary>
+        /// The direction of the Trust relationship.
+        /// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
+        /// </summary>
+        [Input("trustDirection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustDirection;
+
+        public string? TrustDirection => _mTrustDirection.GetValue("trustDirection");
+
+        /// <summary>
+        /// Password for the Trust.
+        /// Does not need to match the passwords for either Directory.
+        /// Can contain upper- and lower-case letters, numbers, and punctuation characters.
+        /// May be up to 128 characters long.
+        /// </summary>
+        [Input("trustPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustPassword;
+
+        public string? TrustPassword => _mTrustPassword.GetValue("trustPassword");
+
+        /// <summary>
+        /// Type of the Trust relationship.
+        /// Valid values are `Forest` and `External`.
+        /// Default value is `Forest`.
+        /// </summary>
+        [Input("trustType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustType;
+
+        public string? TrustType => _mTrustType.GetValue("trustType");
     }
 }

@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafRegional
 {
     [PolicyResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]
-    public sealed class WebAclAssociation : global::Pulumi.PolicyResource
+    public sealed class WebAclAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The ID of the WAF Regional WebACL to create an association.
         /// </summary>
         [Input("webAclId")]
-        public string? WebAclId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclId;
+
+        public string? WebAclId => _mWebAclId.GetValue("webAclId");
+    }
+
+    [PolicyResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]
+    public sealed class WebAclAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+
+        /// <summary>
+        /// The ID of the WAF Regional WebACL to create an association.
+        /// </summary>
+        [Input("webAclId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclId;
+
+        public string? WebAclId => _mWebAclId.GetValue("webAclId");
     }
 }

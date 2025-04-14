@@ -11,48 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Msk
 {
     [PolicyResourceType("aws:msk/serverlessCluster:ServerlessCluster")]
-    public sealed class ServerlessCluster : global::Pulumi.PolicyResource
+    public sealed class ServerlessCluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the serverless cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies client authentication information for the serverless cluster. See below.
         /// </summary>
         [Input("clientAuthentication")]
-        public ServerlessClusterClientAuthentication? ClientAuthentication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessClusterClientAuthentication> _mClientAuthentication;
+
+        public Outputs.ServerlessClusterClientAuthentication? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
 
         /// <summary>
         /// The name of the serverless cluster.
         /// </summary>
         [Input("clusterName")]
-        public string? ClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
 
         /// <summary>
         /// UUID of the serverless cluster, for use in IAM policies.
         /// </summary>
         [Input("clusterUuid")]
-        public string? ClusterUuid;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterUuid;
+
+        public string? ClusterUuid => _mClusterUuid.GetValue("clusterUuid");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// VPC configuration information. See below.
         /// </summary>
         [Input("vpcConfigs")]
-        public List<ServerlessClusterVpcConfig>? VpcConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServerlessClusterVpcConfig>> _mVpcConfigs;
+
+        public List<Outputs.ServerlessClusterVpcConfig>? VpcConfigs => _mVpcConfigs.GetValue("vpcConfigs");
+    }
+
+    [PolicyResourceType("aws:msk/serverlessCluster:ServerlessCluster")]
+    public sealed class ServerlessClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies client authentication information for the serverless cluster. See below.
+        /// </summary>
+        [Input("clientAuthentication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessClusterClientAuthenticationArgs> _mClientAuthentication;
+
+        public Inputs.ServerlessClusterClientAuthenticationArgs? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
+
+        /// <summary>
+        /// The name of the serverless cluster.
+        /// </summary>
+        [Input("clusterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// VPC configuration information. See below.
+        /// </summary>
+        [Input("vpcConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServerlessClusterVpcConfigArgs>> _mVpcConfigs;
+
+        public List<Inputs.ServerlessClusterVpcConfigArgs>? VpcConfigs => _mVpcConfigs.GetValue("vpcConfigs");
     }
 }

@@ -11,48 +11,112 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/lbCertificate:LbCertificate")]
-    public sealed class LbCertificate : global::Pulumi.PolicyResource
+    public sealed class LbCertificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the lightsail certificate.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The domain name (e.g., example.com) for your SSL/TLS certificate.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         [Input("domainValidationRecords")]
-        public List<LbCertificateDomainValidationRecord>? DomainValidationRecords;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LbCertificateDomainValidationRecord>> _mDomainValidationRecords;
+
+        public List<Outputs.LbCertificateDomainValidationRecord>? DomainValidationRecords => _mDomainValidationRecords.GetValue("domainValidationRecords");
 
         /// <summary>
         /// The load balancer name where you want to create the SSL/TLS certificate.
         /// </summary>
         [Input("lbName")]
-        public string? LbName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
 
         /// <summary>
         /// The SSL/TLS certificate name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         /// </summary>
         [Input("subjectAlternativeNames")]
-        public List<string>? SubjectAlternativeNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubjectAlternativeNames;
+
+        public List<string>? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
 
         [Input("supportCode")]
-        public string? SupportCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
+
+        public string? SupportCode => _mSupportCode.GetValue("supportCode");
+    }
+
+    [PolicyResourceType("aws:lightsail/lbCertificate:LbCertificate")]
+    public sealed class LbCertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The domain name (e.g., example.com) for your SSL/TLS certificate.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// The load balancer name where you want to create the SSL/TLS certificate.
+        /// </summary>
+        [Input("lbName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
+
+        public string? LbName => _mLbName.GetValue("lbName");
+
+        /// <summary>
+        /// The SSL/TLS certificate name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
+        /// </summary>
+        [Input("subjectAlternativeNames")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubjectAlternativeNames;
+
+        public List<string>? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
     }
 }

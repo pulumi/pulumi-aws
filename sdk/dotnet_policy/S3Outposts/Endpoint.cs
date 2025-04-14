@@ -11,60 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Outposts
 {
     [PolicyResourceType("aws:s3outposts/endpoint:Endpoint")]
-    public sealed class Endpoint : global::Pulumi.PolicyResource
+    public sealed class Endpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         /// </summary>
         [Input("accessType")]
-        public string? AccessType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessType;
+
+        public string? AccessType => _mAccessType.GetValue("accessType");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the endpoint.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// VPC CIDR block of the endpoint.
         /// </summary>
         [Input("cidrBlock")]
-        public string? CidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+
+        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
 
         /// <summary>
         /// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("creationTime")]
-        public string? CreationTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
+
+        public string? CreationTime => _mCreationTime.GetValue("creationTime");
 
         /// <summary>
         /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         /// </summary>
         [Input("customerOwnedIpv4Pool")]
-        public string? CustomerOwnedIpv4Pool;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
+
+        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
 
         /// <summary>
         /// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         /// </summary>
         [Input("networkInterfaces")]
-        public List<EndpointNetworkInterface>? NetworkInterfaces;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointNetworkInterface>> _mNetworkInterfaces;
+
+        public List<Outputs.EndpointNetworkInterface>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
 
         /// <summary>
         /// Identifier of the Outpost to contain this endpoint.
         /// </summary>
         [Input("outpostId")]
-        public string? OutpostId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
+
+        public string? OutpostId => _mOutpostId.GetValue("outpostId");
 
         /// <summary>
         /// Identifier of the EC2 Security Group.
         /// </summary>
         [Input("securityGroupId")]
-        public string? SecurityGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
 
         /// <summary>
         /// Identifier of the EC2 Subnet.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+    }
+
+    [PolicyResourceType("aws:s3outposts/endpoint:Endpoint")]
+    public sealed class EndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        /// </summary>
+        [Input("accessType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessType;
+
+        public string? AccessType => _mAccessType.GetValue("accessType");
+
+        /// <summary>
+        /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
+
+        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+
+        /// <summary>
+        /// Identifier of the Outpost to contain this endpoint.
+        /// </summary>
+        [Input("outpostId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
+
+        public string? OutpostId => _mOutpostId.GetValue("outpostId");
+
+        /// <summary>
+        /// Identifier of the EC2 Security Group.
+        /// </summary>
+        [Input("securityGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
+
+        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+
+        /// <summary>
+        /// Identifier of the EC2 Subnet.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
     }
 }

@@ -11,40 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/originAccessIdentity:OriginAccessIdentity")]
-    public sealed class OriginAccessIdentity : global::Pulumi.PolicyResource
+    public sealed class OriginAccessIdentity : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The origin access identity ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Internal value used by CloudFront to allow future
         /// updates to the origin access identity.
         /// </summary>
         [Input("callerReference")]
-        public string? CallerReference;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCallerReference;
+
+        public string? CallerReference => _mCallerReference.GetValue("callerReference");
 
         /// <summary>
         /// A shortcut to the full path for the
         /// origin access identity to use in CloudFront, see below.
         /// </summary>
         [Input("cloudfrontAccessIdentityPath")]
-        public string? CloudfrontAccessIdentityPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontAccessIdentityPath;
+
+        public string? CloudfrontAccessIdentityPath => _mCloudfrontAccessIdentityPath.GetValue("cloudfrontAccessIdentityPath");
 
         /// <summary>
         /// An optional comment for the origin access identity.
         /// </summary>
         [Input("comment")]
-        public string? Comment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
 
         /// <summary>
         /// The current version of the origin access identity's information.
         /// For example: `E2QWRUHAPOMQZL`.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         /// <summary>
         /// A pre-generated ARN for use in S3 bucket policies (see below).
@@ -52,7 +67,10 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// E2QWRUHAPOMQZL`.
         /// </summary>
         [Input("iamArn")]
-        public string? IamArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamArn;
+
+        public string? IamArn => _mIamArn.GetValue("iamArn");
 
         /// <summary>
         /// The Amazon S3 canonical user ID for the origin
@@ -60,6 +78,22 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// permission to an object in Amazon S3.
         /// </summary>
         [Input("s3CanonicalUserId")]
-        public string? S3CanonicalUserId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3CanonicalUserId;
+
+        public string? S3CanonicalUserId => _mS3CanonicalUserId.GetValue("s3CanonicalUserId");
+    }
+
+    [PolicyResourceType("aws:cloudfront/originAccessIdentity:OriginAccessIdentity")]
+    public sealed class OriginAccessIdentityArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An optional comment for the origin access identity.
+        /// </summary>
+        [Input("comment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
+
+        public string? Comment => _mComment.GetValue("comment");
     }
 }

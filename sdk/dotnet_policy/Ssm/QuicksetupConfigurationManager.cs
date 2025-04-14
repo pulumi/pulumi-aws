@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ssm
 {
     [PolicyResourceType("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager")]
-    public sealed class QuicksetupConfigurationManager : global::Pulumi.PolicyResource
+    public sealed class QuicksetupConfigurationManager : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         /// </summary>
         [Input("configurationDefinition")]
-        public QuicksetupConfigurationManagerConfigurationDefinition? ConfigurationDefinition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.QuicksetupConfigurationManagerConfigurationDefinition> _mConfigurationDefinition;
+
+        public Outputs.QuicksetupConfigurationManagerConfigurationDefinition? ConfigurationDefinition => _mConfigurationDefinition.GetValue("configurationDefinition");
 
         /// <summary>
         /// Description of the configuration manager.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// ARN of the Configuration Manager.
         /// </summary>
         [Input("managerArn")]
-        public string? ManagerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManagerArn;
+
+        public string? ManagerArn => _mManagerArn.GetValue("managerArn");
 
         /// <summary>
         /// Configuration manager name.
@@ -37,27 +46,90 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
         /// </summary>
         [Input("statusSummaries")]
-        public List<QuicksetupConfigurationManagerStatusSummary>? StatusSummaries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.QuicksetupConfigurationManagerStatusSummary>> _mStatusSummaries;
+
+        public List<Outputs.QuicksetupConfigurationManagerStatusSummary>? StatusSummaries => _mStatusSummaries.GetValue("statusSummaries");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public QuicksetupConfigurationManagerTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.QuicksetupConfigurationManagerTimeouts> _mTimeouts;
+
+        public Outputs.QuicksetupConfigurationManagerTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager")]
+    public sealed class QuicksetupConfigurationManagerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
+        /// </summary>
+        [Input("configurationDefinition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs> _mConfigurationDefinition;
+
+        public Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs? ConfigurationDefinition => _mConfigurationDefinition.GetValue("configurationDefinition");
+
+        /// <summary>
+        /// Description of the configuration manager.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Configuration manager name.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.QuicksetupConfigurationManagerTimeoutsArgs> _mTimeouts;
+
+        public Inputs.QuicksetupConfigurationManagerTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

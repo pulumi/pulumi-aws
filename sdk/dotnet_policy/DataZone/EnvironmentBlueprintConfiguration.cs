@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataZone
 {
     [PolicyResourceType("aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration")]
-    public sealed class EnvironmentBlueprintConfiguration : global::Pulumi.PolicyResource
+    public sealed class EnvironmentBlueprintConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the Domain.
         /// </summary>
         [Input("domainId")]
-        public string? DomainId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
 
         /// <summary>
         /// Regions in which the blueprint is enabled
@@ -25,30 +28,105 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// The following arguments are optional:
         /// </summary>
         [Input("enabledRegions")]
-        public List<string>? EnabledRegions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledRegions;
+
+        public List<string>? EnabledRegions => _mEnabledRegions.GetValue("enabledRegions");
 
         /// <summary>
         /// ID of the Environment Blueprint
         /// </summary>
         [Input("environmentBlueprintId")]
-        public string? EnvironmentBlueprintId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentBlueprintId;
+
+        public string? EnvironmentBlueprintId => _mEnvironmentBlueprintId.GetValue("environmentBlueprintId");
 
         /// <summary>
         /// ARN of the manage access role with which this blueprint is created.
         /// </summary>
         [Input("manageAccessRoleArn")]
-        public string? ManageAccessRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManageAccessRoleArn;
+
+        public string? ManageAccessRoleArn => _mManageAccessRoleArn.GetValue("manageAccessRoleArn");
 
         /// <summary>
         /// ARN of the provisioning role with which this blueprint is created.
         /// </summary>
         [Input("provisioningRoleArn")]
-        public string? ProvisioningRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningRoleArn;
+
+        public string? ProvisioningRoleArn => _mProvisioningRoleArn.GetValue("provisioningRoleArn");
 
         /// <summary>
         /// Parameters for each region in which the blueprint is enabled
         /// </summary>
         [Input("regionalParameters")]
-        public Dictionary<string, ImmutableDictionary<string, string>>? RegionalParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Dictionary<string, string>>> _mRegionalParameters;
+
+        public Dictionary<string, Dictionary<string, string>>? RegionalParameters => _mRegionalParameters.GetValue("regionalParameters");
+    }
+
+    [PolicyResourceType("aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration")]
+    public sealed class EnvironmentBlueprintConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the Domain.
+        /// </summary>
+        [Input("domainId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
+
+        public string? DomainId => _mDomainId.GetValue("domainId");
+
+        /// <summary>
+        /// Regions in which the blueprint is enabled
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("enabledRegions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledRegions;
+
+        public List<string>? EnabledRegions => _mEnabledRegions.GetValue("enabledRegions");
+
+        /// <summary>
+        /// ID of the Environment Blueprint
+        /// </summary>
+        [Input("environmentBlueprintId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentBlueprintId;
+
+        public string? EnvironmentBlueprintId => _mEnvironmentBlueprintId.GetValue("environmentBlueprintId");
+
+        /// <summary>
+        /// ARN of the manage access role with which this blueprint is created.
+        /// </summary>
+        [Input("manageAccessRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManageAccessRoleArn;
+
+        public string? ManageAccessRoleArn => _mManageAccessRoleArn.GetValue("manageAccessRoleArn");
+
+        /// <summary>
+        /// ARN of the provisioning role with which this blueprint is created.
+        /// </summary>
+        [Input("provisioningRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningRoleArn;
+
+        public string? ProvisioningRoleArn => _mProvisioningRoleArn.GetValue("provisioningRoleArn");
+
+        /// <summary>
+        /// Parameters for each region in which the blueprint is enabled
+        /// </summary>
+        [Input("regionalParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Dictionary<string, string>>> _mRegionalParameters;
+
+        public Dictionary<string, Dictionary<string, string>>? RegionalParameters => _mRegionalParameters.GetValue("regionalParameters");
     }
 }

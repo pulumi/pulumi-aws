@@ -11,73 +11,201 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
 {
     [PolicyResourceType("aws:globalaccelerator/endpointGroup:EndpointGroup")]
-    public sealed class EndpointGroup : global::Pulumi.PolicyResource
+    public sealed class EndpointGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The list of endpoint objects. Fields documented below.
         /// </summary>
         [Input("endpointConfigurations")]
-        public List<EndpointGroupEndpointConfiguration>? EndpointConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointGroupEndpointConfiguration>> _mEndpointConfigurations;
+
+        public List<Outputs.EndpointGroupEndpointConfiguration>? EndpointConfigurations => _mEndpointConfigurations.GetValue("endpointConfigurations");
 
         /// <summary>
         /// The name of the AWS Region where the endpoint group is located.
         /// </summary>
         [Input("endpointGroupRegion")]
-        public string? EndpointGroupRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointGroupRegion;
+
+        public string? EndpointGroupRegion => _mEndpointGroupRegion.GetValue("endpointGroupRegion");
 
         /// <summary>
         /// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
         /// </summary>
         [Input("healthCheckIntervalSeconds")]
-        public int? HealthCheckIntervalSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckIntervalSeconds;
+
+        public int? HealthCheckIntervalSeconds => _mHealthCheckIntervalSeconds.GetValue("healthCheckIntervalSeconds");
 
         /// <summary>
         /// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("healthCheckPath")]
-        public string? HealthCheckPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckPath;
+
+        public string? HealthCheckPath => _mHealthCheckPath.GetValue("healthCheckPath");
 
         /// <summary>
         /// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
         /// the provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("healthCheckPort")]
-        public int? HealthCheckPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckPort;
+
+        public int? HealthCheckPort => _mHealthCheckPort.GetValue("healthCheckPort");
 
         /// <summary>
         /// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         /// </summary>
         [Input("healthCheckProtocol")]
-        public string? HealthCheckProtocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckProtocol;
+
+        public string? HealthCheckProtocol => _mHealthCheckProtocol.GetValue("healthCheckProtocol");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener.
         /// </summary>
         [Input("listenerArn")]
-        public string? ListenerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
+
+        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
 
         /// <summary>
         /// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
         /// </summary>
         [Input("portOverrides")]
-        public List<EndpointGroupPortOverride>? PortOverrides;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointGroupPortOverride>> _mPortOverrides;
+
+        public List<Outputs.EndpointGroupPortOverride>? PortOverrides => _mPortOverrides.GetValue("portOverrides");
 
         /// <summary>
         /// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         /// </summary>
         [Input("thresholdCount")]
-        public int? ThresholdCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mThresholdCount;
+
+        public int? ThresholdCount => _mThresholdCount.GetValue("thresholdCount");
 
         /// <summary>
         /// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         /// </summary>
         [Input("trafficDialPercentage")]
-        public double? TrafficDialPercentage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mTrafficDialPercentage;
+
+        public double? TrafficDialPercentage => _mTrafficDialPercentage.GetValue("trafficDialPercentage");
+    }
+
+    [PolicyResourceType("aws:globalaccelerator/endpointGroup:EndpointGroup")]
+    public sealed class EndpointGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The list of endpoint objects. Fields documented below.
+        /// </summary>
+        [Input("endpointConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointGroupEndpointConfigurationArgs>> _mEndpointConfigurations;
+
+        public List<Inputs.EndpointGroupEndpointConfigurationArgs>? EndpointConfigurations => _mEndpointConfigurations.GetValue("endpointConfigurations");
+
+        /// <summary>
+        /// The name of the AWS Region where the endpoint group is located.
+        /// </summary>
+        [Input("endpointGroupRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointGroupRegion;
+
+        public string? EndpointGroupRegion => _mEndpointGroupRegion.GetValue("endpointGroupRegion");
+
+        /// <summary>
+        /// The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
+        /// </summary>
+        [Input("healthCheckIntervalSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckIntervalSeconds;
+
+        public int? HealthCheckIntervalSeconds => _mHealthCheckIntervalSeconds.GetValue("healthCheckIntervalSeconds");
+
+        /// <summary>
+        /// If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
+        [Input("healthCheckPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckPath;
+
+        public string? HealthCheckPath => _mHealthCheckPath.GetValue("healthCheckPath");
+
+        /// <summary>
+        /// The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
+        /// the provider will only perform drift detection of its value when present in a configuration.
+        /// </summary>
+        [Input("healthCheckPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckPort;
+
+        public int? HealthCheckPort => _mHealthCheckPort.GetValue("healthCheckPort");
+
+        /// <summary>
+        /// The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
+        /// </summary>
+        [Input("healthCheckProtocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckProtocol;
+
+        public string? HealthCheckProtocol => _mHealthCheckProtocol.GetValue("healthCheckProtocol");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the listener.
+        /// </summary>
+        [Input("listenerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
+
+        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+
+        /// <summary>
+        /// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+        /// </summary>
+        [Input("portOverrides")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointGroupPortOverrideArgs>> _mPortOverrides;
+
+        public List<Inputs.EndpointGroupPortOverrideArgs>? PortOverrides => _mPortOverrides.GetValue("portOverrides");
+
+        /// <summary>
+        /// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
+        /// </summary>
+        [Input("thresholdCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mThresholdCount;
+
+        public int? ThresholdCount => _mThresholdCount.GetValue("thresholdCount");
+
+        /// <summary>
+        /// The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
+        /// </summary>
+        [Input("trafficDialPercentage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mTrafficDialPercentage;
+
+        public double? TrafficDialPercentage => _mTrafficDialPercentage.GetValue("trafficDialPercentage");
     }
 }

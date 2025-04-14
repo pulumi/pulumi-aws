@@ -11,132 +11,352 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
 {
     [PolicyResourceType("aws:ec2clientvpn/endpoint:Endpoint")]
-    public sealed class Endpoint : global::Pulumi.PolicyResource
+    public sealed class Endpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Client VPN endpoint.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Information about the authentication method to be used to authenticate clients.
         /// </summary>
         [Input("authenticationOptions")]
-        public List<EndpointAuthenticationOption>? AuthenticationOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointAuthenticationOption>> _mAuthenticationOptions;
+
+        public List<Outputs.EndpointAuthenticationOption>? AuthenticationOptions => _mAuthenticationOptions.GetValue("authenticationOptions");
 
         /// <summary>
         /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         /// </summary>
         [Input("clientCidrBlock")]
-        public string? ClientCidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientCidrBlock;
+
+        public string? ClientCidrBlock => _mClientCidrBlock.GetValue("clientCidrBlock");
 
         /// <summary>
         /// The options for managing connection authorization for new client connections.
         /// </summary>
         [Input("clientConnectOptions")]
-        public EndpointClientConnectOptions? ClientConnectOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointClientConnectOptions> _mClientConnectOptions;
+
+        public Outputs.EndpointClientConnectOptions? ClientConnectOptions => _mClientConnectOptions.GetValue("clientConnectOptions");
 
         /// <summary>
         /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         /// </summary>
         [Input("clientLoginBannerOptions")]
-        public EndpointClientLoginBannerOptions? ClientLoginBannerOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointClientLoginBannerOptions> _mClientLoginBannerOptions;
+
+        public Outputs.EndpointClientLoginBannerOptions? ClientLoginBannerOptions => _mClientLoginBannerOptions.GetValue("clientLoginBannerOptions");
 
         /// <summary>
         /// Information about the client connection logging options.
         /// </summary>
         [Input("connectionLogOptions")]
-        public EndpointConnectionLogOptions? ConnectionLogOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConnectionLogOptions> _mConnectionLogOptions;
+
+        public Outputs.EndpointConnectionLogOptions? ConnectionLogOptions => _mConnectionLogOptions.GetValue("connectionLogOptions");
 
         /// <summary>
         /// A brief description of the Client VPN endpoint.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
         /// </summary>
         [Input("disconnectOnSessionTimeout")]
-        public bool? DisconnectOnSessionTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisconnectOnSessionTimeout;
+
+        public bool? DisconnectOnSessionTimeout => _mDisconnectOnSessionTimeout.GetValue("disconnectOnSessionTimeout");
 
         /// <summary>
         /// The DNS name to be used by clients when establishing their VPN session.
         /// </summary>
         [Input("dnsName")]
-        public string? DnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
+
+        public string? DnsName => _mDnsName.GetValue("dnsName");
 
         /// <summary>
         /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         /// </summary>
         [Input("dnsServers")]
-        public List<string>? DnsServers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsServers;
+
+        public List<string>? DnsServers => _mDnsServers.GetValue("dnsServers");
 
         /// <summary>
         /// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         /// </summary>
         [Input("selfServicePortal")]
-        public string? SelfServicePortal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelfServicePortal;
+
+        public string? SelfServicePortal => _mSelfServicePortal.GetValue("selfServicePortal");
 
         /// <summary>
         /// The URL of the self-service portal.
         /// </summary>
         [Input("selfServicePortalUrl")]
-        public string? SelfServicePortalUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelfServicePortalUrl;
+
+        public string? SelfServicePortalUrl => _mSelfServicePortalUrl.GetValue("selfServicePortalUrl");
 
         /// <summary>
         /// The ARN of the ACM server certificate.
         /// </summary>
         [Input("serverCertificateArn")]
-        public string? ServerCertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerCertificateArn;
+
+        public string? ServerCertificateArn => _mServerCertificateArn.GetValue("serverCertificateArn");
 
         /// <summary>
         /// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         /// </summary>
         [Input("sessionTimeoutHours")]
-        public int? SessionTimeoutHours;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSessionTimeoutHours;
+
+        public int? SessionTimeoutHours => _mSessionTimeoutHours.GetValue("sessionTimeoutHours");
 
         /// <summary>
         /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         /// </summary>
         [Input("splitTunnel")]
-        public bool? SplitTunnel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSplitTunnel;
+
+        public bool? SplitTunnel => _mSplitTunnel.GetValue("splitTunnel");
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The transport protocol to be used by the VPN session. Default value is `udp`.
         /// </summary>
         [Input("transportProtocol")]
-        public string? TransportProtocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransportProtocol;
+
+        public string? TransportProtocol => _mTransportProtocol.GetValue("transportProtocol");
 
         /// <summary>
         /// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
 
         /// <summary>
         /// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
         /// </summary>
         [Input("vpnPort")]
-        public int? VpnPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVpnPort;
+
+        public int? VpnPort => _mVpnPort.GetValue("vpnPort");
+    }
+
+    [PolicyResourceType("aws:ec2clientvpn/endpoint:Endpoint")]
+    public sealed class EndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Information about the authentication method to be used to authenticate clients.
+        /// </summary>
+        [Input("authenticationOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EndpointAuthenticationOptionArgs>> _mAuthenticationOptions;
+
+        public List<Inputs.EndpointAuthenticationOptionArgs>? AuthenticationOptions => _mAuthenticationOptions.GetValue("authenticationOptions");
+
+        /// <summary>
+        /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+        /// </summary>
+        [Input("clientCidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientCidrBlock;
+
+        public string? ClientCidrBlock => _mClientCidrBlock.GetValue("clientCidrBlock");
+
+        /// <summary>
+        /// The options for managing connection authorization for new client connections.
+        /// </summary>
+        [Input("clientConnectOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointClientConnectOptionsArgs> _mClientConnectOptions;
+
+        public Inputs.EndpointClientConnectOptionsArgs? ClientConnectOptions => _mClientConnectOptions.GetValue("clientConnectOptions");
+
+        /// <summary>
+        /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+        /// </summary>
+        [Input("clientLoginBannerOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointClientLoginBannerOptionsArgs> _mClientLoginBannerOptions;
+
+        public Inputs.EndpointClientLoginBannerOptionsArgs? ClientLoginBannerOptions => _mClientLoginBannerOptions.GetValue("clientLoginBannerOptions");
+
+        /// <summary>
+        /// Information about the client connection logging options.
+        /// </summary>
+        [Input("connectionLogOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointConnectionLogOptionsArgs> _mConnectionLogOptions;
+
+        public Inputs.EndpointConnectionLogOptionsArgs? ConnectionLogOptions => _mConnectionLogOptions.GetValue("connectionLogOptions");
+
+        /// <summary>
+        /// A brief description of the Client VPN endpoint.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
+        /// </summary>
+        [Input("disconnectOnSessionTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisconnectOnSessionTimeout;
+
+        public bool? DisconnectOnSessionTimeout => _mDisconnectOnSessionTimeout.GetValue("disconnectOnSessionTimeout");
+
+        /// <summary>
+        /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
+        /// </summary>
+        [Input("dnsServers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsServers;
+
+        public List<string>? DnsServers => _mDnsServers.GetValue("dnsServers");
+
+        /// <summary>
+        /// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        /// </summary>
+        [Input("selfServicePortal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelfServicePortal;
+
+        public string? SelfServicePortal => _mSelfServicePortal.GetValue("selfServicePortal");
+
+        /// <summary>
+        /// The ARN of the ACM server certificate.
+        /// </summary>
+        [Input("serverCertificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerCertificateArn;
+
+        public string? ServerCertificateArn => _mServerCertificateArn.GetValue("serverCertificateArn");
+
+        /// <summary>
+        /// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
+        /// </summary>
+        [Input("sessionTimeoutHours")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSessionTimeoutHours;
+
+        public int? SessionTimeoutHours => _mSessionTimeoutHours.GetValue("sessionTimeoutHours");
+
+        /// <summary>
+        /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
+        /// </summary>
+        [Input("splitTunnel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSplitTunnel;
+
+        public bool? SplitTunnel => _mSplitTunnel.GetValue("splitTunnel");
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The transport protocol to be used by the VPN session. Default value is `udp`.
+        /// </summary>
+        [Input("transportProtocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransportProtocol;
+
+        public string? TransportProtocol => _mTransportProtocol.GetValue("transportProtocol");
+
+        /// <summary>
+        /// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+
+        /// <summary>
+        /// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
+        /// </summary>
+        [Input("vpnPort")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVpnPort;
+
+        public int? VpnPort => _mVpnPort.GetValue("vpnPort");
     }
 }

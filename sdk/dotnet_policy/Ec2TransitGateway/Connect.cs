@@ -11,48 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/connect:Connect")]
-    public sealed class Connect : global::Pulumi.PolicyResource
+    public sealed class Connect : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
         [Input("protocol")]
-        public string? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
-        public bool? TransitGatewayDefaultRouteTableAssociation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTableAssociation;
+
+        public bool? TransitGatewayDefaultRouteTableAssociation => _mTransitGatewayDefaultRouteTableAssociation.GetValue("transitGatewayDefaultRouteTableAssociation");
 
         /// <summary>
         /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
-        public bool? TransitGatewayDefaultRouteTablePropagation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTablePropagation;
+
+        public bool? TransitGatewayDefaultRouteTablePropagation => _mTransitGatewayDefaultRouteTablePropagation.GetValue("transitGatewayDefaultRouteTablePropagation");
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
         [Input("transitGatewayId")]
-        public string? TransitGatewayId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
 
         /// <summary>
         /// The underlaying VPC attachment
         /// </summary>
         [Input("transportAttachmentId")]
-        public string? TransportAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransportAttachmentId;
+
+        public string? TransportAttachmentId => _mTransportAttachmentId.GetValue("transportAttachmentId");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/connect:Connect")]
+    public sealed class ConnectArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+
+        public string? Protocol => _mProtocol.GetValue("protocol");
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        /// </summary>
+        [Input("transitGatewayDefaultRouteTableAssociation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTableAssociation;
+
+        public bool? TransitGatewayDefaultRouteTableAssociation => _mTransitGatewayDefaultRouteTableAssociation.GetValue("transitGatewayDefaultRouteTableAssociation");
+
+        /// <summary>
+        /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
+        /// </summary>
+        [Input("transitGatewayDefaultRouteTablePropagation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTablePropagation;
+
+        public bool? TransitGatewayDefaultRouteTablePropagation => _mTransitGatewayDefaultRouteTablePropagation.GetValue("transitGatewayDefaultRouteTablePropagation");
+
+        /// <summary>
+        /// Identifier of EC2 Transit Gateway.
+        /// </summary>
+        [Input("transitGatewayId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
+
+        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+
+        /// <summary>
+        /// The underlaying VPC attachment
+        /// </summary>
+        [Input("transportAttachmentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransportAttachmentId;
+
+        public string? TransportAttachmentId => _mTransportAttachmentId.GetValue("transportAttachmentId");
     }
 }

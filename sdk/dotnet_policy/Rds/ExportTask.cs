@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/exportTask:ExportTask")]
-    public sealed class ExportTask : global::Pulumi.PolicyResource
+    public sealed class ExportTask : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         /// </summary>
         [Input("exportOnlies")]
-        public List<string>? ExportOnlies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExportOnlies;
+
+        public List<string>? ExportOnlies => _mExportOnlies.GetValue("exportOnlies");
 
         /// <summary>
         /// Unique identifier for the snapshot export task.
         /// </summary>
         [Input("exportTaskIdentifier")]
-        public string? ExportTaskIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportTaskIdentifier;
+
+        public string? ExportTaskIdentifier => _mExportTaskIdentifier.GetValue("exportTaskIdentifier");
 
         /// <summary>
         /// Reason the export failed, if it failed.
         /// </summary>
         [Input("failureCause")]
-        public string? FailureCause;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFailureCause;
+
+        public string? FailureCause => _mFailureCause.GetValue("failureCause");
 
         /// <summary>
         /// ARN of the IAM role to use for writing to the Amazon S3 bucket.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Progress of the snapshot export task as a percentage.
         /// </summary>
         [Input("percentProgress")]
-        public int? PercentProgress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPercentProgress;
+
+        public int? PercentProgress => _mPercentProgress.GetValue("percentProgress");
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.
         /// </summary>
         [Input("s3BucketName")]
-        public string? S3BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
+
+        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
 
         /// <summary>
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         /// </summary>
         [Input("s3Prefix")]
-        public string? S3Prefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
+
+        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
 
         /// <summary>
         /// Time that the snapshot was created.
         /// </summary>
         [Input("snapshotTime")]
-        public string? SnapshotTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotTime;
+
+        public string? SnapshotTime => _mSnapshotTime.GetValue("snapshotTime");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the snapshot to export.
@@ -73,39 +100,135 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// The following arguments are optional:
         /// </summary>
         [Input("sourceArn")]
-        public string? SourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
+
+        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
 
         /// <summary>
         /// Type of source for the export.
         /// </summary>
         [Input("sourceType")]
-        public string? SourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
+
+        public string? SourceType => _mSourceType.GetValue("sourceType");
 
         /// <summary>
         /// Status of the export task.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Time that the snapshot export task completed.
         /// </summary>
         [Input("taskEndTime")]
-        public string? TaskEndTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskEndTime;
+
+        public string? TaskEndTime => _mTaskEndTime.GetValue("taskEndTime");
 
         /// <summary>
         /// Time that the snapshot export task started.
         /// </summary>
         [Input("taskStartTime")]
-        public string? TaskStartTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskStartTime;
+
+        public string? TaskStartTime => _mTaskStartTime.GetValue("taskStartTime");
 
         [Input("timeouts")]
-        public ExportTaskTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ExportTaskTimeouts> _mTimeouts;
+
+        public Outputs.ExportTaskTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Warning about the snapshot export task, if any.
         /// </summary>
         [Input("warningMessage")]
-        public string? WarningMessage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWarningMessage;
+
+        public string? WarningMessage => _mWarningMessage.GetValue("warningMessage");
+    }
+
+    [PolicyResourceType("aws:rds/exportTask:ExportTask")]
+    public sealed class ExportTaskArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
+        /// </summary>
+        [Input("exportOnlies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExportOnlies;
+
+        public List<string>? ExportOnlies => _mExportOnlies.GetValue("exportOnlies");
+
+        /// <summary>
+        /// Unique identifier for the snapshot export task.
+        /// </summary>
+        [Input("exportTaskIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExportTaskIdentifier;
+
+        public string? ExportTaskIdentifier => _mExportTaskIdentifier.GetValue("exportTaskIdentifier");
+
+        /// <summary>
+        /// ARN of the IAM role to use for writing to the Amazon S3 bucket.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Name of the Amazon S3 bucket to export the snapshot to.
+        /// </summary>
+        [Input("s3BucketName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
+
+        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+
+        /// <summary>
+        /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
+        /// </summary>
+        [Input("s3Prefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
+
+        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the snapshot to export.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("sourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
+
+        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ExportTaskTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ExportTaskTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

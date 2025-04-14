@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/organizationConfiguration:OrganizationConfiguration")]
-    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResource
+    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether to automatically enable Security Hub for new accounts in the organization.
         /// </summary>
         [Input("autoEnable")]
-        public bool? AutoEnable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
+
+        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
 
         /// <summary>
         /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         /// </summary>
         [Input("autoEnableStandards")]
-        public string? AutoEnableStandards;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnableStandards;
+
+        public string? AutoEnableStandards => _mAutoEnableStandards.GetValue("autoEnableStandards");
 
         /// <summary>
         /// Provides information about the way an organization is configured in Security Hub.
         /// </summary>
         [Input("organizationConfiguration")]
-        public OrganizationConfigurationOrganizationConfiguration? OrganizationConfigurationDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OrganizationConfigurationOrganizationConfiguration> _mOrganizationConfigurationDetails;
+
+        public Outputs.OrganizationConfigurationOrganizationConfiguration? OrganizationConfigurationDetails => _mOrganizationConfigurationDetails.GetValue("organizationConfiguration");
+    }
+
+    [PolicyResourceType("aws:securityhub/organizationConfiguration:OrganizationConfiguration")]
+    public sealed class OrganizationConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to automatically enable Security Hub for new accounts in the organization.
+        /// </summary>
+        [Input("autoEnable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
+
+        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+
+        /// <summary>
+        /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
+        /// </summary>
+        [Input("autoEnableStandards")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoEnableStandards;
+
+        public string? AutoEnableStandards => _mAutoEnableStandards.GetValue("autoEnableStandards");
+
+        /// <summary>
+        /// Provides information about the way an organization is configured in Security Hub.
+        /// </summary>
+        [Input("organizationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OrganizationConfigurationOrganizationConfigurationArgs> _mOrganizationConfigurationDetails;
+
+        public Inputs.OrganizationConfigurationOrganizationConfigurationArgs? OrganizationConfigurationDetails => _mOrganizationConfigurationDetails.GetValue("organizationConfiguration");
     }
 }

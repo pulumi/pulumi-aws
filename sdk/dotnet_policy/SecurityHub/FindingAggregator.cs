@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/findingAggregator:FindingAggregator")]
-    public sealed class FindingAggregator : global::Pulumi.PolicyResource
+    public sealed class FindingAggregator : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         /// </summary>
         [Input("linkingMode")]
-        public string? LinkingMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLinkingMode;
+
+        public string? LinkingMode => _mLinkingMode.GetValue("linkingMode");
 
         /// <summary>
         /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         /// </summary>
         [Input("specifiedRegions")]
-        public List<string>? SpecifiedRegions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSpecifiedRegions;
+
+        public List<string>? SpecifiedRegions => _mSpecifiedRegions.GetValue("specifiedRegions");
+    }
+
+    [PolicyResourceType("aws:securityhub/findingAggregator:FindingAggregator")]
+    public sealed class FindingAggregatorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
+        /// </summary>
+        [Input("linkingMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLinkingMode;
+
+        public string? LinkingMode => _mLinkingMode.GetValue("linkingMode");
+
+        /// <summary>
+        /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
+        /// </summary>
+        [Input("specifiedRegions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSpecifiedRegions;
+
+        public List<string>? SpecifiedRegions => _mSpecifiedRegions.GetValue("specifiedRegions");
     }
 }

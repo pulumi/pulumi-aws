@@ -11,85 +11,124 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sns
 {
     [PolicyResourceType("aws:sns/platformApplication:PlatformApplication")]
-    public sealed class PlatformApplication : global::Pulumi.PolicyResource
+    public sealed class PlatformApplication : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
         /// </summary>
         [Input("applePlatformBundleId")]
-        public string? ApplePlatformBundleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplePlatformBundleId;
+
+        public string? ApplePlatformBundleId => _mApplePlatformBundleId.GetValue("applePlatformBundleId");
 
         /// <summary>
         /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         /// </summary>
         [Input("applePlatformTeamId")]
-        public string? ApplePlatformTeamId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplePlatformTeamId;
+
+        public string? ApplePlatformTeamId => _mApplePlatformTeamId.GetValue("applePlatformTeamId");
 
         /// <summary>
         /// The ARN of the SNS platform application
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         /// </summary>
         [Input("eventDeliveryFailureTopicArn")]
-        public string? EventDeliveryFailureTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventDeliveryFailureTopicArn;
+
+        public string? EventDeliveryFailureTopicArn => _mEventDeliveryFailureTopicArn.GetValue("eventDeliveryFailureTopicArn");
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         /// </summary>
         [Input("eventEndpointCreatedTopicArn")]
-        public string? EventEndpointCreatedTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointCreatedTopicArn;
+
+        public string? EventEndpointCreatedTopicArn => _mEventEndpointCreatedTopicArn.GetValue("eventEndpointCreatedTopicArn");
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         /// </summary>
         [Input("eventEndpointDeletedTopicArn")]
-        public string? EventEndpointDeletedTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointDeletedTopicArn;
+
+        public string? EventEndpointDeletedTopicArn => _mEventEndpointDeletedTopicArn.GetValue("eventEndpointDeletedTopicArn");
 
         /// <summary>
         /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         /// </summary>
         [Input("eventEndpointUpdatedTopicArn")]
-        public string? EventEndpointUpdatedTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointUpdatedTopicArn;
+
+        public string? EventEndpointUpdatedTopicArn => _mEventEndpointUpdatedTopicArn.GetValue("eventEndpointUpdatedTopicArn");
 
         /// <summary>
         /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
         [Input("failureFeedbackRoleArn")]
-        public string? FailureFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFailureFeedbackRoleArn;
+
+        public string? FailureFeedbackRoleArn => _mFailureFeedbackRoleArn.GetValue("failureFeedbackRoleArn");
 
         /// <summary>
         /// The friendly name for the SNS platform application
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         /// </summary>
         [Input("platform")]
-        public string? Platform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
 
         /// <summary>
         /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
         [Input("platformCredential")]
-        public string? PlatformCredential;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformCredential;
+
+        public string? PlatformCredential => _mPlatformCredential.GetValue("platformCredential");
 
         /// <summary>
         /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         /// </summary>
         [Input("platformPrincipal")]
-        public string? PlatformPrincipal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformPrincipal;
+
+        public string? PlatformPrincipal => _mPlatformPrincipal.GetValue("platformPrincipal");
 
         /// <summary>
         /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
         [Input("successFeedbackRoleArn")]
-        public string? SuccessFeedbackRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessFeedbackRoleArn;
+
+        public string? SuccessFeedbackRoleArn => _mSuccessFeedbackRoleArn.GetValue("successFeedbackRoleArn");
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
@@ -97,6 +136,132 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
         [Input("successFeedbackSampleRate")]
-        public string? SuccessFeedbackSampleRate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessFeedbackSampleRate;
+
+        public string? SuccessFeedbackSampleRate => _mSuccessFeedbackSampleRate.GetValue("successFeedbackSampleRate");
+    }
+
+    [PolicyResourceType("aws:sns/platformApplication:PlatformApplication")]
+    public sealed class PlatformApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
+        /// </summary>
+        [Input("applePlatformBundleId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplePlatformBundleId;
+
+        public string? ApplePlatformBundleId => _mApplePlatformBundleId.GetValue("applePlatformBundleId");
+
+        /// <summary>
+        /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
+        /// </summary>
+        [Input("applePlatformTeamId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApplePlatformTeamId;
+
+        public string? ApplePlatformTeamId => _mApplePlatformTeamId.GetValue("applePlatformTeamId");
+
+        /// <summary>
+        /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        /// </summary>
+        [Input("eventDeliveryFailureTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventDeliveryFailureTopicArn;
+
+        public string? EventDeliveryFailureTopicArn => _mEventDeliveryFailureTopicArn.GetValue("eventDeliveryFailureTopicArn");
+
+        /// <summary>
+        /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
+        /// </summary>
+        [Input("eventEndpointCreatedTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointCreatedTopicArn;
+
+        public string? EventEndpointCreatedTopicArn => _mEventEndpointCreatedTopicArn.GetValue("eventEndpointCreatedTopicArn");
+
+        /// <summary>
+        /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        /// </summary>
+        [Input("eventEndpointDeletedTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointDeletedTopicArn;
+
+        public string? EventEndpointDeletedTopicArn => _mEventEndpointDeletedTopicArn.GetValue("eventEndpointDeletedTopicArn");
+
+        /// <summary>
+        /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        /// </summary>
+        [Input("eventEndpointUpdatedTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventEndpointUpdatedTopicArn;
+
+        public string? EventEndpointUpdatedTopicArn => _mEventEndpointUpdatedTopicArn.GetValue("eventEndpointUpdatedTopicArn");
+
+        /// <summary>
+        /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
+        /// </summary>
+        [Input("failureFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFailureFeedbackRoleArn;
+
+        public string? FailureFeedbackRoleArn => _mFailureFeedbackRoleArn.GetValue("failureFeedbackRoleArn");
+
+        /// <summary>
+        /// The friendly name for the SNS platform application
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
+        /// </summary>
+        [Input("platform")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
+
+        public string? Platform => _mPlatform.GetValue("platform");
+
+        /// <summary>
+        /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        /// </summary>
+        [Input("platformCredential")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformCredential;
+
+        public string? PlatformCredential => _mPlatformCredential.GetValue("platformCredential");
+
+        /// <summary>
+        /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        /// </summary>
+        [Input("platformPrincipal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformPrincipal;
+
+        public string? PlatformPrincipal => _mPlatformPrincipal.GetValue("platformPrincipal");
+
+        /// <summary>
+        /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
+        /// </summary>
+        [Input("successFeedbackRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessFeedbackRoleArn;
+
+        public string? SuccessFeedbackRoleArn => _mSuccessFeedbackRoleArn.GetValue("successFeedbackRoleArn");
+
+        /// <summary>
+        /// The sample rate percentage (0-100) of successfully delivered messages.
+        /// 
+        /// The following attributes are needed only when using APNS token credentials:
+        /// </summary>
+        [Input("successFeedbackSampleRate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessFeedbackSampleRate;
+
+        public string? SuccessFeedbackSampleRate => _mSuccessFeedbackSampleRate.GetValue("successFeedbackSampleRate");
     }
 }

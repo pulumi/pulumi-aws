@@ -11,84 +11,226 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/function:Function")]
-    public sealed class Function : global::Pulumi.PolicyResource
+    public sealed class Function : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the associated AppSync API.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// ARN of the Function object.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
         [Input("code")]
-        public string? Code;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+
+        public string? Code => _mCode.GetValue("code");
 
         /// <summary>
         /// Function data source name.
         /// </summary>
         [Input("dataSource")]
-        public string? DataSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
+
+        public string? DataSource => _mDataSource.GetValue("dataSource");
 
         /// <summary>
         /// Function description.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Unique ID representing the Function object.
         /// </summary>
         [Input("functionId")]
-        public string? FunctionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionId;
+
+        public string? FunctionId => _mFunctionId.GetValue("functionId");
 
         /// <summary>
         /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         /// </summary>
         [Input("functionVersion")]
-        public string? FunctionVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionVersion;
+
+        public string? FunctionVersion => _mFunctionVersion.GetValue("functionVersion");
 
         /// <summary>
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
         [Input("maxBatchSize")]
-        public int? MaxBatchSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBatchSize;
+
+        public int? MaxBatchSize => _mMaxBatchSize.GetValue("maxBatchSize");
 
         /// <summary>
         /// Function name. The function name does not have to be unique.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         /// </summary>
         [Input("requestMappingTemplate")]
-        public string? RequestMappingTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestMappingTemplate;
+
+        public string? RequestMappingTemplate => _mRequestMappingTemplate.GetValue("requestMappingTemplate");
 
         /// <summary>
         /// Function response mapping template.
         /// </summary>
         [Input("responseMappingTemplate")]
-        public string? ResponseMappingTemplate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResponseMappingTemplate;
+
+        public string? ResponseMappingTemplate => _mResponseMappingTemplate.GetValue("responseMappingTemplate");
 
         /// <summary>
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         /// </summary>
         [Input("runtime")]
-        public FunctionRuntime? Runtime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionRuntime> _mRuntime;
+
+        public Outputs.FunctionRuntime? Runtime => _mRuntime.GetValue("runtime");
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         /// </summary>
         [Input("syncConfig")]
-        public FunctionSyncConfig? SyncConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionSyncConfig> _mSyncConfig;
+
+        public Outputs.FunctionSyncConfig? SyncConfig => _mSyncConfig.GetValue("syncConfig");
+    }
+
+    [PolicyResourceType("aws:appsync/function:Function")]
+    public sealed class FunctionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the associated AppSync API.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// </summary>
+        [Input("code")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+
+        public string? Code => _mCode.GetValue("code");
+
+        /// <summary>
+        /// Function data source name.
+        /// </summary>
+        [Input("dataSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
+
+        public string? DataSource => _mDataSource.GetValue("dataSource");
+
+        /// <summary>
+        /// Function description.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
+        /// </summary>
+        [Input("functionVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionVersion;
+
+        public string? FunctionVersion => _mFunctionVersion.GetValue("functionVersion");
+
+        /// <summary>
+        /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
+        /// </summary>
+        [Input("maxBatchSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBatchSize;
+
+        public int? MaxBatchSize => _mMaxBatchSize.GetValue("maxBatchSize");
+
+        /// <summary>
+        /// Function name. The function name does not have to be unique.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+        /// </summary>
+        [Input("requestMappingTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestMappingTemplate;
+
+        public string? RequestMappingTemplate => _mRequestMappingTemplate.GetValue("requestMappingTemplate");
+
+        /// <summary>
+        /// Function response mapping template.
+        /// </summary>
+        [Input("responseMappingTemplate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResponseMappingTemplate;
+
+        public string? ResponseMappingTemplate => _mResponseMappingTemplate.GetValue("responseMappingTemplate");
+
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+        /// </summary>
+        [Input("runtime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionRuntimeArgs> _mRuntime;
+
+        public Inputs.FunctionRuntimeArgs? Runtime => _mRuntime.GetValue("runtime");
+
+        /// <summary>
+        /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
+        /// </summary>
+        [Input("syncConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionSyncConfigArgs> _mSyncConfig;
+
+        public Inputs.FunctionSyncConfigArgs? SyncConfig => _mSyncConfig.GetValue("syncConfig");
     }
 }

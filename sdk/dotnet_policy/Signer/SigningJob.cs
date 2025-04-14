@@ -11,114 +11,208 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Signer
 {
     [PolicyResourceType("aws:signer/signingJob:SigningJob")]
-    public sealed class SigningJob : global::Pulumi.PolicyResource
+    public sealed class SigningJob : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
         /// </summary>
         [Input("completedAt")]
-        public string? CompletedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCompletedAt;
+
+        public string? CompletedAt => _mCompletedAt.GetValue("completedAt");
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The S3 bucket in which to save your signed object. See Destination below for details.
         /// </summary>
         [Input("destination")]
-        public SigningJobDestination? Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SigningJobDestination> _mDestination;
+
+        public Outputs.SigningJobDestination? Destination => _mDestination.GetValue("destination");
 
         /// <summary>
         /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
         /// </summary>
         [Input("ignoreSigningJobFailure")]
-        public bool? IgnoreSigningJobFailure;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreSigningJobFailure;
+
+        public bool? IgnoreSigningJobFailure => _mIgnoreSigningJobFailure.GetValue("ignoreSigningJobFailure");
 
         /// <summary>
         /// The ID of the signing job on output.
         /// </summary>
         [Input("jobId")]
-        public string? JobId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobId;
+
+        public string? JobId => _mJobId.GetValue("jobId");
 
         /// <summary>
         /// The IAM entity that initiated the signing job.
         /// </summary>
         [Input("jobInvoker")]
-        public string? JobInvoker;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobInvoker;
+
+        public string? JobInvoker => _mJobInvoker.GetValue("jobInvoker");
 
         /// <summary>
         /// The AWS account ID of the job owner.
         /// </summary>
         [Input("jobOwner")]
-        public string? JobOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobOwner;
+
+        public string? JobOwner => _mJobOwner.GetValue("jobOwner");
 
         /// <summary>
         /// A human-readable name for the signing platform associated with the signing job.
         /// </summary>
         [Input("platformDisplayName")]
-        public string? PlatformDisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformDisplayName;
+
+        public string? PlatformDisplayName => _mPlatformDisplayName.GetValue("platformDisplayName");
 
         /// <summary>
         /// The platform to which your signed code image will be distributed.
         /// </summary>
         [Input("platformId")]
-        public string? PlatformId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformId;
+
+        public string? PlatformId => _mPlatformId.GetValue("platformId");
 
         /// <summary>
         /// The name of the profile to initiate the signing operation.
         /// </summary>
         [Input("profileName")]
-        public string? ProfileName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileName;
+
+        public string? ProfileName => _mProfileName.GetValue("profileName");
 
         /// <summary>
         /// The version of the signing profile used to initiate the signing job.
         /// </summary>
         [Input("profileVersion")]
-        public string? ProfileVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileVersion;
+
+        public string? ProfileVersion => _mProfileVersion.GetValue("profileVersion");
 
         /// <summary>
         /// The IAM principal that requested the signing job.
         /// </summary>
         [Input("requestedBy")]
-        public string? RequestedBy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRequestedBy;
+
+        public string? RequestedBy => _mRequestedBy.GetValue("requestedBy");
 
         /// <summary>
         /// A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
         /// </summary>
         [Input("revocationRecords")]
-        public List<SigningJobRevocationRecord>? RevocationRecords;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SigningJobRevocationRecord>> _mRevocationRecords;
+
+        public List<Outputs.SigningJobRevocationRecord>? RevocationRecords => _mRevocationRecords.GetValue("revocationRecords");
 
         /// <summary>
         /// The time when the signature of a signing job expires.
         /// </summary>
         [Input("signatureExpiresAt")]
-        public string? SignatureExpiresAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSignatureExpiresAt;
+
+        public string? SignatureExpiresAt => _mSignatureExpiresAt.GetValue("signatureExpiresAt");
 
         /// <summary>
         /// Name of the S3 bucket where the signed code image is saved by code signing.
         /// </summary>
         [Input("signedObjects")]
-        public List<SigningJobSignedObject>? SignedObjects;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SigningJobSignedObject>> _mSignedObjects;
+
+        public List<Outputs.SigningJobSignedObject>? SignedObjects => _mSignedObjects.GetValue("signedObjects");
 
         /// <summary>
         /// The S3 bucket that contains the object to sign. See Source below for details.
         /// </summary>
         [Input("source")]
-        public SigningJobSource? Source;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SigningJobSource> _mSource;
+
+        public Outputs.SigningJobSource? Source => _mSource.GetValue("source");
 
         /// <summary>
         /// Status of the signing job.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// String value that contains the status reason.
         /// </summary>
         [Input("statusReason")]
-        public string? StatusReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
+
+        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+    }
+
+    [PolicyResourceType("aws:signer/signingJob:SigningJob")]
+    public sealed class SigningJobArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The S3 bucket in which to save your signed object. See Destination below for details.
+        /// </summary>
+        [Input("destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningJobDestinationArgs> _mDestination;
+
+        public Inputs.SigningJobDestinationArgs? Destination => _mDestination.GetValue("destination");
+
+        /// <summary>
+        /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
+        /// </summary>
+        [Input("ignoreSigningJobFailure")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreSigningJobFailure;
+
+        public bool? IgnoreSigningJobFailure => _mIgnoreSigningJobFailure.GetValue("ignoreSigningJobFailure");
+
+        /// <summary>
+        /// The name of the profile to initiate the signing operation.
+        /// </summary>
+        [Input("profileName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProfileName;
+
+        public string? ProfileName => _mProfileName.GetValue("profileName");
+
+        /// <summary>
+        /// The S3 bucket that contains the object to sign. See Source below for details.
+        /// </summary>
+        [Input("source")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningJobSourceArgs> _mSource;
+
+        public Inputs.SigningJobSourceArgs? Source => _mSource.GetValue("source");
     }
 }

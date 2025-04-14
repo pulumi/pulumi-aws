@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Connect
 {
     [PolicyResourceType("aws:connect/botAssociation:BotAssociation")]
-    public sealed class BotAssociation : global::Pulumi.PolicyResource
+    public sealed class BotAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
 
         /// <summary>
         /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
         /// </summary>
         [Input("lexBot")]
-        public BotAssociationLexBot? LexBot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BotAssociationLexBot> _mLexBot;
+
+        public Outputs.BotAssociationLexBot? LexBot => _mLexBot.GetValue("lexBot");
+    }
+
+    [PolicyResourceType("aws:connect/botAssociation:BotAssociation")]
+    public sealed class BotAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+
+        /// <summary>
+        /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
+        /// </summary>
+        [Input("lexBot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BotAssociationLexBotArgs> _mLexBot;
+
+        public Inputs.BotAssociationLexBotArgs? LexBot => _mLexBot.GetValue("lexBot");
     }
 }

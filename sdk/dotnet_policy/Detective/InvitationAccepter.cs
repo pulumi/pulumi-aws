@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Detective
 {
     [PolicyResourceType("aws:detective/invitationAccepter:InvitationAccepter")]
-    public sealed class InvitationAccepter : global::Pulumi.PolicyResource
+    public sealed class InvitationAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the behavior graph that the member account is accepting the invitation for.
         /// </summary>
         [Input("graphArn")]
-        public string? GraphArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
+
+        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+    }
+
+    [PolicyResourceType("aws:detective/invitationAccepter:InvitationAccepter")]
+    public sealed class InvitationAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the behavior graph that the member account is accepting the invitation for.
+        /// </summary>
+        [Input("graphArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
+
+        public string? GraphArn => _mGraphArn.GetValue("graphArn");
     }
 }

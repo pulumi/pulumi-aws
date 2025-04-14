@@ -11,48 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/eventConnection:EventConnection")]
-    public sealed class EventConnection : global::Pulumi.PolicyResource
+    public sealed class EventConnection : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connection.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         /// </summary>
         [Input("authParameters")]
-        public EventConnectionAuthParameters? AuthParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventConnectionAuthParameters> _mAuthParameters;
+
+        public Outputs.EventConnectionAuthParameters? AuthParameters => _mAuthParameters.GetValue("authParameters");
 
         /// <summary>
         /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
         [Input("authorizationType")]
-        public string? AuthorizationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationType;
+
+        public string? AuthorizationType => _mAuthorizationType.GetValue("authorizationType");
 
         /// <summary>
         /// Enter a description for the connection. Maximum of 512 characters.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The parameters to use for invoking a private API. Documented below.
         /// </summary>
         [Input("invocationConnectivityParameters")]
-        public EventConnectionInvocationConnectivityParameters? InvocationConnectivityParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventConnectionInvocationConnectivityParameters> _mInvocationConnectivityParameters;
+
+        public Outputs.EventConnectionInvocationConnectivityParameters? InvocationConnectivityParameters => _mInvocationConnectivityParameters.GetValue("invocationConnectivityParameters");
 
         /// <summary>
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         /// </summary>
         [Input("secretArn")]
-        public string? SecretArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
+
+        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/eventConnection:EventConnection")]
+    public sealed class EventConnectionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+        /// </summary>
+        [Input("authParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventConnectionAuthParametersArgs> _mAuthParameters;
+
+        public Inputs.EventConnectionAuthParametersArgs? AuthParameters => _mAuthParameters.GetValue("authParameters");
+
+        /// <summary>
+        /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
+        /// </summary>
+        [Input("authorizationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationType;
+
+        public string? AuthorizationType => _mAuthorizationType.GetValue("authorizationType");
+
+        /// <summary>
+        /// Enter a description for the connection. Maximum of 512 characters.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The parameters to use for invoking a private API. Documented below.
+        /// </summary>
+        [Input("invocationConnectivityParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventConnectionInvocationConnectivityParametersArgs> _mInvocationConnectivityParameters;
+
+        public Inputs.EventConnectionInvocationConnectivityParametersArgs? InvocationConnectivityParameters => _mInvocationConnectivityParameters.GetValue("invocationConnectivityParameters");
+
+        /// <summary>
+        /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

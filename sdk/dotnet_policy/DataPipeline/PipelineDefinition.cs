@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DataPipeline
 {
     [PolicyResourceType("aws:datapipeline/pipelineDefinition:PipelineDefinition")]
-    public sealed class PipelineDefinition : global::Pulumi.PolicyResource
+    public sealed class PipelineDefinition : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block for the parameter objects used in the pipeline definition. See below
         /// </summary>
         [Input("parameterObjects")]
-        public List<PipelineDefinitionParameterObject>? ParameterObjects;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineDefinitionParameterObject>> _mParameterObjects;
+
+        public List<Outputs.PipelineDefinitionParameterObject>? ParameterObjects => _mParameterObjects.GetValue("parameterObjects");
 
         /// <summary>
         /// Configuration block for the parameter values used in the pipeline definition. See below
         /// </summary>
         [Input("parameterValues")]
-        public List<PipelineDefinitionParameterValue>? ParameterValues;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineDefinitionParameterValue>> _mParameterValues;
+
+        public List<Outputs.PipelineDefinitionParameterValue>? ParameterValues => _mParameterValues.GetValue("parameterValues");
 
         /// <summary>
         /// ID of the pipeline.
         /// </summary>
         [Input("pipelineId")]
-        public string? PipelineId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineId;
+
+        public string? PipelineId => _mPipelineId.GetValue("pipelineId");
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
@@ -37,6 +46,51 @@ namespace Pulumi.PolicyPacks.Aws.DataPipeline
         /// The following arguments are optional:
         /// </summary>
         [Input("pipelineObjects")]
-        public List<PipelineDefinitionPipelineObject>? PipelineObjects;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineDefinitionPipelineObject>> _mPipelineObjects;
+
+        public List<Outputs.PipelineDefinitionPipelineObject>? PipelineObjects => _mPipelineObjects.GetValue("pipelineObjects");
+    }
+
+    [PolicyResourceType("aws:datapipeline/pipelineDefinition:PipelineDefinition")]
+    public sealed class PipelineDefinitionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block for the parameter objects used in the pipeline definition. See below
+        /// </summary>
+        [Input("parameterObjects")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineDefinitionParameterObjectArgs>> _mParameterObjects;
+
+        public List<Inputs.PipelineDefinitionParameterObjectArgs>? ParameterObjects => _mParameterObjects.GetValue("parameterObjects");
+
+        /// <summary>
+        /// Configuration block for the parameter values used in the pipeline definition. See below
+        /// </summary>
+        [Input("parameterValues")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineDefinitionParameterValueArgs>> _mParameterValues;
+
+        public List<Inputs.PipelineDefinitionParameterValueArgs>? ParameterValues => _mParameterValues.GetValue("parameterValues");
+
+        /// <summary>
+        /// ID of the pipeline.
+        /// </summary>
+        [Input("pipelineId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineId;
+
+        public string? PipelineId => _mPipelineId.GetValue("pipelineId");
+
+        /// <summary>
+        /// Configuration block for the objects that define the pipeline. See below
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("pipelineObjects")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineDefinitionPipelineObjectArgs>> _mPipelineObjects;
+
+        public List<Inputs.PipelineDefinitionPipelineObjectArgs>? PipelineObjects => _mPipelineObjects.GetValue("pipelineObjects");
     }
 }

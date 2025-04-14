@@ -11,96 +11,262 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DeviceFarm
 {
     [PolicyResourceType("aws:devicefarm/networkProfile:NetworkProfile")]
-    public sealed class NetworkProfile : global::Pulumi.PolicyResource
+    public sealed class NetworkProfile : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name of this network profile.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The description of the network profile.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         /// </summary>
         [Input("downlinkBandwidthBits")]
-        public int? DownlinkBandwidthBits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkBandwidthBits;
+
+        public int? DownlinkBandwidthBits => _mDownlinkBandwidthBits.GetValue("downlinkBandwidthBits");
 
         /// <summary>
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         /// </summary>
         [Input("downlinkDelayMs")]
-        public int? DownlinkDelayMs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkDelayMs;
+
+        public int? DownlinkDelayMs => _mDownlinkDelayMs.GetValue("downlinkDelayMs");
 
         /// <summary>
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         /// </summary>
         [Input("downlinkJitterMs")]
-        public int? DownlinkJitterMs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkJitterMs;
+
+        public int? DownlinkJitterMs => _mDownlinkJitterMs.GetValue("downlinkJitterMs");
 
         /// <summary>
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
         /// </summary>
         [Input("downlinkLossPercent")]
-        public int? DownlinkLossPercent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkLossPercent;
+
+        public int? DownlinkLossPercent => _mDownlinkLossPercent.GetValue("downlinkLossPercent");
 
         /// <summary>
         /// The name for the network profile.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ARN of the project for the network profile.
         /// </summary>
         [Input("projectArn")]
-        public string? ProjectArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
+
+        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         /// </summary>
         [Input("uplinkBandwidthBits")]
-        public int? UplinkBandwidthBits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkBandwidthBits;
+
+        public int? UplinkBandwidthBits => _mUplinkBandwidthBits.GetValue("uplinkBandwidthBits");
 
         /// <summary>
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         /// </summary>
         [Input("uplinkDelayMs")]
-        public int? UplinkDelayMs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkDelayMs;
+
+        public int? UplinkDelayMs => _mUplinkDelayMs.GetValue("uplinkDelayMs");
 
         /// <summary>
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         /// </summary>
         [Input("uplinkJitterMs")]
-        public int? UplinkJitterMs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkJitterMs;
+
+        public int? UplinkJitterMs => _mUplinkJitterMs.GetValue("uplinkJitterMs");
 
         /// <summary>
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
         /// </summary>
         [Input("uplinkLossPercent")]
-        public int? UplinkLossPercent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkLossPercent;
+
+        public int? UplinkLossPercent => _mUplinkLossPercent.GetValue("uplinkLossPercent");
+    }
+
+    [PolicyResourceType("aws:devicefarm/networkProfile:NetworkProfile")]
+    public sealed class NetworkProfileArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the network profile.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
+        /// </summary>
+        [Input("downlinkBandwidthBits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkBandwidthBits;
+
+        public int? DownlinkBandwidthBits => _mDownlinkBandwidthBits.GetValue("downlinkBandwidthBits");
+
+        /// <summary>
+        /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
+        /// </summary>
+        [Input("downlinkDelayMs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkDelayMs;
+
+        public int? DownlinkDelayMs => _mDownlinkDelayMs.GetValue("downlinkDelayMs");
+
+        /// <summary>
+        /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
+        /// </summary>
+        [Input("downlinkJitterMs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkJitterMs;
+
+        public int? DownlinkJitterMs => _mDownlinkJitterMs.GetValue("downlinkJitterMs");
+
+        /// <summary>
+        /// Proportion of received packets that fail to arrive from `0` to `100` percent.
+        /// </summary>
+        [Input("downlinkLossPercent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkLossPercent;
+
+        public int? DownlinkLossPercent => _mDownlinkLossPercent.GetValue("downlinkLossPercent");
+
+        /// <summary>
+        /// The name for the network profile.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ARN of the project for the network profile.
+        /// </summary>
+        [Input("projectArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
+
+        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
+        /// </summary>
+        [Input("uplinkBandwidthBits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkBandwidthBits;
+
+        public int? UplinkBandwidthBits => _mUplinkBandwidthBits.GetValue("uplinkBandwidthBits");
+
+        /// <summary>
+        /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
+        /// </summary>
+        [Input("uplinkDelayMs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkDelayMs;
+
+        public int? UplinkDelayMs => _mUplinkDelayMs.GetValue("uplinkDelayMs");
+
+        /// <summary>
+        /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
+        /// </summary>
+        [Input("uplinkJitterMs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkJitterMs;
+
+        public int? UplinkJitterMs => _mUplinkJitterMs.GetValue("uplinkJitterMs");
+
+        /// <summary>
+        /// Proportion of received packets that fail to arrive from `0` to `100` percent.
+        /// </summary>
+        [Input("uplinkLossPercent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkLossPercent;
+
+        public int? UplinkLossPercent => _mUplinkLossPercent.GetValue("uplinkLossPercent");
     }
 }

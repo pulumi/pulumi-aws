@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElasticSearch
 {
     [PolicyResourceType("aws:elasticsearch/vpcEndpoint:VpcEndpoint")]
-    public sealed class VpcEndpoint : global::Pulumi.PolicyResource
+    public sealed class VpcEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
         /// </summary>
         [Input("domainArn")]
-        public string? DomainArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainArn;
+
+        public string? DomainArn => _mDomainArn.GetValue("domainArn");
 
         /// <summary>
         /// The connection endpoint ID for connecting to the domain.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// Options to specify the subnets and security groups for the endpoint.
         /// </summary>
         [Input("vpcOptions")]
-        public VpcEndpointVpcOptions? VpcOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcEndpointVpcOptions> _mVpcOptions;
+
+        public Outputs.VpcEndpointVpcOptions? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+    }
+
+    [PolicyResourceType("aws:elasticsearch/vpcEndpoint:VpcEndpoint")]
+    public sealed class VpcEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+        /// </summary>
+        [Input("domainArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainArn;
+
+        public string? DomainArn => _mDomainArn.GetValue("domainArn");
+
+        /// <summary>
+        /// Options to specify the subnets and security groups for the endpoint.
+        /// </summary>
+        [Input("vpcOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcEndpointVpcOptionsArgs> _mVpcOptions;
+
+        public Inputs.VpcEndpointVpcOptionsArgs? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
     }
 }

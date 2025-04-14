@@ -11,174 +11,397 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/database:Database")]
-    public sealed class Database : global::Pulumi.PolicyResource
+    public sealed class Database : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
         /// </summary>
         [Input("applyImmediately")]
-        public bool? ApplyImmediately;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
 
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         /// </summary>
         [Input("availabilityZone")]
-        public string? AvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
 
         /// <summary>
         /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         /// </summary>
         [Input("backupRetentionEnabled")]
-        public bool? BackupRetentionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBackupRetentionEnabled;
+
+        public bool? BackupRetentionEnabled => _mBackupRetentionEnabled.GetValue("backupRetentionEnabled");
 
         /// <summary>
         /// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         /// </summary>
         [Input("blueprintId")]
-        public string? BlueprintId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintId;
+
+        public string? BlueprintId => _mBlueprintId.GetValue("blueprintId");
 
         /// <summary>
         /// The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         /// </summary>
         [Input("bundleId")]
-        public string? BundleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
 
         /// <summary>
         /// The certificate associated with the database.
         /// </summary>
         [Input("caCertificateIdentifier")]
-        public string? CaCertificateIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificateIdentifier;
+
+        public string? CaCertificateIdentifier => _mCaCertificateIdentifier.GetValue("caCertificateIdentifier");
 
         /// <summary>
         /// The number of vCPUs for the database.
         /// </summary>
         [Input("cpuCount")]
-        public int? CpuCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCpuCount;
+
+        public int? CpuCount => _mCpuCount.GetValue("cpuCount");
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The size of the disk for the database.
         /// </summary>
         [Input("diskSize")]
-        public double? DiskSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mDiskSize;
+
+        public double? DiskSize => _mDiskSize.GetValue("diskSize");
 
         /// <summary>
         /// The database software (for example, MySQL).
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// The database engine version (for example, 5.7.23).
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         /// </summary>
         [Input("finalSnapshotName")]
-        public string? FinalSnapshotName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotName;
+
+        public string? FinalSnapshotName => _mFinalSnapshotName.GetValue("finalSnapshotName");
 
         /// <summary>
         /// The name of the master database created when the Lightsail database resource is created.
         /// </summary>
         [Input("masterDatabaseName")]
-        public string? MasterDatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterDatabaseName;
+
+        public string? MasterDatabaseName => _mMasterDatabaseName.GetValue("masterDatabaseName");
 
         /// <summary>
         /// The master endpoint fqdn for the database.
         /// </summary>
         [Input("masterEndpointAddress")]
-        public string? MasterEndpointAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterEndpointAddress;
+
+        public string? MasterEndpointAddress => _mMasterEndpointAddress.GetValue("masterEndpointAddress");
 
         /// <summary>
         /// The master endpoint network port for the database.
         /// </summary>
         [Input("masterEndpointPort")]
-        public int? MasterEndpointPort;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMasterEndpointPort;
+
+        public int? MasterEndpointPort => _mMasterEndpointPort.GetValue("masterEndpointPort");
 
         /// <summary>
         /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
         /// </summary>
         [Input("masterPassword")]
-        public string? MasterPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPassword;
+
+        public string? MasterPassword => _mMasterPassword.GetValue("masterPassword");
 
         /// <summary>
         /// The master user name for your new database.
         /// </summary>
         [Input("masterUsername")]
-        public string? MasterUsername;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUsername;
+
+        public string? MasterUsername => _mMasterUsername.GetValue("masterUsername");
 
         /// <summary>
         /// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         /// </summary>
         [Input("preferredBackupWindow")]
-        public string? PreferredBackupWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
+
+        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         /// </summary>
         [Input("preferredMaintenanceWindow")]
-        public string? PreferredMaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
 
         /// <summary>
         /// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         /// </summary>
         [Input("publiclyAccessible")]
-        public bool? PubliclyAccessible;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
 
         /// <summary>
         /// The amount of RAM in GB for the database.
         /// </summary>
         [Input("ramSize")]
-        public double? RamSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mRamSize;
+
+        public double? RamSize => _mRamSize.GetValue("ramSize");
 
         /// <summary>
         /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
         /// </summary>
         [Input("relationalDatabaseName")]
-        public string? RelationalDatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRelationalDatabaseName;
+
+        public string? RelationalDatabaseName => _mRelationalDatabaseName.GetValue("relationalDatabaseName");
 
         /// <summary>
         /// Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
         /// </summary>
         [Input("secondaryAvailabilityZone")]
-        public string? SecondaryAvailabilityZone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecondaryAvailabilityZone;
+
+        public string? SecondaryAvailabilityZone => _mSecondaryAvailabilityZone.GetValue("secondaryAvailabilityZone");
 
         /// <summary>
         /// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         /// </summary>
         [Input("skipFinalSnapshot")]
-        public bool? SkipFinalSnapshot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
+
+        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
 
         /// <summary>
         /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
         [Input("supportCode")]
-        public string? SupportCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
+
+        public string? SupportCode => _mSupportCode.GetValue("supportCode");
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:lightsail/database:Database")]
+    public sealed class DatabaseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
+        /// </summary>
+        [Input("applyImmediately")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+
+        /// <summary>
+        /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
+        /// </summary>
+        [Input("availabilityZone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+
+        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+
+        /// <summary>
+        /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
+        /// </summary>
+        [Input("backupRetentionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBackupRetentionEnabled;
+
+        public bool? BackupRetentionEnabled => _mBackupRetentionEnabled.GetValue("backupRetentionEnabled");
+
+        /// <summary>
+        /// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
+        /// </summary>
+        [Input("blueprintId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintId;
+
+        public string? BlueprintId => _mBlueprintId.GetValue("blueprintId");
+
+        /// <summary>
+        /// The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
+        /// </summary>
+        [Input("bundleId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
+
+        public string? BundleId => _mBundleId.GetValue("bundleId");
+
+        /// <summary>
+        /// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
+        /// </summary>
+        [Input("finalSnapshotName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotName;
+
+        public string? FinalSnapshotName => _mFinalSnapshotName.GetValue("finalSnapshotName");
+
+        /// <summary>
+        /// The name of the master database created when the Lightsail database resource is created.
+        /// </summary>
+        [Input("masterDatabaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterDatabaseName;
+
+        public string? MasterDatabaseName => _mMasterDatabaseName.GetValue("masterDatabaseName");
+
+        /// <summary>
+        /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
+        /// </summary>
+        [Input("masterPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPassword;
+
+        public string? MasterPassword => _mMasterPassword.GetValue("masterPassword");
+
+        /// <summary>
+        /// The master user name for your new database.
+        /// </summary>
+        [Input("masterUsername")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUsername;
+
+        public string? MasterUsername => _mMasterUsername.GetValue("masterUsername");
+
+        /// <summary>
+        /// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
+        /// </summary>
+        [Input("preferredBackupWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
+
+        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+
+        /// <summary>
+        /// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
+        /// </summary>
+        [Input("preferredMaintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+
+        /// <summary>
+        /// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        /// </summary>
+        [Input("publiclyAccessible")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
+
+        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+
+        /// <summary>
+        /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// </summary>
+        [Input("relationalDatabaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRelationalDatabaseName;
+
+        public string? RelationalDatabaseName => _mRelationalDatabaseName.GetValue("relationalDatabaseName");
+
+        /// <summary>
+        /// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
+        /// </summary>
+        [Input("skipFinalSnapshot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
+
+        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

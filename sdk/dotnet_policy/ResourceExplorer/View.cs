@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ResourceExplorer
 {
     [PolicyResourceType("aws:resourceexplorer/view:View")]
-    public sealed class View : global::Pulumi.PolicyResource
+    public sealed class View : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resource Explorer view.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
         /// </summary>
         [Input("defaultView")]
-        public bool? DefaultView;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDefaultView;
+
+        public bool? DefaultView => _mDefaultView.GetValue("defaultView");
 
         /// <summary>
         /// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         /// </summary>
         [Input("filters")]
-        public ViewFilters? Filters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ViewFilters> _mFilters;
+
+        public Outputs.ViewFilters? Filters => _mFilters.GetValue("filters");
 
         /// <summary>
         /// Optional fields to be included in search results from this view. See Included Properties below for more details.
         /// </summary>
         [Input("includedProperties")]
-        public List<ViewIncludedProperty>? IncludedProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ViewIncludedProperty>> _mIncludedProperties;
+
+        public List<Outputs.ViewIncludedProperty>? IncludedProperties => _mIncludedProperties.GetValue("includedProperties");
 
         /// <summary>
         /// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         /// </summary>
         [Input("scope")]
-        public string? Scope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:resourceexplorer/view:View")]
+    public sealed class ViewArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
+        /// </summary>
+        [Input("defaultView")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDefaultView;
+
+        public bool? DefaultView => _mDefaultView.GetValue("defaultView");
+
+        /// <summary>
+        /// Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
+        /// </summary>
+        [Input("filters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ViewFiltersArgs> _mFilters;
+
+        public Inputs.ViewFiltersArgs? Filters => _mFilters.GetValue("filters");
+
+        /// <summary>
+        /// Optional fields to be included in search results from this view. See Included Properties below for more details.
+        /// </summary>
+        [Input("includedProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ViewIncludedPropertyArgs>> _mIncludedProperties;
+
+        public List<Inputs.ViewIncludedPropertyArgs>? IncludedProperties => _mIncludedProperties.GetValue("includedProperties");
+
+        /// <summary>
+        /// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        /// </summary>
+        [Input("scope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

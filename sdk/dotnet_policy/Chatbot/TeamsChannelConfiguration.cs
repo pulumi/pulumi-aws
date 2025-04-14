@@ -11,79 +11,115 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chatbot
 {
     [PolicyResourceType("aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration")]
-    public sealed class TeamsChannelConfiguration : global::Pulumi.PolicyResource
+    public sealed class TeamsChannelConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ID of the Microsoft Teams channel.
         /// </summary>
         [Input("channelId")]
-        public string? ChannelId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChannelId;
+
+        public string? ChannelId => _mChannelId.GetValue("channelId");
 
         /// <summary>
         /// Name of the Microsoft Teams channel.
         /// </summary>
         [Input("channelName")]
-        public string? ChannelName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChannelName;
+
+        public string? ChannelName => _mChannelName.GetValue("channelName");
 
         /// <summary>
         /// ARN of the Microsoft Teams channel configuration.
         /// </summary>
         [Input("chatConfigurationArn")]
-        public string? ChatConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChatConfigurationArn;
+
+        public string? ChatConfigurationArn => _mChatConfigurationArn.GetValue("chatConfigurationArn");
 
         /// <summary>
         /// Name of the Microsoft Teams channel configuration.
         /// </summary>
         [Input("configurationName")]
-        public string? ConfigurationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationName;
+
+        public string? ConfigurationName => _mConfigurationName.GetValue("configurationName");
 
         /// <summary>
         /// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         /// </summary>
         [Input("guardrailPolicyArns")]
-        public List<string>? GuardrailPolicyArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGuardrailPolicyArns;
+
+        public List<string>? GuardrailPolicyArns => _mGuardrailPolicyArns.GetValue("guardrailPolicyArns");
 
         /// <summary>
         /// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// Logging levels include `ERROR`, `INFO`, or `NONE`.
         /// </summary>
         [Input("loggingLevel")]
-        public string? LoggingLevel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingLevel;
+
+        public string? LoggingLevel => _mLoggingLevel.GetValue("loggingLevel");
 
         /// <summary>
         /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         /// </summary>
         [Input("snsTopicArns")]
-        public List<string>? SnsTopicArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnsTopicArns;
+
+        public List<string>? SnsTopicArns => _mSnsTopicArns.GetValue("snsTopicArns");
 
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
         /// </summary>
         [Input("teamId")]
-        public string? TeamId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTeamId;
+
+        public string? TeamId => _mTeamId.GetValue("teamId");
 
         /// <summary>
         /// Name of the Microsoft Teams team.
         /// </summary>
         [Input("teamName")]
-        public string? TeamName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTeamName;
+
+        public string? TeamName => _mTeamName.GetValue("teamName");
 
         /// <summary>
         /// ID of the Microsoft Teams tenant.
@@ -91,15 +127,144 @@ namespace Pulumi.PolicyPacks.Aws.Chatbot
         /// The following arguments are optional:
         /// </summary>
         [Input("tenantId")]
-        public string? TenantId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenantId;
+
+        public string? TenantId => _mTenantId.GetValue("tenantId");
 
         [Input("timeouts")]
-        public TeamsChannelConfigurationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TeamsChannelConfigurationTimeouts> _mTimeouts;
+
+        public Outputs.TeamsChannelConfigurationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Enables use of a user role requirement in your chat configuration.
         /// </summary>
         [Input("userAuthorizationRequired")]
-        public bool? UserAuthorizationRequired;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUserAuthorizationRequired;
+
+        public bool? UserAuthorizationRequired => _mUserAuthorizationRequired.GetValue("userAuthorizationRequired");
+    }
+
+    [PolicyResourceType("aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration")]
+    public sealed class TeamsChannelConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the Microsoft Teams channel.
+        /// </summary>
+        [Input("channelId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChannelId;
+
+        public string? ChannelId => _mChannelId.GetValue("channelId");
+
+        /// <summary>
+        /// Name of the Microsoft Teams channel.
+        /// </summary>
+        [Input("channelName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChannelName;
+
+        public string? ChannelName => _mChannelName.GetValue("channelName");
+
+        /// <summary>
+        /// Name of the Microsoft Teams channel configuration.
+        /// </summary>
+        [Input("configurationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationName;
+
+        public string? ConfigurationName => _mConfigurationName.GetValue("configurationName");
+
+        /// <summary>
+        /// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
+        /// </summary>
+        [Input("guardrailPolicyArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGuardrailPolicyArns;
+
+        public List<string>? GuardrailPolicyArns => _mGuardrailPolicyArns.GetValue("guardrailPolicyArns");
+
+        /// <summary>
+        /// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// Logging levels include `ERROR`, `INFO`, or `NONE`.
+        /// </summary>
+        [Input("loggingLevel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingLevel;
+
+        public string? LoggingLevel => _mLoggingLevel.GetValue("loggingLevel");
+
+        /// <summary>
+        /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
+        /// </summary>
+        [Input("snsTopicArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnsTopicArns;
+
+        public List<string>? SnsTopicArns => _mSnsTopicArns.GetValue("snsTopicArns");
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
+        /// </summary>
+        [Input("teamId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTeamId;
+
+        public string? TeamId => _mTeamId.GetValue("teamId");
+
+        /// <summary>
+        /// Name of the Microsoft Teams team.
+        /// </summary>
+        [Input("teamName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTeamName;
+
+        public string? TeamName => _mTeamName.GetValue("teamName");
+
+        /// <summary>
+        /// ID of the Microsoft Teams tenant.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("tenantId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenantId;
+
+        public string? TenantId => _mTenantId.GetValue("tenantId");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TeamsChannelConfigurationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.TeamsChannelConfigurationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Enables use of a user role requirement in your chat configuration.
+        /// </summary>
+        [Input("userAuthorizationRequired")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUserAuthorizationRequired;
+
+        public bool? UserAuthorizationRequired => _mUserAuthorizationRequired.GetValue("userAuthorizationRequired");
     }
 }

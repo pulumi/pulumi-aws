@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chime
 {
     [PolicyResourceType("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization")]
-    public sealed class VoiceConnectorOrganization : global::Pulumi.PolicyResource
+    public sealed class VoiceConnectorOrganization : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
         /// </summary>
         [Input("disabled")]
-        public bool? Disabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
+
+        public bool? Disabled => _mDisabled.GetValue("disabled");
 
         /// <summary>
         /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
         /// </summary>
         [Input("routes")]
-        public List<VoiceConnectorOrganizationRoute>? Routes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VoiceConnectorOrganizationRoute>> _mRoutes;
+
+        public List<Outputs.VoiceConnectorOrganizationRoute>? Routes => _mRoutes.GetValue("routes");
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
         [Input("voiceConnectorId")]
-        public string? VoiceConnectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
+
+        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+    }
+
+    [PolicyResourceType("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization")]
+    public sealed class VoiceConnectorOrganizationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
+        /// </summary>
+        [Input("disabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
+
+        public bool? Disabled => _mDisabled.GetValue("disabled");
+
+        /// <summary>
+        /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
+        /// </summary>
+        [Input("routes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VoiceConnectorOrganizationRouteArgs>> _mRoutes;
+
+        public List<Inputs.VoiceConnectorOrganizationRouteArgs>? Routes => _mRoutes.GetValue("routes");
+
+        /// <summary>
+        /// The Amazon Chime Voice Connector ID.
+        /// </summary>
+        [Input("voiceConnectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
+
+        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
     }
 }

@@ -11,36 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Grafana
 {
     [PolicyResourceType("aws:grafana/licenseAssociation:LicenseAssociation")]
-    public sealed class LicenseAssociation : global::Pulumi.PolicyResource
+    public sealed class LicenseAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
         /// </summary>
         [Input("freeTrialExpiration")]
-        public string? FreeTrialExpiration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFreeTrialExpiration;
+
+        public string? FreeTrialExpiration => _mFreeTrialExpiration.GetValue("freeTrialExpiration");
 
         /// <summary>
         /// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         /// </summary>
         [Input("grafanaToken")]
-        public string? GrafanaToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaToken;
+
+        public string? GrafanaToken => _mGrafanaToken.GetValue("grafanaToken");
 
         /// <summary>
         /// If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         /// </summary>
         [Input("licenseExpiration")]
-        public string? LicenseExpiration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseExpiration;
+
+        public string? LicenseExpiration => _mLicenseExpiration.GetValue("licenseExpiration");
 
         /// <summary>
         /// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         /// </summary>
         [Input("licenseType")]
-        public string? LicenseType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseType;
+
+        public string? LicenseType => _mLicenseType.GetValue("licenseType");
 
         /// <summary>
         /// The workspace id.
         /// </summary>
         [Input("workspaceId")]
-        public string? WorkspaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+    }
+
+    [PolicyResourceType("aws:grafana/licenseAssociation:LicenseAssociation")]
+    public sealed class LicenseAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+        /// </summary>
+        [Input("grafanaToken")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaToken;
+
+        public string? GrafanaToken => _mGrafanaToken.GetValue("grafanaToken");
+
+        /// <summary>
+        /// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+        /// </summary>
+        [Input("licenseType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseType;
+
+        public string? LicenseType => _mLicenseType.GetValue("licenseType");
+
+        /// <summary>
+        /// The workspace id.
+        /// </summary>
+        [Input("workspaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
     }
 }

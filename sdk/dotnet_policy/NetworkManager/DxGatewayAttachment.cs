@@ -11,40 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")]
-    public sealed class DxGatewayAttachment : global::Pulumi.PolicyResource
+    public sealed class DxGatewayAttachment : global::Pulumi.PolicyResourceOutput
     {
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Policy rule number associated with the attachment.
         /// </summary>
         [Input("attachmentPolicyRuleNumber")]
-        public int? AttachmentPolicyRuleNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAttachmentPolicyRuleNumber;
+
+        public int? AttachmentPolicyRuleNumber => _mAttachmentPolicyRuleNumber.GetValue("attachmentPolicyRuleNumber");
 
         /// <summary>
         /// Type of attachment.
         /// </summary>
         [Input("attachmentType")]
-        public string? AttachmentType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
+
+        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
 
         /// <summary>
         /// ARN of the core network for the attachment.
         /// </summary>
         [Input("coreNetworkArn")]
-        public string? CoreNetworkArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
+
+        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
 
         /// <summary>
         /// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
         /// </summary>
         [Input("coreNetworkId")]
-        public string? CoreNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
 
         /// <summary>
         /// ARN of the Direct Connect gateway attachment.
         /// </summary>
         [Input("directConnectGatewayArn")]
-        public string? DirectConnectGatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectConnectGatewayArn;
+
+        public string? DirectConnectGatewayArn => _mDirectConnectGatewayArn.GetValue("directConnectGatewayArn");
 
         /// <summary>
         /// One or more core network edge locations to associate with the Direct Connect gateway attachment.
@@ -52,39 +70,108 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// The following arguments are optional:
         /// </summary>
         [Input("edgeLocations")]
-        public List<string>? EdgeLocations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEdgeLocations;
+
+        public List<string>? EdgeLocations => _mEdgeLocations.GetValue("edgeLocations");
 
         /// <summary>
         /// ID of the attachment account owner.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// Name of the segment attachment.
         /// </summary>
         [Input("segmentName")]
-        public string? SegmentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentName;
+
+        public string? SegmentName => _mSegmentName.GetValue("segmentName");
 
         /// <summary>
         /// State of the attachment.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public DxGatewayAttachmentTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DxGatewayAttachmentTimeouts> _mTimeouts;
+
+        public Outputs.DxGatewayAttachmentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment")]
+    public sealed class DxGatewayAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
+        /// </summary>
+        [Input("coreNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+
+        /// <summary>
+        /// ARN of the Direct Connect gateway attachment.
+        /// </summary>
+        [Input("directConnectGatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDirectConnectGatewayArn;
+
+        public string? DirectConnectGatewayArn => _mDirectConnectGatewayArn.GetValue("directConnectGatewayArn");
+
+        /// <summary>
+        /// One or more core network edge locations to associate with the Direct Connect gateway attachment.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("edgeLocations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEdgeLocations;
+
+        public List<string>? EdgeLocations => _mEdgeLocations.GetValue("edgeLocations");
+
+        /// <summary>
+        /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DxGatewayAttachmentTimeoutsArgs> _mTimeouts;
+
+        public Inputs.DxGatewayAttachmentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

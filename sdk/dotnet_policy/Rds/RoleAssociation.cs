@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/roleAssociation:RoleAssociation")]
-    public sealed class RoleAssociation : global::Pulumi.PolicyResource
+    public sealed class RoleAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// DB Instance Identifier to associate with the IAM Role.
         /// </summary>
         [Input("dbInstanceIdentifier")]
-        public string? DbInstanceIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceIdentifier;
+
+        public string? DbInstanceIdentifier => _mDbInstanceIdentifier.GetValue("dbInstanceIdentifier");
 
         /// <summary>
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         /// </summary>
         [Input("featureName")]
-        public string? FeatureName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureName;
+
+        public string? FeatureName => _mFeatureName.GetValue("featureName");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+    }
+
+    [PolicyResourceType("aws:rds/roleAssociation:RoleAssociation")]
+    public sealed class RoleAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// DB Instance Identifier to associate with the IAM Role.
+        /// </summary>
+        [Input("dbInstanceIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceIdentifier;
+
+        public string? DbInstanceIdentifier => _mDbInstanceIdentifier.GetValue("dbInstanceIdentifier");
+
+        /// <summary>
+        /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
+        /// </summary>
+        [Input("featureName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureName;
+
+        public string? FeatureName => _mFeatureName.GetValue("featureName");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
     }
 }

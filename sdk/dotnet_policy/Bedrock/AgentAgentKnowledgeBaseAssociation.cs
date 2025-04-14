@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Bedrock
 {
     [PolicyResourceType("aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation")]
-    public sealed class AgentAgentKnowledgeBaseAssociation : global::Pulumi.PolicyResource
+    public sealed class AgentAgentKnowledgeBaseAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Unique identifier of the agent with which you want to associate the knowledge base.
         /// </summary>
         [Input("agentId")]
-        public string? AgentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
 
         /// <summary>
         /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         /// </summary>
         [Input("agentVersion")]
-        public string? AgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
 
         /// <summary>
         /// Description of what the agent should use the knowledge base for.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Unique identifier of the knowledge base to associate with the agent.
         /// </summary>
         [Input("knowledgeBaseId")]
-        public string? KnowledgeBaseId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseId;
+
+        public string? KnowledgeBaseId => _mKnowledgeBaseId.GetValue("knowledgeBaseId");
 
         /// <summary>
         /// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
@@ -43,9 +55,72 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Input("knowledgeBaseState")]
-        public string? KnowledgeBaseState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseState;
+
+        public string? KnowledgeBaseState => _mKnowledgeBaseState.GetValue("knowledgeBaseState");
 
         [Input("timeouts")]
-        public AgentAgentKnowledgeBaseAssociationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentKnowledgeBaseAssociationTimeouts> _mTimeouts;
+
+        public Outputs.AgentAgentKnowledgeBaseAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation")]
+    public sealed class AgentAgentKnowledgeBaseAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique identifier of the agent with which you want to associate the knowledge base.
+        /// </summary>
+        [Input("agentId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
+
+        public string? AgentId => _mAgentId.GetValue("agentId");
+
+        /// <summary>
+        /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+        /// </summary>
+        [Input("agentVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+
+        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+
+        /// <summary>
+        /// Description of what the agent should use the knowledge base for.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Unique identifier of the knowledge base to associate with the agent.
+        /// </summary>
+        [Input("knowledgeBaseId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseId;
+
+        public string? KnowledgeBaseId => _mKnowledgeBaseId.GetValue("knowledgeBaseId");
+
+        /// <summary>
+        /// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("knowledgeBaseState")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseState;
+
+        public string? KnowledgeBaseState => _mKnowledgeBaseState.GetValue("knowledgeBaseState");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

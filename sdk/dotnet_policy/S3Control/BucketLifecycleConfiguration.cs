@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")]
-    public sealed class BucketLifecycleConfiguration : global::Pulumi.PolicyResource
+    public sealed class BucketLifecycleConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Configuration block(s) containing lifecycle rules for the bucket.
         /// </summary>
         [Input("rules")]
-        public List<BucketLifecycleConfigurationRule>? Rules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketLifecycleConfigurationRule>> _mRules;
+
+        public List<Outputs.BucketLifecycleConfigurationRule>? Rules => _mRules.GetValue("rules");
+    }
+
+    [PolicyResourceType("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration")]
+    public sealed class BucketLifecycleConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the bucket.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Configuration block(s) containing lifecycle rules for the bucket.
+        /// </summary>
+        [Input("rules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLifecycleConfigurationRuleArgs>> _mRules;
+
+        public List<Inputs.BucketLifecycleConfigurationRuleArgs>? Rules => _mRules.GetValue("rules");
     }
 }

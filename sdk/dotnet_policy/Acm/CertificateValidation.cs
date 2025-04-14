@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Acm
 {
     [PolicyResourceType("aws:acm/certificateValidation:CertificateValidation")]
-    public sealed class CertificateValidation : global::Pulumi.PolicyResource
+    public sealed class CertificateValidation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the certificate that is being validated.
         /// </summary>
         [Input("certificateArn")]
-        public string? CertificateArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
 
         /// <summary>
         /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         /// </summary>
         [Input("validationRecordFqdns")]
-        public List<string>? ValidationRecordFqdns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValidationRecordFqdns;
+
+        public List<string>? ValidationRecordFqdns => _mValidationRecordFqdns.GetValue("validationRecordFqdns");
+    }
+
+    [PolicyResourceType("aws:acm/certificateValidation:CertificateValidation")]
+    public sealed class CertificateValidationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the certificate that is being validated.
+        /// </summary>
+        [Input("certificateArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
+
+        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+
+        /// <summary>
+        /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+        /// </summary>
+        [Input("validationRecordFqdns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValidationRecordFqdns;
+
+        public List<string>? ValidationRecordFqdns => _mValidationRecordFqdns.GetValue("validationRecordFqdns");
     }
 }

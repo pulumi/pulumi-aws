@@ -11,54 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/organizationConformancePack:OrganizationConformancePack")]
-    public sealed class OrganizationConformancePack : global::Pulumi.PolicyResource
+    public sealed class OrganizationConformancePack : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the organization conformance pack.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
         /// </summary>
         [Input("deliveryS3Bucket")]
-        public string? DeliveryS3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryS3Bucket;
+
+        public string? DeliveryS3Bucket => _mDeliveryS3Bucket.GetValue("deliveryS3Bucket");
 
         /// <summary>
         /// The prefix for the Amazon S3 bucket. Maximum length of 1024.
         /// </summary>
         [Input("deliveryS3KeyPrefix")]
-        public string? DeliveryS3KeyPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryS3KeyPrefix;
+
+        public string? DeliveryS3KeyPrefix => _mDeliveryS3KeyPrefix.GetValue("deliveryS3KeyPrefix");
 
         /// <summary>
         /// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
         /// </summary>
         [Input("excludedAccounts")]
-        public List<string>? ExcludedAccounts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedAccounts;
+
+        public List<string>? ExcludedAccounts => _mExcludedAccounts.GetValue("excludedAccounts");
 
         /// <summary>
         /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         /// </summary>
         [Input("inputParameters")]
-        public List<OrganizationConformancePackInputParameter>? InputParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationConformancePackInputParameter>> _mInputParameters;
+
+        public List<Outputs.OrganizationConformancePackInputParameter>? InputParameters => _mInputParameters.GetValue("inputParameters");
 
         /// <summary>
         /// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         /// </summary>
         [Input("templateBody")]
-        public string? TemplateBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
+
+        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
 
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         /// </summary>
         [Input("templateS3Uri")]
-        public string? TemplateS3Uri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateS3Uri;
+
+        public string? TemplateS3Uri => _mTemplateS3Uri.GetValue("templateS3Uri");
+    }
+
+    [PolicyResourceType("aws:cfg/organizationConformancePack:OrganizationConformancePack")]
+    public sealed class OrganizationConformancePackArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
+        /// </summary>
+        [Input("deliveryS3Bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryS3Bucket;
+
+        public string? DeliveryS3Bucket => _mDeliveryS3Bucket.GetValue("deliveryS3Bucket");
+
+        /// <summary>
+        /// The prefix for the Amazon S3 bucket. Maximum length of 1024.
+        /// </summary>
+        [Input("deliveryS3KeyPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryS3KeyPrefix;
+
+        public string? DeliveryS3KeyPrefix => _mDeliveryS3KeyPrefix.GetValue("deliveryS3KeyPrefix");
+
+        /// <summary>
+        /// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
+        /// </summary>
+        [Input("excludedAccounts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedAccounts;
+
+        public List<string>? ExcludedAccounts => _mExcludedAccounts.GetValue("excludedAccounts");
+
+        /// <summary>
+        /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        /// </summary>
+        [Input("inputParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OrganizationConformancePackInputParameterArgs>> _mInputParameters;
+
+        public List<Inputs.OrganizationConformancePackInputParameterArgs>? InputParameters => _mInputParameters.GetValue("inputParameters");
+
+        /// <summary>
+        /// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
+        /// </summary>
+        [Input("templateBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
+
+        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+
+        /// <summary>
+        /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        /// </summary>
+        [Input("templateS3Uri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateS3Uri;
+
+        public string? TemplateS3Uri => _mTemplateS3Uri.GetValue("templateS3Uri");
     }
 }

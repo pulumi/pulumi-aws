@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")]
-    public sealed class VpcEndpointConnectionAccepter : global::Pulumi.PolicyResource
+    public sealed class VpcEndpointConnectionAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS VPC Endpoint ID.
         /// </summary>
         [Input("vpcEndpointId")]
-        public string? VpcEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
 
         /// <summary>
         /// AWS VPC Endpoint Service ID.
         /// </summary>
         [Input("vpcEndpointServiceId")]
-        public string? VpcEndpointServiceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
+
+        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
 
         /// <summary>
         /// State of the VPC Endpoint.
         /// </summary>
         [Input("vpcEndpointState")]
-        public string? VpcEndpointState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointState;
+
+        public string? VpcEndpointState => _mVpcEndpointState.GetValue("vpcEndpointState");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")]
+    public sealed class VpcEndpointConnectionAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS VPC Endpoint ID.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+
+        /// <summary>
+        /// AWS VPC Endpoint Service ID.
+        /// </summary>
+        [Input("vpcEndpointServiceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
+
+        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
     }
 }

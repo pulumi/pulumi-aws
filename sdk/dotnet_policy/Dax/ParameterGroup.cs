@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Dax
 {
     [PolicyResourceType("aws:dax/parameterGroup:ParameterGroup")]
-    public sealed class ParameterGroup : global::Pulumi.PolicyResource
+    public sealed class ParameterGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A description of the parameter group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the parameter group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The parameters of the parameter group.
         /// </summary>
         [Input("parameters")]
-        public List<ParameterGroupParameter>? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ParameterGroupParameter>> _mParameters;
+
+        public List<Outputs.ParameterGroupParameter>? Parameters => _mParameters.GetValue("parameters");
+    }
+
+    [PolicyResourceType("aws:dax/parameterGroup:ParameterGroup")]
+    public sealed class ParameterGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the parameter group.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the parameter group.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The parameters of the parameter group.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ParameterGroupParameterArgs>> _mParameters;
+
+        public List<Inputs.ParameterGroupParameterArgs>? Parameters => _mParameters.GetValue("parameters");
     }
 }

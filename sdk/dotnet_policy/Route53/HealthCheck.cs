@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/healthCheck:HealthCheck")]
-    public sealed class HealthCheck : global::Pulumi.PolicyResource
+    public sealed class HealthCheck : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Health Check.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         /// </summary>
         [Input("childHealthThreshold")]
-        public int? ChildHealthThreshold;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mChildHealthThreshold;
+
+        public int? ChildHealthThreshold => _mChildHealthThreshold.GetValue("childHealthThreshold");
 
         /// <summary>
         /// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         /// </summary>
         [Input("childHealthchecks")]
-        public List<string>? ChildHealthchecks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mChildHealthchecks;
+
+        public List<string>? ChildHealthchecks => _mChildHealthchecks.GetValue("childHealthchecks");
 
         /// <summary>
         /// The name of the CloudWatch alarm.
         /// </summary>
         [Input("cloudwatchAlarmName")]
-        public string? CloudwatchAlarmName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchAlarmName;
+
+        public string? CloudwatchAlarmName => _mCloudwatchAlarmName.GetValue("cloudwatchAlarmName");
 
         /// <summary>
         /// The region that the CloudWatch alarm was created in.
         /// </summary>
         [Input("cloudwatchAlarmRegion")]
-        public string? CloudwatchAlarmRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchAlarmRegion;
+
+        public string? CloudwatchAlarmRegion => _mCloudwatchAlarmRegion.GetValue("cloudwatchAlarmRegion");
 
         /// <summary>
         /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
@@ -52,115 +67,380 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
         [Input("disabled")]
-        public bool? Disabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
+
+        public bool? Disabled => _mDisabled.GetValue("disabled");
 
         /// <summary>
         /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         /// </summary>
         [Input("enableSni")]
-        public bool? EnableSni;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSni;
+
+        public bool? EnableSni => _mEnableSni.GetValue("enableSni");
 
         /// <summary>
         /// The number of consecutive health checks that an endpoint must pass or fail.
         /// </summary>
         [Input("failureThreshold")]
-        public int? FailureThreshold;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFailureThreshold;
+
+        public int? FailureThreshold => _mFailureThreshold.GetValue("failureThreshold");
 
         /// <summary>
         /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
-        public string? Fqdn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFqdn;
+
+        public string? Fqdn => _mFqdn.GetValue("fqdn");
 
         /// <summary>
         /// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
         /// </summary>
         [Input("insufficientDataHealthStatus")]
-        public string? InsufficientDataHealthStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInsufficientDataHealthStatus;
+
+        public string? InsufficientDataHealthStatus => _mInsufficientDataHealthStatus.GetValue("insufficientDataHealthStatus");
 
         /// <summary>
         /// A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
         /// </summary>
         [Input("invertHealthcheck")]
-        public bool? InvertHealthcheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInvertHealthcheck;
+
+        public bool? InvertHealthcheck => _mInvertHealthcheck.GetValue("invertHealthcheck");
 
         /// <summary>
         /// The IP address of the endpoint to be checked.
         /// </summary>
         [Input("ipAddress")]
-        public string? IpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
 
         /// <summary>
         /// A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
         /// </summary>
         [Input("measureLatency")]
-        public bool? MeasureLatency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMeasureLatency;
+
+        public bool? MeasureLatency => _mMeasureLatency.GetValue("measureLatency");
 
         /// <summary>
         /// The port of the endpoint to be checked.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// This is a reference name used in Caller Reference
         /// (helpful for identifying single health_check set amongst others)
         /// </summary>
         [Input("referenceName")]
-        public string? ReferenceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceName;
+
+        public string? ReferenceName => _mReferenceName.GetValue("referenceName");
 
         /// <summary>
         /// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         /// </summary>
         [Input("regions")]
-        public List<string>? Regions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
+
+        public List<string>? Regions => _mRegions.GetValue("regions");
 
         /// <summary>
         /// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         /// </summary>
         [Input("requestInterval")]
-        public int? RequestInterval;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRequestInterval;
+
+        public int? RequestInterval => _mRequestInterval.GetValue("requestInterval");
 
         /// <summary>
         /// The path that you want Amazon Route 53 to request when performing health checks.
         /// </summary>
         [Input("resourcePath")]
-        public string? ResourcePath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePath;
+
+        public string? ResourcePath => _mResourcePath.GetValue("resourcePath");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         /// </summary>
         [Input("routingControlArn")]
-        public string? RoutingControlArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingControlArn;
+
+        public string? RoutingControlArn => _mRoutingControlArn.GetValue("routingControlArn");
 
         /// <summary>
         /// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         /// </summary>
         [Input("searchString")]
-        public string? SearchString;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSearchString;
+
+        public string? SearchString => _mSearchString.GetValue("searchString");
 
         /// <summary>
         /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
         /// </summary>
         [Input("triggers")]
-        public Dictionary<string, string>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
 
         /// <summary>
         /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:route53/healthCheck:HealthCheck")]
+    public sealed class HealthCheckArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
+        /// </summary>
+        [Input("childHealthThreshold")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mChildHealthThreshold;
+
+        public int? ChildHealthThreshold => _mChildHealthThreshold.GetValue("childHealthThreshold");
+
+        /// <summary>
+        /// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
+        /// </summary>
+        [Input("childHealthchecks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mChildHealthchecks;
+
+        public List<string>? ChildHealthchecks => _mChildHealthchecks.GetValue("childHealthchecks");
+
+        /// <summary>
+        /// The name of the CloudWatch alarm.
+        /// </summary>
+        [Input("cloudwatchAlarmName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchAlarmName;
+
+        public string? CloudwatchAlarmName => _mCloudwatchAlarmName.GetValue("cloudwatchAlarmName");
+
+        /// <summary>
+        /// The region that the CloudWatch alarm was created in.
+        /// </summary>
+        [Input("cloudwatchAlarmRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchAlarmRegion;
+
+        public string? CloudwatchAlarmRegion => _mCloudwatchAlarmRegion.GetValue("cloudwatchAlarmRegion");
+
+        /// <summary>
+        /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
+        /// * For health checks that check the health of endpoints, Route53 stops submitting requests to your application, server, or other resource.
+        /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
+        /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// 
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
+        /// </summary>
+        [Input("disabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
+
+        public bool? Disabled => _mDisabled.GetValue("disabled");
+
+        /// <summary>
+        /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
+        /// </summary>
+        [Input("enableSni")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSni;
+
+        public bool? EnableSni => _mEnableSni.GetValue("enableSni");
+
+        /// <summary>
+        /// The number of consecutive health checks that an endpoint must pass or fail.
+        /// </summary>
+        [Input("failureThreshold")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mFailureThreshold;
+
+        public int? FailureThreshold => _mFailureThreshold.GetValue("failureThreshold");
+
+        /// <summary>
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
+        /// </summary>
+        [Input("fqdn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFqdn;
+
+        public string? Fqdn => _mFqdn.GetValue("fqdn");
+
+        /// <summary>
+        /// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
+        /// </summary>
+        [Input("insufficientDataHealthStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInsufficientDataHealthStatus;
+
+        public string? InsufficientDataHealthStatus => _mInsufficientDataHealthStatus.GetValue("insufficientDataHealthStatus");
+
+        /// <summary>
+        /// A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
+        /// </summary>
+        [Input("invertHealthcheck")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInvertHealthcheck;
+
+        public bool? InvertHealthcheck => _mInvertHealthcheck.GetValue("invertHealthcheck");
+
+        /// <summary>
+        /// The IP address of the endpoint to be checked.
+        /// </summary>
+        [Input("ipAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+
+        /// <summary>
+        /// A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
+        /// </summary>
+        [Input("measureLatency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMeasureLatency;
+
+        public bool? MeasureLatency => _mMeasureLatency.GetValue("measureLatency");
+
+        /// <summary>
+        /// The port of the endpoint to be checked.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// This is a reference name used in Caller Reference
+        /// (helpful for identifying single health_check set amongst others)
+        /// </summary>
+        [Input("referenceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceName;
+
+        public string? ReferenceName => _mReferenceName.GetValue("referenceName");
+
+        /// <summary>
+        /// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        /// </summary>
+        [Input("regions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
+
+        public List<string>? Regions => _mRegions.GetValue("regions");
+
+        /// <summary>
+        /// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
+        /// </summary>
+        [Input("requestInterval")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRequestInterval;
+
+        public int? RequestInterval => _mRequestInterval.GetValue("requestInterval");
+
+        /// <summary>
+        /// The path that you want Amazon Route 53 to request when performing health checks.
+        /// </summary>
+        [Input("resourcePath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePath;
+
+        public string? ResourcePath => _mResourcePath.GetValue("resourcePath");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        /// </summary>
+        [Input("routingControlArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingControlArn;
+
+        public string? RoutingControlArn => _mRoutingControlArn.GetValue("routingControlArn");
+
+        /// <summary>
+        /// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
+        /// </summary>
+        [Input("searchString")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSearchString;
+
+        public string? SearchString => _mSearchString.GetValue("searchString");
+
+        /// <summary>
+        /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
+        /// </summary>
+        [Input("triggers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+
+        /// <summary>
+        /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

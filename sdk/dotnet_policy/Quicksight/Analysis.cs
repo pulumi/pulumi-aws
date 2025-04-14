@@ -11,40 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/analysis:Analysis")]
-    public sealed class Analysis : global::Pulumi.PolicyResource
+    public sealed class Analysis : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier for the analysis.
         /// </summary>
         [Input("analysisId")]
-        public string? AnalysisId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisId;
+
+        public string? AnalysisId => _mAnalysisId.GetValue("analysisId");
 
         /// <summary>
         /// ARN of the analysis.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// The time that the analysis was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         [Input("lastPublishedTime")]
-        public string? LastPublishedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastPublishedTime;
+
+        public string? LastPublishedTime => _mLastPublishedTime.GetValue("lastPublishedTime");
 
         /// <summary>
         /// The time that the analysis was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
-        public string? LastUpdatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
+
+        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
 
         /// <summary>
         /// Display name for the analysis.
@@ -52,54 +70,168 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
         /// </summary>
         [Input("parameters")]
-        public AnalysisParameters? Parameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalysisParameters> _mParameters;
+
+        public Outputs.AnalysisParameters? Parameters => _mParameters.GetValue("parameters");
 
         /// <summary>
         /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         /// </summary>
         [Input("permissions")]
-        public List<AnalysisPermission>? Permissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnalysisPermission>> _mPermissions;
+
+        public List<Outputs.AnalysisPermission>? Permissions => _mPermissions.GetValue("permissions");
 
         /// <summary>
         /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
         /// </summary>
         [Input("recoveryWindowInDays")]
-        public int? RecoveryWindowInDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRecoveryWindowInDays;
+
+        public int? RecoveryWindowInDays => _mRecoveryWindowInDays.GetValue("recoveryWindowInDays");
 
         /// <summary>
         /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         /// </summary>
         [Input("sourceEntity")]
-        public AnalysisSourceEntity? SourceEntity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalysisSourceEntity> _mSourceEntity;
+
+        public Outputs.AnalysisSourceEntity? SourceEntity => _mSourceEntity.GetValue("sourceEntity");
 
         /// <summary>
         /// The analysis creation status.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         /// </summary>
         [Input("themeArn")]
-        public string? ThemeArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThemeArn;
+
+        public string? ThemeArn => _mThemeArn.GetValue("themeArn");
+    }
+
+    [PolicyResourceType("aws:quicksight/analysis:Analysis")]
+    public sealed class AnalysisArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier for the analysis.
+        /// </summary>
+        [Input("analysisId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisId;
+
+        public string? AnalysisId => _mAnalysisId.GetValue("analysisId");
+
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// Display name for the analysis.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        /// </summary>
+        [Input("parameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalysisParametersArgs> _mParameters;
+
+        public Inputs.AnalysisParametersArgs? Parameters => _mParameters.GetValue("parameters");
+
+        /// <summary>
+        /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        /// </summary>
+        [Input("permissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnalysisPermissionArgs>> _mPermissions;
+
+        public List<Inputs.AnalysisPermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+
+        /// <summary>
+        /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+        /// </summary>
+        [Input("recoveryWindowInDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRecoveryWindowInDays;
+
+        public int? RecoveryWindowInDays => _mRecoveryWindowInDays.GetValue("recoveryWindowInDays");
+
+        /// <summary>
+        /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        /// </summary>
+        [Input("sourceEntity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalysisSourceEntityArgs> _mSourceEntity;
+
+        public Inputs.AnalysisSourceEntityArgs? SourceEntity => _mSourceEntity.GetValue("sourceEntity");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        /// </summary>
+        [Input("themeArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mThemeArn;
+
+        public string? ThemeArn => _mThemeArn.GetValue("themeArn");
     }
 }

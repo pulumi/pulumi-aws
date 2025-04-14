@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule")]
-    public sealed class TrafficMirrorFilterRule : global::Pulumi.PolicyResource
+    public sealed class TrafficMirrorFilterRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the traffic mirror filter rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the traffic mirror filter rule.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Destination CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
         [Input("destinationCidrBlock")]
-        public string? DestinationCidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
 
         /// <summary>
         /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
         [Input("destinationPortRange")]
-        public TrafficMirrorFilterRuleDestinationPortRange? DestinationPortRange;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrafficMirrorFilterRuleDestinationPortRange> _mDestinationPortRange;
+
+        public Outputs.TrafficMirrorFilterRuleDestinationPortRange? DestinationPortRange => _mDestinationPortRange.GetValue("destinationPortRange");
 
         /// <summary>
         /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         /// </summary>
         [Input("protocol")]
-        public int? Protocol;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mProtocol;
+
+        public int? Protocol => _mProtocol.GetValue("protocol");
 
         /// <summary>
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         /// </summary>
         [Input("ruleAction")]
-        public string? RuleAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
+
+        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
 
         /// <summary>
         /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         /// </summary>
         [Input("ruleNumber")]
-        public int? RuleNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
+
+        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
 
         /// <summary>
         /// Source CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
         [Input("sourceCidrBlock")]
-        public string? SourceCidrBlock;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCidrBlock;
+
+        public string? SourceCidrBlock => _mSourceCidrBlock.GetValue("sourceCidrBlock");
 
         /// <summary>
         /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
         [Input("sourcePortRange")]
-        public TrafficMirrorFilterRuleSourcePortRange? SourcePortRange;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TrafficMirrorFilterRuleSourcePortRange> _mSourcePortRange;
+
+        public Outputs.TrafficMirrorFilterRuleSourcePortRange? SourcePortRange => _mSourcePortRange.GetValue("sourcePortRange");
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
@@ -73,12 +100,114 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// Traffic mirror port range support following attributes:
         /// </summary>
         [Input("trafficDirection")]
-        public string? TrafficDirection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficDirection;
+
+        public string? TrafficDirection => _mTrafficDirection.GetValue("trafficDirection");
 
         /// <summary>
         /// ID of the traffic mirror filter to which this rule should be added
         /// </summary>
         [Input("trafficMirrorFilterId")]
-        public string? TrafficMirrorFilterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficMirrorFilterId;
+
+        public string? TrafficMirrorFilterId => _mTrafficMirrorFilterId.GetValue("trafficMirrorFilterId");
+    }
+
+    [PolicyResourceType("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule")]
+    public sealed class TrafficMirrorFilterRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the traffic mirror filter rule.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Destination CIDR block to assign to the Traffic Mirror rule.
+        /// </summary>
+        [Input("destinationCidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
+
+        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+
+        /// <summary>
+        /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        /// </summary>
+        [Input("destinationPortRange")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs> _mDestinationPortRange;
+
+        public Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs? DestinationPortRange => _mDestinationPortRange.GetValue("destinationPortRange");
+
+        /// <summary>
+        /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+        /// </summary>
+        [Input("protocol")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mProtocol;
+
+        public int? Protocol => _mProtocol.GetValue("protocol");
+
+        /// <summary>
+        /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
+        /// </summary>
+        [Input("ruleAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
+
+        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
+
+        /// <summary>
+        /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+        /// </summary>
+        [Input("ruleNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
+
+        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+
+        /// <summary>
+        /// Source CIDR block to assign to the Traffic Mirror rule.
+        /// </summary>
+        [Input("sourceCidrBlock")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCidrBlock;
+
+        public string? SourceCidrBlock => _mSourceCidrBlock.GetValue("sourceCidrBlock");
+
+        /// <summary>
+        /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        /// </summary>
+        [Input("sourcePortRange")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs> _mSourcePortRange;
+
+        public Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs? SourcePortRange => _mSourcePortRange.GetValue("sourcePortRange");
+
+        /// <summary>
+        /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// 
+        /// Traffic mirror port range support following attributes:
+        /// </summary>
+        [Input("trafficDirection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficDirection;
+
+        public string? TrafficDirection => _mTrafficDirection.GetValue("trafficDirection");
+
+        /// <summary>
+        /// ID of the traffic mirror filter to which this rule should be added
+        /// </summary>
+        [Input("trafficMirrorFilterId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficMirrorFilterId;
+
+        public string? TrafficMirrorFilterId => _mTrafficMirrorFilterId.GetValue("trafficMirrorFilterId");
     }
 }

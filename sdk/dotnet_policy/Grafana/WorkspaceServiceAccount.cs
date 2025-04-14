@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Grafana
 {
     [PolicyResourceType("aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount")]
-    public sealed class WorkspaceServiceAccount : global::Pulumi.PolicyResource
+    public sealed class WorkspaceServiceAccount : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         /// </summary>
         [Input("grafanaRole")]
-        public string? GrafanaRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaRole;
+
+        public string? GrafanaRole => _mGrafanaRole.GetValue("grafanaRole");
 
         /// <summary>
         /// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Identifier of the service account in the given Grafana workspace
         /// </summary>
         [Input("serviceAccountId")]
-        public string? ServiceAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountId;
+
+        public string? ServiceAccountId => _mServiceAccountId.GetValue("serviceAccountId");
 
         /// <summary>
         /// The Grafana workspace with which the service account is associated.
         /// </summary>
         [Input("workspaceId")]
-        public string? WorkspaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+    }
+
+    [PolicyResourceType("aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount")]
+    public sealed class WorkspaceServiceAccountArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
+        /// </summary>
+        [Input("grafanaRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaRole;
+
+        public string? GrafanaRole => _mGrafanaRole.GetValue("grafanaRole");
+
+        /// <summary>
+        /// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The Grafana workspace with which the service account is associated.
+        /// </summary>
+        [Input("workspaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
     }
 }

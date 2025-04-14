@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")]
-    public sealed class BucketCorsConfigurationV2 : global::Pulumi.PolicyResource
+    public sealed class BucketCorsConfigurationV2 : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the bucket.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         /// </summary>
         [Input("corsRules")]
-        public List<BucketCorsConfigurationV2CorsRule>? CorsRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketCorsConfigurationV2CorsRule>> _mCorsRules;
+
+        public List<Outputs.BucketCorsConfigurationV2CorsRule>? CorsRules => _mCorsRules.GetValue("corsRules");
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
-        public string? ExpectedBucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+    }
+
+    [PolicyResourceType("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")]
+    public sealed class BucketCorsConfigurationV2Args : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        /// </summary>
+        [Input("corsRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketCorsConfigurationV2CorsRuleArgs>> _mCorsRules;
+
+        public List<Inputs.BucketCorsConfigurationV2CorsRuleArgs>? CorsRules => _mCorsRules.GetValue("corsRules");
+
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
     }
 }

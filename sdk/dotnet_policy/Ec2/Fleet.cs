@@ -11,120 +11,334 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/fleet:Fleet")]
-    public sealed class Fleet : global::Pulumi.PolicyResource
+    public sealed class Fleet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the fleet
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Reserved.
         /// </summary>
         [Input("context")]
-        public string? Context;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
+
+        public string? Context => _mContext.GetValue("context");
 
         /// <summary>
         /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Input("excessCapacityTerminationPolicy")]
-        public string? ExcessCapacityTerminationPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExcessCapacityTerminationPolicy;
+
+        public string? ExcessCapacityTerminationPolicy => _mExcessCapacityTerminationPolicy.GetValue("excessCapacityTerminationPolicy");
 
         /// <summary>
         /// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
         /// </summary>
         [Input("fleetInstanceSets")]
-        public List<FleetFleetInstanceSet>? FleetInstanceSets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetFleetInstanceSet>> _mFleetInstanceSets;
+
+        public List<Outputs.FleetFleetInstanceSet>? FleetInstanceSets => _mFleetInstanceSets.GetValue("fleetInstanceSets");
 
         /// <summary>
         /// The state of the EC2 Fleet.
         /// </summary>
         [Input("fleetState")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("fleetState");
 
         /// <summary>
         /// The number of units fulfilled by this request compared to the set target capacity.
         /// </summary>
         [Input("fulfilledCapacity")]
-        public double? FulfilledCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mFulfilledCapacity;
+
+        public double? FulfilledCapacity => _mFulfilledCapacity.GetValue("fulfilledCapacity");
 
         /// <summary>
         /// The number of units fulfilled by this request compared to the set target On-Demand capacity.
         /// </summary>
         [Input("fulfilledOnDemandCapacity")]
-        public double? FulfilledOnDemandCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mFulfilledOnDemandCapacity;
+
+        public double? FulfilledOnDemandCapacity => _mFulfilledOnDemandCapacity.GetValue("fulfilledOnDemandCapacity");
 
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
         [Input("launchTemplateConfigs")]
-        public List<FleetLaunchTemplateConfig>? LaunchTemplateConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetLaunchTemplateConfig>> _mLaunchTemplateConfigs;
+
+        public List<Outputs.FleetLaunchTemplateConfig>? LaunchTemplateConfigs => _mLaunchTemplateConfigs.GetValue("launchTemplateConfigs");
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.
         /// </summary>
         [Input("onDemandOptions")]
-        public FleetOnDemandOptions? OnDemandOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetOnDemandOptions> _mOnDemandOptions;
+
+        public Outputs.FleetOnDemandOptions? OnDemandOptions => _mOnDemandOptions.GetValue("onDemandOptions");
 
         /// <summary>
         /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         /// </summary>
         [Input("replaceUnhealthyInstances")]
-        public bool? ReplaceUnhealthyInstances;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceUnhealthyInstances;
+
+        public bool? ReplaceUnhealthyInstances => _mReplaceUnhealthyInstances.GetValue("replaceUnhealthyInstances");
 
         /// <summary>
         /// Nested argument containing Spot configurations. Defined below.
         /// </summary>
         [Input("spotOptions")]
-        public FleetSpotOptions? SpotOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetSpotOptions> _mSpotOptions;
+
+        public Outputs.FleetSpotOptions? SpotOptions => _mSpotOptions.GetValue("spotOptions");
 
         /// <summary>
         /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Nested argument containing target capacity configurations. Defined below.
         /// </summary>
         [Input("targetCapacitySpecification")]
-        public FleetTargetCapacitySpecification? TargetCapacitySpecification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetTargetCapacitySpecification> _mTargetCapacitySpecification;
+
+        public Outputs.FleetTargetCapacitySpecification? TargetCapacitySpecification => _mTargetCapacitySpecification.GetValue("targetCapacitySpecification");
 
         /// <summary>
         /// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         /// </summary>
         [Input("terminateInstances")]
-        public bool? TerminateInstances;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstances;
+
+        public bool? TerminateInstances => _mTerminateInstances.GetValue("terminateInstances");
 
         /// <summary>
         /// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         /// </summary>
         [Input("terminateInstancesWithExpiration")]
-        public bool? TerminateInstancesWithExpiration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstancesWithExpiration;
+
+        public bool? TerminateInstancesWithExpiration => _mTerminateInstancesWithExpiration.GetValue("terminateInstancesWithExpiration");
 
         /// <summary>
         /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
 
         /// <summary>
         /// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         /// </summary>
         [Input("validFrom")]
-        public string? ValidFrom;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidFrom;
+
+        public string? ValidFrom => _mValidFrom.GetValue("validFrom");
 
         /// <summary>
         /// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         /// </summary>
         [Input("validUntil")]
-        public string? ValidUntil;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidUntil;
+
+        public string? ValidUntil => _mValidUntil.GetValue("validUntil");
+    }
+
+    [PolicyResourceType("aws:ec2/fleet:Fleet")]
+    public sealed class FleetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
+
+        public string? Context => _mContext.GetValue("context");
+
+        /// <summary>
+        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
+        /// </summary>
+        [Input("excessCapacityTerminationPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExcessCapacityTerminationPolicy;
+
+        public string? ExcessCapacityTerminationPolicy => _mExcessCapacityTerminationPolicy.GetValue("excessCapacityTerminationPolicy");
+
+        /// <summary>
+        /// Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
+        /// </summary>
+        [Input("fleetInstanceSets")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FleetFleetInstanceSetArgs>> _mFleetInstanceSets;
+
+        public List<Inputs.FleetFleetInstanceSetArgs>? FleetInstanceSets => _mFleetInstanceSets.GetValue("fleetInstanceSets");
+
+        /// <summary>
+        /// The state of the EC2 Fleet.
+        /// </summary>
+        [Input("fleetState")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("fleetState");
+
+        /// <summary>
+        /// The number of units fulfilled by this request compared to the set target capacity.
+        /// </summary>
+        [Input("fulfilledCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mFulfilledCapacity;
+
+        public double? FulfilledCapacity => _mFulfilledCapacity.GetValue("fulfilledCapacity");
+
+        /// <summary>
+        /// The number of units fulfilled by this request compared to the set target On-Demand capacity.
+        /// </summary>
+        [Input("fulfilledOnDemandCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<double> _mFulfilledOnDemandCapacity;
+
+        public double? FulfilledOnDemandCapacity => _mFulfilledOnDemandCapacity.GetValue("fulfilledOnDemandCapacity");
+
+        /// <summary>
+        /// Nested argument containing EC2 Launch Template configurations. Defined below.
+        /// </summary>
+        [Input("launchTemplateConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FleetLaunchTemplateConfigArgs>> _mLaunchTemplateConfigs;
+
+        public List<Inputs.FleetLaunchTemplateConfigArgs>? LaunchTemplateConfigs => _mLaunchTemplateConfigs.GetValue("launchTemplateConfigs");
+
+        /// <summary>
+        /// Nested argument containing On-Demand configurations. Defined below.
+        /// </summary>
+        [Input("onDemandOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetOnDemandOptionsArgs> _mOnDemandOptions;
+
+        public Inputs.FleetOnDemandOptionsArgs? OnDemandOptions => _mOnDemandOptions.GetValue("onDemandOptions");
+
+        /// <summary>
+        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
+        /// </summary>
+        [Input("replaceUnhealthyInstances")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceUnhealthyInstances;
+
+        public bool? ReplaceUnhealthyInstances => _mReplaceUnhealthyInstances.GetValue("replaceUnhealthyInstances");
+
+        /// <summary>
+        /// Nested argument containing Spot configurations. Defined below.
+        /// </summary>
+        [Input("spotOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetSpotOptionsArgs> _mSpotOptions;
+
+        public Inputs.FleetSpotOptionsArgs? SpotOptions => _mSpotOptions.GetValue("spotOptions");
+
+        /// <summary>
+        /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Nested argument containing target capacity configurations. Defined below.
+        /// </summary>
+        [Input("targetCapacitySpecification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetTargetCapacitySpecificationArgs> _mTargetCapacitySpecification;
+
+        public Inputs.FleetTargetCapacitySpecificationArgs? TargetCapacitySpecification => _mTargetCapacitySpecification.GetValue("targetCapacitySpecification");
+
+        /// <summary>
+        /// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
+        /// </summary>
+        [Input("terminateInstances")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstances;
+
+        public bool? TerminateInstances => _mTerminateInstances.GetValue("terminateInstances");
+
+        /// <summary>
+        /// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
+        /// </summary>
+        [Input("terminateInstancesWithExpiration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstancesWithExpiration;
+
+        public bool? TerminateInstancesWithExpiration => _mTerminateInstancesWithExpiration.GetValue("terminateInstancesWithExpiration");
+
+        /// <summary>
+        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+
+        /// <summary>
+        /// The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+        /// </summary>
+        [Input("validFrom")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidFrom;
+
+        public string? ValidFrom => _mValidFrom.GetValue("validFrom");
+
+        /// <summary>
+        /// The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
+        /// </summary>
+        [Input("validUntil")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidUntil;
+
+        public string? ValidUntil => _mValidUntil.GetValue("validUntil");
     }
 }

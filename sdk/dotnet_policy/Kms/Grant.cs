@@ -11,67 +11,174 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kms
 {
     [PolicyResourceType("aws:kms/grant:Grant")]
-    public sealed class Grant : global::Pulumi.PolicyResource
+    public sealed class Grant : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         /// </summary>
         [Input("constraints")]
-        public List<GrantConstraint>? Constraints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GrantConstraint>> _mConstraints;
+
+        public List<Outputs.GrantConstraint>? Constraints => _mConstraints.GetValue("constraints");
 
         /// <summary>
         /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         /// </summary>
         [Input("grantCreationTokens")]
-        public List<string>? GrantCreationTokens;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGrantCreationTokens;
+
+        public List<string>? GrantCreationTokens => _mGrantCreationTokens.GetValue("grantCreationTokens");
 
         /// <summary>
         /// The unique identifier for the grant.
         /// </summary>
         [Input("grantId")]
-        public string? GrantId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrantId;
+
+        public string? GrantId => _mGrantId.GetValue("grantId");
 
         /// <summary>
         /// The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
         /// </summary>
         [Input("grantToken")]
-        public string? GrantToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrantToken;
+
+        public string? GrantToken => _mGrantToken.GetValue("grantToken");
 
         /// <summary>
         /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("granteePrincipal")]
-        public string? GranteePrincipal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGranteePrincipal;
+
+        public string? GranteePrincipal => _mGranteePrincipal.GetValue("granteePrincipal");
 
         /// <summary>
         /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         /// </summary>
         [Input("keyId")]
-        public string? KeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
 
         /// <summary>
         /// A friendly name for identifying the grant.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
         [Input("operations")]
-        public List<string>? Operations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOperations;
+
+        public List<string>? Operations => _mOperations.GetValue("operations");
 
         /// <summary>
         /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
         /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
         [Input("retireOnDelete")]
-        public bool? RetireOnDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetireOnDelete;
+
+        public bool? RetireOnDelete => _mRetireOnDelete.GetValue("retireOnDelete");
 
         /// <summary>
         /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("retiringPrincipal")]
-        public string? RetiringPrincipal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRetiringPrincipal;
+
+        public string? RetiringPrincipal => _mRetiringPrincipal.GetValue("retiringPrincipal");
+    }
+
+    [PolicyResourceType("aws:kms/grant:Grant")]
+    public sealed class GrantArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        /// </summary>
+        [Input("constraints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GrantConstraintArgs>> _mConstraints;
+
+        public List<Inputs.GrantConstraintArgs>? Constraints => _mConstraints.GetValue("constraints");
+
+        /// <summary>
+        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
+        /// </summary>
+        [Input("grantCreationTokens")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGrantCreationTokens;
+
+        public List<string>? GrantCreationTokens => _mGrantCreationTokens.GetValue("grantCreationTokens");
+
+        /// <summary>
+        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        /// </summary>
+        [Input("granteePrincipal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGranteePrincipal;
+
+        public string? GranteePrincipal => _mGranteePrincipal.GetValue("granteePrincipal");
+
+        /// <summary>
+        /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+        /// </summary>
+        [Input("keyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
+
+        /// <summary>
+        /// A friendly name for identifying the grant.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        /// </summary>
+        [Input("operations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOperations;
+
+        public List<string>? Operations => _mOperations.GetValue("operations");
+
+        /// <summary>
+        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
+        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        /// </summary>
+        [Input("retireOnDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetireOnDelete;
+
+        public bool? RetireOnDelete => _mRetireOnDelete.GetValue("retireOnDelete");
+
+        /// <summary>
+        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        /// </summary>
+        [Input("retiringPrincipal")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRetiringPrincipal;
+
+        public string? RetiringPrincipal => _mRetiringPrincipal.GetValue("retiringPrincipal");
     }
 }

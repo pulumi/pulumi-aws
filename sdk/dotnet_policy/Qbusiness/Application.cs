@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Qbusiness
 {
     [PolicyResourceType("aws:qbusiness/application:Application")]
-    public sealed class Application : global::Pulumi.PolicyResource
+    public sealed class Application : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Q Business application.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         /// </summary>
         [Input("attachmentsConfiguration")]
-        public ApplicationAttachmentsConfiguration? AttachmentsConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationAttachmentsConfiguration> _mAttachmentsConfiguration;
+
+        public Outputs.ApplicationAttachmentsConfiguration? AttachmentsConfiguration => _mAttachmentsConfiguration.GetValue("attachmentsConfiguration");
 
         /// <summary>
         /// Description of the Amazon Q application.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the Amazon Q application.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// Information about encryption configuration. See `encryption_configuration` below.
         /// </summary>
         [Input("encryptionConfiguration")]
-        public ApplicationEncryptionConfiguration? EncryptionConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationEncryptionConfiguration> _mEncryptionConfiguration;
+
+        public Outputs.ApplicationEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
 
         /// <summary>
         /// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         /// </summary>
         [Input("iamServiceRoleArn")]
-        public string? IamServiceRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamServiceRoleArn;
+
+        public string? IamServiceRoleArn => _mIamServiceRoleArn.GetValue("iamServiceRoleArn");
 
         /// <summary>
         /// ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
         /// </summary>
         [Input("identityCenterApplicationArn")]
-        public string? IdentityCenterApplicationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterApplicationArn;
+
+        public string? IdentityCenterApplicationArn => _mIdentityCenterApplicationArn.GetValue("identityCenterApplicationArn");
 
         /// <summary>
         /// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
@@ -61,18 +82,102 @@ namespace Pulumi.PolicyPacks.Aws.Qbusiness
         /// The following arguments are optional:
         /// </summary>
         [Input("identityCenterInstanceArn")]
-        public string? IdentityCenterInstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterInstanceArn;
+
+        public string? IdentityCenterInstanceArn => _mIdentityCenterInstanceArn.GetValue("identityCenterInstanceArn");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ApplicationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationTimeouts> _mTimeouts;
+
+        public Outputs.ApplicationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:qbusiness/application:Application")]
+    public sealed class ApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
+        /// </summary>
+        [Input("attachmentsConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationAttachmentsConfigurationArgs> _mAttachmentsConfiguration;
+
+        public Inputs.ApplicationAttachmentsConfigurationArgs? AttachmentsConfiguration => _mAttachmentsConfiguration.GetValue("attachmentsConfiguration");
+
+        /// <summary>
+        /// Description of the Amazon Q application.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the Amazon Q application.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// Information about encryption configuration. See `encryption_configuration` below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationEncryptionConfigurationArgs> _mEncryptionConfiguration;
+
+        public Inputs.ApplicationEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+
+        /// <summary>
+        /// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
+        /// </summary>
+        [Input("iamServiceRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamServiceRoleArn;
+
+        public string? IamServiceRoleArn => _mIamServiceRoleArn.GetValue("iamServiceRoleArn");
+
+        /// <summary>
+        /// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("identityCenterInstanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterInstanceArn;
+
+        public string? IdentityCenterInstanceArn => _mIdentityCenterInstanceArn.GetValue("identityCenterInstanceArn");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ApplicationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

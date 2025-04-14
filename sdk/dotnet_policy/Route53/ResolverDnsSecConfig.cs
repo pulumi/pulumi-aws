@@ -11,30 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")]
-    public sealed class ResolverDnsSecConfig : global::Pulumi.PolicyResource
+    public sealed class ResolverDnsSecConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN for a configuration for DNSSEC validation.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         /// </summary>
         [Input("validationStatus")]
-        public string? ValidationStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidationStatus;
+
+        public string? ValidationStatus => _mValidationStatus.GetValue("validationStatus");
+    }
+
+    [PolicyResourceType("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")]
+    public sealed class ResolverDnsSecConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
     }
 }

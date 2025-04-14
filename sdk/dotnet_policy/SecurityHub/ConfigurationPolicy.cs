@@ -11,27 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecurityHub
 {
     [PolicyResourceType("aws:securityhub/configurationPolicy:ConfigurationPolicy")]
-    public sealed class ConfigurationPolicy : global::Pulumi.PolicyResource
+    public sealed class ConfigurationPolicy : global::Pulumi.PolicyResourceOutput
     {
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Defines how Security Hub is configured. See below.
         /// </summary>
         [Input("configurationPolicy")]
-        public ConfigurationPolicyConfigurationPolicy? ConfigurationPolicyDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicy> _mConfigurationPolicyDetails;
+
+        public Outputs.ConfigurationPolicyConfigurationPolicy? ConfigurationPolicyDetails => _mConfigurationPolicyDetails.GetValue("configurationPolicy");
 
         /// <summary>
         /// The description of the configuration policy.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the configuration policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:securityhub/configurationPolicy:ConfigurationPolicy")]
+    public sealed class ConfigurationPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Defines how Security Hub is configured. See below.
+        /// </summary>
+        [Input("configurationPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationPolicyConfigurationPolicyArgs> _mConfigurationPolicyDetails;
+
+        public Inputs.ConfigurationPolicyConfigurationPolicyArgs? ConfigurationPolicyDetails => _mConfigurationPolicyDetails.GetValue("configurationPolicy");
+
+        /// <summary>
+        /// The description of the configuration policy.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the configuration policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

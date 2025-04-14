@@ -11,66 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ivs
 {
     [PolicyResourceType("aws:ivs/channel:Channel")]
-    public sealed class Channel : global::Pulumi.PolicyResource
+    public sealed class Channel : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Channel.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// If `true`, channel is private (enabled for playback authorization).
         /// </summary>
         [Input("authorized")]
-        public bool? Authorized;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAuthorized;
+
+        public bool? Authorized => _mAuthorized.GetValue("authorized");
 
         /// <summary>
         /// Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
         /// </summary>
         [Input("ingestEndpoint")]
-        public string? IngestEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIngestEndpoint;
+
+        public string? IngestEndpoint => _mIngestEndpoint.GetValue("ingestEndpoint");
 
         /// <summary>
         /// Channel latency mode. Valid values: `NORMAL`, `LOW`.
         /// </summary>
         [Input("latencyMode")]
-        public string? LatencyMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLatencyMode;
+
+        public string? LatencyMode => _mLatencyMode.GetValue("latencyMode");
 
         /// <summary>
         /// Channel name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Channel playback URL.
         /// </summary>
         [Input("playbackUrl")]
-        public string? PlaybackUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlaybackUrl;
+
+        public string? PlaybackUrl => _mPlaybackUrl.GetValue("playbackUrl");
 
         /// <summary>
         /// Recording configuration ARN.
         /// </summary>
         [Input("recordingConfigurationArn")]
-        public string? RecordingConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecordingConfigurationArn;
+
+        public string? RecordingConfigurationArn => _mRecordingConfigurationArn.GetValue("recordingConfigurationArn");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:ivs/channel:Channel")]
+    public sealed class ChannelArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// If `true`, channel is private (enabled for playback authorization).
+        /// </summary>
+        [Input("authorized")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAuthorized;
+
+        public bool? Authorized => _mAuthorized.GetValue("authorized");
+
+        /// <summary>
+        /// Channel latency mode. Valid values: `NORMAL`, `LOW`.
+        /// </summary>
+        [Input("latencyMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLatencyMode;
+
+        public string? LatencyMode => _mLatencyMode.GetValue("latencyMode");
+
+        /// <summary>
+        /// Channel name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Recording configuration ARN.
+        /// </summary>
+        [Input("recordingConfigurationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecordingConfigurationArn;
+
+        public string? RecordingConfigurationArn => _mRecordingConfigurationArn.GetValue("recordingConfigurationArn");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

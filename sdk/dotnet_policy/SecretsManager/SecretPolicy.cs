@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecretsManager
 {
     [PolicyResourceType("aws:secretsmanager/secretPolicy:SecretPolicy")]
-    public sealed class SecretPolicy : global::Pulumi.PolicyResource
+    public sealed class SecretPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         /// </summary>
         [Input("blockPublicPolicy")]
-        public bool? BlockPublicPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicPolicy;
+
+        public bool? BlockPublicPolicy => _mBlockPublicPolicy.GetValue("blockPublicPolicy");
 
         /// <summary>
         /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// Secret ARN.
@@ -31,6 +37,42 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager
         /// The following arguments are optional:
         /// </summary>
         [Input("secretArn")]
-        public string? SecretArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
+
+        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+    }
+
+    [PolicyResourceType("aws:secretsmanager/secretPolicy:SecretPolicy")]
+    public sealed class SecretPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        /// </summary>
+        [Input("blockPublicPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicPolicy;
+
+        public bool? BlockPublicPolicy => _mBlockPublicPolicy.GetValue("blockPublicPolicy");
+
+        /// <summary>
+        /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// Secret ARN.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("secretArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
+
+        public string? SecretArn => _mSecretArn.GetValue("secretArn");
     }
 }

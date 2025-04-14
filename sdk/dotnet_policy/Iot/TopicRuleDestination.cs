@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/topicRuleDestination:TopicRuleDestination")]
-    public sealed class TopicRuleDestination : global::Pulumi.PolicyResource
+    public sealed class TopicRuleDestination : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the topic rule destination
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether or not to enable the destination. Default: `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
 
         /// <summary>
         /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         /// </summary>
         [Input("vpcConfiguration")]
-        public TopicRuleDestinationVpcConfiguration? VpcConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.TopicRuleDestinationVpcConfiguration> _mVpcConfiguration;
+
+        public Outputs.TopicRuleDestinationVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+    }
+
+    [PolicyResourceType("aws:iot/topicRuleDestination:TopicRuleDestination")]
+    public sealed class TopicRuleDestinationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether or not to enable the destination. Default: `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+
+        /// <summary>
+        /// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        /// </summary>
+        [Input("vpcConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleDestinationVpcConfigurationArgs> _mVpcConfiguration;
+
+        public Inputs.TopicRuleDestinationVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
     }
 }

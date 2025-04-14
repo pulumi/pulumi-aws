@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Athena
 {
     [PolicyResourceType("aws:athena/preparedStatement:PreparedStatement")]
-    public sealed class PreparedStatement : global::Pulumi.PolicyResource
+    public sealed class PreparedStatement : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Brief explanation of prepared statement. Maximum length of 1024.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the prepared statement. Maximum length of 256.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The query string for the prepared statement.
         /// </summary>
         [Input("queryStatement")]
-        public string? QueryStatement;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryStatement;
+
+        public string? QueryStatement => _mQueryStatement.GetValue("queryStatement");
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
         [Input("workgroup")]
-        public string? Workgroup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroup;
+
+        public string? Workgroup => _mWorkgroup.GetValue("workgroup");
+    }
+
+    [PolicyResourceType("aws:athena/preparedStatement:PreparedStatement")]
+    public sealed class PreparedStatementArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Brief explanation of prepared statement. Maximum length of 1024.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the prepared statement. Maximum length of 256.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The query string for the prepared statement.
+        /// </summary>
+        [Input("queryStatement")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryStatement;
+
+        public string? QueryStatement => _mQueryStatement.GetValue("queryStatement");
+
+        /// <summary>
+        /// The name of the workgroup to which the prepared statement belongs.
+        /// </summary>
+        [Input("workgroup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroup;
+
+        public string? Workgroup => _mWorkgroup.GetValue("workgroup");
     }
 }

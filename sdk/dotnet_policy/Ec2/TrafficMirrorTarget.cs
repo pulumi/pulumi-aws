@@ -11,43 +11,61 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")]
-    public sealed class TrafficMirrorTarget : global::Pulumi.PolicyResource
+    public sealed class TrafficMirrorTarget : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the traffic mirror target.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         /// </summary>
         [Input("gatewayLoadBalancerEndpointId")]
-        public string? GatewayLoadBalancerEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayLoadBalancerEndpointId;
+
+        public string? GatewayLoadBalancerEndpointId => _mGatewayLoadBalancerEndpointId.GetValue("gatewayLoadBalancerEndpointId");
 
         /// <summary>
         /// The network interface ID that is associated with the target.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         /// </summary>
         [Input("networkLoadBalancerArn")]
-        public string? NetworkLoadBalancerArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkLoadBalancerArn;
+
+        public string? NetworkLoadBalancerArn => _mNetworkLoadBalancerArn.GetValue("networkLoadBalancerArn");
 
         /// <summary>
         /// The ID of the AWS account that owns the traffic mirror target.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -55,12 +73,69 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")]
+    public sealed class TrafficMirrorTargetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the traffic mirror session.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
+        /// </summary>
+        [Input("gatewayLoadBalancerEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayLoadBalancerEndpointId;
+
+        public string? GatewayLoadBalancerEndpointId => _mGatewayLoadBalancerEndpointId.GetValue("gatewayLoadBalancerEndpointId");
+
+        /// <summary>
+        /// The network interface ID that is associated with the target.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+        /// </summary>
+        [Input("networkLoadBalancerArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkLoadBalancerArn;
+
+        public string? NetworkLoadBalancerArn => _mNetworkLoadBalancerArn.GetValue("networkLoadBalancerArn");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

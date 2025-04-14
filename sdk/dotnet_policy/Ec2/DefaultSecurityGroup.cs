@@ -11,66 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")]
-    public sealed class DefaultSecurityGroup : global::Pulumi.PolicyResource
+    public sealed class DefaultSecurityGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the security group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Description of the security group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("egress")]
-        public List<DefaultSecurityGroupEgress>? Egress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultSecurityGroupEgress>> _mEgress;
+
+        public List<Outputs.DefaultSecurityGroupEgress>? Egress => _mEgress.GetValue("egress");
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("ingress")]
-        public List<DefaultSecurityGroupIngress>? Ingress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultSecurityGroupIngress>> _mIngress;
+
+        public List<Outputs.DefaultSecurityGroupIngress>? Ingress => _mIngress.GetValue("ingress");
 
         /// <summary>
         /// Name of the security group.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Owner ID.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         [Input("revokeRulesOnDelete")]
-        public bool? RevokeRulesOnDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRevokeRulesOnDelete;
+
+        public bool? RevokeRulesOnDelete => _mRevokeRulesOnDelete.GetValue("revokeRulesOnDelete");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")]
+    public sealed class DefaultSecurityGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("egress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultSecurityGroupEgressArgs>> _mEgress;
+
+        public List<Inputs.DefaultSecurityGroupEgressArgs>? Egress => _mEgress.GetValue("egress");
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        [Input("ingress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultSecurityGroupIngressArgs>> _mIngress;
+
+        public List<Inputs.DefaultSecurityGroupIngressArgs>? Ingress => _mIngress.GetValue("ingress");
+
+        [Input("revokeRulesOnDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRevokeRulesOnDelete;
+
+        public bool? RevokeRulesOnDelete => _mRevokeRulesOnDelete.GetValue("revokeRulesOnDelete");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

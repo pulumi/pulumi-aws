@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/policyAttachment:PolicyAttachment")]
-    public sealed class PolicyAttachment : global::Pulumi.PolicyResource
+    public sealed class PolicyAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Group(s) the policy should be applied to.
         /// </summary>
         [Input("groups")]
-        public List<string>? Groups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
+
+        public List<string>? Groups => _mGroups.GetValue("groups");
 
         /// <summary>
         /// Name of the attachment. This cannot be an empty string.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
         [Input("policyArn")]
-        public string? PolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
 
         /// <summary>
         /// Role(s) the policy should be applied to.
         /// </summary>
         [Input("roles")]
-        public List<string>? Roles;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRoles;
+
+        public List<string>? Roles => _mRoles.GetValue("roles");
 
         /// <summary>
         /// User(s) the policy should be applied to.
         /// </summary>
         [Input("users")]
-        public List<string>? Users;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
+
+        public List<string>? Users => _mUsers.GetValue("users");
+    }
+
+    [PolicyResourceType("aws:iam/policyAttachment:PolicyAttachment")]
+    public sealed class PolicyAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Group(s) the policy should be applied to.
+        /// </summary>
+        [Input("groups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
+
+        public List<string>? Groups => _mGroups.GetValue("groups");
+
+        /// <summary>
+        /// Name of the attachment. This cannot be an empty string.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
+        /// </summary>
+        [Input("policyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
+
+        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+
+        /// <summary>
+        /// Role(s) the policy should be applied to.
+        /// </summary>
+        [Input("roles")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRoles;
+
+        public List<string>? Roles => _mRoles.GetValue("roles");
+
+        /// <summary>
+        /// User(s) the policy should be applied to.
+        /// </summary>
+        [Input("users")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
+
+        public List<string>? Users => _mUsers.GetValue("users");
     }
 }

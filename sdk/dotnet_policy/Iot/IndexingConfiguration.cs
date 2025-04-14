@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/indexingConfiguration:IndexingConfiguration")]
-    public sealed class IndexingConfiguration : global::Pulumi.PolicyResource
+    public sealed class IndexingConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Thing group indexing configuration. See below.
         /// </summary>
         [Input("thingGroupIndexingConfiguration")]
-        public IndexingConfigurationThingGroupIndexingConfiguration? ThingGroupIndexingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexingConfigurationThingGroupIndexingConfiguration> _mThingGroupIndexingConfiguration;
+
+        public Outputs.IndexingConfigurationThingGroupIndexingConfiguration? ThingGroupIndexingConfiguration => _mThingGroupIndexingConfiguration.GetValue("thingGroupIndexingConfiguration");
 
         /// <summary>
         /// Thing indexing configuration. See below.
         /// </summary>
         [Input("thingIndexingConfiguration")]
-        public IndexingConfigurationThingIndexingConfiguration? ThingIndexingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexingConfigurationThingIndexingConfiguration> _mThingIndexingConfiguration;
+
+        public Outputs.IndexingConfigurationThingIndexingConfiguration? ThingIndexingConfiguration => _mThingIndexingConfiguration.GetValue("thingIndexingConfiguration");
+    }
+
+    [PolicyResourceType("aws:iot/indexingConfiguration:IndexingConfiguration")]
+    public sealed class IndexingConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Thing group indexing configuration. See below.
+        /// </summary>
+        [Input("thingGroupIndexingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexingConfigurationThingGroupIndexingConfigurationArgs> _mThingGroupIndexingConfiguration;
+
+        public Inputs.IndexingConfigurationThingGroupIndexingConfigurationArgs? ThingGroupIndexingConfiguration => _mThingGroupIndexingConfiguration.GetValue("thingGroupIndexingConfiguration");
+
+        /// <summary>
+        /// Thing indexing configuration. See below.
+        /// </summary>
+        [Input("thingIndexingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexingConfigurationThingIndexingConfigurationArgs> _mThingIndexingConfiguration;
+
+        public Inputs.IndexingConfigurationThingIndexingConfigurationArgs? ThingIndexingConfiguration => _mThingIndexingConfiguration.GetValue("thingIndexingConfiguration");
     }
 }

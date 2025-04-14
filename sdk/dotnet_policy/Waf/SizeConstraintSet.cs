@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Waf
 {
     [PolicyResourceType("aws:waf/sizeConstraintSet:SizeConstraintSet")]
-    public sealed class SizeConstraintSet : global::Pulumi.PolicyResource
+    public sealed class SizeConstraintSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name or description of the Size Constraint Set.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Parts of web requests that you want to inspect the size of.
         /// </summary>
         [Input("sizeConstraints")]
-        public List<SizeConstraintSetSizeConstraint>? SizeConstraints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SizeConstraintSetSizeConstraint>> _mSizeConstraints;
+
+        public List<Outputs.SizeConstraintSetSizeConstraint>? SizeConstraints => _mSizeConstraints.GetValue("sizeConstraints");
+    }
+
+    [PolicyResourceType("aws:waf/sizeConstraintSet:SizeConstraintSet")]
+    public sealed class SizeConstraintSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name or description of the Size Constraint Set.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Parts of web requests that you want to inspect the size of.
+        /// </summary>
+        [Input("sizeConstraints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SizeConstraintSetSizeConstraintArgs>> _mSizeConstraints;
+
+        public List<Inputs.SizeConstraintSetSizeConstraintArgs>? SizeConstraints => _mSizeConstraints.GetValue("sizeConstraints");
     }
 }

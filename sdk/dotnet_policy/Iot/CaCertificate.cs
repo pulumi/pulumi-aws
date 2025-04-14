@@ -11,79 +11,183 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iot
 {
     [PolicyResourceType("aws:iot/caCertificate:CaCertificate")]
-    public sealed class CaCertificate : global::Pulumi.PolicyResource
+    public sealed class CaCertificate : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active for device authentication.
         /// </summary>
         [Input("active")]
-        public bool? Active;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
+
+        public bool? Active => _mActive.GetValue("active");
 
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active for device regisration.
         /// </summary>
         [Input("allowAutoRegistration")]
-        public bool? AllowAutoRegistration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAutoRegistration;
+
+        public bool? AllowAutoRegistration => _mAllowAutoRegistration.GetValue("allowAutoRegistration");
 
         /// <summary>
         /// The ARN of the created CA certificate.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// PEM encoded CA certificate.
         /// </summary>
         [Input("caCertificatePem")]
-        public string? CaCertificatePem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatePem;
+
+        public string? CaCertificatePem => _mCaCertificatePem.GetValue("caCertificatePem");
 
         /// <summary>
         /// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         /// </summary>
         [Input("certificateMode")]
-        public string? CertificateMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateMode;
+
+        public string? CertificateMode => _mCertificateMode.GetValue("certificateMode");
 
         /// <summary>
         /// The customer version of the CA certificate.
         /// </summary>
         [Input("customerVersion")]
-        public int? CustomerVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCustomerVersion;
+
+        public int? CustomerVersion => _mCustomerVersion.GetValue("customerVersion");
 
         /// <summary>
         /// The generation ID of the CA certificate.
         /// </summary>
         [Input("generationId")]
-        public string? GenerationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGenerationId;
+
+        public string? GenerationId => _mGenerationId.GetValue("generationId");
 
         /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
         [Input("registrationConfig")]
-        public CaCertificateRegistrationConfig? RegistrationConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CaCertificateRegistrationConfig> _mRegistrationConfig;
+
+        public Outputs.CaCertificateRegistrationConfig? RegistrationConfig => _mRegistrationConfig.GetValue("registrationConfig");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// When the CA certificate is valid.
         /// </summary>
         [Input("validities")]
-        public List<CaCertificateValidity>? Validities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CaCertificateValidity>> _mValidities;
+
+        public List<Outputs.CaCertificateValidity>? Validities => _mValidities.GetValue("validities");
 
         /// <summary>
         /// PEM encoded verification certificate containing the common name of a registration code. Review
         /// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
         /// </summary>
         [Input("verificationCertificatePem")]
-        public string? VerificationCertificatePem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerificationCertificatePem;
+
+        public string? VerificationCertificatePem => _mVerificationCertificatePem.GetValue("verificationCertificatePem");
+    }
+
+    [PolicyResourceType("aws:iot/caCertificate:CaCertificate")]
+    public sealed class CaCertificateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Boolean flag to indicate if the certificate should be active for device authentication.
+        /// </summary>
+        [Input("active")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
+
+        public bool? Active => _mActive.GetValue("active");
+
+        /// <summary>
+        /// Boolean flag to indicate if the certificate should be active for device regisration.
+        /// </summary>
+        [Input("allowAutoRegistration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAutoRegistration;
+
+        public bool? AllowAutoRegistration => _mAllowAutoRegistration.GetValue("allowAutoRegistration");
+
+        /// <summary>
+        /// PEM encoded CA certificate.
+        /// </summary>
+        [Input("caCertificatePem")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatePem;
+
+        public string? CaCertificatePem => _mCaCertificatePem.GetValue("caCertificatePem");
+
+        /// <summary>
+        /// The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+        /// </summary>
+        [Input("certificateMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateMode;
+
+        public string? CertificateMode => _mCertificateMode.GetValue("certificateMode");
+
+        /// <summary>
+        /// Information about the registration configuration. See below.
+        /// </summary>
+        [Input("registrationConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CaCertificateRegistrationConfigArgs> _mRegistrationConfig;
+
+        public Inputs.CaCertificateRegistrationConfigArgs? RegistrationConfig => _mRegistrationConfig.GetValue("registrationConfig");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// PEM encoded verification certificate containing the common name of a registration code. Review
+        /// [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
+        /// </summary>
+        [Input("verificationCertificatePem")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerificationCertificatePem;
+
+        public string? VerificationCertificatePem => _mVerificationCertificatePem.GetValue("verificationCertificatePem");
     }
 }

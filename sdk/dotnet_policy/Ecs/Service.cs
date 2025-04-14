@@ -11,110 +11,161 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecs
 {
     [PolicyResourceType("aws:ecs/service:Service")]
-    public sealed class Service : global::Pulumi.PolicyResource
+    public sealed class Service : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Information about the CloudWatch alarms. See below.
         /// </summary>
         [Input("alarms")]
-        public ServiceAlarms? Alarms;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceAlarms> _mAlarms;
+
+        public Outputs.ServiceAlarms? Alarms => _mAlarms.GetValue("alarms");
 
         /// <summary>
         /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         /// </summary>
         [Input("availabilityZoneRebalancing")]
-        public string? AvailabilityZoneRebalancing;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneRebalancing;
+
+        public string? AvailabilityZoneRebalancing => _mAvailabilityZoneRebalancing.GetValue("availabilityZoneRebalancing");
 
         /// <summary>
         /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         /// </summary>
         [Input("capacityProviderStrategies")]
-        public List<ServiceCapacityProviderStrategy>? CapacityProviderStrategies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceCapacityProviderStrategy>> _mCapacityProviderStrategies;
+
+        public List<Outputs.ServiceCapacityProviderStrategy>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
 
         /// <summary>
         /// ARN of an ECS cluster.
         /// </summary>
         [Input("cluster")]
-        public string? Cluster;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCluster;
+
+        public string? Cluster => _mCluster.GetValue("cluster");
 
         /// <summary>
         /// Configuration block for deployment circuit breaker. See below.
         /// </summary>
         [Input("deploymentCircuitBreaker")]
-        public ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceDeploymentCircuitBreaker> _mDeploymentCircuitBreaker;
+
+        public Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker => _mDeploymentCircuitBreaker.GetValue("deploymentCircuitBreaker");
 
         /// <summary>
         /// Configuration block for deployment controller configuration. See below.
         /// </summary>
         [Input("deploymentController")]
-        public ServiceDeploymentController? DeploymentController;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceDeploymentController> _mDeploymentController;
+
+        public Outputs.ServiceDeploymentController? DeploymentController => _mDeploymentController.GetValue("deploymentController");
 
         /// <summary>
         /// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         /// </summary>
         [Input("deploymentMaximumPercent")]
-        public int? DeploymentMaximumPercent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentMaximumPercent;
+
+        public int? DeploymentMaximumPercent => _mDeploymentMaximumPercent.GetValue("deploymentMaximumPercent");
 
         /// <summary>
         /// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         /// </summary>
         [Input("deploymentMinimumHealthyPercent")]
-        public int? DeploymentMinimumHealthyPercent;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentMinimumHealthyPercent;
+
+        public int? DeploymentMinimumHealthyPercent => _mDeploymentMinimumHealthyPercent.GetValue("deploymentMinimumHealthyPercent");
 
         /// <summary>
         /// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
         /// </summary>
         [Input("desiredCount")]
-        public int? DesiredCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCount;
+
+        public int? DesiredCount => _mDesiredCount.GetValue("desiredCount");
 
         /// <summary>
         /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         /// </summary>
         [Input("enableEcsManagedTags")]
-        public bool? EnableEcsManagedTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableEcsManagedTags;
+
+        public bool? EnableEcsManagedTags => _mEnableEcsManagedTags.GetValue("enableEcsManagedTags");
 
         /// <summary>
         /// Whether to enable Amazon ECS Exec for the tasks within the service.
         /// </summary>
         [Input("enableExecuteCommand")]
-        public bool? EnableExecuteCommand;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableExecuteCommand;
+
+        public bool? EnableExecuteCommand => _mEnableExecuteCommand.GetValue("enableExecuteCommand");
 
         /// <summary>
         /// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
         /// </summary>
         [Input("forceDelete")]
-        public bool? ForceDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
 
         /// <summary>
         /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// When using the forceNewDeployment property you also need to configure the triggers property.
         /// </summary>
         [Input("forceNewDeployment")]
-        public bool? ForceNewDeployment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceNewDeployment;
+
+        public bool? ForceNewDeployment => _mForceNewDeployment.GetValue("forceNewDeployment");
 
         /// <summary>
         /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         /// </summary>
         [Input("healthCheckGracePeriodSeconds")]
-        public int? HealthCheckGracePeriodSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckGracePeriodSeconds;
+
+        public int? HealthCheckGracePeriodSeconds => _mHealthCheckGracePeriodSeconds.GetValue("healthCheckGracePeriodSeconds");
 
         /// <summary>
         /// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         /// </summary>
         [Input("iamRole")]
-        public string? IamRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
+
+        public string? IamRole => _mIamRole.GetValue("iamRole");
 
         /// <summary>
         /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
         /// </summary>
         [Input("launchType")]
-        public string? LaunchType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
+
+        public string? LaunchType => _mLaunchType.GetValue("launchType");
 
         /// <summary>
         /// Configuration block for load balancers. See below.
         /// </summary>
         [Input("loadBalancers")]
-        public List<ServiceLoadBalancer>? LoadBalancers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceLoadBalancer>> _mLoadBalancers;
+
+        public List<Outputs.ServiceLoadBalancer>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
 
         /// <summary>
         /// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
@@ -122,96 +173,439 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         /// </summary>
         [Input("networkConfiguration")]
-        public ServiceNetworkConfiguration? NetworkConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceNetworkConfiguration> _mNetworkConfiguration;
+
+        public Outputs.ServiceNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
 
         /// <summary>
         /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         /// </summary>
         [Input("orderedPlacementStrategies")]
-        public List<ServiceOrderedPlacementStrategy>? OrderedPlacementStrategies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceOrderedPlacementStrategy>> _mOrderedPlacementStrategies;
+
+        public List<Outputs.ServiceOrderedPlacementStrategy>? OrderedPlacementStrategies => _mOrderedPlacementStrategies.GetValue("orderedPlacementStrategies");
 
         /// <summary>
         /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         /// </summary>
         [Input("placementConstraints")]
-        public List<ServicePlacementConstraint>? PlacementConstraints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServicePlacementConstraint>> _mPlacementConstraints;
+
+        public List<Outputs.ServicePlacementConstraint>? PlacementConstraints => _mPlacementConstraints.GetValue("placementConstraints");
 
         /// <summary>
         /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
-        public string? PlatformVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
+
+        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
 
         /// <summary>
         /// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         /// </summary>
         [Input("propagateTags")]
-        public string? PropagateTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPropagateTags;
+
+        public string? PropagateTags => _mPropagateTags.GetValue("propagateTags");
 
         /// <summary>
         /// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         /// </summary>
         [Input("schedulingStrategy")]
-        public string? SchedulingStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingStrategy;
+
+        public string? SchedulingStrategy => _mSchedulingStrategy.GetValue("schedulingStrategy");
 
         /// <summary>
         /// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         /// </summary>
         [Input("serviceConnectConfiguration")]
-        public ServiceServiceConnectConfiguration? ServiceConnectConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceServiceConnectConfiguration> _mServiceConnectConfiguration;
+
+        public Outputs.ServiceServiceConnectConfiguration? ServiceConnectConfiguration => _mServiceConnectConfiguration.GetValue("serviceConnectConfiguration");
 
         /// <summary>
         /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         /// </summary>
         [Input("serviceRegistries")]
-        public ServiceServiceRegistries? ServiceRegistries;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceServiceRegistries> _mServiceRegistries;
+
+        public Outputs.ServiceServiceRegistries? ServiceRegistries => _mServiceRegistries.GetValue("serviceRegistries");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         /// </summary>
         [Input("taskDefinition")]
-        public string? TaskDefinition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinition;
+
+        public string? TaskDefinition => _mTaskDefinition.GetValue("taskDefinition");
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         /// </summary>
         [Input("triggers")]
-        public Dictionary<string, string>? Triggers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
 
         /// <summary>
         /// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
         /// </summary>
         [Input("volumeConfiguration")]
-        public ServiceVolumeConfiguration? VolumeConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceVolumeConfiguration> _mVolumeConfiguration;
+
+        public Outputs.ServiceVolumeConfiguration? VolumeConfiguration => _mVolumeConfiguration.GetValue("volumeConfiguration");
 
         /// <summary>
         /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         /// </summary>
         [Input("vpcLatticeConfigurations")]
-        public List<ServiceVpcLatticeConfiguration>? VpcLatticeConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceVpcLatticeConfiguration>> _mVpcLatticeConfigurations;
+
+        public List<Outputs.ServiceVpcLatticeConfiguration>? VpcLatticeConfigurations => _mVpcLatticeConfigurations.GetValue("vpcLatticeConfigurations");
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         /// </summary>
         [Input("waitForSteadyState")]
-        public bool? WaitForSteadyState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForSteadyState;
+
+        public bool? WaitForSteadyState => _mWaitForSteadyState.GetValue("waitForSteadyState");
+    }
+
+    [PolicyResourceType("aws:ecs/service:Service")]
+    public sealed class ServiceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Information about the CloudWatch alarms. See below.
+        /// </summary>
+        [Input("alarms")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceAlarmsArgs> _mAlarms;
+
+        public Inputs.ServiceAlarmsArgs? Alarms => _mAlarms.GetValue("alarms");
+
+        /// <summary>
+        /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+        /// </summary>
+        [Input("availabilityZoneRebalancing")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneRebalancing;
+
+        public string? AvailabilityZoneRebalancing => _mAvailabilityZoneRebalancing.GetValue("availabilityZoneRebalancing");
+
+        /// <summary>
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
+        /// </summary>
+        [Input("capacityProviderStrategies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceCapacityProviderStrategyArgs>> _mCapacityProviderStrategies;
+
+        public List<Inputs.ServiceCapacityProviderStrategyArgs>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
+
+        /// <summary>
+        /// ARN of an ECS cluster.
+        /// </summary>
+        [Input("cluster")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCluster;
+
+        public string? Cluster => _mCluster.GetValue("cluster");
+
+        /// <summary>
+        /// Configuration block for deployment circuit breaker. See below.
+        /// </summary>
+        [Input("deploymentCircuitBreaker")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceDeploymentCircuitBreakerArgs> _mDeploymentCircuitBreaker;
+
+        public Inputs.ServiceDeploymentCircuitBreakerArgs? DeploymentCircuitBreaker => _mDeploymentCircuitBreaker.GetValue("deploymentCircuitBreaker");
+
+        /// <summary>
+        /// Configuration block for deployment controller configuration. See below.
+        /// </summary>
+        [Input("deploymentController")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceDeploymentControllerArgs> _mDeploymentController;
+
+        public Inputs.ServiceDeploymentControllerArgs? DeploymentController => _mDeploymentController.GetValue("deploymentController");
+
+        /// <summary>
+        /// Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
+        /// </summary>
+        [Input("deploymentMaximumPercent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentMaximumPercent;
+
+        public int? DeploymentMaximumPercent => _mDeploymentMaximumPercent.GetValue("deploymentMaximumPercent");
+
+        /// <summary>
+        /// Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
+        /// </summary>
+        [Input("deploymentMinimumHealthyPercent")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentMinimumHealthyPercent;
+
+        public int? DeploymentMinimumHealthyPercent => _mDeploymentMinimumHealthyPercent.GetValue("deploymentMinimumHealthyPercent");
+
+        /// <summary>
+        /// Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
+        /// </summary>
+        [Input("desiredCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCount;
+
+        public int? DesiredCount => _mDesiredCount.GetValue("desiredCount");
+
+        /// <summary>
+        /// Whether to enable Amazon ECS managed tags for the tasks within the service.
+        /// </summary>
+        [Input("enableEcsManagedTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableEcsManagedTags;
+
+        public bool? EnableEcsManagedTags => _mEnableEcsManagedTags.GetValue("enableEcsManagedTags");
+
+        /// <summary>
+        /// Whether to enable Amazon ECS Exec for the tasks within the service.
+        /// </summary>
+        [Input("enableExecuteCommand")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableExecuteCommand;
+
+        public bool? EnableExecuteCommand => _mEnableExecuteCommand.GetValue("enableExecuteCommand");
+
+        /// <summary>
+        /// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+        /// </summary>
+        [Input("forceDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
+
+        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+
+        /// <summary>
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// When using the forceNewDeployment property you also need to configure the triggers property.
+        /// </summary>
+        [Input("forceNewDeployment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceNewDeployment;
+
+        public bool? ForceNewDeployment => _mForceNewDeployment.GetValue("forceNewDeployment");
+
+        /// <summary>
+        /// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
+        /// </summary>
+        [Input("healthCheckGracePeriodSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckGracePeriodSeconds;
+
+        public int? HealthCheckGracePeriodSeconds => _mHealthCheckGracePeriodSeconds.GetValue("healthCheckGracePeriodSeconds");
+
+        /// <summary>
+        /// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
+        /// </summary>
+        [Input("iamRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRole;
+
+        public string? IamRole => _mIamRole.GetValue("iamRole");
+
+        /// <summary>
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
+        /// </summary>
+        [Input("launchType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
+
+        public string? LaunchType => _mLaunchType.GetValue("launchType");
+
+        /// <summary>
+        /// Configuration block for load balancers. See below.
+        /// </summary>
+        [Input("loadBalancers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceLoadBalancerArgs>> _mLoadBalancers;
+
+        public List<Inputs.ServiceLoadBalancerArgs>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+
+        /// <summary>
+        /// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+        /// </summary>
+        [Input("networkConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceNetworkConfigurationArgs> _mNetworkConfiguration;
+
+        public Inputs.ServiceNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+
+        /// <summary>
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+        /// </summary>
+        [Input("orderedPlacementStrategies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceOrderedPlacementStrategyArgs>> _mOrderedPlacementStrategies;
+
+        public List<Inputs.ServiceOrderedPlacementStrategyArgs>? OrderedPlacementStrategies => _mOrderedPlacementStrategies.GetValue("orderedPlacementStrategies");
+
+        /// <summary>
+        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+        /// </summary>
+        [Input("placementConstraints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServicePlacementConstraintArgs>> _mPlacementConstraints;
+
+        public List<Inputs.ServicePlacementConstraintArgs>? PlacementConstraints => _mPlacementConstraints.GetValue("placementConstraints");
+
+        /// <summary>
+        /// Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// </summary>
+        [Input("platformVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
+
+        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+
+        /// <summary>
+        /// Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+        /// </summary>
+        [Input("propagateTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPropagateTags;
+
+        public string? PropagateTags => _mPropagateTags.GetValue("propagateTags");
+
+        /// <summary>
+        /// Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
+        /// </summary>
+        [Input("schedulingStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingStrategy;
+
+        public string? SchedulingStrategy => _mSchedulingStrategy.GetValue("schedulingStrategy");
+
+        /// <summary>
+        /// ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        /// </summary>
+        [Input("serviceConnectConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceServiceConnectConfigurationArgs> _mServiceConnectConfiguration;
+
+        public Inputs.ServiceServiceConnectConfigurationArgs? ServiceConnectConfiguration => _mServiceConnectConfiguration.GetValue("serviceConnectConfiguration");
+
+        /// <summary>
+        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        /// </summary>
+        [Input("serviceRegistries")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceServiceRegistriesArgs> _mServiceRegistries;
+
+        public Inputs.ServiceServiceRegistriesArgs? ServiceRegistries => _mServiceRegistries.GetValue("serviceRegistries");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
+        /// </summary>
+        [Input("taskDefinition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinition;
+
+        public string? TaskDefinition => _mTaskDefinition.GetValue("taskDefinition");
+
+        /// <summary>
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
+        /// </summary>
+        [Input("triggers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
+
+        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+
+        /// <summary>
+        /// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+        /// </summary>
+        [Input("volumeConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceVolumeConfigurationArgs> _mVolumeConfiguration;
+
+        public Inputs.ServiceVolumeConfigurationArgs? VolumeConfiguration => _mVolumeConfiguration.GetValue("volumeConfiguration");
+
+        /// <summary>
+        /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        /// </summary>
+        [Input("vpcLatticeConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceVpcLatticeConfigurationArgs>> _mVpcLatticeConfigurations;
+
+        public List<Inputs.ServiceVpcLatticeConfigurationArgs>? VpcLatticeConfigurations => _mVpcLatticeConfigurations.GetValue("vpcLatticeConfigurations");
+
+        /// <summary>
+        /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
+        /// </summary>
+        [Input("waitForSteadyState")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForSteadyState;
+
+        public bool? WaitForSteadyState => _mWaitForSteadyState.GetValue("waitForSteadyState");
     }
 }

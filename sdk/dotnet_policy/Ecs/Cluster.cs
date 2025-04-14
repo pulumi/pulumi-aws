@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecs
 {
     [PolicyResourceType("aws:ecs/cluster:Cluster")]
-    public sealed class Cluster : global::Pulumi.PolicyResource
+    public sealed class Cluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN that identifies the cluster.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Execute command configuration for the cluster. See `configuration` Block for details.
         /// </summary>
         [Input("configuration")]
-        public ClusterConfiguration? Configuration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterConfiguration> _mConfiguration;
+
+        public Outputs.ClusterConfiguration? Configuration => _mConfiguration.GetValue("configuration");
 
         /// <summary>
         /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -31,30 +37,96 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
         /// </summary>
         [Input("serviceConnectDefaults")]
-        public ClusterServiceConnectDefaults? ServiceConnectDefaults;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterServiceConnectDefaults> _mServiceConnectDefaults;
+
+        public Outputs.ClusterServiceConnectDefaults? ServiceConnectDefaults => _mServiceConnectDefaults.GetValue("serviceConnectDefaults");
 
         /// <summary>
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         /// </summary>
         [Input("settings")]
-        public List<ClusterSetting>? Settings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterSetting>> _mSettings;
+
+        public List<Outputs.ClusterSetting>? Settings => _mSettings.GetValue("settings");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ecs/cluster:Cluster")]
+    public sealed class ClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Execute command configuration for the cluster. See `configuration` Block for details.
+        /// </summary>
+        [Input("configuration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterConfigurationArgs> _mConfiguration;
+
+        public Inputs.ClusterConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+
+        /// <summary>
+        /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
+        /// </summary>
+        [Input("serviceConnectDefaults")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterServiceConnectDefaultsArgs> _mServiceConnectDefaults;
+
+        public Inputs.ClusterServiceConnectDefaultsArgs? ServiceConnectDefaults => _mServiceConnectDefaults.GetValue("serviceConnectDefaults");
+
+        /// <summary>
+        /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
+        /// </summary>
+        [Input("settings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClusterSettingArgs>> _mSettings;
+
+        public List<Inputs.ClusterSettingArgs>? Settings => _mSettings.GetValue("settings");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

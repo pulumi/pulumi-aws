@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/vaultNotifications:VaultNotifications")]
-    public sealed class VaultNotifications : global::Pulumi.PolicyResource
+    public sealed class VaultNotifications : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
         [Input("backupVaultArn")]
-        public string? BackupVaultArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultArn;
+
+        public string? BackupVaultArn => _mBackupVaultArn.GetValue("backupVaultArn");
 
         /// <summary>
         /// An array of events that indicate the status of jobs to back up resources to the backup vault.
         /// </summary>
         [Input("backupVaultEvents")]
-        public List<string>? BackupVaultEvents;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBackupVaultEvents;
+
+        public List<string>? BackupVaultEvents => _mBackupVaultEvents.GetValue("backupVaultEvents");
 
         /// <summary>
         /// Name of the backup vault to add notifications for.
         /// </summary>
         [Input("backupVaultName")]
-        public string? BackupVaultName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
+
+        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         /// </summary>
         [Input("snsTopicArn")]
-        public string? SnsTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+    }
+
+    [PolicyResourceType("aws:backup/vaultNotifications:VaultNotifications")]
+    public sealed class VaultNotificationsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
+        /// </summary>
+        [Input("backupVaultEvents")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBackupVaultEvents;
+
+        public List<string>? BackupVaultEvents => _mBackupVaultEvents.GetValue("backupVaultEvents");
+
+        /// <summary>
+        /// Name of the backup vault to add notifications for.
+        /// </summary>
+        [Input("backupVaultName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
+
+        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        /// </summary>
+        [Input("snsTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
+
+        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
     }
 }

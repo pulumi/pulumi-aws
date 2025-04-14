@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ecr
 {
     [PolicyResourceType("aws:ecr/replicationConfiguration:ReplicationConfiguration")]
-    public sealed class ReplicationConfiguration : global::Pulumi.PolicyResource
+    public sealed class ReplicationConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The registry ID where the replication configuration was created.
         /// </summary>
         [Input("registryId")]
-        public string? RegistryId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
+
+        public string? RegistryId => _mRegistryId.GetValue("registryId");
 
         /// <summary>
         /// Replication configuration for a registry. See Replication Configuration.
         /// </summary>
         [Input("replicationConfiguration")]
-        public ReplicationConfigurationReplicationConfiguration? ReplicationConfigurationDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicationConfigurationReplicationConfiguration> _mReplicationConfigurationDetails;
+
+        public Outputs.ReplicationConfigurationReplicationConfiguration? ReplicationConfigurationDetails => _mReplicationConfigurationDetails.GetValue("replicationConfiguration");
+    }
+
+    [PolicyResourceType("aws:ecr/replicationConfiguration:ReplicationConfiguration")]
+    public sealed class ReplicationConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Replication configuration for a registry. See Replication Configuration.
+        /// </summary>
+        [Input("replicationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ReplicationConfigurationReplicationConfigurationArgs> _mReplicationConfigurationDetails;
+
+        public Inputs.ReplicationConfigurationReplicationConfigurationArgs? ReplicationConfigurationDetails => _mReplicationConfigurationDetails.GetValue("replicationConfiguration");
     }
 }

@@ -11,54 +11,145 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodePipeline
 {
     [PolicyResourceType("aws:codepipeline/customActionType:CustomActionType")]
-    public sealed class CustomActionType : global::Pulumi.PolicyResource
+    public sealed class CustomActionType : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The action ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         /// </summary>
         [Input("category")]
-        public string? Category;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCategory;
+
+        public string? Category => _mCategory.GetValue("category");
 
         /// <summary>
         /// The configuration properties for the custom action. Max 10 items.
         /// </summary>
         [Input("configurationProperties")]
-        public List<CustomActionTypeConfigurationProperty>? ConfigurationProperties;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomActionTypeConfigurationProperty>> _mConfigurationProperties;
+
+        public List<Outputs.CustomActionTypeConfigurationProperty>? ConfigurationProperties => _mConfigurationProperties.GetValue("configurationProperties");
 
         [Input("inputArtifactDetails")]
-        public CustomActionTypeInputArtifactDetails? InputArtifactDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomActionTypeInputArtifactDetails> _mInputArtifactDetails;
+
+        public Outputs.CustomActionTypeInputArtifactDetails? InputArtifactDetails => _mInputArtifactDetails.GetValue("inputArtifactDetails");
 
         [Input("outputArtifactDetails")]
-        public CustomActionTypeOutputArtifactDetails? OutputArtifactDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomActionTypeOutputArtifactDetails> _mOutputArtifactDetails;
+
+        public Outputs.CustomActionTypeOutputArtifactDetails? OutputArtifactDetails => _mOutputArtifactDetails.GetValue("outputArtifactDetails");
 
         /// <summary>
         /// The creator of the action being called.
         /// </summary>
         [Input("owner")]
-        public string? Owner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+
+        public string? Owner => _mOwner.GetValue("owner");
 
         [Input("providerName")]
-        public string? ProviderName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+
+        public string? ProviderName => _mProviderName.GetValue("providerName");
 
         [Input("settings")]
-        public CustomActionTypeSettings? Settings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomActionTypeSettings> _mSettings;
+
+        public Outputs.CustomActionTypeSettings? Settings => _mSettings.GetValue("settings");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:codepipeline/customActionType:CustomActionType")]
+    public sealed class CustomActionTypeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
+        /// </summary>
+        [Input("category")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCategory;
+
+        public string? Category => _mCategory.GetValue("category");
+
+        /// <summary>
+        /// The configuration properties for the custom action. Max 10 items.
+        /// </summary>
+        [Input("configurationProperties")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CustomActionTypeConfigurationPropertyArgs>> _mConfigurationProperties;
+
+        public List<Inputs.CustomActionTypeConfigurationPropertyArgs>? ConfigurationProperties => _mConfigurationProperties.GetValue("configurationProperties");
+
+        [Input("inputArtifactDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomActionTypeInputArtifactDetailsArgs> _mInputArtifactDetails;
+
+        public Inputs.CustomActionTypeInputArtifactDetailsArgs? InputArtifactDetails => _mInputArtifactDetails.GetValue("inputArtifactDetails");
+
+        [Input("outputArtifactDetails")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomActionTypeOutputArtifactDetailsArgs> _mOutputArtifactDetails;
+
+        public Inputs.CustomActionTypeOutputArtifactDetailsArgs? OutputArtifactDetails => _mOutputArtifactDetails.GetValue("outputArtifactDetails");
+
+        [Input("providerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+
+        public string? ProviderName => _mProviderName.GetValue("providerName");
+
+        [Input("settings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomActionTypeSettingsArgs> _mSettings;
+
+        public Inputs.CustomActionTypeSettingsArgs? Settings => _mSettings.GetValue("settings");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("version")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
     }
 }

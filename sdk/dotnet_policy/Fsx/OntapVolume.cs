@@ -11,109 +11,160 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fsx
 {
     [PolicyResourceType("aws:fsx/ontapVolume:OntapVolume")]
-    public sealed class OntapVolume : global::Pulumi.PolicyResource
+    public sealed class OntapVolume : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         /// </summary>
         [Input("aggregateConfiguration")]
-        public OntapVolumeAggregateConfiguration? AggregateConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeAggregateConfiguration> _mAggregateConfiguration;
+
+        public Outputs.OntapVolumeAggregateConfiguration? AggregateConfiguration => _mAggregateConfiguration.GetValue("aggregateConfiguration");
 
         /// <summary>
         /// Amazon Resource Name of the volune.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
         [Input("bypassSnaplockEnterpriseRetention")]
-        public bool? BypassSnaplockEnterpriseRetention;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassSnaplockEnterpriseRetention;
+
+        public bool? BypassSnaplockEnterpriseRetention => _mBypassSnaplockEnterpriseRetention.GetValue("bypassSnaplockEnterpriseRetention");
 
         /// <summary>
         /// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
         /// </summary>
         [Input("copyTagsToBackups")]
-        public bool? CopyTagsToBackups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
+
+        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
 
         /// <summary>
         /// Describes the file system for the volume, e.g. `fs-12345679`
         /// </summary>
         [Input("fileSystemId")]
-        public string? FileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
 
         /// <summary>
         /// A map of tags to apply to the volume's final backup.
         /// </summary>
         [Input("finalBackupTags")]
-        public Dictionary<string, string>? FinalBackupTags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
+
+        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
 
         /// <summary>
         /// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         /// </summary>
         [Input("flexcacheEndpointType")]
-        public string? FlexcacheEndpointType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFlexcacheEndpointType;
+
+        public string? FlexcacheEndpointType => _mFlexcacheEndpointType.GetValue("flexcacheEndpointType");
 
         /// <summary>
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         /// </summary>
         [Input("junctionPath")]
-        public string? JunctionPath;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJunctionPath;
+
+        public string? JunctionPath => _mJunctionPath.GetValue("junctionPath");
 
         /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         /// </summary>
         [Input("ontapVolumeType")]
-        public string? OntapVolumeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOntapVolumeType;
+
+        public string? OntapVolumeType => _mOntapVolumeType.GetValue("ontapVolumeType");
 
         /// <summary>
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
         [Input("securityStyle")]
-        public string? SecurityStyle;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityStyle;
+
+        public string? SecurityStyle => _mSecurityStyle.GetValue("securityStyle");
 
         /// <summary>
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
         [Input("sizeInBytes")]
-        public string? SizeInBytes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSizeInBytes;
+
+        public string? SizeInBytes => _mSizeInBytes.GetValue("sizeInBytes");
 
         /// <summary>
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
         [Input("sizeInMegabytes")]
-        public int? SizeInMegabytes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInMegabytes;
+
+        public int? SizeInMegabytes => _mSizeInMegabytes.GetValue("sizeInMegabytes");
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
         [Input("skipFinalBackup")]
-        public bool? SkipFinalBackup;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
+
+        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
 
         /// <summary>
         /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         /// </summary>
         [Input("snaplockConfiguration")]
-        public OntapVolumeSnaplockConfiguration? SnaplockConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeSnaplockConfiguration> _mSnaplockConfiguration;
+
+        public Outputs.OntapVolumeSnaplockConfiguration? SnaplockConfiguration => _mSnaplockConfiguration.GetValue("snaplockConfiguration");
 
         /// <summary>
         /// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         /// </summary>
         [Input("snapshotPolicy")]
-        public string? SnapshotPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotPolicy;
+
+        public string? SnapshotPolicy => _mSnapshotPolicy.GetValue("snapshotPolicy");
 
         /// <summary>
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         /// </summary>
         [Input("storageEfficiencyEnabled")]
-        public bool? StorageEfficiencyEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEfficiencyEnabled;
+
+        public bool? StorageEfficiencyEnabled => _mStorageEfficiencyEnabled.GetValue("storageEfficiencyEnabled");
 
         /// <summary>
         /// Specifies the storage virtual machine in which to create the volume.
@@ -121,42 +172,240 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// The following arguments are optional:
         /// </summary>
         [Input("storageVirtualMachineId")]
-        public string? StorageVirtualMachineId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageVirtualMachineId;
+
+        public string? StorageVirtualMachineId => _mStorageVirtualMachineId.GetValue("storageVirtualMachineId");
 
         /// <summary>
         /// A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         /// </summary>
         [Input("tieringPolicy")]
-        public OntapVolumeTieringPolicy? TieringPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeTieringPolicy> _mTieringPolicy;
+
+        public Outputs.OntapVolumeTieringPolicy? TieringPolicy => _mTieringPolicy.GetValue("tieringPolicy");
 
         /// <summary>
         /// The Volume's UUID (universally unique identifier).
         /// </summary>
         [Input("uuid")]
-        public string? Uuid;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUuid;
+
+        public string? Uuid => _mUuid.GetValue("uuid");
 
         /// <summary>
         /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         /// </summary>
         [Input("volumeStyle")]
-        public string? VolumeStyle;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeStyle;
+
+        public string? VolumeStyle => _mVolumeStyle.GetValue("volumeStyle");
 
         /// <summary>
         /// The type of volume, currently the only valid value is `ONTAP`.
         /// </summary>
         [Input("volumeType")]
-        public string? VolumeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
+
+        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+    }
+
+    [PolicyResourceType("aws:fsx/ontapVolume:OntapVolume")]
+    public sealed class OntapVolumeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
+        /// </summary>
+        [Input("aggregateConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeAggregateConfigurationArgs> _mAggregateConfiguration;
+
+        public Inputs.OntapVolumeAggregateConfigurationArgs? AggregateConfiguration => _mAggregateConfiguration.GetValue("aggregateConfiguration");
+
+        /// <summary>
+        /// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Input("bypassSnaplockEnterpriseRetention")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassSnaplockEnterpriseRetention;
+
+        public bool? BypassSnaplockEnterpriseRetention => _mBypassSnaplockEnterpriseRetention.GetValue("bypassSnaplockEnterpriseRetention");
+
+        /// <summary>
+        /// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+        /// </summary>
+        [Input("copyTagsToBackups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
+
+        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+
+        /// <summary>
+        /// A map of tags to apply to the volume's final backup.
+        /// </summary>
+        [Input("finalBackupTags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
+
+        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+
+        /// <summary>
+        /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        /// </summary>
+        [Input("junctionPath")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJunctionPath;
+
+        public string? JunctionPath => _mJunctionPath.GetValue("junctionPath");
+
+        /// <summary>
+        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        /// </summary>
+        [Input("ontapVolumeType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOntapVolumeType;
+
+        public string? OntapVolumeType => _mOntapVolumeType.GetValue("ontapVolumeType");
+
+        /// <summary>
+        /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+        /// </summary>
+        [Input("securityStyle")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityStyle;
+
+        public string? SecurityStyle => _mSecurityStyle.GetValue("securityStyle");
+
+        /// <summary>
+        /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+        /// </summary>
+        [Input("sizeInBytes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSizeInBytes;
+
+        public string? SizeInBytes => _mSizeInBytes.GetValue("sizeInBytes");
+
+        /// <summary>
+        /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+        /// </summary>
+        [Input("sizeInMegabytes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInMegabytes;
+
+        public int? SizeInMegabytes => _mSizeInMegabytes.GetValue("sizeInMegabytes");
+
+        /// <summary>
+        /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        /// </summary>
+        [Input("skipFinalBackup")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
+
+        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+
+        /// <summary>
+        /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
+        /// </summary>
+        [Input("snaplockConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeSnaplockConfigurationArgs> _mSnaplockConfiguration;
+
+        public Inputs.OntapVolumeSnaplockConfigurationArgs? SnaplockConfiguration => _mSnaplockConfiguration.GetValue("snaplockConfiguration");
+
+        /// <summary>
+        /// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+        /// </summary>
+        [Input("snapshotPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotPolicy;
+
+        public string? SnapshotPolicy => _mSnapshotPolicy.GetValue("snapshotPolicy");
+
+        /// <summary>
+        /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        /// </summary>
+        [Input("storageEfficiencyEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEfficiencyEnabled;
+
+        public bool? StorageEfficiencyEnabled => _mStorageEfficiencyEnabled.GetValue("storageEfficiencyEnabled");
+
+        /// <summary>
+        /// Specifies the storage virtual machine in which to create the volume.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("storageVirtualMachineId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageVirtualMachineId;
+
+        public string? StorageVirtualMachineId => _mStorageVirtualMachineId.GetValue("storageVirtualMachineId");
+
+        /// <summary>
+        /// A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
+        /// </summary>
+        [Input("tieringPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeTieringPolicyArgs> _mTieringPolicy;
+
+        public Inputs.OntapVolumeTieringPolicyArgs? TieringPolicy => _mTieringPolicy.GetValue("tieringPolicy");
+
+        /// <summary>
+        /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+        /// </summary>
+        [Input("volumeStyle")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeStyle;
+
+        public string? VolumeStyle => _mVolumeStyle.GetValue("volumeStyle");
+
+        /// <summary>
+        /// The type of volume, currently the only valid value is `ONTAP`.
+        /// </summary>
+        [Input("volumeType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
+
+        public string? VolumeType => _mVolumeType.GetValue("volumeType");
     }
 }

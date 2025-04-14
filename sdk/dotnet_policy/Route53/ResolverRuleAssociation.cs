@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Route53
 {
     [PolicyResourceType("aws:route53/resolverRuleAssociation:ResolverRuleAssociation")]
-    public sealed class ResolverRuleAssociation : global::Pulumi.PolicyResource
+    public sealed class ResolverRuleAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A name for the association that you're creating between a resolver rule and a VPC.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ID of the resolver rule that you want to associate with the VPC.
         /// </summary>
         [Input("resolverRuleId")]
-        public string? ResolverRuleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolverRuleId;
+
+        public string? ResolverRuleId => _mResolverRuleId.GetValue("resolverRuleId");
 
         /// <summary>
         /// The ID of the VPC that you want to associate the resolver rule with.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:route53/resolverRuleAssociation:ResolverRuleAssociation")]
+    public sealed class ResolverRuleAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A name for the association that you're creating between a resolver rule and a VPC.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ID of the resolver rule that you want to associate with the VPC.
+        /// </summary>
+        [Input("resolverRuleId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolverRuleId;
+
+        public string? ResolverRuleId => _mResolverRuleId.GetValue("resolverRuleId");
+
+        /// <summary>
+        /// The ID of the VPC that you want to associate the resolver rule with.
+        /// </summary>
+        [Input("vpcId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
     }
 }

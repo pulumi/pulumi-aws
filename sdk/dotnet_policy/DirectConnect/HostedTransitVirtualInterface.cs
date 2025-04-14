@@ -11,87 +11,223 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DirectConnect
 {
     [PolicyResourceType("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface")]
-    public sealed class HostedTransitVirtualInterface : global::Pulumi.PolicyResource
+    public sealed class HostedTransitVirtualInterface : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         /// </summary>
         [Input("addressFamily")]
-        public string? AddressFamily;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
 
         /// <summary>
         /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         /// </summary>
         [Input("amazonAddress")]
-        public string? AmazonAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
+
+        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
 
         [Input("amazonSideAsn")]
-        public string? AmazonSideAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonSideAsn;
+
+        public string? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
 
         /// <summary>
         /// The ARN of the virtual interface.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The Direct Connect endpoint on which the virtual interface terminates.
         /// </summary>
         [Input("awsDevice")]
-        public string? AwsDevice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsDevice;
+
+        public string? AwsDevice => _mAwsDevice.GetValue("awsDevice");
 
         /// <summary>
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         /// </summary>
         [Input("bgpAsn")]
-        public int? BgpAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
+
+        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
 
         /// <summary>
         /// The authentication key for BGP configuration.
         /// </summary>
         [Input("bgpAuthKey")]
-        public string? BgpAuthKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
+
+        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
 
         /// <summary>
         /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         /// </summary>
         [Input("connectionId")]
-        public string? ConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
 
         /// <summary>
         /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         /// </summary>
         [Input("customerAddress")]
-        public string? CustomerAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
+
+        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
 
         /// <summary>
         /// Indicates whether jumbo frames (8500 MTU) are supported.
         /// </summary>
         [Input("jumboFrameCapable")]
-        public bool? JumboFrameCapable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mJumboFrameCapable;
+
+        public bool? JumboFrameCapable => _mJumboFrameCapable.GetValue("jumboFrameCapable");
 
         /// <summary>
         /// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         /// </summary>
         [Input("mtu")]
-        public int? Mtu;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMtu;
+
+        public int? Mtu => _mMtu.GetValue("mtu");
 
         /// <summary>
         /// The name for the virtual interface.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The AWS account that will own the new virtual interface.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// The VLAN ID.
         /// </summary>
         [Input("vlan")]
-        public int? Vlan;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
+
+        public int? Vlan => _mVlan.GetValue("vlan");
+    }
+
+    [PolicyResourceType("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface")]
+    public sealed class HostedTransitVirtualInterfaceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        /// </summary>
+        [Input("addressFamily")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
+
+        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+
+        /// <summary>
+        /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
+        /// </summary>
+        [Input("amazonAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonAddress;
+
+        public string? AmazonAddress => _mAmazonAddress.GetValue("amazonAddress");
+
+        /// <summary>
+        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// </summary>
+        [Input("bgpAsn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBgpAsn;
+
+        public int? BgpAsn => _mBgpAsn.GetValue("bgpAsn");
+
+        /// <summary>
+        /// The authentication key for BGP configuration.
+        /// </summary>
+        [Input("bgpAuthKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBgpAuthKey;
+
+        public string? BgpAuthKey => _mBgpAuthKey.GetValue("bgpAuthKey");
+
+        /// <summary>
+        /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
+        /// </summary>
+        [Input("connectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
+
+        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+
+        /// <summary>
+        /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
+        /// </summary>
+        [Input("customerAddress")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerAddress;
+
+        public string? CustomerAddress => _mCustomerAddress.GetValue("customerAddress");
+
+        /// <summary>
+        /// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
+        /// </summary>
+        [Input("mtu")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMtu;
+
+        public int? Mtu => _mMtu.GetValue("mtu");
+
+        /// <summary>
+        /// The name for the virtual interface.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The AWS account that will own the new virtual interface.
+        /// </summary>
+        [Input("ownerAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        [Input("vlan")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
+
+        public int? Vlan => _mVlan.GetValue("vlan");
     }
 }

@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketAclV2:BucketAclV2")]
-    public sealed class BucketAclV2 : global::Pulumi.PolicyResource
+    public sealed class BucketAclV2 : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block that sets the ACL permissions for an object per grantee. See below.
         /// </summary>
         [Input("accessControlPolicy")]
-        public BucketAclV2AccessControlPolicy? AccessControlPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketAclV2AccessControlPolicy> _mAccessControlPolicy;
+
+        public Outputs.BucketAclV2AccessControlPolicy? AccessControlPolicy => _mAccessControlPolicy.GetValue("accessControlPolicy");
 
         /// <summary>
         /// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         /// </summary>
         [Input("acl")]
-        public string? Acl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
+
+        public string? Acl => _mAcl.GetValue("acl");
 
         /// <summary>
         /// Bucket to which to apply the ACL.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
-        public string? ExpectedBucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+    }
+
+    [PolicyResourceType("aws:s3/bucketAclV2:BucketAclV2")]
+    public sealed class BucketAclV2Args : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block that sets the ACL permissions for an object per grantee. See below.
+        /// </summary>
+        [Input("accessControlPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketAclV2AccessControlPolicyArgs> _mAccessControlPolicy;
+
+        public Inputs.BucketAclV2AccessControlPolicyArgs? AccessControlPolicy => _mAccessControlPolicy.GetValue("accessControlPolicy");
+
+        /// <summary>
+        /// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        /// </summary>
+        [Input("acl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcl;
+
+        public string? Acl => _mAcl.GetValue("acl");
+
+        /// <summary>
+        /// Bucket to which to apply the ACL.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
     }
 }

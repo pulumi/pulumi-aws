@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGateway
 {
     [PolicyResourceType("aws:apigateway/stage:Stage")]
-    public sealed class Stage : global::Pulumi.PolicyResource
+    public sealed class Stage : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Enables access logs for the API stage. See Access Log Settings below.
         /// </summary>
         [Input("accessLogSettings")]
-        public StageAccessLogSettings? AccessLogSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StageAccessLogSettings> _mAccessLogSettings;
+
+        public Outputs.StageAccessLogSettings? AccessLogSettings => _mAccessLogSettings.GetValue("accessLogSettings");
 
         /// <summary>
         /// ARN
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether a cache cluster is enabled for the stage
         /// </summary>
         [Input("cacheClusterEnabled")]
-        public bool? CacheClusterEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCacheClusterEnabled;
+
+        public bool? CacheClusterEnabled => _mCacheClusterEnabled.GetValue("cacheClusterEnabled");
 
         /// <summary>
         /// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         /// </summary>
         [Input("cacheClusterSize")]
-        public string? CacheClusterSize;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCacheClusterSize;
+
+        public string? CacheClusterSize => _mCacheClusterSize.GetValue("cacheClusterSize");
 
         /// <summary>
         /// Configuration settings of a canary deployment. See Canary Settings below.
         /// </summary>
         [Input("canarySettings")]
-        public StageCanarySettings? CanarySettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StageCanarySettings> _mCanarySettings;
+
+        public Outputs.StageCanarySettings? CanarySettings => _mCanarySettings.GetValue("canarySettings");
 
         /// <summary>
         /// Identifier of a client certificate for the stage.
         /// </summary>
         [Input("clientCertificateId")]
-        public string? ClientCertificateId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientCertificateId;
+
+        public string? ClientCertificateId => _mClientCertificateId.GetValue("clientCertificateId");
 
         /// <summary>
         /// ID of the deployment that the stage points to
         /// </summary>
         [Input("deployment")]
-        public string? Deployment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeployment;
+
+        public string? Deployment => _mDeployment.GetValue("deployment");
 
         /// <summary>
         /// Description of the stage.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Version of the associated API documentation
         /// </summary>
         [Input("documentationVersion")]
-        public string? DocumentationVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentationVersion;
+
+        public string? DocumentationVersion => _mDocumentationVersion.GetValue("documentationVersion");
 
         /// <summary>
         /// Execution ARN to be used in `lambda_permission`'s `source_arn`
@@ -73,55 +100,203 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
         [Input("executionArn")]
-        public string? ExecutionArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionArn;
+
+        public string? ExecutionArn => _mExecutionArn.GetValue("executionArn");
 
         /// <summary>
         /// URL to invoke the API pointing to the stage,
         /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         /// </summary>
         [Input("invokeUrl")]
-        public string? InvokeUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvokeUrl;
+
+        public string? InvokeUrl => _mInvokeUrl.GetValue("invokeUrl");
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
         [Input("restApi")]
-        public string? RestApi;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
 
         /// <summary>
         /// Name of the stage
         /// </summary>
         [Input("stageName")]
-        public string? StageName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
+
+        public string? StageName => _mStageName.GetValue("stageName");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Map that defines the stage variables
         /// </summary>
         [Input("variables")]
-        public Dictionary<string, string>? Variables;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVariables;
+
+        public Dictionary<string, string>? Variables => _mVariables.GetValue("variables");
 
         /// <summary>
         /// ARN of the WebAcl associated with the Stage.
         /// </summary>
         [Input("webAclArn")]
-        public string? WebAclArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclArn;
+
+        public string? WebAclArn => _mWebAclArn.GetValue("webAclArn");
 
         /// <summary>
         /// Whether active tracing with X-ray is enabled. Defaults to `false`.
         /// </summary>
         [Input("xrayTracingEnabled")]
-        public bool? XrayTracingEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mXrayTracingEnabled;
+
+        public bool? XrayTracingEnabled => _mXrayTracingEnabled.GetValue("xrayTracingEnabled");
+    }
+
+    [PolicyResourceType("aws:apigateway/stage:Stage")]
+    public sealed class StageArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Enables access logs for the API stage. See Access Log Settings below.
+        /// </summary>
+        [Input("accessLogSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StageAccessLogSettingsArgs> _mAccessLogSettings;
+
+        public Inputs.StageAccessLogSettingsArgs? AccessLogSettings => _mAccessLogSettings.GetValue("accessLogSettings");
+
+        /// <summary>
+        /// Whether a cache cluster is enabled for the stage
+        /// </summary>
+        [Input("cacheClusterEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCacheClusterEnabled;
+
+        public bool? CacheClusterEnabled => _mCacheClusterEnabled.GetValue("cacheClusterEnabled");
+
+        /// <summary>
+        /// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
+        /// </summary>
+        [Input("cacheClusterSize")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCacheClusterSize;
+
+        public string? CacheClusterSize => _mCacheClusterSize.GetValue("cacheClusterSize");
+
+        /// <summary>
+        /// Configuration settings of a canary deployment. See Canary Settings below.
+        /// </summary>
+        [Input("canarySettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StageCanarySettingsArgs> _mCanarySettings;
+
+        public Inputs.StageCanarySettingsArgs? CanarySettings => _mCanarySettings.GetValue("canarySettings");
+
+        /// <summary>
+        /// Identifier of a client certificate for the stage.
+        /// </summary>
+        [Input("clientCertificateId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientCertificateId;
+
+        public string? ClientCertificateId => _mClientCertificateId.GetValue("clientCertificateId");
+
+        /// <summary>
+        /// ID of the deployment that the stage points to
+        /// </summary>
+        [Input("deployment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeployment;
+
+        public string? Deployment => _mDeployment.GetValue("deployment");
+
+        /// <summary>
+        /// Description of the stage.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Version of the associated API documentation
+        /// </summary>
+        [Input("documentationVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentationVersion;
+
+        public string? DocumentationVersion => _mDocumentationVersion.GetValue("documentationVersion");
+
+        /// <summary>
+        /// ID of the associated REST API
+        /// </summary>
+        [Input("restApi")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
+
+        public string? RestApi => _mRestApi.GetValue("restApi");
+
+        /// <summary>
+        /// Name of the stage
+        /// </summary>
+        [Input("stageName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
+
+        public string? StageName => _mStageName.GetValue("stageName");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Map that defines the stage variables
+        /// </summary>
+        [Input("variables")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVariables;
+
+        public Dictionary<string, string>? Variables => _mVariables.GetValue("variables");
+
+        /// <summary>
+        /// Whether active tracing with X-ray is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("xrayTracingEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mXrayTracingEnabled;
+
+        public bool? XrayTracingEnabled => _mXrayTracingEnabled.GetValue("xrayTracingEnabled");
     }
 }

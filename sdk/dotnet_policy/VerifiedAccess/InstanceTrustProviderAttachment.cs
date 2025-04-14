@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
 {
     [PolicyResourceType("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment")]
-    public sealed class InstanceTrustProviderAttachment : global::Pulumi.PolicyResource
+    public sealed class InstanceTrustProviderAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>
         [Input("verifiedaccessInstanceId")]
-        public string? VerifiedaccessInstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
+
+        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
 
         /// <summary>
         /// The ID of the Verified Access trust provider.
         /// </summary>
         [Input("verifiedaccessTrustProviderId")]
-        public string? VerifiedaccessTrustProviderId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessTrustProviderId;
+
+        public string? VerifiedaccessTrustProviderId => _mVerifiedaccessTrustProviderId.GetValue("verifiedaccessTrustProviderId");
+    }
+
+    [PolicyResourceType("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment")]
+    public sealed class InstanceTrustProviderAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the Verified Access instance to attach the Trust Provider to.
+        /// </summary>
+        [Input("verifiedaccessInstanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
+
+        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+
+        /// <summary>
+        /// The ID of the Verified Access trust provider.
+        /// </summary>
+        [Input("verifiedaccessTrustProviderId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessTrustProviderId;
+
+        public string? VerifiedaccessTrustProviderId => _mVerifiedaccessTrustProviderId.GetValue("verifiedaccessTrustProviderId");
     }
 }

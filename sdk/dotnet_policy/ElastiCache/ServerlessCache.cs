@@ -11,68 +11,98 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElastiCache
 {
     [PolicyResourceType("aws:elasticache/serverlessCache:ServerlessCache")]
-    public sealed class ServerlessCache : global::Pulumi.PolicyResource
+    public sealed class ServerlessCache : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the serverless cache.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         /// </summary>
         [Input("cacheUsageLimits")]
-        public ServerlessCacheCacheUsageLimits? CacheUsageLimits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessCacheCacheUsageLimits> _mCacheUsageLimits;
+
+        public Outputs.ServerlessCacheCacheUsageLimits? CacheUsageLimits => _mCacheUsageLimits.GetValue("cacheUsageLimits");
 
         /// <summary>
         /// Timestamp of when the serverless cache was created.
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         /// </summary>
         [Input("dailySnapshotTime")]
-        public string? DailySnapshotTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDailySnapshotTime;
+
+        public string? DailySnapshotTime => _mDailySnapshotTime.GetValue("dailySnapshotTime");
 
         /// <summary>
         /// User-provided description for the serverless cache. The default is NULL.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         /// </summary>
         [Input("endpoints")]
-        public List<ServerlessCacheEndpoint>? Endpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServerlessCacheEndpoint>> _mEndpoints;
+
+        public List<Outputs.ServerlessCacheEndpoint>? Endpoints => _mEndpoints.GetValue("endpoints");
 
         /// <summary>
         /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// The name and version number of the engine the serverless cache is compatible with.
         /// </summary>
         [Input("fullEngineVersion")]
-        public string? FullEngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFullEngineVersion;
+
+        public string? FullEngineVersion => _mFullEngineVersion.GetValue("fullEngineVersion");
 
         /// <summary>
         /// ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// The version of the cache engine that will be used to create the serverless cache.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
         /// </summary>
         [Input("majorEngineVersion")]
-        public string? MajorEngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
+
+        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
 
         /// <summary>
         /// The Cluster name which serves as a unique identifier to the serverless cache
@@ -80,60 +110,223 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         /// </summary>
         [Input("readerEndpoints")]
-        public List<ServerlessCacheReaderEndpoint>? ReaderEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServerlessCacheReaderEndpoint>> _mReaderEndpoints;
+
+        public List<Outputs.ServerlessCacheReaderEndpoint>? ReaderEndpoints => _mReaderEndpoints.GetValue("readerEndpoints");
 
         /// <summary>
         /// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         /// </summary>
         [Input("securityGroupIds")]
-        public List<string>? SecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
 
         /// <summary>
         /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         /// </summary>
         [Input("snapshotArnsToRestores")]
-        public List<string>? SnapshotArnsToRestores;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnapshotArnsToRestores;
+
+        public List<string>? SnapshotArnsToRestores => _mSnapshotArnsToRestores.GetValue("snapshotArnsToRestores");
 
         /// <summary>
         /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
         /// </summary>
         [Input("snapshotRetentionLimit")]
-        public int? SnapshotRetentionLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
+
+        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
 
         /// <summary>
         /// The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         /// </summary>
         [Input("subnetIds")]
-        public List<string>? SubnetIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public ServerlessCacheTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessCacheTimeouts> _mTimeouts;
+
+        public Outputs.ServerlessCacheTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
         /// </summary>
         [Input("userGroupId")]
-        public string? UserGroupId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
+
+        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+    }
+
+    [PolicyResourceType("aws:elasticache/serverlessCache:ServerlessCache")]
+    public sealed class ServerlessCacheArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
+        /// </summary>
+        [Input("cacheUsageLimits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessCacheCacheUsageLimitsArgs> _mCacheUsageLimits;
+
+        public Inputs.ServerlessCacheCacheUsageLimitsArgs? CacheUsageLimits => _mCacheUsageLimits.GetValue("cacheUsageLimits");
+
+        /// <summary>
+        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
+        /// </summary>
+        [Input("dailySnapshotTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDailySnapshotTime;
+
+        public string? DailySnapshotTime => _mDailySnapshotTime.GetValue("dailySnapshotTime");
+
+        /// <summary>
+        /// User-provided description for the serverless cache. The default is NULL.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// The version of the cache engine that will be used to create the serverless cache.
+        /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+        /// </summary>
+        [Input("majorEngineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
+
+        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
+
+        /// <summary>
+        /// The Cluster name which serves as a unique identifier to the serverless cache
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
+        /// </summary>
+        [Input("securityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
+
+        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+
+        /// <summary>
+        /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+        /// </summary>
+        [Input("snapshotArnsToRestores")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnapshotArnsToRestores;
+
+        public List<string>? SnapshotArnsToRestores => _mSnapshotArnsToRestores.GetValue("snapshotArnsToRestores");
+
+        /// <summary>
+        /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        /// </summary>
+        [Input("snapshotRetentionLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
+
+        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
+
+        /// <summary>
+        /// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
+        /// </summary>
+        [Input("subnetIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+
+        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessCacheTimeoutsArgs> _mTimeouts;
+
+        public Inputs.ServerlessCacheTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
+        /// </summary>
+        [Input("userGroupId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
+
+        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
     }
 }

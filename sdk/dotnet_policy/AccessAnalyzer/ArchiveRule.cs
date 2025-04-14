@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AccessAnalyzer
 {
     [PolicyResourceType("aws:accessanalyzer/archiveRule:ArchiveRule")]
-    public sealed class ArchiveRule : global::Pulumi.PolicyResource
+    public sealed class ArchiveRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Analyzer name.
         /// </summary>
         [Input("analyzerName")]
-        public string? AnalyzerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAnalyzerName;
+
+        public string? AnalyzerName => _mAnalyzerName.GetValue("analyzerName");
 
         /// <summary>
         /// Filter criteria for the archive rule. See Filter for more details.
         /// </summary>
         [Input("filters")]
-        public List<ArchiveRuleFilter>? Filters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ArchiveRuleFilter>> _mFilters;
+
+        public List<Outputs.ArchiveRuleFilter>? Filters => _mFilters.GetValue("filters");
 
         /// <summary>
         /// Rule name.
         /// </summary>
         [Input("ruleName")]
-        public string? RuleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
+    }
+
+    [PolicyResourceType("aws:accessanalyzer/archiveRule:ArchiveRule")]
+    public sealed class ArchiveRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Analyzer name.
+        /// </summary>
+        [Input("analyzerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAnalyzerName;
+
+        public string? AnalyzerName => _mAnalyzerName.GetValue("analyzerName");
+
+        /// <summary>
+        /// Filter criteria for the archive rule. See Filter for more details.
+        /// </summary>
+        [Input("filters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ArchiveRuleFilterArgs>> _mFilters;
+
+        public List<Inputs.ArchiveRuleFilterArgs>? Filters => _mFilters.GetValue("filters");
+
+        /// <summary>
+        /// Rule name.
+        /// </summary>
+        [Input("ruleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
+
+        public string? RuleName => _mRuleName.GetValue("ruleName");
     }
 }

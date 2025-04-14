@@ -11,24 +11,58 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes")]
-    public sealed class InstanceAccessControlAttributes : global::Pulumi.PolicyResource
+    public sealed class InstanceAccessControlAttributes : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// See AccessControlAttribute for more details.
         /// </summary>
         [Input("attributes")]
-        public List<InstanceAccessControlAttributesAttribute>? Attributes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceAccessControlAttributesAttribute>> _mAttributes;
+
+        public List<Outputs.InstanceAccessControlAttributesAttribute>? Attributes => _mAttributes.GetValue("attributes");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
         /// </summary>
         [Input("instanceArn")]
-        public string? InstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
 
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         [Input("statusReason")]
-        public string? StatusReason;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
+
+        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes")]
+    public sealed class InstanceAccessControlAttributesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// See AccessControlAttribute for more details.
+        /// </summary>
+        [Input("attributes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceAccessControlAttributesAttributeArgs>> _mAttributes;
+
+        public List<Inputs.InstanceAccessControlAttributesAttributeArgs>? Attributes => _mAttributes.GetValue("attributes");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// </summary>
+        [Input("instanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
     }
 }

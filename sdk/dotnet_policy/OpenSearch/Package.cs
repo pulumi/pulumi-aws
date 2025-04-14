@@ -11,39 +11,97 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearch
 {
     [PolicyResourceType("aws:opensearch/package:Package")]
-    public sealed class Package : global::Pulumi.PolicyResource
+    public sealed class Package : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The current version of the package.
         /// </summary>
         [Input("availablePackageVersion")]
-        public string? AvailablePackageVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAvailablePackageVersion;
+
+        public string? AvailablePackageVersion => _mAvailablePackageVersion.GetValue("availablePackageVersion");
 
         /// <summary>
         /// Description of the package.
         /// </summary>
         [Input("packageDescription")]
-        public string? PackageDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageDescription;
+
+        public string? PackageDescription => _mPackageDescription.GetValue("packageDescription");
 
         [Input("packageId")]
-        public string? PackageId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageId;
+
+        public string? PackageId => _mPackageId.GetValue("packageId");
 
         /// <summary>
         /// Unique name for the package.
         /// </summary>
         [Input("packageName")]
-        public string? PackageName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageName;
+
+        public string? PackageName => _mPackageName.GetValue("packageName");
 
         /// <summary>
         /// Configuration block for the package source options.
         /// </summary>
         [Input("packageSource")]
-        public PackagePackageSource? PackageSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PackagePackageSource> _mPackageSource;
+
+        public Outputs.PackagePackageSource? PackageSource => _mPackageSource.GetValue("packageSource");
 
         /// <summary>
         /// The type of package.
         /// </summary>
         [Input("packageType")]
-        public string? PackageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageType;
+
+        public string? PackageType => _mPackageType.GetValue("packageType");
+    }
+
+    [PolicyResourceType("aws:opensearch/package:Package")]
+    public sealed class PackageArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Description of the package.
+        /// </summary>
+        [Input("packageDescription")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageDescription;
+
+        public string? PackageDescription => _mPackageDescription.GetValue("packageDescription");
+
+        /// <summary>
+        /// Unique name for the package.
+        /// </summary>
+        [Input("packageName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageName;
+
+        public string? PackageName => _mPackageName.GetValue("packageName");
+
+        /// <summary>
+        /// Configuration block for the package source options.
+        /// </summary>
+        [Input("packageSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PackagePackageSourceArgs> _mPackageSource;
+
+        public Inputs.PackagePackageSourceArgs? PackageSource => _mPackageSource.GetValue("packageSource");
+
+        /// <summary>
+        /// The type of package.
+        /// </summary>
+        [Input("packageType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPackageType;
+
+        public string? PackageType => _mPackageType.GetValue("packageType");
     }
 }

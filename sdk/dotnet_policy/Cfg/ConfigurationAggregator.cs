@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cfg
 {
     [PolicyResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]
-    public sealed class ConfigurationAggregator : global::Pulumi.PolicyResource
+    public sealed class ConfigurationAggregator : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The account(s) to aggregate config data from as documented below.
         /// </summary>
         [Input("accountAggregationSource")]
-        public ConfigurationAggregatorAccountAggregationSource? AccountAggregationSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationAggregatorAccountAggregationSource> _mAccountAggregationSource;
+
+        public Outputs.ConfigurationAggregatorAccountAggregationSource? AccountAggregationSource => _mAccountAggregationSource.GetValue("accountAggregationSource");
 
         /// <summary>
         /// The ARN of the aggregator
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the configuration aggregator.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The organization to aggregate config data from as documented below.
         /// </summary>
         [Input("organizationAggregationSource")]
-        public ConfigurationAggregatorOrganizationAggregationSource? OrganizationAggregationSource;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationAggregatorOrganizationAggregationSource> _mOrganizationAggregationSource;
+
+        public Outputs.ConfigurationAggregatorOrganizationAggregationSource? OrganizationAggregationSource => _mOrganizationAggregationSource.GetValue("organizationAggregationSource");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -43,12 +55,60 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]
+    public sealed class ConfigurationAggregatorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The account(s) to aggregate config data from as documented below.
+        /// </summary>
+        [Input("accountAggregationSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs> _mAccountAggregationSource;
+
+        public Inputs.ConfigurationAggregatorAccountAggregationSourceArgs? AccountAggregationSource => _mAccountAggregationSource.GetValue("accountAggregationSource");
+
+        /// <summary>
+        /// The name of the configuration aggregator.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The organization to aggregate config data from as documented below.
+        /// </summary>
+        [Input("organizationAggregationSource")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs> _mOrganizationAggregationSource;
+
+        public Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs? OrganizationAggregationSource => _mOrganizationAggregationSource.GetValue("organizationAggregationSource");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

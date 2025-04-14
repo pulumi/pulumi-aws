@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cognito
 {
     [PolicyResourceType("aws:cognito/resourceServer:ResourceServer")]
-    public sealed class ResourceServer : global::Pulumi.PolicyResource
+    public sealed class ResourceServer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// An identifier for the resource server.
         /// </summary>
         [Input("identifier")]
-        public string? Identifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
+
+        public string? Identifier => _mIdentifier.GetValue("identifier");
 
         /// <summary>
         /// A name for the resource server.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A list of all scopes configured for this resource server in the format identifier/scope_name.
         /// </summary>
         [Input("scopeIdentifiers")]
-        public List<string>? ScopeIdentifiers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mScopeIdentifiers;
+
+        public List<string>? ScopeIdentifiers => _mScopeIdentifiers.GetValue("scopeIdentifiers");
 
         /// <summary>
         /// A list of Authorization Scope.
         /// </summary>
         [Input("scopes")]
-        public List<ResourceServerScope>? Scopes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResourceServerScope>> _mScopes;
+
+        public List<Outputs.ResourceServerScope>? Scopes => _mScopes.GetValue("scopes");
 
         /// <summary>
         /// User pool the client belongs to.
         /// </summary>
         [Input("userPoolId")]
-        public string? UserPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+    }
+
+    [PolicyResourceType("aws:cognito/resourceServer:ResourceServer")]
+    public sealed class ResourceServerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// An identifier for the resource server.
+        /// </summary>
+        [Input("identifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
+
+        public string? Identifier => _mIdentifier.GetValue("identifier");
+
+        /// <summary>
+        /// A name for the resource server.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A list of Authorization Scope.
+        /// </summary>
+        [Input("scopes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResourceServerScopeArgs>> _mScopes;
+
+        public List<Inputs.ResourceServerScopeArgs>? Scopes => _mScopes.GetValue("scopes");
+
+        /// <summary>
+        /// User pool the client belongs to.
+        /// </summary>
+        [Input("userPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
+
+        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
     }
 }

@@ -11,49 +11,120 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppFabric
 {
     [PolicyResourceType("aws:appfabric/ingestion:Ingestion")]
-    public sealed class Ingestion : global::Pulumi.PolicyResource
+    public sealed class Ingestion : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the application.
         /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
         /// </summary>
         [Input("app")]
-        public string? App;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApp;
+
+        public string? App => _mApp.GetValue("app");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn")]
-        public string? AppBundleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
+
+        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
 
         /// <summary>
         /// ARN of the Ingestion.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Ingestion type. Valid values are `auditLog`.
         /// </summary>
         [Input("ingestionType")]
-        public string? IngestionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionType;
+
+        public string? IngestionType => _mIngestionType.GetValue("ingestionType");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// ID of the application tenant.
         /// </summary>
         [Input("tenantId")]
-        public string? TenantId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenantId;
+
+        public string? TenantId => _mTenantId.GetValue("tenantId");
+    }
+
+    [PolicyResourceType("aws:appfabric/ingestion:Ingestion")]
+    public sealed class IngestionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the application.
+        /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+        /// </summary>
+        [Input("app")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApp;
+
+        public string? App => _mApp.GetValue("app");
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// </summary>
+        [Input("appBundleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
+
+        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+
+        /// <summary>
+        /// Ingestion type. Valid values are `auditLog`.
+        /// </summary>
+        [Input("ingestionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionType;
+
+        public string? IngestionType => _mIngestionType.GetValue("ingestionType");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// ID of the application tenant.
+        /// </summary>
+        [Input("tenantId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTenantId;
+
+        public string? TenantId => _mTenantId.GetValue("tenantId");
     }
 }

@@ -11,45 +11,121 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeConnections
 {
     [PolicyResourceType("aws:codeconnections/host:Host")]
-    public sealed class Host : global::Pulumi.PolicyResource
+    public sealed class Host : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The CodeConnections Host ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the host to be created. The name must be unique in the calling AWS account.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The endpoint of the infrastructure to be represented by the host after it is created.
         /// </summary>
         [Input("providerEndpoint")]
-        public string? ProviderEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEndpoint;
+
+        public string? ProviderEndpoint => _mProviderEndpoint.GetValue("providerEndpoint");
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
         [Input("providerType")]
-        public string? ProviderType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public HostTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.HostTimeouts> _mTimeouts;
+
+        public Outputs.HostTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         /// </summary>
         [Input("vpcConfiguration")]
-        public HostVpcConfiguration? VpcConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.HostVpcConfiguration> _mVpcConfiguration;
+
+        public Outputs.HostVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+    }
+
+    [PolicyResourceType("aws:codeconnections/host:Host")]
+    public sealed class HostArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the host to be created. The name must be unique in the calling AWS account.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The endpoint of the infrastructure to be represented by the host after it is created.
+        /// </summary>
+        [Input("providerEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEndpoint;
+
+        public string? ProviderEndpoint => _mProviderEndpoint.GetValue("providerEndpoint");
+
+        /// <summary>
+        /// The name of the external provider where your third-party code repository is configured.
+        /// </summary>
+        [Input("providerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+
+        public string? ProviderType => _mProviderType.GetValue("providerType");
+
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.HostTimeoutsArgs> _mTimeouts;
+
+        public Inputs.HostTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        /// </summary>
+        [Input("vpcConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.HostVpcConfigurationArgs> _mVpcConfiguration;
+
+        public Inputs.HostVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
     }
 }

@@ -11,18 +11,37 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ses
 {
     [PolicyResourceType("aws:ses/receiptRuleSet:ReceiptRuleSet")]
-    public sealed class ReceiptRuleSet : global::Pulumi.PolicyResource
+    public sealed class ReceiptRuleSet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// SES receipt rule set ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the rule set.
         /// </summary>
         [Input("ruleSetName")]
-        public string? RuleSetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
+
+        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
+    }
+
+    [PolicyResourceType("aws:ses/receiptRuleSet:ReceiptRuleSet")]
+    public sealed class ReceiptRuleSetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the rule set.
+        /// </summary>
+        [Input("ruleSetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
+
+        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
     }
 }

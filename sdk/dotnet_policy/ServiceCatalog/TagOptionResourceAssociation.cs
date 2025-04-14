@@ -11,42 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")]
-    public sealed class TagOptionResourceAssociation : global::Pulumi.PolicyResource
+    public sealed class TagOptionResourceAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the resource.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// Creation time of the resource.
         /// </summary>
         [Input("resourceCreatedTime")]
-        public string? ResourceCreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceCreatedTime;
+
+        public string? ResourceCreatedTime => _mResourceCreatedTime.GetValue("resourceCreatedTime");
 
         /// <summary>
         /// Description of the resource.
         /// </summary>
         [Input("resourceDescription")]
-        public string? ResourceDescription;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceDescription;
+
+        public string? ResourceDescription => _mResourceDescription.GetValue("resourceDescription");
 
         /// <summary>
         /// Resource identifier.
         /// </summary>
         [Input("resourceId")]
-        public string? ResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
 
         /// <summary>
         /// Description of the resource.
         /// </summary>
         [Input("resourceName")]
-        public string? ResourceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceName;
+
+        public string? ResourceName => _mResourceName.GetValue("resourceName");
 
         /// <summary>
         /// Tag Option identifier.
         /// </summary>
         [Input("tagOptionId")]
-        public string? TagOptionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagOptionId;
+
+        public string? TagOptionId => _mTagOptionId.GetValue("tagOptionId");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")]
+    public sealed class TagOptionResourceAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Resource identifier.
+        /// </summary>
+        [Input("resourceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+
+        public string? ResourceId => _mResourceId.GetValue("resourceId");
+
+        /// <summary>
+        /// Tag Option identifier.
+        /// </summary>
+        [Input("tagOptionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTagOptionId;
+
+        public string? TagOptionId => _mTagOptionId.GetValue("tagOptionId");
     }
 }

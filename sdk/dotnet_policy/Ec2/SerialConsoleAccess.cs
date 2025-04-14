@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/serialConsoleAccess:SerialConsoleAccess")]
-    public sealed class SerialConsoleAccess : global::Pulumi.PolicyResource
+    public sealed class SerialConsoleAccess : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
-        public bool? Enabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
+    }
+
+    [PolicyResourceType("aws:ec2/serialConsoleAccess:SerialConsoleAccess")]
+    public sealed class SerialConsoleAccessArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
+        /// </summary>
+        [Input("enabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+
+        public bool? Enabled => _mEnabled.GetValue("enabled");
     }
 }

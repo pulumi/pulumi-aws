@@ -11,33 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudFront
 {
     [PolicyResourceType("aws:cloudfront/vpcOrigin:VpcOrigin")]
-    public sealed class VpcOrigin : global::Pulumi.PolicyResource
+    public sealed class VpcOrigin : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The VPC origin ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The current version of the origin.
         /// </summary>
         [Input("etag")]
-        public string? Etag;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+
+        public string? Etag => _mEtag.GetValue("etag");
 
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public VpcOriginTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcOriginTimeouts> _mTimeouts;
+
+        public Outputs.VpcOriginTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         [Input("vpcOriginEndpointConfig")]
-        public VpcOriginVpcOriginEndpointConfig? VpcOriginEndpointConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcOriginVpcOriginEndpointConfig> _mVpcOriginEndpointConfig;
+
+        public Outputs.VpcOriginVpcOriginEndpointConfig? VpcOriginEndpointConfig => _mVpcOriginEndpointConfig.GetValue("vpcOriginEndpointConfig");
+    }
+
+    [PolicyResourceType("aws:cloudfront/vpcOrigin:VpcOrigin")]
+    public sealed class VpcOriginArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcOriginTimeoutsArgs> _mTimeouts;
+
+        public Inputs.VpcOriginTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        [Input("vpcOriginEndpointConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcOriginVpcOriginEndpointConfigArgs> _mVpcOriginEndpointConfig;
+
+        public Inputs.VpcOriginVpcOriginEndpointConfigArgs? VpcOriginEndpointConfig => _mVpcOriginEndpointConfig.GetValue("vpcOriginEndpointConfig");
     }
 }

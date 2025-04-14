@@ -11,72 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkManager
 {
     [PolicyResourceType("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")]
-    public sealed class TransitGatewayPeering : global::Pulumi.PolicyResource
+    public sealed class TransitGatewayPeering : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Peering Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN of the core network.
         /// </summary>
         [Input("coreNetworkArn")]
-        public string? CoreNetworkArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
+
+        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
 
         /// <summary>
         /// The ID of a core network.
         /// </summary>
         [Input("coreNetworkId")]
-        public string? CoreNetworkId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
 
         /// <summary>
         /// The edge location for the peer.
         /// </summary>
         [Input("edgeLocation")]
-        public string? EdgeLocation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
+
+        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
 
         /// <summary>
         /// The ID of the account owner.
         /// </summary>
         [Input("ownerAccountId")]
-        public string? OwnerAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
+
+        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
 
         /// <summary>
         /// The type of peering. This will be `TRANSIT_GATEWAY`.
         /// </summary>
         [Input("peeringType")]
-        public string? PeeringType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeeringType;
+
+        public string? PeeringType => _mPeeringType.GetValue("peeringType");
 
         /// <summary>
         /// The resource ARN of the peer.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ARN of the transit gateway for the peering request.
         /// </summary>
         [Input("transitGatewayArn")]
-        public string? TransitGatewayArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayArn;
+
+        public string? TransitGatewayArn => _mTransitGatewayArn.GetValue("transitGatewayArn");
 
         /// <summary>
         /// The ID of the transit gateway peering attachment.
         /// </summary>
         [Input("transitGatewayPeeringAttachmentId")]
-        public string? TransitGatewayPeeringAttachmentId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayPeeringAttachmentId;
+
+        public string? TransitGatewayPeeringAttachmentId => _mTransitGatewayPeeringAttachmentId.GetValue("transitGatewayPeeringAttachmentId");
+    }
+
+    [PolicyResourceType("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")]
+    public sealed class TransitGatewayPeeringArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of a core network.
+        /// </summary>
+        [Input("coreNetworkId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
+
+        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+
+        /// <summary>
+        /// Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ARN of the transit gateway for the peering request.
+        /// </summary>
+        [Input("transitGatewayArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayArn;
+
+        public string? TransitGatewayArn => _mTransitGatewayArn.GetValue("transitGatewayArn");
     }
 }

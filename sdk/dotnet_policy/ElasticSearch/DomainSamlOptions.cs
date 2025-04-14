@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElasticSearch
 {
     [PolicyResourceType("aws:elasticsearch/domainSamlOptions:DomainSamlOptions")]
-    public sealed class DomainSamlOptions : global::Pulumi.PolicyResource
+    public sealed class DomainSamlOptions : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the domain.
@@ -19,12 +19,42 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch
         /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// The SAML authentication options for an AWS Elasticsearch Domain.
         /// </summary>
         [Input("samlOptions")]
-        public DomainSamlOptionsSamlOptions? SamlOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainSamlOptionsSamlOptions> _mSamlOptions;
+
+        public Outputs.DomainSamlOptionsSamlOptions? SamlOptions => _mSamlOptions.GetValue("samlOptions");
+    }
+
+    [PolicyResourceType("aws:elasticsearch/domainSamlOptions:DomainSamlOptions")]
+    public sealed class DomainSamlOptionsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// The SAML authentication options for an AWS Elasticsearch Domain.
+        /// </summary>
+        [Input("samlOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainSamlOptionsSamlOptionsArgs> _mSamlOptions;
+
+        public Inputs.DomainSamlOptionsSamlOptionsArgs? SamlOptions => _mSamlOptions.GetValue("samlOptions");
     }
 }

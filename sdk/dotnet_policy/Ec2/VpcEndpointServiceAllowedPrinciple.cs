@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
-    public sealed class VpcEndpointServiceAllowedPrinciple : global::Pulumi.PolicyResource
+    public sealed class VpcEndpointServiceAllowedPrinciple : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the principal to allow permissions.
         /// </summary>
         [Input("principalArn")]
-        public string? PrincipalArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
+
+        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
 
         /// <summary>
         /// The ID of the VPC endpoint service to allow permission.
         /// </summary>
         [Input("vpcEndpointServiceId")]
-        public string? VpcEndpointServiceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
+
+        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
+    public sealed class VpcEndpointServiceAllowedPrincipleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the principal to allow permissions.
+        /// </summary>
+        [Input("principalArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalArn;
+
+        public string? PrincipalArn => _mPrincipalArn.GetValue("principalArn");
+
+        /// <summary>
+        /// The ID of the VPC endpoint service to allow permission.
+        /// </summary>
+        [Input("vpcEndpointServiceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
+
+        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
     }
 }

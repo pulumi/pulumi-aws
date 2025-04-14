@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Macie2
 {
     [PolicyResourceType("aws:macie2/organizationConfiguration:OrganizationConfiguration")]
-    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResource
+    public sealed class OrganizationConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
         /// </summary>
         [Input("autoEnable")]
-        public bool? AutoEnable;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
+
+        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+    }
+
+    [PolicyResourceType("aws:macie2/organizationConfiguration:OrganizationConfiguration")]
+    public sealed class OrganizationConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
+        /// </summary>
+        [Input("autoEnable")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
+
+        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
     }
 }

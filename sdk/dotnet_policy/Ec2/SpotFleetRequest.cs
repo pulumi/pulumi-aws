@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/spotFleetRequest:SpotFleetRequest")]
-    public sealed class SpotFleetRequest : global::Pulumi.PolicyResource
+    public sealed class SpotFleetRequest : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Indicates how to allocate the target capacity across
@@ -19,16 +19,25 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// `lowestPrice`.
         /// </summary>
         [Input("allocationStrategy")]
-        public string? AllocationStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationStrategy;
+
+        public string? AllocationStrategy => _mAllocationStrategy.GetValue("allocationStrategy");
 
         [Input("clientToken")]
-        public string? ClientToken;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
+
+        public string? ClientToken => _mClientToken.GetValue("clientToken");
 
         /// <summary>
         /// Reserved.
         /// </summary>
         [Input("context")]
-        public string? Context;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
+
+        public string? Context => _mContext.GetValue("context");
 
         /// <summary>
         /// Indicates whether running Spot
@@ -36,14 +45,20 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// request is decreased below the current size of the Spot fleet.
         /// </summary>
         [Input("excessCapacityTerminationPolicy")]
-        public string? ExcessCapacityTerminationPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExcessCapacityTerminationPolicy;
+
+        public string? ExcessCapacityTerminationPolicy => _mExcessCapacityTerminationPolicy.GetValue("excessCapacityTerminationPolicy");
 
         /// <summary>
         /// The type of fleet request. Indicates whether the Spot Fleet only requests the target
         /// capacity or also attempts to maintain it. Default is `maintain`.
         /// </summary>
         [Input("fleetType")]
-        public string? FleetType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetType;
+
+        public string? FleetType => _mFleetType.GetValue("fleetType");
 
         /// <summary>
         /// Grants the Spot fleet permission to terminate
@@ -52,7 +67,10 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// terminateInstancesWithExpiration.
         /// </summary>
         [Input("iamFleetRole")]
-        public string? IamFleetRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamFleetRole;
+
+        public string? IamFleetRole => _mIamFleetRole.GetValue("iamFleetRole");
 
         /// <summary>
         /// Indicates whether a Spot
@@ -60,7 +78,10 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// `terminate`.
         /// </summary>
         [Input("instanceInterruptionBehaviour")]
-        public string? InstanceInterruptionBehaviour;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInterruptionBehaviour;
+
+        public string? InstanceInterruptionBehaviour => _mInstanceInterruptionBehaviour.GetValue("instanceInterruptionBehaviour");
 
         /// <summary>
         /// The number of Spot pools across which to allocate your target Spot capacity.
@@ -69,7 +90,10 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// the number of Spot pools that you specify.
         /// </summary>
         [Input("instancePoolsToUseCount")]
-        public int? InstancePoolsToUseCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePoolsToUseCount;
+
+        public int? InstancePoolsToUseCount => _mInstancePoolsToUseCount.GetValue("instancePoolsToUseCount");
 
         /// <summary>
         /// Used to define the launch configuration of the
@@ -83,73 +107,109 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         [Input("launchSpecifications")]
-        public List<SpotFleetRequestLaunchSpecification>? LaunchSpecifications;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SpotFleetRequestLaunchSpecification>> _mLaunchSpecifications;
+
+        public List<Outputs.SpotFleetRequestLaunchSpecification>? LaunchSpecifications => _mLaunchSpecifications.GetValue("launchSpecifications");
 
         /// <summary>
         /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         /// </summary>
         [Input("launchTemplateConfigs")]
-        public List<SpotFleetRequestLaunchTemplateConfig>? LaunchTemplateConfigs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SpotFleetRequestLaunchTemplateConfig>> _mLaunchTemplateConfigs;
+
+        public List<Outputs.SpotFleetRequestLaunchTemplateConfig>? LaunchTemplateConfigs => _mLaunchTemplateConfigs.GetValue("launchTemplateConfigs");
 
         /// <summary>
         /// A list of elastic load balancer names to add to the Spot fleet.
         /// </summary>
         [Input("loadBalancers")]
-        public List<string>? LoadBalancers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancers;
+
+        public List<string>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
 
         /// <summary>
         /// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
         /// </summary>
         [Input("onDemandAllocationStrategy")]
-        public string? OnDemandAllocationStrategy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnDemandAllocationStrategy;
+
+        public string? OnDemandAllocationStrategy => _mOnDemandAllocationStrategy.GetValue("onDemandAllocationStrategy");
 
         /// <summary>
         /// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
         /// </summary>
         [Input("onDemandMaxTotalPrice")]
-        public string? OnDemandMaxTotalPrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnDemandMaxTotalPrice;
+
+        public string? OnDemandMaxTotalPrice => _mOnDemandMaxTotalPrice.GetValue("onDemandMaxTotalPrice");
 
         /// <summary>
         /// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
         /// </summary>
         [Input("onDemandTargetCapacity")]
-        public int? OnDemandTargetCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mOnDemandTargetCapacity;
+
+        public int? OnDemandTargetCapacity => _mOnDemandTargetCapacity.GetValue("onDemandTargetCapacity");
 
         /// <summary>
         /// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         /// </summary>
         [Input("replaceUnhealthyInstances")]
-        public bool? ReplaceUnhealthyInstances;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceUnhealthyInstances;
+
+        public bool? ReplaceUnhealthyInstances => _mReplaceUnhealthyInstances.GetValue("replaceUnhealthyInstances");
 
         /// <summary>
         /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         /// </summary>
         [Input("spotMaintenanceStrategies")]
-        public SpotFleetRequestSpotMaintenanceStrategies? SpotMaintenanceStrategies;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SpotFleetRequestSpotMaintenanceStrategies> _mSpotMaintenanceStrategies;
+
+        public Outputs.SpotFleetRequestSpotMaintenanceStrategies? SpotMaintenanceStrategies => _mSpotMaintenanceStrategies.GetValue("spotMaintenanceStrategies");
 
         /// <summary>
         /// The maximum bid price per unit hour.
         /// </summary>
         [Input("spotPrice")]
-        public string? SpotPrice;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpotPrice;
+
+        public string? SpotPrice => _mSpotPrice.GetValue("spotPrice");
 
         /// <summary>
         /// The state of the Spot fleet request.
         /// </summary>
         [Input("spotRequestState")]
-        public string? SpotRequestState;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpotRequestState;
+
+        public string? SpotRequestState => _mSpotRequestState.GetValue("spotRequestState");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The number of units to request. You can choose to set the
@@ -157,19 +217,28 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// important to your application workload, such as vCPUs, memory, or I/O.
         /// </summary>
         [Input("targetCapacity")]
-        public int? TargetCapacity;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTargetCapacity;
+
+        public int? TargetCapacity => _mTargetCapacity.GetValue("targetCapacity");
 
         /// <summary>
         /// The unit for the target capacity. This can only be done with `instance_requirements` defined
         /// </summary>
         [Input("targetCapacityUnitType")]
-        public string? TargetCapacityUnitType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetCapacityUnitType;
+
+        public string? TargetCapacityUnitType => _mTargetCapacityUnitType.GetValue("targetCapacityUnitType");
 
         /// <summary>
         /// A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
         /// </summary>
         [Input("targetGroupArns")]
-        public List<string>? TargetGroupArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetGroupArns;
+
+        public List<string>? TargetGroupArns => _mTargetGroupArns.GetValue("targetGroupArns");
 
         /// <summary>
         /// Indicates whether running Spot
@@ -177,26 +246,38 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
         /// </summary>
         [Input("terminateInstancesOnDelete")]
-        public string? TerminateInstancesOnDelete;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTerminateInstancesOnDelete;
+
+        public string? TerminateInstancesOnDelete => _mTerminateInstancesOnDelete.GetValue("terminateInstancesOnDelete");
 
         /// <summary>
         /// Indicates whether running Spot
         /// instances should be terminated when the Spot fleet request expires.
         /// </summary>
         [Input("terminateInstancesWithExpiration")]
-        public bool? TerminateInstancesWithExpiration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstancesWithExpiration;
+
+        public bool? TerminateInstancesWithExpiration => _mTerminateInstancesWithExpiration.GetValue("terminateInstancesWithExpiration");
 
         /// <summary>
         /// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         /// </summary>
         [Input("validFrom")]
-        public string? ValidFrom;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidFrom;
+
+        public string? ValidFrom => _mValidFrom.GetValue("validFrom");
 
         /// <summary>
         /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         /// </summary>
         [Input("validUntil")]
-        public string? ValidUntil;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidUntil;
+
+        public string? ValidUntil => _mValidUntil.GetValue("validUntil");
 
         /// <summary>
         /// If set, this provider will
@@ -204,6 +285,266 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// timeout of 10m is reached.
         /// </summary>
         [Input("waitForFulfillment")]
-        public bool? WaitForFulfillment;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForFulfillment;
+
+        public bool? WaitForFulfillment => _mWaitForFulfillment.GetValue("waitForFulfillment");
+    }
+
+    [PolicyResourceType("aws:ec2/spotFleetRequest:SpotFleetRequest")]
+    public sealed class SpotFleetRequestArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates how to allocate the target capacity across
+        /// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
+        /// `lowestPrice`.
+        /// </summary>
+        [Input("allocationStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationStrategy;
+
+        public string? AllocationStrategy => _mAllocationStrategy.GetValue("allocationStrategy");
+
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
+
+        public string? Context => _mContext.GetValue("context");
+
+        /// <summary>
+        /// Indicates whether running Spot
+        /// instances should be terminated if the target capacity of the Spot fleet
+        /// request is decreased below the current size of the Spot fleet.
+        /// </summary>
+        [Input("excessCapacityTerminationPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExcessCapacityTerminationPolicy;
+
+        public string? ExcessCapacityTerminationPolicy => _mExcessCapacityTerminationPolicy.GetValue("excessCapacityTerminationPolicy");
+
+        /// <summary>
+        /// The type of fleet request. Indicates whether the Spot Fleet only requests the target
+        /// capacity or also attempts to maintain it. Default is `maintain`.
+        /// </summary>
+        [Input("fleetType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetType;
+
+        public string? FleetType => _mFleetType.GetValue("fleetType");
+
+        /// <summary>
+        /// Grants the Spot fleet permission to terminate
+        /// Spot instances on your behalf when you cancel its Spot fleet request using
+        /// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
+        /// terminateInstancesWithExpiration.
+        /// </summary>
+        [Input("iamFleetRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamFleetRole;
+
+        public string? IamFleetRole => _mIamFleetRole.GetValue("iamFleetRole");
+
+        /// <summary>
+        /// Indicates whether a Spot
+        /// instance stops or terminates when it is interrupted. Default is
+        /// `terminate`.
+        /// </summary>
+        [Input("instanceInterruptionBehaviour")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInterruptionBehaviour;
+
+        public string? InstanceInterruptionBehaviour => _mInstanceInterruptionBehaviour.GetValue("instanceInterruptionBehaviour");
+
+        /// <summary>
+        /// The number of Spot pools across which to allocate your target Spot capacity.
+        /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
+        /// the cheapest Spot pools and evenly allocates your target Spot capacity across
+        /// the number of Spot pools that you specify.
+        /// </summary>
+        [Input("instancePoolsToUseCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePoolsToUseCount;
+
+        public int? InstancePoolsToUseCount => _mInstancePoolsToUseCount.GetValue("instancePoolsToUseCount");
+
+        /// <summary>
+        /// Used to define the launch configuration of the
+        /// spot-fleet request. Can be specified multiple times to define different bids
+        /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// 
+        /// **Note**: This takes in similar but not
+        /// identical inputs as `aws.ec2.Instance`.  There are limitations on
+        /// what you can specify. See the list of officially supported inputs in the
+        /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
+        /// </summary>
+        [Input("launchSpecifications")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SpotFleetRequestLaunchSpecificationArgs>> _mLaunchSpecifications;
+
+        public List<Inputs.SpotFleetRequestLaunchSpecificationArgs>? LaunchSpecifications => _mLaunchSpecifications.GetValue("launchSpecifications");
+
+        /// <summary>
+        /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// </summary>
+        [Input("launchTemplateConfigs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SpotFleetRequestLaunchTemplateConfigArgs>> _mLaunchTemplateConfigs;
+
+        public List<Inputs.SpotFleetRequestLaunchTemplateConfigArgs>? LaunchTemplateConfigs => _mLaunchTemplateConfigs.GetValue("launchTemplateConfigs");
+
+        /// <summary>
+        /// A list of elastic load balancer names to add to the Spot fleet.
+        /// </summary>
+        [Input("loadBalancers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancers;
+
+        public List<string>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+
+        /// <summary>
+        /// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        /// </summary>
+        [Input("onDemandAllocationStrategy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnDemandAllocationStrategy;
+
+        public string? OnDemandAllocationStrategy => _mOnDemandAllocationStrategy.GetValue("onDemandAllocationStrategy");
+
+        /// <summary>
+        /// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        /// </summary>
+        [Input("onDemandMaxTotalPrice")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOnDemandMaxTotalPrice;
+
+        public string? OnDemandMaxTotalPrice => _mOnDemandMaxTotalPrice.GetValue("onDemandMaxTotalPrice");
+
+        /// <summary>
+        /// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        /// </summary>
+        [Input("onDemandTargetCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mOnDemandTargetCapacity;
+
+        public int? OnDemandTargetCapacity => _mOnDemandTargetCapacity.GetValue("onDemandTargetCapacity");
+
+        /// <summary>
+        /// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
+        /// </summary>
+        [Input("replaceUnhealthyInstances")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReplaceUnhealthyInstances;
+
+        public bool? ReplaceUnhealthyInstances => _mReplaceUnhealthyInstances.GetValue("replaceUnhealthyInstances");
+
+        /// <summary>
+        /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        /// </summary>
+        [Input("spotMaintenanceStrategies")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SpotFleetRequestSpotMaintenanceStrategiesArgs> _mSpotMaintenanceStrategies;
+
+        public Inputs.SpotFleetRequestSpotMaintenanceStrategiesArgs? SpotMaintenanceStrategies => _mSpotMaintenanceStrategies.GetValue("spotMaintenanceStrategies");
+
+        /// <summary>
+        /// The maximum bid price per unit hour.
+        /// </summary>
+        [Input("spotPrice")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSpotPrice;
+
+        public string? SpotPrice => _mSpotPrice.GetValue("spotPrice");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The number of units to request. You can choose to set the
+        /// target capacity in terms of instances or a performance characteristic that is
+        /// important to your application workload, such as vCPUs, memory, or I/O.
+        /// </summary>
+        [Input("targetCapacity")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTargetCapacity;
+
+        public int? TargetCapacity => _mTargetCapacity.GetValue("targetCapacity");
+
+        /// <summary>
+        /// The unit for the target capacity. This can only be done with `instance_requirements` defined
+        /// </summary>
+        [Input("targetCapacityUnitType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetCapacityUnitType;
+
+        public string? TargetCapacityUnitType => _mTargetCapacityUnitType.GetValue("targetCapacityUnitType");
+
+        /// <summary>
+        /// A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
+        /// </summary>
+        [Input("targetGroupArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetGroupArns;
+
+        public List<string>? TargetGroupArns => _mTargetGroupArns.GetValue("targetGroupArns");
+
+        /// <summary>
+        /// Indicates whether running Spot
+        /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+        /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        /// </summary>
+        [Input("terminateInstancesOnDelete")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTerminateInstancesOnDelete;
+
+        public string? TerminateInstancesOnDelete => _mTerminateInstancesOnDelete.GetValue("terminateInstancesOnDelete");
+
+        /// <summary>
+        /// Indicates whether running Spot
+        /// instances should be terminated when the Spot fleet request expires.
+        /// </summary>
+        [Input("terminateInstancesWithExpiration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstancesWithExpiration;
+
+        public bool? TerminateInstancesWithExpiration => _mTerminateInstancesWithExpiration.GetValue("terminateInstancesWithExpiration");
+
+        /// <summary>
+        /// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+        /// </summary>
+        [Input("validFrom")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidFrom;
+
+        public string? ValidFrom => _mValidFrom.GetValue("validFrom");
+
+        /// <summary>
+        /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
+        /// </summary>
+        [Input("validUntil")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mValidUntil;
+
+        public string? ValidUntil => _mValidUntil.GetValue("validUntil");
+
+        /// <summary>
+        /// If set, this provider will
+        /// wait for the Spot Request to be fulfilled, and will throw an error if the
+        /// timeout of 10m is reached.
+        /// </summary>
+        [Input("waitForFulfillment")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForFulfillment;
+
+        public bool? WaitForFulfillment => _mWaitForFulfillment.GetValue("waitForFulfillment");
     }
 }

@@ -11,61 +11,88 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
 {
     [PolicyResourceType("aws:servicecatalog/provisionedProduct:ProvisionedProduct")]
-    public sealed class ProvisionedProduct : global::Pulumi.PolicyResource
+    public sealed class ProvisionedProduct : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         /// </summary>
         [Input("acceptLanguage")]
-        public string? AcceptLanguage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
 
         /// <summary>
         /// ARN of the provisioned product.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Set of CloudWatch dashboards that were created when provisioning the product.
         /// </summary>
         [Input("cloudwatchDashboardNames")]
-        public List<string>? CloudwatchDashboardNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCloudwatchDashboardNames;
+
+        public List<string>? CloudwatchDashboardNames => _mCloudwatchDashboardNames.GetValue("cloudwatchDashboardNames");
 
         /// <summary>
         /// Time when the provisioned product was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         /// </summary>
         [Input("ignoreErrors")]
-        public bool? IgnoreErrors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreErrors;
+
+        public bool? IgnoreErrors => _mIgnoreErrors.GetValue("ignoreErrors");
 
         /// <summary>
         /// Record identifier of the last request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         /// </summary>
         [Input("lastProvisioningRecordId")]
-        public string? LastProvisioningRecordId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastProvisioningRecordId;
+
+        public string? LastProvisioningRecordId => _mLastProvisioningRecordId.GetValue("lastProvisioningRecordId");
 
         /// <summary>
         /// Record identifier of the last request performed on this provisioned product.
         /// </summary>
         [Input("lastRecordId")]
-        public string? LastRecordId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastRecordId;
+
+        public string? LastRecordId => _mLastRecordId.GetValue("lastRecordId");
 
         /// <summary>
         /// Record identifier of the last successful request performed on this provisioned product of the following types: `ProvisionedProduct`, `UpdateProvisionedProduct`, `ExecuteProvisionedProductPlan`, `TerminateProvisionedProduct`.
         /// </summary>
         [Input("lastSuccessfulProvisioningRecordId")]
-        public string? LastSuccessfulProvisioningRecordId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastSuccessfulProvisioningRecordId;
+
+        public string? LastSuccessfulProvisioningRecordId => _mLastSuccessfulProvisioningRecordId.GetValue("lastSuccessfulProvisioningRecordId");
 
         /// <summary>
         /// ARN of the launch role associated with the provisioned product.
         /// </summary>
         [Input("launchRoleArn")]
-        public string? LaunchRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchRoleArn;
+
+        public string? LaunchRoleArn => _mLaunchRoleArn.GetValue("launchRoleArn");
 
         /// <summary>
         /// User-friendly name of the provisioned product.
@@ -73,102 +100,285 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         /// </summary>
         [Input("notificationArns")]
-        public List<string>? NotificationArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationArns;
+
+        public List<string>? NotificationArns => _mNotificationArns.GetValue("notificationArns");
 
         /// <summary>
         /// The set of outputs for the product created.
         /// </summary>
         [Input("outputs")]
-        public List<ProvisionedProductOutput>? Outputs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProvisionedProductOutput>> _mOutputs;
+
+        public List<Outputs.ProvisionedProductOutput>? Outputs => _mOutputs.GetValue("outputs");
 
         /// <summary>
         /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
         /// </summary>
         [Input("pathId")]
-        public string? PathId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPathId;
+
+        public string? PathId => _mPathId.GetValue("pathId");
 
         /// <summary>
         /// Name of the path. You must provide `path_id` or `path_name`, but not both.
         /// </summary>
         [Input("pathName")]
-        public string? PathName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPathName;
+
+        public string? PathName => _mPathName.GetValue("pathName");
 
         /// <summary>
         /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         /// </summary>
         [Input("productId")]
-        public string? ProductId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
+
+        public string? ProductId => _mProductId.GetValue("productId");
 
         /// <summary>
         /// Name of the product. You must provide `product_id` or `product_name`, but not both.
         /// </summary>
         [Input("productName")]
-        public string? ProductName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductName;
+
+        public string? ProductName => _mProductName.GetValue("productName");
 
         /// <summary>
         /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         /// </summary>
         [Input("provisioningArtifactId")]
-        public string? ProvisioningArtifactId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactId;
+
+        public string? ProvisioningArtifactId => _mProvisioningArtifactId.GetValue("provisioningArtifactId");
 
         /// <summary>
         /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         /// </summary>
         [Input("provisioningArtifactName")]
-        public string? ProvisioningArtifactName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactName;
+
+        public string? ProvisioningArtifactName => _mProvisioningArtifactName.GetValue("provisioningArtifactName");
 
         /// <summary>
         /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         /// </summary>
         [Input("provisioningParameters")]
-        public List<ProvisionedProductProvisioningParameter>? ProvisioningParameters;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProvisionedProductProvisioningParameter>> _mProvisioningParameters;
+
+        public List<Outputs.ProvisionedProductProvisioningParameter>? ProvisioningParameters => _mProvisioningParameters.GetValue("provisioningParameters");
 
         /// <summary>
         /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         /// </summary>
         [Input("retainPhysicalResources")]
-        public bool? RetainPhysicalResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainPhysicalResources;
+
+        public bool? RetainPhysicalResources => _mRetainPhysicalResources.GetValue("retainPhysicalResources");
 
         /// <summary>
         /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         /// </summary>
         [Input("stackSetProvisioningPreferences")]
-        public ProvisionedProductStackSetProvisioningPreferences? StackSetProvisioningPreferences;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProvisionedProductStackSetProvisioningPreferences> _mStackSetProvisioningPreferences;
+
+        public Outputs.ProvisionedProductStackSetProvisioningPreferences? StackSetProvisioningPreferences => _mStackSetProvisioningPreferences.GetValue("stackSetProvisioningPreferences");
 
         /// <summary>
         /// Current status of the provisioned product. See meanings below.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Current status message of the provisioned product.
         /// </summary>
         [Input("statusMessage")]
-        public string? StatusMessage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
+
+        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
 
         /// <summary>
         /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:servicecatalog/provisionedProduct:ProvisionedProduct")]
+    public sealed class ProvisionedProductArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptLanguage;
+
+        public string? AcceptLanguage => _mAcceptLanguage.GetValue("acceptLanguage");
+
+        /// <summary>
+        /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
+        /// </summary>
+        [Input("ignoreErrors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreErrors;
+
+        public bool? IgnoreErrors => _mIgnoreErrors.GetValue("ignoreErrors");
+
+        /// <summary>
+        /// User-friendly name of the provisioned product.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+        /// </summary>
+        [Input("notificationArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationArns;
+
+        public List<string>? NotificationArns => _mNotificationArns.GetValue("notificationArns");
+
+        /// <summary>
+        /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
+        /// </summary>
+        [Input("pathId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPathId;
+
+        public string? PathId => _mPathId.GetValue("pathId");
+
+        /// <summary>
+        /// Name of the path. You must provide `path_id` or `path_name`, but not both.
+        /// </summary>
+        [Input("pathName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPathName;
+
+        public string? PathName => _mPathName.GetValue("pathName");
+
+        /// <summary>
+        /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
+        /// </summary>
+        [Input("productId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
+
+        public string? ProductId => _mProductId.GetValue("productId");
+
+        /// <summary>
+        /// Name of the product. You must provide `product_id` or `product_name`, but not both.
+        /// </summary>
+        [Input("productName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProductName;
+
+        public string? ProductName => _mProductName.GetValue("productName");
+
+        /// <summary>
+        /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// </summary>
+        [Input("provisioningArtifactId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactId;
+
+        public string? ProvisioningArtifactId => _mProvisioningArtifactId.GetValue("provisioningArtifactId");
+
+        /// <summary>
+        /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
+        /// </summary>
+        [Input("provisioningArtifactName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactName;
+
+        public string? ProvisioningArtifactName => _mProvisioningArtifactName.GetValue("provisioningArtifactName");
+
+        /// <summary>
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
+        /// </summary>
+        [Input("provisioningParameters")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProvisionedProductProvisioningParameterArgs>> _mProvisioningParameters;
+
+        public List<Inputs.ProvisionedProductProvisioningParameterArgs>? ProvisioningParameters => _mProvisioningParameters.GetValue("provisioningParameters");
+
+        /// <summary>
+        /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
+        /// </summary>
+        [Input("retainPhysicalResources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRetainPhysicalResources;
+
+        public bool? RetainPhysicalResources => _mRetainPhysicalResources.GetValue("retainPhysicalResources");
+
+        /// <summary>
+        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
+        /// </summary>
+        [Input("stackSetProvisioningPreferences")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs> _mStackSetProvisioningPreferences;
+
+        public Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs? StackSetProvisioningPreferences => _mStackSetProvisioningPreferences.GetValue("stackSetProvisioningPreferences");
+
+        /// <summary>
+        /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

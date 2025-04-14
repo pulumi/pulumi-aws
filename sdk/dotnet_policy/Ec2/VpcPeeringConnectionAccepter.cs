@@ -11,74 +11,158 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")]
-    public sealed class VpcPeeringConnectionAccepter : global::Pulumi.PolicyResource
+    public sealed class VpcPeeringConnectionAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The status of the VPC Peering Connection request.
         /// </summary>
         [Input("acceptStatus")]
-        public string? AcceptStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptStatus;
+
+        public string? AcceptStatus => _mAcceptStatus.GetValue("acceptStatus");
 
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         /// </summary>
         [Input("accepter")]
-        public VpcPeeringConnectionAccepterAccepter? Accepter;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcPeeringConnectionAccepterAccepter> _mAccepter;
+
+        public Outputs.VpcPeeringConnectionAccepterAccepter? Accepter => _mAccepter.GetValue("accepter");
 
         /// <summary>
         /// Whether or not to accept the peering request. Defaults to `false`.
         /// </summary>
         [Input("autoAccept")]
-        public bool? AutoAccept;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAccept;
+
+        public bool? AutoAccept => _mAutoAccept.GetValue("autoAccept");
 
         /// <summary>
         /// The AWS account ID of the owner of the requester VPC.
         /// </summary>
         [Input("peerOwnerId")]
-        public string? PeerOwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeerOwnerId;
+
+        public string? PeerOwnerId => _mPeerOwnerId.GetValue("peerOwnerId");
 
         /// <summary>
         /// The region of the accepter VPC.
         /// </summary>
         [Input("peerRegion")]
-        public string? PeerRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeerRegion;
+
+        public string? PeerRegion => _mPeerRegion.GetValue("peerRegion");
 
         /// <summary>
         /// The ID of the requester VPC.
         /// </summary>
         [Input("peerVpcId")]
-        public string? PeerVpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeerVpcId;
+
+        public string? PeerVpcId => _mPeerVpcId.GetValue("peerVpcId");
 
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
         [Input("requester")]
-        public VpcPeeringConnectionAccepterRequester? Requester;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcPeeringConnectionAccepterRequester> _mRequester;
+
+        public Outputs.VpcPeeringConnectionAccepterRequester? Requester => _mRequester.GetValue("requester");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of the accepter VPC.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
 
         /// <summary>
         /// The VPC Peering Connection ID to manage.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
-        public string? VpcPeeringConnectionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcPeeringConnectionId;
+
+        public string? VpcPeeringConnectionId => _mVpcPeeringConnectionId.GetValue("vpcPeeringConnectionId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")]
+    public sealed class VpcPeeringConnectionAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A configuration block that describes [VPC Peering Connection]
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+        /// </summary>
+        [Input("accepter")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcPeeringConnectionAccepterAccepterArgs> _mAccepter;
+
+        public Inputs.VpcPeeringConnectionAccepterAccepterArgs? Accepter => _mAccepter.GetValue("accepter");
+
+        /// <summary>
+        /// Whether or not to accept the peering request. Defaults to `false`.
+        /// </summary>
+        [Input("autoAccept")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAccept;
+
+        public bool? AutoAccept => _mAutoAccept.GetValue("autoAccept");
+
+        /// <summary>
+        /// A configuration block that describes [VPC Peering Connection]
+        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+        /// </summary>
+        [Input("requester")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcPeeringConnectionAccepterRequesterArgs> _mRequester;
+
+        public Inputs.VpcPeeringConnectionAccepterRequesterArgs? Requester => _mRequester.GetValue("requester");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The VPC Peering Connection ID to manage.
+        /// </summary>
+        [Input("vpcPeeringConnectionId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcPeeringConnectionId;
+
+        public string? VpcPeeringConnectionId => _mVpcPeeringConnectionId.GetValue("vpcPeeringConnectionId");
     }
 }

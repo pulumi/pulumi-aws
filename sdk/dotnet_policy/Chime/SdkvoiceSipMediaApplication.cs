@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chime
 {
     [PolicyResourceType("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")]
-    public sealed class SdkvoiceSipMediaApplication : global::Pulumi.PolicyResource
+    public sealed class SdkvoiceSipMediaApplication : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
         /// </summary>
         [Input("awsRegion")]
-        public string? AwsRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
+
+        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
 
         /// <summary>
         /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
         /// </summary>
         [Input("endpoints")]
-        public SdkvoiceSipMediaApplicationEndpoints? Endpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SdkvoiceSipMediaApplicationEndpoints> _mEndpoints;
+
+        public Outputs.SdkvoiceSipMediaApplicationEndpoints? Endpoints => _mEndpoints.GetValue("endpoints");
 
         /// <summary>
         /// The name of the AWS Chime SDK Voice Sip Media Application.
@@ -37,18 +46,69 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")]
+    public sealed class SdkvoiceSipMediaApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
+        /// </summary>
+        [Input("awsRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
+
+        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+
+        /// <summary>
+        /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+        /// </summary>
+        [Input("endpoints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SdkvoiceSipMediaApplicationEndpointsArgs> _mEndpoints;
+
+        public Inputs.SdkvoiceSipMediaApplicationEndpointsArgs? Endpoints => _mEndpoints.GetValue("endpoints");
+
+        /// <summary>
+        /// The name of the AWS Chime SDK Voice Sip Media Application.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

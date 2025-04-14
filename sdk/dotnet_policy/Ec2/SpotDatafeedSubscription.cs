@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")]
-    public sealed class SpotDatafeedSubscription : global::Pulumi.PolicyResource
+    public sealed class SpotDatafeedSubscription : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon S3 bucket in which to store the Spot instance data feed.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Path of folder inside bucket to place spot pricing data.
         /// </summary>
         [Input("prefix")]
-        public string? Prefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+
+        public string? Prefix => _mPrefix.GetValue("prefix");
+    }
+
+    [PolicyResourceType("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")]
+    public sealed class SpotDatafeedSubscriptionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon S3 bucket in which to store the Spot instance data feed.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Path of folder inside bucket to place spot pricing data.
+        /// </summary>
+        [Input("prefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+
+        public string? Prefix => _mPrefix.GetValue("prefix");
     }
 }

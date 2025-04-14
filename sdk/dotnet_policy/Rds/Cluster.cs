@@ -11,31 +11,43 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/cluster:Cluster")]
-    public sealed class Cluster : global::Pulumi.PolicyResource
+    public sealed class Cluster : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         /// </summary>
         [Input("allocatedStorage")]
-        public int? AllocatedStorage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
+
+        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
 
         /// <summary>
         /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         /// </summary>
         [Input("allowMajorVersionUpgrade")]
-        public bool? AllowMajorVersionUpgrade;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
+
+        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
 
         /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Input("applyImmediately")]
-        public bool? ApplyImmediately;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
@@ -44,116 +56,173 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// A maximum of 3 AZs can be configured.
         /// </summary>
         [Input("availabilityZones")]
-        public List<string>? AvailabilityZones;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
 
         /// <summary>
         /// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         /// </summary>
         [Input("backtrackWindow")]
-        public int? BacktrackWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBacktrackWindow;
+
+        public int? BacktrackWindow => _mBacktrackWindow.GetValue("backtrackWindow");
 
         /// <summary>
         /// Days to retain backups for. Default `1`
         /// </summary>
         [Input("backupRetentionPeriod")]
-        public int? BackupRetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
+
+        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
 
         /// <summary>
         /// The CA certificate identifier to use for the DB cluster's server certificate.
         /// </summary>
         [Input("caCertificateIdentifier")]
-        public string? CaCertificateIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificateIdentifier;
+
+        public string? CaCertificateIdentifier => _mCaCertificateIdentifier.GetValue("caCertificateIdentifier");
 
         /// <summary>
         /// Expiration date of the DB instance’s server certificate
         /// </summary>
         [Input("caCertificateValidTill")]
-        public string? CaCertificateValidTill;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificateValidTill;
+
+        public string? CaCertificateValidTill => _mCaCertificateValidTill.GetValue("caCertificateValidTill");
 
         /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
-        public string? ClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
 
         /// <summary>
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
         [Input("clusterIdentifierPrefix")]
-        public string? ClusterIdentifierPrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifierPrefix;
+
+        public string? ClusterIdentifierPrefix => _mClusterIdentifierPrefix.GetValue("clusterIdentifierPrefix");
 
         /// <summary>
         /// List of RDS Instances that are a part of this cluster
         /// </summary>
         [Input("clusterMembers")]
-        public List<string>? ClusterMembers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClusterMembers;
+
+        public List<string>? ClusterMembers => _mClusterMembers.GetValue("clusterMembers");
 
         /// <summary>
         /// RDS Cluster Resource ID
         /// </summary>
         [Input("clusterResourceId")]
-        public string? ClusterResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterResourceId;
+
+        public string? ClusterResourceId => _mClusterResourceId.GetValue("clusterResourceId");
 
         /// <summary>
         /// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
         /// </summary>
         [Input("clusterScalabilityType")]
-        public string? ClusterScalabilityType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterScalabilityType;
+
+        public string? ClusterScalabilityType => _mClusterScalabilityType.GetValue("clusterScalabilityType");
 
         /// <summary>
         /// Copy all Cluster `tags` to snapshots. Default is `false`.
         /// </summary>
         [Input("copyTagsToSnapshot")]
-        public bool? CopyTagsToSnapshot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
+
+        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
 
         /// <summary>
         /// The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
         /// </summary>
         [Input("databaseInsightsMode")]
-        public string? DatabaseInsightsMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInsightsMode;
+
+        public string? DatabaseInsightsMode => _mDatabaseInsightsMode.GetValue("databaseInsightsMode");
 
         /// <summary>
         /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         /// </summary>
         [Input("dbClusterInstanceClass")]
-        public string? DbClusterInstanceClass;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterInstanceClass;
+
+        public string? DbClusterInstanceClass => _mDbClusterInstanceClass.GetValue("dbClusterInstanceClass");
 
         /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
         [Input("dbClusterParameterGroupName")]
-        public string? DbClusterParameterGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterParameterGroupName;
+
+        public string? DbClusterParameterGroupName => _mDbClusterParameterGroupName.GetValue("dbClusterParameterGroupName");
 
         /// <summary>
         /// Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
         /// </summary>
         [Input("dbInstanceParameterGroupName")]
-        public string? DbInstanceParameterGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceParameterGroupName;
+
+        public string? DbInstanceParameterGroupName => _mDbInstanceParameterGroupName.GetValue("dbInstanceParameterGroupName");
 
         /// <summary>
         /// DB subnet group to associate with this DB cluster.
         /// **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Input("dbSubnetGroupName")]
-        public string? DbSubnetGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
+
+        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
 
         /// <summary>
         /// For use with RDS Custom.
         /// </summary>
         [Input("dbSystemId")]
-        public string? DbSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSystemId;
+
+        public string? DbSystemId => _mDbSystemId.GetValue("dbSystemId");
 
         /// <summary>
         /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
         /// </summary>
         [Input("deleteAutomatedBackups")]
-        public bool? DeleteAutomatedBackups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAutomatedBackups;
+
+        public bool? DeleteAutomatedBackups => _mDeleteAutomatedBackups.GetValue("deleteAutomatedBackups");
 
         /// <summary>
         /// If the DB cluster should have deletion protection enabled.
@@ -161,286 +230,995 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// The default is `false`.
         /// </summary>
         [Input("deletionProtection")]
-        public bool? DeletionProtection;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
+
+        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
 
         /// <summary>
         /// The ID of the Directory Service Active Directory domain to create the cluster in.
         /// </summary>
         [Input("domain")]
-        public string? Domain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
 
         /// <summary>
         /// The name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
         [Input("domainIamRoleName")]
-        public string? DomainIamRoleName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIamRoleName;
+
+        public string? DomainIamRoleName => _mDomainIamRoleName.GetValue("domainIamRoleName");
 
         /// <summary>
         /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         /// </summary>
         [Input("enableGlobalWriteForwarding")]
-        public bool? EnableGlobalWriteForwarding;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableGlobalWriteForwarding;
+
+        public bool? EnableGlobalWriteForwarding => _mEnableGlobalWriteForwarding.GetValue("enableGlobalWriteForwarding");
 
         /// <summary>
         /// Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
         /// </summary>
         [Input("enableHttpEndpoint")]
-        public bool? EnableHttpEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableHttpEndpoint;
+
+        public bool? EnableHttpEndpoint => _mEnableHttpEndpoint.GetValue("enableHttpEndpoint");
 
         /// <summary>
         /// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         /// </summary>
         [Input("enableLocalWriteForwarding")]
-        public bool? EnableLocalWriteForwarding;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableLocalWriteForwarding;
+
+        public bool? EnableLocalWriteForwarding => _mEnableLocalWriteForwarding.GetValue("enableLocalWriteForwarding");
 
         /// <summary>
         /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
         /// </summary>
         [Input("enabledCloudwatchLogsExports")]
-        public List<string>? EnabledCloudwatchLogsExports;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledCloudwatchLogsExports;
+
+        public List<string>? EnabledCloudwatchLogsExports => _mEnabledCloudwatchLogsExports.GetValue("enabledCloudwatchLogsExports");
 
         /// <summary>
         /// DNS address of the RDS instance
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
         [Input("engineLifecycleSupport")]
-        public string? EngineLifecycleSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineLifecycleSupport;
+
+        public string? EngineLifecycleSupport => _mEngineLifecycleSupport.GetValue("engineLifecycleSupport");
 
         /// <summary>
         /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
-        public string? EngineMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineMode;
+
+        public string? EngineMode => _mEngineMode.GetValue("engineMode");
 
         /// <summary>
         /// Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
-        public string? EngineVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
 
         /// <summary>
         /// Running version of the database.
         /// </summary>
         [Input("engineVersionActual")]
-        public string? EngineVersionActual;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersionActual;
+
+        public string? EngineVersionActual => _mEngineVersionActual.GetValue("engineVersionActual");
 
         /// <summary>
         /// Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
-        public string? FinalSnapshotIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
+
+        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
 
         /// <summary>
         /// Global cluster identifier specified on `aws.rds.GlobalCluster`.
         /// </summary>
         [Input("globalClusterIdentifier")]
-        public string? GlobalClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterIdentifier;
+
+        public string? GlobalClusterIdentifier => _mGlobalClusterIdentifier.GetValue("globalClusterIdentifier");
 
         /// <summary>
         /// Route53 Hosted Zone ID of the endpoint
         /// </summary>
         [Input("hostedZoneId")]
-        public string? HostedZoneId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
+
+        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
 
         /// <summary>
         /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
-        public bool? IamDatabaseAuthenticationEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIamDatabaseAuthenticationEnabled;
+
+        public bool? IamDatabaseAuthenticationEnabled => _mIamDatabaseAuthenticationEnabled.GetValue("iamDatabaseAuthenticationEnabled");
 
         /// <summary>
         /// List of ARNs for the IAM roles to associate to the RDS Cluster.
         /// </summary>
         [Input("iamRoles")]
-        public List<string>? IamRoles;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoles;
+
+        public List<string>? IamRoles => _mIamRoles.GetValue("iamRoles");
 
         /// <summary>
         /// Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
         /// </summary>
         [Input("iops")]
-        public int? Iops;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
+
+        public int? Iops => _mIops.GetValue("iops");
 
         /// <summary>
         /// ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
-        public string? KmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
 
         /// <summary>
         /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
         /// </summary>
         [Input("manageMasterUserPassword")]
-        public bool? ManageMasterUserPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mManageMasterUserPassword;
+
+        public bool? ManageMasterUserPassword => _mManageMasterUserPassword.GetValue("manageMasterUserPassword");
 
         /// <summary>
         /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
         [Input("masterPassword")]
-        public string? MasterPassword;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPassword;
+
+        public string? MasterPassword => _mMasterPassword.GetValue("masterPassword");
 
         /// <summary>
         /// Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         /// </summary>
         [Input("masterUserSecretKmsKeyId")]
-        public string? MasterUserSecretKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserSecretKmsKeyId;
+
+        public string? MasterUserSecretKmsKeyId => _mMasterUserSecretKmsKeyId.GetValue("masterUserSecretKmsKeyId");
 
         /// <summary>
         /// Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         /// </summary>
         [Input("masterUserSecrets")]
-        public List<ClusterMasterUserSecret>? MasterUserSecrets;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterMasterUserSecret>> _mMasterUserSecrets;
+
+        public List<Outputs.ClusterMasterUserSecret>? MasterUserSecrets => _mMasterUserSecrets.GetValue("masterUserSecrets");
 
         /// <summary>
         /// Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         /// </summary>
         [Input("masterUsername")]
-        public string? MasterUsername;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUsername;
+
+        public string? MasterUsername => _mMasterUsername.GetValue("masterUsername");
 
         /// <summary>
         /// Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         /// </summary>
         [Input("monitoringInterval")]
-        public int? MonitoringInterval;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMonitoringInterval;
+
+        public int? MonitoringInterval => _mMonitoringInterval.GetValue("monitoringInterval");
 
         /// <summary>
         /// ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
         /// </summary>
         [Input("monitoringRoleArn")]
-        public string? MonitoringRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitoringRoleArn;
+
+        public string? MonitoringRoleArn => _mMonitoringRoleArn.GetValue("monitoringRoleArn");
 
         /// <summary>
         /// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         /// </summary>
         [Input("networkType")]
-        public string? NetworkType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
+
+        public string? NetworkType => _mNetworkType.GetValue("networkType");
 
         /// <summary>
         /// Enables Performance Insights.
         /// </summary>
         [Input("performanceInsightsEnabled")]
-        public bool? PerformanceInsightsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPerformanceInsightsEnabled;
+
+        public bool? PerformanceInsightsEnabled => _mPerformanceInsightsEnabled.GetValue("performanceInsightsEnabled");
 
         /// <summary>
         /// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
-        public string? PerformanceInsightsKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceInsightsKmsKeyId;
+
+        public string? PerformanceInsightsKmsKeyId => _mPerformanceInsightsKmsKeyId.GetValue("performanceInsightsKmsKeyId");
 
         /// <summary>
         /// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
-        public int? PerformanceInsightsRetentionPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPerformanceInsightsRetentionPeriod;
+
+        public int? PerformanceInsightsRetentionPeriod => _mPerformanceInsightsRetentionPeriod.GetValue("performanceInsightsRetentionPeriod");
 
         /// <summary>
         /// Port on which the DB accepts connections.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         /// </summary>
         [Input("preferredBackupWindow")]
-        public string? PreferredBackupWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
+
+        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
 
         /// <summary>
         /// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         /// </summary>
         [Input("preferredMaintenanceWindow")]
-        public string? PreferredMaintenanceWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
 
         /// <summary>
         /// Read-only endpoint for the Aurora cluster, automatically
         /// load-balanced across replicas
         /// </summary>
         [Input("readerEndpoint")]
-        public string? ReaderEndpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReaderEndpoint;
+
+        public string? ReaderEndpoint => _mReaderEndpoint.GetValue("readerEndpoint");
 
         /// <summary>
         /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         /// </summary>
         [Input("replicationSourceIdentifier")]
-        public string? ReplicationSourceIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSourceIdentifier;
+
+        public string? ReplicationSourceIdentifier => _mReplicationSourceIdentifier.GetValue("replicationSourceIdentifier");
 
         /// <summary>
         /// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         /// </summary>
         [Input("restoreToPointInTime")]
-        public ClusterRestoreToPointInTime? RestoreToPointInTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterRestoreToPointInTime> _mRestoreToPointInTime;
+
+        public Outputs.ClusterRestoreToPointInTime? RestoreToPointInTime => _mRestoreToPointInTime.GetValue("restoreToPointInTime");
 
         [Input("s3Import")]
-        public ClusterS3Import? S3Import;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterS3Import> _mS3Import;
+
+        public Outputs.ClusterS3Import? S3Import => _mS3Import.GetValue("s3Import");
 
         /// <summary>
         /// Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         /// </summary>
         [Input("scalingConfiguration")]
-        public ClusterScalingConfiguration? ScalingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterScalingConfiguration> _mScalingConfiguration;
+
+        public Outputs.ClusterScalingConfiguration? ScalingConfiguration => _mScalingConfiguration.GetValue("scalingConfiguration");
 
         /// <summary>
         /// Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
         /// </summary>
         [Input("serverlessv2ScalingConfiguration")]
-        public ClusterServerlessv2ScalingConfiguration? Serverlessv2ScalingConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterServerlessv2ScalingConfiguration> _mServerlessv2ScalingConfiguration;
+
+        public Outputs.ClusterServerlessv2ScalingConfiguration? Serverlessv2ScalingConfiguration => _mServerlessv2ScalingConfiguration.GetValue("serverlessv2ScalingConfiguration");
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
-        public bool? SkipFinalSnapshot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
+
+        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
 
         /// <summary>
         /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         /// </summary>
         [Input("snapshotIdentifier")]
-        public string? SnapshotIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
+
+        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
 
         /// <summary>
         /// The source region for an encrypted replica DB cluster.
         /// </summary>
         [Input("sourceRegion")]
-        public string? SourceRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceRegion;
+
+        public string? SourceRegion => _mSourceRegion.GetValue("sourceRegion");
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
-        public bool? StorageEncrypted;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
+
+        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
 
         /// <summary>
         /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         /// </summary>
         [Input("storageType")]
-        public string? StorageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// List of VPC security groups to associate with the Cluster
         /// </summary>
         [Input("vpcSecurityGroupIds")]
-        public List<string>? VpcSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+    }
+
+    [PolicyResourceType("aws:rds/cluster:Cluster")]
+    public sealed class ClusterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        /// </summary>
+        [Input("allocatedStorage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
+
+        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
+
+        /// <summary>
+        /// Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
+
+        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+
+        /// <summary>
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        /// </summary>
+        [Input("applyImmediately")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
+
+        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+
+        /// <summary>
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
+        /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+        /// A maximum of 3 AZs can be configured.
+        /// </summary>
+        [Input("availabilityZones")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+
+        /// <summary>
+        /// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+        /// </summary>
+        [Input("backtrackWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBacktrackWindow;
+
+        public int? BacktrackWindow => _mBacktrackWindow.GetValue("backtrackWindow");
+
+        /// <summary>
+        /// Days to retain backups for. Default `1`
+        /// </summary>
+        [Input("backupRetentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
+
+        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+
+        /// <summary>
+        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// </summary>
+        [Input("caCertificateIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificateIdentifier;
+
+        public string? CaCertificateIdentifier => _mCaCertificateIdentifier.GetValue("caCertificateIdentifier");
+
+        /// <summary>
+        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
+
+        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+
+        /// <summary>
+        /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        /// </summary>
+        [Input("clusterIdentifierPrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifierPrefix;
+
+        public string? ClusterIdentifierPrefix => _mClusterIdentifierPrefix.GetValue("clusterIdentifierPrefix");
+
+        /// <summary>
+        /// List of RDS Instances that are a part of this cluster
+        /// </summary>
+        [Input("clusterMembers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClusterMembers;
+
+        public List<string>? ClusterMembers => _mClusterMembers.GetValue("clusterMembers");
+
+        /// <summary>
+        /// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+        /// </summary>
+        [Input("clusterScalabilityType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterScalabilityType;
+
+        public string? ClusterScalabilityType => _mClusterScalabilityType.GetValue("clusterScalabilityType");
+
+        /// <summary>
+        /// Copy all Cluster `tags` to snapshots. Default is `false`.
+        /// </summary>
+        [Input("copyTagsToSnapshot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
+
+        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
+
+        /// <summary>
+        /// The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+        /// </summary>
+        [Input("databaseInsightsMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInsightsMode;
+
+        public string? DatabaseInsightsMode => _mDatabaseInsightsMode.GetValue("databaseInsightsMode");
+
+        /// <summary>
+        /// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        /// </summary>
+        [Input("dbClusterInstanceClass")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterInstanceClass;
+
+        public string? DbClusterInstanceClass => _mDbClusterInstanceClass.GetValue("dbClusterInstanceClass");
+
+        /// <summary>
+        /// A cluster parameter group to associate with the cluster.
+        /// </summary>
+        [Input("dbClusterParameterGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterParameterGroupName;
+
+        public string? DbClusterParameterGroupName => _mDbClusterParameterGroupName.GetValue("dbClusterParameterGroupName");
+
+        /// <summary>
+        /// Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        /// </summary>
+        [Input("dbInstanceParameterGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceParameterGroupName;
+
+        public string? DbInstanceParameterGroupName => _mDbInstanceParameterGroupName.GetValue("dbInstanceParameterGroupName");
+
+        /// <summary>
+        /// DB subnet group to associate with this DB cluster.
+        /// **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+        /// </summary>
+        [Input("dbSubnetGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
+
+        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
+
+        /// <summary>
+        /// For use with RDS Custom.
+        /// </summary>
+        [Input("dbSystemId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbSystemId;
+
+        public string? DbSystemId => _mDbSystemId.GetValue("dbSystemId");
+
+        /// <summary>
+        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+        /// </summary>
+        [Input("deleteAutomatedBackups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAutomatedBackups;
+
+        public bool? DeleteAutomatedBackups => _mDeleteAutomatedBackups.GetValue("deleteAutomatedBackups");
+
+        /// <summary>
+        /// If the DB cluster should have deletion protection enabled.
+        /// The database can't be deleted when this value is set to `true`.
+        /// The default is `false`.
+        /// </summary>
+        [Input("deletionProtection")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
+
+        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+
+        /// <summary>
+        /// The ID of the Directory Service Active Directory domain to create the cluster in.
+        /// </summary>
+        [Input("domain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
+
+        public string? Domain => _mDomain.GetValue("domain");
+
+        /// <summary>
+        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// </summary>
+        [Input("domainIamRoleName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIamRoleName;
+
+        public string? DomainIamRoleName => _mDomainIamRoleName.GetValue("domainIamRoleName");
+
+        /// <summary>
+        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        /// </summary>
+        [Input("enableGlobalWriteForwarding")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableGlobalWriteForwarding;
+
+        public bool? EnableGlobalWriteForwarding => _mEnableGlobalWriteForwarding.GetValue("enableGlobalWriteForwarding");
+
+        /// <summary>
+        /// Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
+        /// </summary>
+        [Input("enableHttpEndpoint")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableHttpEndpoint;
+
+        public bool? EnableHttpEndpoint => _mEnableHttpEndpoint.GetValue("enableHttpEndpoint");
+
+        /// <summary>
+        /// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+        /// </summary>
+        [Input("enableLocalWriteForwarding")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableLocalWriteForwarding;
+
+        public bool? EnableLocalWriteForwarding => _mEnableLocalWriteForwarding.GetValue("enableLocalWriteForwarding");
+
+        /// <summary>
+        /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
+        /// </summary>
+        [Input("enabledCloudwatchLogsExports")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledCloudwatchLogsExports;
+
+        public List<string>? EnabledCloudwatchLogsExports => _mEnabledCloudwatchLogsExports.GetValue("enabledCloudwatchLogsExports");
+
+        /// <summary>
+        /// Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// </summary>
+        [Input("engineLifecycleSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineLifecycleSupport;
+
+        public string? EngineLifecycleSupport => _mEngineLifecycleSupport.GetValue("engineLifecycleSupport");
+
+        /// <summary>
+        /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`""`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        /// </summary>
+        [Input("engineMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineMode;
+
+        public string? EngineMode => _mEngineMode.GetValue("engineMode");
+
+        /// <summary>
+        /// Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
+        /// </summary>
+        [Input("engineVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
+
+        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+
+        /// <summary>
+        /// Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+        /// </summary>
+        [Input("finalSnapshotIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
+
+        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+
+        /// <summary>
+        /// Global cluster identifier specified on `aws.rds.GlobalCluster`.
+        /// </summary>
+        [Input("globalClusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterIdentifier;
+
+        public string? GlobalClusterIdentifier => _mGlobalClusterIdentifier.GetValue("globalClusterIdentifier");
+
+        /// <summary>
+        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        /// </summary>
+        [Input("iamDatabaseAuthenticationEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIamDatabaseAuthenticationEnabled;
+
+        public bool? IamDatabaseAuthenticationEnabled => _mIamDatabaseAuthenticationEnabled.GetValue("iamDatabaseAuthenticationEnabled");
+
+        /// <summary>
+        /// List of ARNs for the IAM roles to associate to the RDS Cluster.
+        /// </summary>
+        [Input("iamRoles")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIamRoles;
+
+        public List<string>? IamRoles => _mIamRoles.GetValue("iamRoles");
+
+        /// <summary>
+        /// Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+        /// </summary>
+        [Input("iops")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
+
+        public int? Iops => _mIops.GetValue("iops");
+
+        /// <summary>
+        /// ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        /// </summary>
+        [Input("kmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+
+        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+
+        /// <summary>
+        /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mManageMasterUserPassword;
+
+        public bool? ManageMasterUserPassword => _mManageMasterUserPassword.GetValue("manageMasterUserPassword");
+
+        /// <summary>
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
+        /// </summary>
+        [Input("masterPassword")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPassword;
+
+        public string? MasterPassword => _mMasterPassword.GetValue("masterPassword");
+
+        /// <summary>
+        /// Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+        /// </summary>
+        [Input("masterUserSecretKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserSecretKmsKeyId;
+
+        public string? MasterUserSecretKmsKeyId => _mMasterUserSecretKmsKeyId.GetValue("masterUserSecretKmsKeyId");
+
+        /// <summary>
+        /// Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+        /// </summary>
+        [Input("masterUsername")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUsername;
+
+        public string? MasterUsername => _mMasterUsername.GetValue("masterUsername");
+
+        /// <summary>
+        /// Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
+        /// </summary>
+        [Input("monitoringInterval")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMonitoringInterval;
+
+        public int? MonitoringInterval => _mMonitoringInterval.GetValue("monitoringInterval");
+
+        /// <summary>
+        /// ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
+        /// </summary>
+        [Input("monitoringRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitoringRoleArn;
+
+        public string? MonitoringRoleArn => _mMonitoringRoleArn.GetValue("monitoringRoleArn");
+
+        /// <summary>
+        /// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
+
+        public string? NetworkType => _mNetworkType.GetValue("networkType");
+
+        /// <summary>
+        /// Enables Performance Insights.
+        /// </summary>
+        [Input("performanceInsightsEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPerformanceInsightsEnabled;
+
+        public bool? PerformanceInsightsEnabled => _mPerformanceInsightsEnabled.GetValue("performanceInsightsEnabled");
+
+        /// <summary>
+        /// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// </summary>
+        [Input("performanceInsightsKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceInsightsKmsKeyId;
+
+        public string? PerformanceInsightsKmsKeyId => _mPerformanceInsightsKmsKeyId.GetValue("performanceInsightsKmsKeyId");
+
+        /// <summary>
+        /// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// </summary>
+        [Input("performanceInsightsRetentionPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPerformanceInsightsRetentionPeriod;
+
+        public int? PerformanceInsightsRetentionPeriod => _mPerformanceInsightsRetentionPeriod.GetValue("performanceInsightsRetentionPeriod");
+
+        /// <summary>
+        /// Port on which the DB accepts connections.
+        /// </summary>
+        [Input("port")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
+
+        /// <summary>
+        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
+        /// </summary>
+        [Input("preferredBackupWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
+
+        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+
+        /// <summary>
+        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
+        /// </summary>
+        [Input("preferredMaintenanceWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
+
+        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+
+        /// <summary>
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
+        /// </summary>
+        [Input("replicationSourceIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationSourceIdentifier;
+
+        public string? ReplicationSourceIdentifier => _mReplicationSourceIdentifier.GetValue("replicationSourceIdentifier");
+
+        /// <summary>
+        /// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
+        /// </summary>
+        [Input("restoreToPointInTime")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterRestoreToPointInTimeArgs> _mRestoreToPointInTime;
+
+        public Inputs.ClusterRestoreToPointInTimeArgs? RestoreToPointInTime => _mRestoreToPointInTime.GetValue("restoreToPointInTime");
+
+        [Input("s3Import")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterS3ImportArgs> _mS3Import;
+
+        public Inputs.ClusterS3ImportArgs? S3Import => _mS3Import.GetValue("s3Import");
+
+        /// <summary>
+        /// Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        /// </summary>
+        [Input("scalingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterScalingConfigurationArgs> _mScalingConfiguration;
+
+        public Inputs.ClusterScalingConfigurationArgs? ScalingConfiguration => _mScalingConfiguration.GetValue("scalingConfiguration");
+
+        /// <summary>
+        /// Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        /// </summary>
+        [Input("serverlessv2ScalingConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterServerlessv2ScalingConfigurationArgs> _mServerlessv2ScalingConfiguration;
+
+        public Inputs.ClusterServerlessv2ScalingConfigurationArgs? Serverlessv2ScalingConfiguration => _mServerlessv2ScalingConfiguration.GetValue("serverlessv2ScalingConfiguration");
+
+        /// <summary>
+        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
+        /// </summary>
+        [Input("skipFinalSnapshot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
+
+        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+
+        /// <summary>
+        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+        /// </summary>
+        [Input("snapshotIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
+
+        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+
+        /// <summary>
+        /// The source region for an encrypted replica DB cluster.
+        /// </summary>
+        [Input("sourceRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceRegion;
+
+        public string? SourceRegion => _mSourceRegion.GetValue("sourceRegion");
+
+        /// <summary>
+        /// Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        /// </summary>
+        [Input("storageEncrypted")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
+
+        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+
+        /// <summary>
+        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        /// </summary>
+        [Input("storageType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
+
+        public string? StorageType => _mStorageType.GetValue("storageType");
+
+        /// <summary>
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// List of VPC security groups to associate with the Cluster
+        /// </summary>
+        [Input("vpcSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
+
+        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
     }
 }

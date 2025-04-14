@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chatbot
 {
     [PolicyResourceType("aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration")]
-    public sealed class SlackChannelConfiguration : global::Pulumi.PolicyResource
+    public sealed class SlackChannelConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Slack channel configuration.
         /// </summary>
         [Input("chatConfigurationArn")]
-        public string? ChatConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mChatConfigurationArn;
+
+        public string? ChatConfigurationArn => _mChatConfigurationArn.GetValue("chatConfigurationArn");
 
         /// <summary>
         /// Name of the Slack channel configuration.
         /// </summary>
         [Input("configurationName")]
-        public string? ConfigurationName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationName;
+
+        public string? ConfigurationName => _mConfigurationName.GetValue("configurationName");
 
         /// <summary>
         /// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         /// </summary>
         [Input("guardrailPolicyArns")]
-        public List<string>? GuardrailPolicyArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGuardrailPolicyArns;
+
+        public List<string>? GuardrailPolicyArns => _mGuardrailPolicyArns.GetValue("guardrailPolicyArns");
 
         /// <summary>
         /// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// Logging levels include `ERROR`, `INFO`, or `NONE`.
         /// </summary>
         [Input("loggingLevel")]
-        public string? LoggingLevel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingLevel;
+
+        public string? LoggingLevel => _mLoggingLevel.GetValue("loggingLevel");
 
         /// <summary>
         /// ID of the Slack channel. For example, `C07EZ1ABC23`.
         /// </summary>
         [Input("slackChannelId")]
-        public string? SlackChannelId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSlackChannelId;
+
+        public string? SlackChannelId => _mSlackChannelId.GetValue("slackChannelId");
 
         /// <summary>
         /// Name of the Slack channel.
         /// </summary>
         [Input("slackChannelName")]
-        public string? SlackChannelName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSlackChannelName;
+
+        public string? SlackChannelName => _mSlackChannelName.GetValue("slackChannelName");
 
         /// <summary>
         /// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
@@ -61,39 +82,153 @@ namespace Pulumi.PolicyPacks.Aws.Chatbot
         /// The following arguments are optional:
         /// </summary>
         [Input("slackTeamId")]
-        public string? SlackTeamId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSlackTeamId;
+
+        public string? SlackTeamId => _mSlackTeamId.GetValue("slackTeamId");
 
         /// <summary>
         /// Name of the Slack team.
         /// </summary>
         [Input("slackTeamName")]
-        public string? SlackTeamName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSlackTeamName;
+
+        public string? SlackTeamName => _mSlackTeamName.GetValue("slackTeamName");
 
         /// <summary>
         /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         /// </summary>
         [Input("snsTopicArns")]
-        public List<string>? SnsTopicArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnsTopicArns;
+
+        public List<string>? SnsTopicArns => _mSnsTopicArns.GetValue("snsTopicArns");
 
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public SlackChannelConfigurationTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SlackChannelConfigurationTimeouts> _mTimeouts;
+
+        public Outputs.SlackChannelConfigurationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Enables use of a user role requirement in your chat configuration.
         /// </summary>
         [Input("userAuthorizationRequired")]
-        public bool? UserAuthorizationRequired;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUserAuthorizationRequired;
+
+        public bool? UserAuthorizationRequired => _mUserAuthorizationRequired.GetValue("userAuthorizationRequired");
+    }
+
+    [PolicyResourceType("aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration")]
+    public sealed class SlackChannelConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the Slack channel configuration.
+        /// </summary>
+        [Input("configurationName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationName;
+
+        public string? ConfigurationName => _mConfigurationName.GetValue("configurationName");
+
+        /// <summary>
+        /// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
+        /// </summary>
+        [Input("guardrailPolicyArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGuardrailPolicyArns;
+
+        public List<string>? GuardrailPolicyArns => _mGuardrailPolicyArns.GetValue("guardrailPolicyArns");
+
+        /// <summary>
+        /// User-defined role that AWS Chatbot assumes. This is not the service-linked role.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// Logging levels include `ERROR`, `INFO`, or `NONE`.
+        /// </summary>
+        [Input("loggingLevel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingLevel;
+
+        public string? LoggingLevel => _mLoggingLevel.GetValue("loggingLevel");
+
+        /// <summary>
+        /// ID of the Slack channel. For example, `C07EZ1ABC23`.
+        /// </summary>
+        [Input("slackChannelId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSlackChannelId;
+
+        public string? SlackChannelId => _mSlackChannelId.GetValue("slackChannelId");
+
+        /// <summary>
+        /// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("slackTeamId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSlackTeamId;
+
+        public string? SlackTeamId => _mSlackTeamId.GetValue("slackTeamId");
+
+        /// <summary>
+        /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
+        /// </summary>
+        [Input("snsTopicArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnsTopicArns;
+
+        public List<string>? SnsTopicArns => _mSnsTopicArns.GetValue("snsTopicArns");
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SlackChannelConfigurationTimeoutsArgs> _mTimeouts;
+
+        public Inputs.SlackChannelConfigurationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Enables use of a user role requirement in your chat configuration.
+        /// </summary>
+        [Input("userAuthorizationRequired")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUserAuthorizationRequired;
+
+        public bool? UserAuthorizationRequired => _mUserAuthorizationRequired.GetValue("userAuthorizationRequired");
     }
 }

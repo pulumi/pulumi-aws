@@ -11,96 +11,247 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Macie2
 {
     [PolicyResourceType("aws:macie2/classificationJob:ClassificationJob")]
-    public sealed class ClassificationJob : global::Pulumi.PolicyResource
+    public sealed class ClassificationJob : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the job was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The custom data identifiers to use for data analysis and classification.
         /// </summary>
         [Input("customDataIdentifierIds")]
-        public List<string>? CustomDataIdentifierIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDataIdentifierIds;
+
+        public List<string>? CustomDataIdentifierIds => _mCustomDataIdentifierIds.GetValue("customDataIdentifierIds");
 
         /// <summary>
         /// A custom description of the job. The description can contain as many as 200 characters.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
         /// </summary>
         [Input("initialRun")]
-        public bool? InitialRun;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInitialRun;
+
+        public bool? InitialRun => _mInitialRun.GetValue("initialRun");
 
         [Input("jobArn")]
-        public string? JobArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobArn;
+
+        public string? JobArn => _mJobArn.GetValue("jobArn");
 
         [Input("jobId")]
-        public string? JobId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobId;
+
+        public string? JobId => _mJobId.GetValue("jobId");
 
         /// <summary>
         /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         /// </summary>
         [Input("jobStatus")]
-        public string? JobStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobStatus;
+
+        public string? JobStatus => _mJobStatus.GetValue("jobStatus");
 
         /// <summary>
         /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         /// </summary>
         [Input("jobType")]
-        public string? JobType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobType;
+
+        public string? JobType => _mJobType.GetValue("jobType");
 
         /// <summary>
         /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         /// </summary>
         [Input("s3JobDefinition")]
-        public ClassificationJobS3JobDefinition? S3JobDefinition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassificationJobS3JobDefinition> _mS3JobDefinition;
+
+        public Outputs.ClassificationJobS3JobDefinition? S3JobDefinition => _mS3JobDefinition.GetValue("s3JobDefinition");
 
         /// <summary>
         /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         /// </summary>
         [Input("samplingPercentage")]
-        public int? SamplingPercentage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSamplingPercentage;
+
+        public int? SamplingPercentage => _mSamplingPercentage.GetValue("samplingPercentage");
 
         /// <summary>
         /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         /// </summary>
         [Input("scheduleFrequency")]
-        public ClassificationJobScheduleFrequency? ScheduleFrequency;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassificationJobScheduleFrequency> _mScheduleFrequency;
+
+        public Outputs.ClassificationJobScheduleFrequency? ScheduleFrequency => _mScheduleFrequency.GetValue("scheduleFrequency");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         /// </summary>
         [Input("userPausedDetails")]
-        public List<ClassificationJobUserPausedDetail>? UserPausedDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClassificationJobUserPausedDetail>> _mUserPausedDetails;
+
+        public List<Outputs.ClassificationJobUserPausedDetail>? UserPausedDetails => _mUserPausedDetails.GetValue("userPausedDetails");
+    }
+
+    [PolicyResourceType("aws:macie2/classificationJob:ClassificationJob")]
+    public sealed class ClassificationJobArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The custom data identifiers to use for data analysis and classification.
+        /// </summary>
+        [Input("customDataIdentifierIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDataIdentifierIds;
+
+        public List<string>? CustomDataIdentifierIds => _mCustomDataIdentifierIds.GetValue("customDataIdentifierIds");
+
+        /// <summary>
+        /// A custom description of the job. The description can contain as many as 200 characters.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
+        /// </summary>
+        [Input("initialRun")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInitialRun;
+
+        public bool? InitialRun => _mInitialRun.GetValue("initialRun");
+
+        /// <summary>
+        /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
+        /// </summary>
+        [Input("jobStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobStatus;
+
+        public string? JobStatus => _mJobStatus.GetValue("jobStatus");
+
+        /// <summary>
+        /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
+        /// </summary>
+        [Input("jobType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mJobType;
+
+        public string? JobType => _mJobType.GetValue("jobType");
+
+        /// <summary>
+        /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+        /// </summary>
+        [Input("s3JobDefinition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobS3JobDefinitionArgs> _mS3JobDefinition;
+
+        public Inputs.ClassificationJobS3JobDefinitionArgs? S3JobDefinition => _mS3JobDefinition.GetValue("s3JobDefinition");
+
+        /// <summary>
+        /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
+        /// </summary>
+        [Input("samplingPercentage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSamplingPercentage;
+
+        public int? SamplingPercentage => _mSamplingPercentage.GetValue("samplingPercentage");
+
+        /// <summary>
+        /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
+        /// </summary>
+        [Input("scheduleFrequency")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobScheduleFrequencyArgs> _mScheduleFrequency;
+
+        public Inputs.ClassificationJobScheduleFrequencyArgs? ScheduleFrequency => _mScheduleFrequency.GetValue("scheduleFrequency");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

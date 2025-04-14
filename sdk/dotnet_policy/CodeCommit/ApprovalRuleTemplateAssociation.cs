@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeCommit
 {
     [PolicyResourceType("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")]
-    public sealed class ApprovalRuleTemplateAssociation : global::Pulumi.PolicyResource
+    public sealed class ApprovalRuleTemplateAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name for the approval rule template.
         /// </summary>
         [Input("approvalRuleTemplateName")]
-        public string? ApprovalRuleTemplateName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalRuleTemplateName;
+
+        public string? ApprovalRuleTemplateName => _mApprovalRuleTemplateName.GetValue("approvalRuleTemplateName");
 
         /// <summary>
         /// The name of the repository that you want to associate with the template.
         /// </summary>
         [Input("repositoryName")]
-        public string? RepositoryName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+    }
+
+    [PolicyResourceType("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")]
+    public sealed class ApprovalRuleTemplateAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name for the approval rule template.
+        /// </summary>
+        [Input("approvalRuleTemplateName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalRuleTemplateName;
+
+        public string? ApprovalRuleTemplateName => _mApprovalRuleTemplateName.GetValue("approvalRuleTemplateName");
+
+        /// <summary>
+        /// The name of the repository that you want to associate with the template.
+        /// </summary>
+        [Input("repositoryName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
+
+        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
     }
 }

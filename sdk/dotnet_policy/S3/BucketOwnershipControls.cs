@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]
-    public sealed class BucketOwnershipControls : global::Pulumi.PolicyResource
+    public sealed class BucketOwnershipControls : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Configuration block(s) with Ownership Controls rules. Detailed below.
         /// </summary>
         [Input("rule")]
-        public BucketOwnershipControlsRule? Rule;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketOwnershipControlsRule> _mRule;
+
+        public Outputs.BucketOwnershipControlsRule? Rule => _mRule.GetValue("rule");
+    }
+
+    [PolicyResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]
+    public sealed class BucketOwnershipControlsArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the bucket that you want to associate this access point with.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Configuration block(s) with Ownership Controls rules. Detailed below.
+        /// </summary>
+        [Input("rule")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketOwnershipControlsRuleArgs> _mRule;
+
+        public Inputs.BucketOwnershipControlsRuleArgs? Rule => _mRule.GetValue("rule");
     }
 }

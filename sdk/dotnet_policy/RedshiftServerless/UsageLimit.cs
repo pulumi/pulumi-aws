@@ -11,42 +11,109 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
 {
     [PolicyResourceType("aws:redshiftserverless/usageLimit:UsageLimit")]
-    public sealed class UsageLimit : global::Pulumi.PolicyResource
+    public sealed class UsageLimit : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
         /// </summary>
         [Input("amount")]
-        public int? Amount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAmount;
+
+        public int? Amount => _mAmount.GetValue("amount");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
         /// </summary>
         [Input("breachAction")]
-        public string? BreachAction;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBreachAction;
+
+        public string? BreachAction => _mBreachAction.GetValue("breachAction");
 
         /// <summary>
         /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
         /// </summary>
         [Input("period")]
-        public string? Period;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeriod;
+
+        public string? Period => _mPeriod.GetValue("period");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
 
         /// <summary>
         /// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
         /// </summary>
         [Input("usageType")]
-        public string? UsageType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsageType;
+
+        public string? UsageType => _mUsageType.GetValue("usageType");
+    }
+
+    [PolicyResourceType("aws:redshiftserverless/usageLimit:UsageLimit")]
+    public sealed class UsageLimitArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
+        /// </summary>
+        [Input("amount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAmount;
+
+        public int? Amount => _mAmount.GetValue("amount");
+
+        /// <summary>
+        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
+        /// </summary>
+        [Input("breachAction")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBreachAction;
+
+        public string? BreachAction => _mBreachAction.GetValue("breachAction");
+
+        /// <summary>
+        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
+        /// </summary>
+        [Input("period")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPeriod;
+
+        public string? Period => _mPeriod.GetValue("period");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+
+        /// <summary>
+        /// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
+        /// </summary>
+        [Input("usageType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUsageType;
+
+        public string? UsageType => _mUsageType.GetValue("usageType");
     }
 }

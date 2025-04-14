@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Efs
 {
     [PolicyResourceType("aws:efs/backupPolicy:BackupPolicy")]
-    public sealed class BackupPolicy : global::Pulumi.PolicyResource
+    public sealed class BackupPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A backup_policy object (documented below).
         /// </summary>
         [Input("backupPolicy")]
-        public BackupPolicyBackupPolicy? BackupPolicyDetails;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BackupPolicyBackupPolicy> _mBackupPolicyDetails;
+
+        public Outputs.BackupPolicyBackupPolicy? BackupPolicyDetails => _mBackupPolicyDetails.GetValue("backupPolicy");
 
         /// <summary>
         /// The ID of the EFS file system.
         /// </summary>
         [Input("fileSystemId")]
-        public string? FileSystemId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+    }
+
+    [PolicyResourceType("aws:efs/backupPolicy:BackupPolicy")]
+    public sealed class BackupPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A backup_policy object (documented below).
+        /// </summary>
+        [Input("backupPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BackupPolicyBackupPolicyArgs> _mBackupPolicyDetails;
+
+        public Inputs.BackupPolicyBackupPolicyArgs? BackupPolicyDetails => _mBackupPolicyDetails.GetValue("backupPolicy");
+
+        /// <summary>
+        /// The ID of the EFS file system.
+        /// </summary>
+        [Input("fileSystemId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+
+        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
     }
 }

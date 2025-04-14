@@ -11,123 +11,313 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GameLift
 {
     [PolicyResourceType("aws:gamelift/fleet:Fleet")]
-    public sealed class Fleet : global::Pulumi.PolicyResource
+    public sealed class Fleet : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Fleet ARN.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Build ARN.
         /// </summary>
         [Input("buildArn")]
-        public string? BuildArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBuildArn;
+
+        public string? BuildArn => _mBuildArn.GetValue("buildArn");
 
         /// <summary>
         /// ID of the GameLift Build to be deployed on the fleet.
         /// </summary>
         [Input("buildId")]
-        public string? BuildId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBuildId;
+
+        public string? BuildId => _mBuildId.GetValue("buildId");
 
         /// <summary>
         /// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         /// </summary>
         [Input("certificateConfiguration")]
-        public FleetCertificateConfiguration? CertificateConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetCertificateConfiguration> _mCertificateConfiguration;
+
+        public Outputs.FleetCertificateConfiguration? CertificateConfiguration => _mCertificateConfiguration.GetValue("certificateConfiguration");
 
         /// <summary>
         /// Human-readable description of the fleet.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         /// </summary>
         [Input("ec2InboundPermissions")]
-        public List<FleetEc2InboundPermission>? Ec2InboundPermissions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetEc2InboundPermission>> _mEc2InboundPermissions;
+
+        public List<Outputs.FleetEc2InboundPermission>? Ec2InboundPermissions => _mEc2InboundPermissions.GetValue("ec2InboundPermissions");
 
         /// <summary>
         /// Name of an EC2 instance typeE.g., `t2.micro`
         /// </summary>
         [Input("ec2InstanceType")]
-        public string? Ec2InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEc2InstanceType;
+
+        public string? Ec2InstanceType => _mEc2InstanceType.GetValue("ec2InstanceType");
 
         /// <summary>
         /// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         /// </summary>
         [Input("fleetType")]
-        public string? FleetType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetType;
+
+        public string? FleetType => _mFleetType.GetValue("fleetType");
 
         /// <summary>
         /// ARN of an IAM role that instances in the fleet can assume.
         /// </summary>
         [Input("instanceRoleArn")]
-        public string? InstanceRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceRoleArn;
+
+        public string? InstanceRoleArn => _mInstanceRoleArn.GetValue("instanceRoleArn");
 
         [Input("logPaths")]
-        public List<string>? LogPaths;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogPaths;
+
+        public List<string>? LogPaths => _mLogPaths.GetValue("logPaths");
 
         /// <summary>
         /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
         /// </summary>
         [Input("metricGroups")]
-        public List<string>? MetricGroups;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMetricGroups;
+
+        public List<string>? MetricGroups => _mMetricGroups.GetValue("metricGroups");
 
         /// <summary>
         /// The name of the fleet.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         /// </summary>
         [Input("newGameSessionProtectionPolicy")]
-        public string? NewGameSessionProtectionPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNewGameSessionProtectionPolicy;
+
+        public string? NewGameSessionProtectionPolicy => _mNewGameSessionProtectionPolicy.GetValue("newGameSessionProtectionPolicy");
 
         /// <summary>
         /// Operating system of the fleet's computing resources.
         /// </summary>
         [Input("operatingSystem")]
-        public string? OperatingSystem;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
+
+        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
 
         /// <summary>
         /// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         /// </summary>
         [Input("resourceCreationLimitPolicy")]
-        public FleetResourceCreationLimitPolicy? ResourceCreationLimitPolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetResourceCreationLimitPolicy> _mResourceCreationLimitPolicy;
+
+        public Outputs.FleetResourceCreationLimitPolicy? ResourceCreationLimitPolicy => _mResourceCreationLimitPolicy.GetValue("resourceCreationLimitPolicy");
 
         /// <summary>
         /// Instructions for launching server processes on each instance in the fleet. See below.
         /// </summary>
         [Input("runtimeConfiguration")]
-        public FleetRuntimeConfiguration? RuntimeConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetRuntimeConfiguration> _mRuntimeConfiguration;
+
+        public Outputs.FleetRuntimeConfiguration? RuntimeConfiguration => _mRuntimeConfiguration.GetValue("runtimeConfiguration");
 
         /// <summary>
         /// Script ARN.
         /// </summary>
         [Input("scriptArn")]
-        public string? ScriptArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScriptArn;
+
+        public string? ScriptArn => _mScriptArn.GetValue("scriptArn");
 
         /// <summary>
         /// ID of the GameLift Script to be deployed on the fleet.
         /// </summary>
         [Input("scriptId")]
-        public string? ScriptId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScriptId;
+
+        public string? ScriptId => _mScriptId.GetValue("scriptId");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:gamelift/fleet:Fleet")]
+    public sealed class FleetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the GameLift Build to be deployed on the fleet.
+        /// </summary>
+        [Input("buildId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBuildId;
+
+        public string? BuildId => _mBuildId.GetValue("buildId");
+
+        /// <summary>
+        /// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+        /// </summary>
+        [Input("certificateConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetCertificateConfigurationArgs> _mCertificateConfiguration;
+
+        public Inputs.FleetCertificateConfigurationArgs? CertificateConfiguration => _mCertificateConfiguration.GetValue("certificateConfiguration");
+
+        /// <summary>
+        /// Human-readable description of the fleet.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
+        /// </summary>
+        [Input("ec2InboundPermissions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FleetEc2InboundPermissionArgs>> _mEc2InboundPermissions;
+
+        public List<Inputs.FleetEc2InboundPermissionArgs>? Ec2InboundPermissions => _mEc2InboundPermissions.GetValue("ec2InboundPermissions");
+
+        /// <summary>
+        /// Name of an EC2 instance typeE.g., `t2.micro`
+        /// </summary>
+        [Input("ec2InstanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEc2InstanceType;
+
+        public string? Ec2InstanceType => _mEc2InstanceType.GetValue("ec2InstanceType");
+
+        /// <summary>
+        /// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
+        /// </summary>
+        [Input("fleetType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFleetType;
+
+        public string? FleetType => _mFleetType.GetValue("fleetType");
+
+        /// <summary>
+        /// ARN of an IAM role that instances in the fleet can assume.
+        /// </summary>
+        [Input("instanceRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceRoleArn;
+
+        public string? InstanceRoleArn => _mInstanceRoleArn.GetValue("instanceRoleArn");
+
+        /// <summary>
+        /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
+        /// </summary>
+        [Input("metricGroups")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMetricGroups;
+
+        public List<string>? MetricGroups => _mMetricGroups.GetValue("metricGroups");
+
+        /// <summary>
+        /// The name of the fleet.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
+        /// </summary>
+        [Input("newGameSessionProtectionPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNewGameSessionProtectionPolicy;
+
+        public string? NewGameSessionProtectionPolicy => _mNewGameSessionProtectionPolicy.GetValue("newGameSessionProtectionPolicy");
+
+        /// <summary>
+        /// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
+        /// </summary>
+        [Input("resourceCreationLimitPolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetResourceCreationLimitPolicyArgs> _mResourceCreationLimitPolicy;
+
+        public Inputs.FleetResourceCreationLimitPolicyArgs? ResourceCreationLimitPolicy => _mResourceCreationLimitPolicy.GetValue("resourceCreationLimitPolicy");
+
+        /// <summary>
+        /// Instructions for launching server processes on each instance in the fleet. See below.
+        /// </summary>
+        [Input("runtimeConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetRuntimeConfigurationArgs> _mRuntimeConfiguration;
+
+        public Inputs.FleetRuntimeConfigurationArgs? RuntimeConfiguration => _mRuntimeConfiguration.GetValue("runtimeConfiguration");
+
+        /// <summary>
+        /// ID of the GameLift Script to be deployed on the fleet.
+        /// </summary>
+        [Input("scriptId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScriptId;
+
+        public string? ScriptId => _mScriptId.GetValue("scriptId");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

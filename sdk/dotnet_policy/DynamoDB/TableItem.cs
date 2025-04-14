@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DynamoDB
 {
     [PolicyResourceType("aws:dynamodb/tableItem:TableItem")]
-    public sealed class TableItem : global::Pulumi.PolicyResource
+    public sealed class TableItem : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Hash key to use for lookups and identification of the item
         /// </summary>
         [Input("hashKey")]
-        public string? HashKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
+
+        public string? HashKey => _mHashKey.GetValue("hashKey");
 
         /// <summary>
         /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         /// </summary>
         [Input("item")]
-        public string? Item;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mItem;
+
+        public string? Item => _mItem.GetValue("item");
 
         /// <summary>
         /// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         /// </summary>
         [Input("rangeKey")]
-        public string? RangeKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
+
+        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
 
         /// <summary>
         /// Name of the table to contain the item.
         /// </summary>
         [Input("tableName")]
-        public string? TableName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
+    }
+
+    [PolicyResourceType("aws:dynamodb/tableItem:TableItem")]
+    public sealed class TableItemArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Hash key to use for lookups and identification of the item
+        /// </summary>
+        [Input("hashKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
+
+        public string? HashKey => _mHashKey.GetValue("hashKey");
+
+        /// <summary>
+        /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        /// </summary>
+        [Input("item")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mItem;
+
+        public string? Item => _mItem.GetValue("item");
+
+        /// <summary>
+        /// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        /// </summary>
+        [Input("rangeKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
+
+        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
+
+        /// <summary>
+        /// Name of the table to contain the item.
+        /// </summary>
+        [Input("tableName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
     }
 }

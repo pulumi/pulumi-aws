@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive")]
-    public sealed class UserPolicyAttachmentsExclusive : global::Pulumi.PolicyResource
+    public sealed class UserPolicyAttachmentsExclusive : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         /// </summary>
         [Input("policyArns")]
-        public List<string>? PolicyArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
+
+        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
 
         /// <summary>
         /// IAM user name.
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive")]
+    public sealed class UserPolicyAttachmentsExclusiveArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        /// </summary>
+        [Input("policyArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
+
+        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
+
+        /// <summary>
+        /// IAM user name.
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

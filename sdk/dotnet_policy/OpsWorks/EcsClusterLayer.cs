@@ -11,124 +11,193 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpsWorks
 {
     [PolicyResourceType("aws:opsworks/ecsClusterLayer:EcsClusterLayer")]
-    public sealed class EcsClusterLayer : global::Pulumi.PolicyResource
+    public sealed class EcsClusterLayer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
         /// </summary>
         [Input("autoAssignElasticIps")]
-        public bool? AutoAssignElasticIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAssignElasticIps;
+
+        public bool? AutoAssignElasticIps => _mAutoAssignElasticIps.GetValue("autoAssignElasticIps");
 
         /// <summary>
         /// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         /// </summary>
         [Input("autoAssignPublicIps")]
-        public bool? AutoAssignPublicIps;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAssignPublicIps;
+
+        public bool? AutoAssignPublicIps => _mAutoAssignPublicIps.GetValue("autoAssignPublicIps");
 
         /// <summary>
         /// Whether to enable auto-healing for the layer.
         /// </summary>
         [Input("autoHealing")]
-        public bool? AutoHealing;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoHealing;
+
+        public bool? AutoHealing => _mAutoHealing.GetValue("autoHealing");
 
         [Input("cloudwatchConfiguration")]
-        public EcsClusterLayerCloudwatchConfiguration? CloudwatchConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EcsClusterLayerCloudwatchConfiguration> _mCloudwatchConfiguration;
+
+        public Outputs.EcsClusterLayerCloudwatchConfiguration? CloudwatchConfiguration => _mCloudwatchConfiguration.GetValue("cloudwatchConfiguration");
 
         [Input("customConfigureRecipes")]
-        public List<string>? CustomConfigureRecipes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomConfigureRecipes;
+
+        public List<string>? CustomConfigureRecipes => _mCustomConfigureRecipes.GetValue("customConfigureRecipes");
 
         [Input("customDeployRecipes")]
-        public List<string>? CustomDeployRecipes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDeployRecipes;
+
+        public List<string>? CustomDeployRecipes => _mCustomDeployRecipes.GetValue("customDeployRecipes");
 
         /// <summary>
         /// The ARN of an IAM profile that will be used for the layer's instances.
         /// </summary>
         [Input("customInstanceProfileArn")]
-        public string? CustomInstanceProfileArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomInstanceProfileArn;
+
+        public string? CustomInstanceProfileArn => _mCustomInstanceProfileArn.GetValue("customInstanceProfileArn");
 
         /// <summary>
         /// Custom JSON attributes to apply to the layer.
         /// </summary>
         [Input("customJson")]
-        public string? CustomJson;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomJson;
+
+        public string? CustomJson => _mCustomJson.GetValue("customJson");
 
         /// <summary>
         /// Ids for a set of security groups to apply to the layer's instances.
         /// </summary>
         [Input("customSecurityGroupIds")]
-        public List<string>? CustomSecurityGroupIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomSecurityGroupIds;
+
+        public List<string>? CustomSecurityGroupIds => _mCustomSecurityGroupIds.GetValue("customSecurityGroupIds");
 
         [Input("customSetupRecipes")]
-        public List<string>? CustomSetupRecipes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomSetupRecipes;
+
+        public List<string>? CustomSetupRecipes => _mCustomSetupRecipes.GetValue("customSetupRecipes");
 
         [Input("customShutdownRecipes")]
-        public List<string>? CustomShutdownRecipes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomShutdownRecipes;
+
+        public List<string>? CustomShutdownRecipes => _mCustomShutdownRecipes.GetValue("customShutdownRecipes");
 
         [Input("customUndeployRecipes")]
-        public List<string>? CustomUndeployRecipes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomUndeployRecipes;
+
+        public List<string>? CustomUndeployRecipes => _mCustomUndeployRecipes.GetValue("customUndeployRecipes");
 
         /// <summary>
         /// Whether to enable Elastic Load Balancing connection draining.
         /// </summary>
         [Input("drainElbOnShutdown")]
-        public bool? DrainElbOnShutdown;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDrainElbOnShutdown;
+
+        public bool? DrainElbOnShutdown => _mDrainElbOnShutdown.GetValue("drainElbOnShutdown");
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
         [Input("ebsVolumes")]
-        public List<EcsClusterLayerEbsVolume>? EbsVolumes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EcsClusterLayerEbsVolume>> _mEbsVolumes;
+
+        public List<Outputs.EcsClusterLayerEbsVolume>? EbsVolumes => _mEbsVolumes.GetValue("ebsVolumes");
 
         /// <summary>
         /// The ECS Cluster ARN of the layer.
         /// </summary>
         [Input("ecsClusterArn")]
-        public string? EcsClusterArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEcsClusterArn;
+
+        public string? EcsClusterArn => _mEcsClusterArn.GetValue("ecsClusterArn");
 
         /// <summary>
         /// Name of an Elastic Load Balancer to attach to this layer
         /// </summary>
         [Input("elasticLoadBalancer")]
-        public string? ElasticLoadBalancer;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mElasticLoadBalancer;
+
+        public string? ElasticLoadBalancer => _mElasticLoadBalancer.GetValue("elasticLoadBalancer");
 
         /// <summary>
         /// Whether to install OS and package updates on each instance when it boots.
         /// </summary>
         [Input("installUpdatesOnBoot")]
-        public bool? InstallUpdatesOnBoot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInstallUpdatesOnBoot;
+
+        public bool? InstallUpdatesOnBoot => _mInstallUpdatesOnBoot.GetValue("installUpdatesOnBoot");
 
         /// <summary>
         /// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         /// </summary>
         [Input("instanceShutdownTimeout")]
-        public int? InstanceShutdownTimeout;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceShutdownTimeout;
+
+        public int? InstanceShutdownTimeout => _mInstanceShutdownTimeout.GetValue("instanceShutdownTimeout");
 
         [Input("loadBasedAutoScaling")]
-        public EcsClusterLayerLoadBasedAutoScaling? LoadBasedAutoScaling;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EcsClusterLayerLoadBasedAutoScaling> _mLoadBasedAutoScaling;
+
+        public Outputs.EcsClusterLayerLoadBasedAutoScaling? LoadBasedAutoScaling => _mLoadBasedAutoScaling.GetValue("loadBasedAutoScaling");
 
         /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// ID of the stack the layer will belong to.
         /// </summary>
         [Input("stackId")]
-        public string? StackId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
 
         /// <summary>
         /// Names of a set of system packages to install on the layer's instances.
         /// </summary>
         [Input("systemPackages")]
-        public List<string>? SystemPackages;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSystemPackages;
+
+        public List<string>? SystemPackages => _mSystemPackages.GetValue("systemPackages");
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -138,15 +207,227 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// lifecycle events, if custom cookbooks are enabled on the layer's stack:
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Whether to use EBS-optimized instances.
         /// </summary>
         [Input("useEbsOptimizedInstances")]
-        public bool? UseEbsOptimizedInstances;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseEbsOptimizedInstances;
+
+        public bool? UseEbsOptimizedInstances => _mUseEbsOptimizedInstances.GetValue("useEbsOptimizedInstances");
+    }
+
+    [PolicyResourceType("aws:opsworks/ecsClusterLayer:EcsClusterLayer")]
+    public sealed class EcsClusterLayerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to automatically assign an elastic IP address to the layer's instances.
+        /// </summary>
+        [Input("autoAssignElasticIps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAssignElasticIps;
+
+        public bool? AutoAssignElasticIps => _mAutoAssignElasticIps.GetValue("autoAssignElasticIps");
+
+        /// <summary>
+        /// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
+        /// </summary>
+        [Input("autoAssignPublicIps")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAssignPublicIps;
+
+        public bool? AutoAssignPublicIps => _mAutoAssignPublicIps.GetValue("autoAssignPublicIps");
+
+        /// <summary>
+        /// Whether to enable auto-healing for the layer.
+        /// </summary>
+        [Input("autoHealing")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoHealing;
+
+        public bool? AutoHealing => _mAutoHealing.GetValue("autoHealing");
+
+        [Input("cloudwatchConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EcsClusterLayerCloudwatchConfigurationArgs> _mCloudwatchConfiguration;
+
+        public Inputs.EcsClusterLayerCloudwatchConfigurationArgs? CloudwatchConfiguration => _mCloudwatchConfiguration.GetValue("cloudwatchConfiguration");
+
+        [Input("customConfigureRecipes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomConfigureRecipes;
+
+        public List<string>? CustomConfigureRecipes => _mCustomConfigureRecipes.GetValue("customConfigureRecipes");
+
+        [Input("customDeployRecipes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDeployRecipes;
+
+        public List<string>? CustomDeployRecipes => _mCustomDeployRecipes.GetValue("customDeployRecipes");
+
+        /// <summary>
+        /// The ARN of an IAM profile that will be used for the layer's instances.
+        /// </summary>
+        [Input("customInstanceProfileArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomInstanceProfileArn;
+
+        public string? CustomInstanceProfileArn => _mCustomInstanceProfileArn.GetValue("customInstanceProfileArn");
+
+        /// <summary>
+        /// Custom JSON attributes to apply to the layer.
+        /// </summary>
+        [Input("customJson")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomJson;
+
+        public string? CustomJson => _mCustomJson.GetValue("customJson");
+
+        /// <summary>
+        /// Ids for a set of security groups to apply to the layer's instances.
+        /// </summary>
+        [Input("customSecurityGroupIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomSecurityGroupIds;
+
+        public List<string>? CustomSecurityGroupIds => _mCustomSecurityGroupIds.GetValue("customSecurityGroupIds");
+
+        [Input("customSetupRecipes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomSetupRecipes;
+
+        public List<string>? CustomSetupRecipes => _mCustomSetupRecipes.GetValue("customSetupRecipes");
+
+        [Input("customShutdownRecipes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomShutdownRecipes;
+
+        public List<string>? CustomShutdownRecipes => _mCustomShutdownRecipes.GetValue("customShutdownRecipes");
+
+        [Input("customUndeployRecipes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomUndeployRecipes;
+
+        public List<string>? CustomUndeployRecipes => _mCustomUndeployRecipes.GetValue("customUndeployRecipes");
+
+        /// <summary>
+        /// Whether to enable Elastic Load Balancing connection draining.
+        /// </summary>
+        [Input("drainElbOnShutdown")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDrainElbOnShutdown;
+
+        public bool? DrainElbOnShutdown => _mDrainElbOnShutdown.GetValue("drainElbOnShutdown");
+
+        /// <summary>
+        /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        /// </summary>
+        [Input("ebsVolumes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EcsClusterLayerEbsVolumeArgs>> _mEbsVolumes;
+
+        public List<Inputs.EcsClusterLayerEbsVolumeArgs>? EbsVolumes => _mEbsVolumes.GetValue("ebsVolumes");
+
+        /// <summary>
+        /// The ECS Cluster ARN of the layer.
+        /// </summary>
+        [Input("ecsClusterArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEcsClusterArn;
+
+        public string? EcsClusterArn => _mEcsClusterArn.GetValue("ecsClusterArn");
+
+        /// <summary>
+        /// Name of an Elastic Load Balancer to attach to this layer
+        /// </summary>
+        [Input("elasticLoadBalancer")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mElasticLoadBalancer;
+
+        public string? ElasticLoadBalancer => _mElasticLoadBalancer.GetValue("elasticLoadBalancer");
+
+        /// <summary>
+        /// Whether to install OS and package updates on each instance when it boots.
+        /// </summary>
+        [Input("installUpdatesOnBoot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInstallUpdatesOnBoot;
+
+        public bool? InstallUpdatesOnBoot => _mInstallUpdatesOnBoot.GetValue("installUpdatesOnBoot");
+
+        /// <summary>
+        /// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
+        /// </summary>
+        [Input("instanceShutdownTimeout")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceShutdownTimeout;
+
+        public int? InstanceShutdownTimeout => _mInstanceShutdownTimeout.GetValue("instanceShutdownTimeout");
+
+        [Input("loadBasedAutoScaling")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EcsClusterLayerLoadBasedAutoScalingArgs> _mLoadBasedAutoScaling;
+
+        public Inputs.EcsClusterLayerLoadBasedAutoScalingArgs? LoadBasedAutoScaling => _mLoadBasedAutoScaling.GetValue("loadBasedAutoScaling");
+
+        /// <summary>
+        /// A human-readable name for the layer.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// ID of the stack the layer will belong to.
+        /// </summary>
+        [Input("stackId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
+
+        /// <summary>
+        /// Names of a set of system packages to install on the layer's instances.
+        /// </summary>
+        [Input("systemPackages")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSystemPackages;
+
+        public List<string>? SystemPackages => _mSystemPackages.GetValue("systemPackages");
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// 
+        /// The following extra optional arguments, all lists of Chef recipe names, allow
+        /// custom Chef recipes to be applied to layer instances at the five different
+        /// lifecycle events, if custom cookbooks are enabled on the layer's stack:
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Whether to use EBS-optimized instances.
+        /// </summary>
+        [Input("useEbsOptimizedInstances")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseEbsOptimizedInstances;
+
+        public bool? UseEbsOptimizedInstances => _mUseEbsOptimizedInstances.GetValue("useEbsOptimizedInstances");
     }
 }

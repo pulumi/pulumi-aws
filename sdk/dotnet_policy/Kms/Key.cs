@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kms
 {
     [PolicyResourceType("aws:kms/key:Key")]
-    public sealed class Key : global::Pulumi.PolicyResource
+    public sealed class Key : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
@@ -26,20 +29,29 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// The default value is `false`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
-        public bool? BypassPolicyLockoutSafetyCheck;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
+
+        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
 
         /// <summary>
         /// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
         /// </summary>
         [Input("customKeyStoreId")]
-        public string? CustomKeyStoreId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomKeyStoreId;
+
+        public string? CustomKeyStoreId => _mCustomKeyStoreId.GetValue("customKeyStoreId");
 
         /// <summary>
         /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
         /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         /// </summary>
         [Input("customerMasterKeySpec")]
-        public string? CustomerMasterKeySpec;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerMasterKeySpec;
+
+        public string? CustomerMasterKeySpec => _mCustomerMasterKeySpec.GetValue("customerMasterKeySpec");
 
         /// <summary>
         /// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
@@ -47,44 +59,65 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
         /// </summary>
         [Input("deletionWindowInDays")]
-        public int? DeletionWindowInDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
+
+        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
 
         /// <summary>
         /// The description of the key as viewed in AWS console.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         /// </summary>
         [Input("enableKeyRotation")]
-        public bool? EnableKeyRotation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableKeyRotation;
+
+        public bool? EnableKeyRotation => _mEnableKeyRotation.GetValue("enableKeyRotation");
 
         /// <summary>
         /// Specifies whether the key is enabled. Defaults to `true`.
         /// </summary>
         [Input("isEnabled")]
-        public bool? IsEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
+
+        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
 
         /// <summary>
         /// The globally unique identifier for the key.
         /// </summary>
         [Input("keyId")]
-        public string? KeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyId;
+
+        public string? KeyId => _mKeyId.GetValue("keyId");
 
         /// <summary>
         /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
         /// Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
-        public string? KeyUsage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyUsage;
+
+        public string? KeyUsage => _mKeyUsage.GetValue("keyUsage");
 
         /// <summary>
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         /// </summary>
         [Input("multiRegion")]
-        public bool? MultiRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiRegion;
+
+        public bool? MultiRegion => _mMultiRegion.GetValue("multiRegion");
 
         /// <summary>
         /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
@@ -92,30 +125,175 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         /// </summary>
         [Input("rotationPeriodInDays")]
-        public int? RotationPeriodInDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRotationPeriodInDays;
+
+        public int? RotationPeriodInDays => _mRotationPeriodInDays.GetValue("rotationPeriodInDays");
 
         /// <summary>
         /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Identifies the external key that serves as key material for the KMS key in an external key store.
         /// </summary>
         [Input("xksKeyId")]
-        public string? XksKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksKeyId;
+
+        public string? XksKeyId => _mXksKeyId.GetValue("xksKeyId");
+    }
+
+    [PolicyResourceType("aws:kms/key:Key")]
+    public sealed class KeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A flag to indicate whether to bypass the key policy lockout safety check.
+        /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
+        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        /// The default value is `false`.
+        /// </summary>
+        [Input("bypassPolicyLockoutSafetyCheck")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
+
+        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+
+        /// <summary>
+        /// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
+        /// </summary>
+        [Input("customKeyStoreId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomKeyStoreId;
+
+        public string? CustomKeyStoreId => _mCustomKeyStoreId.GetValue("customKeyStoreId");
+
+        /// <summary>
+        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
+        /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// </summary>
+        [Input("customerMasterKeySpec")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerMasterKeySpec;
+
+        public string? CustomerMasterKeySpec => _mCustomerMasterKeySpec.GetValue("customerMasterKeySpec");
+
+        /// <summary>
+        /// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
+        /// If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+        /// If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
+        /// </summary>
+        [Input("deletionWindowInDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
+
+        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
+
+        /// <summary>
+        /// The description of the key as viewed in AWS console.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("enableKeyRotation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableKeyRotation;
+
+        public bool? EnableKeyRotation => _mEnableKeyRotation.GetValue("enableKeyRotation");
+
+        /// <summary>
+        /// Specifies whether the key is enabled. Defaults to `true`.
+        /// </summary>
+        [Input("isEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEnabled;
+
+        public bool? IsEnabled => _mIsEnabled.GetValue("isEnabled");
+
+        /// <summary>
+        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
+        /// Defaults to `ENCRYPT_DECRYPT`.
+        /// </summary>
+        [Input("keyUsage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKeyUsage;
+
+        public string? KeyUsage => _mKeyUsage.GetValue("keyUsage");
+
+        /// <summary>
+        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// </summary>
+        [Input("multiRegion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiRegion;
+
+        public bool? MultiRegion => _mMultiRegion.GetValue("multiRegion");
+
+        /// <summary>
+        /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
+        /// 
+        /// &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
+        /// </summary>
+        [Input("rotationPeriodInDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRotationPeriodInDays;
+
+        public int? RotationPeriodInDays => _mRotationPeriodInDays.GetValue("rotationPeriodInDays");
+
+        /// <summary>
+        /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Identifies the external key that serves as key material for the KMS key in an external key store.
+        /// </summary>
+        [Input("xksKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mXksKeyId;
+
+        public string? XksKeyId => _mXksKeyId.GetValue("xksKeyId");
     }
 }

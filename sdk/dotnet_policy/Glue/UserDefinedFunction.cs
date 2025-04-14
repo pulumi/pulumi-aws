@@ -11,60 +11,154 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/userDefinedFunction:UserDefinedFunction")]
-    public sealed class UserDefinedFunction : global::Pulumi.PolicyResource
+    public sealed class UserDefinedFunction : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Glue User Defined Function.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
         [Input("catalogId")]
-        public string? CatalogId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
 
         /// <summary>
         /// The Java class that contains the function code.
         /// </summary>
         [Input("className")]
-        public string? ClassName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClassName;
+
+        public string? ClassName => _mClassName.GetValue("className");
 
         /// <summary>
         /// The time at which the function was created.
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// The name of the Database to create the Function.
         /// </summary>
         [Input("databaseName")]
-        public string? DatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
 
         /// <summary>
         /// The name of the function.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The owner of the function.
         /// </summary>
         [Input("ownerName")]
-        public string? OwnerName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerName;
+
+        public string? OwnerName => _mOwnerName.GetValue("ownerName");
 
         /// <summary>
         /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         /// </summary>
         [Input("ownerType")]
-        public string? OwnerType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerType;
+
+        public string? OwnerType => _mOwnerType.GetValue("ownerType");
 
         /// <summary>
         /// The configuration block for Resource URIs. See resource uris below for more details.
         /// </summary>
         [Input("resourceUris")]
-        public List<UserDefinedFunctionResourceUri>? ResourceUris;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserDefinedFunctionResourceUri>> _mResourceUris;
+
+        public List<Outputs.UserDefinedFunctionResourceUri>? ResourceUris => _mResourceUris.GetValue("resourceUris");
+    }
+
+    [PolicyResourceType("aws:glue/userDefinedFunction:UserDefinedFunction")]
+    public sealed class UserDefinedFunctionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
+        /// </summary>
+        [Input("catalogId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
+
+        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+
+        /// <summary>
+        /// The Java class that contains the function code.
+        /// </summary>
+        [Input("className")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClassName;
+
+        public string? ClassName => _mClassName.GetValue("className");
+
+        /// <summary>
+        /// The name of the Database to create the Function.
+        /// </summary>
+        [Input("databaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
+
+        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+
+        /// <summary>
+        /// The name of the function.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The owner of the function.
+        /// </summary>
+        [Input("ownerName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerName;
+
+        public string? OwnerName => _mOwnerName.GetValue("ownerName");
+
+        /// <summary>
+        /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
+        /// </summary>
+        [Input("ownerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerType;
+
+        public string? OwnerType => _mOwnerType.GetValue("ownerType");
+
+        /// <summary>
+        /// The configuration block for Resource URIs. See resource uris below for more details.
+        /// </summary>
+        [Input("resourceUris")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserDefinedFunctionResourceUriArgs>> _mResourceUris;
+
+        public List<Inputs.UserDefinedFunctionResourceUriArgs>? ResourceUris => _mResourceUris.GetValue("resourceUris");
     }
 }

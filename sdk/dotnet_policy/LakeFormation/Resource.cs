@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LakeFormation
 {
     [PolicyResourceType("aws:lakeformation/resource:Resource")]
-    public sealed class Resource : global::Pulumi.PolicyResource
+    public sealed class Resource : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource.
@@ -19,7 +19,10 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// The following arguments are optional:
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
@@ -27,27 +30,92 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Input("hybridAccessEnabled")]
-        public bool? HybridAccessEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHybridAccessEnabled;
+
+        public bool? HybridAccessEnabled => _mHybridAccessEnabled.GetValue("hybridAccessEnabled");
 
         /// <summary>
         /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         [Input("lastModified")]
-        public string? LastModified;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
+
+        public string? LastModified => _mLastModified.GetValue("lastModified");
 
         /// <summary>
         /// Role that has read/write access to the resource.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         /// </summary>
         [Input("useServiceLinkedRole")]
-        public bool? UseServiceLinkedRole;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseServiceLinkedRole;
+
+        public bool? UseServiceLinkedRole => _mUseServiceLinkedRole.GetValue("useServiceLinkedRole");
 
         [Input("withFederation")]
-        public bool? WithFederation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWithFederation;
+
+        public bool? WithFederation => _mWithFederation.GetValue("withFederation");
+    }
+
+    [PolicyResourceType("aws:lakeformation/resource:Resource")]
+    public sealed class ResourceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("arn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
+
+        /// <summary>
+        /// Flag to enable AWS LakeFormation hybrid access permission mode.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
+        [Input("hybridAccessEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mHybridAccessEnabled;
+
+        public bool? HybridAccessEnabled => _mHybridAccessEnabled.GetValue("hybridAccessEnabled");
+
+        /// <summary>
+        /// Role that has read/write access to the resource.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
+        /// </summary>
+        [Input("useServiceLinkedRole")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mUseServiceLinkedRole;
+
+        public bool? UseServiceLinkedRole => _mUseServiceLinkedRole.GetValue("useServiceLinkedRole");
+
+        [Input("withFederation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWithFederation;
+
+        public bool? WithFederation => _mWithFederation.GetValue("withFederation");
     }
 }

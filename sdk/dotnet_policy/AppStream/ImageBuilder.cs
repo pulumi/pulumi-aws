@@ -11,79 +11,115 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppStream
 {
     [PolicyResourceType("aws:appstream/imageBuilder:ImageBuilder")]
-    public sealed class ImageBuilder : global::Pulumi.PolicyResource
+    public sealed class ImageBuilder : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         /// </summary>
         [Input("accessEndpoints")]
-        public List<ImageBuilderAccessEndpoint>? AccessEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageBuilderAccessEndpoint>> _mAccessEndpoints;
+
+        public List<Outputs.ImageBuilderAccessEndpoint>? AccessEndpoints => _mAccessEndpoints.GetValue("accessEndpoints");
 
         /// <summary>
         /// Version of the AppStream 2.0 agent to use for this image builder.
         /// </summary>
         [Input("appstreamAgentVersion")]
-        public string? AppstreamAgentVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppstreamAgentVersion;
+
+        public string? AppstreamAgentVersion => _mAppstreamAgentVersion.GetValue("appstreamAgentVersion");
 
         /// <summary>
         /// ARN of the appstream image builder.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Description to display.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Human-readable friendly name for the AppStream image builder.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         /// </summary>
         [Input("domainJoinInfo")]
-        public ImageBuilderDomainJoinInfo? DomainJoinInfo;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageBuilderDomainJoinInfo> _mDomainJoinInfo;
+
+        public Outputs.ImageBuilderDomainJoinInfo? DomainJoinInfo => _mDomainJoinInfo.GetValue("domainJoinInfo");
 
         /// <summary>
         /// Enables or disables default internet access for the image builder.
         /// </summary>
         [Input("enableDefaultInternetAccess")]
-        public bool? EnableDefaultInternetAccess;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultInternetAccess;
+
+        public bool? EnableDefaultInternetAccess => _mEnableDefaultInternetAccess.GetValue("enableDefaultInternetAccess");
 
         /// <summary>
         /// ARN of the IAM role to apply to the image builder.
         /// </summary>
         [Input("iamRoleArn")]
-        public string? IamRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
 
         /// <summary>
         /// ARN of the public, private, or shared image to use.
         /// </summary>
         [Input("imageArn")]
-        public string? ImageArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
+
+        public string? ImageArn => _mImageArn.GetValue("imageArn");
 
         /// <summary>
         /// Name of the image used to create the image builder.
         /// </summary>
         [Input("imageName")]
-        public string? ImageName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
+
+        public string? ImageName => _mImageName.GetValue("imageName");
 
         /// <summary>
         /// Instance type to use when launching the image builder.
         /// </summary>
         [Input("instanceType")]
-        public string? InstanceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
 
         /// <summary>
         /// Unique name for the image builder.
@@ -91,30 +127,168 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>
         [Input("vpcConfig")]
-        public ImageBuilderVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageBuilderVpcConfig> _mVpcConfig;
+
+        public Outputs.ImageBuilderVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+    }
+
+    [PolicyResourceType("aws:appstream/imageBuilder:ImageBuilder")]
+    public sealed class ImageBuilderArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
+        /// </summary>
+        [Input("accessEndpoints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ImageBuilderAccessEndpointArgs>> _mAccessEndpoints;
+
+        public List<Inputs.ImageBuilderAccessEndpointArgs>? AccessEndpoints => _mAccessEndpoints.GetValue("accessEndpoints");
+
+        /// <summary>
+        /// Version of the AppStream 2.0 agent to use for this image builder.
+        /// </summary>
+        [Input("appstreamAgentVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppstreamAgentVersion;
+
+        public string? AppstreamAgentVersion => _mAppstreamAgentVersion.GetValue("appstreamAgentVersion");
+
+        /// <summary>
+        /// Description to display.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Human-readable friendly name for the AppStream image builder.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
+        /// </summary>
+        [Input("domainJoinInfo")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageBuilderDomainJoinInfoArgs> _mDomainJoinInfo;
+
+        public Inputs.ImageBuilderDomainJoinInfoArgs? DomainJoinInfo => _mDomainJoinInfo.GetValue("domainJoinInfo");
+
+        /// <summary>
+        /// Enables or disables default internet access for the image builder.
+        /// </summary>
+        [Input("enableDefaultInternetAccess")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultInternetAccess;
+
+        public bool? EnableDefaultInternetAccess => _mEnableDefaultInternetAccess.GetValue("enableDefaultInternetAccess");
+
+        /// <summary>
+        /// ARN of the IAM role to apply to the image builder.
+        /// </summary>
+        [Input("iamRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
+
+        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+
+        /// <summary>
+        /// ARN of the public, private, or shared image to use.
+        /// </summary>
+        [Input("imageArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
+
+        public string? ImageArn => _mImageArn.GetValue("imageArn");
+
+        /// <summary>
+        /// Name of the image used to create the image builder.
+        /// </summary>
+        [Input("imageName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
+
+        public string? ImageName => _mImageName.GetValue("imageName");
+
+        /// <summary>
+        /// Instance type to use when launching the image builder.
+        /// </summary>
+        [Input("instanceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+
+        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+
+        /// <summary>
+        /// Unique name for the image builder.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block for the VPC configuration for the image builder. See below.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageBuilderVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.ImageBuilderVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
     }
 }

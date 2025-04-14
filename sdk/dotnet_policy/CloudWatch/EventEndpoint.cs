@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/eventEndpoint:EventEndpoint")]
-    public sealed class EventEndpoint : global::Pulumi.PolicyResource
+    public sealed class EventEndpoint : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the endpoint that was created.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A description of the global endpoint.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The URL of the endpoint that was created.
         /// </summary>
         [Input("endpointUrl")]
-        public string? EndpointUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointUrl;
+
+        public string? EndpointUrl => _mEndpointUrl.GetValue("endpointUrl");
 
         /// <summary>
         /// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         /// </summary>
         [Input("eventBuses")]
-        public List<EventEndpointEventBus>? EventBuses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventEndpointEventBus>> _mEventBuses;
+
+        public List<Outputs.EventEndpointEventBus>? EventBuses => _mEventBuses.GetValue("eventBuses");
 
         /// <summary>
         /// The name of the global endpoint.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Parameters used for replication. Documented below.
         /// </summary>
         [Input("replicationConfig")]
-        public EventEndpointReplicationConfig? ReplicationConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventEndpointReplicationConfig> _mReplicationConfig;
+
+        public Outputs.EventEndpointReplicationConfig? ReplicationConfig => _mReplicationConfig.GetValue("replicationConfig");
 
         /// <summary>
         /// The ARN of the IAM role used for replication between event buses.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Parameters used for routing, including the health check and secondary Region. Documented below.
         /// </summary>
         [Input("routingConfig")]
-        public EventEndpointRoutingConfig? RoutingConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.EventEndpointRoutingConfig> _mRoutingConfig;
+
+        public Outputs.EventEndpointRoutingConfig? RoutingConfig => _mRoutingConfig.GetValue("routingConfig");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/eventEndpoint:EventEndpoint")]
+    public sealed class EventEndpointArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A description of the global endpoint.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
+        /// </summary>
+        [Input("eventBuses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventEndpointEventBusArgs>> _mEventBuses;
+
+        public List<Inputs.EventEndpointEventBusArgs>? EventBuses => _mEventBuses.GetValue("eventBuses");
+
+        /// <summary>
+        /// The name of the global endpoint.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Parameters used for replication. Documented below.
+        /// </summary>
+        [Input("replicationConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventEndpointReplicationConfigArgs> _mReplicationConfig;
+
+        public Inputs.EventEndpointReplicationConfigArgs? ReplicationConfig => _mReplicationConfig.GetValue("replicationConfig");
+
+        /// <summary>
+        /// The ARN of the IAM role used for replication between event buses.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Parameters used for routing, including the health check and secondary Region. Documented below.
+        /// </summary>
+        [Input("routingConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.EventEndpointRoutingConfigArgs> _mRoutingConfig;
+
+        public Inputs.EventEndpointRoutingConfigArgs? RoutingConfig => _mRoutingConfig.GetValue("routingConfig");
     }
 }

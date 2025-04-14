@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/folderMembership:FolderMembership")]
-    public sealed class FolderMembership : global::Pulumi.PolicyResource
+    public sealed class FolderMembership : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// Identifier for the folder.
         /// </summary>
         [Input("folderId")]
-        public string? FolderId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFolderId;
+
+        public string? FolderId => _mFolderId.GetValue("folderId");
 
         /// <summary>
         /// ID of the asset (the dashboard, analysis, or dataset).
         /// </summary>
         [Input("memberId")]
-        public string? MemberId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMemberId;
+
+        public string? MemberId => _mMemberId.GetValue("memberId");
 
         /// <summary>
         /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
@@ -37,6 +46,51 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("memberType")]
-        public string? MemberType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMemberType;
+
+        public string? MemberType => _mMemberType.GetValue("memberType");
+    }
+
+    [PolicyResourceType("aws:quicksight/folderMembership:FolderMembership")]
+    public sealed class FolderMembershipArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// Identifier for the folder.
+        /// </summary>
+        [Input("folderId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFolderId;
+
+        public string? FolderId => _mFolderId.GetValue("folderId");
+
+        /// <summary>
+        /// ID of the asset (the dashboard, analysis, or dataset).
+        /// </summary>
+        [Input("memberId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMemberId;
+
+        public string? MemberId => _mMemberId.GetValue("memberId");
+
+        /// <summary>
+        /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("memberType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMemberType;
+
+        public string? MemberType => _mMemberType.GetValue("memberType");
     }
 }

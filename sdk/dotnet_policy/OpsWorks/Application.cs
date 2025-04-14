@@ -11,108 +11,316 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpsWorks
 {
     [PolicyResourceType("aws:opsworks/application:Application")]
-    public sealed class Application : global::Pulumi.PolicyResource
+    public sealed class Application : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// SCM configuration of the app as described below.
         /// </summary>
         [Input("appSources")]
-        public List<ApplicationAppSource>? AppSources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationAppSource>> _mAppSources;
+
+        public List<Outputs.ApplicationAppSource>? AppSources => _mAppSources.GetValue("appSources");
 
         /// <summary>
         /// Run bundle install when deploying for application of type `rails`.
         /// </summary>
         [Input("autoBundleOnDeploy")]
-        public string? AutoBundleOnDeploy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoBundleOnDeploy;
+
+        public string? AutoBundleOnDeploy => _mAutoBundleOnDeploy.GetValue("autoBundleOnDeploy");
 
         /// <summary>
         /// Specify activity and workflow workers for your app using the aws-flow gem.
         /// </summary>
         [Input("awsFlowRubySettings")]
-        public string? AwsFlowRubySettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsFlowRubySettings;
+
+        public string? AwsFlowRubySettings => _mAwsFlowRubySettings.GetValue("awsFlowRubySettings");
 
         /// <summary>
         /// The data source's ARN.
         /// </summary>
         [Input("dataSourceArn")]
-        public string? DataSourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
+
+        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
 
         /// <summary>
         /// The database name.
         /// </summary>
         [Input("dataSourceDatabaseName")]
-        public string? DataSourceDatabaseName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceDatabaseName;
+
+        public string? DataSourceDatabaseName => _mDataSourceDatabaseName.GetValue("dataSourceDatabaseName");
 
         /// <summary>
         /// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
         /// </summary>
         [Input("dataSourceType")]
-        public string? DataSourceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceType;
+
+        public string? DataSourceType => _mDataSourceType.GetValue("dataSourceType");
 
         /// <summary>
         /// A description of the app.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Subfolder for the document root for application of type `rails`.
         /// </summary>
         [Input("documentRoot")]
-        public string? DocumentRoot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentRoot;
+
+        public string? DocumentRoot => _mDocumentRoot.GetValue("documentRoot");
 
         /// <summary>
         /// A list of virtual host alias.
         /// </summary>
         [Input("domains")]
-        public List<string>? Domains;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomains;
+
+        public List<string>? Domains => _mDomains.GetValue("domains");
 
         /// <summary>
         /// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
         /// </summary>
         [Input("enableSsl")]
-        public bool? EnableSsl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSsl;
+
+        public bool? EnableSsl => _mEnableSsl.GetValue("enableSsl");
 
         /// <summary>
         /// Object to define environment variables.  Object is described below.
         /// </summary>
         [Input("environments")]
-        public List<ApplicationEnvironment>? Environments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationEnvironment>> _mEnvironments;
+
+        public List<Outputs.ApplicationEnvironment>? Environments => _mEnvironments.GetValue("environments");
 
         /// <summary>
         /// A human-readable name for the application.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The name of the Rails environment for application of type `rails`.
         /// </summary>
         [Input("railsEnv")]
-        public string? RailsEnv;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRailsEnv;
+
+        public string? RailsEnv => _mRailsEnv.GetValue("railsEnv");
 
         /// <summary>
         /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         /// </summary>
         [Input("shortName")]
-        public string? ShortName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShortName;
+
+        public string? ShortName => _mShortName.GetValue("shortName");
 
         /// <summary>
         /// The SSL configuration of the app. Object is described below.
         /// </summary>
         [Input("sslConfigurations")]
-        public List<ApplicationSslConfiguration>? SslConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationSslConfiguration>> _mSslConfigurations;
+
+        public List<Outputs.ApplicationSslConfiguration>? SslConfigurations => _mSslConfigurations.GetValue("sslConfigurations");
 
         /// <summary>
         /// ID of the stack the application will belong to.
         /// </summary>
         [Input("stackId")]
-        public string? StackId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
 
         /// <summary>
         /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:opsworks/application:Application")]
+    public sealed class ApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// SCM configuration of the app as described below.
+        /// </summary>
+        [Input("appSources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationAppSourceArgs>> _mAppSources;
+
+        public List<Inputs.ApplicationAppSourceArgs>? AppSources => _mAppSources.GetValue("appSources");
+
+        /// <summary>
+        /// Run bundle install when deploying for application of type `rails`.
+        /// </summary>
+        [Input("autoBundleOnDeploy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoBundleOnDeploy;
+
+        public string? AutoBundleOnDeploy => _mAutoBundleOnDeploy.GetValue("autoBundleOnDeploy");
+
+        /// <summary>
+        /// Specify activity and workflow workers for your app using the aws-flow gem.
+        /// </summary>
+        [Input("awsFlowRubySettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsFlowRubySettings;
+
+        public string? AwsFlowRubySettings => _mAwsFlowRubySettings.GetValue("awsFlowRubySettings");
+
+        /// <summary>
+        /// The data source's ARN.
+        /// </summary>
+        [Input("dataSourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
+
+        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
+
+        /// <summary>
+        /// The database name.
+        /// </summary>
+        [Input("dataSourceDatabaseName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceDatabaseName;
+
+        public string? DataSourceDatabaseName => _mDataSourceDatabaseName.GetValue("dataSourceDatabaseName");
+
+        /// <summary>
+        /// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
+        /// </summary>
+        [Input("dataSourceType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceType;
+
+        public string? DataSourceType => _mDataSourceType.GetValue("dataSourceType");
+
+        /// <summary>
+        /// A description of the app.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Subfolder for the document root for application of type `rails`.
+        /// </summary>
+        [Input("documentRoot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentRoot;
+
+        public string? DocumentRoot => _mDocumentRoot.GetValue("documentRoot");
+
+        /// <summary>
+        /// A list of virtual host alias.
+        /// </summary>
+        [Input("domains")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomains;
+
+        public List<string>? Domains => _mDomains.GetValue("domains");
+
+        /// <summary>
+        /// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
+        /// </summary>
+        [Input("enableSsl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSsl;
+
+        public bool? EnableSsl => _mEnableSsl.GetValue("enableSsl");
+
+        /// <summary>
+        /// Object to define environment variables.  Object is described below.
+        /// </summary>
+        [Input("environments")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationEnvironmentArgs>> _mEnvironments;
+
+        public List<Inputs.ApplicationEnvironmentArgs>? Environments => _mEnvironments.GetValue("environments");
+
+        /// <summary>
+        /// A human-readable name for the application.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The name of the Rails environment for application of type `rails`.
+        /// </summary>
+        [Input("railsEnv")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRailsEnv;
+
+        public string? RailsEnv => _mRailsEnv.GetValue("railsEnv");
+
+        /// <summary>
+        /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
+        /// </summary>
+        [Input("shortName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mShortName;
+
+        public string? ShortName => _mShortName.GetValue("shortName");
+
+        /// <summary>
+        /// The SSL configuration of the app. Object is described below.
+        /// </summary>
+        [Input("sslConfigurations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationSslConfigurationArgs>> _mSslConfigurations;
+
+        public List<Inputs.ApplicationSslConfigurationArgs>? SslConfigurations => _mSslConfigurations.GetValue("sslConfigurations");
+
+        /// <summary>
+        /// ID of the stack the application will belong to.
+        /// </summary>
+        [Input("stackId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
+
+        public string? StackId => _mStackId.GetValue("stackId");
+
+        /// <summary>
+        /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

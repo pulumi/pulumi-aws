@@ -11,42 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppSync
 {
     [PolicyResourceType("aws:appsync/apiCache:ApiCache")]
-    public sealed class ApiCache : global::Pulumi.PolicyResource
+    public sealed class ApiCache : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         /// </summary>
         [Input("apiCachingBehavior")]
-        public string? ApiCachingBehavior;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiCachingBehavior;
+
+        public string? ApiCachingBehavior => _mApiCachingBehavior.GetValue("apiCachingBehavior");
 
         /// <summary>
         /// GraphQL API ID.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// At-rest encryption flag for cache. You cannot update this setting after creation.
         /// </summary>
         [Input("atRestEncryptionEnabled")]
-        public bool? AtRestEncryptionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAtRestEncryptionEnabled;
+
+        public bool? AtRestEncryptionEnabled => _mAtRestEncryptionEnabled.GetValue("atRestEncryptionEnabled");
 
         /// <summary>
         /// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         /// </summary>
         [Input("transitEncryptionEnabled")]
-        public bool? TransitEncryptionEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitEncryptionEnabled;
+
+        public bool? TransitEncryptionEnabled => _mTransitEncryptionEnabled.GetValue("transitEncryptionEnabled");
 
         /// <summary>
         /// TTL in seconds for cache entries.
         /// </summary>
         [Input("ttl")]
-        public int? Ttl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
+
+        public int? Ttl => _mTtl.GetValue("ttl");
 
         /// <summary>
         /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:appsync/apiCache:ApiCache")]
+    public sealed class ApiCacheArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
+        /// </summary>
+        [Input("apiCachingBehavior")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiCachingBehavior;
+
+        public string? ApiCachingBehavior => _mApiCachingBehavior.GetValue("apiCachingBehavior");
+
+        /// <summary>
+        /// GraphQL API ID.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// At-rest encryption flag for cache. You cannot update this setting after creation.
+        /// </summary>
+        [Input("atRestEncryptionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAtRestEncryptionEnabled;
+
+        public bool? AtRestEncryptionEnabled => _mAtRestEncryptionEnabled.GetValue("atRestEncryptionEnabled");
+
+        /// <summary>
+        /// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
+        /// </summary>
+        [Input("transitEncryptionEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitEncryptionEnabled;
+
+        public bool? TransitEncryptionEnabled => _mTransitEncryptionEnabled.GetValue("transitEncryptionEnabled");
+
+        /// <summary>
+        /// TTL in seconds for cache entries.
+        /// </summary>
+        [Input("ttl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
+
+        public int? Ttl => _mTtl.GetValue("ttl");
+
+        /// <summary>
+        /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

@@ -11,57 +11,81 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppStream
 {
     [PolicyResourceType("aws:appstream/stack:Stack")]
-    public sealed class Stack : global::Pulumi.PolicyResource
+    public sealed class Stack : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
         /// See `access_endpoints` below.
         /// </summary>
         [Input("accessEndpoints")]
-        public List<StackAccessEndpoint>? AccessEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StackAccessEndpoint>> _mAccessEndpoints;
+
+        public List<Outputs.StackAccessEndpoint>? AccessEndpoints => _mAccessEndpoints.GetValue("accessEndpoints");
 
         /// <summary>
         /// Settings for application settings persistence.
         /// See `application_settings` below.
         /// </summary>
         [Input("applicationSettings")]
-        public StackApplicationSettings? ApplicationSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackApplicationSettings> _mApplicationSettings;
+
+        public Outputs.StackApplicationSettings? ApplicationSettings => _mApplicationSettings.GetValue("applicationSettings");
 
         /// <summary>
         /// ARN of the appstream stack.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         /// </summary>
         [Input("createdTime")]
-        public string? CreatedTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
+
+        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
 
         /// <summary>
         /// Description for the AppStream stack.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Stack name to display.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
         /// </summary>
         [Input("embedHostDomains")]
-        public List<string>? EmbedHostDomains;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEmbedHostDomains;
+
+        public List<string>? EmbedHostDomains => _mEmbedHostDomains.GetValue("embedHostDomains");
 
         /// <summary>
         /// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
         /// </summary>
         [Input("feedbackUrl")]
-        public string? FeedbackUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFeedbackUrl;
+
+        public string? FeedbackUrl => _mFeedbackUrl.GetValue("feedbackUrl");
 
         /// <summary>
         /// Unique name for the AppStream stack.
@@ -69,42 +93,182 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// URL that users are redirected to after their streaming session ends.
         /// </summary>
         [Input("redirectUrl")]
-        public string? RedirectUrl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedirectUrl;
+
+        public string? RedirectUrl => _mRedirectUrl.GetValue("redirectUrl");
 
         /// <summary>
         /// Configuration block for the storage connectors to enable.
         /// See `storage_connectors` below.
         /// </summary>
         [Input("storageConnectors")]
-        public List<StackStorageConnector>? StorageConnectors;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StackStorageConnector>> _mStorageConnectors;
+
+        public List<Outputs.StackStorageConnector>? StorageConnectors => _mStorageConnectors.GetValue("storageConnectors");
 
         /// <summary>
         /// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
         /// See `streaming_experience_settings` below.
         /// </summary>
         [Input("streamingExperienceSettings")]
-        public StackStreamingExperienceSettings? StreamingExperienceSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.StackStreamingExperienceSettings> _mStreamingExperienceSettings;
+
+        public Outputs.StackStreamingExperienceSettings? StreamingExperienceSettings => _mStreamingExperienceSettings.GetValue("streamingExperienceSettings");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
         /// See `user_settings` below.
         /// </summary>
         [Input("userSettings")]
-        public List<StackUserSetting>? UserSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StackUserSetting>> _mUserSettings;
+
+        public List<Outputs.StackUserSetting>? UserSettings => _mUserSettings.GetValue("userSettings");
+    }
+
+    [PolicyResourceType("aws:appstream/stack:Stack")]
+    public sealed class StackArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        /// See `access_endpoints` below.
+        /// </summary>
+        [Input("accessEndpoints")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StackAccessEndpointArgs>> _mAccessEndpoints;
+
+        public List<Inputs.StackAccessEndpointArgs>? AccessEndpoints => _mAccessEndpoints.GetValue("accessEndpoints");
+
+        /// <summary>
+        /// Settings for application settings persistence.
+        /// See `application_settings` below.
+        /// </summary>
+        [Input("applicationSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackApplicationSettingsArgs> _mApplicationSettings;
+
+        public Inputs.StackApplicationSettingsArgs? ApplicationSettings => _mApplicationSettings.GetValue("applicationSettings");
+
+        /// <summary>
+        /// Description for the AppStream stack.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Stack name to display.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+        /// </summary>
+        [Input("embedHostDomains")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEmbedHostDomains;
+
+        public List<string>? EmbedHostDomains => _mEmbedHostDomains.GetValue("embedHostDomains");
+
+        /// <summary>
+        /// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
+        /// </summary>
+        [Input("feedbackUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFeedbackUrl;
+
+        public string? FeedbackUrl => _mFeedbackUrl.GetValue("feedbackUrl");
+
+        /// <summary>
+        /// Unique name for the AppStream stack.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// URL that users are redirected to after their streaming session ends.
+        /// </summary>
+        [Input("redirectUrl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRedirectUrl;
+
+        public string? RedirectUrl => _mRedirectUrl.GetValue("redirectUrl");
+
+        /// <summary>
+        /// Configuration block for the storage connectors to enable.
+        /// See `storage_connectors` below.
+        /// </summary>
+        [Input("storageConnectors")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StackStorageConnectorArgs>> _mStorageConnectors;
+
+        public List<Inputs.StackStorageConnectorArgs>? StorageConnectors => _mStorageConnectors.GetValue("storageConnectors");
+
+        /// <summary>
+        /// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+        /// See `streaming_experience_settings` below.
+        /// </summary>
+        [Input("streamingExperienceSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.StackStreamingExperienceSettingsArgs> _mStreamingExperienceSettings;
+
+        public Inputs.StackStreamingExperienceSettingsArgs? StreamingExperienceSettings => _mStreamingExperienceSettings.GetValue("streamingExperienceSettings");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
+        /// See `user_settings` below.
+        /// </summary>
+        [Input("userSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StackUserSettingArgs>> _mUserSettings;
+
+        public List<Inputs.StackUserSettingArgs>? UserSettings => _mUserSettings.GetValue("userSettings");
     }
 }

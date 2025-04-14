@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/instanceState:InstanceState")]
-    public sealed class InstanceState : global::Pulumi.PolicyResource
+    public sealed class InstanceState : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         /// </summary>
         [Input("force")]
-        public bool? Force;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForce;
+
+        public bool? Force => _mForce.GetValue("force");
 
         /// <summary>
         /// ID of the instance.
         /// </summary>
         [Input("instanceId")]
-        public string? InstanceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
 
         /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.
@@ -31,6 +37,42 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// The following arguments are optional:
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/instanceState:InstanceState")]
+    public sealed class InstanceStateArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
+        /// </summary>
+        [Input("force")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForce;
+
+        public bool? Force => _mForce.GetValue("force");
+
+        /// <summary>
+        /// ID of the instance.
+        /// </summary>
+        [Input("instanceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
+
+        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+
+        /// <summary>
+        /// State of the instance. Valid values are `stopped`, `running`.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
     }
 }

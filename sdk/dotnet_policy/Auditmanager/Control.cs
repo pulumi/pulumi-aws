@@ -11,26 +11,35 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Auditmanager
 {
     [PolicyResourceType("aws:auditmanager/control:Control")]
-    public sealed class Control : global::Pulumi.PolicyResource
+    public sealed class Control : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Recommended actions to carry out if the control isn't fulfilled.
         /// </summary>
         [Input("actionPlanInstructions")]
-        public string? ActionPlanInstructions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionPlanInstructions;
+
+        public string? ActionPlanInstructions => _mActionPlanInstructions.GetValue("actionPlanInstructions");
 
         /// <summary>
         /// Title of the action plan for remediating the control.
         /// </summary>
         [Input("actionPlanTitle")]
-        public string? ActionPlanTitle;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionPlanTitle;
+
+        public string? ActionPlanTitle => _mActionPlanTitle.GetValue("actionPlanTitle");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the control.
         /// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Data mapping sources. See `control_mapping_sources` below.
@@ -38,39 +47,129 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// The following arguments are optional:
         /// </summary>
         [Input("controlMappingSources")]
-        public List<ControlControlMappingSource>? ControlMappingSources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ControlControlMappingSource>> _mControlMappingSources;
+
+        public List<Outputs.ControlControlMappingSource>? ControlMappingSources => _mControlMappingSources.GetValue("controlMappingSources");
 
         /// <summary>
         /// Description of the control.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Name of the control.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Steps to follow to determine if the control is satisfied.
         /// </summary>
         [Input("testingInformation")]
-        public string? TestingInformation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTestingInformation;
+
+        public string? TestingInformation => _mTestingInformation.GetValue("testingInformation");
 
         /// <summary>
         /// Type of control, such as a custom control or a standard control.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:auditmanager/control:Control")]
+    public sealed class ControlArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Recommended actions to carry out if the control isn't fulfilled.
+        /// </summary>
+        [Input("actionPlanInstructions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionPlanInstructions;
+
+        public string? ActionPlanInstructions => _mActionPlanInstructions.GetValue("actionPlanInstructions");
+
+        /// <summary>
+        /// Title of the action plan for remediating the control.
+        /// </summary>
+        [Input("actionPlanTitle")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionPlanTitle;
+
+        public string? ActionPlanTitle => _mActionPlanTitle.GetValue("actionPlanTitle");
+
+        /// <summary>
+        /// Data mapping sources. See `control_mapping_sources` below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("controlMappingSources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ControlControlMappingSourceArgs>> _mControlMappingSources;
+
+        public List<Inputs.ControlControlMappingSourceArgs>? ControlMappingSources => _mControlMappingSources.GetValue("controlMappingSources");
+
+        /// <summary>
+        /// Description of the control.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Name of the control.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Steps to follow to determine if the control is satisfied.
+        /// </summary>
+        [Input("testingInformation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTestingInformation;
+
+        public string? TestingInformation => _mTestingInformation.GetValue("testingInformation");
     }
 }

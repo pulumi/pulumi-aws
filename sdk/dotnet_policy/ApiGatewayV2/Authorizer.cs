@@ -11,27 +11,36 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
 {
     [PolicyResourceType("aws:apigatewayv2/authorizer:Authorizer")]
-    public sealed class Authorizer : global::Pulumi.PolicyResource
+    public sealed class Authorizer : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// API identifier.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// Required credentials as an IAM role for API Gateway to invoke the authorizer.
         /// Supported only for `REQUEST` authorizers.
         /// </summary>
         [Input("authorizerCredentialsArn")]
-        public string? AuthorizerCredentialsArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerCredentialsArn;
+
+        public string? AuthorizerCredentialsArn => _mAuthorizerCredentialsArn.GetValue("authorizerCredentialsArn");
 
         /// <summary>
         /// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
         /// Valid values: `1.0`, `2.0`.
         /// </summary>
         [Input("authorizerPayloadFormatVersion")]
-        public string? AuthorizerPayloadFormatVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerPayloadFormatVersion;
+
+        public string? AuthorizerPayloadFormatVersion => _mAuthorizerPayloadFormatVersion.GetValue("authorizerPayloadFormatVersion");
 
         /// <summary>
         /// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
@@ -39,7 +48,10 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// Supported only for HTTP API Lambda authorizers.
         /// </summary>
         [Input("authorizerResultTtlInSeconds")]
-        public int? AuthorizerResultTtlInSeconds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAuthorizerResultTtlInSeconds;
+
+        public int? AuthorizerResultTtlInSeconds => _mAuthorizerResultTtlInSeconds.GetValue("authorizerResultTtlInSeconds");
 
         /// <summary>
         /// Authorizer type. Valid values: `JWT`, `REQUEST`.
@@ -47,7 +59,10 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
         /// </summary>
         [Input("authorizerType")]
-        public string? AuthorizerType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerType;
+
+        public string? AuthorizerType => _mAuthorizerType.GetValue("authorizerType");
 
         /// <summary>
         /// Authorizer's Uniform Resource Identifier (URI).
@@ -55,14 +70,20 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
         /// </summary>
         [Input("authorizerUri")]
-        public string? AuthorizerUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerUri;
+
+        public string? AuthorizerUri => _mAuthorizerUri.GetValue("authorizerUri");
 
         /// <summary>
         /// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
         /// Supported only for HTTP APIs.
         /// </summary>
         [Input("enableSimpleResponses")]
-        public bool? EnableSimpleResponses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSimpleResponses;
+
+        public bool? EnableSimpleResponses => _mEnableSimpleResponses.GetValue("enableSimpleResponses");
 
         /// <summary>
         /// Identity sources for which authorization is requested.
@@ -70,19 +91,134 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
         /// </summary>
         [Input("identitySources")]
-        public List<string>? IdentitySources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdentitySources;
+
+        public List<string>? IdentitySources => _mIdentitySources.GetValue("identitySources");
 
         /// <summary>
         /// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
         /// Supported only for HTTP APIs.
         /// </summary>
         [Input("jwtConfiguration")]
-        public AuthorizerJwtConfiguration? JwtConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AuthorizerJwtConfiguration> _mJwtConfiguration;
+
+        public Outputs.AuthorizerJwtConfiguration? JwtConfiguration => _mJwtConfiguration.GetValue("jwtConfiguration");
 
         /// <summary>
         /// Name of the authorizer. Must be between 1 and 128 characters in length.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+    }
+
+    [PolicyResourceType("aws:apigatewayv2/authorizer:Authorizer")]
+    public sealed class AuthorizerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// API identifier.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// Required credentials as an IAM role for API Gateway to invoke the authorizer.
+        /// Supported only for `REQUEST` authorizers.
+        /// </summary>
+        [Input("authorizerCredentialsArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerCredentialsArn;
+
+        public string? AuthorizerCredentialsArn => _mAuthorizerCredentialsArn.GetValue("authorizerCredentialsArn");
+
+        /// <summary>
+        /// Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
+        /// Valid values: `1.0`, `2.0`.
+        /// </summary>
+        [Input("authorizerPayloadFormatVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerPayloadFormatVersion;
+
+        public string? AuthorizerPayloadFormatVersion => _mAuthorizerPayloadFormatVersion.GetValue("authorizerPayloadFormatVersion");
+
+        /// <summary>
+        /// Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
+        /// If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
+        /// Supported only for HTTP API Lambda authorizers.
+        /// </summary>
+        [Input("authorizerResultTtlInSeconds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAuthorizerResultTtlInSeconds;
+
+        public int? AuthorizerResultTtlInSeconds => _mAuthorizerResultTtlInSeconds.GetValue("authorizerResultTtlInSeconds");
+
+        /// <summary>
+        /// Authorizer type. Valid values: `JWT`, `REQUEST`.
+        /// Specify `REQUEST` for a Lambda function using incoming request parameters.
+        /// For HTTP APIs, specify `JWT` to use JSON Web Tokens.
+        /// </summary>
+        [Input("authorizerType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerType;
+
+        public string? AuthorizerType => _mAuthorizerType.GetValue("authorizerType");
+
+        /// <summary>
+        /// Authorizer's Uniform Resource Identifier (URI).
+        /// For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invoke_arn` attribute of the `aws.lambda.Function` resource.
+        /// Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+        /// </summary>
+        [Input("authorizerUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerUri;
+
+        public string? AuthorizerUri => _mAuthorizerUri.GetValue("authorizerUri");
+
+        /// <summary>
+        /// Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
+        /// Supported only for HTTP APIs.
+        /// </summary>
+        [Input("enableSimpleResponses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSimpleResponses;
+
+        public bool? EnableSimpleResponses => _mEnableSimpleResponses.GetValue("enableSimpleResponses");
+
+        /// <summary>
+        /// Identity sources for which authorization is requested.
+        /// For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
+        /// For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
+        /// </summary>
+        [Input("identitySources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdentitySources;
+
+        public List<string>? IdentitySources => _mIdentitySources.GetValue("identitySources");
+
+        /// <summary>
+        /// Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        /// Supported only for HTTP APIs.
+        /// </summary>
+        [Input("jwtConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AuthorizerJwtConfigurationArgs> _mJwtConfiguration;
+
+        public Inputs.AuthorizerJwtConfigurationArgs? JwtConfiguration => _mJwtConfiguration.GetValue("jwtConfiguration");
+
+        /// <summary>
+        /// Name of the authorizer. Must be between 1 and 128 characters in length.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
     }
 }

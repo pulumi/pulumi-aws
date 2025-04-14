@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
 {
     [PolicyResourceType("aws:ec2transitgateway/transitGateway:TransitGateway")]
-    public sealed class TransitGateway : global::Pulumi.PolicyResource
+    public sealed class TransitGateway : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
@@ -19,96 +19,249 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// &gt; **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
         /// </summary>
         [Input("amazonSideAsn")]
-        public int? AmazonSideAsn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAmazonSideAsn;
+
+        public int? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
 
         /// <summary>
         /// EC2 Transit Gateway Amazon Resource Name (ARN)
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Identifier of the default association route table
         /// </summary>
         [Input("associationDefaultRouteTableId")]
-        public string? AssociationDefaultRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationDefaultRouteTableId;
+
+        public string? AssociationDefaultRouteTableId => _mAssociationDefaultRouteTableId.GetValue("associationDefaultRouteTableId");
 
         /// <summary>
         /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
         [Input("autoAcceptSharedAttachments")]
-        public string? AutoAcceptSharedAttachments;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoAcceptSharedAttachments;
+
+        public string? AutoAcceptSharedAttachments => _mAutoAcceptSharedAttachments.GetValue("autoAcceptSharedAttachments");
 
         /// <summary>
         /// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
         [Input("defaultRouteTableAssociation")]
-        public string? DefaultRouteTableAssociation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTableAssociation;
+
+        public string? DefaultRouteTableAssociation => _mDefaultRouteTableAssociation.GetValue("defaultRouteTableAssociation");
 
         /// <summary>
         /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
         [Input("defaultRouteTablePropagation")]
-        public string? DefaultRouteTablePropagation;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTablePropagation;
+
+        public string? DefaultRouteTablePropagation => _mDefaultRouteTablePropagation.GetValue("defaultRouteTablePropagation");
 
         /// <summary>
         /// Description of the EC2 Transit Gateway.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
         [Input("dnsSupport")]
-        public string? DnsSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsSupport;
+
+        public string? DnsSupport => _mDnsSupport.GetValue("dnsSupport");
 
         /// <summary>
         /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
         [Input("multicastSupport")]
-        public string? MulticastSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMulticastSupport;
+
+        public string? MulticastSupport => _mMulticastSupport.GetValue("multicastSupport");
 
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 Transit Gateway
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// Identifier of the default propagation route table
         /// </summary>
         [Input("propagationDefaultRouteTableId")]
-        public string? PropagationDefaultRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPropagationDefaultRouteTableId;
+
+        public string? PropagationDefaultRouteTableId => _mPropagationDefaultRouteTableId.GetValue("propagationDefaultRouteTableId");
 
         /// <summary>
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
         [Input("securityGroupReferencingSupport")]
-        public string? SecurityGroupReferencingSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupReferencingSupport;
+
+        public string? SecurityGroupReferencingSupport => _mSecurityGroupReferencingSupport.GetValue("securityGroupReferencingSupport");
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         /// </summary>
         [Input("transitGatewayCidrBlocks")]
-        public List<string>? TransitGatewayCidrBlocks;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTransitGatewayCidrBlocks;
+
+        public List<string>? TransitGatewayCidrBlocks => _mTransitGatewayCidrBlocks.GetValue("transitGatewayCidrBlocks");
 
         /// <summary>
         /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
         [Input("vpnEcmpSupport")]
-        public string? VpnEcmpSupport;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnEcmpSupport;
+
+        public string? VpnEcmpSupport => _mVpnEcmpSupport.GetValue("vpnEcmpSupport");
+    }
+
+    [PolicyResourceType("aws:ec2transitgateway/transitGateway:TransitGateway")]
+    public sealed class TransitGatewayArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+        /// 
+        /// &gt; **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
+        /// </summary>
+        [Input("amazonSideAsn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAmazonSideAsn;
+
+        public int? AmazonSideAsn => _mAmazonSideAsn.GetValue("amazonSideAsn");
+
+        /// <summary>
+        /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("autoAcceptSharedAttachments")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAutoAcceptSharedAttachments;
+
+        public string? AutoAcceptSharedAttachments => _mAutoAcceptSharedAttachments.GetValue("autoAcceptSharedAttachments");
+
+        /// <summary>
+        /// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// </summary>
+        [Input("defaultRouteTableAssociation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTableAssociation;
+
+        public string? DefaultRouteTableAssociation => _mDefaultRouteTableAssociation.GetValue("defaultRouteTableAssociation");
+
+        /// <summary>
+        /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// </summary>
+        [Input("defaultRouteTablePropagation")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTablePropagation;
+
+        public string? DefaultRouteTablePropagation => _mDefaultRouteTablePropagation.GetValue("defaultRouteTablePropagation");
+
+        /// <summary>
+        /// Description of the EC2 Transit Gateway.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// </summary>
+        [Input("dnsSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDnsSupport;
+
+        public string? DnsSupport => _mDnsSupport.GetValue("dnsSupport");
+
+        /// <summary>
+        /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("multicastSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMulticastSupport;
+
+        public string? MulticastSupport => _mMulticastSupport.GetValue("multicastSupport");
+
+        /// <summary>
+        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("securityGroupReferencingSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupReferencingSupport;
+
+        public string? SecurityGroupReferencingSupport => _mSecurityGroupReferencingSupport.GetValue("securityGroupReferencingSupport");
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
+        /// </summary>
+        [Input("transitGatewayCidrBlocks")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTransitGatewayCidrBlocks;
+
+        public List<string>? TransitGatewayCidrBlocks => _mTransitGatewayCidrBlocks.GetValue("transitGatewayCidrBlocks");
+
+        /// <summary>
+        /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
+        /// </summary>
+        [Input("vpnEcmpSupport")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpnEcmpSupport;
+
+        public string? VpnEcmpSupport => _mVpnEcmpSupport.GetValue("vpnEcmpSupport");
     }
 }

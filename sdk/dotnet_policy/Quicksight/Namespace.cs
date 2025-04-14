@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Quicksight
 {
     [PolicyResourceType("aws:quicksight/namespace:Namespace")]
-    public sealed class Namespace : global::Pulumi.PolicyResource
+    public sealed class Namespace : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Namespace.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
         [Input("awsAccountId")]
-        public string? AwsAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
 
         /// <summary>
         /// Namespace AWS Region.
         /// </summary>
         [Input("capacityRegion")]
-        public string? CapacityRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityRegion;
+
+        public string? CapacityRegion => _mCapacityRegion.GetValue("capacityRegion");
 
         /// <summary>
         /// Creation status of the namespace.
         /// </summary>
         [Input("creationStatus")]
-        public string? CreationStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreationStatus;
+
+        public string? CreationStatus => _mCreationStatus.GetValue("creationStatus");
 
         /// <summary>
         /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         /// </summary>
         [Input("identityStore")]
-        public string? IdentityStore;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStore;
+
+        public string? IdentityStore => _mIdentityStore.GetValue("identityStore");
 
         /// <summary>
         /// Name of the namespace.
@@ -49,21 +64,81 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Input("namespace")]
-        public string? NameSpace;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNameSpace;
+
+        public string? NameSpace => _mNameSpace.GetValue("namespace");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public NamespaceTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.NamespaceTimeouts> _mTimeouts;
+
+        public Outputs.NamespaceTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+    }
+
+    [PolicyResourceType("aws:quicksight/namespace:Namespace")]
+    public sealed class NamespaceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
+
+        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+
+        /// <summary>
+        /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
+        /// </summary>
+        [Input("identityStore")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStore;
+
+        public string? IdentityStore => _mIdentityStore.GetValue("identityStore");
+
+        /// <summary>
+        /// Name of the namespace.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("namespace")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNameSpace;
+
+        public string? NameSpace => _mNameSpace.GetValue("namespace");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.NamespaceTimeoutsArgs> _mTimeouts;
+
+        public Inputs.NamespaceTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
     }
 }

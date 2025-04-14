@@ -11,42 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Chime
 {
     [PolicyResourceType("aws:chime/voiceConnectorTermination:VoiceConnectorTermination")]
-    public sealed class VoiceConnectorTermination : global::Pulumi.PolicyResource
+    public sealed class VoiceConnectorTermination : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
         /// </summary>
         [Input("callingRegions")]
-        public List<string>? CallingRegions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCallingRegions;
+
+        public List<string>? CallingRegions => _mCallingRegions.GetValue("callingRegions");
 
         /// <summary>
         /// The IP addresses allowed to make calls, in CIDR format.
         /// </summary>
         [Input("cidrAllowLists")]
-        public List<string>? CidrAllowLists;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrAllowLists;
+
+        public List<string>? CidrAllowLists => _mCidrAllowLists.GetValue("cidrAllowLists");
 
         /// <summary>
         /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
         /// </summary>
         [Input("cpsLimit")]
-        public int? CpsLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCpsLimit;
+
+        public int? CpsLimit => _mCpsLimit.GetValue("cpsLimit");
 
         /// <summary>
         /// The default caller ID phone number.
         /// </summary>
         [Input("defaultPhoneNumber")]
-        public string? DefaultPhoneNumber;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultPhoneNumber;
+
+        public string? DefaultPhoneNumber => _mDefaultPhoneNumber.GetValue("defaultPhoneNumber");
 
         /// <summary>
         /// When termination settings are disabled, outbound calls can not be made.
         /// </summary>
         [Input("disabled")]
-        public bool? Disabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
+
+        public bool? Disabled => _mDisabled.GetValue("disabled");
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
         [Input("voiceConnectorId")]
-        public string? VoiceConnectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
+
+        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+    }
+
+    [PolicyResourceType("aws:chime/voiceConnectorTermination:VoiceConnectorTermination")]
+    public sealed class VoiceConnectorTerminationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
+        /// </summary>
+        [Input("callingRegions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCallingRegions;
+
+        public List<string>? CallingRegions => _mCallingRegions.GetValue("callingRegions");
+
+        /// <summary>
+        /// The IP addresses allowed to make calls, in CIDR format.
+        /// </summary>
+        [Input("cidrAllowLists")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrAllowLists;
+
+        public List<string>? CidrAllowLists => _mCidrAllowLists.GetValue("cidrAllowLists");
+
+        /// <summary>
+        /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
+        /// </summary>
+        [Input("cpsLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mCpsLimit;
+
+        public int? CpsLimit => _mCpsLimit.GetValue("cpsLimit");
+
+        /// <summary>
+        /// The default caller ID phone number.
+        /// </summary>
+        [Input("defaultPhoneNumber")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultPhoneNumber;
+
+        public string? DefaultPhoneNumber => _mDefaultPhoneNumber.GetValue("defaultPhoneNumber");
+
+        /// <summary>
+        /// When termination settings are disabled, outbound calls can not be made.
+        /// </summary>
+        [Input("disabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
+
+        public bool? Disabled => _mDisabled.GetValue("disabled");
+
+        /// <summary>
+        /// The Amazon Chime Voice Connector ID.
+        /// </summary>
+        [Input("voiceConnectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
+
+        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
     }
 }

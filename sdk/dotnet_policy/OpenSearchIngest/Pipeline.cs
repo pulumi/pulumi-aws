@@ -11,55 +11,79 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.OpenSearchIngest
 {
     [PolicyResourceType("aws:opensearchingest/pipeline:Pipeline")]
-    public sealed class Pipeline : global::Pulumi.PolicyResource
+    public sealed class Pipeline : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
         /// </summary>
         [Input("bufferOptions")]
-        public PipelineBufferOptions? BufferOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineBufferOptions> _mBufferOptions;
+
+        public Outputs.PipelineBufferOptions? BufferOptions => _mBufferOptions.GetValue("bufferOptions");
 
         /// <summary>
         /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
         /// </summary>
         [Input("encryptionAtRestOptions")]
-        public PipelineEncryptionAtRestOptions? EncryptionAtRestOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineEncryptionAtRestOptions> _mEncryptionAtRestOptions;
+
+        public Outputs.PipelineEncryptionAtRestOptions? EncryptionAtRestOptions => _mEncryptionAtRestOptions.GetValue("encryptionAtRestOptions");
 
         /// <summary>
         /// The list of ingestion endpoints for the pipeline, which you can send data to.
         /// </summary>
         [Input("ingestEndpointUrls")]
-        public List<string>? IngestEndpointUrls;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIngestEndpointUrls;
+
+        public List<string>? IngestEndpointUrls => _mIngestEndpointUrls.GetValue("ingestEndpointUrls");
 
         /// <summary>
         /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
         /// </summary>
         [Input("logPublishingOptions")]
-        public PipelineLogPublishingOptions? LogPublishingOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineLogPublishingOptions> _mLogPublishingOptions;
+
+        public Outputs.PipelineLogPublishingOptions? LogPublishingOptions => _mLogPublishingOptions.GetValue("logPublishingOptions");
 
         /// <summary>
         /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         /// </summary>
         [Input("maxUnits")]
-        public int? MaxUnits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUnits;
+
+        public int? MaxUnits => _mMaxUnits.GetValue("maxUnits");
 
         /// <summary>
         /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         /// </summary>
         [Input("minUnits")]
-        public int? MinUnits;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinUnits;
+
+        public int? MinUnits => _mMinUnits.GetValue("minUnits");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the pipeline.
         /// </summary>
         [Input("pipelineArn")]
-        public string? PipelineArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineArn;
+
+        public string? PipelineArn => _mPipelineArn.GetValue("pipelineArn");
 
         /// <summary>
         /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
         /// </summary>
         [Input("pipelineConfigurationBody")]
-        public string? PipelineConfigurationBody;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineConfigurationBody;
+
+        public string? PipelineConfigurationBody => _mPipelineConfigurationBody.GetValue("pipelineConfigurationBody");
 
         /// <summary>
         /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
@@ -67,24 +91,132 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearchIngest
         /// The following arguments are optional:
         /// </summary>
         [Input("pipelineName")]
-        public string? PipelineName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineName;
+
+        public string? PipelineName => _mPipelineName.GetValue("pipelineName");
 
         /// <summary>
         /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("timeouts")]
-        public PipelineTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineTimeouts> _mTimeouts;
+
+        public Outputs.PipelineTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         /// </summary>
         [Input("vpcOptions")]
-        public PipelineVpcOptions? VpcOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineVpcOptions> _mVpcOptions;
+
+        public Outputs.PipelineVpcOptions? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+    }
+
+    [PolicyResourceType("aws:opensearchingest/pipeline:Pipeline")]
+    public sealed class PipelineArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
+        /// </summary>
+        [Input("bufferOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineBufferOptionsArgs> _mBufferOptions;
+
+        public Inputs.PipelineBufferOptionsArgs? BufferOptions => _mBufferOptions.GetValue("bufferOptions");
+
+        /// <summary>
+        /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
+        /// </summary>
+        [Input("encryptionAtRestOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineEncryptionAtRestOptionsArgs> _mEncryptionAtRestOptions;
+
+        public Inputs.PipelineEncryptionAtRestOptionsArgs? EncryptionAtRestOptions => _mEncryptionAtRestOptions.GetValue("encryptionAtRestOptions");
+
+        /// <summary>
+        /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
+        /// </summary>
+        [Input("logPublishingOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineLogPublishingOptionsArgs> _mLogPublishingOptions;
+
+        public Inputs.PipelineLogPublishingOptionsArgs? LogPublishingOptions => _mLogPublishingOptions.GetValue("logPublishingOptions");
+
+        /// <summary>
+        /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+        /// </summary>
+        [Input("maxUnits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUnits;
+
+        public int? MaxUnits => _mMaxUnits.GetValue("maxUnits");
+
+        /// <summary>
+        /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+        /// </summary>
+        [Input("minUnits")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinUnits;
+
+        public int? MinUnits => _mMinUnits.GetValue("minUnits");
+
+        /// <summary>
+        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+        /// </summary>
+        [Input("pipelineConfigurationBody")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineConfigurationBody;
+
+        public string? PipelineConfigurationBody => _mPipelineConfigurationBody.GetValue("pipelineConfigurationBody");
+
+        /// <summary>
+        /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("pipelineName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineName;
+
+        public string? PipelineName => _mPipelineName.GetValue("pipelineName");
+
+        /// <summary>
+        /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineTimeoutsArgs> _mTimeouts;
+
+        public Inputs.PipelineTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
+        /// </summary>
+        [Input("vpcOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineVpcOptionsArgs> _mVpcOptions;
+
+        public Inputs.PipelineVpcOptionsArgs? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
     }
 }

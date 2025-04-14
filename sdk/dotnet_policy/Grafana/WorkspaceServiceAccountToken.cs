@@ -11,54 +11,118 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Grafana
 {
     [PolicyResourceType("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken")]
-    public sealed class WorkspaceServiceAccountToken : global::Pulumi.PolicyResource
+    public sealed class WorkspaceServiceAccountToken : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies when the service account token was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Specifies when the service account token will expire.
         /// </summary>
         [Input("expiresAt")]
-        public string? ExpiresAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpiresAt;
+
+        public string? ExpiresAt => _mExpiresAt.GetValue("expiresAt");
 
         /// <summary>
         /// The key for the service account token. Used when making calls to the Grafana HTTP APIs to authenticate and authorize the requests.
         /// </summary>
         [Input("key")]
-        public string? Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
+
+        public string? Key => _mKey.GetValue("key");
 
         /// <summary>
         /// A name for the token to create. The name must be unique within the workspace.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
         /// </summary>
         [Input("secondsToLive")]
-        public int? SecondsToLive;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsToLive;
+
+        public int? SecondsToLive => _mSecondsToLive.GetValue("secondsToLive");
 
         /// <summary>
         /// The ID of the service account for which to create a token.
         /// </summary>
         [Input("serviceAccountId")]
-        public string? ServiceAccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountId;
+
+        public string? ServiceAccountId => _mServiceAccountId.GetValue("serviceAccountId");
 
         /// <summary>
         /// Identifier of the service account token in the given Grafana workspace.
         /// </summary>
         [Input("serviceAccountTokenId")]
-        public string? ServiceAccountTokenId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountTokenId;
+
+        public string? ServiceAccountTokenId => _mServiceAccountTokenId.GetValue("serviceAccountTokenId");
 
         /// <summary>
         /// The Grafana workspace with which the service account token is associated.
         /// </summary>
         [Input("workspaceId")]
-        public string? WorkspaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+    }
+
+    [PolicyResourceType("aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken")]
+    public sealed class WorkspaceServiceAccountTokenArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A name for the token to create. The name must be unique within the workspace.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
+        /// </summary>
+        [Input("secondsToLive")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSecondsToLive;
+
+        public int? SecondsToLive => _mSecondsToLive.GetValue("secondsToLive");
+
+        /// <summary>
+        /// The ID of the service account for which to create a token.
+        /// </summary>
+        [Input("serviceAccountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountId;
+
+        public string? ServiceAccountId => _mServiceAccountId.GetValue("serviceAccountId");
+
+        /// <summary>
+        /// The Grafana workspace with which the service account token is associated.
+        /// </summary>
+        [Input("workspaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
+
+        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
     }
 }

@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")]
-    public sealed class ManagedPolicyAttachment : global::Pulumi.PolicyResource
+    public sealed class ManagedPolicyAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Input("instanceArn")]
-        public string? InstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
 
         /// <summary>
         /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
         /// </summary>
         [Input("managedPolicyArn")]
-        public string? ManagedPolicyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManagedPolicyArn;
+
+        public string? ManagedPolicyArn => _mManagedPolicyArn.GetValue("managedPolicyArn");
 
         /// <summary>
         /// The name of the IAM Managed Policy.
         /// </summary>
         [Input("managedPolicyName")]
-        public string? ManagedPolicyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManagedPolicyName;
+
+        public string? ManagedPolicyName => _mManagedPolicyName.GetValue("managedPolicyName");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
         [Input("permissionSetArn")]
-        public string? PermissionSetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
+
+        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")]
+    public sealed class ManagedPolicyAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
+        [Input("instanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+
+        /// <summary>
+        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+        /// </summary>
+        [Input("managedPolicyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mManagedPolicyArn;
+
+        public string? ManagedPolicyArn => _mManagedPolicyArn.GetValue("managedPolicyArn");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
+        [Input("permissionSetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
+
+        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
     }
 }

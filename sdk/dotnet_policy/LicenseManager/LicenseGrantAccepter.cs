@@ -11,60 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LicenseManager
 {
     [PolicyResourceType("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter")]
-    public sealed class LicenseGrantAccepter : global::Pulumi.PolicyResource
+    public sealed class LicenseGrantAccepter : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of the allowed operations for the grant.
         /// </summary>
         [Input("allowedOperations")]
-        public List<string>? AllowedOperations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOperations;
+
+        public List<string>? AllowedOperations => _mAllowedOperations.GetValue("allowedOperations");
 
         /// <summary>
         /// The ARN of the grant to accept.
         /// </summary>
         [Input("grantArn")]
-        public string? GrantArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrantArn;
+
+        public string? GrantArn => _mGrantArn.GetValue("grantArn");
 
         /// <summary>
         /// The home region for the license.
         /// </summary>
         [Input("homeRegion")]
-        public string? HomeRegion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mHomeRegion;
+
+        public string? HomeRegion => _mHomeRegion.GetValue("homeRegion");
 
         /// <summary>
         /// The ARN of the license for the grant.
         /// </summary>
         [Input("licenseArn")]
-        public string? LicenseArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseArn;
+
+        public string? LicenseArn => _mLicenseArn.GetValue("licenseArn");
 
         /// <summary>
         /// The Name of the grant.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The parent ARN.
         /// </summary>
         [Input("parentArn")]
-        public string? ParentArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentArn;
+
+        public string? ParentArn => _mParentArn.GetValue("parentArn");
 
         /// <summary>
         /// The target account for the grant.
         /// </summary>
         [Input("principal")]
-        public string? Principal;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
+
+        public string? Principal => _mPrincipal.GetValue("principal");
 
         /// <summary>
         /// The grant status.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// The grant version.
         /// </summary>
         [Input("version")]
-        public string? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
+
+        public string? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter")]
+    public sealed class LicenseGrantAccepterArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN of the grant to accept.
+        /// </summary>
+        [Input("grantArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrantArn;
+
+        public string? GrantArn => _mGrantArn.GetValue("grantArn");
     }
 }

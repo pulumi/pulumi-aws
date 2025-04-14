@@ -11,33 +11,45 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Comprehend
 {
     [PolicyResourceType("aws:comprehend/documentClassifier:DocumentClassifier")]
-    public sealed class DocumentClassifier : global::Pulumi.PolicyResource
+    public sealed class DocumentClassifier : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Document Classifier version.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         /// </summary>
         [Input("dataAccessRoleArn")]
-        public string? DataAccessRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataAccessRoleArn;
+
+        public string? DataAccessRoleArn => _mDataAccessRoleArn.GetValue("dataAccessRoleArn");
 
         /// <summary>
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
         /// </summary>
         [Input("inputDataConfig")]
-        public DocumentClassifierInputDataConfig? InputDataConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DocumentClassifierInputDataConfig> _mInputDataConfig;
+
+        public Outputs.DocumentClassifierInputDataConfig? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
 
         /// <summary>
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
         /// </summary>
         [Input("languageCode")]
-        public string? LanguageCode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
 
         /// <summary>
         /// The document classification mode.
@@ -45,14 +57,20 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
         /// </summary>
         [Input("mode")]
-        public string? Mode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+
+        public string? Mode => _mMode.GetValue("mode");
 
         /// <summary>
         /// KMS Key used to encrypt trained Document Classifiers.
         /// Can be a KMS Key ID or a KMS Key ARN.
         /// </summary>
         [Input("modelKmsKeyId")]
-        public string? ModelKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelKmsKeyId;
+
+        public string? ModelKmsKeyId => _mModelKmsKeyId.GetValue("modelKmsKeyId");
 
         /// <summary>
         /// Name for the Document Classifier.
@@ -62,26 +80,38 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Configuration for the output results of training.
         /// See the `output_data_config` Configuration Block section below.
         /// </summary>
         [Input("outputDataConfig")]
-        public DocumentClassifierOutputDataConfig? OutputDataConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DocumentClassifierOutputDataConfig> _mOutputDataConfig;
+
+        public Outputs.DocumentClassifierOutputDataConfig? OutputDataConfig => _mOutputDataConfig.GetValue("outputDataConfig");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Name for the version of the Document Classifier.
@@ -93,7 +123,10 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// Conflicts with `version_name_prefix`.
         /// </summary>
         [Input("versionName")]
-        public string? VersionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
+
+        public string? VersionName => _mVersionName.GetValue("versionName");
 
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
@@ -102,20 +135,162 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// Conflicts with `version_name`.
         /// </summary>
         [Input("versionNamePrefix")]
-        public string? VersionNamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionNamePrefix;
+
+        public string? VersionNamePrefix => _mVersionNamePrefix.GetValue("versionNamePrefix");
 
         /// <summary>
         /// KMS Key used to encrypt storage volumes during job processing.
         /// Can be a KMS Key ID or a KMS Key ARN.
         /// </summary>
         [Input("volumeKmsKeyId")]
-        public string? VolumeKmsKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeKmsKeyId;
+
+        public string? VolumeKmsKeyId => _mVolumeKmsKeyId.GetValue("volumeKmsKeyId");
 
         /// <summary>
         /// Configuration parameters for VPC to contain Document Classifier resources.
         /// See the `vpc_config` Configuration Block section below.
         /// </summary>
         [Input("vpcConfig")]
-        public DocumentClassifierVpcConfig? VpcConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DocumentClassifierVpcConfig> _mVpcConfig;
+
+        public Outputs.DocumentClassifierVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+    }
+
+    [PolicyResourceType("aws:comprehend/documentClassifier:DocumentClassifier")]
+    public sealed class DocumentClassifierArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
+        /// </summary>
+        [Input("dataAccessRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataAccessRoleArn;
+
+        public string? DataAccessRoleArn => _mDataAccessRoleArn.GetValue("dataAccessRoleArn");
+
+        /// <summary>
+        /// Configuration for the training and testing data.
+        /// See the `input_data_config` Configuration Block section below.
+        /// </summary>
+        [Input("inputDataConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DocumentClassifierInputDataConfigArgs> _mInputDataConfig;
+
+        public Inputs.DocumentClassifierInputDataConfigArgs? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
+
+        /// <summary>
+        /// Two-letter language code for the language.
+        /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
+        /// </summary>
+        [Input("languageCode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
+
+        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+
+        /// <summary>
+        /// The document classification mode.
+        /// One of `MULTI_CLASS` or `MULTI_LABEL`.
+        /// `MULTI_CLASS` is also known as "Single Label" in the AWS Console.
+        /// </summary>
+        [Input("mode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+
+        public string? Mode => _mMode.GetValue("mode");
+
+        /// <summary>
+        /// KMS Key used to encrypt trained Document Classifiers.
+        /// Can be a KMS Key ID or a KMS Key ARN.
+        /// </summary>
+        [Input("modelKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelKmsKeyId;
+
+        public string? ModelKmsKeyId => _mModelKmsKeyId.GetValue("modelKmsKeyId");
+
+        /// <summary>
+        /// Name for the Document Classifier.
+        /// Has a maximum length of 63 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Configuration for the output results of training.
+        /// See the `output_data_config` Configuration Block section below.
+        /// </summary>
+        [Input("outputDataConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DocumentClassifierOutputDataConfigArgs> _mOutputDataConfig;
+
+        public Inputs.DocumentClassifierOutputDataConfigArgs? OutputDataConfig => _mOutputDataConfig.GetValue("outputDataConfig");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Name for the version of the Document Classifier.
+        /// Each version must have a unique name within the Document Classifier.
+        /// If omitted, the provider will assign a random, unique version name.
+        /// If explicitly set to `""`, no version name will be set.
+        /// Has a maximum length of 63 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Conflicts with `version_name_prefix`.
+        /// </summary>
+        [Input("versionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
+
+        public string? VersionName => _mVersionName.GetValue("versionName");
+
+        /// <summary>
+        /// Creates a unique version name beginning with the specified prefix.
+        /// Has a maximum length of 37 characters.
+        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Conflicts with `version_name`.
+        /// </summary>
+        [Input("versionNamePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVersionNamePrefix;
+
+        public string? VersionNamePrefix => _mVersionNamePrefix.GetValue("versionNamePrefix");
+
+        /// <summary>
+        /// KMS Key used to encrypt storage volumes during job processing.
+        /// Can be a KMS Key ID or a KMS Key ARN.
+        /// </summary>
+        [Input("volumeKmsKeyId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeKmsKeyId;
+
+        public string? VolumeKmsKeyId => _mVolumeKmsKeyId.GetValue("volumeKmsKeyId");
+
+        /// <summary>
+        /// Configuration parameters for VPC to contain Document Classifier resources.
+        /// See the `vpc_config` Configuration Block section below.
+        /// </summary>
+        [Input("vpcConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DocumentClassifierVpcConfigArgs> _mVpcConfig;
+
+        public Inputs.DocumentClassifierVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
     }
 }

@@ -11,90 +11,244 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Cur
 {
     [PolicyResourceType("aws:cur/reportDefinition:ReportDefinition")]
-    public sealed class ReportDefinition : global::Pulumi.PolicyResource
+    public sealed class ReportDefinition : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         /// </summary>
         [Input("additionalArtifacts")]
-        public List<string>? AdditionalArtifacts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalArtifacts;
+
+        public List<string>? AdditionalArtifacts => _mAdditionalArtifacts.GetValue("additionalArtifacts");
 
         /// <summary>
         /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
         [Input("additionalSchemaElements")]
-        public List<string>? AdditionalSchemaElements;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalSchemaElements;
+
+        public List<string>? AdditionalSchemaElements => _mAdditionalSchemaElements.GetValue("additionalSchemaElements");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the cur report.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         /// </summary>
         [Input("compression")]
-        public string? Compression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
+
+        public string? Compression => _mCompression.GetValue("compression");
 
         /// <summary>
         /// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         /// </summary>
         [Input("format")]
-        public string? Format;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+
+        public string? Format => _mFormat.GetValue("format");
 
         /// <summary>
         /// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         /// </summary>
         [Input("refreshClosedReports")]
-        public bool? RefreshClosedReports;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRefreshClosedReports;
+
+        public bool? RefreshClosedReports => _mRefreshClosedReports.GetValue("refreshClosedReports");
 
         /// <summary>
         /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         /// </summary>
         [Input("reportName")]
-        public string? ReportName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReportName;
+
+        public string? ReportName => _mReportName.GetValue("reportName");
 
         /// <summary>
         /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         /// </summary>
         [Input("reportVersioning")]
-        public string? ReportVersioning;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReportVersioning;
+
+        public string? ReportVersioning => _mReportVersioning.GetValue("reportVersioning");
 
         /// <summary>
         /// Name of the existing S3 bucket to hold generated reports.
         /// </summary>
         [Input("s3Bucket")]
-        public string? S3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
 
         /// <summary>
         /// Report path prefix. Limited to 256 characters.
         /// </summary>
         [Input("s3Prefix")]
-        public string? S3Prefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
+
+        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
 
         /// <summary>
         /// Region of the existing S3 bucket to hold generated reports.
         /// </summary>
         [Input("s3Region")]
-        public string? S3Region;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Region;
+
+        public string? S3Region => _mS3Region.GetValue("s3Region");
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         /// </summary>
         [Input("timeUnit")]
-        public string? TimeUnit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimeUnit;
+
+        public string? TimeUnit => _mTimeUnit.GetValue("timeUnit");
+    }
+
+    [PolicyResourceType("aws:cur/reportDefinition:ReportDefinition")]
+    public sealed class ReportDefinitionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
+        /// </summary>
+        [Input("additionalArtifacts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalArtifacts;
+
+        public List<string>? AdditionalArtifacts => _mAdditionalArtifacts.GetValue("additionalArtifacts");
+
+        /// <summary>
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        /// </summary>
+        [Input("additionalSchemaElements")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalSchemaElements;
+
+        public List<string>? AdditionalSchemaElements => _mAdditionalSchemaElements.GetValue("additionalSchemaElements");
+
+        /// <summary>
+        /// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
+        /// </summary>
+        [Input("compression")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
+
+        public string? Compression => _mCompression.GetValue("compression");
+
+        /// <summary>
+        /// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
+        /// </summary>
+        [Input("format")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+
+        public string? Format => _mFormat.GetValue("format");
+
+        /// <summary>
+        /// Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
+        /// </summary>
+        [Input("refreshClosedReports")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRefreshClosedReports;
+
+        public bool? RefreshClosedReports => _mRefreshClosedReports.GetValue("refreshClosedReports");
+
+        /// <summary>
+        /// Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
+        /// </summary>
+        [Input("reportName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReportName;
+
+        public string? ReportName => _mReportName.GetValue("reportName");
+
+        /// <summary>
+        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
+        /// </summary>
+        [Input("reportVersioning")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mReportVersioning;
+
+        public string? ReportVersioning => _mReportVersioning.GetValue("reportVersioning");
+
+        /// <summary>
+        /// Name of the existing S3 bucket to hold generated reports.
+        /// </summary>
+        [Input("s3Bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
+
+        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+
+        /// <summary>
+        /// Report path prefix. Limited to 256 characters.
+        /// </summary>
+        [Input("s3Prefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
+
+        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+
+        /// <summary>
+        /// Region of the existing S3 bucket to hold generated reports.
+        /// </summary>
+        [Input("s3Region")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3Region;
+
+        public string? S3Region => _mS3Region.GetValue("s3Region");
+
+        /// <summary>
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
+        /// </summary>
+        [Input("timeUnit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTimeUnit;
+
+        public string? TimeUnit => _mTimeUnit.GetValue("timeUnit");
     }
 }

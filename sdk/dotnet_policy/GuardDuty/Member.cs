@@ -11,48 +11,127 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.GuardDuty
 {
     [PolicyResourceType("aws:guardduty/member:Member")]
-    public sealed class Member : global::Pulumi.PolicyResource
+    public sealed class Member : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS account ID for member account.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The detector ID of the GuardDuty account where you want to create member accounts.
         /// </summary>
         [Input("detectorId")]
-        public string? DetectorId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
 
         /// <summary>
         /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         /// </summary>
         [Input("disableEmailNotification")]
-        public bool? DisableEmailNotification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableEmailNotification;
+
+        public bool? DisableEmailNotification => _mDisableEmailNotification.GetValue("disableEmailNotification");
 
         /// <summary>
         /// Email address for member account.
         /// </summary>
         [Input("email")]
-        public string? Email;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
 
         /// <summary>
         /// Message for invitation.
         /// </summary>
         [Input("invitationMessage")]
-        public string? InvitationMessage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationMessage;
+
+        public string? InvitationMessage => _mInvitationMessage.GetValue("invitationMessage");
 
         /// <summary>
         /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
         [Input("invite")]
-        public bool? Invite;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
+
+        public bool? Invite => _mInvite.GetValue("invite");
 
         /// <summary>
         /// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         /// </summary>
         [Input("relationshipStatus")]
-        public string? RelationshipStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRelationshipStatus;
+
+        public string? RelationshipStatus => _mRelationshipStatus.GetValue("relationshipStatus");
+    }
+
+    [PolicyResourceType("aws:guardduty/member:Member")]
+    public sealed class MemberArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// AWS account ID for member account.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The detector ID of the GuardDuty account where you want to create member accounts.
+        /// </summary>
+        [Input("detectorId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
+
+        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+
+        /// <summary>
+        /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
+        /// </summary>
+        [Input("disableEmailNotification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableEmailNotification;
+
+        public bool? DisableEmailNotification => _mDisableEmailNotification.GetValue("disableEmailNotification");
+
+        /// <summary>
+        /// Email address for member account.
+        /// </summary>
+        [Input("email")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
+
+        public string? Email => _mEmail.GetValue("email");
+
+        /// <summary>
+        /// Message for invitation.
+        /// </summary>
+        [Input("invitationMessage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationMessage;
+
+        public string? InvitationMessage => _mInvitationMessage.GetValue("invitationMessage");
+
+        /// <summary>
+        /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        /// </summary>
+        [Input("invite")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
+
+        public bool? Invite => _mInvite.GetValue("invite");
     }
 }

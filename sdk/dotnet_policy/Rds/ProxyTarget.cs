@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Rds
 {
     [PolicyResourceType("aws:rds/proxyTarget:ProxyTarget")]
-    public sealed class ProxyTarget : global::Pulumi.PolicyResource
+    public sealed class ProxyTarget : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// DB cluster identifier.
@@ -19,60 +19,132 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
         [Input("dbClusterIdentifier")]
-        public string? DbClusterIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
+
+        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
 
         /// <summary>
         /// DB instance identifier.
         /// </summary>
         [Input("dbInstanceIdentifier")]
-        public string? DbInstanceIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceIdentifier;
+
+        public string? DbInstanceIdentifier => _mDbInstanceIdentifier.GetValue("dbInstanceIdentifier");
 
         /// <summary>
         /// The name of the DB proxy.
         /// </summary>
         [Input("dbProxyName")]
-        public string? DbProxyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
+
+        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
 
         /// <summary>
         /// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         /// </summary>
         [Input("endpoint")]
-        public string? Endpoint;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
+
+        public string? Endpoint => _mEndpoint.GetValue("endpoint");
 
         /// <summary>
         /// Port for the target RDS DB Instance or Aurora DB Cluster.
         /// </summary>
         [Input("port")]
-        public int? Port;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+
+        public int? Port => _mPort.GetValue("port");
 
         /// <summary>
         /// Identifier representing the DB Instance or DB Cluster target.
         /// </summary>
         [Input("rdsResourceId")]
-        public string? RdsResourceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRdsResourceId;
+
+        public string? RdsResourceId => _mRdsResourceId.GetValue("rdsResourceId");
 
         /// <summary>
         /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         /// </summary>
         [Input("targetArn")]
-        public string? TargetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+
+        public string? TargetArn => _mTargetArn.GetValue("targetArn");
 
         /// <summary>
         /// The name of the target group.
         /// </summary>
         [Input("targetGroupName")]
-        public string? TargetGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupName;
+
+        public string? TargetGroupName => _mTargetGroupName.GetValue("targetGroupName");
 
         /// <summary>
         /// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         /// </summary>
         [Input("trackedClusterId")]
-        public string? TrackedClusterId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrackedClusterId;
+
+        public string? TrackedClusterId => _mTrackedClusterId.GetValue("trackedClusterId");
 
         /// <summary>
         /// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:rds/proxyTarget:ProxyTarget")]
+    public sealed class ProxyTargetArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// DB cluster identifier.
+        /// 
+        /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
+        /// </summary>
+        [Input("dbClusterIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
+
+        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+
+        /// <summary>
+        /// DB instance identifier.
+        /// </summary>
+        [Input("dbInstanceIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceIdentifier;
+
+        public string? DbInstanceIdentifier => _mDbInstanceIdentifier.GetValue("dbInstanceIdentifier");
+
+        /// <summary>
+        /// The name of the DB proxy.
+        /// </summary>
+        [Input("dbProxyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
+
+        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
+
+        /// <summary>
+        /// The name of the target group.
+        /// </summary>
+        [Input("targetGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupName;
+
+        public string? TargetGroupName => _mTargetGroupName.GetValue("targetGroupName");
     }
 }

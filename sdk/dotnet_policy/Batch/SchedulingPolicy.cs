@@ -11,33 +11,76 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Batch
 {
     [PolicyResourceType("aws:batch/schedulingPolicy:SchedulingPolicy")]
-    public sealed class SchedulingPolicy : global::Pulumi.PolicyResource
+    public sealed class SchedulingPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name of the scheduling policy.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         [Input("fairSharePolicy")]
-        public SchedulingPolicyFairSharePolicy? FairSharePolicy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SchedulingPolicyFairSharePolicy> _mFairSharePolicy;
+
+        public Outputs.SchedulingPolicyFairSharePolicy? FairSharePolicy => _mFairSharePolicy.GetValue("fairSharePolicy");
 
         /// <summary>
         /// Specifies the name of the scheduling policy.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:batch/schedulingPolicy:SchedulingPolicy")]
+    public sealed class SchedulingPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        [Input("fairSharePolicy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SchedulingPolicyFairSharePolicyArgs> _mFairSharePolicy;
+
+        public Inputs.SchedulingPolicyFairSharePolicyArgs? FairSharePolicy => _mFairSharePolicy.GetValue("fairSharePolicy");
+
+        /// <summary>
+        /// Specifies the name of the scheduling policy.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

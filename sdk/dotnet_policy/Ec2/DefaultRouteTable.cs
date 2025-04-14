@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/defaultRouteTable:DefaultRouteTable")]
-    public sealed class DefaultRouteTable : global::Pulumi.PolicyResource
+    public sealed class DefaultRouteTable : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the route table.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// ID of the default route table.
@@ -25,42 +28,105 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The following arguments are optional:
         /// </summary>
         [Input("defaultRouteTableId")]
-        public string? DefaultRouteTableId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTableId;
+
+        public string? DefaultRouteTableId => _mDefaultRouteTableId.GetValue("defaultRouteTableId");
 
         /// <summary>
         /// ID of the AWS account that owns the route table.
         /// </summary>
         [Input("ownerId")]
-        public string? OwnerId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+
+        public string? OwnerId => _mOwnerId.GetValue("ownerId");
 
         /// <summary>
         /// List of virtual gateways for propagation.
         /// </summary>
         [Input("propagatingVgws")]
-        public List<string>? PropagatingVgws;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPropagatingVgws;
+
+        public List<string>? PropagatingVgws => _mPropagatingVgws.GetValue("propagatingVgws");
 
         /// <summary>
         /// Set of objects. Detailed below
         /// </summary>
         [Input("routes")]
-        public List<DefaultRouteTableRoute>? Routes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DefaultRouteTableRoute>> _mRoutes;
+
+        public List<Outputs.DefaultRouteTableRoute>? Routes => _mRoutes.GetValue("routes");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// ID of the VPC.
         /// </summary>
         [Input("vpcId")]
-        public string? VpcId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
+
+        public string? VpcId => _mVpcId.GetValue("vpcId");
+    }
+
+    [PolicyResourceType("aws:ec2/defaultRouteTable:DefaultRouteTable")]
+    public sealed class DefaultRouteTableArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ID of the default route table.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("defaultRouteTableId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTableId;
+
+        public string? DefaultRouteTableId => _mDefaultRouteTableId.GetValue("defaultRouteTableId");
+
+        /// <summary>
+        /// List of virtual gateways for propagation.
+        /// </summary>
+        [Input("propagatingVgws")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPropagatingVgws;
+
+        public List<string>? PropagatingVgws => _mPropagatingVgws.GetValue("propagatingVgws");
+
+        /// <summary>
+        /// Set of objects. Detailed below
+        /// </summary>
+        [Input("routes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DefaultRouteTableRouteArgs>> _mRoutes;
+
+        public List<Inputs.DefaultRouteTableRouteArgs>? Routes => _mRoutes.GetValue("routes");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

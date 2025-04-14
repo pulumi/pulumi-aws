@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Macie2
 {
     [PolicyResourceType("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")]
-    public sealed class ClassificationExportConfiguration : global::Pulumi.PolicyResource
+    public sealed class ClassificationExportConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Configuration block for a S3 Destination. Defined below
         /// </summary>
         [Input("s3Destination")]
-        public ClassificationExportConfigurationS3Destination? S3Destination;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassificationExportConfigurationS3Destination> _mS3Destination;
+
+        public Outputs.ClassificationExportConfigurationS3Destination? S3Destination => _mS3Destination.GetValue("s3Destination");
+    }
+
+    [PolicyResourceType("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")]
+    public sealed class ClassificationExportConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Configuration block for a S3 Destination. Defined below
+        /// </summary>
+        [Input("s3Destination")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationExportConfigurationS3DestinationArgs> _mS3Destination;
+
+        public Inputs.ClassificationExportConfigurationS3DestinationArgs? S3Destination => _mS3Destination.GetValue("s3Destination");
     }
 }

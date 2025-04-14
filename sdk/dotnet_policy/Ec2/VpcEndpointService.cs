@@ -11,108 +11,235 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcEndpointService:VpcEndpointService")]
-    public sealed class VpcEndpointService : global::Pulumi.PolicyResource
+    public sealed class VpcEndpointService : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         /// </summary>
         [Input("acceptanceRequired")]
-        public bool? AcceptanceRequired;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptanceRequired;
+
+        public bool? AcceptanceRequired => _mAcceptanceRequired.GetValue("acceptanceRequired");
 
         /// <summary>
         /// The ARNs of one or more principals allowed to discover the endpoint service.
         /// </summary>
         [Input("allowedPrincipals")]
-        public List<string>? AllowedPrincipals;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedPrincipals;
+
+        public List<string>? AllowedPrincipals => _mAllowedPrincipals.GetValue("allowedPrincipals");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC endpoint service.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A set of Availability Zones in which the service is available.
         /// </summary>
         [Input("availabilityZones")]
-        public List<string>? AvailabilityZones;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
+
+        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
 
         /// <summary>
         /// A set of DNS names for the service.
         /// </summary>
         [Input("baseEndpointDnsNames")]
-        public List<string>? BaseEndpointDnsNames;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBaseEndpointDnsNames;
+
+        public List<string>? BaseEndpointDnsNames => _mBaseEndpointDnsNames.GetValue("baseEndpointDnsNames");
 
         /// <summary>
         /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         /// </summary>
         [Input("gatewayLoadBalancerArns")]
-        public List<string>? GatewayLoadBalancerArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGatewayLoadBalancerArns;
+
+        public List<string>? GatewayLoadBalancerArns => _mGatewayLoadBalancerArns.GetValue("gatewayLoadBalancerArns");
 
         /// <summary>
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
         /// </summary>
         [Input("managesVpcEndpoints")]
-        public bool? ManagesVpcEndpoints;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mManagesVpcEndpoints;
+
+        public bool? ManagesVpcEndpoints => _mManagesVpcEndpoints.GetValue("managesVpcEndpoints");
 
         /// <summary>
         /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         /// </summary>
         [Input("networkLoadBalancerArns")]
-        public List<string>? NetworkLoadBalancerArns;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkLoadBalancerArns;
+
+        public List<string>? NetworkLoadBalancerArns => _mNetworkLoadBalancerArns.GetValue("networkLoadBalancerArns");
 
         /// <summary>
         /// The private DNS name for the service.
         /// </summary>
         [Input("privateDnsName")]
-        public string? PrivateDnsName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDnsName;
+
+        public string? PrivateDnsName => _mPrivateDnsName.GetValue("privateDnsName");
 
         /// <summary>
         /// List of objects containing information about the endpoint service private DNS name configuration.
         /// </summary>
         [Input("privateDnsNameConfigurations")]
-        public List<VpcEndpointServicePrivateDnsNameConfiguration>? PrivateDnsNameConfigurations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpcEndpointServicePrivateDnsNameConfiguration>> _mPrivateDnsNameConfigurations;
+
+        public List<Outputs.VpcEndpointServicePrivateDnsNameConfiguration>? PrivateDnsNameConfigurations => _mPrivateDnsNameConfigurations.GetValue("privateDnsNameConfigurations");
 
         /// <summary>
         /// The service name.
         /// </summary>
         [Input("serviceName")]
-        public string? ServiceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+
+        public string? ServiceName => _mServiceName.GetValue("serviceName");
 
         /// <summary>
         /// The service type, `Gateway` or `Interface`.
         /// </summary>
         [Input("serviceType")]
-        public string? ServiceType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
+
+        public string? ServiceType => _mServiceType.GetValue("serviceType");
 
         /// <summary>
         /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
         /// </summary>
         [Input("supportedIpAddressTypes")]
-        public List<string>? SupportedIpAddressTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedIpAddressTypes;
+
+        public List<string>? SupportedIpAddressTypes => _mSupportedIpAddressTypes.GetValue("supportedIpAddressTypes");
 
         /// <summary>
         /// The set of regions from which service consumers can access the service.
         /// </summary>
         [Input("supportedRegions")]
-        public List<string>? SupportedRegions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedRegions;
+
+        public List<string>? SupportedRegions => _mSupportedRegions.GetValue("supportedRegions");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcEndpointService:VpcEndpointService")]
+    public sealed class VpcEndpointServiceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
+        /// </summary>
+        [Input("acceptanceRequired")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAcceptanceRequired;
+
+        public bool? AcceptanceRequired => _mAcceptanceRequired.GetValue("acceptanceRequired");
+
+        /// <summary>
+        /// The ARNs of one or more principals allowed to discover the endpoint service.
+        /// </summary>
+        [Input("allowedPrincipals")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedPrincipals;
+
+        public List<string>? AllowedPrincipals => _mAllowedPrincipals.GetValue("allowedPrincipals");
+
+        /// <summary>
+        /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        /// </summary>
+        [Input("gatewayLoadBalancerArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGatewayLoadBalancerArns;
+
+        public List<string>? GatewayLoadBalancerArns => _mGatewayLoadBalancerArns.GetValue("gatewayLoadBalancerArns");
+
+        /// <summary>
+        /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+        /// </summary>
+        [Input("networkLoadBalancerArns")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkLoadBalancerArns;
+
+        public List<string>? NetworkLoadBalancerArns => _mNetworkLoadBalancerArns.GetValue("networkLoadBalancerArns");
+
+        /// <summary>
+        /// The private DNS name for the service.
+        /// </summary>
+        [Input("privateDnsName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDnsName;
+
+        public string? PrivateDnsName => _mPrivateDnsName.GetValue("privateDnsName");
+
+        /// <summary>
+        /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        /// </summary>
+        [Input("supportedIpAddressTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedIpAddressTypes;
+
+        public List<string>? SupportedIpAddressTypes => _mSupportedIpAddressTypes.GetValue("supportedIpAddressTypes");
+
+        /// <summary>
+        /// The set of regions from which service consumers can access the service.
+        /// </summary>
+        [Input("supportedRegions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedRegions;
+
+        public List<string>? SupportedRegions => _mSupportedRegions.GetValue("supportedRegions");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

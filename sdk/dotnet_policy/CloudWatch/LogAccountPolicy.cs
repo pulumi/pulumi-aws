@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CloudWatch
 {
     [PolicyResourceType("aws:cloudwatch/logAccountPolicy:LogAccountPolicy")]
-    public sealed class LogAccountPolicy : global::Pulumi.PolicyResource
+    public sealed class LogAccountPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         /// </summary>
         [Input("policyDocument")]
-        public string? PolicyDocument;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
 
         /// <summary>
         /// Name of the account policy.
         /// </summary>
         [Input("policyName")]
-        public string? PolicyName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
+
+        public string? PolicyName => _mPolicyName.GetValue("policyName");
 
         /// <summary>
         /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         /// </summary>
         [Input("policyType")]
-        public string? PolicyType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
+
+        public string? PolicyType => _mPolicyType.GetValue("policyType");
 
         /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.
         /// </summary>
         [Input("scope")]
-        public string? Scope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
 
         /// <summary>
         /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         /// </summary>
         [Input("selectionCriteria")]
-        public string? SelectionCriteria;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionCriteria;
+
+        public string? SelectionCriteria => _mSelectionCriteria.GetValue("selectionCriteria");
+    }
+
+    [PolicyResourceType("aws:cloudwatch/logAccountPolicy:LogAccountPolicy")]
+    public sealed class LogAccountPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
+        /// </summary>
+        [Input("policyDocument")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+
+        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+
+        /// <summary>
+        /// Name of the account policy.
+        /// </summary>
+        [Input("policyName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyName;
+
+        public string? PolicyName => _mPolicyName.GetValue("policyName");
+
+        /// <summary>
+        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
+        /// </summary>
+        [Input("policyType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyType;
+
+        public string? PolicyType => _mPolicyType.GetValue("policyType");
+
+        /// <summary>
+        /// Currently defaults to and only accepts the value: `ALL`.
+        /// </summary>
+        [Input("scope")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+
+        public string? Scope => _mScope.GetValue("scope");
+
+        /// <summary>
+        /// Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
+        /// </summary>
+        [Input("selectionCriteria")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionCriteria;
+
+        public string? SelectionCriteria => _mSelectionCriteria.GetValue("selectionCriteria");
     }
 }

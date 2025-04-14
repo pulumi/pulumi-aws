@@ -11,90 +11,226 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Budgets
 {
     [PolicyResourceType("aws:budgets/budgetAction:BudgetAction")]
-    public sealed class BudgetAction : global::Pulumi.PolicyResource
+    public sealed class BudgetAction : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         /// </summary>
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The id of the budget action.
         /// </summary>
         [Input("actionId")]
-        public string? ActionId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionId;
+
+        public string? ActionId => _mActionId.GetValue("actionId");
 
         /// <summary>
         /// The trigger threshold of the action. See Action Threshold.
         /// </summary>
         [Input("actionThreshold")]
-        public BudgetActionActionThreshold? ActionThreshold;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetActionActionThreshold> _mActionThreshold;
+
+        public Outputs.BudgetActionActionThreshold? ActionThreshold => _mActionThreshold.GetValue("actionThreshold");
 
         /// <summary>
         /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
         /// </summary>
         [Input("actionType")]
-        public string? ActionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionType;
+
+        public string? ActionType => _mActionType.GetValue("actionType");
 
         /// <summary>
         /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
         /// </summary>
         [Input("approvalModel")]
-        public string? ApprovalModel;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalModel;
+
+        public string? ApprovalModel => _mApprovalModel.GetValue("approvalModel");
 
         /// <summary>
         /// The ARN of the budget action.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of a budget.
         /// </summary>
         [Input("budgetName")]
-        public string? BudgetName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetName;
+
+        public string? BudgetName => _mBudgetName.GetValue("budgetName");
 
         /// <summary>
         /// Specifies all of the type-specific parameters. See Definition.
         /// </summary>
         [Input("definition")]
-        public BudgetActionDefinition? Definition;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetActionDefinition> _mDefinition;
+
+        public Outputs.BudgetActionDefinition? Definition => _mDefinition.GetValue("definition");
 
         /// <summary>
         /// The role passed for action execution and reversion. Roles and actions must be in the same account.
         /// </summary>
         [Input("executionRoleArn")]
-        public string? ExecutionRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
 
         /// <summary>
         /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         /// </summary>
         [Input("notificationType")]
-        public string? NotificationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
+
+        public string? NotificationType => _mNotificationType.GetValue("notificationType");
 
         /// <summary>
         /// The status of the budget action.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// A list of subscribers. See Subscriber.
         /// </summary>
         [Input("subscribers")]
-        public List<BudgetActionSubscriber>? Subscribers;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BudgetActionSubscriber>> _mSubscribers;
+
+        public List<Outputs.BudgetActionSubscriber>? Subscribers => _mSubscribers.GetValue("subscribers");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:budgets/budgetAction:BudgetAction")]
+    public sealed class BudgetActionArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
+        /// </summary>
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// The trigger threshold of the action. See Action Threshold.
+        /// </summary>
+        [Input("actionThreshold")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BudgetActionActionThresholdArgs> _mActionThreshold;
+
+        public Inputs.BudgetActionActionThresholdArgs? ActionThreshold => _mActionThreshold.GetValue("actionThreshold");
+
+        /// <summary>
+        /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
+        /// </summary>
+        [Input("actionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mActionType;
+
+        public string? ActionType => _mActionType.GetValue("actionType");
+
+        /// <summary>
+        /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
+        /// </summary>
+        [Input("approvalModel")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalModel;
+
+        public string? ApprovalModel => _mApprovalModel.GetValue("approvalModel");
+
+        /// <summary>
+        /// The name of a budget.
+        /// </summary>
+        [Input("budgetName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetName;
+
+        public string? BudgetName => _mBudgetName.GetValue("budgetName");
+
+        /// <summary>
+        /// Specifies all of the type-specific parameters. See Definition.
+        /// </summary>
+        [Input("definition")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BudgetActionDefinitionArgs> _mDefinition;
+
+        public Inputs.BudgetActionDefinitionArgs? Definition => _mDefinition.GetValue("definition");
+
+        /// <summary>
+        /// The role passed for action execution and reversion. Roles and actions must be in the same account.
+        /// </summary>
+        [Input("executionRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
+
+        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+
+        /// <summary>
+        /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
+        /// </summary>
+        [Input("notificationType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
+
+        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+
+        /// <summary>
+        /// A list of subscribers. See Subscriber.
+        /// </summary>
+        [Input("subscribers")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BudgetActionSubscriberArgs>> _mSubscribers;
+
+        public List<Inputs.BudgetActionSubscriberArgs>? Subscribers => _mSubscribers.GetValue("subscribers");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,30 +11,73 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")]
-    public sealed class VpcIpamPreviewNextCidr : global::Pulumi.PolicyResource
+    public sealed class VpcIpamPreviewNextCidr : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The previewed CIDR from the pool.
         /// </summary>
         [Input("cidr")]
-        public string? Cidr;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+
+        public string? Cidr => _mCidr.GetValue("cidr");
 
         /// <summary>
         /// Exclude a particular CIDR range from being returned by the pool.
         /// </summary>
         [Input("disallowedCidrs")]
-        public List<string>? DisallowedCidrs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisallowedCidrs;
+
+        public List<string>? DisallowedCidrs => _mDisallowedCidrs.GetValue("disallowedCidrs");
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
         /// </summary>
         [Input("ipamPoolId")]
-        public string? IpamPoolId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
+
+        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
 
         /// <summary>
         /// The netmask length of the CIDR you would like to preview from the IPAM pool.
         /// </summary>
         [Input("netmaskLength")]
-        public int? NetmaskLength;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNetmaskLength;
+
+        public int? NetmaskLength => _mNetmaskLength.GetValue("netmaskLength");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")]
+    public sealed class VpcIpamPreviewNextCidrArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Exclude a particular CIDR range from being returned by the pool.
+        /// </summary>
+        [Input("disallowedCidrs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisallowedCidrs;
+
+        public List<string>? DisallowedCidrs => _mDisallowedCidrs.GetValue("disallowedCidrs");
+
+        /// <summary>
+        /// The ID of the pool to which you want to assign a CIDR.
+        /// </summary>
+        [Input("ipamPoolId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
+
+        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+
+        /// <summary>
+        /// The netmask length of the CIDR you would like to preview from the IPAM pool.
+        /// </summary>
+        [Input("netmaskLength")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mNetmaskLength;
+
+        public int? NetmaskLength => _mNetmaskLength.GetValue("netmaskLength");
     }
 }

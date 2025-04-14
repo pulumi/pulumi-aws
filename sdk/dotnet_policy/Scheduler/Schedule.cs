@@ -11,79 +11,115 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Scheduler
 {
     [PolicyResourceType("aws:scheduler/schedule:Schedule")]
-    public sealed class Schedule : global::Pulumi.PolicyResource
+    public sealed class Schedule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the schedule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Brief description of the schedule.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         /// </summary>
         [Input("endDate")]
-        public string? EndDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
+
+        public string? EndDate => _mEndDate.GetValue("endDate");
 
         /// <summary>
         /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
         /// </summary>
         [Input("flexibleTimeWindow")]
-        public ScheduleFlexibleTimeWindow? FlexibleTimeWindow;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleFlexibleTimeWindow> _mFlexibleTimeWindow;
+
+        public Outputs.ScheduleFlexibleTimeWindow? FlexibleTimeWindow => _mFlexibleTimeWindow.GetValue("flexibleTimeWindow");
 
         /// <summary>
         /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
         /// </summary>
         [Input("groupName")]
-        public string? GroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+
+        public string? GroupName => _mGroupName.GetValue("groupName");
 
         /// <summary>
         /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
         /// </summary>
         [Input("kmsKeyArn")]
-        public string? KmsKeyArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
 
         /// <summary>
         /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
-        public string? NamePrefix;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
 
         /// <summary>
         /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
         /// </summary>
         [Input("scheduleExpression")]
-        public string? ScheduleExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
+
+        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
 
         /// <summary>
         /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
         /// </summary>
         [Input("scheduleExpressionTimezone")]
-        public string? ScheduleExpressionTimezone;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpressionTimezone;
+
+        public string? ScheduleExpressionTimezone => _mScheduleExpressionTimezone.GetValue("scheduleExpressionTimezone");
 
         /// <summary>
         /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         /// </summary>
         [Input("startDate")]
-        public string? StartDate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
+
+        public string? StartDate => _mStartDate.GetValue("startDate");
 
         /// <summary>
         /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
@@ -91,6 +127,123 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler
         /// The following arguments are optional:
         /// </summary>
         [Input("target")]
-        public ScheduleTarget? Target;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduleTarget> _mTarget;
+
+        public Outputs.ScheduleTarget? Target => _mTarget.GetValue("target");
+    }
+
+    [PolicyResourceType("aws:scheduler/schedule:Schedule")]
+    public sealed class ScheduleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Brief description of the schedule.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
+        /// </summary>
+        [Input("endDate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
+
+        public string? EndDate => _mEndDate.GetValue("endDate");
+
+        /// <summary>
+        /// Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
+        /// </summary>
+        [Input("flexibleTimeWindow")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduleFlexibleTimeWindowArgs> _mFlexibleTimeWindow;
+
+        public Inputs.ScheduleFlexibleTimeWindowArgs? FlexibleTimeWindow => _mFlexibleTimeWindow.GetValue("flexibleTimeWindow");
+
+        /// <summary>
+        /// Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
+        /// </summary>
+        [Input("groupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+
+        public string? GroupName => _mGroupName.GetValue("groupName");
+
+        /// <summary>
+        /// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
+
+        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+
+        /// <summary>
+        /// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        /// </summary>
+        [Input("namePrefix")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
+
+        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+
+        /// <summary>
+        /// Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
+        /// </summary>
+        [Input("scheduleExpression")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
+
+        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+
+        /// <summary>
+        /// Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
+        /// </summary>
+        [Input("scheduleExpressionTimezone")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpressionTimezone;
+
+        public string? ScheduleExpressionTimezone => _mScheduleExpressionTimezone.GetValue("scheduleExpressionTimezone");
+
+        /// <summary>
+        /// The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
+        /// </summary>
+        [Input("startDate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
+
+        public string? StartDate => _mStartDate.GetValue("startDate");
+
+        /// <summary>
+        /// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+
+        /// <summary>
+        /// Configures the target of the schedule. Detailed below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("target")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduleTargetArgs> _mTarget;
+
+        public Inputs.ScheduleTargetArgs? Target => _mTarget.GetValue("target");
     }
 }

@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LB
 {
     [PolicyResourceType("aws:lb/trustStoreRevocation:TrustStoreRevocation")]
-    public sealed class TrustStoreRevocation : global::Pulumi.PolicyResource
+    public sealed class TrustStoreRevocation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// AWS assigned RevocationId, (number).
         /// </summary>
         [Input("revocationId")]
-        public int? RevocationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRevocationId;
+
+        public int? RevocationId => _mRevocationId.GetValue("revocationId");
 
         /// <summary>
         /// S3 Bucket name holding the client certificate CA bundle.
         /// </summary>
         [Input("revocationsS3Bucket")]
-        public string? RevocationsS3Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3Bucket;
+
+        public string? RevocationsS3Bucket => _mRevocationsS3Bucket.GetValue("revocationsS3Bucket");
 
         /// <summary>
         /// S3 object key holding the client certificate CA bundle.
         /// </summary>
         [Input("revocationsS3Key")]
-        public string? RevocationsS3Key;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3Key;
+
+        public string? RevocationsS3Key => _mRevocationsS3Key.GetValue("revocationsS3Key");
 
         /// <summary>
         /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
         [Input("revocationsS3ObjectVersion")]
-        public string? RevocationsS3ObjectVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3ObjectVersion;
+
+        public string? RevocationsS3ObjectVersion => _mRevocationsS3ObjectVersion.GetValue("revocationsS3ObjectVersion");
 
         /// <summary>
         /// Trust Store ARN.
         /// </summary>
         [Input("trustStoreArn")]
-        public string? TrustStoreArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustStoreArn;
+
+        public string? TrustStoreArn => _mTrustStoreArn.GetValue("trustStoreArn");
+    }
+
+    [PolicyResourceType("aws:lb/trustStoreRevocation:TrustStoreRevocation")]
+    public sealed class TrustStoreRevocationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// S3 Bucket name holding the client certificate CA bundle.
+        /// </summary>
+        [Input("revocationsS3Bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3Bucket;
+
+        public string? RevocationsS3Bucket => _mRevocationsS3Bucket.GetValue("revocationsS3Bucket");
+
+        /// <summary>
+        /// S3 object key holding the client certificate CA bundle.
+        /// </summary>
+        [Input("revocationsS3Key")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3Key;
+
+        public string? RevocationsS3Key => _mRevocationsS3Key.GetValue("revocationsS3Key");
+
+        /// <summary>
+        /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
+        /// </summary>
+        [Input("revocationsS3ObjectVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationsS3ObjectVersion;
+
+        public string? RevocationsS3ObjectVersion => _mRevocationsS3ObjectVersion.GetValue("revocationsS3ObjectVersion");
+
+        /// <summary>
+        /// Trust Store ARN.
+        /// </summary>
+        [Input("trustStoreArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTrustStoreArn;
+
+        public string? TrustStoreArn => _mTrustStoreArn.GetValue("trustStoreArn");
     }
 }

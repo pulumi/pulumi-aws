@@ -11,12 +11,28 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Iam
 {
     [PolicyResourceType("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences")]
-    public sealed class SecurityTokenServicePreferences : global::Pulumi.PolicyResource
+    public sealed class SecurityTokenServicePreferences : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
         /// </summary>
         [Input("globalEndpointTokenVersion")]
-        public string? GlobalEndpointTokenVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalEndpointTokenVersion;
+
+        public string? GlobalEndpointTokenVersion => _mGlobalEndpointTokenVersion.GetValue("globalEndpointTokenVersion");
+    }
+
+    [PolicyResourceType("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences")]
+    public sealed class SecurityTokenServicePreferencesArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
+        /// </summary>
+        [Input("globalEndpointTokenVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalEndpointTokenVersion;
+
+        public string? GlobalEndpointTokenVersion => _mGlobalEndpointTokenVersion.GetValue("globalEndpointTokenVersion");
     }
 }

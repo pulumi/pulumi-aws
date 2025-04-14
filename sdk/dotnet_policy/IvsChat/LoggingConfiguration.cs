@@ -11,42 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.IvsChat
 {
     [PolicyResourceType("aws:ivschat/loggingConfiguration:LoggingConfiguration")]
-    public sealed class LoggingConfiguration : global::Pulumi.PolicyResource
+    public sealed class LoggingConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Logging Configuration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         /// </summary>
         [Input("destinationConfiguration")]
-        public LoggingConfigurationDestinationConfiguration? DestinationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.LoggingConfigurationDestinationConfiguration> _mDestinationConfiguration;
+
+        public Outputs.LoggingConfigurationDestinationConfiguration? DestinationConfiguration => _mDestinationConfiguration.GetValue("destinationConfiguration");
 
         /// <summary>
         /// Logging Configuration name.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// State of the Logging Configuration.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ivschat/loggingConfiguration:LoggingConfiguration")]
+    public sealed class LoggingConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+        /// </summary>
+        [Input("destinationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.LoggingConfigurationDestinationConfigurationArgs> _mDestinationConfiguration;
+
+        public Inputs.LoggingConfigurationDestinationConfigurationArgs? DestinationConfiguration => _mDestinationConfiguration.GetValue("destinationConfiguration");
+
+        /// <summary>
+        /// Logging Configuration name.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,27 +11,36 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Eks
 {
     [PolicyResourceType("aws:eks/addon:Addon")]
-    public sealed class Addon : global::Pulumi.PolicyResource
+    public sealed class Addon : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
         /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Input("addonName")]
-        public string? AddonName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddonName;
+
+        public string? AddonName => _mAddonName.GetValue("addonName");
 
         /// <summary>
         /// The version of the EKS add-on. The version must
         /// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Input("addonVersion")]
-        public string? AddonVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddonVersion;
+
+        public string? AddonVersion => _mAddonVersion.GetValue("addonVersion");
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS add-on.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Name of the EKS Cluster.
@@ -39,55 +48,82 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// The following arguments are optional:
         /// </summary>
         [Input("clusterName")]
-        public string? ClusterName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
 
         /// <summary>
         /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         /// </summary>
         [Input("configurationValues")]
-        public string? ConfigurationValues;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationValues;
+
+        public string? ConfigurationValues => _mConfigurationValues.GetValue("configurationValues");
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         /// </summary>
         [Input("modifiedAt")]
-        public string? ModifiedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModifiedAt;
+
+        public string? ModifiedAt => _mModifiedAt.GetValue("modifiedAt");
 
         /// <summary>
         /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         /// </summary>
         [Input("podIdentityAssociations")]
-        public List<AddonPodIdentityAssociation>? PodIdentityAssociations;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AddonPodIdentityAssociation>> _mPodIdentityAssociations;
+
+        public List<Outputs.AddonPodIdentityAssociation>? PodIdentityAssociations => _mPodIdentityAssociations.GetValue("podIdentityAssociations");
 
         /// <summary>
         /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
         /// </summary>
         [Input("preserve")]
-        public bool? Preserve;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserve;
+
+        public bool? Preserve => _mPreserve.GetValue("preserve");
 
         /// <summary>
         /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflicts")]
-        public string? ResolveConflicts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolveConflicts;
+
+        public string? ResolveConflicts => _mResolveConflicts.GetValue("resolveConflicts");
 
         /// <summary>
         /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflictsOnCreate")]
-        public string? ResolveConflictsOnCreate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolveConflictsOnCreate;
+
+        public string? ResolveConflictsOnCreate => _mResolveConflictsOnCreate.GetValue("resolveConflictsOnCreate");
 
         /// <summary>
         /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflictsOnUpdate")]
-        public string? ResolveConflictsOnUpdate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolveConflictsOnUpdate;
+
+        public string? ResolveConflictsOnUpdate => _mResolveConflictsOnUpdate.GetValue("resolveConflictsOnUpdate");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an
@@ -103,18 +139,144 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// in the Amazon EKS User Guide.
         /// </summary>
         [Input("serviceAccountRoleArn")]
-        public string? ServiceAccountRoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountRoleArn;
+
+        public string? ServiceAccountRoleArn => _mServiceAccountRoleArn.GetValue("serviceAccountRoleArn");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:eks/addon:Addon")]
+    public sealed class AddonArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the EKS add-on. The name must match one of
+        /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
+        /// </summary>
+        [Input("addonName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddonName;
+
+        public string? AddonName => _mAddonName.GetValue("addonName");
+
+        /// <summary>
+        /// The version of the EKS add-on. The version must
+        /// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
+        /// </summary>
+        [Input("addonVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAddonVersion;
+
+        public string? AddonVersion => _mAddonVersion.GetValue("addonVersion");
+
+        /// <summary>
+        /// Name of the EKS Cluster.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("clusterName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
+
+        public string? ClusterName => _mClusterName.GetValue("clusterName");
+
+        /// <summary>
+        /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        /// </summary>
+        [Input("configurationValues")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationValues;
+
+        public string? ConfigurationValues => _mConfigurationValues.GetValue("configurationValues");
+
+        /// <summary>
+        /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        /// </summary>
+        [Input("podIdentityAssociations")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AddonPodIdentityAssociationArgs>> _mPodIdentityAssociations;
+
+        public List<Inputs.AddonPodIdentityAssociationArgs>? PodIdentityAssociations => _mPodIdentityAssociations.GetValue("podIdentityAssociations");
+
+        /// <summary>
+        /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+        /// </summary>
+        [Input("preserve")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserve;
+
+        public bool? Preserve => _mPreserve.GetValue("preserve");
+
+        /// <summary>
+        /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflicts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolveConflicts;
+
+        public string? ResolveConflicts => _mResolveConflicts.GetValue("resolveConflicts");
+
+        /// <summary>
+        /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnCreate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolveConflictsOnCreate;
+
+        public string? ResolveConflictsOnCreate => _mResolveConflictsOnCreate.GetValue("resolveConflictsOnCreate");
+
+        /// <summary>
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnUpdate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResolveConflictsOnUpdate;
+
+        public string? ResolveConflictsOnUpdate => _mResolveConflictsOnUpdate.GetValue("resolveConflictsOnUpdate");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an
+        /// existing IAM role to bind to the add-on's service account. The role must be
+        /// assigned the IAM permissions required by the add-on. If you don't specify
+        /// an existing IAM role, then the add-on uses the permissions assigned to the node
+        /// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        /// in the Amazon EKS User Guide.
+        /// 
+        /// &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        /// provider created for your cluster. For more information, [see Enabling IAM roles
+        /// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
+        /// in the Amazon EKS User Guide.
+        /// </summary>
+        [Input("serviceAccountRoleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountRoleArn;
+
+        public string? ServiceAccountRoleArn => _mServiceAccountRoleArn.GetValue("serviceAccountRoleArn");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

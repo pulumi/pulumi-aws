@@ -11,36 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/bucketAccessKey:BucketAccessKey")]
-    public sealed class BucketAccessKey : global::Pulumi.PolicyResource
+    public sealed class BucketAccessKey : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ID of the access key.
         /// </summary>
         [Input("accessKeyId")]
-        public string? AccessKeyId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKeyId;
+
+        public string? AccessKeyId => _mAccessKeyId.GetValue("accessKeyId");
 
         /// <summary>
         /// The name of the bucket that the new access key will belong to, and grant access to.
         /// </summary>
         [Input("bucketName")]
-        public string? BucketName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucketName");
 
         /// <summary>
         /// The timestamp when the access key was created.
         /// </summary>
         [Input("createdAt")]
-        public string? CreatedAt;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+
+        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
 
         /// <summary>
         /// The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         /// </summary>
         [Input("secretAccessKey")]
-        public string? SecretAccessKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretAccessKey;
+
+        public string? SecretAccessKey => _mSecretAccessKey.GetValue("secretAccessKey");
 
         /// <summary>
         /// The status of the access key.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
+    }
+
+    [PolicyResourceType("aws:lightsail/bucketAccessKey:BucketAccessKey")]
+    public sealed class BucketAccessKeyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the bucket that the new access key will belong to, and grant access to.
+        /// </summary>
+        [Input("bucketName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+
+        public string? BucketName => _mBucketName.GetValue("bucketName");
     }
 }

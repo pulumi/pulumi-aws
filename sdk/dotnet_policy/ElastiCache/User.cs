@@ -11,58 +11,85 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ElastiCache
 {
     [PolicyResourceType("aws:elasticache/user:User")]
-    public sealed class User : global::Pulumi.PolicyResource
+    public sealed class User : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         /// </summary>
         [Input("accessString")]
-        public string? AccessString;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessString;
+
+        public string? AccessString => _mAccessString.GetValue("accessString");
 
         /// <summary>
         /// The ARN of the created ElastiCache User.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Denotes the user's authentication properties. Detailed below.
         /// </summary>
         [Input("authenticationMode")]
-        public UserAuthenticationMode? AuthenticationMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.UserAuthenticationMode> _mAuthenticationMode;
+
+        public Outputs.UserAuthenticationMode? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
 
         /// <summary>
         /// The current supported values are `redis`, `valkey` (case insensitive).
         /// </summary>
         [Input("engine")]
-        public string? Engine;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
 
         /// <summary>
         /// Indicates a password is not required for this user.
         /// </summary>
         [Input("noPasswordRequired")]
-        public bool? NoPasswordRequired;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mNoPasswordRequired;
+
+        public bool? NoPasswordRequired => _mNoPasswordRequired.GetValue("noPasswordRequired");
 
         /// <summary>
         /// Passwords used for this user. You can create up to two passwords for each user.
         /// </summary>
         [Input("passwords")]
-        public List<string>? Passwords;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPasswords;
+
+        public List<string>? Passwords => _mPasswords.GetValue("passwords");
 
         /// <summary>
         /// A list of tags to be added to this resource. A tag is a key-value pair.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The ID of the user.
         /// </summary>
         [Input("userId")]
-        public string? UserId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
+
+        public string? UserId => _mUserId.GetValue("userId");
 
         /// <summary>
         /// The username of the user.
@@ -70,6 +97,87 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:elasticache/user:User")]
+    public sealed class UserArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
+        /// </summary>
+        [Input("accessString")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessString;
+
+        public string? AccessString => _mAccessString.GetValue("accessString");
+
+        /// <summary>
+        /// Denotes the user's authentication properties. Detailed below.
+        /// </summary>
+        [Input("authenticationMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.UserAuthenticationModeArgs> _mAuthenticationMode;
+
+        public Inputs.UserAuthenticationModeArgs? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
+
+        /// <summary>
+        /// The current supported values are `redis`, `valkey` (case insensitive).
+        /// </summary>
+        [Input("engine")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
+
+        public string? Engine => _mEngine.GetValue("engine");
+
+        /// <summary>
+        /// Indicates a password is not required for this user.
+        /// </summary>
+        [Input("noPasswordRequired")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mNoPasswordRequired;
+
+        public bool? NoPasswordRequired => _mNoPasswordRequired.GetValue("noPasswordRequired");
+
+        /// <summary>
+        /// Passwords used for this user. You can create up to two passwords for each user.
+        /// </summary>
+        [Input("passwords")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPasswords;
+
+        public List<string>? Passwords => _mPasswords.GetValue("passwords");
+
+        /// <summary>
+        /// A list of tags to be added to this resource. A tag is a key-value pair.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
+        [Input("userId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
+
+        public string? UserId => _mUserId.GetValue("userId");
+
+        /// <summary>
+        /// The username of the user.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

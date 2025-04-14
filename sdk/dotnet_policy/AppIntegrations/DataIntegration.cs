@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.AppIntegrations
 {
     [PolicyResourceType("aws:appintegrations/dataIntegration:DataIntegration")]
-    public sealed class DataIntegration : global::Pulumi.PolicyResource
+    public sealed class DataIntegration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Data Integration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Specifies the description of the Data Integration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
         /// </summary>
         [Input("kmsKey")]
-        public string? KmsKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
+
+        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
 
         /// <summary>
         /// Specifies the name of the Data Integration.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
         /// </summary>
         [Input("scheduleConfig")]
-        public DataIntegrationScheduleConfig? ScheduleConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DataIntegrationScheduleConfig> _mScheduleConfig;
+
+        public Outputs.DataIntegrationScheduleConfig? ScheduleConfig => _mScheduleConfig.GetValue("scheduleConfig");
 
         /// <summary>
         /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         /// </summary>
         [Input("sourceUri")]
-        public string? SourceUri;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceUri;
+
+        public string? SourceUri => _mSourceUri.GetValue("sourceUri");
 
         /// <summary>
         /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:appintegrations/dataIntegration:DataIntegration")]
+    public sealed class DataIntegrationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies the description of the Data Integration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+        /// </summary>
+        [Input("kmsKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
+
+        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+
+        /// <summary>
+        /// Specifies the name of the Data Integration.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+        /// </summary>
+        [Input("scheduleConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DataIntegrationScheduleConfigArgs> _mScheduleConfig;
+
+        public Inputs.DataIntegrationScheduleConfigArgs? ScheduleConfig => _mScheduleConfig.GetValue("scheduleConfig");
+
+        /// <summary>
+        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        /// </summary>
+        [Input("sourceUri")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceUri;
+
+        public string? SourceUri => _mSourceUri.GetValue("sourceUri");
+
+        /// <summary>
+        /// Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

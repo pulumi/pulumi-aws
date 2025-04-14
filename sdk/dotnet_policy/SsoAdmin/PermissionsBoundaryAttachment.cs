@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SsoAdmin
 {
     [PolicyResourceType("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment")]
-    public sealed class PermissionsBoundaryAttachment : global::Pulumi.PolicyResource
+    public sealed class PermissionsBoundaryAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Input("instanceArn")]
-        public string? InstanceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
         [Input("permissionSetArn")]
-        public string? PermissionSetArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
+
+        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
 
         /// <summary>
         /// The permissions boundary policy. See below.
         /// </summary>
         [Input("permissionsBoundary")]
-        public PermissionsBoundaryAttachmentPermissionsBoundary? PermissionsBoundary;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.PermissionsBoundaryAttachmentPermissionsBoundary> _mPermissionsBoundary;
+
+        public Outputs.PermissionsBoundaryAttachmentPermissionsBoundary? PermissionsBoundary => _mPermissionsBoundary.GetValue("permissionsBoundary");
+    }
+
+    [PolicyResourceType("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment")]
+    public sealed class PermissionsBoundaryAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// </summary>
+        [Input("instanceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
+
+        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// </summary>
+        [Input("permissionSetArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
+
+        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+
+        /// <summary>
+        /// The permissions boundary policy. See below.
+        /// </summary>
+        [Input("permissionsBoundary")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs> _mPermissionsBoundary;
+
+        public Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs? PermissionsBoundary => _mPermissionsBoundary.GetValue("permissionsBoundary");
     }
 }

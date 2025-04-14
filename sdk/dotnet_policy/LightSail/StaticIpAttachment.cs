@@ -11,24 +11,55 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LightSail
 {
     [PolicyResourceType("aws:lightsail/staticIpAttachment:StaticIpAttachment")]
-    public sealed class StaticIpAttachment : global::Pulumi.PolicyResource
+    public sealed class StaticIpAttachment : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The name of the Lightsail instance to attach the IP to
         /// </summary>
         [Input("instanceName")]
-        public string? InstanceName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
+
+        public string? InstanceName => _mInstanceName.GetValue("instanceName");
 
         /// <summary>
         /// The allocated static IP address
         /// </summary>
         [Input("ipAddress")]
-        public string? IpAddress;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
+
+        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
 
         /// <summary>
         /// The name of the allocated static IP
         /// </summary>
         [Input("staticIpName")]
-        public string? StaticIpName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStaticIpName;
+
+        public string? StaticIpName => _mStaticIpName.GetValue("staticIpName");
+    }
+
+    [PolicyResourceType("aws:lightsail/staticIpAttachment:StaticIpAttachment")]
+    public sealed class StaticIpAttachmentArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name of the Lightsail instance to attach the IP to
+        /// </summary>
+        [Input("instanceName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
+
+        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+
+        /// <summary>
+        /// The name of the allocated static IP
+        /// </summary>
+        [Input("staticIpName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStaticIpName;
+
+        public string? StaticIpName => _mStaticIpName.GetValue("staticIpName");
     }
 }

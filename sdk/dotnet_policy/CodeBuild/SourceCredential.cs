@@ -11,13 +11,16 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeBuild
 {
     [PolicyResourceType("aws:codebuild/sourceCredential:SourceCredential")]
-    public sealed class SourceCredential : global::Pulumi.PolicyResource
+    public sealed class SourceCredential : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of Source Credential.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
@@ -25,13 +28,19 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
         /// </summary>
         [Input("authType")]
-        public string? AuthType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
+
+        public string? AuthType => _mAuthType.GetValue("authType");
 
         /// <summary>
         /// The source provider used for this project.
         /// </summary>
         [Input("serverType")]
-        public string? ServerType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerType;
+
+        public string? ServerType => _mServerType.GetValue("serverType");
 
         /// <summary>
         /// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -39,13 +48,64 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// Connection ARN.
         /// </summary>
         [Input("token")]
-        public string? Token;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
+
+        public string? Token => _mToken.GetValue("token");
 
         /// <summary>
         /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
         /// other types of source providers or connections.
         /// </summary>
         [Input("userName")]
-        public string? UserName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
+    }
+
+    [PolicyResourceType("aws:codebuild/sourceCredential:SourceCredential")]
+    public sealed class SourceCredentialArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
+        /// repository. Valid values are `BASIC_AUTH`,
+        /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        /// </summary>
+        [Input("authType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
+
+        public string? AuthType => _mAuthType.GetValue("authType");
+
+        /// <summary>
+        /// The source provider used for this project.
+        /// </summary>
+        [Input("serverType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServerType;
+
+        public string? ServerType => _mServerType.GetValue("serverType");
+
+        /// <summary>
+        /// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
+        /// app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
+        /// Connection ARN.
+        /// </summary>
+        [Input("token")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
+
+        public string? Token => _mToken.GetValue("token");
+
+        /// <summary>
+        /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
+        /// other types of source providers or connections.
+        /// </summary>
+        [Input("userName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
+
+        public string? UserName => _mUserName.GetValue("userName");
     }
 }

@@ -11,75 +11,202 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Sagemaker
 {
     [PolicyResourceType("aws:sagemaker/featureGroup:FeatureGroup")]
-    public sealed class FeatureGroup : global::Pulumi.PolicyResource
+    public sealed class FeatureGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A free-form description of a Feature Group.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// The name of the feature that stores the EventTime of a Record in a Feature Group.
         /// </summary>
         [Input("eventTimeFeatureName")]
-        public string? EventTimeFeatureName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventTimeFeatureName;
+
+        public string? EventTimeFeatureName => _mEventTimeFeatureName.GetValue("eventTimeFeatureName");
 
         /// <summary>
         /// A list of Feature names and types. See Feature Definition Below.
         /// </summary>
         [Input("featureDefinitions")]
-        public List<FeatureGroupFeatureDefinition>? FeatureDefinitions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FeatureGroupFeatureDefinition>> _mFeatureDefinitions;
+
+        public List<Outputs.FeatureGroupFeatureDefinition>? FeatureDefinitions => _mFeatureDefinitions.GetValue("featureDefinitions");
 
         /// <summary>
         /// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
         /// </summary>
         [Input("featureGroupName")]
-        public string? FeatureGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureGroupName;
+
+        public string? FeatureGroupName => _mFeatureGroupName.GetValue("featureGroupName");
 
         /// <summary>
         /// The Offline Feature Store Configuration. See Offline Store Config Below.
         /// </summary>
         [Input("offlineStoreConfig")]
-        public FeatureGroupOfflineStoreConfig? OfflineStoreConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FeatureGroupOfflineStoreConfig> _mOfflineStoreConfig;
+
+        public Outputs.FeatureGroupOfflineStoreConfig? OfflineStoreConfig => _mOfflineStoreConfig.GetValue("offlineStoreConfig");
 
         /// <summary>
         /// The Online Feature Store Configuration. See Online Store Config Below.
         /// </summary>
         [Input("onlineStoreConfig")]
-        public FeatureGroupOnlineStoreConfig? OnlineStoreConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FeatureGroupOnlineStoreConfig> _mOnlineStoreConfig;
+
+        public Outputs.FeatureGroupOnlineStoreConfig? OnlineStoreConfig => _mOnlineStoreConfig.GetValue("onlineStoreConfig");
 
         /// <summary>
         /// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         /// </summary>
         [Input("recordIdentifierFeatureName")]
-        public string? RecordIdentifierFeatureName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecordIdentifierFeatureName;
+
+        public string? RecordIdentifierFeatureName => _mRecordIdentifierFeatureName.GetValue("recordIdentifierFeatureName");
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         /// </summary>
         [Input("roleArn")]
-        public string? RoleArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
 
         /// <summary>
         /// Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("throughputConfig")]
-        public FeatureGroupThroughputConfig? ThroughputConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.FeatureGroupThroughputConfig> _mThroughputConfig;
+
+        public Outputs.FeatureGroupThroughputConfig? ThroughputConfig => _mThroughputConfig.GetValue("throughputConfig");
+    }
+
+    [PolicyResourceType("aws:sagemaker/featureGroup:FeatureGroup")]
+    public sealed class FeatureGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A free-form description of a Feature Group.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// The name of the feature that stores the EventTime of a Record in a Feature Group.
+        /// </summary>
+        [Input("eventTimeFeatureName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mEventTimeFeatureName;
+
+        public string? EventTimeFeatureName => _mEventTimeFeatureName.GetValue("eventTimeFeatureName");
+
+        /// <summary>
+        /// A list of Feature names and types. See Feature Definition Below.
+        /// </summary>
+        [Input("featureDefinitions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FeatureGroupFeatureDefinitionArgs>> _mFeatureDefinitions;
+
+        public List<Inputs.FeatureGroupFeatureDefinitionArgs>? FeatureDefinitions => _mFeatureDefinitions.GetValue("featureDefinitions");
+
+        /// <summary>
+        /// The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
+        /// </summary>
+        [Input("featureGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureGroupName;
+
+        public string? FeatureGroupName => _mFeatureGroupName.GetValue("featureGroupName");
+
+        /// <summary>
+        /// The Offline Feature Store Configuration. See Offline Store Config Below.
+        /// </summary>
+        [Input("offlineStoreConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FeatureGroupOfflineStoreConfigArgs> _mOfflineStoreConfig;
+
+        public Inputs.FeatureGroupOfflineStoreConfigArgs? OfflineStoreConfig => _mOfflineStoreConfig.GetValue("offlineStoreConfig");
+
+        /// <summary>
+        /// The Online Feature Store Configuration. See Online Store Config Below.
+        /// </summary>
+        [Input("onlineStoreConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FeatureGroupOnlineStoreConfigArgs> _mOnlineStoreConfig;
+
+        public Inputs.FeatureGroupOnlineStoreConfigArgs? OnlineStoreConfig => _mOnlineStoreConfig.GetValue("onlineStoreConfig");
+
+        /// <summary>
+        /// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
+        /// </summary>
+        [Input("recordIdentifierFeatureName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecordIdentifierFeatureName;
+
+        public string? RecordIdentifierFeatureName => _mRecordIdentifierFeatureName.GetValue("recordIdentifierFeatureName");
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        /// </summary>
+        [Input("roleArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+
+        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+
+        /// <summary>
+        /// Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        [Input("throughputConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.FeatureGroupThroughputConfigArgs> _mThroughputConfig;
+
+        public Inputs.FeatureGroupThroughputConfigArgs? ThroughputConfig => _mThroughputConfig.GetValue("throughputConfig");
     }
 }

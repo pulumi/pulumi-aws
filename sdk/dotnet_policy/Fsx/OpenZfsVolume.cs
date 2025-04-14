@@ -11,99 +11,274 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Fsx
 {
     [PolicyResourceType("aws:fsx/openZfsVolume:OpenZfsVolume")]
-    public sealed class OpenZfsVolume : global::Pulumi.PolicyResource
+    public sealed class OpenZfsVolume : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         /// </summary>
         [Input("copyTagsToSnapshots")]
-        public bool? CopyTagsToSnapshots;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshots;
+
+        public bool? CopyTagsToSnapshots => _mCopyTagsToSnapshots.GetValue("copyTagsToSnapshots");
 
         /// <summary>
         /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         /// </summary>
         [Input("dataCompressionType")]
-        public string? DataCompressionType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataCompressionType;
+
+        public string? DataCompressionType => _mDataCompressionType.GetValue("dataCompressionType");
 
         /// <summary>
         /// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         /// </summary>
         [Input("deleteVolumeOptions")]
-        public string? DeleteVolumeOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeleteVolumeOptions;
+
+        public string? DeleteVolumeOptions => _mDeleteVolumeOptions.GetValue("deleteVolumeOptions");
 
         /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
         /// </summary>
         [Input("nfsExports")]
-        public OpenZfsVolumeNfsExports? NfsExports;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OpenZfsVolumeNfsExports> _mNfsExports;
+
+        public Outputs.OpenZfsVolumeNfsExports? NfsExports => _mNfsExports.GetValue("nfsExports");
 
         /// <summary>
         /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
         /// </summary>
         [Input("originSnapshot")]
-        public OpenZfsVolumeOriginSnapshot? OriginSnapshot;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.OpenZfsVolumeOriginSnapshot> _mOriginSnapshot;
+
+        public Outputs.OpenZfsVolumeOriginSnapshot? OriginSnapshot => _mOriginSnapshot.GetValue("originSnapshot");
 
         /// <summary>
         /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
         /// </summary>
         [Input("parentVolumeId")]
-        public string? ParentVolumeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentVolumeId;
+
+        public string? ParentVolumeId => _mParentVolumeId.GetValue("parentVolumeId");
 
         /// <summary>
         /// specifies whether the volume is read-only. Default is false.
         /// </summary>
         [Input("readOnly")]
-        public bool? ReadOnly;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnly;
+
+        public bool? ReadOnly => _mReadOnly.GetValue("readOnly");
 
         /// <summary>
         /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
         /// </summary>
         [Input("recordSizeKib")]
-        public int? RecordSizeKib;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRecordSizeKib;
+
+        public int? RecordSizeKib => _mRecordSizeKib.GetValue("recordSizeKib");
 
         /// <summary>
         /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Input("storageCapacityQuotaGib")]
-        public int? StorageCapacityQuotaGib;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacityQuotaGib;
+
+        public int? StorageCapacityQuotaGib => _mStorageCapacityQuotaGib.GetValue("storageCapacityQuotaGib");
 
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         /// </summary>
         [Input("storageCapacityReservationGib")]
-        public int? StorageCapacityReservationGib;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacityReservationGib;
+
+        public int? StorageCapacityReservationGib => _mStorageCapacityReservationGib.GetValue("storageCapacityReservationGib");
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
         /// </summary>
         [Input("userAndGroupQuotas")]
-        public List<OpenZfsVolumeUserAndGroupQuota>? UserAndGroupQuotas;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OpenZfsVolumeUserAndGroupQuota>> _mUserAndGroupQuotas;
+
+        public List<Outputs.OpenZfsVolumeUserAndGroupQuota>? UserAndGroupQuotas => _mUserAndGroupQuotas.GetValue("userAndGroupQuotas");
 
         [Input("volumeType")]
-        public string? VolumeType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
+
+        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+    }
+
+    [PolicyResourceType("aws:fsx/openZfsVolume:OpenZfsVolume")]
+    public sealed class OpenZfsVolumeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// </summary>
+        [Input("copyTagsToSnapshots")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshots;
+
+        public bool? CopyTagsToSnapshots => _mCopyTagsToSnapshots.GetValue("copyTagsToSnapshots");
+
+        /// <summary>
+        /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        /// </summary>
+        [Input("dataCompressionType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDataCompressionType;
+
+        public string? DataCompressionType => _mDataCompressionType.GetValue("dataCompressionType");
+
+        /// <summary>
+        /// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+        /// </summary>
+        [Input("deleteVolumeOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDeleteVolumeOptions;
+
+        public string? DeleteVolumeOptions => _mDeleteVolumeOptions.GetValue("deleteVolumeOptions");
+
+        /// <summary>
+        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
+        /// </summary>
+        [Input("nfsExports")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OpenZfsVolumeNfsExportsArgs> _mNfsExports;
+
+        public Inputs.OpenZfsVolumeNfsExportsArgs? NfsExports => _mNfsExports.GetValue("nfsExports");
+
+        /// <summary>
+        /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
+        /// </summary>
+        [Input("originSnapshot")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.OpenZfsVolumeOriginSnapshotArgs> _mOriginSnapshot;
+
+        public Inputs.OpenZfsVolumeOriginSnapshotArgs? OriginSnapshot => _mOriginSnapshot.GetValue("originSnapshot");
+
+        /// <summary>
+        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+        /// </summary>
+        [Input("parentVolumeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentVolumeId;
+
+        public string? ParentVolumeId => _mParentVolumeId.GetValue("parentVolumeId");
+
+        /// <summary>
+        /// specifies whether the volume is read-only. Default is false.
+        /// </summary>
+        [Input("readOnly")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnly;
+
+        public bool? ReadOnly => _mReadOnly.GetValue("readOnly");
+
+        /// <summary>
+        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// </summary>
+        [Input("recordSizeKib")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRecordSizeKib;
+
+        public int? RecordSizeKib => _mRecordSizeKib.GetValue("recordSizeKib");
+
+        /// <summary>
+        /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        /// </summary>
+        [Input("storageCapacityQuotaGib")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacityQuotaGib;
+
+        public int? StorageCapacityQuotaGib => _mStorageCapacityQuotaGib.GetValue("storageCapacityQuotaGib");
+
+        /// <summary>
+        /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        /// </summary>
+        [Input("storageCapacityReservationGib")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacityReservationGib;
+
+        public int? StorageCapacityReservationGib => _mStorageCapacityReservationGib.GetValue("storageCapacityReservationGib");
+
+        /// <summary>
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
+        /// </summary>
+        [Input("userAndGroupQuotas")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs>> _mUserAndGroupQuotas;
+
+        public List<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs>? UserAndGroupQuotas => _mUserAndGroupQuotas.GetValue("userAndGroupQuotas");
+
+        [Input("volumeType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
+
+        public string? VolumeType => _mVolumeType.GetValue("volumeType");
     }
 }

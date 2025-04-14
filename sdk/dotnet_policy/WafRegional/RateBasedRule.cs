@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.WafRegional
 {
     [PolicyResourceType("aws:wafregional/rateBasedRule:RateBasedRule")]
-    public sealed class RateBasedRule : global::Pulumi.PolicyResource
+    public sealed class RateBasedRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the WAF Regional Rate Based Rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
         /// </summary>
         [Input("metricName")]
-        public string? MetricName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
+
+        public string? MetricName => _mMetricName.GetValue("metricName");
 
         /// <summary>
         /// The name or description of the rule.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The objects to include in a rule (documented below).
         /// </summary>
         [Input("predicates")]
-        public List<RateBasedRulePredicate>? Predicates;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RateBasedRulePredicate>> _mPredicates;
+
+        public List<Outputs.RateBasedRulePredicate>? Predicates => _mPredicates.GetValue("predicates");
 
         /// <summary>
         /// Valid value is IP.
         /// </summary>
         [Input("rateKey")]
-        public string? RateKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRateKey;
+
+        public string? RateKey => _mRateKey.GetValue("rateKey");
 
         /// <summary>
         /// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         /// </summary>
         [Input("rateLimit")]
-        public int? RateLimit;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRateLimit;
+
+        public int? RateLimit => _mRateLimit.GetValue("rateLimit");
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:wafregional/rateBasedRule:RateBasedRule")]
+    public sealed class RateBasedRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name or description for the Amazon CloudWatch metric of this rule.
+        /// </summary>
+        [Input("metricName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
+
+        public string? MetricName => _mMetricName.GetValue("metricName");
+
+        /// <summary>
+        /// The name or description of the rule.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The objects to include in a rule (documented below).
+        /// </summary>
+        [Input("predicates")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RateBasedRulePredicateArgs>> _mPredicates;
+
+        public List<Inputs.RateBasedRulePredicateArgs>? Predicates => _mPredicates.GetValue("predicates");
+
+        /// <summary>
+        /// Valid value is IP.
+        /// </summary>
+        [Input("rateKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRateKey;
+
+        public string? RateKey => _mRateKey.GetValue("rateKey");
+
+        /// <summary>
+        /// The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
+        /// </summary>
+        [Input("rateLimit")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mRateLimit;
+
+        public int? RateLimit => _mRateLimit.GetValue("rateLimit");
+
+        /// <summary>
+        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

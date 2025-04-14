@@ -11,25 +11,34 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CodeGuruProfiler
 {
     [PolicyResourceType("aws:codeguruprofiler/profilingGroup:ProfilingGroup")]
-    public sealed class ProfilingGroup : global::Pulumi.PolicyResource
+    public sealed class ProfilingGroup : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         /// </summary>
         [Input("agentOrchestrationConfig")]
-        public ProfilingGroupAgentOrchestrationConfig? AgentOrchestrationConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfilingGroupAgentOrchestrationConfig> _mAgentOrchestrationConfig;
+
+        public Outputs.ProfilingGroupAgentOrchestrationConfig? AgentOrchestrationConfig => _mAgentOrchestrationConfig.GetValue("agentOrchestrationConfig");
 
         /// <summary>
         /// ARN of the profiling group.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Compute platform of the profiling group.
         /// </summary>
         [Input("computePlatform")]
-        public string? ComputePlatform;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
+
+        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
 
         /// <summary>
         /// Name of the profiling group.
@@ -37,18 +46,69 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruProfiler
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:codeguruprofiler/profilingGroup:ProfilingGroup")]
+    public sealed class ProfilingGroupArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
+        /// </summary>
+        [Input("agentOrchestrationConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfilingGroupAgentOrchestrationConfigArgs> _mAgentOrchestrationConfig;
+
+        public Inputs.ProfilingGroupAgentOrchestrationConfigArgs? AgentOrchestrationConfig => _mAgentOrchestrationConfig.GetValue("agentOrchestrationConfig");
+
+        /// <summary>
+        /// Compute platform of the profiling group.
+        /// </summary>
+        [Input("computePlatform")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
+
+        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
+
+        /// <summary>
+        /// Name of the profiling group.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

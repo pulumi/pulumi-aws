@@ -11,72 +11,190 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery
 {
     [PolicyResourceType("aws:servicediscovery/service:Service")]
-    public sealed class Service : global::Pulumi.PolicyResource
+    public sealed class Service : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the service.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The description of the service.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         /// </summary>
         [Input("dnsConfig")]
-        public ServiceDnsConfig? DnsConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceDnsConfig> _mDnsConfig;
+
+        public Outputs.ServiceDnsConfig? DnsConfig => _mDnsConfig.GetValue("dnsConfig");
 
         /// <summary>
         /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
         /// </summary>
         [Input("forceDestroy")]
-        public bool? ForceDestroy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
 
         /// <summary>
         /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
         /// </summary>
         [Input("healthCheckConfig")]
-        public ServiceHealthCheckConfig? HealthCheckConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceHealthCheckConfig> _mHealthCheckConfig;
+
+        public Outputs.ServiceHealthCheckConfig? HealthCheckConfig => _mHealthCheckConfig.GetValue("healthCheckConfig");
 
         /// <summary>
         /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
         /// </summary>
         [Input("healthCheckCustomConfig")]
-        public ServiceHealthCheckCustomConfig? HealthCheckCustomConfig;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceHealthCheckCustomConfig> _mHealthCheckCustomConfig;
+
+        public Outputs.ServiceHealthCheckCustomConfig? HealthCheckCustomConfig => _mHealthCheckCustomConfig.GetValue("healthCheckCustomConfig");
 
         /// <summary>
         /// The name of the service.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The ID of the namespace that you want to use to create the service.
         /// </summary>
         [Input("namespaceId")]
-        public string? NamespaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceId;
+
+        public string? NamespaceId => _mNamespaceId.GetValue("namespaceId");
 
         /// <summary>
         /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
         /// </summary>
         [Input("type")]
-        public string? Type;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
+    }
+
+    [PolicyResourceType("aws:servicediscovery/service:Service")]
+    public sealed class ServiceArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The description of the service.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+        /// </summary>
+        [Input("dnsConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceDnsConfigArgs> _mDnsConfig;
+
+        public Inputs.ServiceDnsConfigArgs? DnsConfig => _mDnsConfig.GetValue("dnsConfig");
+
+        /// <summary>
+        /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
+        /// </summary>
+        [Input("forceDestroy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+
+        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+
+        /// <summary>
+        /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+        /// </summary>
+        [Input("healthCheckConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceHealthCheckConfigArgs> _mHealthCheckConfig;
+
+        public Inputs.ServiceHealthCheckConfigArgs? HealthCheckConfig => _mHealthCheckConfig.GetValue("healthCheckConfig");
+
+        /// <summary>
+        /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
+        /// </summary>
+        [Input("healthCheckCustomConfig")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceHealthCheckCustomConfigArgs> _mHealthCheckCustomConfig;
+
+        public Inputs.ServiceHealthCheckCustomConfigArgs? HealthCheckCustomConfig => _mHealthCheckCustomConfig.GetValue("healthCheckCustomConfig");
+
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The ID of the namespace that you want to use to create the service.
+        /// </summary>
+        [Input("namespaceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceId;
+
+        public string? NamespaceId => _mNamespaceId.GetValue("namespaceId");
+
+        /// <summary>
+        /// A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+        /// </summary>
+        [Input("type")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+
+        public string? Type => _mType.GetValue("type");
     }
 }

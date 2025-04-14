@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Glue
 {
     [PolicyResourceType("aws:glue/classifier:Classifier")]
-    public sealed class Classifier : global::Pulumi.PolicyResource
+    public sealed class Classifier : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// A classifier for CSV content. Defined below.
         /// </summary>
         [Input("csvClassifier")]
-        public ClassifierCsvClassifier? CsvClassifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassifierCsvClassifier> _mCsvClassifier;
+
+        public Outputs.ClassifierCsvClassifier? CsvClassifier => _mCsvClassifier.GetValue("csvClassifier");
 
         /// <summary>
         /// A classifier that uses grok patterns. Defined below.
         /// </summary>
         [Input("grokClassifier")]
-        public ClassifierGrokClassifier? GrokClassifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassifierGrokClassifier> _mGrokClassifier;
+
+        public Outputs.ClassifierGrokClassifier? GrokClassifier => _mGrokClassifier.GetValue("grokClassifier");
 
         /// <summary>
         /// A classifier for JSON content. Defined below.
         /// </summary>
         [Input("jsonClassifier")]
-        public ClassifierJsonClassifier? JsonClassifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassifierJsonClassifier> _mJsonClassifier;
+
+        public Outputs.ClassifierJsonClassifier? JsonClassifier => _mJsonClassifier.GetValue("jsonClassifier");
 
         /// <summary>
         /// The name of the classifier.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// A classifier for XML content. Defined below.
         /// </summary>
         [Input("xmlClassifier")]
-        public ClassifierXmlClassifier? XmlClassifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassifierXmlClassifier> _mXmlClassifier;
+
+        public Outputs.ClassifierXmlClassifier? XmlClassifier => _mXmlClassifier.GetValue("xmlClassifier");
+    }
+
+    [PolicyResourceType("aws:glue/classifier:Classifier")]
+    public sealed class ClassifierArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// A classifier for CSV content. Defined below.
+        /// </summary>
+        [Input("csvClassifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassifierCsvClassifierArgs> _mCsvClassifier;
+
+        public Inputs.ClassifierCsvClassifierArgs? CsvClassifier => _mCsvClassifier.GetValue("csvClassifier");
+
+        /// <summary>
+        /// A classifier that uses grok patterns. Defined below.
+        /// </summary>
+        [Input("grokClassifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassifierGrokClassifierArgs> _mGrokClassifier;
+
+        public Inputs.ClassifierGrokClassifierArgs? GrokClassifier => _mGrokClassifier.GetValue("grokClassifier");
+
+        /// <summary>
+        /// A classifier for JSON content. Defined below.
+        /// </summary>
+        [Input("jsonClassifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassifierJsonClassifierArgs> _mJsonClassifier;
+
+        public Inputs.ClassifierJsonClassifierArgs? JsonClassifier => _mJsonClassifier.GetValue("jsonClassifier");
+
+        /// <summary>
+        /// The name of the classifier.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// A classifier for XML content. Defined below.
+        /// </summary>
+        [Input("xmlClassifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassifierXmlClassifierArgs> _mXmlClassifier;
+
+        public Inputs.ClassifierXmlClassifierArgs? XmlClassifier => _mXmlClassifier.GetValue("xmlClassifier");
     }
 }

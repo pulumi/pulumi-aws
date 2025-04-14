@@ -11,19 +11,25 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.NetworkMonitor
 {
     [PolicyResourceType("aws:networkmonitor/monitor:Monitor")]
-    public sealed class Monitor : global::Pulumi.PolicyResource
+    public sealed class Monitor : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
         /// </summary>
         [Input("aggregationPeriod")]
-        public int? AggregationPeriod;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAggregationPeriod;
+
+        public int? AggregationPeriod => _mAggregationPeriod.GetValue("aggregationPeriod");
 
         /// <summary>
         /// The ARN of the monitor.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The name of the monitor.
@@ -31,18 +37,60 @@ namespace Pulumi.PolicyPacks.Aws.NetworkMonitor
         /// The following arguments are optional:
         /// </summary>
         [Input("monitorName")]
-        public string? MonitorName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
+
+        public string? MonitorName => _mMonitorName.GetValue("monitorName");
 
         /// <summary>
         /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:networkmonitor/monitor:Monitor")]
+    public sealed class MonitorArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
+        /// </summary>
+        [Input("aggregationPeriod")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mAggregationPeriod;
+
+        public int? AggregationPeriod => _mAggregationPeriod.GetValue("aggregationPeriod");
+
+        /// <summary>
+        /// The name of the monitor.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("monitorName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorName;
+
+        public string? MonitorName => _mMonitorName.GetValue("monitorName");
+
+        /// <summary>
+        /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

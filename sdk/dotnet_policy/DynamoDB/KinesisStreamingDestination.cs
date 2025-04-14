@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.DynamoDB
 {
     [PolicyResourceType("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")]
-    public sealed class KinesisStreamingDestination : global::Pulumi.PolicyResource
+    public sealed class KinesisStreamingDestination : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         /// </summary>
         [Input("approximateCreationDateTimePrecision")]
-        public string? ApproximateCreationDateTimePrecision;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApproximateCreationDateTimePrecision;
+
+        public string? ApproximateCreationDateTimePrecision => _mApproximateCreationDateTimePrecision.GetValue("approximateCreationDateTimePrecision");
 
         /// <summary>
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         /// </summary>
         [Input("streamArn")]
-        public string? StreamArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
+
+        public string? StreamArn => _mStreamArn.GetValue("streamArn");
 
         /// <summary>
         /// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         /// </summary>
         [Input("tableName")]
-        public string? TableName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
+    }
+
+    [PolicyResourceType("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")]
+    public sealed class KinesisStreamingDestinationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+        /// </summary>
+        [Input("approximateCreationDateTimePrecision")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApproximateCreationDateTimePrecision;
+
+        public string? ApproximateCreationDateTimePrecision => _mApproximateCreationDateTimePrecision.GetValue("approximateCreationDateTimePrecision");
+
+        /// <summary>
+        /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
+        /// </summary>
+        [Input("streamArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
+
+        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+
+        /// <summary>
+        /// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
+        /// </summary>
+        [Input("tableName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
+
+        public string? TableName => _mTableName.GetValue("tableName");
     }
 }

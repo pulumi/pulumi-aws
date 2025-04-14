@@ -11,144 +11,370 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Amplify
 {
     [PolicyResourceType("aws:amplify/branch:Branch")]
-    public sealed class Branch : global::Pulumi.PolicyResource
+    public sealed class Branch : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId")]
-        public string? AppId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
+
+        public string? AppId => _mAppId.GetValue("appId");
 
         /// <summary>
         /// ARN for the branch.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// A list of custom resources that are linked to this branch.
         /// </summary>
         [Input("associatedResources")]
-        public List<string>? AssociatedResources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAssociatedResources;
+
+        public List<string>? AssociatedResources => _mAssociatedResources.GetValue("associatedResources");
 
         /// <summary>
         /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
         [Input("backendEnvironmentArn")]
-        public string? BackendEnvironmentArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackendEnvironmentArn;
+
+        public string? BackendEnvironmentArn => _mBackendEnvironmentArn.GetValue("backendEnvironmentArn");
 
         /// <summary>
         /// Basic authorization credentials for the branch.
         /// </summary>
         [Input("basicAuthCredentials")]
-        public string? BasicAuthCredentials;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
+
+        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
 
         /// <summary>
         /// Name for the branch.
         /// </summary>
         [Input("branchName")]
-        public string? BranchName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
+
+        public string? BranchName => _mBranchName.GetValue("branchName");
 
         /// <summary>
         /// Custom domains for the branch.
         /// </summary>
         [Input("customDomains")]
-        public List<string>? CustomDomains;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDomains;
+
+        public List<string>? CustomDomains => _mCustomDomains.GetValue("customDomains");
 
         /// <summary>
         /// Description for the branch.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Destination branch if the branch is a pull request branch.
         /// </summary>
         [Input("destinationBranch")]
-        public string? DestinationBranch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationBranch;
+
+        public string? DestinationBranch => _mDestinationBranch.GetValue("destinationBranch");
 
         /// <summary>
         /// Display name for a branch. This is used as the default domain prefix.
         /// </summary>
         [Input("displayName")]
-        public string? DisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
 
         /// <summary>
         /// Enables auto building for the branch.
         /// </summary>
         [Input("enableAutoBuild")]
-        public bool? EnableAutoBuild;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBuild;
+
+        public bool? EnableAutoBuild => _mEnableAutoBuild.GetValue("enableAutoBuild");
 
         /// <summary>
         /// Enables basic authorization for the branch.
         /// </summary>
         [Input("enableBasicAuth")]
-        public bool? EnableBasicAuth;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
+
+        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
 
         /// <summary>
         /// Enables notifications for the branch.
         /// </summary>
         [Input("enableNotification")]
-        public bool? EnableNotification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNotification;
+
+        public bool? EnableNotification => _mEnableNotification.GetValue("enableNotification");
 
         /// <summary>
         /// Enables performance mode for the branch.
         /// </summary>
         [Input("enablePerformanceMode")]
-        public bool? EnablePerformanceMode;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePerformanceMode;
+
+        public bool? EnablePerformanceMode => _mEnablePerformanceMode.GetValue("enablePerformanceMode");
 
         /// <summary>
         /// Enables pull request previews for this branch.
         /// </summary>
         [Input("enablePullRequestPreview")]
-        public bool? EnablePullRequestPreview;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePullRequestPreview;
+
+        public bool? EnablePullRequestPreview => _mEnablePullRequestPreview.GetValue("enablePullRequestPreview");
 
         /// <summary>
         /// Environment variables for the branch.
         /// </summary>
         [Input("environmentVariables")]
-        public Dictionary<string, string>? EnvironmentVariables;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
+
+        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
 
         /// <summary>
         /// Framework for the branch.
         /// </summary>
         [Input("framework")]
-        public string? Framework;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFramework;
+
+        public string? Framework => _mFramework.GetValue("framework");
 
         /// <summary>
         /// Amplify environment name for the pull request.
         /// </summary>
         [Input("pullRequestEnvironmentName")]
-        public string? PullRequestEnvironmentName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPullRequestEnvironmentName;
+
+        public string? PullRequestEnvironmentName => _mPullRequestEnvironmentName.GetValue("pullRequestEnvironmentName");
 
         /// <summary>
         /// Source branch if the branch is a pull request branch.
         /// </summary>
         [Input("sourceBranch")]
-        public string? SourceBranch;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBranch;
+
+        public string? SourceBranch => _mSourceBranch.GetValue("sourceBranch");
 
         /// <summary>
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         /// </summary>
         [Input("stage")]
-        public string? Stage;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
+
+        public string? Stage => _mStage.GetValue("stage");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// Content Time To Live (TTL) for the website in seconds.
         /// </summary>
         [Input("ttl")]
-        public string? Ttl;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTtl;
+
+        public string? Ttl => _mTtl.GetValue("ttl");
+    }
+
+    [PolicyResourceType("aws:amplify/branch:Branch")]
+    public sealed class BranchArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
+        [Input("appId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
+
+        public string? AppId => _mAppId.GetValue("appId");
+
+        /// <summary>
+        /// ARN for a backend environment that is part of an Amplify app.
+        /// </summary>
+        [Input("backendEnvironmentArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackendEnvironmentArn;
+
+        public string? BackendEnvironmentArn => _mBackendEnvironmentArn.GetValue("backendEnvironmentArn");
+
+        /// <summary>
+        /// Basic authorization credentials for the branch.
+        /// </summary>
+        [Input("basicAuthCredentials")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
+
+        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
+
+        /// <summary>
+        /// Name for the branch.
+        /// </summary>
+        [Input("branchName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
+
+        public string? BranchName => _mBranchName.GetValue("branchName");
+
+        /// <summary>
+        /// Description for the branch.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Display name for a branch. This is used as the default domain prefix.
+        /// </summary>
+        [Input("displayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+
+        public string? DisplayName => _mDisplayName.GetValue("displayName");
+
+        /// <summary>
+        /// Enables auto building for the branch.
+        /// </summary>
+        [Input("enableAutoBuild")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBuild;
+
+        public bool? EnableAutoBuild => _mEnableAutoBuild.GetValue("enableAutoBuild");
+
+        /// <summary>
+        /// Enables basic authorization for the branch.
+        /// </summary>
+        [Input("enableBasicAuth")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
+
+        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
+
+        /// <summary>
+        /// Enables notifications for the branch.
+        /// </summary>
+        [Input("enableNotification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNotification;
+
+        public bool? EnableNotification => _mEnableNotification.GetValue("enableNotification");
+
+        /// <summary>
+        /// Enables performance mode for the branch.
+        /// </summary>
+        [Input("enablePerformanceMode")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePerformanceMode;
+
+        public bool? EnablePerformanceMode => _mEnablePerformanceMode.GetValue("enablePerformanceMode");
+
+        /// <summary>
+        /// Enables pull request previews for this branch.
+        /// </summary>
+        [Input("enablePullRequestPreview")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePullRequestPreview;
+
+        public bool? EnablePullRequestPreview => _mEnablePullRequestPreview.GetValue("enablePullRequestPreview");
+
+        /// <summary>
+        /// Environment variables for the branch.
+        /// </summary>
+        [Input("environmentVariables")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
+
+        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+
+        /// <summary>
+        /// Framework for the branch.
+        /// </summary>
+        [Input("framework")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFramework;
+
+        public string? Framework => _mFramework.GetValue("framework");
+
+        /// <summary>
+        /// Amplify environment name for the pull request.
+        /// </summary>
+        [Input("pullRequestEnvironmentName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPullRequestEnvironmentName;
+
+        public string? PullRequestEnvironmentName => _mPullRequestEnvironmentName.GetValue("pullRequestEnvironmentName");
+
+        /// <summary>
+        /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
+        /// </summary>
+        [Input("stage")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
+
+        public string? Stage => _mStage.GetValue("stage");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+
+        /// <summary>
+        /// Content Time To Live (TTL) for the website in seconds.
+        /// </summary>
+        [Input("ttl")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mTtl;
+
+        public string? Ttl => _mTtl.GetValue("ttl");
     }
 }

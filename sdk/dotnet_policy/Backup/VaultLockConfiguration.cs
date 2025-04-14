@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Backup
 {
     [PolicyResourceType("aws:backup/vaultLockConfiguration:VaultLockConfiguration")]
-    public sealed class VaultLockConfiguration : global::Pulumi.PolicyResource
+    public sealed class VaultLockConfiguration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
         [Input("backupVaultArn")]
-        public string? BackupVaultArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultArn;
+
+        public string? BackupVaultArn => _mBackupVaultArn.GetValue("backupVaultArn");
 
         /// <summary>
         /// Name of the backup vault to add a lock configuration for.
         /// </summary>
         [Input("backupVaultName")]
-        public string? BackupVaultName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
+
+        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
 
         /// <summary>
         /// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         /// </summary>
         [Input("changeableForDays")]
-        public int? ChangeableForDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mChangeableForDays;
+
+        public int? ChangeableForDays => _mChangeableForDays.GetValue("changeableForDays");
 
         /// <summary>
         /// The maximum retention period that the vault retains its recovery points.
         /// </summary>
         [Input("maxRetentionDays")]
-        public int? MaxRetentionDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetentionDays;
+
+        public int? MaxRetentionDays => _mMaxRetentionDays.GetValue("maxRetentionDays");
 
         /// <summary>
         /// The minimum retention period that the vault retains its recovery points.
         /// </summary>
         [Input("minRetentionDays")]
-        public int? MinRetentionDays;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinRetentionDays;
+
+        public int? MinRetentionDays => _mMinRetentionDays.GetValue("minRetentionDays");
+    }
+
+    [PolicyResourceType("aws:backup/vaultLockConfiguration:VaultLockConfiguration")]
+    public sealed class VaultLockConfigurationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the backup vault to add a lock configuration for.
+        /// </summary>
+        [Input("backupVaultName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBackupVaultName;
+
+        public string? BackupVaultName => _mBackupVaultName.GetValue("backupVaultName");
+
+        /// <summary>
+        /// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
+        /// </summary>
+        [Input("changeableForDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mChangeableForDays;
+
+        public int? ChangeableForDays => _mChangeableForDays.GetValue("changeableForDays");
+
+        /// <summary>
+        /// The maximum retention period that the vault retains its recovery points.
+        /// </summary>
+        [Input("maxRetentionDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetentionDays;
+
+        public int? MaxRetentionDays => _mMaxRetentionDays.GetValue("maxRetentionDays");
+
+        /// <summary>
+        /// The minimum retention period that the vault retains its recovery points.
+        /// </summary>
+        [Input("minRetentionDays")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mMinRetentionDays;
+
+        public int? MinRetentionDays => _mMinRetentionDays.GetValue("minRetentionDays");
     }
 }

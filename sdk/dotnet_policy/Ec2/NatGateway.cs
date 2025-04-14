@@ -11,78 +11,190 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/natGateway:NatGateway")]
-    public sealed class NatGateway : global::Pulumi.PolicyResource
+    public sealed class NatGateway : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         /// </summary>
         [Input("allocationId")]
-        public string? AllocationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+
+        public string? AllocationId => _mAllocationId.GetValue("allocationId");
 
         /// <summary>
         /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         /// </summary>
         [Input("associationId")]
-        public string? AssociationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
+
+        public string? AssociationId => _mAssociationId.GetValue("associationId");
 
         /// <summary>
         /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         /// </summary>
         [Input("connectivityType")]
-        public string? ConnectivityType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectivityType;
+
+        public string? ConnectivityType => _mConnectivityType.GetValue("connectivityType");
 
         /// <summary>
         /// The ID of the network interface associated with the NAT Gateway.
         /// </summary>
         [Input("networkInterfaceId")]
-        public string? NetworkInterfaceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+
+        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
 
         /// <summary>
         /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
         [Input("privateIp")]
-        public string? PrivateIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
+
+        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
 
         /// <summary>
         /// The Elastic IP address associated with the NAT Gateway.
         /// </summary>
         [Input("publicIp")]
-        public string? PublicIp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
+
+        public string? PublicIp => _mPublicIp.GetValue("publicIp");
 
         /// <summary>
         /// A list of secondary allocation EIP IDs for this NAT Gateway.
         /// </summary>
         [Input("secondaryAllocationIds")]
-        public List<string>? SecondaryAllocationIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryAllocationIds;
+
+        public List<string>? SecondaryAllocationIds => _mSecondaryAllocationIds.GetValue("secondaryAllocationIds");
 
         /// <summary>
         /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         /// </summary>
         [Input("secondaryPrivateIpAddressCount")]
-        public int? SecondaryPrivateIpAddressCount;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSecondaryPrivateIpAddressCount;
+
+        public int? SecondaryPrivateIpAddressCount => _mSecondaryPrivateIpAddressCount.GetValue("secondaryPrivateIpAddressCount");
 
         /// <summary>
         /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         /// </summary>
         [Input("secondaryPrivateIpAddresses")]
-        public List<string>? SecondaryPrivateIpAddresses;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryPrivateIpAddresses;
+
+        public List<string>? SecondaryPrivateIpAddresses => _mSecondaryPrivateIpAddresses.GetValue("secondaryPrivateIpAddresses");
 
         /// <summary>
         /// The Subnet ID of the subnet in which to place the NAT Gateway.
         /// </summary>
         [Input("subnetId")]
-        public string? SubnetId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:ec2/natGateway:NatGateway")]
+    public sealed class NatGatewayArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+        /// </summary>
+        [Input("allocationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+
+        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+
+        /// <summary>
+        /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
+        /// </summary>
+        [Input("connectivityType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectivityType;
+
+        public string? ConnectivityType => _mConnectivityType.GetValue("connectivityType");
+
+        /// <summary>
+        /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        /// </summary>
+        [Input("privateIp")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
+
+        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+
+        /// <summary>
+        /// A list of secondary allocation EIP IDs for this NAT Gateway.
+        /// </summary>
+        [Input("secondaryAllocationIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryAllocationIds;
+
+        public List<string>? SecondaryAllocationIds => _mSecondaryAllocationIds.GetValue("secondaryAllocationIds");
+
+        /// <summary>
+        /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        /// </summary>
+        [Input("secondaryPrivateIpAddressCount")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mSecondaryPrivateIpAddressCount;
+
+        public int? SecondaryPrivateIpAddressCount => _mSecondaryPrivateIpAddressCount.GetValue("secondaryPrivateIpAddressCount");
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        /// </summary>
+        [Input("secondaryPrivateIpAddresses")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryPrivateIpAddresses;
+
+        public List<string>? SecondaryPrivateIpAddresses => _mSecondaryPrivateIpAddresses.GetValue("secondaryPrivateIpAddresses");
+
+        /// <summary>
+        /// The Subnet ID of the subnet in which to place the NAT Gateway.
+        /// </summary>
+        [Input("subnetId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
+
+        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+
+        /// <summary>
+        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

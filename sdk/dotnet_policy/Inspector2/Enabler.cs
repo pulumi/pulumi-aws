@@ -11,14 +11,17 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Inspector2
 {
     [PolicyResourceType("aws:inspector2/enabler:Enabler")]
-    public sealed class Enabler : global::Pulumi.PolicyResource
+    public sealed class Enabler : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Set of account IDs.
         /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         /// </summary>
         [Input("accountIds")]
-        public List<string>? AccountIds;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountIds;
+
+        public List<string>? AccountIds => _mAccountIds.GetValue("accountIds");
 
         /// <summary>
         /// Type of resources to scan.
@@ -26,6 +29,34 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// At least one item is required.
         /// </summary>
         [Input("resourceTypes")]
-        public List<string>? ResourceTypes;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
+
+        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+    }
+
+    [PolicyResourceType("aws:inspector2/enabler:Enabler")]
+    public sealed class EnablerArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Set of account IDs.
+        /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
+        /// </summary>
+        [Input("accountIds")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccountIds;
+
+        public List<string>? AccountIds => _mAccountIds.GetValue("accountIds");
+
+        /// <summary>
+        /// Type of resources to scan.
+        /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+        /// At least one item is required.
+        /// </summary>
+        [Input("resourceTypes")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
+
+        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
     }
 }

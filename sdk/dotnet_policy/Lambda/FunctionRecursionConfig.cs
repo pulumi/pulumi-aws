@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lambda
 {
     [PolicyResourceType("aws:lambda/functionRecursionConfig:FunctionRecursionConfig")]
-    public sealed class FunctionRecursionConfig : global::Pulumi.PolicyResource
+    public sealed class FunctionRecursionConfig : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Lambda function name.
         /// </summary>
         [Input("functionName")]
-        public string? FunctionName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
 
         /// <summary>
         /// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
         /// </summary>
         [Input("recursiveLoop")]
-        public string? RecursiveLoop;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecursiveLoop;
+
+        public string? RecursiveLoop => _mRecursiveLoop.GetValue("recursiveLoop");
+    }
+
+    [PolicyResourceType("aws:lambda/functionRecursionConfig:FunctionRecursionConfig")]
+    public sealed class FunctionRecursionConfigArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Lambda function name.
+        /// </summary>
+        [Input("functionName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
+
+        public string? FunctionName => _mFunctionName.GetValue("functionName");
+
+        /// <summary>
+        /// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+        /// </summary>
+        [Input("recursiveLoop")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRecursiveLoop;
+
+        public string? RecursiveLoop => _mRecursiveLoop.GetValue("recursiveLoop");
     }
 }

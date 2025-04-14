@@ -11,24 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VpcLattice
 {
     [PolicyResourceType("aws:vpclattice/authPolicy:AuthPolicy")]
-    public sealed class AuthPolicy : global::Pulumi.PolicyResource
+    public sealed class AuthPolicy : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The auth policy. The policy string in JSON must not contain newlines or blank lines.
         /// </summary>
         [Input("policy")]
-        public string? Policy;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceIdentifier")]
-        public string? ResourceIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
+
+        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
 
         /// <summary>
         /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
+    }
+
+    [PolicyResourceType("aws:vpclattice/authPolicy:AuthPolicy")]
+    public sealed class AuthPolicyArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The auth policy. The policy string in JSON must not contain newlines or blank lines.
+        /// </summary>
+        [Input("policy")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
+
+        public string? Policy => _mPolicy.GetValue("policy");
+
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// </summary>
+        [Input("resourceIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdentifier;
+
+        public string? ResourceIdentifier => _mResourceIdentifier.GetValue("resourceIdentifier");
+
+        /// <summary>
+        /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
+        /// </summary>
+        [Input("state")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
     }
 }

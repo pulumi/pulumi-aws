@@ -11,18 +11,46 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.LicenseManager
 {
     [PolicyResourceType("aws:licensemanager/association:Association")]
-    public sealed class Association : global::Pulumi.PolicyResource
+    public sealed class Association : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the license configuration.
         /// </summary>
         [Input("licenseConfigurationArn")]
-        public string? LicenseConfigurationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseConfigurationArn;
+
+        public string? LicenseConfigurationArn => _mLicenseConfigurationArn.GetValue("licenseConfigurationArn");
 
         /// <summary>
         /// ARN of the resource associated with the license configuration.
         /// </summary>
         [Input("resourceArn")]
-        public string? ResourceArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+    }
+
+    [PolicyResourceType("aws:licensemanager/association:Association")]
+    public sealed class AssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// ARN of the license configuration.
+        /// </summary>
+        [Input("licenseConfigurationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseConfigurationArn;
+
+        public string? LicenseConfigurationArn => _mLicenseConfigurationArn.GetValue("licenseConfigurationArn");
+
+        /// <summary>
+        /// ARN of the resource associated with the license configuration.
+        /// </summary>
+        [Input("resourceArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
+
+        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
     }
 }

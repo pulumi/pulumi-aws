@@ -11,69 +11,166 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3Control
 {
     [PolicyResourceType("aws:s3control/accessGrant:AccessGrant")]
-    public sealed class AccessGrant : global::Pulumi.PolicyResource
+    public sealed class AccessGrant : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Access Grant.
         /// </summary>
         [Input("accessGrantArn")]
-        public string? AccessGrantArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantArn;
+
+        public string? AccessGrantArn => _mAccessGrantArn.GetValue("accessGrantArn");
 
         /// <summary>
         /// Unique ID of the S3 Access Grant.
         /// </summary>
         [Input("accessGrantId")]
-        public string? AccessGrantId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantId;
+
+        public string? AccessGrantId => _mAccessGrantId.GetValue("accessGrantId");
 
         /// <summary>
         /// See Location Configuration below for more details.
         /// </summary>
         [Input("accessGrantsLocationConfiguration")]
-        public AccessGrantAccessGrantsLocationConfiguration? AccessGrantsLocationConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessGrantAccessGrantsLocationConfiguration> _mAccessGrantsLocationConfiguration;
+
+        public Outputs.AccessGrantAccessGrantsLocationConfiguration? AccessGrantsLocationConfiguration => _mAccessGrantsLocationConfiguration.GetValue("accessGrantsLocationConfiguration");
 
         /// <summary>
         /// The ID of the S3 Access Grants location to with the access grant is giving access.
         /// </summary>
         [Input("accessGrantsLocationId")]
-        public string? AccessGrantsLocationId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsLocationId;
+
+        public string? AccessGrantsLocationId => _mAccessGrantsLocationId.GetValue("accessGrantsLocationId");
 
         [Input("accountId")]
-        public string? AccountId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
 
         /// <summary>
         /// The access grant's scope.
         /// </summary>
         [Input("grantScope")]
-        public string? GrantScope;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGrantScope;
+
+        public string? GrantScope => _mGrantScope.GetValue("grantScope");
 
         /// <summary>
         /// See Grantee below for more details.
         /// </summary>
         [Input("grantee")]
-        public AccessGrantGrantee? Grantee;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessGrantGrantee> _mGrantee;
+
+        public Outputs.AccessGrantGrantee? Grantee => _mGrantee.GetValue("grantee");
 
         /// <summary>
         /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         /// </summary>
         [Input("permission")]
-        public string? Permission;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
+
+        public string? Permission => _mPermission.GetValue("permission");
 
         /// <summary>
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         /// </summary>
         [Input("s3PrefixType")]
-        public string? S3PrefixType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3PrefixType;
+
+        public string? S3PrefixType => _mS3PrefixType.GetValue("s3PrefixType");
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:s3control/accessGrant:AccessGrant")]
+    public sealed class AccessGrantArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// See Location Configuration below for more details.
+        /// </summary>
+        [Input("accessGrantsLocationConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessGrantAccessGrantsLocationConfigurationArgs> _mAccessGrantsLocationConfiguration;
+
+        public Inputs.AccessGrantAccessGrantsLocationConfigurationArgs? AccessGrantsLocationConfiguration => _mAccessGrantsLocationConfiguration.GetValue("accessGrantsLocationConfiguration");
+
+        /// <summary>
+        /// The ID of the S3 Access Grants location to with the access grant is giving access.
+        /// </summary>
+        [Input("accessGrantsLocationId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsLocationId;
+
+        public string? AccessGrantsLocationId => _mAccessGrantsLocationId.GetValue("accessGrantsLocationId");
+
+        [Input("accountId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
+
+        public string? AccountId => _mAccountId.GetValue("accountId");
+
+        /// <summary>
+        /// See Grantee below for more details.
+        /// </summary>
+        [Input("grantee")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessGrantGranteeArgs> _mGrantee;
+
+        public Inputs.AccessGrantGranteeArgs? Grantee => _mGrantee.GetValue("grantee");
+
+        /// <summary>
+        /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        /// </summary>
+        [Input("permission")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
+
+        public string? Permission => _mPermission.GetValue("permission");
+
+        /// <summary>
+        /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
+        /// </summary>
+        [Input("s3PrefixType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mS3PrefixType;
+
+        public string? S3PrefixType => _mS3PrefixType.GetValue("s3PrefixType");
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

@@ -11,37 +11,52 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.VpcLattice
 {
     [PolicyResourceType("aws:vpclattice/listenerRule:ListenerRule")]
-    public sealed class ListenerRule : global::Pulumi.PolicyResource
+    public sealed class ListenerRule : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The action for the listener rule.
         /// </summary>
         [Input("action")]
-        public ListenerRuleAction? Action;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleAction> _mAction;
+
+        public Outputs.ListenerRuleAction? Action => _mAction.GetValue("action");
 
         /// <summary>
         /// The ARN for the listener rule.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the listener.
         /// </summary>
         [Input("listenerIdentifier")]
-        public string? ListenerIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerIdentifier;
+
+        public string? ListenerIdentifier => _mListenerIdentifier.GetValue("listenerIdentifier");
 
         /// <summary>
         /// The rule match.
         /// </summary>
         [Input("match")]
-        public ListenerRuleMatch? Match;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleMatch> _mMatch;
+
+        public Outputs.ListenerRuleMatch? Match => _mMatch.GetValue("match");
 
         /// <summary>
         /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
@@ -49,30 +64,114 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// The following arguments are optional:
         /// </summary>
         [Input("priority")]
-        public int? Priority;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
 
         /// <summary>
         /// Unique identifier for the listener rule.
         /// </summary>
         [Input("ruleId")]
-        public string? RuleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRuleId;
+
+        public string? RuleId => _mRuleId.GetValue("ruleId");
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         /// </summary>
         [Input("serviceIdentifier")]
-        public string? ServiceIdentifier;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIdentifier;
+
+        public string? ServiceIdentifier => _mServiceIdentifier.GetValue("serviceIdentifier");
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:vpclattice/listenerRule:ListenerRule")]
+    public sealed class ListenerRuleArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The action for the listener rule.
+        /// </summary>
+        [Input("action")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleActionArgs> _mAction;
+
+        public Inputs.ListenerRuleActionArgs? Action => _mAction.GetValue("action");
+
+        /// <summary>
+        /// The ID or Amazon Resource Name (ARN) of the listener.
+        /// </summary>
+        [Input("listenerIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mListenerIdentifier;
+
+        public string? ListenerIdentifier => _mListenerIdentifier.GetValue("listenerIdentifier");
+
+        /// <summary>
+        /// The rule match.
+        /// </summary>
+        [Input("match")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleMatchArgs> _mMatch;
+
+        public Inputs.ListenerRuleMatchArgs? Match => _mMatch.GetValue("match");
+
+        /// <summary>
+        /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("priority")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+
+        public int? Priority => _mPriority.GetValue("priority");
+
+        /// <summary>
+        /// The ID or Amazon Resource Identifier (ARN) of the service.
+        /// </summary>
+        [Input("serviceIdentifier")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIdentifier;
+
+        public string? ServiceIdentifier => _mServiceIdentifier.GetValue("serviceIdentifier");
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

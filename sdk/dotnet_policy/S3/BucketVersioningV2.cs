@@ -11,30 +11,82 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.S3
 {
     [PolicyResourceType("aws:s3/bucketVersioningV2:BucketVersioningV2")]
-    public sealed class BucketVersioningV2 : global::Pulumi.PolicyResource
+    public sealed class BucketVersioningV2 : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Name of the S3 bucket.
         /// </summary>
         [Input("bucket")]
-        public string? Bucket;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
         [Input("expectedBucketOwner")]
-        public string? ExpectedBucketOwner;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
 
         /// <summary>
         /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         /// </summary>
         [Input("mfa")]
-        public string? Mfa;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMfa;
+
+        public string? Mfa => _mMfa.GetValue("mfa");
 
         /// <summary>
         /// Configuration block for the versioning parameters. See below.
         /// </summary>
         [Input("versioningConfiguration")]
-        public BucketVersioningV2VersioningConfiguration? VersioningConfiguration;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketVersioningV2VersioningConfiguration> _mVersioningConfiguration;
+
+        public Outputs.BucketVersioningV2VersioningConfiguration? VersioningConfiguration => _mVersioningConfiguration.GetValue("versioningConfiguration");
+    }
+
+    [PolicyResourceType("aws:s3/bucketVersioningV2:BucketVersioningV2")]
+    public sealed class BucketVersioningV2Args : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Name of the S3 bucket.
+        /// </summary>
+        [Input("bucket")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+
+        public string? Bucket => _mBucket.GetValue("bucket");
+
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
+        [Input("expectedBucketOwner")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
+
+        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+
+        /// <summary>
+        /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        /// </summary>
+        [Input("mfa")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mMfa;
+
+        public string? Mfa => _mMfa.GetValue("mfa");
+
+        /// <summary>
+        /// Configuration block for the versioning parameters. See below.
+        /// </summary>
+        [Input("versioningConfiguration")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketVersioningV2VersioningConfigurationArgs> _mVersioningConfiguration;
+
+        public Inputs.BucketVersioningV2VersioningConfigurationArgs? VersioningConfiguration => _mVersioningConfiguration.GetValue("versioningConfiguration");
     }
 }

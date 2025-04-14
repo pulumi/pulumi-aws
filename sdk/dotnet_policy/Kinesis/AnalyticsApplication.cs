@@ -11,99 +11,232 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Kinesis
 {
     [PolicyResourceType("aws:kinesis/analyticsApplication:AnalyticsApplication")]
-    public sealed class AnalyticsApplication : global::Pulumi.PolicyResource
+    public sealed class AnalyticsApplication : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The ARN of the Kinesis Analytics Appliation.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The CloudWatch log stream options to monitor application errors.
         /// See CloudWatch Logging Options below for more details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
-        public AnalyticsApplicationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationCloudwatchLoggingOptions> _mCloudwatchLoggingOptions;
+
+        public Outputs.AnalyticsApplicationCloudwatchLoggingOptions? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
 
         /// <summary>
         /// SQL Code to transform input data, and generate output.
         /// </summary>
         [Input("code")]
-        public string? Code;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+
+        public string? Code => _mCode.GetValue("code");
 
         /// <summary>
         /// The Timestamp when the application version was created.
         /// </summary>
         [Input("createTimestamp")]
-        public string? CreateTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTimestamp;
+
+        public string? CreateTimestamp => _mCreateTimestamp.GetValue("createTimestamp");
 
         /// <summary>
         /// Description of the application.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Input configuration of the application. See Inputs below for more details.
         /// </summary>
         [Input("inputs")]
-        public AnalyticsApplicationInputs? Inputs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationInputs> _mInputs;
+
+        public Outputs.AnalyticsApplicationInputs? Inputs => _mInputs.GetValue("inputs");
 
         /// <summary>
         /// The Timestamp when the application was last updated.
         /// </summary>
         [Input("lastUpdateTimestamp")]
-        public string? LastUpdateTimestamp;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdateTimestamp;
+
+        public string? LastUpdateTimestamp => _mLastUpdateTimestamp.GetValue("lastUpdateTimestamp");
 
         /// <summary>
         /// Name of the Kinesis Analytics Application.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Output destination configuration of the application. See Outputs below for more details.
         /// </summary>
         [Input("outputs")]
-        public List<AnalyticsApplicationOutput>? Outputs;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnalyticsApplicationOutput>> _mOutputs;
+
+        public List<Outputs.AnalyticsApplicationOutput>? Outputs => _mOutputs.GetValue("outputs");
 
         /// <summary>
         /// An S3 Reference Data Source for the application.
         /// See Reference Data Sources below for more details.
         /// </summary>
         [Input("referenceDataSources")]
-        public AnalyticsApplicationReferenceDataSources? ReferenceDataSources;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationReferenceDataSources> _mReferenceDataSources;
+
+        public Outputs.AnalyticsApplicationReferenceDataSources? ReferenceDataSources => _mReferenceDataSources.GetValue("referenceDataSources");
 
         /// <summary>
         /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
         /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         /// </summary>
         [Input("startApplication")]
-        public bool? StartApplication;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartApplication;
+
+        public bool? StartApplication => _mStartApplication.GetValue("startApplication");
 
         /// <summary>
         /// The Status of the application.
         /// </summary>
         [Input("status")]
-        public string? Status;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+
+        public string? Status => _mStatus.GetValue("status");
 
         /// <summary>
         /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         /// <summary>
         /// The Version of the application.
         /// </summary>
         [Input("version")]
-        public int? Version;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
+
+        public int? Version => _mVersion.GetValue("version");
+    }
+
+    [PolicyResourceType("aws:kinesis/analyticsApplication:AnalyticsApplication")]
+    public sealed class AnalyticsApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The CloudWatch log stream options to monitor application errors.
+        /// See CloudWatch Logging Options below for more details.
+        /// </summary>
+        [Input("cloudwatchLoggingOptions")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
+
+        public Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+
+        /// <summary>
+        /// SQL Code to transform input data, and generate output.
+        /// </summary>
+        [Input("code")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
+
+        public string? Code => _mCode.GetValue("code");
+
+        /// <summary>
+        /// Description of the application.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Input configuration of the application. See Inputs below for more details.
+        /// </summary>
+        [Input("inputs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationInputsArgs> _mInputs;
+
+        public Inputs.AnalyticsApplicationInputsArgs? Inputs => _mInputs.GetValue("inputs");
+
+        /// <summary>
+        /// Name of the Kinesis Analytics Application.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Output destination configuration of the application. See Outputs below for more details.
+        /// </summary>
+        [Input("outputs")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnalyticsApplicationOutputArgs>> _mOutputs;
+
+        public List<Inputs.AnalyticsApplicationOutputArgs>? Outputs => _mOutputs.GetValue("outputs");
+
+        /// <summary>
+        /// An S3 Reference Data Source for the application.
+        /// See Reference Data Sources below for more details.
+        /// </summary>
+        [Input("referenceDataSources")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationReferenceDataSourcesArgs> _mReferenceDataSources;
+
+        public Inputs.AnalyticsApplicationReferenceDataSourcesArgs? ReferenceDataSources => _mReferenceDataSources.GetValue("referenceDataSources");
+
+        /// <summary>
+        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
+        /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        /// </summary>
+        [Input("startApplication")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mStartApplication;
+
+        public bool? StartApplication => _mStartApplication.GetValue("startApplication");
+
+        /// <summary>
+        /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

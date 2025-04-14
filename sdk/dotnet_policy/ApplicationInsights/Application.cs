@@ -11,49 +11,70 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApplicationInsights
 {
     [PolicyResourceType("aws:applicationinsights/application:Application")]
-    public sealed class Application : global::Pulumi.PolicyResource
+    public sealed class Application : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// ARN of the Application.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
         /// </summary>
         [Input("autoConfigEnabled")]
-        public bool? AutoConfigEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoConfigEnabled;
+
+        public bool? AutoConfigEnabled => _mAutoConfigEnabled.GetValue("autoConfigEnabled");
 
         /// <summary>
         /// Configures all of the resources in the resource group by applying the recommended configurations.
         /// </summary>
         [Input("autoCreate")]
-        public bool? AutoCreate;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoCreate;
+
+        public bool? AutoCreate => _mAutoCreate.GetValue("autoCreate");
 
         /// <summary>
         /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         /// </summary>
         [Input("cweMonitorEnabled")]
-        public bool? CweMonitorEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCweMonitorEnabled;
+
+        public bool? CweMonitorEnabled => _mCweMonitorEnabled.GetValue("cweMonitorEnabled");
 
         /// <summary>
         /// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         /// </summary>
         [Input("groupingType")]
-        public string? GroupingType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupingType;
+
+        public string? GroupingType => _mGroupingType.GetValue("groupingType");
 
         /// <summary>
         /// When set to `true`, creates opsItems for any problems detected on an application.
         /// </summary>
         [Input("opsCenterEnabled")]
-        public bool? OpsCenterEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOpsCenterEnabled;
+
+        public bool? OpsCenterEnabled => _mOpsCenterEnabled.GetValue("opsCenterEnabled");
 
         /// <summary>
         /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         /// </summary>
         [Input("opsItemSnsTopicArn")]
-        public string? OpsItemSnsTopicArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOpsItemSnsTopicArn;
+
+        public string? OpsItemSnsTopicArn => _mOpsItemSnsTopicArn.GetValue("opsItemSnsTopicArn");
 
         /// <summary>
         /// Name of the resource group.
@@ -61,18 +82,105 @@ namespace Pulumi.PolicyPacks.Aws.ApplicationInsights
         /// The following arguments are optional:
         /// </summary>
         [Input("resourceGroupName")]
-        public string? ResourceGroupName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGroupName;
+
+        public string? ResourceGroupName => _mResourceGroupName.GetValue("resourceGroupName");
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+    }
+
+    [PolicyResourceType("aws:applicationinsights/application:Application")]
+    public sealed class ApplicationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        /// </summary>
+        [Input("autoConfigEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoConfigEnabled;
+
+        public bool? AutoConfigEnabled => _mAutoConfigEnabled.GetValue("autoConfigEnabled");
+
+        /// <summary>
+        /// Configures all of the resources in the resource group by applying the recommended configurations.
+        /// </summary>
+        [Input("autoCreate")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoCreate;
+
+        public bool? AutoCreate => _mAutoCreate.GetValue("autoCreate");
+
+        /// <summary>
+        /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        /// </summary>
+        [Input("cweMonitorEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mCweMonitorEnabled;
+
+        public bool? CweMonitorEnabled => _mCweMonitorEnabled.GetValue("cweMonitorEnabled");
+
+        /// <summary>
+        /// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
+        /// </summary>
+        [Input("groupingType")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mGroupingType;
+
+        public string? GroupingType => _mGroupingType.GetValue("groupingType");
+
+        /// <summary>
+        /// When set to `true`, creates opsItems for any problems detected on an application.
+        /// </summary>
+        [Input("opsCenterEnabled")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mOpsCenterEnabled;
+
+        public bool? OpsCenterEnabled => _mOpsCenterEnabled.GetValue("opsCenterEnabled");
+
+        /// <summary>
+        /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+        /// </summary>
+        [Input("opsItemSnsTopicArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mOpsItemSnsTopicArn;
+
+        public string? OpsItemSnsTopicArn => _mOpsItemSnsTopicArn.GetValue("opsItemSnsTopicArn");
+
+        /// <summary>
+        /// Name of the resource group.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("resourceGroupName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGroupName;
+
+        public string? ResourceGroupName => _mResourceGroupName.GetValue("resourceGroupName");
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }

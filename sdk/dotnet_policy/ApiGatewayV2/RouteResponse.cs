@@ -11,36 +11,100 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
 {
     [PolicyResourceType("aws:apigatewayv2/routeResponse:RouteResponse")]
-    public sealed class RouteResponse : global::Pulumi.PolicyResource
+    public sealed class RouteResponse : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// API identifier.
         /// </summary>
         [Input("apiId")]
-        public string? ApiId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
 
         /// <summary>
         /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         /// </summary>
         [Input("modelSelectionExpression")]
-        public string? ModelSelectionExpression;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelSelectionExpression;
+
+        public string? ModelSelectionExpression => _mModelSelectionExpression.GetValue("modelSelectionExpression");
 
         /// <summary>
         /// Response models for the route response.
         /// </summary>
         [Input("responseModels")]
-        public Dictionary<string, string>? ResponseModels;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseModels;
+
+        public Dictionary<string, string>? ResponseModels => _mResponseModels.GetValue("responseModels");
 
         /// <summary>
         /// Identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
         [Input("routeId")]
-        public string? RouteId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteId;
+
+        public string? RouteId => _mRouteId.GetValue("routeId");
 
         /// <summary>
         /// Route response key.
         /// </summary>
         [Input("routeResponseKey")]
-        public string? RouteResponseKey;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteResponseKey;
+
+        public string? RouteResponseKey => _mRouteResponseKey.GetValue("routeResponseKey");
+    }
+
+    [PolicyResourceType("aws:apigatewayv2/routeResponse:RouteResponse")]
+    public sealed class RouteResponseArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// API identifier.
+        /// </summary>
+        [Input("apiId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
+
+        public string? ApiId => _mApiId.GetValue("apiId");
+
+        /// <summary>
+        /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+        /// </summary>
+        [Input("modelSelectionExpression")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mModelSelectionExpression;
+
+        public string? ModelSelectionExpression => _mModelSelectionExpression.GetValue("modelSelectionExpression");
+
+        /// <summary>
+        /// Response models for the route response.
+        /// </summary>
+        [Input("responseModels")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseModels;
+
+        public Dictionary<string, string>? ResponseModels => _mResponseModels.GetValue("responseModels");
+
+        /// <summary>
+        /// Identifier of the `aws.apigatewayv2.Route`.
+        /// </summary>
+        [Input("routeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteId;
+
+        public string? RouteId => _mRouteId.GetValue("routeId");
+
+        /// <summary>
+        /// Route response key.
+        /// </summary>
+        [Input("routeResponseKey")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRouteResponseKey;
+
+        public string? RouteResponseKey => _mRouteResponseKey.GetValue("routeResponseKey");
     }
 }

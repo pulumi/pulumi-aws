@@ -11,46 +11,64 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Lex
 {
     [PolicyResourceType("aws:lex/v2modelsSlotType:V2modelsSlotType")]
-    public sealed class V2modelsSlotType : global::Pulumi.PolicyResource
+    public sealed class V2modelsSlotType : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Identifier of the bot associated with this slot type.
         /// </summary>
         [Input("botId")]
-        public string? BotId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
+
+        public string? BotId => _mBotId.GetValue("botId");
 
         /// <summary>
         /// Version of the bot associated with this slot type.
         /// </summary>
         [Input("botVersion")]
-        public string? BotVersion;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
 
         /// <summary>
         /// Specifications for a composite slot type.
         /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
         [Input("compositeSlotTypeSetting")]
-        public V2modelsSlotTypeCompositeSlotTypeSetting? CompositeSlotTypeSetting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeCompositeSlotTypeSetting> _mCompositeSlotTypeSetting;
+
+        public Outputs.V2modelsSlotTypeCompositeSlotTypeSetting? CompositeSlotTypeSetting => _mCompositeSlotTypeSetting.GetValue("compositeSlotTypeSetting");
 
         /// <summary>
         /// Description of the slot type.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Type of external information used to create the slot type.
         /// See `external_source_setting` argument reference below.
         /// </summary>
         [Input("externalSourceSetting")]
-        public V2modelsSlotTypeExternalSourceSetting? ExternalSourceSetting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeExternalSourceSetting> _mExternalSourceSetting;
+
+        public Outputs.V2modelsSlotTypeExternalSourceSetting? ExternalSourceSetting => _mExternalSourceSetting.GetValue("externalSourceSetting");
 
         /// <summary>
         /// Identifier of the language and locale where this slot type is used.
         /// All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
         [Input("localeId")]
-        public string? LocaleId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
+
+        public string? LocaleId => _mLocaleId.GetValue("localeId");
 
         /// <summary>
         /// Name of the slot type.
@@ -58,7 +76,10 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// The following arguments are optional:
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Built-in slot type used as a parent of this slot type.
@@ -66,13 +87,19 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// Only `AMAZON.AlphaNumeric` is supported.
         /// </summary>
         [Input("parentSlotTypeSignature")]
-        public string? ParentSlotTypeSignature;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentSlotTypeSignature;
+
+        public string? ParentSlotTypeSignature => _mParentSlotTypeSignature.GetValue("parentSlotTypeSignature");
 
         /// <summary>
         /// Unique identifier for the slot type.
         /// </summary>
         [Input("slotTypeId")]
-        public string? SlotTypeId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSlotTypeId;
+
+        public string? SlotTypeId => _mSlotTypeId.GetValue("slotTypeId");
 
         /// <summary>
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
@@ -80,16 +107,135 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// See `slot_type_values` argument reference below.
         /// </summary>
         [Input("slotTypeValues")]
-        public V2modelsSlotTypeSlotTypeValues? SlotTypeValues;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeSlotTypeValues> _mSlotTypeValues;
+
+        public Outputs.V2modelsSlotTypeSlotTypeValues? SlotTypeValues => _mSlotTypeValues.GetValue("slotTypeValues");
 
         [Input("timeouts")]
-        public V2modelsSlotTypeTimeouts? Timeouts;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeTimeouts> _mTimeouts;
+
+        public Outputs.V2modelsSlotTypeTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
 
         /// <summary>
         /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
         /// See `value_selection_setting` argument reference below.
         /// </summary>
         [Input("valueSelectionSetting")]
-        public V2modelsSlotTypeValueSelectionSetting? ValueSelectionSetting;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeValueSelectionSetting> _mValueSelectionSetting;
+
+        public Outputs.V2modelsSlotTypeValueSelectionSetting? ValueSelectionSetting => _mValueSelectionSetting.GetValue("valueSelectionSetting");
+    }
+
+    [PolicyResourceType("aws:lex/v2modelsSlotType:V2modelsSlotType")]
+    public sealed class V2modelsSlotTypeArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Identifier of the bot associated with this slot type.
+        /// </summary>
+        [Input("botId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
+
+        public string? BotId => _mBotId.GetValue("botId");
+
+        /// <summary>
+        /// Version of the bot associated with this slot type.
+        /// </summary>
+        [Input("botVersion")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
+
+        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+
+        /// <summary>
+        /// Specifications for a composite slot type.
+        /// See `composite_slot_type_setting` argument reference below.
+        /// </summary>
+        [Input("compositeSlotTypeSetting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs> _mCompositeSlotTypeSetting;
+
+        public Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs? CompositeSlotTypeSetting => _mCompositeSlotTypeSetting.GetValue("compositeSlotTypeSetting");
+
+        /// <summary>
+        /// Description of the slot type.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Type of external information used to create the slot type.
+        /// See `external_source_setting` argument reference below.
+        /// </summary>
+        [Input("externalSourceSetting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeExternalSourceSettingArgs> _mExternalSourceSetting;
+
+        public Inputs.V2modelsSlotTypeExternalSourceSettingArgs? ExternalSourceSetting => _mExternalSourceSetting.GetValue("externalSourceSetting");
+
+        /// <summary>
+        /// Identifier of the language and locale where this slot type is used.
+        /// All of the bots, slot types, and slots used by the intent must have the same locale.
+        /// </summary>
+        [Input("localeId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
+
+        public string? LocaleId => _mLocaleId.GetValue("localeId");
+
+        /// <summary>
+        /// Name of the slot type.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Built-in slot type used as a parent of this slot type.
+        /// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
+        /// Only `AMAZON.AlphaNumeric` is supported.
+        /// </summary>
+        [Input("parentSlotTypeSignature")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mParentSlotTypeSignature;
+
+        public string? ParentSlotTypeSignature => _mParentSlotTypeSignature.GetValue("parentSlotTypeSignature");
+
+        /// <summary>
+        /// List of SlotTypeValue objects that defines the values that the slot type can take.
+        /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+        /// See `slot_type_values` argument reference below.
+        /// </summary>
+        [Input("slotTypeValues")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeSlotTypeValuesArgs> _mSlotTypeValues;
+
+        public Inputs.V2modelsSlotTypeSlotTypeValuesArgs? SlotTypeValues => _mSlotTypeValues.GetValue("slotTypeValues");
+
+        [Input("timeouts")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeTimeoutsArgs> _mTimeouts;
+
+        public Inputs.V2modelsSlotTypeTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+
+        /// <summary>
+        /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+        /// See `value_selection_setting` argument reference below.
+        /// </summary>
+        [Input("valueSelectionSetting")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeValueSelectionSettingArgs> _mValueSelectionSetting;
+
+        public Inputs.V2modelsSlotTypeValueSelectionSettingArgs? ValueSelectionSetting => _mValueSelectionSetting.GetValue("valueSelectionSetting");
     }
 }

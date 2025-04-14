@@ -11,7 +11,7 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Ec2
 {
     [PolicyResourceType("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")]
-    public sealed class VpcEndpointConnectionNotification : global::Pulumi.PolicyResource
+    public sealed class VpcEndpointConnectionNotification : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
@@ -19,36 +19,96 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
         /// </summary>
         [Input("connectionEvents")]
-        public List<string>? ConnectionEvents;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConnectionEvents;
+
+        public List<string>? ConnectionEvents => _mConnectionEvents.GetValue("connectionEvents");
 
         /// <summary>
         /// The ARN of the SNS topic for the notifications.
         /// </summary>
         [Input("connectionNotificationArn")]
-        public string? ConnectionNotificationArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionNotificationArn;
+
+        public string? ConnectionNotificationArn => _mConnectionNotificationArn.GetValue("connectionNotificationArn");
 
         /// <summary>
         /// The type of notification.
         /// </summary>
         [Input("notificationType")]
-        public string? NotificationType;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
+
+        public string? NotificationType => _mNotificationType.GetValue("notificationType");
 
         /// <summary>
         /// The state of the notification.
         /// </summary>
         [Input("state")]
-        public string? State;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mState;
+
+        public string? State => _mState.GetValue("state");
 
         /// <summary>
         /// The ID of the VPC Endpoint to receive notifications for.
         /// </summary>
         [Input("vpcEndpointId")]
-        public string? VpcEndpointId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
 
         /// <summary>
         /// The ID of the VPC Endpoint Service to receive notifications for.
         /// </summary>
         [Input("vpcEndpointServiceId")]
-        public string? VpcEndpointServiceId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
+
+        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
+    }
+
+    [PolicyResourceType("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")]
+    public sealed class VpcEndpointConnectionNotificationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+        /// 
+        /// &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
+        /// </summary>
+        [Input("connectionEvents")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConnectionEvents;
+
+        public List<string>? ConnectionEvents => _mConnectionEvents.GetValue("connectionEvents");
+
+        /// <summary>
+        /// The ARN of the SNS topic for the notifications.
+        /// </summary>
+        [Input("connectionNotificationArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionNotificationArn;
+
+        public string? ConnectionNotificationArn => _mConnectionNotificationArn.GetValue("connectionNotificationArn");
+
+        /// <summary>
+        /// The ID of the VPC Endpoint to receive notifications for.
+        /// </summary>
+        [Input("vpcEndpointId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
+
+        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+
+        /// <summary>
+        /// The ID of the VPC Endpoint Service to receive notifications for.
+        /// </summary>
+        [Input("vpcEndpointServiceId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointServiceId;
+
+        public string? VpcEndpointServiceId => _mVpcEndpointServiceId.GetValue("vpcEndpointServiceId");
     }
 }

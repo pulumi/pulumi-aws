@@ -11,54 +11,136 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.Amplify
 {
     [PolicyResourceType("aws:amplify/domainAssociation:DomainAssociation")]
-    public sealed class DomainAssociation : global::Pulumi.PolicyResource
+    public sealed class DomainAssociation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
         [Input("appId")]
-        public string? AppId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
+
+        public string? AppId => _mAppId.GetValue("appId");
 
         /// <summary>
         /// ARN for the domain association.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         /// </summary>
         [Input("certificateSettings")]
-        public DomainAssociationCertificateSettings? CertificateSettings;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainAssociationCertificateSettings> _mCertificateSettings;
+
+        public Outputs.DomainAssociationCertificateSettings? CertificateSettings => _mCertificateSettings.GetValue("certificateSettings");
 
         /// <summary>
         /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
         /// </summary>
         [Input("certificateVerificationDnsRecord")]
-        public string? CertificateVerificationDnsRecord;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateVerificationDnsRecord;
+
+        public string? CertificateVerificationDnsRecord => _mCertificateVerificationDnsRecord.GetValue("certificateVerificationDnsRecord");
 
         /// <summary>
         /// Domain name for the domain association.
         /// </summary>
         [Input("domainName")]
-        public string? DomainName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
 
         /// <summary>
         /// Enables the automated creation of subdomains for branches.
         /// </summary>
         [Input("enableAutoSubDomain")]
-        public bool? EnableAutoSubDomain;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoSubDomain;
+
+        public bool? EnableAutoSubDomain => _mEnableAutoSubDomain.GetValue("enableAutoSubDomain");
 
         /// <summary>
         /// Setting for the subdomain. Documented below.
         /// </summary>
         [Input("subDomains")]
-        public List<DomainAssociationSubDomain>? SubDomains;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainAssociationSubDomain>> _mSubDomains;
+
+        public List<Outputs.DomainAssociationSubDomain>? SubDomains => _mSubDomains.GetValue("subDomains");
 
         /// <summary>
         /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         /// </summary>
         [Input("waitForVerification")]
-        public bool? WaitForVerification;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForVerification;
+
+        public bool? WaitForVerification => _mWaitForVerification.GetValue("waitForVerification");
+    }
+
+    [PolicyResourceType("aws:amplify/domainAssociation:DomainAssociation")]
+    public sealed class DomainAssociationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Unique ID for an Amplify app.
+        /// </summary>
+        [Input("appId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
+
+        public string? AppId => _mAppId.GetValue("appId");
+
+        /// <summary>
+        /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+        /// </summary>
+        [Input("certificateSettings")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainAssociationCertificateSettingsArgs> _mCertificateSettings;
+
+        public Inputs.DomainAssociationCertificateSettingsArgs? CertificateSettings => _mCertificateSettings.GetValue("certificateSettings");
+
+        /// <summary>
+        /// Domain name for the domain association.
+        /// </summary>
+        [Input("domainName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+
+        public string? DomainName => _mDomainName.GetValue("domainName");
+
+        /// <summary>
+        /// Enables the automated creation of subdomains for branches.
+        /// </summary>
+        [Input("enableAutoSubDomain")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoSubDomain;
+
+        public bool? EnableAutoSubDomain => _mEnableAutoSubDomain.GetValue("enableAutoSubDomain");
+
+        /// <summary>
+        /// Setting for the subdomain. Documented below.
+        /// </summary>
+        [Input("subDomains")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainAssociationSubDomainArgs>> _mSubDomains;
+
+        public List<Inputs.DomainAssociationSubDomainArgs>? SubDomains => _mSubDomains.GetValue("subDomains");
+
+        /// <summary>
+        /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+        /// </summary>
+        [Input("waitForVerification")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForVerification;
+
+        public bool? WaitForVerification => _mWaitForVerification.GetValue("waitForVerification");
     }
 }

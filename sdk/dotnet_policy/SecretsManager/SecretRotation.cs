@@ -11,36 +11,91 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.SecretsManager
 {
     [PolicyResourceType("aws:secretsmanager/secretRotation:SecretRotation")]
-    public sealed class SecretRotation : global::Pulumi.PolicyResource
+    public sealed class SecretRotation : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         /// </summary>
         [Input("rotateImmediately")]
-        public bool? RotateImmediately;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRotateImmediately;
+
+        public bool? RotateImmediately => _mRotateImmediately.GetValue("rotateImmediately");
 
         /// <summary>
         /// Specifies whether automatic rotation is enabled for this secret.
         /// </summary>
         [Input("rotationEnabled")]
-        public bool? RotationEnabled;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRotationEnabled;
+
+        public bool? RotationEnabled => _mRotationEnabled.GetValue("rotationEnabled");
 
         /// <summary>
         /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
         [Input("rotationLambdaArn")]
-        public string? RotationLambdaArn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRotationLambdaArn;
+
+        public string? RotationLambdaArn => _mRotationLambdaArn.GetValue("rotationLambdaArn");
 
         /// <summary>
         /// A structure that defines the rotation configuration for this secret. Defined below.
         /// </summary>
         [Input("rotationRules")]
-        public SecretRotationRotationRules? RotationRules;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.SecretRotationRotationRules> _mRotationRules;
+
+        public Outputs.SecretRotationRotationRules? RotationRules => _mRotationRules.GetValue("rotationRules");
 
         /// <summary>
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
         [Input("secretId")]
-        public string? SecretId;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
+
+        public string? SecretId => _mSecretId.GetValue("secretId");
+    }
+
+    [PolicyResourceType("aws:secretsmanager/secretRotation:SecretRotation")]
+    public sealed class SecretRotationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+        /// </summary>
+        [Input("rotateImmediately")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<bool> _mRotateImmediately;
+
+        public bool? RotateImmediately => _mRotateImmediately.GetValue("rotateImmediately");
+
+        /// <summary>
+        /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+        /// </summary>
+        [Input("rotationLambdaArn")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mRotationLambdaArn;
+
+        public string? RotationLambdaArn => _mRotationLambdaArn.GetValue("rotationLambdaArn");
+
+        /// <summary>
+        /// A structure that defines the rotation configuration for this secret. Defined below.
+        /// </summary>
+        [Input("rotationRules")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.SecretRotationRotationRulesArgs> _mRotationRules;
+
+        public Inputs.SecretRotationRotationRulesArgs? RotationRules => _mRotationRules.GetValue("rotationRules");
+
+        /// <summary>
+        /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        /// </summary>
+        [Input("secretId")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
+
+        public string? SecretId => _mSecretId.GetValue("secretId");
     }
 }

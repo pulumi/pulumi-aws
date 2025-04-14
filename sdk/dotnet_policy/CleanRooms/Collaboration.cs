@@ -11,32 +11,44 @@ using Pulumi;
 namespace Pulumi.PolicyPacks.Aws.CleanRooms
 {
     [PolicyResourceType("aws:cleanrooms/collaboration:Collaboration")]
-    public sealed class Collaboration : global::Pulumi.PolicyResource
+    public sealed class Collaboration : global::Pulumi.PolicyResourceOutput
     {
         /// <summary>
         /// The arn of the collaboration.
         /// </summary>
         [Input("arn")]
-        public string? Arn;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+
+        public string? Arn => _mArn.GetValue("arn");
 
         /// <summary>
         /// The date and time the collaboration was created.
         /// * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         /// </summary>
         [Input("createTime")]
-        public string? CreateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
+
+        public string? CreateTime => _mCreateTime.GetValue("createTime");
 
         /// <summary>
         /// The name for the member record for the collaboration creator.
         /// </summary>
         [Input("creatorDisplayName")]
-        public string? CreatorDisplayName;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatorDisplayName;
+
+        public string? CreatorDisplayName => _mCreatorDisplayName.GetValue("creatorDisplayName");
 
         /// <summary>
         /// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         /// </summary>
         [Input("creatorMemberAbilities")]
-        public List<string>? CreatorMemberAbilities;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCreatorMemberAbilities;
+
+        public List<string>? CreatorMemberAbilities => _mCreatorMemberAbilities.GetValue("creatorMemberAbilities");
 
         /// <summary>
         /// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
@@ -50,13 +62,19 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// or cryptographically processed (false).
         /// </summary>
         [Input("dataEncryptionMetadata")]
-        public CollaborationDataEncryptionMetadata? DataEncryptionMetadata;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Outputs.CollaborationDataEncryptionMetadata> _mDataEncryptionMetadata;
+
+        public Outputs.CollaborationDataEncryptionMetadata? DataEncryptionMetadata => _mDataEncryptionMetadata.GetValue("dataEncryptionMetadata");
 
         /// <summary>
         /// A description for a collaboration.
         /// </summary>
         [Input("description")]
-        public string? Description;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
 
         /// <summary>
         /// Additional members of the collaboration which will be invited to join the collaboration.
@@ -65,31 +83,137 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         /// </summary>
         [Input("members")]
-        public List<CollaborationMember>? Members;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CollaborationMember>> _mMembers;
+
+        public List<Outputs.CollaborationMember>? Members => _mMembers.GetValue("members");
 
         /// <summary>
         /// The name of the collaboration.  Collaboration names do not need to be unique.
         /// </summary>
         [Input("name")]
-        public string? Name;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
 
         /// <summary>
         /// Determines if members of the collaboration can enable query logs within their own.
         /// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
         /// </summary>
         [Input("queryLogStatus")]
-        public string? QueryLogStatus;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryLogStatus;
+
+        public string? QueryLogStatus => _mQueryLogStatus.GetValue("queryLogStatus");
 
         /// <summary>
         /// Key value pairs which tag the collaboration.
         /// </summary>
         [Input("tags")]
-        public Dictionary<string, string>? Tags;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
 
         [Input("tagsAll")]
-        public Dictionary<string, string>? TagsAll;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+
+        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
 
         [Input("updateTime")]
-        public string? UpdateTime;
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
+
+        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+    }
+
+    [PolicyResourceType("aws:cleanrooms/collaboration:Collaboration")]
+    public sealed class CollaborationArgs : global::Pulumi.PolicyResourceInput
+    {
+        /// <summary>
+        /// The name for the member record for the collaboration creator.
+        /// </summary>
+        [Input("creatorDisplayName")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mCreatorDisplayName;
+
+        public string? CreatorDisplayName => _mCreatorDisplayName.GetValue("creatorDisplayName");
+
+        /// <summary>
+        /// The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        /// </summary>
+        [Input("creatorMemberAbilities")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCreatorMemberAbilities;
+
+        public List<string>? CreatorMemberAbilities => _mCreatorMemberAbilities.GetValue("creatorMemberAbilities");
+
+        /// <summary>
+        /// a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
+        /// * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
+        /// field.
+        /// * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
+        /// boolean field.
+        /// * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
+        /// n any other Fingerprint column with a different name. This is a boolean field.
+        /// * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
+        /// or cryptographically processed (false).
+        /// </summary>
+        [Input("dataEncryptionMetadata")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Inputs.CollaborationDataEncryptionMetadataArgs> _mDataEncryptionMetadata;
+
+        public Inputs.CollaborationDataEncryptionMetadataArgs? DataEncryptionMetadata => _mDataEncryptionMetadata.GetValue("dataEncryptionMetadata");
+
+        /// <summary>
+        /// A description for a collaboration.
+        /// </summary>
+        [Input("description")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+
+        public string? Description => _mDescription.GetValue("description");
+
+        /// <summary>
+        /// Additional members of the collaboration which will be invited to join the collaboration.
+        /// * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
+        /// * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
+        /// * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        /// </summary>
+        [Input("members")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CollaborationMemberArgs>> _mMembers;
+
+        public List<Inputs.CollaborationMemberArgs>? Members => _mMembers.GetValue("members");
+
+        /// <summary>
+        /// The name of the collaboration.  Collaboration names do not need to be unique.
+        /// </summary>
+        [Input("name")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+
+        public string? Name => _mName.GetValue("name");
+
+        /// <summary>
+        /// Determines if members of the collaboration can enable query logs within their own.
+        /// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        /// </summary>
+        [Input("queryLogStatus")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<string> _mQueryLogStatus;
+
+        public string? QueryLogStatus => _mQueryLogStatus.GetValue("queryLogStatus");
+
+        /// <summary>
+        /// Key value pairs which tag the collaboration.
+        /// </summary>
+        [Input("tags")]
+        #pragma warning disable CS0649 // Field is assigned through deserializer
+        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+
+        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
     }
 }
