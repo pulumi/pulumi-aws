@@ -58,6 +58,11 @@ func TestTagsCombinationsGo(t *testing.T) {
 			tagsState{ResourceTags: map[string]string{"x": ""}},
 		},
 		{
+			"add an empty default tag",
+			tagsState{},
+			tagsState{DefaultTags: map[string]string{"x": ""}},
+		},
+		{
 			"remove an empty default tag",
 			tagsState{DefaultTags: map[string]string{"x": "", "y": ""}},
 			tagsState{DefaultTags: map[string]string{"x": ""}},
