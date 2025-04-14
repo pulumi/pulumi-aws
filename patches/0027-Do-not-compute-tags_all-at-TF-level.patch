@@ -28,7 +28,7 @@ index 387ec284ef..0be585776b 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			"monitor": schema.SetNestedBlock{
@@ -41,7 +41,7 @@ index d7100e8193..e8139a048a 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			"assessment_reports_destination": schema.ListNestedBlock{
@@ -54,7 +54,7 @@ index a92da515fe..5aca63a43e 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  			"testing_information": schema.StringAttribute{
  				Optional: true,
  			},
@@ -67,7 +67,7 @@ index 0e92b05365..08051ccf5e 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			"control_sets": schema.SetNestedBlock{
@@ -80,7 +80,7 @@ index 1b99732c45..0ee48b941b 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
@@ -93,7 +93,7 @@ index 3d442ce442..d4c8454958 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
@@ -106,7 +106,7 @@ index c18a27c103..caf5b73210 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  			names.AttrVPCID: schema.StringAttribute{
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
@@ -119,7 +119,7 @@ index 6b991afb0a..133991c9aa 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  			"to_port": schema.Int64Attribute{
  				Optional: true,
  				Validators: []validator.Int64{
@@ -132,7 +132,7 @@ index a97ae5a1e3..c8bd13c6d7 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  			"test_bot_alias_tags": schema.MapAttribute{
  				ElementType: types.StringType,
  				Optional:    true,
@@ -145,7 +145,7 @@ index 30ecec3d52..072b191ce2 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  			names.AttrType: schema.StringAttribute{
  				Optional: true,
  				Computed: true,
@@ -158,7 +158,7 @@ index eeaf0e4d0b..9a22b58102 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
@@ -171,7 +171,7 @@ index c71d94f6db..2295d26c20 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
@@ -184,7 +184,7 @@ index 4de81bb813..873c485df3 100644
  			names.AttrID:      framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  			names.AttrType: schema.StringAttribute{
  				CustomType: fwtypes.StringEnumType[awstypes.IndexType](),
  				Required:   true,
@@ -197,7 +197,7 @@ index 3ae60f804c..40934ffb79 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			"filters": schema.ListNestedBlock{
@@ -210,7 +210,7 @@ index f343ca3b29..70db910245 100644
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
++			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
  		},
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
